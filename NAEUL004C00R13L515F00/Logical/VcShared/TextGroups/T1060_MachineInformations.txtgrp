@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1060_MachineInformations">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="6"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="189785" Value="Job No:"/>
+    <Text ID="189786" Value="Software Version:"/>
+    <Text ID="189787" Value="IP Address:"/>
+    <Text ID="189788" Value="Leader Machine"/>
+    <Text ID="189783" Value="Machine Name"/>
+    <Text ID="189782" Value="Machine Info:"/>
+    <Text ID="551040" Value="Follower Machine"/>
+    <Text ID="626648" Value="Nutek Private Limited\n39 Joo Koon Circle\nSingapore 629105\nTel: +65 68620255"/>
+    <Text ID="626649" Value="Nutek Technology (Shanghai) Co. Ltd.\nRoom 1016, Huaihai China Tower\n885, Ren Min Road,\nShanghai 200010,China\nTel: +86 2163553926/27"/>
+    <Text ID="626650" Value="Nutek America Inc\n1831, Lefthand Circle,\nSuite A,Langmont,\nColorado 80501\nTel: +1 3036840400"/>
+    <Text ID="626651" Value="Hawker Richardson Pty Ltd\n75-77, Westgate Drive,\nAltona North, Victoria 3025, Australia\nTel: +61 38696600"/>
+    <Text ID="626652" Value="Nutek Europe B.V.\nBliek 23, 4941 SG Raamsdonksveer\nThe Netherlands\nTel: +31 162578578"/>
+    <Text ID="626653" Value="Nutek Private Limited\nLodge Park, Ladge Lane,\nLangham, Colchester,\nEssex C04 5NE,\nUnited Kingdom\nTel: +44 1206844555"/>
+    <Text ID="626654" Value=""/>
+    <Text ID="626655" Value=""/>
+    <Text ID="626659" Value="HMI Mac Address:"/>
+    <Text ID="626660" Value=""/>
+    <Text ID="626661" Value="PLC Mac Address:"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="189785" Value="Auftrag Num:"/>
+    <Text ID="189786" Value="SW Version:"/>
+    <Text ID="189787" Value="IP-Adresse:"/>
+    <Text ID="189788" Value=" "/>
+    <Text ID="189783" Value="Machinenname"/>
+    <Text ID="189782" Value="Maschineninformationen:"/>
+    <Text ID="551040" Value=""/>
+    <Text ID="626648" Value="Nutek Private Limited\n39 Joo Koon Circle\nSingapore 629105\nTel: +65 68620255"/>
+    <Text ID="626649" Value="Nutek Private Limited\nRoom 1016, Huaihai China Tower\n885, Ren Min Road,\nShanghai 200010,China\nTel: +86 2163553926/27"/>
+    <Text ID="626650" Value="Nutek Private Limited\n1831, Lefthand Circle,\nSuite A,Langmont,\nColorado 80501\nTel: +1 3036840400"/>
+    <Text ID="626651" Value="Nutek Private Limited\n75-77, Westgate Drive,\nAltona North, Victoria 3025, Australia\nTel: +61 38696600"/>
+    <Text ID="626652" Value="Nutek Europe B.V.\n Bliek 23, 4941 SG Raamsdonksveer\n The Netherlands\nTel: +31 162578578"/>
+    <Text ID="626653" Value=""/>
+    <Text ID="626654" Value=""/>
+    <Text ID="626655" Value=""/>
+    <Text ID="626659" Value=""/>
+    <Text ID="626660" Value=""/>
+    <Text ID="626661" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="189785" Value="工作号码:"/>
+    <Text ID="189786" Value="SW 版本:"/>
+    <Text ID="189787" Value="IP 地址:"/>
+    <Text ID="189788" Value=" "/>
+    <Text ID="189783" Value="机器名称"/>
+    <Text ID="189782" Value="机器信息:"/>
+    <Text ID="551040" Value=""/>
+    <Text ID="626648" Value="Nutek Private Limited\n39 Joo Koon Circle\nSingapore 629105\nTel: +65 68620255"/>
+    <Text ID="626649" Value="Nutek Private Limited\nRoom 1016, Huaihai China Tower\n885, Ren Min Road,\nShanghai 200010,China\nTel: +86 2163553926/27"/>
+    <Text ID="626650" Value="Nutek Private Limited\n1831, Lefthand Circle,\nSuite A,Langmont,\nColorado 80501\nTel: +1 3036840400"/>
+    <Text ID="626651" Value="Nutek Private Limited\n75-77, Westgate Drive,\nAltona North, Victoria 3025, Australia\nTel: +61 38696600"/>
+    <Text ID="626652" Value="Nutek Europe B.V.\nBliek 23, 4941 SG Raamsdonksveer\nThe Netherlands\nTel: +31 162578578"/>
+    <Text ID="626653" Value=""/>
+    <Text ID="626654" Value=""/>
+    <Text ID="626655" Value=""/>
+    <Text ID="626659" Value=""/>
+    <Text ID="626660" Value=""/>
+    <Text ID="626661" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="189785" Value=""/>
+    <Text ID="189786" Value=""/>
+    <Text ID="189787" Value=""/>
+    <Text ID="189788" Value=""/>
+    <Text ID="189783" Value=""/>
+    <Text ID="189782" Value=""/>
+    <Text ID="551040" Value=""/>
+    <Text ID="626648" Value=""/>
+    <Text ID="626649" Value=""/>
+    <Text ID="626650" Value=""/>
+    <Text ID="626651" Value=""/>
+    <Text ID="626652" Value=""/>
+    <Text ID="626653" Value=""/>
+    <Text ID="626654" Value=""/>
+    <Text ID="626655" Value=""/>
+    <Text ID="626659" Value=""/>
+    <Text ID="626660" Value=""/>
+    <Text ID="626661" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="189785" Value="2"/>
+    <Index ID="189786" Value="3"/>
+    <Index ID="189787" Value="4"/>
+    <Index ID="189788" Value="5"/>
+    <Index ID="189783" Value="1"/>
+    <Index ID="189782" Value="0"/>
+    <Index ID="551040" Value="6"/>
+    <Index ID="626648" Value="10"/>
+    <Index ID="626649" Value="11"/>
+    <Index ID="626650" Value="12"/>
+    <Index ID="626651" Value="13"/>
+    <Index ID="626652" Value="14"/>
+    <Index ID="626653" Value="15"/>
+    <Index ID="626654" Value="16"/>
+    <Index ID="626655" Value="17"/>
+    <Index ID="626659" Value="8"/>
+    <Index ID="626660" Value="9"/>
+    <Index ID="626661" Value="7"/>
+  </IndexMap>
+</TextGroup>

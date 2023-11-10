@@ -1,0 +1,23 @@
+(*2019-10-30*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_MagConv2Clp2Stat : UDINT;
+	p_MagConv2Clp2Status : UDINT;
+	p_MagConv2Clp2StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_MagConv2Clp2AlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_MagConv2Clp2HvMag : UDINT;
+	p_MagConv2Clp2MtrSigOnOrLToR : UDINT;
+	p_MagConv2Clp2MtrDirOrRToL : UDINT;
+	p_MagConv2Clp2FixClprClampCtrl : UDINT;
+	p_MagConv2Clp2RmtClprClampCtrl : UDINT;
+	p_MagConv2Clp2ClprTwoOutputCtrl : UDINT;
+END_VAR

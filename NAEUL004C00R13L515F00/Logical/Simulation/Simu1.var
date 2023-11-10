@@ -1,0 +1,17 @@
+(*2022-10-17*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+(**)
+(*Output*)
+VAR
+	p_Simu1Paused : UDINT;
+END_VAR
+(**)
+VAR
+	p_Simu1InShutterAct : UDINT;
+	p_Simu1OutShutterAct : UDINT;
+	p_Simu1OutShutterAct2 : UDINT;
+	p_Simu1OutShutterAct3 : UDINT;
+END_VAR

@@ -1,0 +1,63 @@
+(*2022-10-17*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt;
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	bPaused : BOOL;
+	ePshrAct : eMtrPshrAction;
+	eInShutterAct : ePneuAction;
+	eOutShutterAct : ePneuAction;
+	eOutShutterAct2 : ePneuAction;
+	eOutShutterAct3 : ePneuAction;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+END_VAR
+(**)
+(**)
+VAR
+	eInShutt1Stat : ePneuAction;
+	eInShutt1Status : eFBStatus;
+	eOutShutt2Stat : ePneuAction;
+	eOutShutt2Status : eFBStatus;
+	eOutShuttStat : ePneuAction;
+	eOutShuttStatus : eFBStatus;
+	eOutShutt3Stat : ePneuAction;
+	eOutShutt3Status : eFBStatus;
+END_VAR
+(**)
+VAR
+	sProgNm : STRING[15];
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	eSimuStep : eSimuRunStep := SimuStepNA;
+	eSimuGotoStep : eSimuRunStep := SimuStepChkSen;
+	fbShutterExtDlyTm : TON := (PT:=T#200ms);
+	udiModuleNum : UDINT;
+END_VAR

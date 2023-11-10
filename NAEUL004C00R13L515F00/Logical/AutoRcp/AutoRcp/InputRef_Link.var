@@ -1,0 +1,62 @@
+(*2019-05-07*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_eLinkNtParamProjMag : REFERENCE TO eULMag;
+	p_bLinkPshrConvHvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULInitDone : REFERENCE TO BOOL;
+	p_bLinkMagConvInitDone : BOOL;
+	p_bLinkNtParamProjMagConv1Prep : REFERENCE TO BOOL;
+	p_bLinkNtParamProjMagConv2Prep : REFERENCE TO BOOL;
+	p_bLinkNtParamProjMagConv3Prep : REFERENCE TO BOOL;
+	p_bLinkBffr1MagRemoved : REFERENCE TO BOOL;
+	p_bLinkBffr2MagRemoved : REFERENCE TO BOOL;
+	p_bLinkBffr3MagRemoved : REFERENCE TO BOOL;
+	p_bLinkOpsMagUL1InitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMagUL2InitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMagUL3InitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMagConvUL1InitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMagConvUL2InitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMagConvUL3InitDone : REFERENCE TO BOOL;
+	p_tyBuffer1BffrStat : REFERENCE TO tyBffrStat;
+	p_tyBuffer2BffrStat : REFERENCE TO tyBffrStat;
+	p_tyBuffer3BffrStat : REFERENCE TO tyBffrStat;
+	p_bMagAW1WidthDiff : REFERENCE TO BOOL;
+	p_bMagAW2WidthDiff : REFERENCE TO BOOL;
+	p_bMagAW3WidthDiff : REFERENCE TO BOOL;
+	p_udiOpsMagConvUL1MagAllwGo : REFERENCE TO UDINT;
+	p_udiOpsMagConvUL2MagAllwGo : REFERENCE TO UDINT;
+	p_udiOpsMagConvUL3MagAllwGo : REFERENCE TO UDINT;
+	p_bZ1AccNewRcpCondition : REFERENCE TO BOOL;
+	p_bZ2AccNewRcpCondition : REFERENCE TO BOOL;
+	p_diRequestedMinSlt : REFERENCE TO DINT;
+	p_diRequestedGapToMaxSlt : REFERENCE TO DINT;
+	p_bHermesBADataAccepted : REFERENCE TO BOOL;
+	p_bHermesBFDataAccepted : REFERENCE TO BOOL;
+	p_bHermesBBAAccepted : REFERENCE TO BOOL;
+	p_bHermesABAAccepted : REFERENCE TO BOOL;
+	p_bHermesBBFAccepted : REFERENCE TO BOOL;
+	p_bHermesABFAccepted : REFERENCE TO BOOL;
+	p_tyHermesBARcv : REFERENCE TO tyHermesBoardAvailable;
+	p_tyHermesBFRcv : REFERENCE TO tyHermesBoardForecast;
+	p_diMagRcpCurrRcpSltToSlt : REFERENCE TO DINT;
+	p_diMagRcpCurrRcpTtlSlt : REFERENCE TO DINT;
+	p_bBuffer1MagPresent : REFERENCE TO BOOL;
+	p_bBuffer2MagPresent : REFERENCE TO BOOL;
+	p_bBuffer3MagPresent : REFERENCE TO BOOL;
+	p_bBuffer1MagRemoved : REFERENCE TO BOOL;
+	p_bBuffer2MagRemoved : REFERENCE TO BOOL;
+	p_bBuffer3MagRemoved : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	bOpsInitDone : BOOL;
+	p_eLinkUIProdRcpAct : REFERENCE TO eProdRcpAction;
+	p_eProdRcpStat : REFERENCE TO eProdRcpAction;
+	p_eProdRcpStatus : REFERENCE TO eFBStatus;
+	p_tyProdRcpCurrRcpWr : REFERENCE TO tyProdRcpParam;
+END_VAR

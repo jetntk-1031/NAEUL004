@@ -1,0 +1,8 @@
+(*2019-06-28*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bLinkUIClearMsg : REFERENCE TO BOOL;
+	p_bLinkConnectEn : REFERENCE TO BOOL;
+	p_eLinkAGVComProtocol : REFERENCE TO eMcAGVCommProtocol;
+END_VAR

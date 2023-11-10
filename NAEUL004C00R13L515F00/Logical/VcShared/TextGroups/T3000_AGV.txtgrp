@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T3000_AGV">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="30"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="667672" Value="AGV Online"/>
+    <Text ID="667673" Value="Machine Online"/>
+    <Text ID="667674" Value="AGV In Pos 1"/>
+    <Text ID="667675" Value="AGV In Pos 2"/>
+    <Text ID="667676" Value="AGV In Pos 3"/>
+    <Text ID="667677" Value="AGV Auto"/>
+    <Text ID="667678" Value="AGV1 Occupied"/>
+    <Text ID="667679" Value="AGV Running"/>
+    <Text ID="667680" Value="Machine Estop"/>
+    <Text ID="667681" Value="Magazine 1 Full"/>
+    <Text ID="667682" Value="Magazine 2 Full"/>
+    <Text ID="667683" Value="Magazine 3 Full"/>
+    <Text ID="667684" Value="Magazine 1 Ready"/>
+    <Text ID="667685" Value="Magazine 2 Ready"/>
+    <Text ID="667686" Value="Magazine 3 Ready"/>
+    <Text ID="667687" Value="Magazine 1 Auto"/>
+    <Text ID="667688" Value="Magazine 2 Auto"/>
+    <Text ID="667689" Value="Magazine 3 Auto"/>
+    <Text ID="667690" Value="Magazine 1 Occupied"/>
+    <Text ID="667691" Value="Magazine 2 Occupied"/>
+    <Text ID="667692" Value="Magazine 3 Occupied"/>
+    <Text ID="667693" Value="Magazine 1 Conv Run"/>
+    <Text ID="667694" Value="Magazine 2 Conv Run"/>
+    <Text ID="667695" Value="Magazine 3 Conv Run"/>
+    <Text ID="667696" Value="Magazine 1 Incorrect Model"/>
+    <Text ID="667697" Value="Magazine 2 Incorrect Model"/>
+    <Text ID="667698" Value="Magazine 3 Incorrect Model"/>
+    <Text ID="667699" Value="AGV Simulate On"/>
+    <Text ID="667700" Value="AGV2 Occupied"/>
+    <Text ID="667701" Value="AGV3 Occupied"/>
+    <Text ID="674505" Value="Magazine 1 Available"/>
+    <Text ID="674506" Value="Magazine 2 Available"/>
+    <Text ID="674507" Value="Magazine 3 Available"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="667672" Value=""/>
+    <Text ID="667673" Value=""/>
+    <Text ID="667674" Value=""/>
+    <Text ID="667675" Value=""/>
+    <Text ID="667676" Value=""/>
+    <Text ID="667677" Value=""/>
+    <Text ID="667678" Value=""/>
+    <Text ID="667679" Value=""/>
+    <Text ID="667680" Value=""/>
+    <Text ID="667681" Value=""/>
+    <Text ID="667682" Value=""/>
+    <Text ID="667683" Value=""/>
+    <Text ID="667684" Value=""/>
+    <Text ID="667685" Value=""/>
+    <Text ID="667686" Value=""/>
+    <Text ID="667687" Value=""/>
+    <Text ID="667688" Value=""/>
+    <Text ID="667689" Value=""/>
+    <Text ID="667690" Value=""/>
+    <Text ID="667691" Value=""/>
+    <Text ID="667692" Value=""/>
+    <Text ID="667693" Value=""/>
+    <Text ID="667694" Value=""/>
+    <Text ID="667695" Value=""/>
+    <Text ID="667696" Value=""/>
+    <Text ID="667697" Value=""/>
+    <Text ID="667698" Value=""/>
+    <Text ID="667699" Value=""/>
+    <Text ID="667700" Value=""/>
+    <Text ID="667701" Value=""/>
+    <Text ID="674505" Value=""/>
+    <Text ID="674506" Value=""/>
+    <Text ID="674507" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="667672" Value=""/>
+    <Text ID="667673" Value=""/>
+    <Text ID="667674" Value=""/>
+    <Text ID="667675" Value=""/>
+    <Text ID="667676" Value=""/>
+    <Text ID="667677" Value=""/>
+    <Text ID="667678" Value=""/>
+    <Text ID="667679" Value=""/>
+    <Text ID="667680" Value=""/>
+    <Text ID="667681" Value=""/>
+    <Text ID="667682" Value=""/>
+    <Text ID="667683" Value=""/>
+    <Text ID="667684" Value=""/>
+    <Text ID="667685" Value=""/>
+    <Text ID="667686" Value=""/>
+    <Text ID="667687" Value=""/>
+    <Text ID="667688" Value=""/>
+    <Text ID="667689" Value=""/>
+    <Text ID="667690" Value=""/>
+    <Text ID="667691" Value=""/>
+    <Text ID="667692" Value=""/>
+    <Text ID="667693" Value=""/>
+    <Text ID="667694" Value=""/>
+    <Text ID="667695" Value=""/>
+    <Text ID="667696" Value=""/>
+    <Text ID="667697" Value=""/>
+    <Text ID="667698" Value=""/>
+    <Text ID="667699" Value=""/>
+    <Text ID="667700" Value=""/>
+    <Text ID="667701" Value=""/>
+    <Text ID="674505" Value=""/>
+    <Text ID="674506" Value=""/>
+    <Text ID="674507" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="667672" Value=""/>
+    <Text ID="667673" Value=""/>
+    <Text ID="667674" Value=""/>
+    <Text ID="667675" Value=""/>
+    <Text ID="667676" Value=""/>
+    <Text ID="667677" Value=""/>
+    <Text ID="667678" Value=""/>
+    <Text ID="667679" Value=""/>
+    <Text ID="667680" Value=""/>
+    <Text ID="667681" Value=""/>
+    <Text ID="667682" Value=""/>
+    <Text ID="667683" Value=""/>
+    <Text ID="667684" Value=""/>
+    <Text ID="667685" Value=""/>
+    <Text ID="667686" Value=""/>
+    <Text ID="667687" Value=""/>
+    <Text ID="667688" Value=""/>
+    <Text ID="667689" Value=""/>
+    <Text ID="667690" Value=""/>
+    <Text ID="667691" Value=""/>
+    <Text ID="667692" Value=""/>
+    <Text ID="667693" Value=""/>
+    <Text ID="667694" Value=""/>
+    <Text ID="667695" Value=""/>
+    <Text ID="667696" Value=""/>
+    <Text ID="667697" Value=""/>
+    <Text ID="667698" Value=""/>
+    <Text ID="667699" Value=""/>
+    <Text ID="667700" Value=""/>
+    <Text ID="667701" Value=""/>
+    <Text ID="674505" Value=""/>
+    <Text ID="674506" Value=""/>
+    <Text ID="674507" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="667672" Value="0"/>
+    <Index ID="667673" Value="1"/>
+    <Index ID="667674" Value="2"/>
+    <Index ID="667675" Value="3"/>
+    <Index ID="667676" Value="4"/>
+    <Index ID="667677" Value="5"/>
+    <Index ID="667678" Value="6"/>
+    <Index ID="667679" Value="9"/>
+    <Index ID="667680" Value="10"/>
+    <Index ID="667681" Value="11"/>
+    <Index ID="667682" Value="12"/>
+    <Index ID="667683" Value="13"/>
+    <Index ID="667684" Value="14"/>
+    <Index ID="667685" Value="15"/>
+    <Index ID="667686" Value="16"/>
+    <Index ID="667687" Value="17"/>
+    <Index ID="667688" Value="18"/>
+    <Index ID="667689" Value="19"/>
+    <Index ID="667690" Value="20"/>
+    <Index ID="667691" Value="21"/>
+    <Index ID="667692" Value="22"/>
+    <Index ID="667693" Value="23"/>
+    <Index ID="667694" Value="24"/>
+    <Index ID="667695" Value="25"/>
+    <Index ID="667696" Value="26"/>
+    <Index ID="667697" Value="27"/>
+    <Index ID="667698" Value="28"/>
+    <Index ID="667699" Value="29"/>
+    <Index ID="667700" Value="7"/>
+    <Index ID="667701" Value="8"/>
+    <Index ID="674505" Value="30"/>
+    <Index ID="674506" Value="31"/>
+    <Index ID="674507" Value="32"/>
+  </IndexMap>
+</TextGroup>

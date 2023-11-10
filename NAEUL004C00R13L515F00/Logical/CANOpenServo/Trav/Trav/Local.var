@@ -1,0 +1,126 @@
+(*2020-03-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eTravAction := TravActIdle;
+	eStat : eTravAction := TravActIdle;
+	eMainStatus : eFBStatus := Idle;
+	eStatus : eFBStatus := Idle;
+	eStatus1 : eFBStatus := Idle;
+	eStatus2 : eFBStatus := Idle;
+	eStatus3 : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+	udiStatus2 : UDINT := 0;
+	udiStatus3 : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Going A Position','Going B Position','Going C Position','Going D Position','Going E Position','Going F Position','Going G Position','Going H Position','Full Homing','Powering On','Powering Off','Homing','Moving Absolute','Moving Relative','Jogging Front','Jogging Rear','Jogging Stop','Resetting Axis Error','Stopping','Writing SDO','Background Start Module OK Check','Background Stop Module OK Check',28('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	tyAlmData2 : tyAlmDat;
+	tyAlmData3 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10299] OF tyAlmTxt := [(sAlmText:='Axis Move Abnormally By External Force',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='CANOpen Communication Error, ModuleOK Not TRUE',sRcyText:='Fail While Read/Write Data. Reset The Error And Resume Operation.'),(sAlmText:='Power On Time Out While Going A Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going A Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going A Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going A Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going A Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going A Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going A Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going A Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going A Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going A Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going A Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going A Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Full Homing',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Full Homing',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Full Homing',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Full Homing',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Full Homing',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Full Homing',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Full Homing',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Full Homing',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Power Off Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Relative Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='SDO Write Error',sRcyText:='Fail While Write Data. Reset The Error And Resume Operation.'),(sAlmText:='Power On Time Out While Going B Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going B Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going B Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going B Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going B Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going B Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going B Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going B Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going B Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going B Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going B Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going B Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going C Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going C Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going C Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going C Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going C Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going C Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going C Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going C Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going C Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going C Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going C Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going C Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going D Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going D Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going D Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going D Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going D Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going D Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going D Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going D Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going D Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going D Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going D Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going D Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going E Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going E Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going E Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going E Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going E Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going E Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going E Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going E Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going E Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going E Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going E Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going E Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going F Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going F Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going F Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going F Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going F Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going F Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going F Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going F Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going F Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going F Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going F Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going F Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going G Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going G Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going G Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going G Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going G Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going G Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going G Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going G Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going G Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going G Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going G Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going G Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Power On Time Out While Going H Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Homing Time Out While Going H Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Move Absolute Time Out While Going H Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Stop Motion Time Out While Going H Position',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='Axis Error Reset Failed While Going H Position',sRcyText:='Axis Error Reset Failed. Please Retry Again Reset Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Move Absolute While Going H Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Axis Error Occur In Homing While Going H Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Homing Done But Home Flag Is Not Activated While Going H Position',sRcyText:='Servo Motor Abnormal Operation. Reset And Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),(sAlmText:='Forward Limit Activated In Homing While Going H Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Homing While Going H Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Forward Limit Activated In Move Absolute While Going H Position',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated In Move Absolute While Going H Position',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Request Absolute Position Out Of Range',sRcyText:='Request Absolute Position Does Not Fall Within The Expected Range.'),(sAlmText:='Sensor Interrupt Traverser Movement',sRcyText:='Operation Stop Due To The Interruption Of Sensor While Traverser Moving. Solve The Interruption To Resume Operation.'),183((0)),(sAlmText:='Forward Limit Activated',sRcyText:='Forward Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.'),(sAlmText:='Reverse Limit Activated',sRcyText:='Reverse Limit Switch Is Activated. Reset The Error By Operate The Motor Backwards.')];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	tyParamOut : tyMotionCANParamOut;
+	sAxisErrTxt : STRING[80];
+	bAPosDiff : BOOL;
+	bBPosDiff : BOOL;
+	bCPosDiff : BOOL;
+	bDPosDiff : BOOL;
+	bEPosDiff : BOOL;
+	bFPosDiff : BOOL;
+	bGPosDiff : BOOL;
+	bHPosDiff : BOOL;
+	bJogging : BOOL;
+	bFrontSen : BOOL;
+	bRearSen : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bOps : BOOL := FALSE;
+	bManual : BOOL := FALSE;
+	diAPos : DINT;
+	diBPos : DINT;
+	diCPos : DINT;
+	diDPos : DINT;
+	diEPos : DINT;
+	diFPos : DINT;
+	diGPos : DINT;
+	diHPos : DINT;
+	tyTuning : tyMotionCANTuning;
+	diJogVelInUMPS : DINT := 50000;
+	diMovePosInUM : DINT := 0;
+	diMoveDistInUM : DINT := 0;
+	diMoveVelInUMPS : DINT := 50000;
+	diMoveAcc : DINT := 500;
+	diMoveDec : DINT := 500;
+	diMinAbsPosInUM : DINT := -27000;
+	diMaxAbsPosInUM : DINT := 11500000;
+	bInterruptSensor1 : BOOL;
+	bInterruptSensor2 : BOOL;
+	bInterruptSensor3 : BOOL;
+	bInterruptSensor4 : BOOL;
+	bInterruptSensor5 : BOOL;
+	bDir : BOOL;
+	bNoIndexPulse : BOOL;
+	usiNode : USINT;
+	sDevice : STRING[3];
+	sProgNm : STRING[15] := 'Trav';
+	tyParamInHm : tyMotionCANParamInHm;
+	tyParamInConvert : tyMotionCANParamInConvert;
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	bModuleOKChk : BOOL := FALSE;
+	bModuleOK : BOOL;
+	bModuleNotOK : BOOL := TRUE;
+	bModuleNotOKLock : BOOL;
+	bNotInterruptible : BOOL;
+	diActualPosInUMOld : DINT;
+	usiRstStep : USINT := 0;
+	usiStep : USINT;
+	usiCount : USINT;
+	fbTm : TON := (PT:=T#2s);
+	fbServoModuleNotOk : TON := (IN:=FALSE,PT:=T#2s);
+	fbServoModuleOk : TON := (IN:=FALSE,PT:=T#5s);
+	fbRstNodeTimer : TON := (PT:=T#3s);
+	tyParamInMove : tyMotionCANParamInMove;
+	tyParamInDriver : tyMotionCANDriverIn := (siModOfOptDisp_6061:=6);
+	tyParamOutDriver : tyMotionCANDriverOut;
+	fbStop : fbMotionCANStop;
+	fbRstAxisErr : fbMotionCANRstAxisErr;
+	fbJog : fbMotionCANJog;
+	fbMovRel : fbMotionCANMovRel;
+	fbMovAbs : fbMotionCANMovAbs;
+	fbHoming : fbMotionCANHoming;
+	fbPwrOff : fbMotionCANPwrOff;
+	fbPwrOn : fbMotionCANPwrOn;
+	fbFullHm : fbMotionCANFullHm;
+	fbFullMovAbs : fbMotionCANFullMovAbs;
+	fbModuleOK : fbMotionCANModuleOK;
+	fbSDOWrite : fbCANSDOWriteArrayParam;
+	bProjInletShutPrep : BOOL;
+	bInShutterDis : BOOL;
+	bProjOutletShutPrep : BOOL;
+	bOutletShutterCloseRS : BOOL := FALSE;
+	bInletShutterCloseRS : BOOL := FALSE;
+	udiModuleNum : UINT := 901;
+END_VAR

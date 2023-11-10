@@ -1,0 +1,85 @@
+(*2019-03-22*)
+(**)
+(*General*)
+VAR
+	p_udiMax : REFERENCE TO UDINT;
+	p_udiRstErr : REFERENCE TO UDINT;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_tyDISettings : REFERENCE TO tyDigitalInputSettings;
+	p_sProgNm : REFERENCE TO STRING[15];
+END_VAR
+(**)
+VAR
+	p_diConvLftSenOnTm : REFERENCE TO DINT;
+	p_diConvLftSenOffTm : REFERENCE TO DINT;
+	p_diConvMidSenOnTm : REFERENCE TO DINT;
+	p_diConvMidSenOffTm : REFERENCE TO DINT;
+	p_diConvRgtSenOnTm : REFERENCE TO DINT;
+	p_diConvRgtSenOffTm : REFERENCE TO DINT;
+	p_diConvClrSenOnTm : REFERENCE TO DINT;
+	p_diConvClrSenOffTm : REFERENCE TO DINT;
+	p_diMagConvEntSenOnTm : REFERENCE TO DINT;
+	p_diMagConvEntSenOffTm : REFERENCE TO DINT;
+	p_diMagConvPresentSenOnTm : REFERENCE TO DINT;
+	p_diMagConvPresentSenOffTm : REFERENCE TO DINT;
+	p_diConvLineAInletSenOnTm : REFERENCE TO DINT;
+	p_diConvLineAInletSenOffTm : REFERENCE TO DINT;
+	p_diConvLineBInletSenOnTm : REFERENCE TO DINT;
+	p_diConvLineBInletSenOffTm : REFERENCE TO DINT;
+	p_diConvUSWidthChkSenOnTm : REFERENCE TO DINT;
+	p_diConvUSWidthChkSenOffTm : REFERENCE TO DINT;
+	p_tyNtParamCurr : REFERENCE TO tyNtParam;
+	p_bMcParamUSWidthChkEn : REFERENCE TO BOOL;
+END_VAR
+(*Self Test Var*)
+VAR
+	p_bSelfTest : REFERENCE TO BOOL;
+	p_bPshrConvHvBrd : REFERENCE TO BOOL;
+	p_tyBufferStat1 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat2 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat3 : REFERENCE TO tyBffrStat;
+	p_tySOTSimulate1 : REFERENCE TO tySOTSigmulateSig;
+	p_tySOTSimulate2 : REFERENCE TO tySOTSigmulateSig;
+	p_tySOTSimulate3 : REFERENCE TO tySOTSigmulateSig;
+	p_bUIAGVSimulationOn : REFERENCE TO BOOL;
+	p_tyTagFromMes : REFERENCE TO tyStatFromMES;
+	p_tyDO : REFERENCE TO tyDigitalOutput;
+	p_eULMag : REFERENCE TO eULMag;
+	p_bRstErrSafetyRlyRst : REFERENCE TO BOOL;
+	p_bRstCurtainSen : REFERENCE TO BOOL;
+END_VAR
+(*MagConv On/Off Tm*)
+VAR
+	p_diInMagConvEntSenOnTm : REFERENCE TO DINT;
+	p_diInMagConvEntSenOffTm : REFERENCE TO DINT;
+	p_diInMagConvExtSenOnTm : REFERENCE TO DINT;
+	p_diInMagConvExtSenOffTm : REFERENCE TO DINT;
+	p_diInMagConvMidSenOnTm : REFERENCE TO DINT;
+	p_diInMagConvMidSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConvEntSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConvEntSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConvExtSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConvExtSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConvMidSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConvMidSenOffTm : REFERENCE TO DINT;
+	p_diInMagConv2EntSenOnTm : REFERENCE TO DINT;
+	p_diInMagConv2EntSenOffTm : REFERENCE TO DINT;
+	p_diInMagConv2ExtSenOnTm : REFERENCE TO DINT;
+	p_diInMagConv2ExtSenOffTm : REFERENCE TO DINT;
+	p_diInMagConv2MidSenOnTm : REFERENCE TO DINT;
+	p_diInMagConv2MidSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConv2EntSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConv2EntSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConv2ExtSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConv2ExtSenOffTm : REFERENCE TO DINT;
+	p_diOutMagConv2MidSenOnTm : REFERENCE TO DINT;
+	p_diOutMagConv2MidSenOffTm : REFERENCE TO DINT;
+	p_bOpsRun : REFERENCE TO BOOL;
+	p_bManual : REFERENCE TO BOOL;
+	p_bCurtainSenPrep : REFERENCE TO BOOL;
+	p_bBypassLifMagInletShute : REFERENCE TO BOOL;
+	p_eMidSenNcNoType : REFERENCE TO eMidSenParam;
+END_VAR

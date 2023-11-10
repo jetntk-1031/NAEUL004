@@ -1,0 +1,68 @@
+(*2022-10-17*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt;
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	bPaused : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+END_VAR
+(**)
+VAR
+	diSltCap : DINT := 1;
+	diBffrTtlSlt : DINT;
+	tyDispCycTmBffr : tyDispBffrCycTm;
+	sCurrSlotTransition : STRING[80];
+	diCnt : DINT;
+	diSlotCount : DINT;
+	diDispIdx : DINT;
+	dicntr1 : DINT;
+	a_tyDispCycTmBffr : ARRAY[0..2] OF tyDispBffrCycTm;
+	tyBuffer : tyBffr;
+	dtCycleTim : TIME;
+	dtDumyTim : TIME := T#0ms;
+	dwGdColor : DWORD;
+	dwNAColor : DWORD;
+	tAccumulateTimer : TIME;
+	tPrevTim : TIME;
+	sSltnumber : STRING[80];
+	TtestPrevTim : DATE_AND_TIME;
+	tTesttime : TIME;
+	teststep : USINT;
+	testpos : USINT;
+END_VAR
+(**)
+(**)
+VAR
+	sProgNm : STRING[15];
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	udiModuleNum : UDINT;
+END_VAR

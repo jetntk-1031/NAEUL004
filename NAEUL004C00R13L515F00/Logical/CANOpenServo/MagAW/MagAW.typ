@@ -1,0 +1,29 @@
+(*2020-03-16*)
+(**)
+(*Action*)
+
+TYPE
+	eMagAWAction : 
+		(
+		MagAWActIdle,
+		MagAWActGoWidth,
+		MagAWActFullHm,
+		MagAWActPwrOn,
+		MagAWActPwrOff,
+		MagAWActHoming,
+		MagAWActMovAbs,
+		MagAWActMovRel,
+		MagAWActJogOpen,
+		MagAWActJogClose,
+		MagAWActJogStop,
+		MagAWActRstAxisErr,
+		MagAWActStop,
+		MagAWActSDOWrite,
+		MagAWActBGStartModOKChk,
+		MagAWActBGStopModOKChk,
+		MagAWActGoWidthOff,
+		MagAWActEngage,
+		MagAWActEngageStop,
+		MagAWActRstNode
+		);
+END_TYPE

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0933Disp.st</Object>
+    <Object Type="File">Act_OptP0933Navi.st</Object>
+    <Object Type="File">Act_OptP0933FullMask.st</Object>
+    <Object Type="File">Act_OptP0933Keypad.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvChgLyr.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvSen.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvFB.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvFBStat.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvDC.st</Object>
+    <Object Type="File">Act_OptP0933PusherConvRstMnl.st</Object>
+  </Objects>
+</Package>

@@ -1,0 +1,13 @@
+(*2019-04-24*)
+(**)
+VAR
+	rWidthInMM : REAL;
+	rWidthInMM2 : REAL;
+	sWidthInMM : STRING[30];
+	sWidthInMM2 : STRING[30];
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bLinkNtParamLCSManageRcpPrep : REFERENCE TO BOOL;
+	p_bLinkMcParamLCSManageRcpEn : REFERENCE TO BOOL;
+	p_eLinkLCSMngRcpProdRcpAct : REFERENCE TO eProdRcpAction;
+	p_eLinkUIProdRcpAct : REFERENCE TO eProdRcpAction;
+END_VAR

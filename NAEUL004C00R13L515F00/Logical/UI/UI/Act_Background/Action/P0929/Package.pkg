@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0929Disp.st</Object>
+    <Object Type="File">Act_OptP0929FullMask.st</Object>
+    <Object Type="File">Act_OptP0929Navi.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2ChgLyr.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2Sen.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2TopFB.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2FBStat.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2BtmFB.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2TopDC.st</Object>
+    <Object Type="File">Act_OptP0929MagConv2BtmDC.st</Object>
+    <Object Type="File">Act_OptP0929RstMnlTop.st</Object>
+    <Object Type="File">Act_OptP0929RstMnlBtm.st</Object>
+  </Objects>
+</Package>

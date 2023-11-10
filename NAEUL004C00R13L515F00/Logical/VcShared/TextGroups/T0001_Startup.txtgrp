@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T0001_Startup">
+  <Property Name="Description" Value="Alarm Event and Page"/>
+  <Property Name="Index" Value="25"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="308164" Value="Build Alarm Text"/>
+    <Text ID="308268" Value=""/>
+    <Text ID="308269" Value=""/>
+    <Text ID="377316" Value="Function Block Initialization"/>
+    <Text ID="377317" Value="Creating User Directory"/>
+    <Text ID="377318" Value="Reading Retain File"/>
+    <Text ID="377319" Value="Checking Library Version"/>
+    <Text ID="377320" Value="Reading Nutek Parameters"/>
+    <Text ID="377321" Value="Saving Nutek Parameters"/>
+    <Text ID="377322" Value="Reading Machine Parameters"/>
+    <Text ID="377323" Value="Saving Machine Parameters"/>
+    <Text ID="377324" Value="Listing Product Recipes"/>
+    <Text ID="377325" Value="Listing Magazine Recipes"/>
+    <Text ID="377326" Value="Listing User List"/>
+    <Text ID="377327" Value="Updating Buffer List"/>
+    <Text ID="377328" Value="Delete Old Log File"/>
+    <Text ID="377329" Value="Updating IP Address"/>
+    <Text ID="377330" Value="Reading Mac Address"/>
+    <Text ID="377331" Value="Setting up Pages"/>
+    <Text ID="377332" Value="Configuring Servo Motors"/>
+    <Text ID="377333" Value="Setting up Languages"/>
+    <Text ID="377334" Value="Changing Pages"/>
+    <Text ID="377335" Value="Done"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="308164" Value="Alarm Text Erstellen"/>
+    <Text ID="308268" Value=""/>
+    <Text ID="308269" Value=""/>
+    <Text ID="377316" Value="Funktionen"/>
+    <Text ID="377317" Value="Benutzer Verzeichnis Erstellen"/>
+    <Text ID="377318" Value="Retentionsdatei lesen"/>
+    <Text ID="377319" Value="Überprüfen der Bibliotheksversion"/>
+    <Text ID="377320" Value="Nutek-Parameter Lesen"/>
+    <Text ID="377321" Value="Nutek-Parameter Speichern"/>
+    <Text ID="377322" Value="Parameter für das Lesen von Maschinen"/>
+    <Text ID="377323" Value="Maschinenparameter Speichern"/>
+    <Text ID="377324" Value="Produkt Rezepte Auflisten"/>
+    <Text ID="377325" Value="Magazin Rezepte Auflisten"/>
+    <Text ID="377326" Value="Benutzer Liste Auflisten"/>
+    <Text ID="377327" Value="Pufferliste aktualisieren"/>
+    <Text ID="377328" Value="Alte Protokolldatei löschen"/>
+    <Text ID="377329" Value="IP-Addresse"/>
+    <Text ID="377330" Value="Mac Address Aktualisieren"/>
+    <Text ID="377331" Value="Seiten Einrichten"/>
+    <Text ID="377332" Value="Konfigurieren Servomotoren"/>
+    <Text ID="377333" Value="Sprachen Einrichten"/>
+    <Text ID="377334" Value="Seiten Ändern"/>
+    <Text ID="377335" Value="Fertig"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="308164" Value="构建警报文本"/>
+    <Text ID="308268" Value=""/>
+    <Text ID="308269" Value=""/>
+    <Text ID="377316" Value="功能块初始化"/>
+    <Text ID="377317" Value="创建用户目录"/>
+    <Text ID="377318" Value="读取保留文件"/>
+    <Text ID="377319" Value="检查软体库版本"/>
+    <Text ID="377320" Value="读取 Nutek 参数"/>
+    <Text ID="377321" Value="保存 Nutek 参数"/>
+    <Text ID="377322" Value="读取机器参数"/>
+    <Text ID="377323" Value="保存机器参数"/>
+    <Text ID="377324" Value="列出产品配方"/>
+    <Text ID="377325" Value="列出料架配方"/>
+    <Text ID="377326" Value="列出用户列表"/>
+    <Text ID="377327" Value="更新缓冲列表"/>
+    <Text ID="377328" Value="删除旧的日志文件"/>
+    <Text ID="377329" Value="更新 IP 地址"/>
+    <Text ID="377330" Value="读取 Mac 地址"/>
+    <Text ID="377331" Value="设置页面"/>
+    <Text ID="377332" Value="伺服马达配置"/>
+    <Text ID="377333" Value="设置语言"/>
+    <Text ID="377334" Value="更改页面"/>
+    <Text ID="377335" Value="完成"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="308164" Value=""/>
+    <Text ID="308268" Value=""/>
+    <Text ID="308269" Value=""/>
+    <Text ID="377316" Value=""/>
+    <Text ID="377317" Value=""/>
+    <Text ID="377318" Value=""/>
+    <Text ID="377319" Value=""/>
+    <Text ID="377320" Value=""/>
+    <Text ID="377321" Value=""/>
+    <Text ID="377322" Value=""/>
+    <Text ID="377323" Value=""/>
+    <Text ID="377324" Value=""/>
+    <Text ID="377325" Value=""/>
+    <Text ID="377326" Value=""/>
+    <Text ID="377327" Value=""/>
+    <Text ID="377328" Value=""/>
+    <Text ID="377329" Value=""/>
+    <Text ID="377330" Value=""/>
+    <Text ID="377331" Value=""/>
+    <Text ID="377332" Value=""/>
+    <Text ID="377333" Value=""/>
+    <Text ID="377334" Value=""/>
+    <Text ID="377335" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="308164" Value="0"/>
+    <Index ID="308268" Value="21"/>
+    <Index ID="308269" Value="22"/>
+    <Index ID="377316" Value="1"/>
+    <Index ID="377317" Value="2"/>
+    <Index ID="377318" Value="3"/>
+    <Index ID="377319" Value="4"/>
+    <Index ID="377320" Value="5"/>
+    <Index ID="377321" Value="6"/>
+    <Index ID="377322" Value="7"/>
+    <Index ID="377323" Value="8"/>
+    <Index ID="377324" Value="9"/>
+    <Index ID="377325" Value="10"/>
+    <Index ID="377326" Value="11"/>
+    <Index ID="377327" Value="12"/>
+    <Index ID="377328" Value="13"/>
+    <Index ID="377329" Value="14"/>
+    <Index ID="377330" Value="15"/>
+    <Index ID="377331" Value="16"/>
+    <Index ID="377332" Value="17"/>
+    <Index ID="377333" Value="18"/>
+    <Index ID="377334" Value="19"/>
+    <Index ID="377335" Value="20"/>
+  </IndexMap>
+</TextGroup>

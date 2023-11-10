@@ -1,0 +1,50 @@
+(*2021-08-01*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eLinkMcParamUSACommMod : REFERENCE TO eMcSetCommMod;
+	p_eLinkMcParamUSBCommMod : REFERENCE TO eMcSetCommMod;
+	pa_tyLinkXMLTableDataBrdAvl1 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;
+	p_iLinkXMLTableDataBrdAvlTtlIdx1 : REFERENCE TO INT;
+	pa_tyLinkXMLTableDataBrdAvl2 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;
+	p_iLinkXMLTableDataBrdAvlTtlIdx2 : REFERENCE TO INT;
+	pa_tyLinkXMLTableDataBrdAvl3 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;
+	p_iLinkXMLTableDataBrdAvlTtlIdx3 : REFERENCE TO INT;
+	pa_tyLinkXMLTableDataBrdAvl4 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;
+	p_iLinkXMLTableDataBrdAvlTtlIdx4 : REFERENCE TO INT;
+END_VAR
+(**)
+VAR
+	tyHermesBrdAvlData : tyHermesBrdAvlDat;
+	a_tyHermesBrdAvlData : ARRAY[1..200] OF tyHermesBrdAvlDat; (*Cater Up to 6 Zones*)
+END_VAR
+(**)
+(*Zone 1*)
+VAR
+	p_eLinkTravLifULPosGo : REFERENCE TO eTravLifULPos;
+	p_bLinkOpsTravLifULInitDone : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULEntBrd : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULExitBrd : REFERENCE TO BOOL;
+	p_bLinkConvHvBrd : REFERENCE TO BOOL;
+	p_bLinkDIRightSen : REFERENCE TO BOOL;
+	p_bLinkDIClrSen : REFERENCE TO BOOL;
+	p_bLinkOpsInitGConv1MidHvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsInitGConv1EndHvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsGConv1StepEntBrd : REFERENCE TO BOOL;
+	p_bLinkUSHermesTransporting : REFERENCE TO BOOL;
+	p_bLinkUSSMEMATransporting : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Zone 2*)
+VAR
+	p_bLinkOpsInitGConv2StepInitDone : REFERENCE TO BOOL;
+	p_bLinkOpsInitGConv2MidHvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsInitGConv2EndHvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsGConv2HvBrd : REFERENCE TO BOOL;
+	p_bLinkOpsGConv2StepEntBrd : REFERENCE TO BOOL;
+	p_bLinkUSSMEMA2Transporting : REFERENCE TO BOOL;
+END_VAR
+(**)

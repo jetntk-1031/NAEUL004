@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0203Disp.st</Object>
+    <Object Type="File">Act_OptP0203Navi.st</Object>
+    <Object Type="File">Act_OptP0203ChgPage.st</Object>
+    <Object Type="File">Act_OptP0203UpdtDat.st</Object>
+    <Object Type="File">Act_OptP0203IOMonitor.st</Object>
+    <Object Type="File">Act_OptP0203AIVDat.st</Object>
+    <Object Type="File">Act_OptP0203ChgParam.st</Object>
+    <Object Type="File">Act_OptP0203InsertRmvMag.st</Object>
+    <Object Type="File">Act_OptP0203RstMnl.st</Object>
+    <Object Type="File">Act_OptP0203Lane2ChgMag.st</Object>
+  </Objects>
+</Package>

@@ -1,0 +1,90 @@
+(*2018-12-11*)
+(**)
+(*External Data*)
+VAR
+	p_usiLinkProdRcpCurrRcpMcMod : REFERENCE TO USINT;
+	p_bLinkNtParamMagConv1Prep : REFERENCE TO USINT;
+	p_bLinkNtParamMagConv2Prep : REFERENCE TO USINT;
+	p_bLinkNtParamMagConv3Prep : REFERENCE TO USINT;
+	p_bLinkUSHermesABlkUS : REFERENCE TO BOOL;
+	p_bLinkUSHermesBBlkUS : REFERENCE TO BOOL;
+	p_bLinkFollower1USAllow : REFERENCE TO BOOL;
+	p_bLinkFollower2DSAllow : REFERENCE TO BOOL;
+	p_bLinkProjLifterMagPlatform : REFERENCE TO BOOL;
+	p_bLinkDIPshrAntiJamSen : REFERENCE TO BOOL;
+	p_bLinkCurtainSen : REFERENCE TO BOOL;
+	p_bLinkPshrRetSen : REFERENCE TO BOOL;
+	p_diBuffer1NxtLoadSlt : REFERENCE TO DINT;
+	p_diBuffer2NxtLoadSlt : REFERENCE TO DINT;
+	p_diBuffer3NxtLoadSlt : REFERENCE TO DINT;
+	p_diMinSlt : REFERENCE TO DINT;
+	p_diMaxSlt : REFERENCE TO DINT;
+	p_bTopToBtm : REFERENCE TO BOOL;
+	p_bLinkMcParamMagWidthChkDis : REFERENCE TO BOOL;
+	p_bMagWidthChkDis : REFERENCE TO BOOL;
+	bMagWidthChkTravMov : BOOL;
+	bMagWidthChk : BOOL;
+	usiMagWidthChkStep : INT := 10;
+	bTravGoToChkPt : BOOL;
+	bShut1Closed : BOOL;
+	bShut2Closed : BOOL;
+	bShut3Closed : BOOL;
+	p_bOpsMagConvUL1UnclmpDone : REFERENCE TO BOOL;
+	p_bOpsMagConvUL2UnclmpDone : REFERENCE TO BOOL;
+	p_bOpsMagConvUL3UnclmpDone : REFERENCE TO BOOL;
+	p_bNtParamProjOutletShutPrep : REFERENCE TO BOOL;
+	p_bNtParamProjOutletShut2Prep : REFERENCE TO BOOL;
+	p_bNtParamProjOutletShut3Prep : REFERENCE TO BOOL;
+	p_bAutoRcpTravWidthDiffBlk : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
+	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
+	p_eCustomerReq : REFERENCE TO eCustomer;
+END_VAR
+(*inlet stopper*)
+VAR
+	p_bInletStopperPrep : REFERENCE TO BOOL;
+	p_bStopperUnBlkCtrl : REFERENCE TO BOOL;
+	p_eInletStopperStat : REFERENCE TO ePneuAction;
+	p_eInletStopperStatus : REFERENCE TO eFBStatus;
+	p_bDIInletStopperASen : REFERENCE TO BOOL;
+	p_diMcParamInStprExtDelayTm : REFERENCE TO DINT;
+END_VAR
+(*Ops AllwGo*)
+VAR
+	p_udiOpsUSPosAllwGo : REFERENCE TO UDINT;
+	p_udiOpsDSPosAllwGo : REFERENCE TO UDINT;
+END_VAR
+(*AutoBypass Curtain*)
+VAR
+	p_bRlsMag1 : REFERENCE TO BOOL;
+	p_bRlsMag2 : REFERENCE TO BOOL;
+	p_bRlsMag3 : REFERENCE TO BOOL;
+END_VAR
+(*pusher react slow then traverse*)
+VAR
+	p_bPshrConvPshrRetSlwSen : REFERENCE TO BOOL;
+	p_bMcParamDMCScannerEn : REFERENCE TO BOOL;
+	p_diMcParamDMCScanResponseTO : REFERENCE TO DINT;
+END_VAR
+(*opcon*)
+VAR
+	p_bLinkOpConEn : REFERENCE TO BOOL;
+	p_sTopBtmBarcode : REFERENCE TO ARRAY[0..1] OF STRING[254];
+	p_MCUL1StepPLCGrab : REFERENCE TO BOOL;
+	p_MCUL2StepPLCGrab : REFERENCE TO BOOL;
+	p_MCUL3StepPLCGrab : REFERENCE TO BOOL;
+	p_bMagPresentSen1 : REFERENCE TO BOOL;
+	p_bMagPresentSen2 : REFERENCE TO BOOL;
+	p_bMagPresentSen3 : REFERENCE TO BOOL;
+	p_bPLCGrabPic : REFERENCE TO BOOL;
+	p_bDIPCBScanComplSig : REFERENCE TO BOOL;
+	p_tyNtParamDOSettings : REFERENCE TO tyDigitalOutputSettings;
+	p_tyNtParamDISettings : REFERENCE TO tyDigitalInputSettings;
+END_VAR
+(*for part process*)
+VAR
+	p_sLinkProdRcpCurrRcp1Nm : REFERENCE TO STRING[254];
+	p_diLinkProdRcpCurrRcp1Pitch : REFERENCE TO DINT;
+	p_sLinkMagRcpCurrRcpNm : REFERENCE TO STRING[30];
+END_VAR

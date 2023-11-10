@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="E0003_QueryWorkOrderInfo">
+  <Property Name="BackColor" Value="240"/>
+  <Property Name="Description" Value=""/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0003OpsQueryWorkOrder.tyLyr.uiRtStat]"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="800"/>
+  <TextGroup>
+    <TextLayer LanguageId="en"/>
+    <TextLayer LanguageId="de"/>
+    <TextLayer LanguageId="zh"/>
+    <TextLayer LanguageId="pt"/>
+    <IndexMap/>
+  </TextGroup>
+  <Controls>
+    <Control ClassId="0x00001005" Name="Bitmap_Background">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Bitmap_MsgBox">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Border_Detail]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="274"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="150"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Group_Silver]"/>
+      <Property Name="Top" Value="76"/>
+      <Property Name="Width" Value="520"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_EnterQueryWorkOrder">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="26"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="208"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_SubHeader]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1160_SubHeaders]"/>
+      <Property Name="TextIndexOffset" Value="201"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="95"/>
+      <Property Name="Width" Value="397"/>
+    </Control>
+    <Control ClassId="0x0000100D" Name="Line_Title">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EndX" Value="565"/>
+      <Property Name="EndY" Value="117"/>
+      <Property Name="ForeColor" Value="15"/>
+      <Property Name="StartX" Value="247"/>
+      <Property Name="StartY" Value="117"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Black]"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_MagBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="173"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndexOffset" Value="192"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="155"/>
+      <Property Name="Width" Value="180"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="String_MagazineBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="InputTouchpad" Value="Source[local].TouchPad[AlphaPad]"/>
+      <Property Name="Left" Value="285"/>
+      <Property Name="MaxChars" Value="80"/>
+      <Property Name="SimulationValue" Value="MagazineRack999"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+      <Property Name="Top" Value="154"/>
+      <Property Name="ValueDatapoint" Value="None"/>
+      <Property Name="Width" Value="360"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_MagSlot">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="172"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndexOffset" Value="193"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="191"/>
+      <Property Name="Width" Value="180"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_Cancel">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Dialog]"/>
+      <Property Name="BitmapIndex" Value="0"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSimulationValue" Value="2"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="None"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="411"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="SpacingHorizontal" Value="2"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_MsgBox]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1110_MessageBox_Title]"/>
+      <Property Name="TextIndex" Value="100"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="4"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="None"/>
+      <Property Name="Width" Value="80"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_OK">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Dialog]"/>
+      <Property Name="BitmapIndex" Value="0"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSimulationValue" Value="1"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="None"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="315"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_MsgBox]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1110_MessageBox_Title]"/>
+      <Property Name="TextIndex" Value="100"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="3"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="None"/>
+      <Property Name="Width" Value="80"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_PCBBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="172"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndexOffset" Value="194"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="229"/>
+      <Property Name="Width" Value="180"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="String_PCBBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="InputTouchpad" Value="Source[local].TouchPad[AlphaPad]"/>
+      <Property Name="Left" Value="284"/>
+      <Property Name="MaxChars" Value="254"/>
+      <Property Name="SimulationValue" Value="1234567890123456789012345678901234567890"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+      <Property Name="Top" Value="230"/>
+      <Property Name="ValueDatapoint" Value="None"/>
+      <Property Name="Width" Value="362"/>
+    </Control>
+    <Control ClassId="0x00001007" Name="Numeric_Slot">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="285"/>
+      <Property Name="MaxDatapoint" Value="None"/>
+      <Property Name="MaxValue" Value="None"/>
+      <Property Name="MinDatapoint" Value="None"/>
+      <Property Name="MinValue" Value="None"/>
+      <Property Name="SimulationValue" Value="5"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input_Unit2]"/>
+      <Property Name="TeachDatapoint" Value="None"/>
+      <Property Name="Top" Value="192"/>
+      <Property Name="UnitTextWidth" Value="0"/>
+      <Property Name="ValueDatapoint" Value="None"/>
+      <Property Name="ValueMode" Value="Standard"/>
+      <Property Name="Width" Value="62"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_BarcodeScanner">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Motion]"/>
+      <Property Name="BitmapIndex" Value="14"/>
+      <Property Name="BitmapIndexDatapoint" Value="None"/>
+      <Property Name="BitmapSimulationValue" Value="0"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="Border" Value="Source[local].Border[ColorBtn_Silver_100x35_R6]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="None"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="529"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[ColorBtn_Grey_100x35_R6]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_GeneralBig3_Green_IconLft]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndex" Value="195"/>
+      <Property Name="TextIndexDatapoint" Value="None"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="None"/>
+      <Property Name="Width" Value="100"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Mask_BCScanner">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="44"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="524"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+      <Property Name="Top" Value="278"/>
+      <Property Name="Width" Value="110"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Mask_Mag">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="76"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="168"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+      <Property Name="Top" Value="149"/>
+      <Property Name="Width" Value="477"/>
+    </Control>
+  </Controls>
+  <KeyMapping/>
+</Layer>

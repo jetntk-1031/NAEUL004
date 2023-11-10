@@ -1,0 +1,253 @@
+(*UI Constant*)
+VAR CONSTANT
+	c_uiP0200TableSize : UINT := 6;
+	c_uiP0400TableSize : UINT := 10;
+	c_uiP0410TableSize : UINT := 10;
+	c_uiP0600TableSize : UINT := 18;
+	c_uiP0700TableSize : UINT := 11;
+	c_uiP0800TableSize : USINT := 10;
+	c_uiP0950TableSize : USINT := 10;
+	c_uiP1030TableSize : UINT := 10;
+	c_uiP1040TableSize : UINT := 10;
+	c_uiP1050TableSize : UINT := 12;
+	c_uiP1080TableSize : UINT := 11;
+END_VAR
+(**)
+(*Page*)
+VAR
+	tyP0000SSaver : tyUIP0000SSaver; (*Screen Saver*)
+END_VAR
+(**)
+VAR
+	tyP0001Startup : tyUIP0001Startup; (*Startup*)
+END_VAR
+(**)
+VAR
+	tyP0002Menu : tyUIP0002Menu; (*Menu*)
+END_VAR
+(* *)
+VAR
+	tyP0003MMenu : tyUIP0003MMenu; (*Menu*)
+END_VAR
+(**)
+VAR
+	tyP0100Login : tyUIP0100Login; (*Login*)
+END_VAR
+(**)
+VAR
+	tyP0200OpsGen : tyUIP0200OpsGen; (*Operation*)
+END_VAR
+(**)
+VAR
+	tyP0201OpsTravLifter : tyUIP0201OpsTravLifter;
+END_VAR
+(**)
+VAR
+	tyP0202OpsMag1 : tyUIP0202OpsMag1;
+END_VAR
+(**)
+VAR
+	tyP0203OpsMag2 : tyUIP0203OpsMag2;
+END_VAR
+(**)
+VAR
+	tyP0204OpsMag3 : tyUIP0204OpsMag3;
+END_VAR
+(**)
+VAR
+	tyP0205OpsAIV : tyUIP0205OpsAIV;
+END_VAR
+(**)
+VAR
+	tyP0206OpsMagConv1 : tyUIP0206OpsMagConv1;
+END_VAR
+(**)
+VAR
+	tyP0207OpsMagConv2 : tyUIP0207OpsMagConv2;
+END_VAR
+(**)
+VAR
+	tyP0300McInfo : tyUIP0300McInfo; (*Operation*)
+END_VAR
+(**)
+VAR
+	tyP0400ProdSel : tyUIP0400ProdSel; (*Product Selection*)
+END_VAR
+(**)
+VAR
+	tyP0410MagSel : tyUIP0410MagSel;
+END_VAR
+(**)
+VAR
+	tyP0600Alm : tyUIP0600Alm; (*Alarm*)
+END_VAR
+(**)
+VAR
+	tyP0700LFCtrl : tyUIP0700LFCtrl; (*Lead Follow*)
+END_VAR
+(**)
+VAR
+	tyP0800MagInfo : tyUIP0800MagInfo;
+END_VAR
+(**)
+VAR
+	tyP0850OvenInfo : tyUIP0850OvenInfo; (*Oven Info*)
+END_VAR
+(**)
+VAR
+	tyP0900GenIn : tyUIP0900GenIn; (*General Input*)
+END_VAR
+(**)
+VAR
+	tyP0910GenOut : tyUIP0910GenOut; (*General Output*)
+END_VAR
+(**)
+VAR
+	tyP0920MtrNPneuCtrl : tyUIP0920MtrNPneuCtrl; (*Motor And Pneumatic Control*)
+END_VAR
+(**)
+VAR
+	tyP0921InletNOutletShutter : tyUIP0921InletNOutletShutter; (*Flipper*)
+END_VAR
+(**)
+VAR
+	tyP0922Stopper : tyUIP0922Stopper;
+END_VAR
+(**)
+VAR
+	tyP0923SafetyBar : tyUIP0923SafetyBar;
+END_VAR
+(**)
+VAR
+	tyP0926LifterMagConv : tyUIP0926LifterMagConv;
+END_VAR
+(**)
+VAR
+	tyP0927LifterMagConv2 : tyUIP0927LifterMagConv2;
+END_VAR
+(**)
+VAR
+	tyP0928MagConv : tyUIP0928MagConv; (*Conveyor*)
+END_VAR
+(**)
+VAR
+	tyP0929MagConv2 : tyUIP0929MagConv2; (*Conveyor*)
+END_VAR
+(**)
+VAR
+	tyP0930MagConv1 : tyUIP0930MagConv1; (*Conveyor*)
+END_VAR
+(**)
+VAR
+	tyP0931MagConv2 : tyUIP0931MagConv2;
+END_VAR
+(**)
+VAR
+	tyP0932MagConv3 : tyUIP0932MagConv3;
+END_VAR
+(**)
+VAR
+	tyP0933PushConv : tyUIP0933PushConv;
+END_VAR
+(**)
+VAR
+	tyP0934AW : tyUIP0934AW; (*Auto Width*)
+END_VAR
+(**)
+VAR
+	tyP0935Lifter : tyUIP0935Lifter; (*Lifter*)
+END_VAR
+(**)
+VAR
+	tyP0936Trav : tyUIP0936Trav;
+END_VAR
+(**)
+VAR
+	tyP0937AWPushOrPuller : tyUIP0937AWPushOrPuller; (*Auto Width*)
+END_VAR
+(**)
+VAR
+	tyP0938MagAW : tyUIP0938MagAW;
+END_VAR
+(**)
+VAR
+	tyP0939Lifter2 : tyUIP0939Lifter2; (*Lifter*)
+END_VAR
+(**)
+VAR
+	tyP0940CommCtrl : tyUIP0940CommCtrl; (*Communication Control*)
+END_VAR
+(**)
+VAR
+	tyP0950Simu : tyUIP0950Simu; (*Simulation*)
+END_VAR
+(**)
+VAR
+	tyP1000Lang : tyUIP1000Lang; (*Language & Time*)
+END_VAR
+(**)
+VAR
+	tyP1020McSetNavi : tyUIP1020McSetNavi; (*Machine Setting - Navigation*)
+END_VAR
+(**)
+VAR
+	tyP1021McSetGen : tyUIP1021McSetGen; (*Machine Setting - General*)
+END_VAR
+(**)
+VAR
+	tyP1022McSetVComm : tyUIP1022McSetVComm; (*Machine Setting - Commnunication*)
+END_VAR
+(**)
+VAR
+	tyP1023McSetHComm : tyUIP1023McSetHComm; (*Machine Setting - Commnunication*)
+END_VAR
+(**)
+VAR
+	tyP1024McSetAntiGap : tyUIP1024McSetAntiGap; (*Machine Setting - Anti Gap Sensor*)
+END_VAR
+(**)
+VAR
+	tyP1025McSetScan : tyUIP1025McSetScan; (*Machine Setting - Anti Gap Sensor*)
+END_VAR
+(**)
+VAR
+	tyP1026McSetTeach : tyUIP1026McSetTeach; (*Machine Setting - Anti Gap Sensor*)
+END_VAR
+(**)
+VAR
+	tyP1027McSetOpCon : tyUIP1027McOpCon; (*Machine Setting - Anti Gap Sensor*)
+END_VAR
+(**)
+VAR
+	tyP1030MagSet : tyUIP1030MagSet;
+END_VAR
+(**)
+VAR
+	tyP1031MagSetTeach : tyUIP1031MagSetTeach;
+END_VAR
+(**)
+VAR
+	tyP1040ProdSet : tyUIP1040ProdSet; (*Product Setting*)
+END_VAR
+(**)
+VAR
+	tyP1050LFSet : tyUIP1050LFSet; (*Leader Follower Setting*)
+END_VAR
+(**)
+VAR
+	tyP1080UsrMgmt : tyUIP1080UsrMgmt; (*User Management*)
+END_VAR
+(**)
+VAR
+	tyP1081UsrMgmtUsrAccessRgt : tyUIP1081UsrAccessRgt; (*User Managemen User Access*)
+END_VAR
+(**)
+(*Common*)
+VAR
+	tyCommon : tyUICom;
+END_VAR
+(**)
+(*Visu Property*)
+VAR
+	tyProperty : tyUIProperty; (*Visualization Properties*)
+END_VAR

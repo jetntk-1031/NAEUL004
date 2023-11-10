@@ -1,0 +1,6 @@
+VAR
+	p_OpsUSPosAllwGoStep : UDINT;
+	p_OpsDSPosAllwGoStep : UDINT;
+	p_OpsDSPosAllwGo : UDINT;
+	p_OpsUSPosAllwGo : UDINT;
+END_VAR

@@ -1,0 +1,16 @@
+(*2019-04-09*)
+(**)
+(*External*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkNtPrmProjMagSafetyBarPrep : REFERENCE TO BOOL;
+	p_bLinkNtPrmProjMag : REFERENCE TO eULMag;
+END_VAR
+(**)
+VAR
+	p_bLinkDISafetyRlySig : REFERENCE TO BOOL;
+	p_bMagRcpCurrRcpSBarDisabled : REFERENCE TO BOOL;
+END_VAR

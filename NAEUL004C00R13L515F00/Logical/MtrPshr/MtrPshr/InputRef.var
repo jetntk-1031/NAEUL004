@@ -1,0 +1,44 @@
+(*2019-03-25*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eMtrPshrAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_bManual : REFERENCE TO BOOL;
+	p_bDir : REFERENCE TO BOOL;
+	p_tAlmRstTm : REFERENCE TO TIME;
+	p_tAlmTrigTm : REFERENCE TO TIME;
+	p_tMtrBrkOffDlyTm : REFERENCE TO TIME;
+	p_tExtTO : REFERENCE TO TIME;
+	p_tRetTO : REFERENCE TO TIME;
+	p_diExtSlowSpd : REFERENCE TO DINT;
+	p_diRetSlowSpd : REFERENCE TO DINT;
+	p_diExtNomSpd : REFERENCE TO DINT;
+	p_diRetNomSpd : REFERENCE TO DINT;
+	p_diExtTorque : REFERENCE TO DINT;
+	p_diRetTorque : REFERENCE TO DINT;
+	p_diStartTorque : REFERENCE TO DINT;
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_bExtSen : REFERENCE TO BOOL;
+	p_bRetSen : REFERENCE TO BOOL;
+	p_bExtSlowSen : REFERENCE TO BOOL;
+	p_bRetSlowSen : REFERENCE TO BOOL;
+	p_bExtSafetySen : REFERENCE TO BOOL;
+	p_bRetSafetySen : REFERENCE TO BOOL;
+	p_bAlarmSig : REFERENCE TO BOOL;
+	p_bTorqueSig : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
+	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+END_VAR

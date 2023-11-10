@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<Layer xmlns="http://br-automation.co.at/AS/VC/Project" Name="E0001_QueryBoardInfo">
+  <Property Name="BackColor" Value="240"/>
+  <Property Name="Description" Value=""/>
+  <Property Name="Height" Value="480"/>
+  <Property Name="Left" Value="0"/>
+  <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyLyr.uiRtStat]"/>
+  <Property Name="Top" Value="0"/>
+  <Property Name="Width" Value="800"/>
+  <TextGroup>
+    <TextLayer LanguageId="en"/>
+    <TextLayer LanguageId="de"/>
+    <TextLayer LanguageId="zh"/>
+    <TextLayer LanguageId="pt"/>
+    <IndexMap/>
+  </TextGroup>
+  <Controls>
+    <Control ClassId="0x00001005" Name="Bitmap_Background">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="480"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="0"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+      <Property Name="Top" Value="0"/>
+      <Property Name="Width" Value="800"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Bitmap_MsgBox">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="Border" Value="Source[local].Border[Border_Detail]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="274"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="150"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Group_Silver]"/>
+      <Property Name="Top" Value="81"/>
+      <Property Name="Width" Value="520"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_BarcodeScanner">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Motion]"/>
+      <Property Name="BitmapIndex" Value="14"/>
+      <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnBarcodeScanner.usiBitmapIdx]"/>
+      <Property Name="BitmapSimulationValue" Value="0"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="Border" Value="Source[local].Border[ColorBtn_Silver_100x35_R6]"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1266]"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="529"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedBorder" Value="Source[local].Border[ColorBtn_Grey_100x35_R6]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnBarcodeScanner.uiRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_GeneralBig3_Green_IconLft]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndex" Value="195"/>
+      <Property Name="TextIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnBarcodeScanner.usiTxtIdx]"/>
+      <Property Name="TextSimulationValue" Value="0"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1266]"/>
+      <Property Name="Width" Value="100"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_cancel">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Dialog]"/>
+      <Property Name="BitmapIndex" Value="0"/>
+      <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnCancel.usiBitmapIdx]"/>
+      <Property Name="BitmapSimulationValue" Value="2"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1264]"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="412"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="SpacingHorizontal" Value="2"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnCancel.uiRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_MsgBox]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1110_MessageBox_Title]"/>
+      <Property Name="TextIndex" Value="100"/>
+      <Property Name="TextIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnCancel.usiTxtIdx]"/>
+      <Property Name="TextSimulationValue" Value="4"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1264]"/>
+      <Property Name="Width" Value="80"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_BottomBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="169"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndexOffset" Value="191"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="195"/>
+      <Property Name="Width" Value="180"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_EnterQueryBoard">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="26"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="207"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_SubHeader]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1160_SubHeaders]"/>
+      <Property Name="TextIndexOffset" Value="200"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="97"/>
+      <Property Name="Width" Value="397"/>
+    </Control>
+    <Control ClassId="0x00001004" Name="Label_TopBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="Left" Value="170"/>
+      <Property Name="SimulationIndex" Value="0"/>
+      <Property Name="SimulationValue" Value=""/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1120_OperationsLabels]"/>
+      <Property Name="TextIndexOffset" Value="190"/>
+      <Property Name="TextSource" Value="SingleText"/>
+      <Property Name="Top" Value="156"/>
+      <Property Name="Width" Value="180"/>
+    </Control>
+    <Control ClassId="0x0000100D" Name="Line_Title">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EndX" Value="545"/>
+      <Property Name="EndY" Value="121"/>
+      <Property Name="ForeColor" Value="15"/>
+      <Property Name="StartX" Value="268"/>
+      <Property Name="StartY" Value="121"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Black]"/>
+    </Control>
+    <Control ClassId="0x00001005" Name="Mask_BCScanner">
+      <Property Name="Bitmap" Value="None"/>
+      <Property Name="BitmapSource" Value="SingleBitmap"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="44"/>
+      <Property Name="IndexDatapoint" Value="None"/>
+      <Property Name="Left" Value="524"/>
+      <Property Name="SimulationValue" Value="0"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnBarcodeScanner.uiMaskRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+      <Property Name="Top" Value="279"/>
+      <Property Name="Width" Value="110"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="String_BottomBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="InputTouchpad" Value="Source[local].TouchPad[AlphaPad]"/>
+      <Property Name="Left" Value="252"/>
+      <Property Name="MaxChars" Value="254"/>
+      <Property Name="SimulationValue" Value="test123"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyStringBottomBarcode.uiRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+      <Property Name="Top" Value="195"/>
+      <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyStringBottomBarcode.sValue]"/>
+      <Property Name="Width" Value="394"/>
+    </Control>
+    <Control ClassId="0x0000100B" Name="String_TopBarcode">
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Height" Value="30"/>
+      <Property Name="InputTouchpad" Value="Source[local].TouchPad[AlphaPad]"/>
+      <Property Name="Left" Value="253"/>
+      <Property Name="MaxChars" Value="254"/>
+      <Property Name="SimulationValue" Value="abc456"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyStringTopBarcode.uiRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
+      <Property Name="Top" Value="155"/>
+      <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyStringTopBarcode.sValue]"/>
+      <Property Name="Width" Value="393"/>
+    </Control>
+    <Control ClassId="0x00001002" Name="Button_ok">
+      <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Dialog]"/>
+      <Property Name="BitmapIndex" Value="0"/>
+      <Property Name="BitmapIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnOk.usiBitmapIdx]"/>
+      <Property Name="BitmapSimulationValue" Value="1"/>
+      <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+      <Property Name="ControlID" Value="0"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1265]"/>
+      <Property Name="Height" Value="35"/>
+      <Property Name="KeyMatrixOffset" Value="None"/>
+      <Property Name="Left" Value="315"/>
+      <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
+      <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
+      <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnOk.uiRtStat]"/>
+      <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Btn_MsgBox]"/>
+      <Property Name="TextGroup" Value="Source[global].TextGroup[T1110_MessageBox_Title]"/>
+      <Property Name="TextIndex" Value="100"/>
+      <Property Name="TextIndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnOk.usiTxtIdx]"/>
+      <Property Name="TextSimulationValue" Value="3"/>
+      <Property Name="TextSource" Value="MultipleTexts"/>
+      <Property Name="Top" Value="282"/>
+      <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_1265]"/>
+      <Property Name="Width" Value="80"/>
+    </Control>
+  </Controls>
+  <KeyMapping>
+    <VirtualKey Name="%embVirtualKey_1266">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x0000016A">
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnBarcodeScanner.bRtCompl]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="ResetValue" Value="0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="None"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_1264">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x0000016A">
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnCancel.bRtCompl]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="ResetValue" Value="0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnCancel.bValue]"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+    <VirtualKey Name="%embVirtualKey_1265">
+      <Property Name="Description" Value=""/>
+      <Property Name="VirtualKey_LED" Value="False"/>
+      <KeyActions>
+        <KeyAction ClassId="0x0000016A">
+          <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnOk.bRtCompl]"/>
+          <Property Name="CompletionValue" Value="1"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Locking" Value="Never"/>
+          <Property Name="Name" Value="Action_0"/>
+          <Property Name="ResetValue" Value="0"/>
+          <Property Name="SetValue" Value="1"/>
+          <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyE0001OpsQueryBoardInfo.tyBtnOk.bValue]"/>
+        </KeyAction>
+      </KeyActions>
+    </VirtualKey>
+  </KeyMapping>
+</Layer>

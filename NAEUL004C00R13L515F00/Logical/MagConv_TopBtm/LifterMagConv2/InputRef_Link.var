@@ -1,0 +1,21 @@
+(*2019-04-09*)
+(**)
+(*External*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkDISafetyRlySig : REFERENCE TO BOOL;
+	p_diLinkLifterActualPos : REFERENCE TO DINT;
+	p_diLinkLifterBtmPos : REFERENCE TO DINT;
+	p_diLinkLifterTopPos : REFERENCE TO DINT;
+	p_bLinkOpsInitULDStepInitDone : REFERENCE TO BOOL;
+	p_bLinkTopMagConvEntSen : REFERENCE TO BOOL;
+	p_bLinkOpsLifMagULStepExtMag2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	fbLeftSenOnChk : TON;
+	fbLeftSenOn : TON;
+END_VAR

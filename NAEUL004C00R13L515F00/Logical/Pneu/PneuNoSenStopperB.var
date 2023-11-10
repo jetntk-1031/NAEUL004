@@ -1,0 +1,22 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_PneuNoSenStopperBStat : UDINT;
+	p_PneuNoSenStopperBStatus : UDINT;
+	p_PneuNoSenStopperBStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_PneuNoSenStopperBAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_PneuNoSenStopperBExtCtrl : UDINT;
+	p_PneuNoSenStopperBRetCtrl : UDINT;
+	p_PneuNoSenStopperBTwoCtrlOut : UDINT;
+	p_PneuNoSenStopperBExtended : UDINT;
+	p_PneuNoSenStopperBRetracted : UDINT;
+END_VAR

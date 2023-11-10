@@ -1,0 +1,12 @@
+(*2019-04-09*)
+(**)
+(*External Data*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkConvHvBrd : REFERENCE TO BOOL;
+	p_eLinkConvDir : REFERENCE TO eConvDir;
+	p_eLinkOpsTravLifPosGo : REFERENCE TO eTravLifULPos;
+END_VAR

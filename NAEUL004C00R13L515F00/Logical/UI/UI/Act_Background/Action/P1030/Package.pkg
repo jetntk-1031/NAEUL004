@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP1030Disp.st</Object>
+    <Object Type="File">Act_OptP1030Mask.st</Object>
+    <Object Type="File">Act_OptP1030Save.st</Object>
+    <Object Type="File">Act_OptP1030LoadData.st</Object>
+    <Object Type="File">Act_OptP1030Del.st</Object>
+    <Object Type="File">Act_OptP1030Table.st</Object>
+    <Object Type="File">Act_OptP1030Keypad.st</Object>
+    <Object Type="File">Act_OptP1030Teach.st</Object>
+    <Object Type="File">Act_OptP1030Sort.st</Object>
+  </Objects>
+</Package>

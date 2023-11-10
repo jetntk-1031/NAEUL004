@@ -1,0 +1,29 @@
+(*2022-10-17*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+(**)
+VAR
+	p_eInShuttStat : REFERENCE TO ePneuAction;
+	p_eInShuttStatus : REFERENCE TO eFBStatus;
+	p_eOutShuttStat : REFERENCE TO ePneuAction;
+	p_eOutShuttStatus : REFERENCE TO eFBStatus;
+	p_eOutShutt2Stat : REFERENCE TO ePneuAction;
+	p_eOutShutt2Status : REFERENCE TO eFBStatus;
+	p_eOutShutt3Stat : REFERENCE TO ePneuAction;
+	p_eOutShutt3Status : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+(**)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR

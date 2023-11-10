@@ -1,0 +1,17 @@
+(*2019-04-24*)
+(**)
+VAR
+	sWidthInUMTemp : STRING[80];
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkNtParamProjLaneBPrep : REFERENCE TO BOOL;
+	p_eLinkMcParamUSACommMod : REFERENCE TO eMcSetCommMod;
+	p_eLinkMcParamUSBCommMod : REFERENCE TO eMcSetCommMod;
+END_VAR
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkConvHvBrd : REFERENCE TO BOOL;
+END_VAR

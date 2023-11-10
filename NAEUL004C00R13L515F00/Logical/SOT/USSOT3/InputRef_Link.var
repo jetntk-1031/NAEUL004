@@ -1,0 +1,7 @@
+(*2021-04-20*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkSOTReadyOnFirst : REFERENCE TO BOOL;
+END_VAR
+(**)

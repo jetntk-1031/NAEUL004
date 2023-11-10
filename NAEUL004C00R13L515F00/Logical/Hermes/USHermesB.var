@@ -1,0 +1,61 @@
+(*2019-06-10*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_USHermesBStat : UDINT;
+	p_USHermesBStatus : UDINT;
+	p_USHermesBStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_USHermesBAlmData : UDINT;
+	p_USHermesBAlmData1 : UDINT;
+	p_USHermesBAlmData2 : UDINT;
+	p_USHermesBAlmData3 : UDINT;
+	p_USHermesBAlmData4 : UDINT;
+	p_USHermesBAlmData5 : UDINT;
+	p_USHermesBInfoData : UDINT;
+	p_USHermesBInfoData1 : UDINT;
+	p_USHermesBInfoData2 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_USHermesBTableDataBrdAvl : UDINT;
+	p_USHermesBTableDataBrdAvlTtlIdx : UDINT;
+	p_USHermesBConnected : UDINT;
+	p_USHermesBHandshakeDone : UDINT;
+	p_USHermesBAccDataReq : UDINT;
+	p_USHermesBBFAccDataReq : UDINT;
+	p_USHermesBOverWriteSlt : UDINT;
+	p_USHermesBOverWriteWidth : UDINT;
+	p_USHermesBReqRecipeNm : UDINT;
+	p_USHermesBReqWidthInUM : UDINT;
+	p_USHermesBReqMinSltValue : UDINT;
+	p_USHermesBReqMaxSltValue : UDINT;
+	p_USHermesBReqPitch : UDINT;
+	p_USHermesBUSRdy : UDINT;
+	p_USHermesBDSRdy : UDINT;
+	p_USHermesBUSGdRdy : UDINT;
+	p_USHermesBDSGdRdy : UDINT;
+	p_USHermesBTransporting : UDINT;
+	p_USHermesBStopTransport : UDINT;
+	p_USHermesBBlkUS : UDINT;
+	p_USHermesBInternalSnd : UDINT;
+	p_USHermesBAccDataMnl : UDINT;
+	p_USHermesBStopTransportSnd : UDINT;
+	p_USHermesBBoardArrivedData : UDINT;
+	p_USHermesBRcvBoardInfoOk : UDINT;
+	p_USHermesBRcvbBoardInfoIncompl : UDINT;
+	p_USHermesBBoardInfoData : UDINT;
+	p_USHermesBNextAvlPCBTimer : UDINT;
+	p_USHermesBManuallInsertLastZone : UDINT;
+	p_USHermesBBoardAvailableRcv : UDINT;
+	p_USHermesBBoardForecastRcv : UDINT;
+END_VAR
+(*Changed*)
+VAR
+	p_USHermesBBAAccepted : UDINT;
+	p_USHermesBBFAccepted : UDINT;
+END_VAR

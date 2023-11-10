@@ -1,0 +1,35 @@
+(*2019-04-24*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_MagAWOpen2Stat : UDINT;
+	p_MagAWOpen2Status : UDINT;
+	p_MagAWOpen2StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_MagAWOpen2AlmData : UDINT;
+	p_MagAWOpen2AlmData1 : UDINT;
+	p_MagAWOpen2AlmData2 : UDINT;
+	p_MagAWOpen2AlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_MagAWOpen2ParamOut : UDINT;
+	p_MagAWOpen2PwrOn : UDINT;
+	p_MagAWOpen2IsHomed : UDINT;
+	p_MagAWOpen2PosDiff : UDINT;
+	p_MagAWOpen2AxisErr : UDINT;
+	p_MagAWOpen2AxisErrID : UDINT;
+	p_MagAWOpen2AxisErrTxt : UDINT;
+	p_MagAWOpen2FwdLmtSen : UDINT;
+	p_MagAWOpen2RevLmtSen : UDINT;
+	p_MagAWOpen2ActualPos : UDINT;
+	p_MagAWOpen2WidthPosDiff : UDINT;
+	p_MagAWOpen2Jogging : UDINT;
+	p_MagAWOpen2Engaging : UDINT;
+	p_MagAWOpen2OpenSen : UDINT;
+	p_MagAWOpen2CloseSen : UDINT;
+END_VAR

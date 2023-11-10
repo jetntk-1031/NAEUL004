@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T2000_LeaderFollowerText">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="20"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="191197" Value="LeaderFollower Command Texts:"/>
+    <Text ID="191198" Value="Edit"/>
+    <Text ID="191199" Value="Third Party IP Address: 0000"/>
+    <Text ID="191200" Value="Delete"/>
+    <Text ID="191201" Value="OK"/>
+    <Text ID="191202" Value="Cancel"/>
+    <Text ID="191203" Value="Machine No."/>
+    <Text ID="191204" Value="Machine Name"/>
+    <Text ID="191205" Value="IP Address"/>
+    <Text ID="191206" Value="Copy From Follower"/>
+    <Text ID="191207" Value="Send To Follower"/>
+    <Text ID="191208" Value="Sync By Time"/>
+    <Text ID="191209" Value=""/>
+    <Text ID="191210" Value="Set Leader"/>
+    <Text ID="191211" Value="Set Follower"/>
+    <Text ID="191212" Value="Transfer Leader"/>
+    <Text ID="191213" Value="Bypass Leader"/>
+    <Text ID="191214" Value="Leader IP Address"/>
+    <Text ID="191215" Value="Leader"/>
+    <Text ID="191216" Value="Bypass"/>
+    <Text ID="191217" Value="Connected"/>
+    <Text ID="191218" Value="Disconnected"/>
+    <Text ID="191219" Value="Offline"/>
+    <Text ID="191220" Value="All"/>
+    <Text ID="191221" Value="Auto Sequential"/>
+    <Text ID="191222" Value="Change Recipe"/>
+    <Text ID="191223" Value="Sync PLC Time"/>
+    <Text ID="191224" Value="Manual Sequential"/>
+    <Text ID="191225" Value="Offline"/>
+    <Text ID="191226" Value="Online"/>
+    <Text ID="191227" Value="Total Node"/>
+    <Text ID="191228" Value="Online"/>
+    <Text ID="191229" Value="Offline"/>
+    <Text ID="191230" Value="Error"/>
+    <Text ID="191231" Value="Leader"/>
+    <Text ID="191232" Value="NA"/>
+    <Text ID="191233" Value="Section Leader"/>
+    <Text ID="191234" Value="US Width Check Enable"/>
+    <Text ID="191235" Value="DS Width Check Enable"/>
+    <Text ID="191237" Value=" "/>
+    <Text ID="191238" Value="Offline"/>
+    <Text ID="191239" Value="Online"/>
+    <Text ID="191240" Value="Third Party"/>
+    <Text ID="191241" Value=" "/>
+    <Text ID="191242" Value=" "/>
+    <Text ID="191246" Value=" "/>
+    <Text ID="471242" Value="Node ID"/>
+    <Text ID="654105" Value=""/>
+    <Text ID="654217" Value="Third Party"/>
+    <Text ID="654218" Value="Offline"/>
+    <Text ID="654219" Value="Disconnected"/>
+    <Text ID="654220" Value="Leader"/>
+    <Text ID="654221" Value="Section Leader"/>
+    <Text ID="654222" Value="Connected"/>
+    <Text ID="654223" Value=""/>
+    <Text ID="654225" Value=""/>
+    <Text ID="671481" Value="Machine Index Before Oven"/>
+    <Text ID="671482" Value="Machine Index After Oven"/>
+    <Text ID="671483" Value="Oven 1 "/>
+    <Text ID="671484" Value="Oven 2"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="191197" Value="Führer/Anhänger Kommandos Texte:"/>
+    <Text ID="191198" Value="Aufbereiten"/>
+    <Text ID="191199" Value="IP-Adresse Drittanbieters: 0000"/>
+    <Text ID="191200" Value="Löschen"/>
+    <Text ID="191201" Value="OK"/>
+    <Text ID="191202" Value="Abbrechen"/>
+    <Text ID="191203" Value="Machinennummer"/>
+    <Text ID="191204" Value="Machinenname"/>
+    <Text ID="191205" Value="IP-Adresse"/>
+    <Text ID="191206" Value="Kopieren von Anhänger"/>
+    <Text ID="191207" Value="Senden an Anhänger"/>
+    <Text ID="191208" Value="Sync nach Zeit"/>
+    <Text ID="191209" Value=" "/>
+    <Text ID="191210" Value="Führer Einstellen"/>
+    <Text ID="191211" Value="Anhänger Einstellen"/>
+    <Text ID="191212" Value="Führer Betragen"/>
+    <Text ID="191213" Value="Bypass-Leiter"/>
+    <Text ID="191214" Value="Führer IP-Addresse"/>
+    <Text ID="191215" Value="Führer"/>
+    <Text ID="191216" Value="Bypass"/>
+    <Text ID="191217" Value="Angeschlossen"/>
+    <Text ID="191218" Value="Getrennt"/>
+    <Text ID="191219" Value="Offline"/>
+    <Text ID="191220" Value="Alle"/>
+    <Text ID="191221" Value="Auto Sequentiell"/>
+    <Text ID="191222" Value="Rezept Ändern"/>
+    <Text ID="191223" Value="Sync PLC Zeit"/>
+    <Text ID="191224" Value="Manuell Sequentiell"/>
+    <Text ID="191225" Value="Offline"/>
+    <Text ID="191226" Value="Online"/>
+    <Text ID="191227" Value=" "/>
+    <Text ID="191228" Value="Online"/>
+    <Text ID="191229" Value="Offline"/>
+    <Text ID="191230" Value=""/>
+    <Text ID="191231" Value="Führer"/>
+    <Text ID="191232" Value=""/>
+    <Text ID="191233" Value="Section Leader"/>
+    <Text ID="191234" Value="US Width Check Enable"/>
+    <Text ID="191235" Value="DS Width Check Enable"/>
+    <Text ID="191237" Value=" "/>
+    <Text ID="191238" Value="Offline"/>
+    <Text ID="191239" Value="Online"/>
+    <Text ID="191240" Value="Dritte Partei"/>
+    <Text ID="191241" Value=" "/>
+    <Text ID="191242" Value=" "/>
+    <Text ID="191246" Value=" "/>
+    <Text ID="471242" Value=""/>
+    <Text ID="654105" Value=""/>
+    <Text ID="654217" Value="Drittanbieters"/>
+    <Text ID="654218" Value="Offline"/>
+    <Text ID="654219" Value="Getrennt"/>
+    <Text ID="654220" Value="Führer"/>
+    <Text ID="654221" Value=""/>
+    <Text ID="654222" Value="Angeschlossen"/>
+    <Text ID="654223" Value=""/>
+    <Text ID="654225" Value=""/>
+    <Text ID="671481" Value=" "/>
+    <Text ID="671482" Value=" "/>
+    <Text ID="671483" Value=" "/>
+    <Text ID="671484" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="191197" Value="同步命令文本:"/>
+    <Text ID="191198" Value="编辑"/>
+    <Text ID="191199" Value="第三方IP地址: 0000"/>
+    <Text ID="191200" Value="删除"/>
+    <Text ID="191201" Value="确定"/>
+    <Text ID="191202" Value="取消"/>
+    <Text ID="191203" Value="机器号码"/>
+    <Text ID="191204" Value="机器名称"/>
+    <Text ID="191205" Value="IP 地址"/>
+    <Text ID="191206" Value="从从机复制"/>
+    <Text ID="191207" Value="发送给从机"/>
+    <Text ID="191208" Value="按时间同步"/>
+    <Text ID="191209" Value=" "/>
+    <Text ID="191210" Value="设定为主机"/>
+    <Text ID="191211" Value="设置为从机"/>
+    <Text ID="191212" Value="转移主机"/>
+    <Text ID="191213" Value="绕过主机"/>
+    <Text ID="191214" Value="主机 IP 地址"/>
+    <Text ID="191215" Value="主机"/>
+    <Text ID="191216" Value="直通"/>
+    <Text ID="191217" Value="连接"/>
+    <Text ID="191218" Value="断开"/>
+    <Text ID="191219" Value="离线"/>
+    <Text ID="191220" Value="全部"/>
+    <Text ID="191221" Value="自动顺序"/>
+    <Text ID="191222" Value="改变配方"/>
+    <Text ID="191223" Value="同步 PLC 时间"/>
+    <Text ID="191224" Value="手动顺序"/>
+    <Text ID="191225" Value="离线"/>
+    <Text ID="191226" Value="在线"/>
+    <Text ID="191227" Value=" "/>
+    <Text ID="191228" Value="在线"/>
+    <Text ID="191229" Value="离线"/>
+    <Text ID="191230" Value=""/>
+    <Text ID="191231" Value="主机"/>
+    <Text ID="191232" Value=""/>
+    <Text ID="191233" Value="Section Leader"/>
+    <Text ID="191234" Value="US Width Check Enable"/>
+    <Text ID="191235" Value="DS Width Check Enable"/>
+    <Text ID="191237" Value=""/>
+    <Text ID="191238" Value="离线"/>
+    <Text ID="191239" Value="在线"/>
+    <Text ID="191240" Value="第三方"/>
+    <Text ID="191241" Value=" "/>
+    <Text ID="191242" Value=" "/>
+    <Text ID="191246" Value=" "/>
+    <Text ID="471242" Value=""/>
+    <Text ID="654105" Value=""/>
+    <Text ID="654217" Value="第三方"/>
+    <Text ID="654218" Value="离线"/>
+    <Text ID="654219" Value="断开"/>
+    <Text ID="654220" Value="主机"/>
+    <Text ID="654221" Value=""/>
+    <Text ID="654222" Value="连接"/>
+    <Text ID="654223" Value=""/>
+    <Text ID="654225" Value=""/>
+    <Text ID="671481" Value=" "/>
+    <Text ID="671482" Value=" "/>
+    <Text ID="671483" Value=" "/>
+    <Text ID="671484" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="191197" Value=""/>
+    <Text ID="191198" Value=""/>
+    <Text ID="191199" Value=""/>
+    <Text ID="191200" Value=""/>
+    <Text ID="191201" Value=""/>
+    <Text ID="191202" Value=""/>
+    <Text ID="191203" Value=""/>
+    <Text ID="191204" Value=""/>
+    <Text ID="191205" Value=""/>
+    <Text ID="191206" Value=""/>
+    <Text ID="191207" Value=""/>
+    <Text ID="191208" Value=""/>
+    <Text ID="191209" Value=""/>
+    <Text ID="191210" Value=""/>
+    <Text ID="191211" Value=""/>
+    <Text ID="191212" Value=""/>
+    <Text ID="191213" Value=""/>
+    <Text ID="191214" Value=""/>
+    <Text ID="191215" Value=""/>
+    <Text ID="191216" Value=""/>
+    <Text ID="191217" Value=""/>
+    <Text ID="191218" Value=""/>
+    <Text ID="191219" Value=""/>
+    <Text ID="191220" Value=""/>
+    <Text ID="191221" Value=""/>
+    <Text ID="191222" Value=""/>
+    <Text ID="191223" Value=""/>
+    <Text ID="191224" Value=""/>
+    <Text ID="191225" Value=""/>
+    <Text ID="191226" Value=""/>
+    <Text ID="191227" Value=""/>
+    <Text ID="191228" Value=""/>
+    <Text ID="191229" Value=""/>
+    <Text ID="191230" Value=""/>
+    <Text ID="191231" Value=""/>
+    <Text ID="191232" Value=""/>
+    <Text ID="191233" Value=""/>
+    <Text ID="191234" Value=""/>
+    <Text ID="191235" Value=""/>
+    <Text ID="191237" Value=""/>
+    <Text ID="191238" Value=""/>
+    <Text ID="191239" Value=""/>
+    <Text ID="191240" Value=""/>
+    <Text ID="191241" Value=""/>
+    <Text ID="191242" Value=""/>
+    <Text ID="191246" Value=""/>
+    <Text ID="471242" Value=""/>
+    <Text ID="654105" Value=""/>
+    <Text ID="654217" Value=""/>
+    <Text ID="654218" Value=""/>
+    <Text ID="654219" Value=""/>
+    <Text ID="654220" Value=""/>
+    <Text ID="654221" Value=""/>
+    <Text ID="654222" Value=""/>
+    <Text ID="654223" Value=""/>
+    <Text ID="654225" Value=""/>
+    <Text ID="671481" Value=""/>
+    <Text ID="671482" Value=""/>
+    <Text ID="671483" Value=""/>
+    <Text ID="671484" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="191197" Value="0"/>
+    <Index ID="191198" Value="1"/>
+    <Index ID="191199" Value="25"/>
+    <Index ID="191200" Value="2"/>
+    <Index ID="191201" Value="3"/>
+    <Index ID="191202" Value="4"/>
+    <Index ID="191203" Value="5"/>
+    <Index ID="191204" Value="6"/>
+    <Index ID="191205" Value="7"/>
+    <Index ID="191206" Value="8"/>
+    <Index ID="191207" Value="9"/>
+    <Index ID="191208" Value="10"/>
+    <Index ID="191209" Value="11"/>
+    <Index ID="191210" Value="12"/>
+    <Index ID="191211" Value="13"/>
+    <Index ID="191212" Value="14"/>
+    <Index ID="191213" Value="15"/>
+    <Index ID="191214" Value="16"/>
+    <Index ID="191215" Value="18"/>
+    <Index ID="191216" Value="19"/>
+    <Index ID="191217" Value="20"/>
+    <Index ID="191218" Value="21"/>
+    <Index ID="191219" Value="22"/>
+    <Index ID="191220" Value="23"/>
+    <Index ID="191221" Value="24"/>
+    <Index ID="191222" Value="27"/>
+    <Index ID="191223" Value="28"/>
+    <Index ID="191224" Value="26"/>
+    <Index ID="191225" Value="29"/>
+    <Index ID="191226" Value="30"/>
+    <Index ID="191227" Value="31"/>
+    <Index ID="191228" Value="33"/>
+    <Index ID="191229" Value="32"/>
+    <Index ID="191230" Value="35"/>
+    <Index ID="191231" Value="34"/>
+    <Index ID="191232" Value="36"/>
+    <Index ID="191233" Value="37"/>
+    <Index ID="191234" Value="38"/>
+    <Index ID="191235" Value="39"/>
+    <Index ID="191237" Value="41"/>
+    <Index ID="191238" Value="42"/>
+    <Index ID="191239" Value="43"/>
+    <Index ID="191240" Value="44"/>
+    <Index ID="191241" Value="45"/>
+    <Index ID="191242" Value="46"/>
+    <Index ID="191246" Value="50"/>
+    <Index ID="471242" Value="17"/>
+    <Index ID="654105" Value="40"/>
+    <Index ID="654217" Value="51"/>
+    <Index ID="654218" Value="52"/>
+    <Index ID="654219" Value="53"/>
+    <Index ID="654220" Value="54"/>
+    <Index ID="654221" Value="55"/>
+    <Index ID="654222" Value="56"/>
+    <Index ID="654223" Value="57"/>
+    <Index ID="654225" Value="59"/>
+    <Index ID="671481" Value="100"/>
+    <Index ID="671482" Value="101"/>
+    <Index ID="671483" Value="102"/>
+    <Index ID="671484" Value="103"/>
+  </IndexMap>
+</TextGroup>

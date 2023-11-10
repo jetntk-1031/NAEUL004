@@ -1,0 +1,15 @@
+(** 2019-03-25 **)
+ACTION Act_InitLocal:
+	
+	//Input Reference Link To Local Variable
+	p_eAct ACCESS ADR(eAct);
+	p_udiRstErr ACCESS ADR(udiRstErr);
+	p_sFileName ACCESS ADR(sFileName);
+	p_tyMcParamWr ACCESS ADR(tyMcParamWr);
+	p_sProgNm ACCESS ADR(sProgNm);
+	p_bNtSettingsLoadDone ACCESS ADR(bNtSettingsLoadDone);
+	p_bSvyHermesWriteConfig ACCESS ADR(bSvyHermesWriteConfig);
+	
+	//ADD
+	p_bAlarmWarning ACCESS ADR(bWarning);
+END_ACTION

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<BitmapGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="ScreenSaver">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="1"/>
+  <Property Name="Translate" Value="False"/>
+  <BitmapLayer LanguageId="neutral">
+    <BitmapRef ID="8673" Value="None"/>
+    <BitmapRef ID="8674" Value="Source[local].Bitmap[ColorStat_Red_7]"/>
+    <BitmapRef ID="8676" Value="Source[local].Bitmap[ColorStat_Green_7]"/>
+    <BitmapRef ID="8677" Value="Source[local].Bitmap[ColorStat_Yellow_7]"/>
+    <BitmapRef ID="8678" Value="Source[local].Bitmap[ColorStat_Amber_7]"/>
+    <BitmapRef ID="8679" Value="Source[local].Bitmap[ColorStat_DarkBlue_7]"/>
+    <BitmapRef ID="8680" Value="Source[local].Bitmap[ColorStat_LightBlue_7]"/>
+    <BitmapRef ID="9034" Value="None"/>
+  </BitmapLayer>
+  <IndexMap>
+    <Index ID="8673" Value="0"/>
+    <Index ID="8674" Value="1"/>
+    <Index ID="8676" Value="2"/>
+    <Index ID="8677" Value="3"/>
+    <Index ID="8678" Value="10"/>
+    <Index ID="8679" Value="5"/>
+    <Index ID="8680" Value="6"/>
+    <Index ID="9034" Value="4"/>
+  </IndexMap>
+</BitmapGroup>

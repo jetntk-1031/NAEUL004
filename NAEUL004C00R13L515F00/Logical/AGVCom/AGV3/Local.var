@@ -1,0 +1,75 @@
+(*2019-01-20*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eAGVMagAction := AGVMagActIdle;
+	eStat : eAGVMagAction := AGVMagActIdle;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	sStatTxt : STRING[100] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[100] := ['Idling','AIV Magazine Ready Enter And Communicating AIV','AIV Magazine Ready Exit And Communicating AIV',48('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Magazine Is Present Before Entering',sRcyText:='Remove Magazine To Continue Operation.'),(sAlmText:='AGV Not In Enter Position',sRcyText:='Adjust AGV Position And Restart Operation.'),(sAlmText:='Transfer In Time Out While Transporting',sRcyText:='Adjust Magazine Position Or Transporting Time Or Check Online Connection'),(sAlmText:='Magazine Is Not Present Before Exiting',sRcyText:='Magazine Has Taken Away, Restart Operation.'),(sAlmText:='AGV Not In Exit Position',sRcyText:='Adjust AGV Position And Restart Operation.'),(sAlmText:='Transfer Out Time Out While Transporting',sRcyText:='Adjust Magazine Position Or Transporting Time.'),(sAlmText:='AGV is not in Auto',sRcyText:='Make Sure AGV is in Auto'),(sAlmText:='Magazine is not Present in AGV while Entering',sRcyText:='Check AGV'),(sAlmText:='Magazine is Present in AGV while Exiting',sRcyText:='Check AGV'),(sAlmText:='AGV In Position Sensor is off while received the AGV in position signal',sRcyText:='Check AGV in position sensor'),(sAlmText:='SOT Error Signal Has Been Activated',sRcyText:='AIV Activated The Error Signal During Magazine Transportation'),89((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bMcRunRdy : BOOL;
+	bRdyEnt : BOOL;
+	bRdyExit : BOOL;
+	bMagEnt : BOOL;
+	bMagExit : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	sProgNm : STRING[15] := 'AIVMag';
+	bNtSettingsLoadDone : BOOL := TRUE;
+	diTxInTimeOut : DINT;
+	diTxOutTimeOut : DINT;
+	eDirection : eConvDir;
+	bBufferMagPresent : BOOL;
+	bMagConvLftSen : BOOL;
+	bMagConvRgtSen : BOOL;
+	bMagConvMtrIn : BOOL;
+	bMagConvMtrOut : BOOL;
+	bAGVInPosSen1 : BOOL;
+	bAGVInPosSen2 : BOOL;
+	bNtParamAGVInPosSenPrep : BOOL;
+	tyAGVToDTMag : tyTagAGVToDTMag;
+	tyDTMagToAGV : tyTagDTMagToAGV;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	usiStep : USINT;
+	bEndSen : BOOL;
+	bAGVInPosSen : BOOL;
+	fbMagFullTm : TON := (PT:=T#2s);
+	fbInPosErrTimer : TON;
+	fbTxInTimer : TON;
+	fbTxOutTimer : TON;
+	fbMagOutTrig : F_TRIG;
+	eStatOld : eAGVMagAction := AGVMagActIdle;
+	fbCheckErrorTim : TON := (PT:=T#1s);
+	bMagConvRun : BOOL;
+	bMagConvRdy : BOOL;
+	bMagConvAuto : BOOL;
+	bMagConvOccupied : BOOL;
+	bAIVOccupied : BOOL;
+	bAIVAuto : BOOL;
+	bAIVInPos : BOOL;
+	udiModuleNum : UDINT := 6161;
+END_VAR

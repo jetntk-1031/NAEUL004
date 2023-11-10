@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package SubType="CertificateStore" PackageType="CertificateStore" xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">OwnCertificates</Object>
+    <Object Type="File">ThirdPartyCertificates</Object>
+    <Object Type="File">CertificateRevocationLists</Object>
+    <Object Type="File">CertificateSigningRequests</Object>
+  </Objects>
+</Package>

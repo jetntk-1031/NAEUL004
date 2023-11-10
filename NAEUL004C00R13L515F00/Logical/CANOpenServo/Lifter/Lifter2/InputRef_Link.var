@@ -1,0 +1,14 @@
+(*2019-04-09*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkLifterSafetySen1 : REFERENCE TO BOOL;
+	p_bLinkLifterSafetySen2 : REFERENCE TO BOOL;
+	p_bLinkOpsInitULDStepInitDone : REFERENCE TO BOOL;
+	p_diLinkSltToSltDist : REFERENCE TO DINT;
+	p_bLinkProjLifterMagPlatform : REFERENCE TO BOOL;
+END_VAR

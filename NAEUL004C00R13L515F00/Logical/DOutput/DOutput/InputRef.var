@@ -1,0 +1,150 @@
+(*2019-05-20*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eDOAction;
+	p_udiMax : REFERENCE TO UDINT;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_tyDOSettings : REFERENCE TO tyDigitalOutputSettings;
+END_VAR
+(**)
+VAR
+	p_bManual : REFERENCE TO BOOL;
+	p_bSafetyRlyRst : REFERENCE TO BOOL;
+	p_bTLRed : REFERENCE TO BOOL;
+	p_bTLAmber : REFERENCE TO BOOL;
+	p_bTLGreen : REFERENCE TO BOOL;
+	p_bBuzzer : REFERENCE TO BOOL;
+	p_bUSBA : REFERENCE TO BOOL;
+	p_bUSBB : REFERENCE TO BOOL;
+	p_bOvenInfoSigA : REFERENCE TO BOOL;
+	p_bOvenInfoSigB : REFERENCE TO BOOL;
+	p_bPusherExtCtrl : REFERENCE TO BOOL;
+	p_bStopperUnblkCtrlA : REFERENCE TO BOOL;
+	p_bStopperUnblkCtrlB : REFERENCE TO BOOL;
+	p_bInletStopperRetCtrl : REFERENCE TO BOOL;
+	p_eCustomerReq : REFERENCE TO eCustomer;
+	p_bInletStopperExtCtrl : REFERENCE TO BOOL;
+	p_bMag1SelClampCtrl : REFERENCE TO BOOL;
+	p_bMag2SelClampCtrl : REFERENCE TO BOOL;
+	p_bMag3SelClampCtrl : REFERENCE TO BOOL;
+	p_bMag1SelUnclampCtrl : REFERENCE TO BOOL;
+	p_bMag2SelUnclampCtrl : REFERENCE TO BOOL;
+	p_bMag3SelUnclampCtrl : REFERENCE TO BOOL;
+	p_bMag1FixedClampCtrl : REFERENCE TO BOOL;
+	p_bMag1RemoteClampCtrl : REFERENCE TO BOOL;
+	p_bMag2FixedClampCtrl : REFERENCE TO BOOL;
+	p_bMag2RemoteClampCtrl : REFERENCE TO BOOL;
+	p_bMag3FixedClampCtrl : REFERENCE TO BOOL;
+	p_bMag3RemoteClampCtrl : REFERENCE TO BOOL;
+	p_bInShutterOpenCtrl : REFERENCE TO BOOL;
+	p_bInShutterCloseCtrl : REFERENCE TO BOOL;
+	p_bOutShutterOpenCtrl : REFERENCE TO BOOL;
+	p_bOutShutterCloseCtrl : REFERENCE TO BOOL;
+	p_bMag1ConvMtrIn : REFERENCE TO BOOL;
+	p_bMag1ConvMtrOut : REFERENCE TO BOOL;
+	p_bMag2ConvMtrIn : REFERENCE TO BOOL;
+	p_bMag2ConvMtrOut : REFERENCE TO BOOL;
+	p_bMag3ConvMtrIn : REFERENCE TO BOOL;
+	p_bMag3ConvMtrOut : REFERENCE TO BOOL;
+	p_bPushConvMtrOn : REFERENCE TO BOOL;
+	p_bMag1WallEngageCtrl : REFERENCE TO BOOL;
+	p_bMag2WallEngageCtrl : REFERENCE TO BOOL;
+	p_bMag3WallEngageCtrl : REFERENCE TO BOOL;
+	p_bMag1SafetyBarRetCtrl : REFERENCE TO BOOL;
+	p_bMag2SafetyBarRetCtrl : REFERENCE TO BOOL;
+	p_bMag3SafetyBarRetCtrl : REFERENCE TO BOOL;
+	p_bSOTMagError1 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge1 : REFERENCE TO BOOL;
+	p_bSOTMagReady1 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable1 : REFERENCE TO BOOL;
+	p_bSOTMagError2 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge2 : REFERENCE TO BOOL;
+	p_bSOTMagReady2 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable2 : REFERENCE TO BOOL;
+	p_bSOTMagError3 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge3 : REFERENCE TO BOOL;
+	p_bSOTMagReady3 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable3 : REFERENCE TO BOOL;
+	p_bSOTMagError4 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge4 : REFERENCE TO BOOL;
+	p_bSOTMagReady4 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable4 : REFERENCE TO BOOL;
+	p_bMagAWOpenLimByp1 : REFERENCE TO BOOL;
+	p_bMagAWOpenLimByp2 : REFERENCE TO BOOL;
+	p_bMagAWOpenLimByp3 : REFERENCE TO BOOL;
+	p_bMagAWOpenLimByp4 : REFERENCE TO BOOL;
+	p_bMagAWSmallLimSen1 : REFERENCE TO BOOL;
+	p_bMagAWSmallLimSen2 : REFERENCE TO BOOL;
+	p_bMagAWSmallLimSen3 : REFERENCE TO BOOL;
+	p_bMagAWSmallLimSen4 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bRequestToBring1 : REFERENCE TO BOOL;
+	p_bRequestToBring2 : REFERENCE TO BOOL;
+	p_bRequestToBring3 : REFERENCE TO BOOL;
+	p_bRequestToBring4 : REFERENCE TO BOOL;
+	p_bRequestToGet1 : REFERENCE TO BOOL;
+	p_bRequestToGet2 : REFERENCE TO BOOL;
+	p_bRequestToGet3 : REFERENCE TO BOOL;
+	p_bRequestToGet4 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bEntTopStprUnblkCtrl : REFERENCE TO BOOL;
+	p_bMidTopStprUnblkCtrl : REFERENCE TO BOOL;
+	p_bExtTopStprUnblkCtrl : REFERENCE TO BOOL;
+	p_bMidBtmStprUnblkCtrl : REFERENCE TO BOOL;
+	p_bExtBtmStprUnblkCtrl : REFERENCE TO BOOL;
+	p_bEntTopStprUnblkCtrl2 : REFERENCE TO BOOL;
+	p_bMidTopStprUnblkCtrl2 : REFERENCE TO BOOL;
+	p_bExtTopStprUnblkCtrl2 : REFERENCE TO BOOL;
+	p_bMidBtmStprUnblkCtrl2 : REFERENCE TO BOOL;
+	p_bExtBtmStprUnblkCtrl2 : REFERENCE TO BOOL;
+	p_bInMagConvMtrOn : REFERENCE TO BOOL;
+	p_bOutMagConvMtrOn : REFERENCE TO BOOL;
+	p_bInMagConv2MtrOn : REFERENCE TO BOOL;
+	p_bOutMagConv2MtrOn : REFERENCE TO BOOL;
+	p_bMtrPwrRly : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bMag1FixedClampOpenCtrl : REFERENCE TO BOOL;
+	p_bMag1RemoteClampOpenCtrl : REFERENCE TO BOOL;
+	p_bMag2FixedClampOpenCtrl : REFERENCE TO BOOL;
+	p_bMag2RemoteClampOpenCtrl : REFERENCE TO BOOL;
+	p_bMag3FixedClampOpenCtrl : REFERENCE TO BOOL;
+	p_bMag3RemoteClampOpenCtrl : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bOutShutterOpenCtrl3 : REFERENCE TO BOOL;
+	p_bOutShutterCloseCtrl3 : REFERENCE TO BOOL;
+	p_bOutShutterOpenCtrl2 : REFERENCE TO BOOL;
+	p_bOutShutterCloseCtrl2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bMtrPshrExt : REFERENCE TO BOOL;
+	p_bMtrPshrRet : REFERENCE TO BOOL;
+	p_bMtrPshrOn : REFERENCE TO BOOL;
+	p_bMtrPshrBrakeRls : REFERENCE TO BOOL;
+	p_bMtrPshrSpdBinBit0 : REFERENCE TO BOOL;
+	p_bMtrPshrSpdBinBit1 : REFERENCE TO BOOL;
+	p_bMtrPshrSpdBinBit2 : REFERENCE TO BOOL;
+	p_bMtrPshrAlmRst : REFERENCE TO BOOL;
+	p_bBypCurtainPBLED : REFERENCE TO BOOL;
+	p_bBypCurtainSen : REFERENCE TO BOOL;
+	p_bRstCurtainSen : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bScanTrigSig : REFERENCE TO BOOL;
+	p_bMag1ExitPCB : REFERENCE TO BOOL;
+	p_bMag2ExitPCB : REFERENCE TO BOOL;
+	p_bMag3ExitPCB : REFERENCE TO BOOL;
+END_VAR

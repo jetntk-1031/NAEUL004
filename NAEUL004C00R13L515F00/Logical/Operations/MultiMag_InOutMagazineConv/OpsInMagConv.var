@@ -1,0 +1,28 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+VAR
+	p_OpsInMagConvAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_OpsInMagConvAct : UDINT;
+	p_OpsInMagConv2Act : UDINT;
+	p_OpsInMagConvStepTxt : UDINT;
+	p_OpsInMagConvStepTxt1 : UDINT;
+	p_OpsInMagConvPaused : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsInMagConvStepEntMag : UDINT;
+	p_OpsInMagConvStepEntToMid : UDINT;
+	p_OpsInMagConvStepExtMag : UDINT;
+	p_OpsInMagConvUSSOTAct : UDINT;
+	p_OpsInMagConv2USSOTAct : UDINT;
+	p_OpsInMagConv2StepEntMag : UDINT;
+	p_OpsInMagConv2StepEntToMid : UDINT;
+	p_OpsInMagConv2StepExtMag : UDINT;
+END_VAR

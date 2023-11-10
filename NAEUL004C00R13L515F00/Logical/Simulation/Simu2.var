@@ -1,0 +1,16 @@
+(*2022-10-17*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+(**)
+(*Output*)
+VAR
+	p_Simu2Paused : UDINT;
+END_VAR
+(**)
+VAR
+	p_Simu2DispCyclTmBffr1 : UDINT;
+	p_Simu2DispCyclTmBffr2 : UDINT;
+	p_Simu2DispCyclTmBffr3 : UDINT;
+END_VAR

@@ -1,0 +1,82 @@
+(*2019-01-20*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eAGVMagAction := AGVMagActIdle;
+	eStat : eAGVMagAction := AGVMagActIdle;
+	eStatus : eFBStatus := Idle;
+	eStatus1 : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+	sStatTxt : STRING[100] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[100] := ['Idling','AIV Magazine Ready Enter And Communicating AIV','AIV Magazine Ready Exit And Communicating AIV',48('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Magazine Is Present Before Entering',sRcyText:='Remove Magazine To Continue Operation.'),(sAlmText:='AIV Not In Enter Position',sRcyText:='Adjust AIV Position And Restart Operation.'),(sAlmText:='Transfer In Time Out While Transporting',sRcyText:='Adjust Magazine Position Or Transporting Time.'),(sAlmText:='Magazine Is Not Present Before Exiting',sRcyText:='Magazine Has Taken Away, Restart Operation.'),(sAlmText:='AIV Not In Exit Position',sRcyText:='Adjust AIV Position And Restart Operation.'),(sAlmText:='Transfer Out Time Out While Transporting',sRcyText:='Adjust Magazine Position Or Transporting Time.'),(sAlmText:='Fleet Manager Is Offline',sRcyText:='Please check the connectivity signal to Fleetmanger'),93((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bMcRunRdy : BOOL;
+	bRdyEnt : BOOL;
+	bRdyExit : BOOL;
+	bMag1Ent : BOOL;
+	bMag1Exit : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	sProgNm : STRING[15] := 'AGV';
+	bNtSettingsLoadDone : BOOL := TRUE;
+	tyAGVToDTMag : tyTagAGVToDTMag;
+	tyDTMagToAGV : tyTagDTMagToAGV;
+	bAGVOnline : BOOL;
+	bMachineOnline : BOOL;
+	bInternalAGVOnline : BOOL;
+	bInternalAGVSimulateOn : BOOL;
+	tyDTMagToAGV1 : tyTagDTMagToAGV;
+	tyDTMagToAGV2 : tyTagDTMagToAGV;
+	tyDTMagToAGV3 : tyTagDTMagToAGV;
+	bRequestToBring1 : BOOL;
+	bRequestToGet1 : BOOL;
+	bRequestToBring2 : BOOL;
+	bRequestToGet2 : BOOL;
+	bRequestToBring3 : BOOL;
+	bRequestToGet3 : BOOL;
+	bRequestToBring4 : BOOL;
+	bRequestToGet4 : BOOL;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	bFleetManagerActive : BOOL;
+	fbFMOnTimeout : TON := (PT:=T#20s);
+	fbFMOffTimeout : TON := (PT:=T#20s);
+	usiStep : USINT;
+	eStatOld : eAGVMagAction := AGVMagActIdle;
+	fbConnectionTmCCS : TON := (PT:=T#250ms);
+	fbConnectionAGVTm : TON := (PT:=T#500ms);
+	fbConnectionAGVTm1 : TON := (PT:=T#500ms);
+END_VAR
+(**)
+VAR
+	tyTagToMes : tyStatToMES;
+	tyTagFromMes : tyStatFromMES;
+	udiModuleNum : UDINT := 6111;
+END_VAR
+(*AGV Batch Count*)
+VAR
+	tyTagFromLoader : tyStatFromLoader;
+END_VAR

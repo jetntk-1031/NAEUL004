@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1130_OutputCommand">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="13"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="190490" Value="Safety Reset"/>
+    <Text ID="190491" Value="Alarm Reset"/>
+    <Text ID="190492" Value="Tower Light Green"/>
+    <Text ID="190493" Value="Tower Light Amber"/>
+    <Text ID="190494" Value="Tower Light Red"/>
+    <Text ID="190495" Value="Buzzer"/>
+    <Text ID="190496" Value="DBA"/>
+    <Text ID="190497" Value="USB"/>
+    <Text ID="190498" Value="DBA Good"/>
+    <Text ID="190499" Value="DBA Bad"/>
+    <Text ID="190500" Value="USB Line A"/>
+    <Text ID="190501" Value="USB Line B"/>
+    <Text ID="190502" Value="Extend Slow"/>
+    <Text ID="190503" Value="Retract Slow"/>
+    <Text ID="190504" Value="Oven Info"/>
+    <Text ID="190505" Value="Oven Info A"/>
+    <Text ID="190506" Value="Oven Info B"/>
+    <Text ID="190507" Value="CW"/>
+    <Text ID="190508" Value="CCW"/>
+    <Text ID="190509" Value="Direction Enter"/>
+    <Text ID="190510" Value="Engage"/>
+    <Text ID="190511" Value="Disengage"/>
+    <Text ID="190512" Value="Brake"/>
+    <Text ID="190513" Value="Block"/>
+    <Text ID="190514" Value="Unblock"/>
+    <Text ID="190515" Value="Pusher Conv Motor"/>
+    <Text ID="190516" Value="Open"/>
+    <Text ID="190517" Value="Close"/>
+    <Text ID="190518" Value="Extend"/>
+    <Text ID="190519" Value="Retract"/>
+    <Text ID="190520" Value="Start"/>
+    <Text ID="190521" Value="Stop"/>
+    <Text ID="190522" Value="Shutter"/>
+    <Text ID="190523" Value="Pusher"/>
+    <Text ID="190524" Value="Clamper"/>
+    <Text ID="190525" Value="Stopper"/>
+    <Text ID="190526" Value="Initial\nRun"/>
+    <Text ID="190527" Value="Operation"/>
+    <Text ID="190528" Value="Turner Control"/>
+    <Text ID="190529" Value="Traverser Control"/>
+    <Text ID="190530" Value="Top Locker"/>
+    <Text ID="190531" Value="Block"/>
+    <Text ID="190532" Value="Unblock"/>
+    <Text ID="190533" Value="Foward"/>
+    <Text ID="190534" Value="Reverse"/>
+    <Text ID="190535" Value="Origin"/>
+    <Text ID="190536" Value="Direct"/>
+    <Text ID="190537" Value="Locker Enable"/>
+    <Text ID="190538" Value="Direct IO"/>
+    <Text ID="190539" Value="Back Up"/>
+    <Text ID="190540" Value="Restore"/>
+    <Text ID="190541" Value="Exit"/>
+    <Text ID="190542" Value="Line A Stopper"/>
+    <Text ID="190543" Value="Line B Stopper"/>
+    <Text ID="190544" Value="Safety Reset OFF"/>
+    <Text ID="190545" Value="Tower Light Green OFF"/>
+    <Text ID="190546" Value="Tower Light Amber OFF"/>
+    <Text ID="190547" Value="Tower Light Red OFF"/>
+    <Text ID="190548" Value="Buzzer OFF"/>
+    <Text ID="190549" Value="Oven Info A OFF"/>
+    <Text ID="190550" Value="Oven Info B OFF"/>
+    <Text ID="190551" Value="Front"/>
+    <Text ID="190552" Value="Rear"/>
+    <Text ID="190553" Value="Middle"/>
+    <Text ID="190554" Value="Left"/>
+    <Text ID="190555" Value="Right"/>
+    <Text ID="190556" Value="Pre Exit"/>
+    <Text ID="190557" Value="Away Stopper"/>
+    <Text ID="190558" Value="Toward Stopper"/>
+    <Text ID="190559" Value="Clock"/>
+    <Text ID="190560" Value="Anti-Clock"/>
+    <Text ID="190561" Value="Lock"/>
+    <Text ID="190562" Value="Unlock"/>
+    <Text ID="190563" Value="Shutter Front"/>
+    <Text ID="190564" Value="Shutter Left"/>
+    <Text ID="190565" Value="Shutter Front &amp; Left"/>
+    <Text ID="190566" Value="Shutter Rear"/>
+    <Text ID="190567" Value="Shutter Front &amp; Rear"/>
+    <Text ID="190568" Value="Shutter Left &amp; Rear"/>
+    <Text ID="190569" Value="Shutter Front &amp; Left"/>
+    <Text ID="190570" Value="Shutter Right"/>
+    <Text ID="190571" Value="Shutter Front And Right"/>
+    <Text ID="190572" Value="Shutter Left &amp; Right"/>
+    <Text ID="190573" Value="Shutter Front &amp; Left"/>
+    <Text ID="190574" Value="Shutter Rear &amp; Right"/>
+    <Text ID="190575" Value="Shutter Front &amp; Rear"/>
+    <Text ID="190576" Value="Shutter Left &amp; Rear"/>
+    <Text ID="190577" Value="Shutter Front &amp; Left"/>
+    <Text ID="190578" Value="Foward Enter"/>
+    <Text ID="190579" Value="Forward Exit"/>
+    <Text ID="190580" Value="Reverse Enter"/>
+    <Text ID="190581" Value="Reverse Exit"/>
+    <Text ID="190582" Value="Turner Test"/>
+    <Text ID="190583" Value="Enter Board"/>
+    <Text ID="190584" Value="Transfer Board"/>
+    <Text ID="190585" Value="Exit Board"/>
+    <Text ID="190586" Value="Cyl Exit Board"/>
+    <Text ID="190587" Value="Enter"/>
+    <Text ID="190588" Value="Init Enter"/>
+    <Text ID="190589" Value="Init Exit"/>
+    <Text ID="190590" Value="Exit"/>
+    <Text ID="190591" Value="Exit Board"/>
+    <Text ID="190592" Value="Pusher Conv Mtr OFF"/>
+    <Text ID="190593" Value="Conveyor Belt Zone 1 Motor"/>
+    <Text ID="190594" Value="Conveyor Belt Zone 2 Motor"/>
+    <Text ID="190595" Value="Dual Speed"/>
+    <Text ID="190596" Value="Z1 Dual Speed"/>
+    <Text ID="190597" Value="Z2 Dual Speed"/>
+    <Text ID="190598" Value="Pneumatic Cylinder"/>
+    <Text ID="190599" Value="Extend Up"/>
+    <Text ID="190600" Value="Retract Down"/>
+    <Text ID="190601" Value="Up"/>
+    <Text ID="190602" Value="Down"/>
+    <Text ID="190603" Value="Clamp"/>
+    <Text ID="190604" Value="Unclamp"/>
+    <Text ID="190605" Value="Mid Stopper"/>
+    <Text ID="190606" Value="Exit Stopper"/>
+    <Text ID="190607" Value="Inlet Stopper"/>
+    <Text ID="190608" Value="Rotate\nR To L"/>
+    <Text ID="190609" Value="Internal\nVR"/>
+    <Text ID="190610" Value="Product Recipe"/>
+    <Text ID="190611" Value="Sync"/>
+    <Text ID="190612" Value="PLC Doc"/>
+    <Text ID="190613" Value="Functions"/>
+    <Text ID="190614" Value=" "/>
+    <Text ID="190615" Value="Top Mid Stopper"/>
+    <Text ID="190616" Value="Top Exit Stopper"/>
+    <Text ID="190617" Value="Btm Mid Stopper"/>
+    <Text ID="190618" Value="Btm Exit Stopper"/>
+    <Text ID="190619" Value="Btm Z3 Stopper"/>
+    <Text ID="190620" Value=" "/>
+    <Text ID="190621" Value="Lane1"/>
+    <Text ID="190622" Value="Lane2"/>
+    <Text ID="190623" Value=" "/>
+    <Text ID="190624" Value=" "/>
+    <Text ID="190625" Value="Toward Lifter"/>
+    <Text ID="190626" Value="Away Lifter"/>
+    <Text ID="190627" Value="Motor On"/>
+    <Text ID="190628" Value=" "/>
+    <Text ID="190629" Value=" "/>
+    <Text ID="190630" Value="Magazine In"/>
+    <Text ID="190631" Value="Magazine Out"/>
+    <Text ID="190632" Value=" "/>
+    <Text ID="190633" Value=" "/>
+    <Text ID="190634" Value=" "/>
+    <Text ID="190635" Value="Open Reed Switch"/>
+    <Text ID="190636" Value="Close Reed Switch"/>
+    <Text ID="190637" Value="Rotate Home"/>
+    <Text ID="190638" Value="Rotate Remote"/>
+    <Text ID="190639" Value="Magazine 1 Clamper"/>
+    <Text ID="190640" Value="Magazine 2 Clamper"/>
+    <Text ID="194532" Value="Magazine 3 Clamper"/>
+    <Text ID="194533" Value="Fixed Clamp"/>
+    <Text ID="194534" Value="Fixed Unclamp"/>
+    <Text ID="194535" Value="Remote Clamp"/>
+    <Text ID="194536" Value="Remote Unclamp"/>
+    <Text ID="194537" Value="Top Clamp"/>
+    <Text ID="194538" Value="Top Unclamp"/>
+    <Text ID="194539" Value="Selection Clamp"/>
+    <Text ID="194540" Value="Selection Unclamp"/>
+    <Text ID="194541" Value="Bottom Clamp"/>
+    <Text ID="194542" Value="Bottom Unclamp"/>
+    <Text ID="194543" Value=" "/>
+    <Text ID="194544" Value=" "/>
+    <Text ID="194545" Value=" "/>
+    <Text ID="194546" Value=" "/>
+    <Text ID="194547" Value="Mag AW Bypass 1"/>
+    <Text ID="194548" Value="Mag AW Bypass 2"/>
+    <Text ID="194549" Value="Mag AW Bypass 3"/>
+    <Text ID="194550" Value="Mag AW Bypass 4"/>
+    <Text ID="194551" Value="Small Mag AW Limit Sensor1"/>
+    <Text ID="194552" Value="Small Mag AW Limit Sensor2"/>
+    <Text ID="194553" Value="Small Mag AW Limit Sensor3"/>
+    <Text ID="194554" Value="Small Mag AW Limit Sensor4"/>
+    <Text ID="194555" Value=" "/>
+    <Text ID="194556" Value=" "/>
+    <Text ID="194557" Value="Entry Stopper Ext"/>
+    <Text ID="194558" Value="Entry Stopper Ret"/>
+    <Text ID="194559" Value="Mid Stopper Ext"/>
+    <Text ID="194560" Value="Mid Stopper Ret"/>
+    <Text ID="194561" Value="Exit Stopper Ext"/>
+    <Text ID="194562" Value="Exit Stopper Ret"/>
+    <Text ID="194563" Value=" "/>
+    <Text ID="194564" Value=" "/>
+    <Text ID="194565" Value=" "/>
+    <Text ID="194566" Value=" "/>
+    <Text ID="194567" Value="Open 2"/>
+    <Text ID="194568" Value="Open 3"/>
+    <Text ID="194569" Value="Curtain Sensor Reset"/>
+    <Text ID="194570" Value="Curtain Sensor PB LED"/>
+    <Text ID="194571" Value="Curtain Sensor Bypass"/>
+    <Text ID="194572" Value=" "/>
+    <Text ID="194573" Value=" "/>
+    <Text ID="514484" Value="Tower Light White"/>
+    <Text ID="514485" Value="Tower Light Blue"/>
+    <Text ID="514486" Value="Tower Light Amber"/>
+    <Text ID="584297" Value="Cyl Enter Board"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="190490" Value="Sicherheit zurücksetzen"/>
+    <Text ID="190491" Value="Alarm Rückstellung"/>
+    <Text ID="190492" Value="Turmlicht Grün"/>
+    <Text ID="190493" Value="Turmlicht Gelb"/>
+    <Text ID="190494" Value="Turmlicht Rot"/>
+    <Text ID="190495" Value="Summer"/>
+    <Text ID="190496" Value="DBA"/>
+    <Text ID="190497" Value="USB"/>
+    <Text ID="190498" Value="DBA Gut"/>
+    <Text ID="190499" Value="DBA Arg"/>
+    <Text ID="190500" Value="USB Leitung A"/>
+    <Text ID="190501" Value="USB Leitung B"/>
+    <Text ID="190502" Value="Verlängern Sie Langsam"/>
+    <Text ID="190503" Value="Langsames Einfahren"/>
+    <Text ID="190504" Value="Ofen Info"/>
+    <Text ID="190505" Value="Ofen Info A"/>
+    <Text ID="190506" Value="Ofen Info B"/>
+    <Text ID="190507" Value="CW"/>
+    <Text ID="190508" Value="CCW"/>
+    <Text ID="190509" Value="Richtung eingeben"/>
+    <Text ID="190510" Value="Engagieren"/>
+    <Text ID="190511" Value="Auskuppeln"/>
+    <Text ID="190512" Value="Bremse"/>
+    <Text ID="190513" Value="Sperren"/>
+    <Text ID="190514" Value="Entsperren"/>
+    <Text ID="190515" Value="Pusher Förderer Motor"/>
+    <Text ID="190516" Value="Öffnen"/>
+    <Text ID="190517" Value="Schließen"/>
+    <Text ID="190518" Value="Ausfahren"/>
+    <Text ID="190519" Value="Einfahren"/>
+    <Text ID="190520" Value="Starten"/>
+    <Text ID="190521" Value="Stopp"/>
+    <Text ID="190522" Value="Klappe"/>
+    <Text ID="190523" Value="Schieber"/>
+    <Text ID="190524" Value="Klemmer"/>
+    <Text ID="190525" Value="Stopfen"/>
+    <Text ID="190526" Value="Anfangs-\nLaufen"/>
+    <Text ID="190527" Value="Betrieb"/>
+    <Text ID="190528" Value="Wender Krontroll"/>
+    <Text ID="190529" Value="Schiebebühne Kontrolle"/>
+    <Text ID="190530" Value="Oberes Fach"/>
+    <Text ID="190531" Value="Sperren"/>
+    <Text ID="190532" Value="Entsperren"/>
+    <Text ID="190533" Value="Vorwärts"/>
+    <Text ID="190534" Value="Rückwärts"/>
+    <Text ID="190535" Value="Original"/>
+    <Text ID="190536" Value="Direkt"/>
+    <Text ID="190537" Value="Schließfach Aktivieren"/>
+    <Text ID="190538" Value="Direkte IO"/>
+    <Text ID="190539" Value="Sicherung"/>
+    <Text ID="190540" Value="Rückstellen"/>
+    <Text ID="190541" Value="Ausgang"/>
+    <Text ID="190542" Value="Leitung A Stopfen"/>
+    <Text ID="190543" Value="Leitung B Stopfen"/>
+    <Text ID="190544" Value="Sicherheitsrückstellung AUS"/>
+    <Text ID="190545" Value="Turmlicht Grün AUS"/>
+    <Text ID="190546" Value="Turmlicht Gelb AUS"/>
+    <Text ID="190547" Value="Turmlicht Rot AUS"/>
+    <Text ID="190548" Value="Summer AUS"/>
+    <Text ID="190549" Value="Ofen Info AUS A"/>
+    <Text ID="190550" Value="Ofen Info AUS B"/>
+    <Text ID="190551" Value="Vorn"/>
+    <Text ID="190552" Value="Hinten"/>
+    <Text ID="190553" Value="Mitte"/>
+    <Text ID="190554" Value="Links"/>
+    <Text ID="190555" Value="Rechts"/>
+    <Text ID="190556" Value="Vor dem Ausgang"/>
+    <Text ID="190557" Value="Vom Stopfen Weg"/>
+    <Text ID="190558" Value="Zum Stopfen hin"/>
+    <Text ID="190559" Value="Uhrzeigersinn"/>
+    <Text ID="190560" Value="Gegen Uhrzeigersinn"/>
+    <Text ID="190561" Value="Sperren"/>
+    <Text ID="190562" Value="Freischalten"/>
+    <Text ID="190563" Value="Klappen Vorn"/>
+    <Text ID="190564" Value="Klappe Links"/>
+    <Text ID="190565" Value="Klappe Vorn &amp; Links"/>
+    <Text ID="190566" Value="Klappe Hinten"/>
+    <Text ID="190567" Value="Klappe Vorn &amp; Hinten"/>
+    <Text ID="190568" Value="Klappe Links &amp; Hinten"/>
+    <Text ID="190569" Value="Klappe Vorn &amp; Links"/>
+    <Text ID="190570" Value="Klappe Rechts"/>
+    <Text ID="190571" Value="Klappe Vorn &amp; Rechts"/>
+    <Text ID="190572" Value="Klappe Links &amp; Rechts"/>
+    <Text ID="190573" Value="Klappe Vorn &amp; Links"/>
+    <Text ID="190574" Value="Klappe Hinten &amp; Rechts"/>
+    <Text ID="190575" Value="Klappe Vorn &amp; Hinten"/>
+    <Text ID="190576" Value="Klappe Links &amp; Hinten"/>
+    <Text ID="190577" Value="Klappe Vorn &amp; Links"/>
+    <Text ID="190578" Value="Eingang Rückwärts"/>
+    <Text ID="190579" Value="Ausgang Rückwärts"/>
+    <Text ID="190580" Value="Eingang Rückwärts"/>
+    <Text ID="190581" Value="Ausgang Rückwärts"/>
+    <Text ID="190582" Value="Wender Test"/>
+    <Text ID="190583" Value="Brett Betreten"/>
+    <Text ID="190584" Value="Übertragungsbrett"/>
+    <Text ID="190585" Value="Ausgangs Brett"/>
+    <Text ID="190586" Value="Zyl Ausgang Brett"/>
+    <Text ID="190587" Value="Eingeben"/>
+    <Text ID="190588" Value="Anfangs Eingeben"/>
+    <Text ID="190589" Value="Anfangs Ausgang"/>
+    <Text ID="190590" Value="Ausgang"/>
+    <Text ID="190591" Value="Ausgangs Brett"/>
+    <Text ID="190592" Value="Pusher Förderer Motor AUS"/>
+    <Text ID="190593" Value="Förderband Bereich 1 Motor"/>
+    <Text ID="190594" Value="Förderband Bereich 2 Motor"/>
+    <Text ID="190595" Value="Dual Speed"/>
+    <Text ID="190596" Value="Z1 Dual Speed"/>
+    <Text ID="190597" Value="Z2 Dual Speed"/>
+    <Text ID="190598" Value="Pneumatikzylinder"/>
+    <Text ID="190599" Value="Nach Oben Ausfahren"/>
+    <Text ID="190600" Value="Nach Unten Einfahren"/>
+    <Text ID="190601" Value="Hoch"/>
+    <Text ID="190602" Value="Runter"/>
+    <Text ID="190603" Value="Festklemmen "/>
+    <Text ID="190604" Value="Ausspannen"/>
+    <Text ID="190605" Value="Mittelstopfen"/>
+    <Text ID="190606" Value="Ausgang Stopfen"/>
+    <Text ID="190607" Value="Einlassstopfen"/>
+    <Text ID="190608" Value="Drehen\nR To L"/>
+    <Text ID="190609" Value="Intern\nVR"/>
+    <Text ID="190610" Value="Produkt Rezept"/>
+    <Text ID="190611" Value="Sync"/>
+    <Text ID="190612" Value="PLC Dok"/>
+    <Text ID="190613" Value="Funktionen"/>
+    <Text ID="190614" Value=" "/>
+    <Text ID="190615" Value="Oberen Mittleren Stopper"/>
+    <Text ID="190616" Value="Top-Ausgangsstopper"/>
+    <Text ID="190617" Value="Unterer Mittlerer Stopper"/>
+    <Text ID="190618" Value="Unterer Ausgangsanschlag"/>
+    <Text ID="190619" Value="Unterer Z3 Stopper"/>
+    <Text ID="190620" Value=" "/>
+    <Text ID="190621" Value=" "/>
+    <Text ID="190622" Value=" "/>
+    <Text ID="190623" Value=" "/>
+    <Text ID="190624" Value=" "/>
+    <Text ID="190625" Value="Zum Heber"/>
+    <Text ID="190626" Value="Weg Heber"/>
+    <Text ID="190627" Value="Motor An"/>
+    <Text ID="190628" Value=" "/>
+    <Text ID="190629" Value=" "/>
+    <Text ID="190630" Value=" "/>
+    <Text ID="190631" Value=" "/>
+    <Text ID="190632" Value=" "/>
+    <Text ID="190633" Value=" "/>
+    <Text ID="190634" Value=" "/>
+    <Text ID="190635" Value="Open Reed Switch"/>
+    <Text ID="190636" Value="Close Reed Switch"/>
+    <Text ID="190637" Value="Rotate Home"/>
+    <Text ID="190638" Value="Rotate Remote"/>
+    <Text ID="190639" Value="Magazine 1 Clamper"/>
+    <Text ID="190640" Value="Magazine 2 Clamper"/>
+    <Text ID="194532" Value="Magazine 3 Clamper"/>
+    <Text ID="194533" Value=" "/>
+    <Text ID="194534" Value=" "/>
+    <Text ID="194535" Value=" "/>
+    <Text ID="194536" Value=" "/>
+    <Text ID="194537" Value=" "/>
+    <Text ID="194538" Value=" "/>
+    <Text ID="194539" Value=" "/>
+    <Text ID="194540" Value=" "/>
+    <Text ID="194541" Value=" "/>
+    <Text ID="194542" Value=" "/>
+    <Text ID="194543" Value=" "/>
+    <Text ID="194544" Value=" "/>
+    <Text ID="194545" Value=" "/>
+    <Text ID="194546" Value=" "/>
+    <Text ID="194547" Value=" "/>
+    <Text ID="194548" Value=" "/>
+    <Text ID="194549" Value=" "/>
+    <Text ID="194550" Value=" "/>
+    <Text ID="194551" Value=" "/>
+    <Text ID="194552" Value=" "/>
+    <Text ID="194553" Value=" "/>
+    <Text ID="194554" Value=" "/>
+    <Text ID="194555" Value=" "/>
+    <Text ID="194556" Value=" "/>
+    <Text ID="194557" Value=" "/>
+    <Text ID="194558" Value=" "/>
+    <Text ID="194559" Value=" "/>
+    <Text ID="194560" Value=" "/>
+    <Text ID="194561" Value=" "/>
+    <Text ID="194562" Value=" "/>
+    <Text ID="194563" Value=" "/>
+    <Text ID="194564" Value=" "/>
+    <Text ID="194565" Value=" "/>
+    <Text ID="194566" Value=" "/>
+    <Text ID="194567" Value=" "/>
+    <Text ID="194568" Value=" "/>
+    <Text ID="194569" Value=" "/>
+    <Text ID="194570" Value=" "/>
+    <Text ID="194571" Value=" "/>
+    <Text ID="194572" Value=" "/>
+    <Text ID="194573" Value=" "/>
+    <Text ID="514484" Value="Tower Light White"/>
+    <Text ID="514485" Value="Tower Light Blue"/>
+    <Text ID="514486" Value="Tower Light Amber"/>
+    <Text ID="584297" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="190490" Value="安全重置"/>
+    <Text ID="190491" Value="警报重置输入"/>
+    <Text ID="190492" Value="绿色塔灯"/>
+    <Text ID="190493" Value="琥珀色塔灯"/>
+    <Text ID="190494" Value="红色塔灯"/>
+    <Text ID="190495" Value="蜂鸣器"/>
+    <Text ID="190496" Value="DBA"/>
+    <Text ID="190497" Value="USB"/>
+    <Text ID="190498" Value="DBA 好板"/>
+    <Text ID="190499" Value="DBA 坏板"/>
+    <Text ID="190500" Value="USB 路线 A"/>
+    <Text ID="190501" Value="USB 路线 B"/>
+    <Text ID="190502" Value="缓慢延伸"/>
+    <Text ID="190503" Value="缓慢回缩"/>
+    <Text ID="190504" Value="回流炉信息"/>
+    <Text ID="190505" Value="回流炉信息 A"/>
+    <Text ID="190506" Value="回流炉信息 B"/>
+    <Text ID="190507" Value="顺时针"/>
+    <Text ID="190508" Value="逆时针"/>
+    <Text ID="190509" Value="方向输入"/>
+    <Text ID="190510" Value="接合"/>
+    <Text ID="190511" Value="脱离"/>
+    <Text ID="190512" Value="制动"/>
+    <Text ID="190513" Value="锁定"/>
+    <Text ID="190514" Value="解锁"/>
+    <Text ID="190515" Value="推进输送机马达"/>
+    <Text ID="190516" Value="开启"/>
+    <Text ID="190517" Value="关闭"/>
+    <Text ID="190518" Value="扩展"/>
+    <Text ID="190519" Value="回缩"/>
+    <Text ID="190520" Value="开始"/>
+    <Text ID="190521" Value="停止"/>
+    <Text ID="190522" Value="挡板"/>
+    <Text ID="190523" Value="推进器"/>
+    <Text ID="190524" Value="夹持器"/>
+    <Text ID="190525" Value="制止器"/>
+    <Text ID="190526" Value="初始运行"/>
+    <Text ID="190527" Value="操作"/>
+    <Text ID="190528" Value="转角机控制"/>
+    <Text ID="190529" Value="平移机控制"/>
+    <Text ID="190530" Value="上方锁具"/>
+    <Text ID="190531" Value="锁定"/>
+    <Text ID="190532" Value="解锁"/>
+    <Text ID="190533" Value="前进"/>
+    <Text ID="190534" Value="反转"/>
+    <Text ID="190535" Value="起源"/>
+    <Text ID="190536" Value="直接"/>
+    <Text ID="190537" Value="启用锁具"/>
+    <Text ID="190538" Value="直接 IO"/>
+    <Text ID="190539" Value="备份"/>
+    <Text ID="190540" Value="恢复"/>
+    <Text ID="190541" Value="输出"/>
+    <Text ID="190542" Value="路线 A 制动器"/>
+    <Text ID="190543" Value="路线 B 制动器"/>
+    <Text ID="190544" Value="安全重设 OFF"/>
+    <Text ID="190545" Value="绿色塔灯 OFF"/>
+    <Text ID="190546" Value="琥珀色塔灯 OFF"/>
+    <Text ID="190547" Value="红色塔灯 OFF"/>
+    <Text ID="190548" Value="蜂鸣器 OFF"/>
+    <Text ID="190549" Value="回流炉信息 A 关闭"/>
+    <Text ID="190550" Value="回流炉信息 B 关闭"/>
+    <Text ID="190551" Value="前方"/>
+    <Text ID="190552" Value="后方"/>
+    <Text ID="190553" Value="居中"/>
+    <Text ID="190554" Value="左"/>
+    <Text ID="190555" Value="右"/>
+    <Text ID="190556" Value="预备输出"/>
+    <Text ID="190557" Value="远离制动器"/>
+    <Text ID="190558" Value="朝向制动器"/>
+    <Text ID="190559" Value="顺时针"/>
+    <Text ID="190560" Value="逆时针"/>
+    <Text ID="190561" Value="锁"/>
+    <Text ID="190562" Value="解锁"/>
+    <Text ID="190563" Value="前方挡板"/>
+    <Text ID="190564" Value="左侧挡板"/>
+    <Text ID="190565" Value="前方 &amp; 左侧挡板"/>
+    <Text ID="190566" Value="后方挡板"/>
+    <Text ID="190567" Value="前方 &amp; 后方挡板"/>
+    <Text ID="190568" Value="后方 &amp; 左侧挡板"/>
+    <Text ID="190569" Value="前方 &amp; 左侧挡板"/>
+    <Text ID="190570" Value="右侧挡板"/>
+    <Text ID="190571" Value="前方 &amp; 右侧挡板"/>
+    <Text ID="190572" Value="左侧 &amp; 右侧挡板"/>
+    <Text ID="190573" Value="前方 &amp; 左侧挡板"/>
+    <Text ID="190574" Value="后方 &amp; 右侧挡板"/>
+    <Text ID="190575" Value="前方 &amp; 后方挡板"/>
+    <Text ID="190576" Value="后方 &amp; 左侧挡板"/>
+    <Text ID="190577" Value="前方 &amp; 左侧挡板"/>
+    <Text ID="190578" Value="正向输入"/>
+    <Text ID="190579" Value="正向输出"/>
+    <Text ID="190580" Value="反向输入"/>
+    <Text ID="190581" Value="反向输出"/>
+    <Text ID="190582" Value="转角机测试"/>
+    <Text ID="190583" Value="输入电路板"/>
+    <Text ID="190584" Value="传递电路板"/>
+    <Text ID="190585" Value="输出电路板"/>
+    <Text ID="190586" Value="气缸输出电路板"/>
+    <Text ID="190587" Value="输入"/>
+    <Text ID="190588" Value="初始输入"/>
+    <Text ID="190589" Value="初始输出"/>
+    <Text ID="190590" Value="输出"/>
+    <Text ID="190591" Value="输出电路板"/>
+    <Text ID="190592" Value="推进输送机马达关闭"/>
+    <Text ID="190593" Value="输送带 1 区马达"/>
+    <Text ID="190594" Value="输送带 2 区马达"/>
+    <Text ID="190595" Value="双速"/>
+    <Text ID="190596" Value="1 区双速"/>
+    <Text ID="190597" Value="2 区双速"/>
+    <Text ID="190598" Value="气动缸"/>
+    <Text ID="190599" Value="向上延伸"/>
+    <Text ID="190600" Value="向下回缩"/>
+    <Text ID="190601" Value="上"/>
+    <Text ID="190602" Value="下"/>
+    <Text ID="190603" Value="夹持"/>
+    <Text ID="190604" Value="松开"/>
+    <Text ID="190605" Value="居中制动器"/>
+    <Text ID="190606" Value="出口制动器"/>
+    <Text ID="190607" Value="入口制动器"/>
+    <Text ID="190608" Value="右到左旋转"/>
+    <Text ID="190609" Value="内部\n电阻器"/>
+    <Text ID="190610" Value="产品配方"/>
+    <Text ID="190611" Value="同步"/>
+    <Text ID="190612" Value="PLC 文件"/>
+    <Text ID="190613" Value="功能"/>
+    <Text ID="190614" Value=" "/>
+    <Text ID="190615" Value="顶部中间制动器"/>
+    <Text ID="190616" Value="顶部出口制动器"/>
+    <Text ID="190617" Value="底部中间制动器"/>
+    <Text ID="190618" Value="底部出口制动器"/>
+    <Text ID="190619" Value="底部Z3制动器"/>
+    <Text ID="190620" Value=" "/>
+    <Text ID="190621" Value=" "/>
+    <Text ID="190622" Value=" "/>
+    <Text ID="190623" Value=" "/>
+    <Text ID="190624" Value=" "/>
+    <Text ID="190625" Value="朝向升降机"/>
+    <Text ID="190626" Value="远离升降机"/>
+    <Text ID="190627" Value="马达开启"/>
+    <Text ID="190628" Value=" "/>
+    <Text ID="190629" Value=" "/>
+    <Text ID="190630" Value=" "/>
+    <Text ID="190631" Value=" "/>
+    <Text ID="190632" Value=" "/>
+    <Text ID="190633" Value=" "/>
+    <Text ID="190634" Value=" "/>
+    <Text ID="190635" Value="Open Reed Switch"/>
+    <Text ID="190636" Value="Close Reed Switch"/>
+    <Text ID="190637" Value="Rotate Home"/>
+    <Text ID="190638" Value="Rotate Remote"/>
+    <Text ID="190639" Value="Magazine 1 Clamper"/>
+    <Text ID="190640" Value="Magazine 2 Clamper"/>
+    <Text ID="194532" Value="Magazine 3 Clamper"/>
+    <Text ID="194533" Value=" "/>
+    <Text ID="194534" Value=" "/>
+    <Text ID="194535" Value=" "/>
+    <Text ID="194536" Value=" "/>
+    <Text ID="194537" Value=" "/>
+    <Text ID="194538" Value=" "/>
+    <Text ID="194539" Value=" "/>
+    <Text ID="194540" Value=" "/>
+    <Text ID="194541" Value=" "/>
+    <Text ID="194542" Value=" "/>
+    <Text ID="194543" Value=" "/>
+    <Text ID="194544" Value=" "/>
+    <Text ID="194545" Value=" "/>
+    <Text ID="194546" Value=" "/>
+    <Text ID="194547" Value=" "/>
+    <Text ID="194548" Value=" "/>
+    <Text ID="194549" Value=" "/>
+    <Text ID="194550" Value=" "/>
+    <Text ID="194551" Value=" "/>
+    <Text ID="194552" Value=" "/>
+    <Text ID="194553" Value=" "/>
+    <Text ID="194554" Value=" "/>
+    <Text ID="194555" Value=" "/>
+    <Text ID="194556" Value=" "/>
+    <Text ID="194557" Value=" "/>
+    <Text ID="194558" Value=" "/>
+    <Text ID="194559" Value=" "/>
+    <Text ID="194560" Value=" "/>
+    <Text ID="194561" Value=" "/>
+    <Text ID="194562" Value=" "/>
+    <Text ID="194563" Value=" "/>
+    <Text ID="194564" Value=" "/>
+    <Text ID="194565" Value=" "/>
+    <Text ID="194566" Value=" "/>
+    <Text ID="194567" Value=" "/>
+    <Text ID="194568" Value=" "/>
+    <Text ID="194569" Value=" "/>
+    <Text ID="194570" Value=" "/>
+    <Text ID="194571" Value=" "/>
+    <Text ID="194572" Value=" "/>
+    <Text ID="194573" Value=" "/>
+    <Text ID="514484" Value="Tower Light White"/>
+    <Text ID="514485" Value="Tower Light Blue"/>
+    <Text ID="514486" Value="Tower Light Amber"/>
+    <Text ID="584297" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="190490" Value=""/>
+    <Text ID="190491" Value=""/>
+    <Text ID="190492" Value=""/>
+    <Text ID="190493" Value=""/>
+    <Text ID="190494" Value=""/>
+    <Text ID="190495" Value=""/>
+    <Text ID="190496" Value=""/>
+    <Text ID="190497" Value=""/>
+    <Text ID="190498" Value=""/>
+    <Text ID="190499" Value=""/>
+    <Text ID="190500" Value=""/>
+    <Text ID="190501" Value=""/>
+    <Text ID="190502" Value=""/>
+    <Text ID="190503" Value=""/>
+    <Text ID="190504" Value=""/>
+    <Text ID="190505" Value=""/>
+    <Text ID="190506" Value=""/>
+    <Text ID="190507" Value=""/>
+    <Text ID="190508" Value=""/>
+    <Text ID="190509" Value=""/>
+    <Text ID="190510" Value=""/>
+    <Text ID="190511" Value=""/>
+    <Text ID="190512" Value=""/>
+    <Text ID="190513" Value=""/>
+    <Text ID="190514" Value=""/>
+    <Text ID="190515" Value=""/>
+    <Text ID="190516" Value=""/>
+    <Text ID="190517" Value=""/>
+    <Text ID="190518" Value=""/>
+    <Text ID="190519" Value=""/>
+    <Text ID="190520" Value=""/>
+    <Text ID="190521" Value=""/>
+    <Text ID="190522" Value=""/>
+    <Text ID="190523" Value=""/>
+    <Text ID="190524" Value=""/>
+    <Text ID="190525" Value=""/>
+    <Text ID="190526" Value=""/>
+    <Text ID="190527" Value=""/>
+    <Text ID="190528" Value=""/>
+    <Text ID="190529" Value=""/>
+    <Text ID="190530" Value=""/>
+    <Text ID="190531" Value=""/>
+    <Text ID="190532" Value=""/>
+    <Text ID="190533" Value=""/>
+    <Text ID="190534" Value=""/>
+    <Text ID="190535" Value=""/>
+    <Text ID="190536" Value=""/>
+    <Text ID="190537" Value=""/>
+    <Text ID="190538" Value=""/>
+    <Text ID="190539" Value=""/>
+    <Text ID="190540" Value=""/>
+    <Text ID="190541" Value=""/>
+    <Text ID="190542" Value=""/>
+    <Text ID="190543" Value=""/>
+    <Text ID="190544" Value=""/>
+    <Text ID="190545" Value=""/>
+    <Text ID="190546" Value=""/>
+    <Text ID="190547" Value=""/>
+    <Text ID="190548" Value=""/>
+    <Text ID="190549" Value=""/>
+    <Text ID="190550" Value=""/>
+    <Text ID="190551" Value=""/>
+    <Text ID="190552" Value=""/>
+    <Text ID="190553" Value=""/>
+    <Text ID="190554" Value=""/>
+    <Text ID="190555" Value=""/>
+    <Text ID="190556" Value=""/>
+    <Text ID="190557" Value=""/>
+    <Text ID="190558" Value=""/>
+    <Text ID="190559" Value=""/>
+    <Text ID="190560" Value=""/>
+    <Text ID="190561" Value=""/>
+    <Text ID="190562" Value=""/>
+    <Text ID="190563" Value=""/>
+    <Text ID="190564" Value=""/>
+    <Text ID="190565" Value=""/>
+    <Text ID="190566" Value=""/>
+    <Text ID="190567" Value=""/>
+    <Text ID="190568" Value=""/>
+    <Text ID="190569" Value=""/>
+    <Text ID="190570" Value=""/>
+    <Text ID="190571" Value=""/>
+    <Text ID="190572" Value=""/>
+    <Text ID="190573" Value=""/>
+    <Text ID="190574" Value=""/>
+    <Text ID="190575" Value=""/>
+    <Text ID="190576" Value=""/>
+    <Text ID="190577" Value=""/>
+    <Text ID="190578" Value=""/>
+    <Text ID="190579" Value=""/>
+    <Text ID="190580" Value=""/>
+    <Text ID="190581" Value=""/>
+    <Text ID="190582" Value=""/>
+    <Text ID="190583" Value=""/>
+    <Text ID="190584" Value=""/>
+    <Text ID="190585" Value=""/>
+    <Text ID="190586" Value=""/>
+    <Text ID="190587" Value=""/>
+    <Text ID="190588" Value=""/>
+    <Text ID="190589" Value=""/>
+    <Text ID="190590" Value=""/>
+    <Text ID="190591" Value=""/>
+    <Text ID="190592" Value=""/>
+    <Text ID="190593" Value=""/>
+    <Text ID="190594" Value=""/>
+    <Text ID="190595" Value=""/>
+    <Text ID="190596" Value=""/>
+    <Text ID="190597" Value=""/>
+    <Text ID="190598" Value=""/>
+    <Text ID="190599" Value=""/>
+    <Text ID="190600" Value=""/>
+    <Text ID="190601" Value=""/>
+    <Text ID="190602" Value=""/>
+    <Text ID="190603" Value=""/>
+    <Text ID="190604" Value=""/>
+    <Text ID="190605" Value=""/>
+    <Text ID="190606" Value=""/>
+    <Text ID="190607" Value=""/>
+    <Text ID="190608" Value=""/>
+    <Text ID="190609" Value=""/>
+    <Text ID="190610" Value=""/>
+    <Text ID="190611" Value=""/>
+    <Text ID="190612" Value=""/>
+    <Text ID="190613" Value=""/>
+    <Text ID="190614" Value=""/>
+    <Text ID="190615" Value=""/>
+    <Text ID="190616" Value=""/>
+    <Text ID="190617" Value=""/>
+    <Text ID="190618" Value=""/>
+    <Text ID="190619" Value=""/>
+    <Text ID="190620" Value=""/>
+    <Text ID="190621" Value=""/>
+    <Text ID="190622" Value=""/>
+    <Text ID="190623" Value=""/>
+    <Text ID="190624" Value=""/>
+    <Text ID="190625" Value=""/>
+    <Text ID="190626" Value=""/>
+    <Text ID="190627" Value=""/>
+    <Text ID="190628" Value=""/>
+    <Text ID="190629" Value=""/>
+    <Text ID="190630" Value=""/>
+    <Text ID="190631" Value=""/>
+    <Text ID="190632" Value=""/>
+    <Text ID="190633" Value=""/>
+    <Text ID="190634" Value=""/>
+    <Text ID="190635" Value=""/>
+    <Text ID="190636" Value=""/>
+    <Text ID="190637" Value=""/>
+    <Text ID="190638" Value=""/>
+    <Text ID="190639" Value=""/>
+    <Text ID="190640" Value=""/>
+    <Text ID="194532" Value=""/>
+    <Text ID="194533" Value=""/>
+    <Text ID="194534" Value=""/>
+    <Text ID="194535" Value=""/>
+    <Text ID="194536" Value=""/>
+    <Text ID="194537" Value=""/>
+    <Text ID="194538" Value=""/>
+    <Text ID="194539" Value=""/>
+    <Text ID="194540" Value=""/>
+    <Text ID="194541" Value=""/>
+    <Text ID="194542" Value=""/>
+    <Text ID="194543" Value=""/>
+    <Text ID="194544" Value=""/>
+    <Text ID="194545" Value=""/>
+    <Text ID="194546" Value=""/>
+    <Text ID="194547" Value=""/>
+    <Text ID="194548" Value=""/>
+    <Text ID="194549" Value=""/>
+    <Text ID="194550" Value=""/>
+    <Text ID="194551" Value=""/>
+    <Text ID="194552" Value=""/>
+    <Text ID="194553" Value=""/>
+    <Text ID="194554" Value=""/>
+    <Text ID="194555" Value=""/>
+    <Text ID="194556" Value=""/>
+    <Text ID="194557" Value=""/>
+    <Text ID="194558" Value=""/>
+    <Text ID="194559" Value=""/>
+    <Text ID="194560" Value=""/>
+    <Text ID="194561" Value=""/>
+    <Text ID="194562" Value=""/>
+    <Text ID="194563" Value=""/>
+    <Text ID="194564" Value=""/>
+    <Text ID="194565" Value=""/>
+    <Text ID="194566" Value=""/>
+    <Text ID="194567" Value=""/>
+    <Text ID="194568" Value=""/>
+    <Text ID="194569" Value=""/>
+    <Text ID="194570" Value=""/>
+    <Text ID="194571" Value=""/>
+    <Text ID="194572" Value=""/>
+    <Text ID="194573" Value=""/>
+    <Text ID="514484" Value=""/>
+    <Text ID="514485" Value=""/>
+    <Text ID="514486" Value=""/>
+    <Text ID="584297" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="190490" Value="0"/>
+    <Index ID="190491" Value="1"/>
+    <Index ID="190492" Value="2"/>
+    <Index ID="190493" Value="3"/>
+    <Index ID="190494" Value="4"/>
+    <Index ID="190495" Value="8"/>
+    <Index ID="190496" Value="9"/>
+    <Index ID="190497" Value="10"/>
+    <Index ID="190498" Value="11"/>
+    <Index ID="190499" Value="12"/>
+    <Index ID="190500" Value="13"/>
+    <Index ID="190501" Value="14"/>
+    <Index ID="190502" Value="15"/>
+    <Index ID="190503" Value="16"/>
+    <Index ID="190504" Value="17"/>
+    <Index ID="190505" Value="18"/>
+    <Index ID="190506" Value="19"/>
+    <Index ID="190507" Value="20"/>
+    <Index ID="190508" Value="21"/>
+    <Index ID="190509" Value="22"/>
+    <Index ID="190510" Value="23"/>
+    <Index ID="190511" Value="24"/>
+    <Index ID="190512" Value="25"/>
+    <Index ID="190513" Value="26"/>
+    <Index ID="190514" Value="27"/>
+    <Index ID="190515" Value="28"/>
+    <Index ID="190516" Value="29"/>
+    <Index ID="190517" Value="30"/>
+    <Index ID="190518" Value="31"/>
+    <Index ID="190519" Value="32"/>
+    <Index ID="190520" Value="33"/>
+    <Index ID="190521" Value="34"/>
+    <Index ID="190522" Value="35"/>
+    <Index ID="190523" Value="36"/>
+    <Index ID="190524" Value="37"/>
+    <Index ID="190525" Value="38"/>
+    <Index ID="190526" Value="39"/>
+    <Index ID="190527" Value="40"/>
+    <Index ID="190528" Value="41"/>
+    <Index ID="190529" Value="42"/>
+    <Index ID="190530" Value="43"/>
+    <Index ID="190531" Value="44"/>
+    <Index ID="190532" Value="45"/>
+    <Index ID="190533" Value="46"/>
+    <Index ID="190534" Value="47"/>
+    <Index ID="190535" Value="48"/>
+    <Index ID="190536" Value="49"/>
+    <Index ID="190537" Value="50"/>
+    <Index ID="190538" Value="51"/>
+    <Index ID="190539" Value="52"/>
+    <Index ID="190540" Value="53"/>
+    <Index ID="190541" Value="54"/>
+    <Index ID="190542" Value="55"/>
+    <Index ID="190543" Value="56"/>
+    <Index ID="190544" Value="57"/>
+    <Index ID="190545" Value="58"/>
+    <Index ID="190546" Value="59"/>
+    <Index ID="190547" Value="60"/>
+    <Index ID="190548" Value="61"/>
+    <Index ID="190549" Value="62"/>
+    <Index ID="190550" Value="63"/>
+    <Index ID="190551" Value="64"/>
+    <Index ID="190552" Value="65"/>
+    <Index ID="190553" Value="66"/>
+    <Index ID="190554" Value="67"/>
+    <Index ID="190555" Value="68"/>
+    <Index ID="190556" Value="69"/>
+    <Index ID="190557" Value="70"/>
+    <Index ID="190558" Value="71"/>
+    <Index ID="190559" Value="72"/>
+    <Index ID="190560" Value="73"/>
+    <Index ID="190561" Value="74"/>
+    <Index ID="190562" Value="75"/>
+    <Index ID="190563" Value="76"/>
+    <Index ID="190564" Value="77"/>
+    <Index ID="190565" Value="78"/>
+    <Index ID="190566" Value="79"/>
+    <Index ID="190567" Value="80"/>
+    <Index ID="190568" Value="81"/>
+    <Index ID="190569" Value="82"/>
+    <Index ID="190570" Value="83"/>
+    <Index ID="190571" Value="84"/>
+    <Index ID="190572" Value="85"/>
+    <Index ID="190573" Value="86"/>
+    <Index ID="190574" Value="87"/>
+    <Index ID="190575" Value="88"/>
+    <Index ID="190576" Value="89"/>
+    <Index ID="190577" Value="90"/>
+    <Index ID="190578" Value="91"/>
+    <Index ID="190579" Value="92"/>
+    <Index ID="190580" Value="93"/>
+    <Index ID="190581" Value="94"/>
+    <Index ID="190582" Value="95"/>
+    <Index ID="190583" Value="96"/>
+    <Index ID="190584" Value="97"/>
+    <Index ID="190585" Value="98"/>
+    <Index ID="190586" Value="100"/>
+    <Index ID="190587" Value="101"/>
+    <Index ID="190588" Value="102"/>
+    <Index ID="190589" Value="103"/>
+    <Index ID="190590" Value="104"/>
+    <Index ID="190591" Value="105"/>
+    <Index ID="190592" Value="106"/>
+    <Index ID="190593" Value="107"/>
+    <Index ID="190594" Value="108"/>
+    <Index ID="190595" Value="109"/>
+    <Index ID="190596" Value="110"/>
+    <Index ID="190597" Value="111"/>
+    <Index ID="190598" Value="112"/>
+    <Index ID="190599" Value="113"/>
+    <Index ID="190600" Value="114"/>
+    <Index ID="190601" Value="115"/>
+    <Index ID="190602" Value="116"/>
+    <Index ID="190603" Value="117"/>
+    <Index ID="190604" Value="118"/>
+    <Index ID="190605" Value="119"/>
+    <Index ID="190606" Value="120"/>
+    <Index ID="190607" Value="121"/>
+    <Index ID="190608" Value="122"/>
+    <Index ID="190609" Value="123"/>
+    <Index ID="190610" Value="124"/>
+    <Index ID="190611" Value="125"/>
+    <Index ID="190612" Value="126"/>
+    <Index ID="190613" Value="127"/>
+    <Index ID="190614" Value="128"/>
+    <Index ID="190615" Value="129"/>
+    <Index ID="190616" Value="130"/>
+    <Index ID="190617" Value="131"/>
+    <Index ID="190618" Value="132"/>
+    <Index ID="190619" Value="133"/>
+    <Index ID="190620" Value="134"/>
+    <Index ID="190621" Value="135"/>
+    <Index ID="190622" Value="136"/>
+    <Index ID="190623" Value="137"/>
+    <Index ID="190624" Value="138"/>
+    <Index ID="190625" Value="139"/>
+    <Index ID="190626" Value="140"/>
+    <Index ID="190627" Value="141"/>
+    <Index ID="190628" Value="142"/>
+    <Index ID="190629" Value="143"/>
+    <Index ID="190630" Value="144"/>
+    <Index ID="190631" Value="145"/>
+    <Index ID="190632" Value="146"/>
+    <Index ID="190633" Value="147"/>
+    <Index ID="190634" Value="148"/>
+    <Index ID="190635" Value="149"/>
+    <Index ID="190636" Value="150"/>
+    <Index ID="190637" Value="151"/>
+    <Index ID="190638" Value="152"/>
+    <Index ID="190639" Value="153"/>
+    <Index ID="190640" Value="154"/>
+    <Index ID="194532" Value="155"/>
+    <Index ID="194533" Value="156"/>
+    <Index ID="194534" Value="157"/>
+    <Index ID="194535" Value="158"/>
+    <Index ID="194536" Value="159"/>
+    <Index ID="194537" Value="164"/>
+    <Index ID="194538" Value="165"/>
+    <Index ID="194539" Value="160"/>
+    <Index ID="194540" Value="161"/>
+    <Index ID="194541" Value="162"/>
+    <Index ID="194542" Value="163"/>
+    <Index ID="194543" Value="166"/>
+    <Index ID="194544" Value="167"/>
+    <Index ID="194545" Value="168"/>
+    <Index ID="194546" Value="169"/>
+    <Index ID="194547" Value="170"/>
+    <Index ID="194548" Value="171"/>
+    <Index ID="194549" Value="172"/>
+    <Index ID="194550" Value="173"/>
+    <Index ID="194551" Value="174"/>
+    <Index ID="194552" Value="175"/>
+    <Index ID="194553" Value="176"/>
+    <Index ID="194554" Value="177"/>
+    <Index ID="194555" Value="178"/>
+    <Index ID="194556" Value="179"/>
+    <Index ID="194557" Value="180"/>
+    <Index ID="194558" Value="181"/>
+    <Index ID="194559" Value="182"/>
+    <Index ID="194560" Value="183"/>
+    <Index ID="194561" Value="184"/>
+    <Index ID="194562" Value="185"/>
+    <Index ID="194563" Value="186"/>
+    <Index ID="194564" Value="187"/>
+    <Index ID="194565" Value="188"/>
+    <Index ID="194566" Value="189"/>
+    <Index ID="194567" Value="190"/>
+    <Index ID="194568" Value="191"/>
+    <Index ID="194569" Value="192"/>
+    <Index ID="194570" Value="193"/>
+    <Index ID="194571" Value="194"/>
+    <Index ID="194572" Value="195"/>
+    <Index ID="194573" Value="196"/>
+    <Index ID="514484" Value="5"/>
+    <Index ID="514485" Value="6"/>
+    <Index ID="514486" Value="7"/>
+    <Index ID="584297" Value="99"/>
+  </IndexMap>
+</TextGroup>

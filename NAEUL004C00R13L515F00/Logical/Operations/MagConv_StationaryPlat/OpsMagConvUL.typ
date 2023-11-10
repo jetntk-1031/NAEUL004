@@ -1,0 +1,51 @@
+(*2018-12-11*)
+(**)
+(*Sequence*)
+
+TYPE
+	eMagConvULStep : 
+		(
+		MagConvULStepNA,
+		MagConvULStepInitMag,
+		MagConvULStepSafetyBarExtCtrl,
+		MagConvULStepMagUSComm,
+		MagConvULStepInitAWPneu,
+		MagConvULStepInitMagEnt,
+		MagConvULStepInitMagFixClp,
+		MagConvULStepInitMagConv,
+		MagConvULStepMagEnt,
+		MagConvULStepMagEntMnl,
+		MagConvULStepSelClampCtrl,
+		MagConvULStepVerifyMag,
+		MagConvULStepChkMag,
+		MagConvULStepSafetyBarExt,
+		MagConvULStepSafetyBarRet,
+		MagConvULStepMagAWEngage,
+		MagConvULStepMagAWDisengage,
+		MagConvULStepMagAWHm,
+		MagConvULStepMagAWMov,
+		MagConvULStepMagEntMESStdByChk,
+		MagConvULStepBffrStatChk,
+		MagConvULStepMagCmp,
+		MagConvULStepMtyBffr,
+		MagConvULStepNxtLoadBffr,
+		MagConvULStepBffrUSComm,
+		MagConvULStepBffrEntBrd,
+		MagConvULStepUpdateBffr,
+		MagConvULStepLoadBffr,
+		MagConvULStepMagExtMESStdByChk,
+		MagConvULStepMagExitClampCtrl,
+		MagConvULStepMagExitSafeBarCtrl,
+		MagConvULStepMagFullDSComm,
+		MagConvULStepMagFullExit,
+		MagConvULStepMagExitMnl,
+		MagConvULStepMagHalfExitMnl,
+		MagConvULStepMagExitedWait,
+		MagConvULStepMagExitedAGVWait
+		);
+	eLifMagULUpdateData : 
+		(
+		BufferActLoadWhenStarted,
+		BufferActLoadWhenCompleted
+		);
+END_TYPE

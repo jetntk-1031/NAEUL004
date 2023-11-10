@@ -1,0 +1,37 @@
+(*2020-09-10*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_TCPStat : UDINT;
+	p_TCPStatus : UDINT;
+	p_TCPStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_TCPAlmData : UDINT;
+	p_TCPAlmData1 : UDINT;
+	p_TCPAlmData2 : UDINT;
+	p_TCPAlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_TCPAIVBatteryLvl : UDINT;
+	p_TCPAIVCurrentBatteryLvl : UDINT;
+	p_TCPConnected : UDINT;
+	p_TCPHistoryList : UDINT;
+	p_TCPMsgRcvData : UDINT;
+	p_TCPSvrMsgRcvData : UDINT;
+	p_TCPSvrAGVStatus1 : UDINT;
+	p_TCPSvrAGVStatus2 : UDINT;
+	p_TCPSvrAGVStatus3 : UDINT;
+	p_TCPSvrAGVStatus4 : UDINT;
+END_VAR
+(**)
+VAR
+	p_TCPSvrUBA : UDINT;
+	p_TCPSvrUBA2 : UDINT;
+	p_TCPSvrDSB : UDINT;
+	p_TCPSvrDSB2 : UDINT;
+END_VAR

@@ -1,0 +1,63 @@
+(*2019-06-27*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_AutoRcpStat : UDINT;
+	p_AutoRcpStatus : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_AutoRcpAlmData : UDINT;
+	p_AutoRcpInfoData : UDINT;
+	p_AutoRcpInfoData1 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_AutoRcpUSAllow : UDINT;
+	p_AutoRcpDSAllow : UDINT;
+	p_AutoRcpProdAccDataMnl : UDINT;
+	p_AutoRcpProdUpdtDataMnl : UDINT;
+	p_AutoRcpMagAccDataMnl : UDINT;
+	p_AutoRcpTimeAct : UDINT;
+	p_AutoRcpSetDT : UDINT;
+	p_AutoRcpWaitRlsBrd : UDINT;
+	p_AutoRcpUpdtProdRcp : UDINT;
+	p_AutoRcpProdRcpDiff : UDINT;
+	p_AutoRcpCurrRcpProdID : UDINT;
+	p_AutoRcpCurrRcpWidth : UDINT;
+	p_AutoRcpbTravWidthDiffblk : UDINT;
+	p_AutoRcpbMagChangeOverBlk : UDINT;
+	p_AutoRcpbMag1PropDiffBlk : UDINT;
+	p_AutoRcpbMag2PropDiffBlk : UDINT;
+	p_AutoRcpbMag3PropDiffBlk : UDINT;
+	p_AutoRcpbMag1WidthChg : UDINT;
+	p_AutoRcpbMag2WidthChg : UDINT;
+	p_AutoRcpbMag3WidthChg : UDINT;
+	p_AutoRcpbMag1SlotChg : UDINT;
+	p_AutoRcpbMag2SlotChg : UDINT;
+	p_AutoRcpbMag3SlotChg : UDINT;
+END_VAR
+(*TravLif Width*)
+VAR
+	p_diAutoRcpTravLifWidth : UDINT;
+END_VAR
+(*Magazine Properties*)
+VAR
+	p_diAutoRcpAllMagProps : UDINT;
+	p_diAutoRcpBrdProps : UDINT;
+	p_diAutoRcpMag1MaxSlt : UDINT;
+	p_diAutoRcpMag1MinSlt : UDINT;
+	p_diAutoRcpMag1Pitch : UDINT;
+	p_diAutoRcpMag1Width : UDINT;
+	p_diAutoRcpMag2MaxSlt : UDINT;
+	p_diAutoRcpMag2MinSlt : UDINT;
+	p_diAutoRcpMag2Pitch : UDINT;
+	p_diAutoRcpMag2Width : UDINT;
+	p_diAutoRcpMag3MaxSlt : UDINT;
+	p_diAutoRcpMag3MinSlt : UDINT;
+	p_diAutoRcpMag3Pitch : UDINT;
+	p_diAutoRcpMag3Width : UDINT;
+	p_AutoRcpForceExitMag : UDINT;
+END_VAR

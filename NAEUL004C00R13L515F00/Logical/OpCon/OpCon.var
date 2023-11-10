@@ -1,0 +1,30 @@
+(*2019-06-10*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_OpConStat : UDINT;
+	p_OpConStatus : UDINT;
+	p_OpConStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_OpConAlmData : UDINT;
+	p_OpConAlmData1 : UDINT;
+	p_OpConInfoData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_OpConTableDataBrdAvl : UDINT;
+	p_OpConTableDataBrdAvlTtlIdx : UDINT;
+	p_OpConConnected : UDINT;
+	p_OpConHandshakeDone : UDINT;
+	p_OpConOverWriteSlt : UDINT;
+	p_OpConOverWriteWidth : UDINT;
+	p_OpConReqRecipeNm : UDINT;
+	p_OpConReqWidthInUM : UDINT;
+	p_OpConInternalSnd : UDINT;
+	p_OpConPartRcvRetCode : UDINT;
+	p_OpConPlcGrabRcvCode : UDINT;
+END_VAR

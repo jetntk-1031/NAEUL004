@@ -1,0 +1,22 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_PneuNoSenSelClamp1Stat : UDINT;
+	p_PneuNoSenSelClamp1Status : UDINT;
+	p_PneuNoSenSelClamp1StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_PneuNoSenSelClamp1AlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_PneuNoSenSelClamp1ExtCtrl : UDINT;
+	p_PneuNoSenSelClamp1RetCtrl : UDINT;
+	p_PneuNoSenSelClamp1TwoCtrlOut : UDINT;
+	p_PneuNoSenSelClamp1Extended : UDINT;
+	p_PneuNoSenSelClamp1Retracted : UDINT;
+END_VAR

@@ -1,0 +1,23 @@
+(*2019-06-02*)
+(**)
+(*Constant*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_TCPTopStat : UDINT;
+	p_TCPTopStatus : UDINT;
+	p_TCPTopStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_TCPTopAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_TCPTopFullMsgRd : UDINT;
+	p_TCPTopMsgRd : UDINT;
+	p_TCPTopMsgRdValid : UDINT;
+	p_TCPTopMsgRdLen : UDINT;
+END_VAR

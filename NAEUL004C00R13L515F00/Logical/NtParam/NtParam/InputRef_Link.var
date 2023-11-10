@@ -1,0 +1,6 @@
+(*2019-03-25*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bSimu : REFERENCE TO BOOL;
+END_VAR

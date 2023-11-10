@@ -1,0 +1,41 @@
+(*2019-04-24*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_TravStat : UDINT;
+	p_TravStatus : UDINT;
+	p_TravStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_TravAlmData : UDINT;
+	p_TravAlmData1 : UDINT;
+	p_TravAlmData2 : UDINT;
+	p_TravAlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_TravParamOut : UDINT;
+	p_TravPwrOn : UDINT;
+	p_TravIsHomed : UDINT;
+	p_TravPosDiff : UDINT;
+	p_TravAxisErr : UDINT;
+	p_TravAxisErrID : UDINT;
+	p_TravAxisErrTxt : UDINT;
+	p_TravFwdLmtSen : UDINT;
+	p_TravRevLmtSen : UDINT;
+	p_TravActualPos : UDINT;
+	p_TravAPosDiff : UDINT;
+	p_TravBPosDiff : UDINT;
+	p_TravCPosDiff : UDINT;
+	p_TravDPosDiff : UDINT;
+	p_TravEPosDiff : UDINT;
+	p_TravFPosDiff : UDINT;
+	p_TravGPosDiff : UDINT;
+	p_TravHPosDiff : UDINT;
+	p_TravJogging : UDINT;
+	p_TravFrontSen : UDINT;
+	p_TravRearSen : UDINT;
+END_VAR

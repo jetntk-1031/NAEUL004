@@ -1,0 +1,199 @@
+(*2021-05-18*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eAutoRcpAction;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	eStatOld : eAutoRcpAction := AutoRcpActIdle;
+	eStat : eAutoRcpAction;
+	usiStep : USINT;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyInfoData : tyAlmDat;
+	tyInfoData1 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Create User Directory Error',sRcyText:='An Error Occurred While Attempting To Create User Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='Create Retain Directory Error',sRcyText:='An Error Occurred While Attempting To Create Retain Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='File Open Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Read Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Read File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Writing Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Writing Retain File',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Writing Retain File',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Writing Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Writing Retain File',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),3(0),3((0)),(sAlmText:='File Create Error While Writing Config File',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(0),(sAlmText:='File Close Error While Writing Config File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),11((0)),(sAlmText:='File Open Error While Writing Retain File Lane 2',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(0),(sAlmText:='File Open Error While Reading Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Read Error While Reading Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Read File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Reading Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Writing Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Writing Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Writing Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Writing Lane 2 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Writing Lane 2 Retain File',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),2((0)),(sAlmText:='File Open Error While Reading Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Read Error While Reading Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Read File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Reading Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Writing Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Writing Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Writing Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Writing Lane 3 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Writing Lane 3 Retain File',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),2((0)),(sAlmText:='File Open Error While Reading Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Read Error While Reading Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Read File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Reading Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Writing Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Writing Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Writing Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Writing Lane 4 Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Writing Lane 4 Retain File',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),40((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bUSAllow : BOOL;
+	bDSAllow : BOOL;
+	tyLeaderInfo : tyLFLeaderInfo;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	sIPAddr : STRING[15] := '192.168.0.100';
+	sMcNm : STRING[30];
+	bAWPrep : BOOL := TRUE;
+	bAWDis : BOOL;
+	bMnlAccData : BOOL;
+	bSectionLeader : BOOL;
+	sMagRcpNm : STRING[30];
+	diWidthLimit : DINT;
+	bWidth2Prep : BOOL;
+	bUSWidthChkPrep : BOOL;
+	bBffrMagRemoved : BOOL;
+	bUSWidthChkEn : BOOL;
+	bUSWidthChkSen : BOOL;
+	bDSWidthChkPrep : BOOL;
+	bDSWidthChkEn : BOOL;
+	bDSWidthChkSen : BOOL;
+	bProdWidthChk : BOOL;
+	bUIProdAccData : BOOL;
+	bUIProdUpdtData : BOOL;
+	bUIMagAccData : BOOL;
+	tyCurrProdRcp : tyBoardProperty;
+	sCurrMagRcpNm : STRING[30];
+	eTimeStat : eTimeAction;
+	eTimeStatus : eFBStatus;
+	bAccNewRcpCond : BOOL;
+	bUpdtNewRcpCond : BOOL;
+	bAutoUpdtData : BOOL;
+	sInfoMsg : STRING[200];
+	bInternalUse : BOOL;
+	tyInternalReqProdRcp : tyProdRcpParam;
+	bNewBrdEnteredCond : BOOL;
+	bOldBrdExitedCond : BOOL;
+	bRlsBrd : BOOL;
+	tyToLeaderProdRcp : tyProdRcpParam;
+	a_bInternalReqProdRcpDiff : ARRAY[0..3] OF BOOL;
+	bUpdtProdRcpDiff : BOOL;
+	bRlsBrdProdRcpDiff : BOOL;
+	sProgNm : STRING[15] := 'Follower';
+	bNtSettingsLoadDone : BOOL := TRUE;
+	tOnlineChkDlyTm : TIME;
+	bManual : BOOL := FALSE;
+	bErr : BOOL := FALSE;
+	bWarning : BOOL := FALSE;
+	bOps : BOOL := FALSE;
+	bStandby : BOOL := FALSE;
+	eAWStat : eAWAction;
+	bFileNotFound : BOOL;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	bAutoAccData : BOOL;
+	bProdRcpErr : BOOL;
+	bMagRcpErr : BOOL;
+	bSetTmErr : BOOL;
+	bProdAccDataReq : BOOL;
+	sReqProdRcpNm : STRING[254];
+	diReqProdRcpWidth : DINT;
+	bMagAccDataReq : BOOL;
+	sReqMagRcpNm : STRING[30];
+	usiProdAccDatStep : USINT;
+	usiMagAccDatStep : USINT;
+	usiProdUpdtDatStep : USINT;
+	tyRlsBrdProdRcpNm : tyProdRcpParam;
+	bNewBrdEntered : BOOL;
+	bOldBrdExited : BOOL;
+	i : INT;
+	bFollowerInfo : BOOL;
+	bDBAOnWOAlign : BOOL;
+	tyProRcpCurrRcp : USINT;
+	ProdRcpAct : USINT;
+	a_bBufferMagPresent : ARRAY[1..3] OF BOOL := [3(FALSE)];
+	a_bForceChgWidthIfSameRcp : ARRAY[1..4] OF BOOL;
+	a_bMagAWWidthDiff : ARRAY[1..4] OF BOOL := [4(FALSE)];
+	a_tyBffrStat : ARRAY[1..4] OF tyBffrStat := [4((0))];
+	a_sortedMagPriority : ARRAY[1..4] OF USINT;
+	a_udiMagAllwMagPresentTm : ARRAY[1..4] OF UDINT;
+	x : INT;
+	ii : INT;
+	jj : INT;
+	kk : INT;
+	usiMag : USINT;
+	bCheckNeedMtyMag : BOOL;
+	bTravLifWidthDiffBlk : BOOL;
+	a_bMagChangOverBlk : ARRAY[1..4] OF BOOL;
+	a_bAllwChangeWidth : ARRAY[1..4] OF BOOL;
+	a_bAllwChangeSlot : ARRAY[1..4] OF BOOL;
+	a_udiMagAllwGo : ARRAY[1..4] OF UDINT;
+	bForceExitMag : BOOL;
+	udiMagAllwGo : ARRAY[1..4] OF UDINT;
+	a_bCheckDifferent : ARRAY[1..4] OF BOOL;
+	udiModuleNum : UDINT := 7201;
+	usiPrevChg2 : USINT;
+	usiChg2 : USINT;
+	usiPrevChg : USINT;
+	usiChg : USINT;
+	iChgOvrCntr : INT;
+END_VAR
+(*local variable*)
+VAR
+	bTest : BOOL;
+	bTest2 : BOOL;
+	bMagWriteRetain : BOOL;
+	bInitializedFollower1Done : BOOL;
+	bOverWriteMagProperties : BOOL;
+	bOverWriteTravLifProperties : BOOL;
+	bZ1AccNewRcpCondition : BOOL;
+	bZ2AccNewRcpCondition : BOOL;
+	diRequestedMinSlt : DINT := 3;
+	diRequestedGapToMaxSlt : DINT;
+	bHermesBAAccpt : BOOL;
+	bHermesBFAccpt : BOOL;
+	tyHermesBAAccpt : tyHermesBoardAvailable;
+	tyHermesBFAccpt : tyHermesBoardForecast;
+END_VAR
+(*Local Variable for calculation*)
+VAR
+	rMinslt : REAL;
+	rMaxslt : REAL;
+	rPitch : REAL;
+	rNumInterval : REAL;
+	diCalcedPitch : DINT;
+	diCalcedMax : DINT;
+	diCalcedMin : DINT;
+	diModulus : DINT;
+	sProdtypeID : STRING[254];
+	diProdWidth : DINT;
+	eULMode : eULMod;
+END_VAR
+(*Rcp Property*)
+VAR
+	tyCurrReqRcp : tyBoardProperty;
+	tyCurrZ1Rcp : tyBoardProperty; (*For Conveyor*)
+	a_tyCurrZ2Rcp : ARRAY[1..4] OF tyBoardProperty; (*Mag1*)
+END_VAR
+(*Write Rcp*)
+VAR
+	tyZ1RcpWr : tyBoardProperty; (*For Conveyor*)
+	a_tyZ2RcpWr : ARRAY[1..4] OF tyBoardProperty; (*Mag1*)
+END_VAR
+(*from Z2RcpWr to Conveted Mag Properties*)
+VAR
+	diTravLifWidth : DINT;
+	a_tyMagProps : ARRAY[1..4] OF tyMagProperties;
+END_VAR
+(*Save Magazine Rcp*)
+VAR
+	fbDirCreate1 : fbDirCreate;
+	fbDirCreate2 : fbDirCreate;
+	fbFileRead1 : fbFileFullRead;
+	fbFileRead2 : fbFileFullRead;
+	fbFileRead3 : fbFileFullRead;
+	fbFileWrite1 : fbFileFullWrite;
+	fbFileWrite2 : fbFileFullWrite;
+	fbFileWrite3 : fbFileFullWrite;
+	fbParseBrdAvlExternal : fbHermesParseXMLTable;
+END_VAR
+(*WeFab*)
+VAR
+	tyCurrReqMagRcp : tyMagProperties;
+	a_tyMagPropsWr : ARRAY[1..4] OF tyMagProperties;
+END_VAR

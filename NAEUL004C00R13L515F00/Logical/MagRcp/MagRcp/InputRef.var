@@ -1,0 +1,26 @@
+(*2019-05-07*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eMagRcpAction;
+	p_udiMax : REFERENCE TO UDINT;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_dtCurrDT : REFERENCE TO DATE_AND_TIME;
+	p_sSearch : REFERENCE TO STRING[30];
+	p_tyInfoIn : REFERENCE TO tyMagRcpParam;
+	p_tyCurrRcpWr : REFERENCE TO tyMagRcpParam;
+	p_sListFileName : REFERENCE TO STRING[80];
+	p_sSingleFileName : REFERENCE TO STRING[80];
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_eLinkLCSMngRcpMagRcpAct : REFERENCE TO eMagRcpAction;
+	p_bLinkNtParamLCSManageRcpPrep : REFERENCE TO BOOL;
+	p_bLinkMcParamLCSManageRcpEn : REFERENCE TO BOOL;
+	p_eLinkUIMagRcpAct : REFERENCE TO eMagRcpAction;
+END_VAR

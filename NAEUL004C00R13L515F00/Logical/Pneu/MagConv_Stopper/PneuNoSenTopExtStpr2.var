@@ -1,0 +1,22 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_PneuNoSenTopExtStpr2Stat : UDINT;
+	p_PneuNoSenTopExtStpr2Status : UDINT;
+	p_PneuNoSenTopExtStpr2StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_PneuNoSenTopExtStpr2AlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_PneuNoSenTopExtStpr2ExtCtrl : UDINT;
+	p_PneuNoSenTopExtStpr2RetCtrl : UDINT;
+	p_PneuNoSenTopExtStpr2TwoCtrlOut : UDINT;
+	p_PneuNoSenTopExtStpr2Extended : UDINT;
+	p_PneuNoSenTopExtStpr2Retracted : UDINT;
+END_VAR

@@ -1,0 +1,19 @@
+(*2019-04-16*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	bOpConRun : BOOL;
+	bOpConStop : BOOL;
+END_VAR
+(**)
+VAR
+	p_eLinkConvDir : REFERENCE TO eConvDir;
+	p_bLinkDILeftSen : REFERENCE TO BOOL;
+	p_bLinkDIRightSen : REFERENCE TO BOOL;
+	sWidthInUMTemp : STRING[80];
+END_VAR
+(**)
+VAR
+	p_tyLinkAlarmCurrList : REFERENCE TO ARRAY[1..c_udiAlarmCurrMax] OF tyAlarmCurr;
+	p_bLinkOpConEn : REFERENCE TO BOOL;
+END_VAR

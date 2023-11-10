@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T0900_InterruptText">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="26"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="317903" Value="Pusher Extended Interrupting Lifter"/>
+    <Text ID="317904" Value="Pusher Extended Interrupting Outlet Shutter"/>
+    <Text ID="317905" Value="Outlet Shutter Closed Interrupting Pusher"/>
+    <Text ID="619446" Value="Emergency Stop Activated"/>
+    <Text ID="619447" Value="Cover Switch Signal On"/>
+    <Text ID="619448" Value="Safety Relay Signal Off"/>
+    <Text ID="619449" Value="Left Sensor Interrupting Auto Width"/>
+    <Text ID="619450" Value="Right Sensor Interrupting Auto Width"/>
+    <Text ID="631788" Value="Mid Sensor Interrupting Auto Width"/>
+    <Text ID="631789" Value="Clear Sensor Interrupting Auto Width"/>
+    <Text ID="631790" Value="Pusher Extended Interrupting Traverser"/>
+    <Text ID="641376" Value=""/>
+    <Text ID="641377" Value="Left Sensor Interrupting Traverser"/>
+    <Text ID="641378" Value="Mid Sensor Interrupting Traverser"/>
+    <Text ID="641379" Value="Right Sensor Interrupting Traverser"/>
+    <Text ID="641380" Value="Outlet Shutter Opened Interrupting Lifter"/>
+    <Text ID="641381" Value="Outlet Shutter Opened Interrupting Traverser"/>
+    <Text ID="641382" Value="Outlet Shutter Opened Interrupting Auto Width"/>
+    <Text ID="641383" Value="Lifter Is Moving Interrupting Shutter"/>
+    <Text ID="641384" Value="Traverser Is Moving Interrupting Shutter"/>
+    <Text ID="641385" Value="Auto Width Is Moving Interrupting Shutter"/>
+    <Text ID="643398" Value="Clear Sensor Interrupting Traverser"/>
+    <Text ID="643402" Value="Magazine 3 Is Not Empty"/>
+    <Text ID="645421" Value="Auto Width Motor Is Engaged"/>
+    <Text ID="645424" Value="Magazine 1 Is Not Empty"/>
+    <Text ID="645425" Value="Magazine 2 Is Not Empty"/>
+    <Text ID="645426" Value="Inlet Shutter Opened Interrupting Lifter"/>
+    <Text ID="645427" Value="Inlet Shutter Opened Interrupting Traverser"/>
+    <Text ID="645428" Value="Inlet Shutter Opened Interrupting Auto Width"/>
+    <Text ID="652223" Value="Left Sensor Interrupting Lifter"/>
+    <Text ID="652224" Value="Clear Sensor Interrupting Lifter"/>
+    <Text ID="660440" Value="Lifter Safety Limit Switch Activated"/>
+    <Text ID="660441" Value="Lifter Timing Belt Broken"/>
+    <Text ID="740484" Value="Conveyor Auto Width Position Interrupt Pusher Moving"/>
+    <Text ID="806307" Value="Magazine Not Clamp"/>
+    <Text ID="916387" Value="Pusher Not Retracted Interrupting Traverser"/>
+    <Text ID="916388" Value="Pusher Not Retracted Interrupting Lifter"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="317903" Value=""/>
+    <Text ID="317904" Value=""/>
+    <Text ID="317905" Value=""/>
+    <Text ID="619446" Value=""/>
+    <Text ID="619447" Value=""/>
+    <Text ID="619448" Value="Sicherheitsrückstellung AUS"/>
+    <Text ID="619449" Value="Linker Sensor Unterbricht die Automatische Breite"/>
+    <Text ID="619450" Value="Rechter Sensor Unterbricht die Automatische Breite"/>
+    <Text ID="631788" Value=""/>
+    <Text ID="631789" Value=""/>
+    <Text ID="631790" Value=""/>
+    <Text ID="641376" Value=""/>
+    <Text ID="641377" Value=""/>
+    <Text ID="641378" Value=""/>
+    <Text ID="641379" Value=""/>
+    <Text ID="641380" Value=""/>
+    <Text ID="641381" Value=""/>
+    <Text ID="641382" Value=""/>
+    <Text ID="641383" Value=""/>
+    <Text ID="641384" Value=""/>
+    <Text ID="641385" Value=""/>
+    <Text ID="643398" Value=""/>
+    <Text ID="643402" Value=""/>
+    <Text ID="645421" Value=""/>
+    <Text ID="645424" Value=""/>
+    <Text ID="645425" Value=""/>
+    <Text ID="645426" Value=""/>
+    <Text ID="645427" Value=""/>
+    <Text ID="645428" Value=""/>
+    <Text ID="652223" Value=""/>
+    <Text ID="652224" Value=""/>
+    <Text ID="660440" Value=""/>
+    <Text ID="660441" Value=""/>
+    <Text ID="740484" Value=""/>
+    <Text ID="806307" Value=""/>
+    <Text ID="916387" Value=""/>
+    <Text ID="916388" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="317903" Value=""/>
+    <Text ID="317904" Value=""/>
+    <Text ID="317905" Value=""/>
+    <Text ID="619446" Value=""/>
+    <Text ID="619447" Value=""/>
+    <Text ID="619448" Value="安全重设 OFF"/>
+    <Text ID="619449" Value="左侧传感器干扰自动宽度"/>
+    <Text ID="619450" Value="右侧传感器干扰自动宽度"/>
+    <Text ID="631788" Value=""/>
+    <Text ID="631789" Value=""/>
+    <Text ID="631790" Value=""/>
+    <Text ID="641376" Value=""/>
+    <Text ID="641377" Value=""/>
+    <Text ID="641378" Value=""/>
+    <Text ID="641379" Value=""/>
+    <Text ID="641380" Value=""/>
+    <Text ID="641381" Value=""/>
+    <Text ID="641382" Value=""/>
+    <Text ID="641383" Value=""/>
+    <Text ID="641384" Value=""/>
+    <Text ID="641385" Value=""/>
+    <Text ID="643398" Value=""/>
+    <Text ID="643402" Value=""/>
+    <Text ID="645421" Value=""/>
+    <Text ID="645424" Value=""/>
+    <Text ID="645425" Value=""/>
+    <Text ID="645426" Value=""/>
+    <Text ID="645427" Value=""/>
+    <Text ID="645428" Value=""/>
+    <Text ID="652223" Value=""/>
+    <Text ID="652224" Value=""/>
+    <Text ID="660440" Value=""/>
+    <Text ID="660441" Value=""/>
+    <Text ID="740484" Value=""/>
+    <Text ID="806307" Value=""/>
+    <Text ID="916387" Value=""/>
+    <Text ID="916388" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="317903" Value=""/>
+    <Text ID="317904" Value=""/>
+    <Text ID="317905" Value=""/>
+    <Text ID="619446" Value=""/>
+    <Text ID="619447" Value=""/>
+    <Text ID="619448" Value=""/>
+    <Text ID="619449" Value=""/>
+    <Text ID="619450" Value=""/>
+    <Text ID="631788" Value=""/>
+    <Text ID="631789" Value=""/>
+    <Text ID="631790" Value=""/>
+    <Text ID="641376" Value=""/>
+    <Text ID="641377" Value=""/>
+    <Text ID="641378" Value=""/>
+    <Text ID="641379" Value=""/>
+    <Text ID="641380" Value=""/>
+    <Text ID="641381" Value=""/>
+    <Text ID="641382" Value=""/>
+    <Text ID="641383" Value=""/>
+    <Text ID="641384" Value=""/>
+    <Text ID="641385" Value=""/>
+    <Text ID="643398" Value=""/>
+    <Text ID="643402" Value=""/>
+    <Text ID="645421" Value=""/>
+    <Text ID="645424" Value=""/>
+    <Text ID="645425" Value=""/>
+    <Text ID="645426" Value=""/>
+    <Text ID="645427" Value=""/>
+    <Text ID="645428" Value=""/>
+    <Text ID="652223" Value=""/>
+    <Text ID="652224" Value=""/>
+    <Text ID="660440" Value=""/>
+    <Text ID="660441" Value=""/>
+    <Text ID="740484" Value=""/>
+    <Text ID="806307" Value=""/>
+    <Text ID="916387" Value=""/>
+    <Text ID="916388" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="317903" Value="9"/>
+    <Index ID="317904" Value="10"/>
+    <Index ID="317905" Value="11"/>
+    <Index ID="619446" Value="1"/>
+    <Index ID="619447" Value="2"/>
+    <Index ID="619448" Value="3"/>
+    <Index ID="619449" Value="4"/>
+    <Index ID="619450" Value="6"/>
+    <Index ID="631788" Value="5"/>
+    <Index ID="631789" Value="7"/>
+    <Index ID="631790" Value="8"/>
+    <Index ID="641376" Value="0"/>
+    <Index ID="641377" Value="18"/>
+    <Index ID="641378" Value="19"/>
+    <Index ID="641379" Value="20"/>
+    <Index ID="641380" Value="12"/>
+    <Index ID="641381" Value="13"/>
+    <Index ID="641382" Value="14"/>
+    <Index ID="641383" Value="15"/>
+    <Index ID="641384" Value="16"/>
+    <Index ID="641385" Value="17"/>
+    <Index ID="643398" Value="21"/>
+    <Index ID="643402" Value="31"/>
+    <Index ID="645421" Value="32"/>
+    <Index ID="645424" Value="29"/>
+    <Index ID="645425" Value="30"/>
+    <Index ID="645426" Value="22"/>
+    <Index ID="645427" Value="23"/>
+    <Index ID="645428" Value="24"/>
+    <Index ID="652223" Value="25"/>
+    <Index ID="652224" Value="26"/>
+    <Index ID="660440" Value="27"/>
+    <Index ID="660441" Value="28"/>
+    <Index ID="740484" Value="33"/>
+    <Index ID="806307" Value="34"/>
+    <Index ID="916387" Value="35"/>
+    <Index ID="916388" Value="36"/>
+  </IndexMap>
+</TextGroup>

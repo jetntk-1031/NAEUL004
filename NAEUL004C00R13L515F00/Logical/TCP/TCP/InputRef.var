@@ -1,0 +1,55 @@
+(*2019-06-28*)
+(**)
+(*General*)
+VAR
+	p_bManual : REFERENCE TO BOOL;
+	p_eAct : REFERENCE TO eTCPAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sSvrIP : REFERENCE TO STRING[15];
+	p_uiSvrPort : REFERENCE TO UINT;
+	p_uiClientPort : REFERENCE TO UINT;
+	p_sMsgSnd : REFERENCE TO STRING[65535];
+	p_sIPAddr : REFERENCE TO STRING[15];
+	p_tyDTStructure : REFERENCE TO DTStructure;
+	p_dtCurrDT : REFERENCE TO DATE_AND_TIME;
+END_VAR
+(*Listen Fltr*)
+VAR
+	p_eTCPModel : REFERENCE TO eTCPClientServer;
+	p_bFltrIP : REFERENCE TO BOOL;
+	p_bFltrPort : REFERENCE TO BOOL;
+	p_sAllwClntIP : REFERENCE TO STRING[15];
+	p_uiAllwClntPort : REFERENCE TO UINT;
+	p_bReconnect : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_udiSndBffrSize : REFERENCE TO UDINT;
+	p_udiRcvBffrSize : REFERENCE TO UDINT;
+	p_udiAliveIdleTimeInSec : REFERENCE TO UDINT;
+	p_tConnTimeOut : REFERENCE TO TIME;
+	p_bOpsRun : REFERENCE TO BOOL;
+	p_usiProjMag : REFERENCE TO USINT;
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_udiFileKeepDay : REFERENCE TO UDINT;
+END_VAR
+(**)
+VAR
+	p_tyDTMagToAGV : REFERENCE TO tyTagDTMagToAGV;
+END_VAR
+(*Output from SOT to TCP*)
+VAR
+	p_bUSB : REFERENCE TO BOOL;
+	p_bUSB2 : REFERENCE TO BOOL;
+	p_bDBA : REFERENCE TO BOOL;
+	p_bDBA2 : REFERENCE TO BOOL;
+END_VAR

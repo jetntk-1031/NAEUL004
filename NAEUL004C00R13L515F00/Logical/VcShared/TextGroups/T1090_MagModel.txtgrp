@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1090_MagModel">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="29"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="665441" Value="CAB706.2"/>
+    <Text ID="665442" Value="CAB716.2"/>
+    <Text ID="665443" Value="CAB717.2"/>
+    <Text ID="813133" Value="CAB703"/>
+    <Text ID="813134" Value="FIXMAG"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="665441" Value="CAB706.2"/>
+    <Text ID="665442" Value="CAB716.2"/>
+    <Text ID="665443" Value="CAB717.2"/>
+    <Text ID="813133" Value="CAB703"/>
+    <Text ID="813134" Value="FIXMAG"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="665441" Value="CAB706.2"/>
+    <Text ID="665442" Value="CAB716.2"/>
+    <Text ID="665443" Value="CAB717.2"/>
+    <Text ID="813133" Value="CAB703"/>
+    <Text ID="813134" Value="FIXMAG"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="665441" Value=""/>
+    <Text ID="665442" Value=""/>
+    <Text ID="665443" Value=""/>
+    <Text ID="813133" Value=""/>
+    <Text ID="813134" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="665441" Value="0"/>
+    <Index ID="665442" Value="1"/>
+    <Index ID="665443" Value="2"/>
+    <Index ID="813133" Value="3"/>
+    <Index ID="813134" Value="4"/>
+  </IndexMap>
+</TextGroup>

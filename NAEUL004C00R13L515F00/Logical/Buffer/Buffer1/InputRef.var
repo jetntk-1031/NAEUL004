@@ -1,0 +1,48 @@
+(*2019-07-03*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eBufferAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sFileName : REFERENCE TO STRING[80];
+	p_bManual : REFERENCE TO BOOL;
+	p_dtCurrDT : REFERENCE TO DATE_AND_TIME;
+	p_diMinSlt : REFERENCE TO DINT;
+	p_diMaxSlt : REFERENCE TO DINT;
+	p_diPitch : REFERENCE TO DINT;
+	p_diSltCap : REFERENCE TO DINT;
+	p_diBffrTtlSlt : REFERENCE TO DINT;
+	p_diCoolTm : REFERENCE TO DINT;
+	p_diSltToSltInUM : REFERENCE TO DINT;
+	p_diLifterBtmPosInUM : REFERENCE TO DINT;
+	p_diLifterCurrPosInUM : REFERENCE TO DINT;
+	p_bAscending : REFERENCE TO BOOL;
+	p_bFIFO : REFERENCE TO BOOL;
+	p_bGdBrdIn : REFERENCE TO BOOL;
+	p_bGdBrdReq : REFERENCE TO BOOL;
+	p_bNxtLoadSeq : REFERENCE TO BOOL;
+	pa_bSkip : REFERENCE TO ARRAY[1..c_diBffrSize] OF BOOL;
+	p_diCoolFanOffDlyTm : REFERENCE TO DINT;
+	p_bMagPresentSensor : REFERENCE TO BOOL;
+	p_bPrepCoolFan : REFERENCE TO BOOL;
+	p_bCoolFanTm : REFERENCE TO BOOL;
+	p_tyBuffer : REFERENCE TO tyBffr;
+	p_tyDispBuffer : REFERENCE TO tyDispBffr;
+	p_tyBufferStat : REFERENCE TO tyBffrStat;
+	p_sBffrNm : REFERENCE TO STRING[15];
+	p_sProdNm : REFERENCE TO STRING[15];
+	p_sBarcode1 : REFERENCE TO STRING[80];
+	p_sBarcode2 : REFERENCE TO STRING[80];
+	p_sCurrRcpNm : REFERENCE TO STRING[15];
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
+	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+	p_bOpsMagConvULRlsMagAllw : REFERENCE TO BOOL;
+	p_eNtParamCustomerReq : REFERENCE TO eCustomer;
+	p_tyResponseFromMES : REFERENCE TO tyStatPlatformFromMES;
+END_VAR

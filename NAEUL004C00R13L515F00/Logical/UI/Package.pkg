@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.3.111 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="DataObject" Language="Vc" Description="800x480 (WVGA)">Visu</Object>
+    <Object Type="File" Description="Do Not Change!!!">UI.typ</Object>
+    <Object Type="File" Description="Change By Project">UI.var</Object>
+    <Object Type="Program" Language="IEC">UI</Object>
+  </Objects>
+</Package>

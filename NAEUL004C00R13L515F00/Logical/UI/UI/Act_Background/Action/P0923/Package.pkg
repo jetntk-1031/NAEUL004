@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0923Disp.st</Object>
+    <Object Type="File">Act_OptP0923Navi.st</Object>
+    <Object Type="File">Act_OptP0923DualMask.st</Object>
+    <Object Type="File">Act_OptP0923Mag1SafetyBarChgLyr.st</Object>
+    <Object Type="File">Act_OptP0923Mag1SafetyBarSen.st</Object>
+    <Object Type="File">Act_OptP0923Mag1SafetyBarFB.st</Object>
+    <Object Type="File">Act_OptP0923Mag1SafetyBarFBStat.st</Object>
+    <Object Type="File">Act_OptP0923Mag1SafetyBarDC.st</Object>
+    <Object Type="File">Act_OptP0923Mag2SafetyBarChgLyr.st</Object>
+    <Object Type="File">Act_OptP0923Mag2SafetyBarSen.st</Object>
+    <Object Type="File">Act_OptP0923Mag2SafetyBarFB.st</Object>
+    <Object Type="File">Act_OptP0923Mag2SafetyBarFBStat.st</Object>
+    <Object Type="File">Act_OptP0923Mag2SafetyBarDC.st</Object>
+    <Object Type="File">Act_OptP0923Mag3SafetyBarChgLyr.st</Object>
+    <Object Type="File">Act_OptP0923Mag3SafetyBarSen.st</Object>
+    <Object Type="File">Act_OptP0923Mag3SafetyBarFB.st</Object>
+    <Object Type="File">Act_OptP0923Mag3SafetyBarFBStat.st</Object>
+    <Object Type="File">Act_OptP0923Mag3SafetyBarDC.st</Object>
+    <Object Type="File">Act_OptP0923RstMnl.st</Object>
+  </Objects>
+</Package>

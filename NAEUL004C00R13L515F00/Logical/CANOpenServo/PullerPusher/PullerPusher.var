@@ -1,0 +1,34 @@
+(*2019-04-24*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_PPStat : UDINT;
+	p_PPStatus : UDINT;
+	p_PPStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_PPAlmData : UDINT;
+	p_PPAlmData1 : UDINT;
+	p_PPAlmData2 : UDINT;
+	p_PPAlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_PPParamOut : UDINT;
+	p_PPPwrOn : UDINT;
+	p_PPIsHomed : UDINT;
+	p_PPPosDiff : UDINT;
+	p_PPAxisErr : UDINT;
+	p_PPAxisErrID : UDINT;
+	p_PPAxisErrTxt : UDINT;
+	p_PPFwdLmtSen : UDINT;
+	p_PPRevLmtSen : UDINT;
+	p_PPActualPos : UDINT;
+	p_PPWidthPosDiff : UDINT;
+	p_PPJogging : UDINT;
+	p_PPExtSen : UDINT;
+	p_PPRetSen : UDINT;
+END_VAR

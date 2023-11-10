@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0922Disp.st</Object>
+    <Object Type="File">Act_OptP0922Navi.st</Object>
+    <Object Type="File">Act_OptP0922DualMask.st</Object>
+    <Object Type="File">Act_OptP0922StopperAChgLyr.st</Object>
+    <Object Type="File">Act_OptP0922StopperASen.st</Object>
+    <Object Type="File">Act_OptP0922StopperAFB.st</Object>
+    <Object Type="File">Act_OptP0922StopperAFBStat.st</Object>
+    <Object Type="File">Act_OptP0922StopperADC.st</Object>
+    <Object Type="File">Act_OptP0922StopperBChgLyr.st</Object>
+    <Object Type="File">Act_OptP0922StopperBSen.st</Object>
+    <Object Type="File">Act_OptP0922StopperBFB.st</Object>
+    <Object Type="File">Act_OptP0922StopperBFBStat.st</Object>
+    <Object Type="File">Act_OptP0922StopperBDC.st</Object>
+    <Object Type="File">Act_OptP0922InStopperChgLyr.st</Object>
+    <Object Type="File">Act_OptP0922InStopperSen.st</Object>
+    <Object Type="File">Act_OptP0922InStopperFB.st</Object>
+    <Object Type="File">Act_OptP0922InStopperFBStat.st</Object>
+    <Object Type="File">Act_OptP0922InStopperDC.st</Object>
+    <Object Type="File">Act_OptP0922RstMnl.st</Object>
+  </Objects>
+</Package>

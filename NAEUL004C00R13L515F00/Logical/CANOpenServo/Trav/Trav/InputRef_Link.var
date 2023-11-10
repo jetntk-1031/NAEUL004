@@ -1,0 +1,21 @@
+(*2019-04-09*)
+(**)
+(*External Data*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bSimu : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULInDSPos : REFERENCE TO BOOL;
+	p_bLinkNtParamProjUsFixToFixRail : REFERENCE TO BOOL;
+	p_diLinkFixtoFixPosIn : REFERENCE TO DINT;
+	p_diLinkMcParamTravPosB : REFERENCE TO DINT;
+	p_tyProdRcpCurrRcp : REFERENCE TO tyProdRcpParam;
+	p_bLinkSafetyRelay : REFERENCE TO BOOL;
+	p_diLinkDPos : REFERENCE TO DINT;
+	p_diLinkEPos : REFERENCE TO DINT;
+	p_diLinkFPos : REFERENCE TO DINT;
+	p_bLinkTravGotoChkPt : REFERENCE TO BOOL;
+	p_diLinkTravGotoChkPtDist1 : REFERENCE TO DINT;
+	p_diLinkTravGotoChkPtDist2 : REFERENCE TO DINT;
+	p_diLinkTravGotoChkPtDist3 : REFERENCE TO DINT;
+END_VAR

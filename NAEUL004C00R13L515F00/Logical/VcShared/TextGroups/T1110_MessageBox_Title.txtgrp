@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1110_MessageBox_Title">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="9"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="549591" Value=""/>
+    <Text ID="549592" Value="User Manager"/>
+    <Text ID="549593" Value="Product Recipe"/>
+    <Text ID="549594" Value="Magazine Recipe"/>
+    <Text ID="549595" Value="Lifter"/>
+    <Text ID="549596" Value="Machine Mode"/>
+    <Text ID="549597" Value="Traverser"/>
+    <Text ID="549598" Value="Buffer"/>
+    <Text ID="549599" Value="Operation"/>
+    <Text ID="549600" Value="Product Setting"/>
+    <Text ID="549601" Value="Leader Follower"/>
+    <Text ID="549602" Value="Nutek Setting - General"/>
+    <Text ID="549603" Value="Startup"/>
+    <Text ID="549604" Value="Language &amp; Time"/>
+    <Text ID="549605" Value="Oven"/>
+    <Text ID="549606" Value="Nutek Setting - Project"/>
+    <Text ID="549607" Value="Nutek Setting - Input Config."/>
+    <Text ID="549608" Value="Nutek Setting - Output Config."/>
+    <Text ID="549609" Value="Yes"/>
+    <Text ID="549610" Value="No"/>
+    <Text ID="549611" Value=""/>
+    <Text ID="549612" Value="OK"/>
+    <Text ID="549613" Value="Machine Setting - General"/>
+    <Text ID="549614" Value="Cancel"/>
+    <Text ID="549615" Value="Machine Setting - Vertical Communication"/>
+    <Text ID="549616" Value="Machine Setting - Horizontal Communication"/>
+    <Text ID="549617" Value="Machine Setting - Anti Gap Sensor"/>
+    <Text ID="549618" Value="Magazine Setting"/>
+    <Text ID="549619" Value="Menu"/>
+    <Text ID="549620" Value="Machine Setting - AIV Communication"/>
+    <Text ID="549621" Value=""/>
+    <Text ID="549622" Value=""/>
+    <Text ID="676158" Value="Login\nAgain"/>
+    <Text ID="676159" Value="Login\nAgain"/>
+    <Text ID="753195" Value=""/>
+    <Text ID="753196" Value="Query"/>
+    <Text ID="753197" Value="Delete"/>
+    <Text ID="753198" Value="Exit"/>
+    <Text ID="753199" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="549591" Value=""/>
+    <Text ID="549592" Value="Benutzermanager"/>
+    <Text ID="549593" Value="Produktrezept"/>
+    <Text ID="549594" Value="Magazinrezept"/>
+    <Text ID="549595" Value="Heber"/>
+    <Text ID="549596" Value="Maschinenmodus"/>
+    <Text ID="549597" Value="Schiebebühne"/>
+    <Text ID="549598" Value="Puffer"/>
+    <Text ID="549599" Value="Betrieb"/>
+    <Text ID="549600" Value=""/>
+    <Text ID="549601" Value="Leader Follower"/>
+    <Text ID="549602" Value="Nutek Einstellung"/>
+    <Text ID="549603" Value="Anfang"/>
+    <Text ID="549604" Value="Sprache &amp; Zeit"/>
+    <Text ID="549605" Value=" "/>
+    <Text ID="549606" Value=" "/>
+    <Text ID="549607" Value=" "/>
+    <Text ID="549608" Value=" "/>
+    <Text ID="549609" Value="Ja"/>
+    <Text ID="549610" Value="Nein"/>
+    <Text ID="549611" Value=""/>
+    <Text ID="549612" Value="OK"/>
+    <Text ID="549613" Value="Maschineneinstellung"/>
+    <Text ID="549614" Value=""/>
+    <Text ID="549615" Value=""/>
+    <Text ID="549616" Value=""/>
+    <Text ID="549617" Value=""/>
+    <Text ID="549618" Value=""/>
+    <Text ID="549619" Value=""/>
+    <Text ID="549620" Value=""/>
+    <Text ID="549621" Value=""/>
+    <Text ID="549622" Value=""/>
+    <Text ID="676158" Value=""/>
+    <Text ID="676159" Value=""/>
+    <Text ID="753195" Value=""/>
+    <Text ID="753196" Value=""/>
+    <Text ID="753197" Value=""/>
+    <Text ID="753198" Value=""/>
+    <Text ID="753199" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="549591" Value=""/>
+    <Text ID="549592" Value="用户管理器"/>
+    <Text ID="549593" Value="产品参数"/>
+    <Text ID="549594" Value="料架参数"/>
+    <Text ID="549595" Value="升降机"/>
+    <Text ID="549596" Value="机器模式"/>
+    <Text ID="549597" Value="平移机"/>
+    <Text ID="549598" Value="缓存"/>
+    <Text ID="549599" Value="操作"/>
+    <Text ID="549600" Value=""/>
+    <Text ID="549601" Value="同步"/>
+    <Text ID="549602" Value="Nutek 设置"/>
+    <Text ID="549603" Value="启动"/>
+    <Text ID="549604" Value="语言和时间"/>
+    <Text ID="549605" Value=" "/>
+    <Text ID="549606" Value=" "/>
+    <Text ID="549607" Value=" "/>
+    <Text ID="549608" Value=" "/>
+    <Text ID="549609" Value="是"/>
+    <Text ID="549610" Value="否"/>
+    <Text ID="549611" Value=""/>
+    <Text ID="549612" Value="好"/>
+    <Text ID="549613" Value="机器设置"/>
+    <Text ID="549614" Value=""/>
+    <Text ID="549615" Value=""/>
+    <Text ID="549616" Value=""/>
+    <Text ID="549617" Value=""/>
+    <Text ID="549618" Value=""/>
+    <Text ID="549619" Value=""/>
+    <Text ID="549620" Value=""/>
+    <Text ID="549621" Value=""/>
+    <Text ID="549622" Value=""/>
+    <Text ID="676158" Value=""/>
+    <Text ID="676159" Value=""/>
+    <Text ID="753195" Value=""/>
+    <Text ID="753196" Value=""/>
+    <Text ID="753197" Value=""/>
+    <Text ID="753198" Value=""/>
+    <Text ID="753199" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="549591" Value=""/>
+    <Text ID="549592" Value=""/>
+    <Text ID="549593" Value=""/>
+    <Text ID="549594" Value=""/>
+    <Text ID="549595" Value=""/>
+    <Text ID="549596" Value=""/>
+    <Text ID="549597" Value=""/>
+    <Text ID="549598" Value=""/>
+    <Text ID="549599" Value=""/>
+    <Text ID="549600" Value=""/>
+    <Text ID="549601" Value=""/>
+    <Text ID="549602" Value=""/>
+    <Text ID="549603" Value=""/>
+    <Text ID="549604" Value=""/>
+    <Text ID="549605" Value=""/>
+    <Text ID="549606" Value=""/>
+    <Text ID="549607" Value=""/>
+    <Text ID="549608" Value=""/>
+    <Text ID="549609" Value=""/>
+    <Text ID="549610" Value=""/>
+    <Text ID="549611" Value=""/>
+    <Text ID="549612" Value=""/>
+    <Text ID="549613" Value=""/>
+    <Text ID="549614" Value=""/>
+    <Text ID="549615" Value=""/>
+    <Text ID="549616" Value=""/>
+    <Text ID="549617" Value=""/>
+    <Text ID="549618" Value=""/>
+    <Text ID="549619" Value=""/>
+    <Text ID="549620" Value=""/>
+    <Text ID="549621" Value=""/>
+    <Text ID="549622" Value=""/>
+    <Text ID="676158" Value=""/>
+    <Text ID="676159" Value=""/>
+    <Text ID="753195" Value=""/>
+    <Text ID="753196" Value=""/>
+    <Text ID="753197" Value=""/>
+    <Text ID="753198" Value=""/>
+    <Text ID="753199" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="549591" Value="0"/>
+    <Index ID="549592" Value="1"/>
+    <Index ID="549593" Value="2"/>
+    <Index ID="549594" Value="3"/>
+    <Index ID="549595" Value="4"/>
+    <Index ID="549596" Value="19"/>
+    <Index ID="549597" Value="5"/>
+    <Index ID="549598" Value="6"/>
+    <Index ID="549599" Value="7"/>
+    <Index ID="549600" Value="8"/>
+    <Index ID="549601" Value="9"/>
+    <Index ID="549602" Value="10"/>
+    <Index ID="549603" Value="18"/>
+    <Index ID="549604" Value="20"/>
+    <Index ID="549605" Value="21"/>
+    <Index ID="549606" Value="11"/>
+    <Index ID="549607" Value="12"/>
+    <Index ID="549608" Value="13"/>
+    <Index ID="549609" Value="101"/>
+    <Index ID="549610" Value="102"/>
+    <Index ID="549611" Value="100"/>
+    <Index ID="549612" Value="103"/>
+    <Index ID="549613" Value="14"/>
+    <Index ID="549614" Value="104"/>
+    <Index ID="549615" Value="15"/>
+    <Index ID="549616" Value="16"/>
+    <Index ID="549617" Value="17"/>
+    <Index ID="549618" Value="23"/>
+    <Index ID="549619" Value="24"/>
+    <Index ID="549620" Value="25"/>
+    <Index ID="549621" Value="26"/>
+    <Index ID="549622" Value="27"/>
+    <Index ID="676158" Value="22"/>
+    <Index ID="676159" Value="105"/>
+    <Index ID="753195" Value="106"/>
+    <Index ID="753196" Value="107"/>
+    <Index ID="753197" Value="108"/>
+    <Index ID="753198" Value="109"/>
+    <Index ID="753199" Value="110"/>
+  </IndexMap>
+</TextGroup>

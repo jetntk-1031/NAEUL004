@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="MainMenu">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="33"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="1002276" Value="Auto"/>
+    <Text ID="1002277" Value="Stop"/>
+    <Text ID="1002278" Value="Buzzer"/>
+    <Text ID="1002279" Value="Accept\nData"/>
+    <Text ID="1002280" Value="Reset"/>
+    <Text ID="1002281" Value="Magazine\nUnload"/>
+    <Text ID="1002282" Value="Barcode\nScan"/>
+    <Text ID="1002283" Value="Manual\nUnload"/>
+    <Text ID="1002284" Value=""/>
+    <Text ID="1002285" Value=""/>
+    <Text ID="1002286" Value=""/>
+    <Text ID="1002287" Value="Auto Running"/>
+    <Text ID="1002288" Value="Stand By"/>
+    <Text ID="1002289" Value="Cycle Stopping"/>
+    <Text ID="1002290" Value="Error"/>
+    <Text ID="1002291" Value="Resume\nOperation"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="1002276" Value=""/>
+    <Text ID="1002277" Value=""/>
+    <Text ID="1002278" Value=""/>
+    <Text ID="1002279" Value=""/>
+    <Text ID="1002280" Value=""/>
+    <Text ID="1002281" Value=""/>
+    <Text ID="1002282" Value=""/>
+    <Text ID="1002283" Value=""/>
+    <Text ID="1002284" Value=""/>
+    <Text ID="1002285" Value=""/>
+    <Text ID="1002286" Value=""/>
+    <Text ID="1002287" Value=""/>
+    <Text ID="1002288" Value=""/>
+    <Text ID="1002289" Value=""/>
+    <Text ID="1002290" Value=""/>
+    <Text ID="1002291" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="1002276" Value=""/>
+    <Text ID="1002277" Value=""/>
+    <Text ID="1002278" Value=""/>
+    <Text ID="1002279" Value=""/>
+    <Text ID="1002280" Value=""/>
+    <Text ID="1002281" Value=""/>
+    <Text ID="1002282" Value=""/>
+    <Text ID="1002283" Value=""/>
+    <Text ID="1002284" Value=""/>
+    <Text ID="1002285" Value=""/>
+    <Text ID="1002286" Value=""/>
+    <Text ID="1002287" Value=""/>
+    <Text ID="1002288" Value=""/>
+    <Text ID="1002289" Value=""/>
+    <Text ID="1002290" Value=""/>
+    <Text ID="1002291" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="1002276" Value=""/>
+    <Text ID="1002277" Value=""/>
+    <Text ID="1002278" Value=""/>
+    <Text ID="1002279" Value=""/>
+    <Text ID="1002280" Value=""/>
+    <Text ID="1002281" Value=""/>
+    <Text ID="1002282" Value=""/>
+    <Text ID="1002283" Value=""/>
+    <Text ID="1002284" Value=""/>
+    <Text ID="1002285" Value=""/>
+    <Text ID="1002286" Value=""/>
+    <Text ID="1002287" Value=""/>
+    <Text ID="1002288" Value=""/>
+    <Text ID="1002289" Value=""/>
+    <Text ID="1002290" Value=""/>
+    <Text ID="1002291" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="1002276" Value="0"/>
+    <Index ID="1002277" Value="1"/>
+    <Index ID="1002278" Value="2"/>
+    <Index ID="1002279" Value="3"/>
+    <Index ID="1002280" Value="4"/>
+    <Index ID="1002281" Value="5"/>
+    <Index ID="1002282" Value="6"/>
+    <Index ID="1002283" Value="7"/>
+    <Index ID="1002284" Value="8"/>
+    <Index ID="1002285" Value="9"/>
+    <Index ID="1002286" Value="10"/>
+    <Index ID="1002287" Value="20"/>
+    <Index ID="1002288" Value="23"/>
+    <Index ID="1002289" Value="21"/>
+    <Index ID="1002290" Value="22"/>
+    <Index ID="1002291" Value="30"/>
+  </IndexMap>
+</TextGroup>

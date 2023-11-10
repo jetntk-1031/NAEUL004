@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T2020_OvenInfoText">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="22"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="191399" Value="Oven Capacity"/>
+    <Text ID="191400" Value="Req Empty Slots"/>
+    <Text ID="191401" Value="Additional Buffer"/>
+    <Text ID="191402" Value="Empty Slot"/>
+    <Text ID="191403" Value="Boards in Oven"/>
+    <Text ID="191404" Value="Standard"/>
+    <Text ID="191405" Value="Extended"/>
+    <Text ID="191406" Value="Oven"/>
+    <Text ID="191407" Value="Oven A"/>
+    <Text ID="191408" Value="Oven B"/>
+    <Text ID="191419" Value="Reset Board In Oven A"/>
+    <Text ID="191420" Value="Reset Board In Oven B"/>
+    <Text ID="191421" Value=" "/>
+    <Text ID="191422" Value=" "/>
+    <Text ID="191429" Value="Oven Info Signal A"/>
+    <Text ID="191430" Value="Oven Info Signal B"/>
+    <Text ID="191431" Value="Oven Infeed Signal A"/>
+    <Text ID="191432" Value="Oven Infeed Signal B"/>
+    <Text ID="191433" Value=" "/>
+    <Text ID="191434" Value=" "/>
+    <Text ID="191439" Value=" "/>
+    <Text ID="191440" Value=" "/>
+    <Text ID="191441" Value=" "/>
+    <Text ID="191442" Value=" "/>
+    <Text ID="191443" Value=" "/>
+    <Text ID="191449" Value="Oven Process Status"/>
+    <Text ID="191450" Value="Idle"/>
+    <Text ID="191451" Value="Ready"/>
+    <Text ID="191452" Value="Done"/>
+    <Text ID="191453" Value="Error"/>
+    <Text ID="191454" Value="Run"/>
+    <Text ID="191455" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="191399" Value="Ofenkapazität"/>
+    <Text ID="191400" Value="Benötigte Leere Slots"/>
+    <Text ID="191401" Value="Zusätzlicher Puffer"/>
+    <Text ID="191402" Value=""/>
+    <Text ID="191403" Value="Leiterplatten im Ofen"/>
+    <Text ID="191404" Value="Standard"/>
+    <Text ID="191405" Value="Ausfahren"/>
+    <Text ID="191406" Value="Ofen"/>
+    <Text ID="191407" Value="Ofen A"/>
+    <Text ID="191408" Value="Ofen B"/>
+    <Text ID="191419" Value=" "/>
+    <Text ID="191420" Value=" "/>
+    <Text ID="191421" Value=" "/>
+    <Text ID="191422" Value=" "/>
+    <Text ID="191429" Value=" "/>
+    <Text ID="191430" Value=" "/>
+    <Text ID="191431" Value=" "/>
+    <Text ID="191432" Value=" "/>
+    <Text ID="191433" Value=" "/>
+    <Text ID="191434" Value=" "/>
+    <Text ID="191439" Value=" "/>
+    <Text ID="191440" Value=" "/>
+    <Text ID="191441" Value=" "/>
+    <Text ID="191442" Value=" "/>
+    <Text ID="191443" Value=" "/>
+    <Text ID="191449" Value="Ofenprozessstatus"/>
+    <Text ID="191450" Value="Leerlauf"/>
+    <Text ID="191451" Value="Bereit"/>
+    <Text ID="191452" Value="Erledigt"/>
+    <Text ID="191453" Value="Fehler"/>
+    <Text ID="191454" Value="Lauf"/>
+    <Text ID="191455" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="191399" Value="回流炉容量"/>
+    <Text ID="191400" Value="所需的空槽"/>
+    <Text ID="191401" Value="额外缓存"/>
+    <Text ID="191402" Value=""/>
+    <Text ID="191403" Value="回流炉内的电路板"/>
+    <Text ID="191404" Value="标准"/>
+    <Text ID="191405" Value="延伸"/>
+    <Text ID="191406" Value="回流炉"/>
+    <Text ID="191407" Value="回流炉 A"/>
+    <Text ID="191408" Value="回流炉 B"/>
+    <Text ID="191419" Value=" "/>
+    <Text ID="191420" Value=" "/>
+    <Text ID="191421" Value=" "/>
+    <Text ID="191422" Value=" "/>
+    <Text ID="191429" Value=" "/>
+    <Text ID="191430" Value=" "/>
+    <Text ID="191431" Value=" "/>
+    <Text ID="191432" Value=" "/>
+    <Text ID="191433" Value=" "/>
+    <Text ID="191434" Value=" "/>
+    <Text ID="191439" Value=" "/>
+    <Text ID="191440" Value=" "/>
+    <Text ID="191441" Value=" "/>
+    <Text ID="191442" Value=" "/>
+    <Text ID="191443" Value=" "/>
+    <Text ID="191449" Value="回流炉进程状态"/>
+    <Text ID="191450" Value="闲置"/>
+    <Text ID="191451" Value="准备"/>
+    <Text ID="191452" Value="完成"/>
+    <Text ID="191453" Value="警报"/>
+    <Text ID="191454" Value="运行"/>
+    <Text ID="191455" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="191399" Value=""/>
+    <Text ID="191400" Value=""/>
+    <Text ID="191401" Value=""/>
+    <Text ID="191402" Value=""/>
+    <Text ID="191403" Value=""/>
+    <Text ID="191404" Value=""/>
+    <Text ID="191405" Value=""/>
+    <Text ID="191406" Value=""/>
+    <Text ID="191407" Value=""/>
+    <Text ID="191408" Value=""/>
+    <Text ID="191419" Value=""/>
+    <Text ID="191420" Value=""/>
+    <Text ID="191421" Value=""/>
+    <Text ID="191422" Value=""/>
+    <Text ID="191429" Value=""/>
+    <Text ID="191430" Value=""/>
+    <Text ID="191431" Value=""/>
+    <Text ID="191432" Value=""/>
+    <Text ID="191433" Value=""/>
+    <Text ID="191434" Value=""/>
+    <Text ID="191439" Value=""/>
+    <Text ID="191440" Value=""/>
+    <Text ID="191441" Value=""/>
+    <Text ID="191442" Value=""/>
+    <Text ID="191443" Value=""/>
+    <Text ID="191449" Value=""/>
+    <Text ID="191450" Value=""/>
+    <Text ID="191451" Value=""/>
+    <Text ID="191452" Value=""/>
+    <Text ID="191453" Value=""/>
+    <Text ID="191454" Value=""/>
+    <Text ID="191455" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="191399" Value="0"/>
+    <Index ID="191400" Value="1"/>
+    <Index ID="191401" Value="2"/>
+    <Index ID="191402" Value="3"/>
+    <Index ID="191403" Value="4"/>
+    <Index ID="191404" Value="5"/>
+    <Index ID="191405" Value="6"/>
+    <Index ID="191406" Value="40"/>
+    <Index ID="191407" Value="41"/>
+    <Index ID="191408" Value="42"/>
+    <Index ID="191419" Value="20"/>
+    <Index ID="191420" Value="21"/>
+    <Index ID="191421" Value="22"/>
+    <Index ID="191422" Value="23"/>
+    <Index ID="191429" Value="30"/>
+    <Index ID="191430" Value="31"/>
+    <Index ID="191431" Value="32"/>
+    <Index ID="191432" Value="33"/>
+    <Index ID="191433" Value="34"/>
+    <Index ID="191434" Value="35"/>
+    <Index ID="191439" Value="7"/>
+    <Index ID="191440" Value="8"/>
+    <Index ID="191441" Value="9"/>
+    <Index ID="191442" Value="43"/>
+    <Index ID="191443" Value="44"/>
+    <Index ID="191449" Value="50"/>
+    <Index ID="191450" Value="51"/>
+    <Index ID="191451" Value="52"/>
+    <Index ID="191452" Value="53"/>
+    <Index ID="191453" Value="54"/>
+    <Index ID="191454" Value="55"/>
+    <Index ID="191455" Value="56"/>
+  </IndexMap>
+</TextGroup>

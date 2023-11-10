@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopEntStpr.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopEntStpr</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopMidStpr.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopMidStpr</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopExtStpr.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopExtStpr</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenBtmMidStpr.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenBtmMidStpr</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenBtmExtStpr.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenBtmExtStpr</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopEntStpr2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopEntStpr2</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopMidStpr2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopMidStpr2</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenTopExtStpr2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenTopExtStpr2</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenBtmMidStpr2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenBtmMidStpr2</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenBtmExtStpr2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenBtmExtStpr2</Object>
+  </Objects>
+</Package>

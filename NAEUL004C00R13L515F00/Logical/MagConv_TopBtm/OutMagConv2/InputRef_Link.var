@@ -1,0 +1,15 @@
+(*2019-04-09*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkDISafetyRlySig : REFERENCE TO BOOL;
+	fbOutMagConvStopTm : TON;
+	bTmr : BOOL;
+	p_tyLinkDI : REFERENCE TO tyDigitalInputSettings;
+	p_bLinkOpsInitULDStepInitDone2 : REFERENCE TO BOOL;
+	p_bLinkOpsOutMagConStepEntMag : REFERENCE TO BOOL;
+	p_bLinkOpsOutMagConStepEntMidMag : REFERENCE TO BOOL;
+END_VAR

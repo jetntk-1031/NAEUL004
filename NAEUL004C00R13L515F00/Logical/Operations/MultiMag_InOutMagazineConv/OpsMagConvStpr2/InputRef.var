@@ -1,0 +1,73 @@
+(*2019-04-16*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bBtmEntToLift : REFERENCE TO BOOL;
+	p_bBtmExitFromLift : REFERENCE TO BOOL;
+	p_bTopEntToLift : REFERENCE TO BOOL;
+	p_bTopExitFromLift : REFERENCE TO BOOL;
+	p_bTopEntFromMagConv : REFERENCE TO BOOL;
+	p_bBtmExitFromMagConv : REFERENCE TO BOOL;
+	p_bBtmExitMnl : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eStprTopEntStat : REFERENCE TO ePneuAction;
+	p_eStprTopEntStatus : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eStprBtmMidStat : REFERENCE TO ePneuAction;
+	p_eStprBtmMidStatus : REFERENCE TO eFBStatus;
+	p_eStprTopMidStat : REFERENCE TO ePneuAction;
+	p_eStprTopMidStatus : REFERENCE TO eFBStatus;
+	p_bStprTopMidStprExtended : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eStprBtmExitStat : REFERENCE TO ePneuAction;
+	p_eStprBtmExitStatus : REFERENCE TO eFBStatus;
+	p_eStprTopExitStat : REFERENCE TO ePneuAction;
+	p_eStprTopExitStatus : REFERENCE TO eFBStatus;
+	p_bStprTopExitStprExtended : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eLiftMagConvAct : REFERENCE TO eMagConvAction;
+	p_eInMagConvStat : REFERENCE TO eMagConvAction;
+	p_eInMagConvStatus : REFERENCE TO eFBStatus;
+	p_eOutMagConvStatus : REFERENCE TO eFBStatus;
+	p_eLiftMagConvStat : REFERENCE TO eMagConvAction;
+	p_eLiftMagConvStatus : REFERENCE TO eFBStatus;
+	p_bBtmMagConvZ1Sen : REFERENCE TO BOOL;
+	p_bTopMagConvZ1Sen : REFERENCE TO BOOL;
+	p_bTopMagConvMidSen : REFERENCE TO BOOL;
+	p_bBtmMagConvMidSen : REFERENCE TO BOOL;
+	p_bBtmMagConvEndSen : REFERENCE TO BOOL;
+	p_bTopMagConvEndSen : REFERENCE TO BOOL;
+	p_bMagPresentSen : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLiftBtmPos : REFERENCE TO BOOL;
+	p_bLiftTopPos : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bEnterSig : REFERENCE TO BOOL;
+	p_bExitSig : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR

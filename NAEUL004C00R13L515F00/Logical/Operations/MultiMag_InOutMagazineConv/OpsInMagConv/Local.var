@@ -1,0 +1,94 @@
+(*2019-04-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Invalid Magazine Size.'),(sAlmText:='Top Magazine Conveyor Full.'),98((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	sStepTxt1 : STRING[80];
+	bPaused : BOOL;
+	bStepEnterMag : BOOL := FALSE;
+	bStepEntToMid : BOOL := FALSE;
+	bStepExitMag : BOOL := FALSE;
+	bStepEnterMag2 : BOOL := FALSE;
+	bStepEntToMid2 : BOOL := FALSE;
+	bStepExitMag2 : BOOL := FALSE;
+END_VAR
+(**)
+VAR
+	eInMagConvAct : eMagConvAction;
+	eInMagConv2Act : eMagConvAction;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+END_VAR
+(**)
+VAR
+	eInMagConvStat : eMagConvAction;
+	eInMagConvStatus : eFBStatus;
+	eInMagConv2Stat : eMagConvAction;
+	eInMagConv2Status : eFBStatus;
+	eUSSOTAct : eSOTAction;
+	eUSSOTAct2 : eSOTAction;
+END_VAR
+(**)
+VAR
+	bStepOpsEntMag : BOOL := FALSE;
+	bStepOpsEntMidMag : BOOL := FALSE;
+	bStepOpsExtMag : BOOL := FALSE;
+	bStepOpsEntMag2 : BOOL := FALSE;
+	bStepOpsEntMidMag2 : BOOL := FALSE;
+	bStepOpsExtMag2 : BOOL := FALSE;
+END_VAR
+(**)
+VAR
+	bMagSelMiniMag : BOOL := FALSE;
+END_VAR
+(**)
+VAR
+	bInMagConvExtSen : BOOL;
+	bMagHeightChkSen : BOOL;
+	bCurtainSensorStat : BOOL;
+END_VAR
+(**)
+VAR
+	sProgNm : STRING[15] := 'OpsInMagConv';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitialDone : BOOL;
+	bInitDone : BOOL;
+	eOpsStep : eInMagConvStep := InMagConvStepNA;
+	eGotoStep : eInMagConvStep := InMagConvStepInit;
+	eOpsStep1 : eInMagConvStep := InMagConvStepNA;
+	eGotoStep1 : eInMagConvStep := InMagConvStepInit;
+	bMnlLoad : BOOL;
+	bMnlLoad2 : BOOL;
+	bLiftConvMagExist : BOOL;
+	bLiftConvMagExist2 : BOOL;
+	bMagManEx : BOOL;
+	bMagAutoEx : BOOL;
+	udiModuleNum : UDINT := 6111;
+END_VAR

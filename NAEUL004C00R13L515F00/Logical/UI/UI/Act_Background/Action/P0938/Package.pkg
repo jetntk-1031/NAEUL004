@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0938Disp.st</Object>
+    <Object Type="File">Act_OptP0938Navi.st</Object>
+    <Object Type="File">Act_OptP0938FullMask.st</Object>
+    <Object Type="File">Act_OptP0938FBCtrl1.st</Object>
+    <Object Type="File">Act_OptP0938FBCtrl2.st</Object>
+    <Object Type="File">Act_OptP0938FBCtrl3.st</Object>
+    <Object Type="File">Act_OptP0938FBStat.st</Object>
+    <Object Type="File">Act_OptP0938Mask.st</Object>
+    <Object Type="File">Act_OptP0938UpdtDat.st</Object>
+    <Object Type="File">Act_OptP0938Keypad.st</Object>
+    <Object Type="File">Act_OptP0938RstMnl.st</Object>
+  </Objects>
+</Package>

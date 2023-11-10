@@ -1,0 +1,27 @@
+(*2019-06-27*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_Follower2Status : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_Follower2AlmData : UDINT;
+	p_Follower2InfoData : UDINT;
+	p_Follower2InfoData1 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_Follower2USAllow : UDINT;
+	p_Follower2DSAllow : UDINT;
+	p_Follower2ProdAccDataMnl : UDINT;
+	p_Follower2ProdUpdtDataMnl : UDINT;
+	p_Follower2MagAccDataMnl : UDINT;
+	p_Follower2TimeAct : UDINT;
+	p_Follower2SetDT : UDINT;
+	p_Follower2WaitRlsBrd : UDINT;
+	p_Follower2UpdtProdRcp : UDINT;
+	p_Follower2ProdRcpDiff : UDINT;
+END_VAR

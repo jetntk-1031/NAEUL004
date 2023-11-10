@@ -1,0 +1,16 @@
+(*2018-12-11*)
+(**)
+VAR
+	p_bLinkFollower2USAllow : REFERENCE TO BOOL;
+	p_bLinkDIInMagConvExtSen : REFERENCE TO BOOL;
+	p_bLinkDIOutMagConvEntSen : REFERENCE TO BOOL;
+	p_bLinkDIOutMagConvMidSen : REFERENCE TO BOOL;
+	p_bLinkDIInMagConv2ExtSen : REFERENCE TO BOOL;
+	p_bLinkDIOutMagConv2EntSen : REFERENCE TO BOOL;
+	p_bLinkDIOutMagConv2MidSen : REFERENCE TO BOOL;
+	p_bOpsOutMagConvStepInitDone : REFERENCE TO BOOL;
+	p_bOpsOutMagConv2StepInitDone : REFERENCE TO BOOL;
+	p_bLinkOpsMnlUnloadMag : REFERENCE TO BOOL;
+	p_bLinkOpsOutMagConvStepWaitRmv : REFERENCE TO BOOL;
+	p_bLinkOpsOutMagConv2StepWaitRmv : REFERENCE TO BOOL;
+END_VAR

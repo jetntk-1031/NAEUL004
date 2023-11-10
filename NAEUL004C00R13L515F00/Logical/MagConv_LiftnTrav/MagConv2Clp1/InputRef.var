@@ -1,0 +1,42 @@
+(*2019-10-30*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eMagConv2ClpAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_bManual : REFERENCE TO BOOL;
+	p_bOnDirMod : REFERENCE TO BOOL;
+	p_diInitTm : REFERENCE TO DINT;
+	p_tMtrOffDlyTm : REFERENCE TO TIME;
+	p_diTxInTimeOut : REFERENCE TO DINT;
+	p_diTxOutTimeOut : REFERENCE TO DINT;
+	p_eDirection : REFERENCE TO eConvDir;
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_tClprClampTO : REFERENCE TO TIME;
+	p_tClprUnclampTO : REFERENCE TO TIME;
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_bLeftSen : REFERENCE TO BOOL;
+	p_bRightSen : REFERENCE TO BOOL;
+	p_bFixClprClampSen : REFERENCE TO BOOL;
+	p_bFixClprUnclampSen : REFERENCE TO BOOL;
+	p_bRmtClprClampSen : REFERENCE TO BOOL;
+	p_bRmtClprUnclampSen : REFERENCE TO BOOL;
+	p_bFixClprClampSafetySen : REFERENCE TO BOOL;
+	p_bFixClprUnclampSafetySen : REFERENCE TO BOOL;
+	p_bRmtClprClampSafetySen : REFERENCE TO BOOL;
+	p_bRmtClprUnclampSafetySen : REFERENCE TO BOOL;
+	p_bWidthChkSen : REFERENCE TO BOOL;
+	p_bWidthChkSenPrep : REFERENCE TO BOOL;
+	p_bWidthChkInterrupt : REFERENCE TO BOOL;
+END_VAR

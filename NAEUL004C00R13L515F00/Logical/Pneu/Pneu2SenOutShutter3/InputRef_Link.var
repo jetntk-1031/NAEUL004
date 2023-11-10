@@ -1,0 +1,17 @@
+(*2019-04-09*)
+(**)
+(*External*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkDISafetyRlySig : REFERENCE TO BOOL;
+	p_bLinkDIConvClrSen : REFERENCE TO BOOL;
+	p_bLinkDIPusherRetRS : REFERENCE TO BOOL;
+	p_bConvPusherReachedRetSlw : REFERENCE TO BOOL;
+	p_eLinkLifter2Stat : REFERENCE TO eLifterAction;
+	p_eLinkLifter2Status : REFERENCE TO eFBStatus;
+	p_eLinkLifterBtmStat : REFERENCE TO eLifterAction;
+	p_eLinkLifterBtmStatus : REFERENCE TO eFBStatus;
+END_VAR

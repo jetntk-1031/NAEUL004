@@ -1,0 +1,54 @@
+(*2019-04-16*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_eOutMagConvStat : REFERENCE TO eMagConvAction;
+	p_eOutMagConvStatus : REFERENCE TO eFBStatus;
+	p_eOutMagConv2Stat : REFERENCE TO eMagConvAction;
+	p_eOutMagConv2Status : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_bStepEntMag : REFERENCE TO BOOL;
+	p_bStepEntMag2 : REFERENCE TO BOOL;
+	p_bEntSen : REFERENCE TO BOOL;
+	p_bMidSen : REFERENCE TO BOOL;
+	p_bExtSen : REFERENCE TO BOOL;
+	p_bEntSen2 : REFERENCE TO BOOL;
+	p_bMidSen2 : REFERENCE TO BOOL;
+	p_bExtSen2 : REFERENCE TO BOOL;
+	p_bExitSig : REFERENCE TO BOOL;
+	p_bExitSig2 : REFERENCE TO BOOL;
+	p_bOpsMnlUnloadMag : REFERENCE TO BOOL;
+	p_bOpsMnlUnloadMag2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*AGV SOT*)
+VAR
+	p_eAGVMagStat : REFERENCE TO eAGVMagAction;
+	p_eAGVMagStatus : REFERENCE TO eFBStatus;
+	p_bAGVMagMcRunRdy : REFERENCE TO BOOL;
+	p_eDSSOTStat : REFERENCE TO eSOTAction;
+	p_eDSSOTStatus : REFERENCE TO eFBStatus;
+	p_eDSSOTStat2 : REFERENCE TO eSOTAction;
+	p_eDSSOTStatus2 : REFERENCE TO eFBStatus;
+	p_bDSSOTTransporting : REFERENCE TO BOOL;
+	p_bDSSOTTransporting2 : REFERENCE TO BOOL;
+	p_bDSSOTConvStart : REFERENCE TO BOOL;
+	p_bDSSOTConvStop : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR

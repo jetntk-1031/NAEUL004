@@ -1,0 +1,95 @@
+(*2019-01-20*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_sJobNo : REFERENCE TO STRING[30];
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_bManual : REFERENCE TO BOOL;
+	p_tyDTMagToAGV1 : REFERENCE TO tyTagDTMagToAGV;
+	p_tyDTMagToAGV2 : REFERENCE TO tyTagDTMagToAGV;
+	p_tyDTMagToAGV3 : REFERENCE TO tyTagDTMagToAGV;
+	p_bOpsRun : REFERENCE TO BOOL;
+	p_bLinkOpsSimu : REFERENCE TO BOOL;
+	p_bIncorrectMagazine1 : REFERENCE TO BOOL;
+	p_bIncorrectMagazine2 : REFERENCE TO BOOL;
+	p_bIncorrectMagazine3 : REFERENCE TO BOOL;
+END_VAR
+(*Simulate Data*)
+VAR
+	p_tyUIAGVToDTMagSimulateData : REFERENCE TO tyTagAGVToDTMag;
+	p_bUIAGVOnline : REFERENCE TO BOOL;
+	p_bUIAGVSimulationOn : REFERENCE TO BOOL;
+	p_bAGVRdyEnter1 : REFERENCE TO BOOL;
+	p_bAGVRdyExit1 : REFERENCE TO BOOL;
+	p_bAGVRdyEnter2 : REFERENCE TO BOOL;
+	p_bAGVRdyExit2 : REFERENCE TO BOOL;
+	p_bAGVRdyEnter3 : REFERENCE TO BOOL;
+	p_bAGVRdyExit3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bRequestToBring1 : REFERENCE TO BOOL;
+	p_bRequestToBring2 : REFERENCE TO BOOL;
+	p_bRequestToBring3 : REFERENCE TO BOOL;
+	p_bRequestToBring4 : REFERENCE TO BOOL;
+	p_bRequestToGet1 : REFERENCE TO BOOL;
+	p_bRequestToGet2 : REFERENCE TO BOOL;
+	p_bRequestToGet3 : REFERENCE TO BOOL;
+	p_bRequestToGet4 : REFERENCE TO BOOL;
+	p_bUISOTMagError1 : REFERENCE TO BOOL;
+	p_bUISOTMagError2 : REFERENCE TO BOOL;
+	p_bUISOTMagError3 : REFERENCE TO BOOL;
+	p_bUISOTMagReady1 : REFERENCE TO BOOL;
+	p_bUISOTMagReady2 : REFERENCE TO BOOL;
+	p_bUISOTMagReady3 : REFERENCE TO BOOL;
+	p_bUISOTMagAvailable1 : REFERENCE TO BOOL;
+	p_bUISOTMagAvailable2 : REFERENCE TO BOOL;
+	p_bUISOTMagAvailable3 : REFERENCE TO BOOL;
+	p_bUISOTMagSizeLarge1 : REFERENCE TO BOOL;
+	p_bUISOTMagSizeLarge2 : REFERENCE TO BOOL;
+	p_bUISOTMagSizeLarge3 : REFERENCE TO BOOL;
+	p_bUIRequestToBring1 : REFERENCE TO BOOL;
+	p_bUIRequestToBring2 : REFERENCE TO BOOL;
+	p_bUIRequestToBring3 : REFERENCE TO BOOL;
+	p_bUIRequestToGet1 : REFERENCE TO BOOL;
+	p_bUIRequestToGet2 : REFERENCE TO BOOL;
+	p_bUIRequestToGet3 : REFERENCE TO BOOL;
+	p_bDIFleetManagerActive : REFERENCE TO BOOL;
+	p_eAGVComProtocol : REFERENCE TO eMcAGVCommProtocol;
+	p_bSOTMagError1 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge1 : REFERENCE TO BOOL;
+	p_bSOTMagReady1 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable1 : REFERENCE TO BOOL;
+	p_bSOTMagError2 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge2 : REFERENCE TO BOOL;
+	p_bSOTMagReady2 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable2 : REFERENCE TO BOOL;
+	p_bSOTMagError3 : REFERENCE TO BOOL;
+	p_bSOTMagSizeLarge3 : REFERENCE TO BOOL;
+	p_bSOTMagReady3 : REFERENCE TO BOOL;
+	p_bSOTMagAvailable3 : REFERENCE TO BOOL;
+	p_bDisableFMWarning : REFERENCE TO BOOL;
+END_VAR
+(*Simens*)
+VAR
+	p_eCustomerReq : REFERENCE TO eCustomer;
+	p_bOpsMagConvUL1ReadRFID : REFERENCE TO BOOL;
+	p_bOpsMagConvUL1WriteRFID : REFERENCE TO BOOL;
+	p_bOpsMagConvUL2ReadRFID : REFERENCE TO BOOL;
+	p_bOpsMagConvUL2WriteRFID : REFERENCE TO BOOL;
+	p_bOpsMagConvUL3ReadRFID : REFERENCE TO BOOL;
+	p_bOpsMagConvUL3WriteRFID : REFERENCE TO BOOL;
+END_VAR

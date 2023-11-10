@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1040_KeypadTtles">
+  <Property Name="Description" Value="Keypad Titles"/>
+  <Property Name="Index" Value="4"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="189719" Value="Lifter Top Position"/>
+    <Text ID="189720" Value="Lifter Bottom Position"/>
+    <Text ID="189728" Value="Job No,"/>
+    <Text ID="189729" Value="Pusher Offset"/>
+    <Text ID="189730" Value=""/>
+    <Text ID="189732" Value="Machine Name"/>
+    <Text ID="189733" Value="Node ID"/>
+    <Text ID="189734" Value="Total Node"/>
+    <Text ID="189735" Value="Start Code"/>
+    <Text ID="189741" Value="End Code"/>
+    <Text ID="193982" Value=" "/>
+    <Text ID="193983" Value=" "/>
+    <Text ID="193984" Value="Minimum Width"/>
+    <Text ID="193985" Value="Maximum Width"/>
+    <Text ID="193986" Value="Width Offset"/>
+    <Text ID="193987" Value="Minimum Safe Zone"/>
+    <Text ID="193988" Value="Maximum Safe Zone"/>
+    <Text ID="193989" Value=" "/>
+    <Text ID="193990" Value=" "/>
+    <Text ID="332820" Value=""/>
+    <Text ID="403136" Value="Upstream Lane ID"/>
+    <Text ID="403137" Value="Downstream Lane ID"/>
+    <Text ID="403138" Value="Client Port"/>
+    <Text ID="403139" Value="Server Port"/>
+    <Text ID="403140" Value="Allowed Client IP"/>
+    <Text ID="403141" Value="Connect Server IP"/>
+    <Text ID="403142" Value="Allowed Client Port"/>
+    <Text ID="403143" Value="Connect Server Port"/>
+    <Text ID="403144" Value="Upstream Send Alive Time"/>
+    <Text ID="403145" Value="Upstream Receive Alive Time"/>
+    <Text ID="403146" Value="Downstream Send Alive Time"/>
+    <Text ID="403147" Value="Downstream Receive Alive Time"/>
+    <Text ID="403148" Value="P1-37"/>
+    <Text ID="403149" Value="P1-42"/>
+    <Text ID="403150" Value="P1-43"/>
+    <Text ID="403151" Value="P2-00"/>
+    <Text ID="403152" Value="P2-02"/>
+    <Text ID="403153" Value="P2-04"/>
+    <Text ID="403154" Value="P2-06"/>
+    <Text ID="403155" Value="P2-25"/>
+    <Text ID="403156" Value="P2-26"/>
+    <Text ID="403157" Value=" "/>
+    <Text ID="403158" Value="Pn102"/>
+    <Text ID="403159" Value="Pn103"/>
+    <Text ID="403160" Value="Pn104"/>
+    <Text ID="403161" Value="Pn106"/>
+    <Text ID="414400" Value="Target Position"/>
+    <Text ID="414401" Value="Step Size"/>
+    <Text ID="414402" Value="Nominal Speed"/>
+    <Text ID="414403" Value="Slow Speed"/>
+    <Text ID="414404" Value="New Width"/>
+    <Text ID="414405" Value="New Slot"/>
+    <Text ID="414406" Value="Hour"/>
+    <Text ID="414407" Value="Minute"/>
+    <Text ID="414408" Value="Second"/>
+    <Text ID="414409" Value="Year"/>
+    <Text ID="414410" Value="Month"/>
+    <Text ID="414411" Value="Day"/>
+    <Text ID="414412" Value="Search Keyword"/>
+    <Text ID="414413" Value="Traverser Postion Lane A"/>
+    <Text ID="414414" Value="Traverser Postion Lane B"/>
+    <Text ID="414415" Value="Width At Home Position"/>
+    <Text ID="414416" Value="Conveyor Init Time"/>
+    <Text ID="414417" Value="Total Slots"/>
+    <Text ID="414418" Value="Conveyor Init Time"/>
+    <Text ID="414419" Value="Reverse Time"/>
+    <Text ID="414420" Value="Cooling Time"/>
+    <Text ID="414421" Value="Acceleration"/>
+    <Text ID="414422" Value="Deceleration"/>
+    <Text ID="414423" Value="Origin Speed"/>
+    <Text ID="414424" Value="Auto Speed"/>
+    <Text ID="414425" Value="User Name"/>
+    <Text ID="414426" Value="Password"/>
+    <Text ID="414427" Value="User ID"/>
+    <Text ID="414428" Value="Screen Saver Time"/>
+    <Text ID="414429" Value="Home Button Hide Time"/>
+    <Text ID="414430" Value="Width"/>
+    <Text ID="414431" Value="Minimum Range"/>
+    <Text ID="414432" Value="Maximum Range"/>
+    <Text ID="414433" Value="Pitch"/>
+    <Text ID="414434" Value="Board Per Slot"/>
+    <Text ID="414435" Value="Gap Between Board"/>
+    <Text ID="414436" Value="Min Requirement"/>
+    <Text ID="414437" Value="Max Amount"/>
+    <Text ID="414438" Value="Oven Capacity"/>
+    <Text ID="414439" Value="Current Recipe"/>
+    <Text ID="414440" Value="Slot 1 Position"/>
+    <Text ID="414441" Value="Slot To Slot Distance"/>
+    <Text ID="414442" Value="Max Slot"/>
+    <Text ID="414443" Value="Lifter Slot 1 Pos"/>
+    <Text ID="414444" Value="Lifter Unload Pos"/>
+    <Text ID="414445" Value="Traverser Mag 1 Pos"/>
+    <Text ID="414446" Value="Traverser Mag 2 Pos"/>
+    <Text ID="414447" Value="Machine No"/>
+    <Text ID="414448" Value="Machine Name"/>
+    <Text ID="414449" Value="IP Address"/>
+    <Text ID="414450" Value="Change Seq Time"/>
+    <Text ID="414451" Value="Change All Time"/>
+    <Text ID="414452" Value="Bypass Quantity"/>
+    <Text ID="414453" Value="Load/Unload Board Time"/>
+    <Text ID="414454" Value="Board Per Slot"/>
+    <Text ID="414455" Value="Magazine Name"/>
+    <Text ID="414456" Value="Slot To Slot Distance"/>
+    <Text ID="414457" Value="Total Slots"/>
+    <Text ID="414458" Value="Lifter Slot 1 Position"/>
+    <Text ID="414459" Value="Top Mag Conv Run Time"/>
+    <Text ID="414460" Value="Btm Mag Conv Run Time"/>
+    <Text ID="414461" Value="Lifter Mag Conv Run Time"/>
+    <Text ID="414462" Value="Sensor On Time"/>
+    <Text ID="414463" Value="Sensor Off Time"/>
+    <Text ID="414464" Value="Program Name"/>
+    <Text ID="414465" Value="Program No"/>
+    <Text ID="423932" Value="Conveyor Time Out"/>
+    <Text ID="471209" Value="Tran Out Err Delay Time"/>
+    <Text ID="471210" Value="Outfed Delay Timer"/>
+    <Text ID="471211" Value="Board To Board Gap Timer"/>
+    <Text ID="476057" Value="Machine Name"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="189719" Value="Obere Position des Hebers"/>
+    <Text ID="189720" Value="Position des unteren Hebels"/>
+    <Text ID="189728" Value=" Auftrag Num"/>
+    <Text ID="189729" Value=" "/>
+    <Text ID="189730" Value=" "/>
+    <Text ID="189732" Value="Machinenname"/>
+    <Text ID="189733" Value=" "/>
+    <Text ID="189734" Value=" "/>
+    <Text ID="189735" Value=" "/>
+    <Text ID="189741" Value=" "/>
+    <Text ID="193982" Value=" "/>
+    <Text ID="193983" Value=" "/>
+    <Text ID="193984" Value=" "/>
+    <Text ID="193985" Value=" "/>
+    <Text ID="193986" Value=""/>
+    <Text ID="193987" Value=" "/>
+    <Text ID="193988" Value=" "/>
+    <Text ID="193989" Value=" "/>
+    <Text ID="193990" Value=" "/>
+    <Text ID="332820" Value=""/>
+    <Text ID="403136" Value="Vorgeschaltetes Bahn ID"/>
+    <Text ID="403137" Value="Nachgeschaltetes Bahn ID"/>
+    <Text ID="403138" Value="Client Port"/>
+    <Text ID="403139" Value="Server Port"/>
+    <Text ID="403140" Value="Erlaubter Client-IP"/>
+    <Text ID="403141" Value="Verbinden Server IP"/>
+    <Text ID="403142" Value="Erlaubter Client-port"/>
+    <Text ID="403143" Value="Verbinden Sie den Server-port"/>
+    <Text ID="403144" Value="Vorgeschaltetes Seeden Lebendige Zeit"/>
+    <Text ID="403145" Value="Vorgeschaltetes Erhaltan Lebendige Zeit"/>
+    <Text ID="403146" Value="Nachgeschaltetes Seeden Lebendigeszeit"/>
+    <Text ID="403147" Value="Nachgeschaltetes Erhaltan Lebendigeszeit"/>
+    <Text ID="403148" Value="P1-37"/>
+    <Text ID="403149" Value="P1-42"/>
+    <Text ID="403150" Value="P1-43"/>
+    <Text ID="403151" Value="P2-00"/>
+    <Text ID="403152" Value="P2-02"/>
+    <Text ID="403153" Value="P2-04"/>
+    <Text ID="403154" Value="P2-06"/>
+    <Text ID="403155" Value="P2-25"/>
+    <Text ID="403156" Value="P2-26"/>
+    <Text ID="403157" Value=" "/>
+    <Text ID="403158" Value="Pn102"/>
+    <Text ID="403159" Value="Pn103"/>
+    <Text ID="403160" Value="Pn104"/>
+    <Text ID="403161" Value="Pn106"/>
+    <Text ID="414400" Value="Zielposition"/>
+    <Text ID="414401" Value="Schrittweite"/>
+    <Text ID="414402" Value="Nenngeschwindigkeit"/>
+    <Text ID="414403" Value="Langsame Geschwindigkeit"/>
+    <Text ID="414404" Value="Neue Breite"/>
+    <Text ID="414405" Value="Neuer Steckplatz"/>
+    <Text ID="414406" Value="Stunde"/>
+    <Text ID="414407" Value="Minute"/>
+    <Text ID="414408" Value="Sekunde"/>
+    <Text ID="414409" Value="Jahr"/>
+    <Text ID="414410" Value="Monat"/>
+    <Text ID="414411" Value="Tag"/>
+    <Text ID="414412" Value="Stichwortsuche"/>
+    <Text ID="414413" Value="Schiebebühne Position Bahn A"/>
+    <Text ID="414414" Value="Schiebebühne Position Bahn B"/>
+    <Text ID="414415" Value="Breite Home Position"/>
+    <Text ID="414416" Value="Förderband Initialisierungszeit"/>
+    <Text ID="414417" Value="Steckplätze gesamt"/>
+    <Text ID="414418" Value="Förderband Initialisierungszeit"/>
+    <Text ID="414419" Value="Rücklaufzeit"/>
+    <Text ID="414420" Value="Kühlungszeit"/>
+    <Text ID="414421" Value="Beschleunigung"/>
+    <Text ID="414422" Value="Verzögerung"/>
+    <Text ID="414423" Value="Originalgeschwindigikeit"/>
+    <Text ID="414424" Value="Automatische Geschwindigkeit"/>
+    <Text ID="414425" Value="Benutzername"/>
+    <Text ID="414426" Value="Passwort"/>
+    <Text ID="414427" Value="Benutzer-ID"/>
+    <Text ID="414428" Value="Bildschirmschoner Zeit"/>
+    <Text ID="414429" Value="Home Taste Zeit ausblenden"/>
+    <Text ID="414430" Value="Breite"/>
+    <Text ID="414431" Value="Erster Steckplätze"/>
+    <Text ID="414432" Value="Letzter Steckplätze"/>
+    <Text ID="414433" Value="Tonhöhe"/>
+    <Text ID="414434" Value="Leiterplatte pro Steckplatz"/>
+    <Text ID="414435" Value="Lücke zwischen Board"/>
+    <Text ID="414436" Value="Min. Anforderung"/>
+    <Text ID="414437" Value="Max. Menge"/>
+    <Text ID="414438" Value="Ofenkapazität"/>
+    <Text ID="414439" Value="Aktuelles Rezept"/>
+    <Text ID="414440" Value="Position Steckplätze 1"/>
+    <Text ID="414441" Value="Abstand der Steckplätze"/>
+    <Text ID="414442" Value="Max. Steckplätze"/>
+    <Text ID="414443" Value="Heber Steckplätze 1 Pos"/>
+    <Text ID="414444" Value="Haber Entladen Pos"/>
+    <Text ID="414445" Value="Schiebebühne Mag 1 Pos"/>
+    <Text ID="414446" Value="Schiebebühne Mag 2 Pos"/>
+    <Text ID="414447" Value="Machinennummer"/>
+    <Text ID="414448" Value="Machinenname"/>
+    <Text ID="414449" Value="IP-Adresse"/>
+    <Text ID="414450" Value="Ändern Sie die sequentielle Zeit"/>
+    <Text ID="414451" Value="Alle Zeiten ändern"/>
+    <Text ID="414452" Value="Bypass Menge"/>
+    <Text ID="414453" Value="Be-/Entaden Leiterplatte Zeit"/>
+    <Text ID="414454" Value="Leiterplatte pro Steckplatz"/>
+    <Text ID="414455" Value="Magazinname"/>
+    <Text ID="414456" Value="Abstand der Steckplätze"/>
+    <Text ID="414457" Value="Steckplätze gesamt"/>
+    <Text ID="414458" Value="Heber Steckplätze 1 Pos"/>
+    <Text ID="414459" Value="Top Mag Förderband  Laufzeit"/>
+    <Text ID="414460" Value="Btm Mag Förderband  Laufzeit"/>
+    <Text ID="414461" Value="Heber Mag Förderband Laufzeit"/>
+    <Text ID="414462" Value="Sensor ein Zeit"/>
+    <Text ID="414463" Value="Sensor aus Zeit"/>
+    <Text ID="414464" Value="Programmname"/>
+    <Text ID="414465" Value="Programmnummer"/>
+    <Text ID="423932" Value="Förderband Auszeit"/>
+    <Text ID="471209" Value=""/>
+    <Text ID="471210" Value=""/>
+    <Text ID="471211" Value=""/>
+    <Text ID="476057" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="189719" Value="升降机顶部位置"/>
+    <Text ID="189720" Value="升降机底部位置"/>
+    <Text ID="189728" Value="工作号码"/>
+    <Text ID="189729" Value=" "/>
+    <Text ID="189730" Value=" "/>
+    <Text ID="189732" Value="机器名称"/>
+    <Text ID="189733" Value=" "/>
+    <Text ID="189734" Value=" "/>
+    <Text ID="189735" Value=" "/>
+    <Text ID="189741" Value=" "/>
+    <Text ID="193982" Value=" "/>
+    <Text ID="193983" Value=" "/>
+    <Text ID="193984" Value=" "/>
+    <Text ID="193985" Value=" "/>
+    <Text ID="193986" Value=" "/>
+    <Text ID="193987" Value=" "/>
+    <Text ID="193988" Value=" "/>
+    <Text ID="193989" Value=" "/>
+    <Text ID="193990" Value=" "/>
+    <Text ID="332820" Value=""/>
+    <Text ID="403136" Value="上游线路 ID"/>
+    <Text ID="403137" Value="下游线路 ID"/>
+    <Text ID="403138" Value="客户端口"/>
+    <Text ID="403139" Value="服务器端口"/>
+    <Text ID="403140" Value="允许连接客户端 IP"/>
+    <Text ID="403141" Value="连接服务器 IP"/>
+    <Text ID="403142" Value="允许连接客户端端口"/>
+    <Text ID="403143" Value="连接服务器端口"/>
+    <Text ID="403144" Value="上游发送激活时间"/>
+    <Text ID="403145" Value="上游接收激活时间"/>
+    <Text ID="403146" Value="下游发送激活时间"/>
+    <Text ID="403147" Value="下游接收激活时间"/>
+    <Text ID="403148" Value="P1-37"/>
+    <Text ID="403149" Value="P1-42"/>
+    <Text ID="403150" Value="P1-43"/>
+    <Text ID="403151" Value="P2-00"/>
+    <Text ID="403152" Value="P2-02"/>
+    <Text ID="403153" Value="P2-04"/>
+    <Text ID="403154" Value="P2-06"/>
+    <Text ID="403155" Value="P2-25"/>
+    <Text ID="403156" Value="P2-26"/>
+    <Text ID="403157" Value=" "/>
+    <Text ID="403158" Value="Pn102"/>
+    <Text ID="403159" Value="Pn103"/>
+    <Text ID="403160" Value="Pn104"/>
+    <Text ID="403161" Value="Pn106"/>
+    <Text ID="414400" Value="目标位置"/>
+    <Text ID="414401" Value="步长"/>
+    <Text ID="414402" Value="公称速度"/>
+    <Text ID="414403" Value="慢速"/>
+    <Text ID="414404" Value="新宽度"/>
+    <Text ID="414405" Value="新插槽"/>
+    <Text ID="414406" Value="时"/>
+    <Text ID="414407" Value="分"/>
+    <Text ID="414408" Value="秒"/>
+    <Text ID="414409" Value="年"/>
+    <Text ID="414410" Value="月"/>
+    <Text ID="414411" Value="日"/>
+    <Text ID="414412" Value="搜索关键词"/>
+    <Text ID="414413" Value="平移机路线 A 位置"/>
+    <Text ID="414414" Value="平移机路线 B 位置"/>
+    <Text ID="414415" Value="初始位置宽度"/>
+    <Text ID="414416" Value="输送带初始时间"/>
+    <Text ID="414417" Value="插槽总数"/>
+    <Text ID="414418" Value="输送带初始时间"/>
+    <Text ID="414419" Value="反向时间"/>
+    <Text ID="414420" Value="冷却时间"/>
+    <Text ID="414421" Value="加速"/>
+    <Text ID="414422" Value="减速"/>
+    <Text ID="414423" Value="初始速度"/>
+    <Text ID="414424" Value="自动速度"/>
+    <Text ID="414425" Value="用户名"/>
+    <Text ID="414426" Value="密码"/>
+    <Text ID="414427" Value="用户ID"/>
+    <Text ID="414428" Value="屏幕保护程序时间"/>
+    <Text ID="414429" Value="主按钮隐藏时间"/>
+    <Text ID="414430" Value="宽度"/>
+    <Text ID="414431" Value="第一插槽"/>
+    <Text ID="414432" Value="最后插槽"/>
+    <Text ID="414433" Value="齿距"/>
+    <Text ID="414434" Value="每个插槽的电路板数量"/>
+    <Text ID="414435" Value="插槽内电路板间隔"/>
+    <Text ID="414436" Value="最低要求"/>
+    <Text ID="414437" Value="最大数量"/>
+    <Text ID="414438" Value="回流炉容量"/>
+    <Text ID="414439" Value="当前配方"/>
+    <Text ID="414440" Value="1 槽位置"/>
+    <Text ID="414441" Value="插槽间距"/>
+    <Text ID="414442" Value="最大插槽"/>
+    <Text ID="414443" Value="升降机 1 槽位置 "/>
+    <Text ID="414444" Value="升降机卸载位置"/>
+    <Text ID="414445" Value="平移机料架 1 位置"/>
+    <Text ID="414446" Value="平移机料架 2 位置"/>
+    <Text ID="414447" Value="机器号码"/>
+    <Text ID="414448" Value="机器名称"/>
+    <Text ID="414449" Value="IP 地址"/>
+    <Text ID="414450" Value="顺序调整时间"/>
+    <Text ID="414451" Value="同步调整时间"/>
+    <Text ID="414452" Value="直通数量"/>
+    <Text ID="414453" Value="载板/卸板时间"/>
+    <Text ID="414454" Value="每个插槽的电路板数量"/>
+    <Text ID="414455" Value="料架名称"/>
+    <Text ID="414456" Value="插槽间距"/>
+    <Text ID="414457" Value="插槽总数"/>
+    <Text ID="414458" Value="升降机 1 槽位置 "/>
+    <Text ID="414459" Value="上层料架输送机运行时间"/>
+    <Text ID="414460" Value="下层料架输送机运行时间"/>
+    <Text ID="414461" Value="升降机料架输送带运行时间"/>
+    <Text ID="414462" Value="传感器开启时间"/>
+    <Text ID="414463" Value="传感器关闭时间"/>
+    <Text ID="414464" Value="程序名称"/>
+    <Text ID="414465" Value="程序序号"/>
+    <Text ID="423932" Value="输送机超时"/>
+    <Text ID="471209" Value=""/>
+    <Text ID="471210" Value=""/>
+    <Text ID="471211" Value=""/>
+    <Text ID="476057" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="189719" Value=""/>
+    <Text ID="189720" Value=""/>
+    <Text ID="189728" Value=""/>
+    <Text ID="189729" Value=""/>
+    <Text ID="189730" Value=""/>
+    <Text ID="189732" Value=""/>
+    <Text ID="189733" Value=""/>
+    <Text ID="189734" Value=""/>
+    <Text ID="189735" Value=""/>
+    <Text ID="189741" Value=""/>
+    <Text ID="193982" Value=""/>
+    <Text ID="193983" Value=""/>
+    <Text ID="193984" Value=""/>
+    <Text ID="193985" Value=""/>
+    <Text ID="193986" Value=""/>
+    <Text ID="193987" Value=""/>
+    <Text ID="193988" Value=""/>
+    <Text ID="193989" Value=""/>
+    <Text ID="193990" Value=""/>
+    <Text ID="332820" Value=""/>
+    <Text ID="403136" Value=""/>
+    <Text ID="403137" Value=""/>
+    <Text ID="403138" Value=""/>
+    <Text ID="403139" Value=""/>
+    <Text ID="403140" Value=""/>
+    <Text ID="403141" Value=""/>
+    <Text ID="403142" Value=""/>
+    <Text ID="403143" Value=""/>
+    <Text ID="403144" Value=""/>
+    <Text ID="403145" Value=""/>
+    <Text ID="403146" Value=""/>
+    <Text ID="403147" Value=""/>
+    <Text ID="403148" Value=""/>
+    <Text ID="403149" Value=""/>
+    <Text ID="403150" Value=""/>
+    <Text ID="403151" Value=""/>
+    <Text ID="403152" Value=""/>
+    <Text ID="403153" Value=""/>
+    <Text ID="403154" Value=""/>
+    <Text ID="403155" Value=""/>
+    <Text ID="403156" Value=""/>
+    <Text ID="403157" Value=""/>
+    <Text ID="403158" Value=""/>
+    <Text ID="403159" Value=""/>
+    <Text ID="403160" Value=""/>
+    <Text ID="403161" Value=""/>
+    <Text ID="414400" Value=""/>
+    <Text ID="414401" Value=""/>
+    <Text ID="414402" Value=""/>
+    <Text ID="414403" Value=""/>
+    <Text ID="414404" Value=""/>
+    <Text ID="414405" Value=""/>
+    <Text ID="414406" Value=""/>
+    <Text ID="414407" Value=""/>
+    <Text ID="414408" Value=""/>
+    <Text ID="414409" Value=""/>
+    <Text ID="414410" Value=""/>
+    <Text ID="414411" Value=""/>
+    <Text ID="414412" Value=""/>
+    <Text ID="414413" Value=""/>
+    <Text ID="414414" Value=""/>
+    <Text ID="414415" Value=""/>
+    <Text ID="414416" Value=""/>
+    <Text ID="414417" Value=""/>
+    <Text ID="414418" Value=""/>
+    <Text ID="414419" Value=""/>
+    <Text ID="414420" Value=""/>
+    <Text ID="414421" Value=""/>
+    <Text ID="414422" Value=""/>
+    <Text ID="414423" Value=""/>
+    <Text ID="414424" Value=""/>
+    <Text ID="414425" Value=""/>
+    <Text ID="414426" Value=""/>
+    <Text ID="414427" Value=""/>
+    <Text ID="414428" Value=""/>
+    <Text ID="414429" Value=""/>
+    <Text ID="414430" Value=""/>
+    <Text ID="414431" Value=""/>
+    <Text ID="414432" Value=""/>
+    <Text ID="414433" Value=""/>
+    <Text ID="414434" Value=""/>
+    <Text ID="414435" Value=""/>
+    <Text ID="414436" Value=""/>
+    <Text ID="414437" Value=""/>
+    <Text ID="414438" Value=""/>
+    <Text ID="414439" Value=""/>
+    <Text ID="414440" Value=""/>
+    <Text ID="414441" Value=""/>
+    <Text ID="414442" Value=""/>
+    <Text ID="414443" Value=""/>
+    <Text ID="414444" Value=""/>
+    <Text ID="414445" Value=""/>
+    <Text ID="414446" Value=""/>
+    <Text ID="414447" Value=""/>
+    <Text ID="414448" Value=""/>
+    <Text ID="414449" Value=""/>
+    <Text ID="414450" Value=""/>
+    <Text ID="414451" Value=""/>
+    <Text ID="414452" Value=""/>
+    <Text ID="414453" Value=""/>
+    <Text ID="414454" Value=""/>
+    <Text ID="414455" Value=""/>
+    <Text ID="414456" Value=""/>
+    <Text ID="414457" Value=""/>
+    <Text ID="414458" Value=""/>
+    <Text ID="414459" Value=""/>
+    <Text ID="414460" Value=""/>
+    <Text ID="414461" Value=""/>
+    <Text ID="414462" Value=""/>
+    <Text ID="414463" Value=""/>
+    <Text ID="414464" Value=""/>
+    <Text ID="414465" Value=""/>
+    <Text ID="423932" Value=""/>
+    <Text ID="471209" Value=""/>
+    <Text ID="471210" Value=""/>
+    <Text ID="471211" Value=""/>
+    <Text ID="476057" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="189719" Value="60"/>
+    <Index ID="189720" Value="61"/>
+    <Index ID="189728" Value="73"/>
+    <Index ID="189729" Value="74"/>
+    <Index ID="189730" Value="75"/>
+    <Index ID="189732" Value="77"/>
+    <Index ID="189733" Value="78"/>
+    <Index ID="189734" Value="79"/>
+    <Index ID="189735" Value="80"/>
+    <Index ID="189741" Value="81"/>
+    <Index ID="193982" Value="108"/>
+    <Index ID="193983" Value="109"/>
+    <Index ID="193984" Value="110"/>
+    <Index ID="193985" Value="111"/>
+    <Index ID="193986" Value="112"/>
+    <Index ID="193987" Value="113"/>
+    <Index ID="193988" Value="114"/>
+    <Index ID="193989" Value="115"/>
+    <Index ID="193990" Value="116"/>
+    <Index ID="332820" Value="0"/>
+    <Index ID="403136" Value="82"/>
+    <Index ID="403137" Value="83"/>
+    <Index ID="403138" Value="84"/>
+    <Index ID="403139" Value="85"/>
+    <Index ID="403140" Value="86"/>
+    <Index ID="403141" Value="87"/>
+    <Index ID="403142" Value="88"/>
+    <Index ID="403143" Value="89"/>
+    <Index ID="403144" Value="90"/>
+    <Index ID="403145" Value="91"/>
+    <Index ID="403146" Value="92"/>
+    <Index ID="403147" Value="93"/>
+    <Index ID="403148" Value="94"/>
+    <Index ID="403149" Value="95"/>
+    <Index ID="403150" Value="96"/>
+    <Index ID="403151" Value="97"/>
+    <Index ID="403152" Value="98"/>
+    <Index ID="403153" Value="99"/>
+    <Index ID="403154" Value="100"/>
+    <Index ID="403155" Value="101"/>
+    <Index ID="403156" Value="102"/>
+    <Index ID="403157" Value="103"/>
+    <Index ID="403158" Value="104"/>
+    <Index ID="403159" Value="105"/>
+    <Index ID="403160" Value="106"/>
+    <Index ID="403161" Value="107"/>
+    <Index ID="414400" Value="1"/>
+    <Index ID="414401" Value="2"/>
+    <Index ID="414402" Value="3"/>
+    <Index ID="414403" Value="4"/>
+    <Index ID="414404" Value="5"/>
+    <Index ID="414405" Value="6"/>
+    <Index ID="414406" Value="7"/>
+    <Index ID="414407" Value="8"/>
+    <Index ID="414408" Value="9"/>
+    <Index ID="414409" Value="10"/>
+    <Index ID="414410" Value="11"/>
+    <Index ID="414411" Value="12"/>
+    <Index ID="414412" Value="13"/>
+    <Index ID="414413" Value="14"/>
+    <Index ID="414414" Value="15"/>
+    <Index ID="414415" Value="16"/>
+    <Index ID="414416" Value="17"/>
+    <Index ID="414417" Value="18"/>
+    <Index ID="414418" Value="19"/>
+    <Index ID="414419" Value="20"/>
+    <Index ID="414420" Value="21"/>
+    <Index ID="414421" Value="22"/>
+    <Index ID="414422" Value="23"/>
+    <Index ID="414423" Value="24"/>
+    <Index ID="414424" Value="25"/>
+    <Index ID="414425" Value="26"/>
+    <Index ID="414426" Value="27"/>
+    <Index ID="414427" Value="28"/>
+    <Index ID="414428" Value="29"/>
+    <Index ID="414429" Value="30"/>
+    <Index ID="414430" Value="31"/>
+    <Index ID="414431" Value="32"/>
+    <Index ID="414432" Value="33"/>
+    <Index ID="414433" Value="34"/>
+    <Index ID="414434" Value="35"/>
+    <Index ID="414435" Value="36"/>
+    <Index ID="414436" Value="37"/>
+    <Index ID="414437" Value="38"/>
+    <Index ID="414438" Value="39"/>
+    <Index ID="414439" Value="40"/>
+    <Index ID="414440" Value="41"/>
+    <Index ID="414441" Value="42"/>
+    <Index ID="414442" Value="43"/>
+    <Index ID="414443" Value="44"/>
+    <Index ID="414444" Value="45"/>
+    <Index ID="414445" Value="46"/>
+    <Index ID="414446" Value="47"/>
+    <Index ID="414447" Value="48"/>
+    <Index ID="414448" Value="49"/>
+    <Index ID="414449" Value="50"/>
+    <Index ID="414450" Value="51"/>
+    <Index ID="414451" Value="52"/>
+    <Index ID="414452" Value="53"/>
+    <Index ID="414453" Value="54"/>
+    <Index ID="414454" Value="55"/>
+    <Index ID="414455" Value="56"/>
+    <Index ID="414456" Value="57"/>
+    <Index ID="414457" Value="58"/>
+    <Index ID="414458" Value="59"/>
+    <Index ID="414459" Value="62"/>
+    <Index ID="414460" Value="63"/>
+    <Index ID="414461" Value="64"/>
+    <Index ID="414462" Value="68"/>
+    <Index ID="414463" Value="69"/>
+    <Index ID="414464" Value="70"/>
+    <Index ID="414465" Value="71"/>
+    <Index ID="423932" Value="76"/>
+    <Index ID="471209" Value="65"/>
+    <Index ID="471210" Value="66"/>
+    <Index ID="471211" Value="67"/>
+    <Index ID="476057" Value="72"/>
+  </IndexMap>
+</TextGroup>

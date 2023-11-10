@@ -1,0 +1,42 @@
+(*2019-03-25*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Selected Product Width Exceeds Selected Magazine Maximum Board Width',sRcyText:='Please Reselect  Product or Magazine '),99((0))];
+END_VAR
+(**)
+(*Local Output*)
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+END_VAR
+(**)
+VAR
+	bOpsRun : BOOL;
+	diProdRcpCurrRcpWidth : DINT;
+	diMagRcpCurrRcpMaxWidth : DINT;
+END_VAR
+(**)
+VAR
+	sProgNm : STRING[15] := 'Machine';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	udiModuleNum : UDINT := 5951;
+END_VAR

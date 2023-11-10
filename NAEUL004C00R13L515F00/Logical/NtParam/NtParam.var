@@ -1,0 +1,853 @@
+(*2019-05-20*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_NtParamStat : UDINT;
+	p_NtParamStatus : UDINT;
+	p_NtParamStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_NtParamAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_NtParamFileNotFound : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamCurr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDISettings : UDINT;
+	p_NtParamDOSettings : UDINT;
+	p_NtParamAWPushPulPrep : UDINT;
+	p_NtParamAWPrep : UDINT;
+	p_NtParamLFPrep : UDINT;
+	p_NtParamLeaderMc : UDINT;
+	p_NtParamLFUsrSetPrep : UDINT;
+	p_NtParamLFWidth2Prep : UDINT;
+	p_NtParamLFFllowerOnlineChkDlyTm : UDINT;
+	p_NtParamLFWidthLimit : UDINT;
+	p_NtParamLFProdWidthChk : UDINT;
+	p_NtParamUSWidthChkPrep : UDINT;
+	p_NtParamLCSLFPrep : UDINT;
+	p_NtParamLCSReqRcpPrep : UDINT;
+	p_NtParamLCSManageRcpPrep : UDINT;
+	p_NtParamLCSLiveDatPrep : UDINT;
+	p_NtParamIPCSMEMA9851ExtdPrep : UDINT;
+	p_NtParamVSMEMAPrep : UDINT;
+	p_NtParamHermesPrep : UDINT;
+	p_NtParamHermesRmtPrep : UDINT;
+	p_NtParamOvenInfoPrep : UDINT;
+	p_NtParamOvenInfoExtdPrep : UDINT;
+	p_NtParamSSaverPrep : UDINT;
+	p_NtParamProjMotorizedPusherPrep : UDINT;
+	p_NtParamPushPulAWidthOffset : UDINT;
+	p_NtParamWidthOffset : UDINT;
+	p_NtParamJobNo : UDINT;
+	p_NtParamNtAddr : UDINT;
+	p_NtParamShutterWaitTmr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProjLaneBPrep : UDINT;
+	p_NtParamProjBrdPerSltPrep : UDINT;
+	p_NtParamProjLongBrdPrep : UDINT;
+	p_NtParamProjInletShutPrep : UDINT;
+	p_NtParamProjOutletShutPrep : UDINT;
+	p_NtParamProjOutletShut2Prep : UDINT;
+	p_NtParamProjOutletShut3Prep : UDINT;
+	p_NtParamProjInletStopperPrep : UDINT;
+	p_NtParamProjStopperAPrep : UDINT;
+	p_NtParamProjStopperBPrep : UDINT;
+	p_NtParamProjMag1ConvPrep : UDINT;
+	p_NtParamProjMag2ConvPrep : UDINT;
+	p_NtParamProjMag3ConvPrep : UDINT;
+	p_NtParamProjMagOrientChkSenPrep : UDINT;
+	p_NtParamProjAGVPrep : UDINT;
+	p_NtParamProjTCPAGVSigPrep : UDINT;
+	p_NtParamProjBypsInitConvPrep : UDINT;
+	p_NtParamProjRlsNewProdPrep : UDINT;
+	p_NtParamProjBtnInsertRmvMag : UDINT;
+	p_NtParamProjMagMinSlt : UDINT;
+	p_NtParamProjMagMaxSlt : UDINT;
+	p_NtParamProjMag : UDINT;
+	p_NtParamProjMagBuffferActLoad : UDINT;
+	p_NtParamProjConvDir : UDINT;
+	p_NtParamProjMagConvDir : UDINT;
+	p_NtParamProjMagAutoVerifyPrep : UDINT;
+	p_NtParamProjAIVInPosSenPrep : UDINT;
+	p_NtParamProjSOTSenPrep : UDINT;
+	p_NtParamProjLifterMagPlatform : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProjMagAWPrep : UDINT;
+	p_NtParamProjMagSafetyBarPrep : UDINT;
+	p_NtParamProjMagHeightChkPrep : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProjLifter2Prep : UDINT;
+	p_NtParamProjMagConvLane1Prep : UDINT; (*MagConv*)
+	p_NtParamProjMagConvLane2Prep : UDINT;
+	p_NtParamProjInMagConvDir : UDINT;
+	p_NtParamProjOutMagConvDir : UDINT;
+	p_NtParamProjLifterMagConvDir : UDINT;
+	p_NtParamProjInMagConv2Dir : UDINT;
+	p_NtParamProjOutMagConv2Dir : UDINT;
+	p_NtParamProjLifterMagConv2Dir : UDINT;
+	p_NtParamProjTopEntStprPrep : UDINT;
+	p_NtParamProjTopMidStprPrep : UDINT;
+	p_NtParamProjTopExtStprPrep : UDINT;
+	p_NtParamProjBtmMidStprPrep : UDINT;
+	p_NtParamProjBtmExtStprPrep : UDINT;
+	p_NtParamProjTopEntStprPrep2 : UDINT;
+	p_NtParamProjTopMidStprPrep2 : UDINT;
+	p_NtParamProjTopExtStprPrep2 : UDINT;
+	p_NtParamProjBtmMidStprPrep2 : UDINT;
+	p_NtParamProjBtmExtStprPrep2 : UDINT;
+	p_NtParamTopEntStprProgNm : UDINT; (*Lane1 top zone stopper*)
+	p_NtParamTopEntStprTwoCtrlIn : UDINT;
+	p_NtParamTopEntStprExtDlyTm : UDINT;
+	p_NtParamTopEntStprRetDlyTm : UDINT;
+	p_NtParamTopMidStprProgNm : UDINT;
+	p_NtParamTopMidStprTwoCtrlIn : UDINT;
+	p_NtParamTopMidStprExtDlyTm : UDINT;
+	p_NtParamTopMidStprRetDlyTm : UDINT;
+	p_NtParamTopExtStprProgNm : UDINT;
+	p_NtParamTopExtStprTwoCtrlIn : UDINT;
+	p_NtParamTopExtStprExtDlyTm : UDINT;
+	p_NtParamTopExtStprRetDlyTm : UDINT;
+	p_NtParamBtmMidStprProgNm : UDINT; (*Lane1 btm zone stopper*)
+	p_NtParamBtmMidStprTwoCtrlIn : UDINT;
+	p_NtParamBtmMidStprExtDlyTm : UDINT;
+	p_NtParamBtmMidStprRetDlyTm : UDINT;
+	p_NtParamBtmExtStprProgNm : UDINT;
+	p_NtParamBtmExtStprTwoCtrlIn : UDINT;
+	p_NtParamBtmExtStprExtDlyTm : UDINT;
+	p_NtParamBtmExtStprRetDlyTm : UDINT;
+	p_NtParamTopEntStprProgNm2 : UDINT; (*Lane2 top zone stopper*)
+	p_NtParamTopEntStprTwoCtrlIn2 : UDINT;
+	p_NtParamTopEntStprExtDlyTm2 : UDINT;
+	p_NtParamTopEntStprRetDlyTm2 : UDINT;
+	p_NtParamTopMidStprProgNm2 : UDINT;
+	p_NtParamTopMidStprTwoCtrlIn2 : UDINT;
+	p_NtParamTopMidStprExtDlyTm2 : UDINT;
+	p_NtParamTopMidStprRetDlyTm2 : UDINT;
+	p_NtParamTopExtStprProgNm2 : UDINT;
+	p_NtParamTopExtStprTwoCtrlIn2 : UDINT;
+	p_NtParamTopExtStprExtDlyTm2 : UDINT;
+	p_NtParamTopExtStprRetDlyTm2 : UDINT;
+	p_NtParamBtmMidStprProgNm2 : UDINT; (*Lane2 btm zone stopper*)
+	p_NtParamBtmMidStprTwoCtrlIn2 : UDINT;
+	p_NtParamBtmMidStprExtDlyTm2 : UDINT;
+	p_NtParamBtmMidStprRetDlyTm2 : UDINT;
+	p_NtParamBtmExtStprProgNm2 : UDINT;
+	p_NtParamBtmExtStprTwoCtrlIn2 : UDINT;
+	p_NtParamBtmExtStprExtDlyTm2 : UDINT;
+	p_NtParamBtmExtStprRetDlyTm2 : UDINT;
+	p_NtParamInMagConvProgNm : UDINT; (*InMag, OutMag, LifterMag Lane1*)
+	p_NtParamInMagConvOnDirMod : UDINT;
+	p_NtParamInMagConvMtrOffDlyTm : UDINT;
+	p_NtParamOutMagConvProgNm : UDINT;
+	p_NtParamOutMagConvOnDirMod : UDINT;
+	p_NtParamOutMagConvMtrOffDlyTm : UDINT;
+	p_NtParamLifterMagProgNm : UDINT;
+	p_NtParamLifterMagOnDirMod : UDINT;
+	p_NtParamLifterMagMtrOffDlyTm : UDINT;
+	p_NtParamLifterMagClprClampTO : UDINT;
+	p_NtParamLifterMagClprUnclampTO : UDINT;
+	p_NtParamInMagConv2ProgNm : UDINT; (*InMag, OutMag, LifterMag Lane2*)
+	p_NtParamInMagConv2OnDirMod : UDINT;
+	p_NtParamInMagConv2MtrOffDlyTm : UDINT;
+	p_NtParamOutMagConv2ProgNm : UDINT;
+	p_NtParamOutMagConv2OnDirMod : UDINT;
+	p_NtParamOutMagConv2MtrOffDlyTm : UDINT;
+	p_NtParamLifterMag2ProgNm : UDINT;
+	p_NtParamLifterMag2OnDirMod : UDINT;
+	p_NtParamLifterMag2MtrOffDlyTm : UDINT;
+	p_NtParamLifterMagClprClampTO2 : UDINT;
+	p_NtParamLifterMagClprUnclampTO2 : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamSOTReadyOnFirst : UDINT;
+	p_NtParamShowMESName : UDINT;
+	p_NtParamShowFMorMESActive : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUsrFolderProgNm : UDINT;
+	p_NtParamLibVersionProgNm : UDINT;
+	p_NtParamTimeProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamHWInfoProgNm : UDINT;
+	p_NtParamHWInfoDevice : UDINT;
+END_VAR
+(**)
+(*TLBuz*)
+VAR
+	p_NtParamTLBuzMode : UDINT;
+	p_NtParamTLChgRcpBlinkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLErrBlinkTm : UDINT;
+	p_NtParamBuzErrOnTm : UDINT;
+	p_NtParamBuzErrRestTm : UDINT;
+	p_NtParamBuzErrOnCntr : UDINT;
+	p_NtParamBuzErrStopSeqEn : UDINT;
+	p_NtParamBuzErrStopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarnBlinkTm : UDINT;
+	p_NtParamBuzWarnOnTm : UDINT;
+	p_NtParamBuzWarnRestTm : UDINT;
+	p_NtParamBuzWarnOnCntr : UDINT;
+	p_NtParamBuzWarnStopSeqEn : UDINT;
+	p_NtParamBuzWarnStopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarn1BlinkTm : UDINT;
+	p_NtParamBuzWarn1OnTm : UDINT;
+	p_NtParamBuzWarn1RestTm : UDINT;
+	p_NtParamBuzWarn1OnCntr : UDINT;
+	p_NtParamBuzWarn1StopSeqEn : UDINT;
+	p_NtParamBuzWarn1StopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarn2BlinkTm : UDINT;
+	p_NtParamBuzWarn2OnTm : UDINT;
+	p_NtParamBuzWarn2RestTm : UDINT;
+	p_NtParamBuzWarn2OnCntr : UDINT;
+	p_NtParamBuzWarn2StopSeqEn : UDINT;
+	p_NtParamBuzWarn2StopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarn3BlinkTm : UDINT;
+	p_NtParamBuzWarn3OnTm : UDINT;
+	p_NtParamBuzWarn3RestTm : UDINT;
+	p_NtParamBuzWarn3OnCntr : UDINT;
+	p_NtParamBuzWarn3StopSeqEn : UDINT;
+	p_NtParamBuzWarn3StopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarn4BlinkTm : UDINT;
+	p_NtParamBuzWarn4OnTm : UDINT;
+	p_NtParamBuzWarn4RestTm : UDINT;
+	p_NtParamBuzWarn4OnCntr : UDINT;
+	p_NtParamBuzWarn4StopSeqEn : UDINT;
+	p_NtParamBuzWarn4StopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLWarn5BlinkTm : UDINT;
+	p_NtParamBuzWarn5OnTm : UDINT;
+	p_NtParamBuzWarn5RestTm : UDINT;
+	p_NtParamBuzWarn5OnCntr : UDINT;
+	p_NtParamBuzWarn5StopSeqEn : UDINT;
+	p_NtParamBuzWarn5StopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamBuzAlertOnTm : UDINT;
+	p_NtParamBuzAlertRestTm : UDINT;
+	p_NtParamBuzAlertOnCntr : UDINT;
+	p_NtParamBuzAlertStopSeqEn : UDINT;
+	p_NtParamBuzAlertStopSeqCntr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTLBlueBlinkTm : UDINT;
+	p_NtParamTLAmberBlinkTm : UDINT;
+	p_NtParamTLWhiteBlinkTm : UDINT;
+	p_NtParamTLRedBlinkTm : UDINT;
+	p_NtParamTLGreenBlinkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamAlmProgNm : UDINT;
+	p_NtParamAlmFileKeepDay : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProdRcpProgNm : UDINT;
+	p_NtParamProdRcpListFileNm : UDINT;
+	p_NtParamProdRcpSingleFileNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMpProdRcpProgNm : UDINT;
+	p_NtParamMpProdRcpFileNm : UDINT;
+	p_NtParamMpProdRcpPVNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagRcpProgNm : UDINT;
+	p_NtParamMagRcpListFileNm : UDINT;
+	p_NtParamMagRcpSingleFileNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMcParamProgNm : UDINT;
+	p_NtParamMcParamFileNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUsrMgmtProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamBffr1ProgNm : UDINT;
+	p_NtParamBffr1FileNm : UDINT;
+	p_NtParamBffr1NxtLoadSeq : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamBffr2ProgNm : UDINT;
+	p_NtParamBffr2FileNm : UDINT;
+	p_NtParamBffr2NxtLoadSeq : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamBffr3ProgNm : UDINT;
+	p_NtParamBffr3FileNm : UDINT;
+	p_NtParamBffr3NxtLoadSeq : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSMEMAAProgNm : UDINT;
+	p_NtParamUSSMEMAARstDlyTm : UDINT;
+	p_NtParamUSSMEMAASigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSMEMABProgNm : UDINT;
+	p_NtParamUSSMEMABRstDlyTm : UDINT;
+	p_NtParamUSSMEMABSigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSMEMA1ProgNm : UDINT;
+	p_NtParamUSSMEMA1RstDlyTm : UDINT;
+	p_NtParamUSSMEMA1SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSMEMA2ProgNm : UDINT;
+	p_NtParamUSSMEMA2RstDlyTm : UDINT;
+	p_NtParamUSSMEMA2SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSMEMA3ProgNm : UDINT;
+	p_NtParamUSSMEMA3RstDlyTm : UDINT;
+	p_NtParamUSSMEMA3SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDSSMEMA1ProgNm : UDINT;
+	p_NtParamDSSMEMA1RstDlyTm : UDINT;
+	p_NtParamDSSMEMA1SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDSSMEMA2ProgNm : UDINT;
+	p_NtParamDSSMEMA2RstDlyTm : UDINT;
+	p_NtParamDSSMEMA2SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDSSMEMA3ProgNm : UDINT;
+	p_NtParamDSSMEMA3RstDlyTm : UDINT;
+	p_NtParamDSSMEMA3SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamInShutterProgNm : UDINT;
+	p_NtParamInShutterTwoCtrlIn : UDINT;
+	p_NtParamInShutterExtTO : UDINT;
+	p_NtParamInShutterRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamOutShutterProgNm : UDINT;
+	p_NtParamOutShutterTwoCtrlIn : UDINT;
+	p_NtParamOutShutterExtTO : UDINT;
+	p_NtParamOutShutterRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamSelClamp1ProgNm : UDINT;
+	p_NtParamSelClamp1TwoCtrlIn : UDINT;
+	p_NtParamSelClamp1ExtDlyTm : UDINT;
+	p_NtParamSelClamp1RetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamSelClamp2ProgNm : UDINT;
+	p_NtParamSelClamp2TwoCtrlIn : UDINT;
+	p_NtParamSelClamp2ExtDlyTm : UDINT;
+	p_NtParamSelClamp2RetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamSelClamp3ProgNm : UDINT;
+	p_NtParamSelClamp3TwoCtrlIn : UDINT;
+	p_NtParamSelClamp3ExtDlyTm : UDINT;
+	p_NtParamSelClamp3RetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamInletStopperProgNm : UDINT;
+	p_NtParamInletStopperTwoCtrlIn : UDINT;
+	p_NtParamInletStopperExtDlyTm : UDINT;
+	p_NtParamInletStopperRetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamStopperAProgNm : UDINT;
+	p_NtParamStopperATwoCtrlIn : UDINT;
+	p_NtParamStopperAExtDlyTm : UDINT;
+	p_NtParamStopperARetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamStopperBProgNm : UDINT;
+	p_NtParamStopperBTwoCtrlIn : UDINT;
+	p_NtParamStopperBExtDlyTm : UDINT;
+	p_NtParamStopperBRetDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamPshrConvProgNm : UDINT;
+	p_NtParamPshrConvOnDirMod : UDINT;
+	p_NtParamPshrConvMtrOffDlyTm : UDINT;
+	p_NtParamPshrConvPshrExtTO : UDINT;
+	p_NtParamPshrConvPshrRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagConv1ProgNm : UDINT;
+	p_NtParamMagConv1OnDirMod : UDINT;
+	p_NtParamMagConv1MtrOffDlyTm : UDINT;
+	p_NtParamMagConv1ClprClampTO : UDINT;
+	p_NtParamMagConv1ClprUnclampTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagConv2ProgNm : UDINT;
+	p_NtParamMagConv2OnDirMod : UDINT;
+	p_NtParamMagConv2MtrOffDlyTm : UDINT;
+	p_NtParamMagConv2ClprClampTO : UDINT;
+	p_NtParamMagConv2ClprUnclampTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagConv3ProgNm : UDINT;
+	p_NtParamMagConv3OnDirMod : UDINT;
+	p_NtParamMagConv3MtrOffDlyTm : UDINT;
+	p_NtParamMagConv3ClprClampTO : UDINT;
+	p_NtParamMagConv3ClprUnclampTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag1SafetyBarProgNm : UDINT;
+	p_NtParamMag1SafetyBarTwoCtrlIn : UDINT;
+	p_NtParamMag1SafetyBarExtTO : UDINT;
+	p_NtParamMag1SafetyBarRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag2SafetyBarProgNm : UDINT;
+	p_NtParamMag2SafetyBarTwoCtrlIn : UDINT;
+	p_NtParamMag2SafetyBarExtTO : UDINT;
+	p_NtParamMag2SafetyBarRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag3SafetyBarProgNm : UDINT;
+	p_NtParamMag3SafetyBarTwoCtrlIn : UDINT;
+	p_NtParamMag3SafetyBarExtTO : UDINT;
+	p_NtParamMag3SafetyBarRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag1AWEngageProgNm : UDINT;
+	p_NtParamMag1AWEngageTwoCtrlIn : UDINT;
+	p_NtParamMag1AWEngageExtTO : UDINT;
+	p_NtParamMag1AWEngageRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag2AWEngageProgNm : UDINT;
+	p_NtParamMag2AWEngageTwoCtrlIn : UDINT;
+	p_NtParamMag2AWEngageExtTO : UDINT;
+	p_NtParamMag2AWEngageRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMag3AWEngageProgNm : UDINT;
+	p_NtParamMag3AWEngageTwoCtrlIn : UDINT;
+	p_NtParamMag3AWEngageExtTO : UDINT;
+	p_NtParamMag3AWEngageRetTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMtrPshrProgNm : UDINT;
+	p_NtParamMtrPshrDir : UDINT;
+	p_NtParamMtrPshrAlmRstTm : UDINT;
+	p_NtParamMtrPshrAlmTrigTm : UDINT;
+	p_NtParamMtrPshrExtTO : UDINT;
+	p_NtParamMtrPshrRetTO : UDINT;
+	p_NtParamMtrPshrExtSlowSpd : UDINT;
+	p_NtParamMtrPshrRetSlowSpd : UDINT;
+	p_NtParamMtrPshrExtNomSpd : UDINT;
+	p_NtParamMtrPshrRetNomSpd : UDINT;
+	p_NtParamMtrPshrExtTorq : UDINT;
+	p_NtParamMtrPshrRetTorq : UDINT;
+	p_NtParamMtrPshrStartTorq : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamAWPushPulProgNm : UDINT;
+	p_NtParamAWPushPulDevice : UDINT;
+	p_NtParamAWPushPulNode : UDINT;
+	p_NtParamAWPushPulDir : UDINT;
+	p_NtParamAWPushPulDirBl : UDINT;
+	p_NtParamAWPushPulPitchInUM : UDINT;
+	p_NtParamAWPushPulMovBlDistInUM : UDINT;
+	p_NtParamAWPushPulParamInHm : UDINT;
+	p_NtParamAWPushPulParamInConvert : UDINT;
+	p_NtParamAWPushPulParam : UDINT;
+	p_NtParamAWPushPulAcc : UDINT;
+	p_NtParamAWPushPulDec : UDINT;
+	p_NtParamAWPushPulAutoSpd : UDINT;
+	p_NtParamAWPushPulTuning : UDINT;
+	p_NtParamAWPushPulMotorType : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamAWProgNm : UDINT;
+	p_NtParamAWDevice : UDINT;
+	p_NtParamAWNode : UDINT;
+	p_NtParamAWDir : UDINT;
+	p_NtParamAWDirBl : UDINT;
+	p_NtParamAWPitchInUM : UDINT;
+	p_NtParamAWMovBlDistInUM : UDINT;
+	p_NtParamAWParamInHm : UDINT;
+	p_NtParamAWParamInConvert : UDINT;
+	p_NtParamAWParam : UDINT;
+	p_NtParamAWAcc : UDINT;
+	p_NtParamAWDec : UDINT;
+	p_NtParamAWAutoSpd : UDINT;
+	p_NtParamAWTuning : UDINT;
+	p_NtParamAWMotorType : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamTravProgNm : UDINT;
+	p_NtParamTravDevice : UDINT;
+	p_NtParamTravNode : UDINT;
+	p_NtParamTravDir : UDINT;
+	p_NtParamTravParamInHm : UDINT;
+	p_NtParamTravParamInConvert : UDINT;
+	p_NtParamTravParam : UDINT;
+	p_NtParamTravAcc : UDINT;
+	p_NtParamTravDec : UDINT;
+	p_NtParamTravAutoSpd : UDINT;
+	p_NtParamTravTuning : UDINT;
+	p_NtParamTravMotorType : UDINT;
+	p_NtParamTravLongBrdAutoSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamLifterProgNm : UDINT;
+	p_NtParamLifterDevice : UDINT;
+	p_NtParamLifterNode : UDINT;
+	p_NtParamLifterDir : UDINT;
+	p_NtParamLifterParamInHm : UDINT;
+	p_NtParamLifterParamInConvert : UDINT;
+	p_NtParamLifterParam : UDINT;
+	p_NtParamLifterAcc : UDINT;
+	p_NtParamLifterDec : UDINT;
+	p_NtParamLifterAutoSpd : UDINT;
+	p_NtParamLifterMotorType : UDINT;
+	p_NtParamLifterTuning : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamLifter2ProgNm : UDINT;
+	p_NtParamLifter2Device : UDINT;
+	p_NtParamLifter2Node : UDINT;
+	p_NtParamLifter2Dir : UDINT;
+	p_NtParamLifter2ParamInHm : UDINT;
+	p_NtParamLifter2ParamInConvert : UDINT;
+	p_NtParamLifter2Param : UDINT;
+	p_NtParamLifter2Acc : UDINT;
+	p_NtParamLifter2Dec : UDINT;
+	p_NtParamLifter2AutoSpd : UDINT;
+	p_NtParamLifter2MotorType : UDINT;
+	p_NtParamLifter2Tuning : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDIProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamAGVProgNm : UDINT;
+	p_NtParamAGVMag1ProgNm : UDINT;
+	p_NtParamAGVMag2ProgNm : UDINT;
+	p_NtParamAGVMag3ProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamHermesProgNm : UDINT;
+	p_NtParamHermesRetainFileNm : UDINT;
+	p_NtParamHermesConfigFileNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSHermesAProgNm : UDINT;
+	p_NtParamUSHermesAFileKeepDay : UDINT;
+	p_NtParamUSHermesAAliveTmInSec : UDINT;
+	p_NtParamUSHermesAConnTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSHermesBProgNm : UDINT;
+	p_NtParamUSHermesBFileKeepDay : UDINT;
+	p_NtParamUSHermesBAliveTmInSec : UDINT;
+	p_NtParamUSHermesBConnTO : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamRmtHermesProgNm : UDINT;
+	p_NtParamRmtHermesConfigFileNm : UDINT;
+	p_NtParamRmtHermesFileKeepDay : UDINT;
+	p_NtParamRmtHermesAliveTmInSec : UDINT;
+	p_NtParamRmtHermesSndBffrSize : UDINT;
+	p_NtParamRmtHermesRcvBffrSize : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamLFLeaderProgNm : UDINT;
+	p_NtParamLFLeaderOnlineChkDlyTm : UDINT;
+	p_NtParamLFLeaderSetTmOffDlyTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamLFFollowerProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamFollower1ProgNm : UDINT;
+	p_NtParamFollower2ProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamLCSProgNm : UDINT;
+	p_NtParamLCSMngRcpProgNm : UDINT;
+	p_NtParamLCSLFProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamOpsTravLifULProgNm : UDINT;
+	p_NtParamOpsMagUL1ProgNm : UDINT;
+	p_NtParamOpsMagUL2ProgNm : UDINT;
+	p_NtParamOpsMagUL3ProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamOpsMagConvUL1ProgNm : UDINT;
+	p_NtParamOpsMagConvUL2ProgNm : UDINT;
+	p_NtParamOpsMagConvUL3ProgNm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamOpsMagConvStprProgNm : UDINT;
+	p_NtParamOpsMagConvStprProgNm1 : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProdRcpMinWidth : UDINT;
+	p_NtParamProdRcpMaxWidth : UDINT;
+	p_NtParamProdRcpMinMinSlt : UDINT;
+	p_NtParamProdRcpMaxMinSlt : UDINT;
+	p_NtParamProdRcpMinMaxSlt : UDINT;
+	p_NtParamProdRcpMaxMaxSlt : UDINT;
+	p_NtParamProdRcpMinPitch : UDINT;
+	p_NtParamProdRcpMaxPitch : UDINT;
+	p_NtParamProdRcpMinBrdPerSlt : UDINT;
+	p_NtParamProdRcpMaxBrdPerSlt : UDINT;
+	p_NtParamProdRcpMinMcModA : UDINT;
+	p_NtParamProdRcpMaxMcModA : UDINT;
+	p_NtParamProdRcpMinMcModAB : UDINT;
+	p_NtParamProdRcpMaxMcModAB : UDINT;
+	p_NtParamProdRcpMinMinReqFrBffr : UDINT;
+	p_NtParamMcProgNm : UDINT;
+	p_NtParamProdRcpMaxMinReqFrBffr : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagAW1ProgNm : UDINT;
+	p_NtParamMagAW1Device : UDINT;
+	p_NtParamMagAW1Node : UDINT;
+	p_NtParamMagAW1Dir : UDINT;
+	p_NtParamMagAW1DirBl : UDINT;
+	p_NtParamMagAW1PitchInUM : UDINT;
+	p_NtParamMagAW1MovBlDistInUM : UDINT;
+	p_NtParamMagAW1ParamInHm : UDINT;
+	p_NtParamMagAW1ParamInConvert : UDINT;
+	p_NtParamMagAW1Param : UDINT;
+	p_NtParamMagAW1Acc : UDINT;
+	p_NtParamMagAW1Dec : UDINT;
+	p_NtParamMagAW1AutoSpd : UDINT;
+	p_NtParamMagAW1Tuning : UDINT;
+	p_NtParamMagAW1EngageSpdInUMPS : UDINT;
+	p_NtParamMagAW1MotorType : UDINT;
+	p_NtParamMag1WidthOffset : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagAW2ProgNm : UDINT;
+	p_NtParamMagAW2Device : UDINT;
+	p_NtParamMagAW2Node : UDINT;
+	p_NtParamMagAW2Dir : UDINT;
+	p_NtParamMagAW2DirBl : UDINT;
+	p_NtParamMagAW2PitchInUM : UDINT;
+	p_NtParamMagAW2MovBlDistInUM : UDINT;
+	p_NtParamMagAW2ParamInHm : UDINT;
+	p_NtParamMagAW2ParamInConvert : UDINT;
+	p_NtParamMagAW2Param : UDINT;
+	p_NtParamMagAW2Acc : UDINT;
+	p_NtParamMagAW2Dec : UDINT;
+	p_NtParamMagAW2AutoSpd : UDINT;
+	p_NtParamMagAW2Tuning : UDINT;
+	p_NtParamMagAW2EngageSpdInUMPS : UDINT;
+	p_NtParamMagAW2MotorType : UDINT;
+	p_NtParamMag2WidthOffset : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMagAW3ProgNm : UDINT;
+	p_NtParamMagAW3Device : UDINT;
+	p_NtParamMagAW3Node : UDINT;
+	p_NtParamMagAW3Dir : UDINT;
+	p_NtParamMagAW3DirBl : UDINT;
+	p_NtParamMagAW3PitchInUM : UDINT;
+	p_NtParamMagAW3MovBlDistInUM : UDINT;
+	p_NtParamMagAW3ParamInHm : UDINT;
+	p_NtParamMagAW3ParamInConvert : UDINT;
+	p_NtParamMagAW3Param : UDINT;
+	p_NtParamMagAW3Acc : UDINT;
+	p_NtParamMagAW3Dec : UDINT;
+	p_NtParamMagAW3AutoSpd : UDINT;
+	p_NtParamMagAW3Tuning : UDINT;
+	p_NtParamMagAW3EngageSpdInUMPS : UDINT;
+	p_NtParamMagAW3MotorType : UDINT;
+	p_NtParamMag3WidthOffset : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUSSOT1ProgNm : UDINT;
+	p_NtParamUSSOT1RstDlyTm : UDINT;
+	p_NtParamUSSOT1SigInChkTm : UDINT;
+	p_NtParamUSSOT2ProgNm : UDINT;
+	p_NtParamUSSOT2RstDlyTm : UDINT;
+	p_NtParamUSSOT2SigInChkTm : UDINT;
+	p_NtParamUSSOT3ProgNm : UDINT;
+	p_NtParamUSSOT3RstDlyTm : UDINT;
+	p_NtParamUSSOT3SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamDSSOT1ProgNm : UDINT;
+	p_NtParamDSSOT1RstDlyTm : UDINT;
+	p_NtParamDSSOT1SigInChkTm : UDINT;
+	p_NtParamDSSOT2ProgNm : UDINT;
+	p_NtParamDSSOT2RstDlyTm : UDINT;
+	p_NtParamDSSOT2SigInChkTm : UDINT;
+	p_NtParamDSSOT3ProgNm : UDINT;
+	p_NtParamDSSOT3RstDlyTm : UDINT;
+	p_NtParamDSSOT3SigInChkTm : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProjUsFixToFixRail : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamUIConvDirRL : UDINT;
+	p_NtParamProjServoPullPusherPrep : UDINT;
+	p_NtParamPPProgNm : UDINT;
+	p_NtParamPPDevice : UDINT;
+	p_NtParamPPNode : UDINT;
+	p_NtParamPPDir : UDINT;
+	p_NtParamPPDirBl : UDINT;
+	p_NtParamPPPitchInUM : UDINT;
+	p_NtParamPPMovBlDistInUM : UDINT;
+	p_NtParamPPParamInHm : UDINT;
+	p_NtParamPPParamInConvert : UDINT;
+	p_NtParamPPParam : UDINT;
+	p_NtParamPPAcc : UDINT;
+	p_NtParamPPDec : UDINT;
+	p_NtParamPPAutoSpd : UDINT;
+	p_NtParamPPTuning : UDINT;
+	p_NtParamPPMotorType : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamProjFixClpMagDSenPrep : UDINT;
+	p_NtParamCurtainSenPrep : UDINT;
+	p_NtParamTravGotoMagWidthChkPt1 : UDINT;
+	p_NtParamTravGotoMagWidthChkPt2 : UDINT;
+	p_NtParamTravGotoMagWidthChkPt3 : UDINT;
+	p_NtParamProjScanPrep : UDINT;
+	p_NtParamProjOpConPrep : UDINT;
+	p_NtParamPPTorqParam : UDINT;
+	p_NtParamProjLifTravMnlLoad : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamMidSenNcNo : UDINT;
+	p_NtParamCustomerReq : UDINT;
+END_VAR
+(**)
+VAR
+	p_NtParamHermesSvyPrep : UDINT;
+	p_NtParamHermesSvyFirstMc : UDINT;
+	p_NtParamHermesSvyMagTypeMc : UDINT;
+	p_NtParamSvyHermesProgNm : UDINT;
+	p_NtParamSvyHermesConfigFileNm : UDINT;
+	p_NtParamSvyHermesFileKeepDay : UDINT;
+	p_NtParamSvyHermesAliveTmInSec : UDINT;
+	p_NtParamSvyHermesConnTO : UDINT;
+	p_NtParamSvyHermesRetainFileNm : UDINT;
+	p_NtParamDSHermesRetainFileNm : UDINT;
+	p_NtParamDSHermesMcCycleTm : UDINT;
+	p_NtParamDSHermesAWCycleTm : UDINT;
+	p_NtParamHermesScannerPrep : UDINT;
+	p_NtParamHermesInput : UDINT;
+	p_NtParamHermesOutput : UDINT;
+	p_NtParamAutoRcpPrep : UDINT;
+	p_NtParamAutoRcpProgNm : UDINT;
+	p_NtParamAutoRcpParamLmt : UDINT;
+	p_NtParamAutoRcpPrecededBy : UDINT;
+	p_NtParamProjChinesePrep : UDINT;
+	p_NtParamProjGermanPrep : UDINT;
+	p_NtParamHWInfoHMIMacAddress : UDINT;
+END_VAR

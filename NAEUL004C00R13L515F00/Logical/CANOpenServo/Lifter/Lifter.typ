@@ -1,0 +1,46 @@
+(*2019-01-23*)
+(**)
+(*Action*)
+
+TYPE
+	eLifterAction : 
+		(
+		LifterActIdle,
+		LifterActGoAPos,
+		LifterActGoBPos,
+		LifterActGoCPos,
+		LifterActGoDPos,
+		LifterActGoEPos,
+		LifterActGoFPos,
+		LifterActGoGPos,
+		LifterActGoHPos,
+		LifterActGoASltPos,
+		LifterActGoNxtASltPos,
+		LifterActGoPrevASltPos,
+		LifterActGoBSltPos,
+		LifterActGoNxtBSltPos,
+		LifterActGoPrevBSltPos,
+		LifterActGoCSltPos,
+		LifterActGoNxtCSltPos,
+		LifterActGoPrevCSltPos,
+		LifterActGoDSltPos,
+		LifterActGoNxtDSltPos,
+		LifterActGoPrevDSltPos,
+		LifterActFullHm,
+		LifterActPwrOn,
+		LifterActPwrOff,
+		LifterActHoming,
+		LifterActMovAbs,
+		LifterActMovRel,
+		LifterActJogUp,
+		LifterActJogDown,
+		LifterActJogStop,
+		LifterActRstAxisErr,
+		LifterActStop,
+		LifterActSDOWrite,
+		LifterActBGStartModOKChk,
+		LifterActBGStopModOKChk,
+		LifterActFullMovRel,
+		LifterActRstNode
+		);
+END_TYPE

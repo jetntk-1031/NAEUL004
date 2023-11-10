@@ -1,0 +1,72 @@
+(*2020-03-16*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eLifterAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_bOps : REFERENCE TO BOOL;
+	p_bManual : REFERENCE TO BOOL;
+	p_diGoASlt : REFERENCE TO DINT;
+	p_diASltToSltDist : REFERENCE TO DINT;
+	p_diASlt1Pos : REFERENCE TO DINT;
+	p_diGoBSlt : REFERENCE TO DINT;
+	p_diBSltToSltDist : REFERENCE TO DINT;
+	p_diBSlt1Pos : REFERENCE TO DINT;
+	p_diGoCSlt : REFERENCE TO DINT;
+	p_diCSltToSltDist : REFERENCE TO DINT;
+	p_diCSlt1Pos : REFERENCE TO DINT;
+	p_diGoDSlt : REFERENCE TO DINT;
+	p_diDSltToSltDist : REFERENCE TO DINT;
+	p_diDSlt1Pos : REFERENCE TO DINT;
+	p_diAPos : REFERENCE TO DINT;
+	p_diBPos : REFERENCE TO DINT;
+	p_diCPos : REFERENCE TO DINT;
+	p_diDPos : REFERENCE TO DINT;
+	p_diEPos : REFERENCE TO DINT;
+	p_diFPos : REFERENCE TO DINT;
+	p_diGPos : REFERENCE TO DINT;
+	p_diHPos : REFERENCE TO DINT;
+	p_tyTuning : REFERENCE TO tyMotionCANTuning;
+	p_diJogVelInUMPS : REFERENCE TO DINT;
+	p_diMovePosInUM : REFERENCE TO DINT;
+	p_diMoveDistInUM : REFERENCE TO DINT;
+	p_diMoveVelInUMPS : REFERENCE TO DINT;
+	p_diMoveAcc : REFERENCE TO DINT;
+	p_diMoveDec : REFERENCE TO DINT;
+	p_diMinAbsPosInUM : REFERENCE TO DINT;
+	p_diMaxAbsPosInUM : REFERENCE TO DINT;
+	p_bInterruptSensor1 : REFERENCE TO BOOL;
+	p_bInterruptSensor2 : REFERENCE TO BOOL;
+	p_bInterruptSensor3 : REFERENCE TO BOOL;
+	p_bInterruptSensor4 : REFERENCE TO BOOL;
+	p_bInterruptSensor5 : REFERENCE TO BOOL;
+	p_bInterruptSensor6 : REFERENCE TO BOOL;
+	p_bDir : REFERENCE TO BOOL;
+	p_bNoIndexPulse : REFERENCE TO BOOL;
+	p_usiNode : REFERENCE TO USINT;
+	p_sDevice : REFERENCE TO STRING[3];
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_tyParamInHm : REFERENCE TO tyMotionCANParamInHm;
+	p_tyParamInConvert : REFERENCE TO tyMotionCANParamInConvert;
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_bInletShutterCloseRS : REFERENCE TO BOOL;
+	p_bOutletShutterCloseRS : REFERENCE TO BOOL;
+	p_bOutletShutterCloseRS3 : REFERENCE TO BOOL;
+	p_bOutletShutterCloseRS2 : REFERENCE TO BOOL;
+	p_eNtParamMotorType : REFERENCE TO eServoMotorType;
+	p_bOutShutterDis : REFERENCE TO BOOL;
+	p_bProjInletShutPrep : REFERENCE TO BOOL;
+	p_bInShutterDis : REFERENCE TO BOOL;
+	p_bProjOutletShutPrep : REFERENCE TO BOOL;
+	p_bPusherRetSen : REFERENCE TO BOOL;
+	p_bPusherExtSen : REFERENCE TO BOOL;
+	p_bDIConvLftSen : REFERENCE TO BOOL;
+	p_bDIConvClrSen : REFERENCE TO BOOL;
+END_VAR

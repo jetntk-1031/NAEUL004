@@ -1,0 +1,64 @@
+(*2021-04-20*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eSOTAction := SOTActIdle;
+	eStat : eSOTAction := SOTActIdle;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','SMEMA Running','Turning On DBA Signal','Turning Off DBA Signal',47('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='SOT Transport Time Out While Transporting',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='SOT Transport Time Out After Opposite Machine Transport Finished',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='SOT Transport Time Out After Current Machine Transport Finished',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),(sAlmText:='SOT Transport Time Out After Both Machine Transport Finished And Waiting Outlet Sensor',sRcyText:='Timeout Expired Before Operation Completed. Reset And Resume Operation.'),96(0)];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bUSRdy : BOOL := FALSE;
+	bDSRdy : BOOL := FALSE;
+	bTransporting : BOOL := FALSE;
+	bConvStart : BOOL := FALSE;
+	bConvStop : BOOL := FALSE;
+	bDBA : BOOL := FALSE;
+	bDSMagSizeLarge : BOOL := FALSE;
+	bVirtual : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bManual : BOOL := FALSE;
+	diTransferOutTO : DINT := 20000;
+	bDirLToR : BOOL := FALSE;
+	bRdySend : BOOL := TRUE;
+	bLeftSen : BOOL := FALSE;
+	bRightSen : BOOL := FALSE;
+	bComplSigOn : BOOL := FALSE;
+	bMagSizeLarge : BOOL := FALSE;
+	bDSB : BOOL := FALSE;
+	bVirtualEn : BOOL;
+	bDSBVirtual : BOOL;
+	tRstDlyTm : TIME := T#500ms;
+	tSigInChkTm : TIME := T#100ms;
+	sProgNm : STRING[15] := 'DSSMEMA';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	fbSOT : fbSOTDS;
+	fbSigInChk : fbSOTSigInChk;
+	eStatOld : eSOTAction := SOTActIdle;
+	udiModuleNum : UDINT := 4501;
+END_VAR

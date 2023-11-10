@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Do Not Change!!!">AGV.typ</Object>
+    <Object Type="File" Description="Change By Project">AGV.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSMEMA v5.00.0">AGV</Object>
+    <Object Type="File" Description="Change By Project">AGV1.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSMEMA v5.00.0">AGV1</Object>
+    <Object Type="File" Description="Change By Project">AGV2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSMEMA v5.00.0">AGV2</Object>
+    <Object Type="File" Description="Change By Project">AGV3.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSMEMA v5.00.0">AGV3</Object>
+  </Objects>
+</Package>

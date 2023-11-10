@@ -1,0 +1,291 @@
+(*2019-04-16*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eULMod : REFERENCE TO eULMod;
+	p_eULMag : REFERENCE TO eULMag;
+	p_bNonBffrMod : REFERENCE TO BOOL;
+	p_bBypsGdBadBrd : REFERENCE TO BOOL;
+	p_bUSAllow : REFERENCE TO BOOL;
+	p_bDSAllow : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eUSCommMod1 : REFERENCE TO eMcSetCommMod;
+	p_eUSCommMod2 : REFERENCE TO eMcSetCommMod;
+	p_eUSCommMod3 : REFERENCE TO eMcSetCommMod;
+	p_eDSCommMod1 : REFERENCE TO eMcSetCommMod;
+	p_eDSCommMod2 : REFERENCE TO eMcSetCommMod;
+	p_eDSCommMod3 : REFERENCE TO eMcSetCommMod;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat1 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus1 : REFERENCE TO eFBStatus;
+	p_bUSSMEMAUSRdy1 : REFERENCE TO BOOL;
+	p_bUSSMEMAGdBrdRdy1 : REFERENCE TO BOOL;
+	p_bUSSMEMATransporting1 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart1 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat2 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus2 : REFERENCE TO eFBStatus;
+	p_bUSSMEMAUSRdy2 : REFERENCE TO BOOL;
+	p_bUSSMEMAGdBrdRdy2 : REFERENCE TO BOOL;
+	p_bUSSMEMATransporting2 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart2 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat3 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus3 : REFERENCE TO eFBStatus;
+	p_bUSSMEMAUSRdy3 : REFERENCE TO BOOL;
+	p_bUSSMEMAGdBrdRdy3 : REFERENCE TO BOOL;
+	p_bUSSMEMATransporting3 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart3 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eDSSMEMAStat1 : REFERENCE TO eSMEMAAction;
+	p_eDSSMEMAStatus1 : REFERENCE TO eFBStatus;
+	p_bDSSMEMADSRdy1 : REFERENCE TO BOOL;
+	p_bDSSMEMAConvStart1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eDSSMEMAStat2 : REFERENCE TO eSMEMAAction;
+	p_eDSSMEMAStatus2 : REFERENCE TO eFBStatus;
+	p_bDSSMEMADSRdy2 : REFERENCE TO BOOL;
+	p_bDSSMEMAConvStart2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eDSSMEMAStat3 : REFERENCE TO eSMEMAAction;
+	p_eDSSMEMAStatus3 : REFERENCE TO eFBStatus;
+	p_bDSSMEMADSRdy3 : REFERENCE TO BOOL;
+	p_bDSSMEMAConvStart3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bUSHermesUSRdy1 : REFERENCE TO BOOL;
+	p_bUSHermesUSGdRdy1 : REFERENCE TO BOOL;
+	p_bUSHermesTransporting1 : REFERENCE TO BOOL;
+	p_bUSHermesStopTransport1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bUSHermesUSRdy2 : REFERENCE TO BOOL;
+	p_bUSHermesUSGdRdy2 : REFERENCE TO BOOL;
+	p_bUSHermesTransporting2 : REFERENCE TO BOOL;
+	p_bUSHermesStopTransport2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bUSHermesUSRdy3 : REFERENCE TO BOOL;
+	p_bUSHermesUSGdRdy3 : REFERENCE TO BOOL;
+	p_bUSHermesTransporting3 : REFERENCE TO BOOL;
+	p_bUSHermesStopTransport3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bDSHermesDSRdy1 : REFERENCE TO BOOL;
+	p_bDSHermesTransporting1 : REFERENCE TO BOOL;
+	p_bDSHermesStopTransport1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bDSHermesDSRdy2 : REFERENCE TO BOOL;
+	p_bDSHermesTransporting2 : REFERENCE TO BOOL;
+	p_bDSHermesStopTransport2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bDSHermesDSRdy3 : REFERENCE TO BOOL;
+	p_bDSHermesTransporting3 : REFERENCE TO BOOL;
+	p_bDSHermesStopTransport3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eConvStat : REFERENCE TO eConvAction;
+	p_eConvStatus : REFERENCE TO eFBStatus;
+	p_eConvDir : REFERENCE TO eConvDir;
+	p_bConvHvBrd : REFERENCE TO BOOL;
+	p_bConvGdBrd : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eAWStat : REFERENCE TO eAWAction;
+	p_eAWStatus : REFERENCE TO eFBStatus;
+	p_bAWWidthPosDiff : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eAWPushOrPullerStat : REFERENCE TO eAWAction;
+	p_eAWPushOrPullerStatus : REFERENCE TO eFBStatus;
+	p_bAWPushOrPullerWidthPosDiff : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eTravStat : REFERENCE TO eTravAction;
+	p_eTravStatus : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eLifStat : REFERENCE TO eLifterAction;
+	p_eLifStatus : REFERENCE TO eFBStatus;
+	p_tShutterWaitTmr : REFERENCE TO TIME;
+END_VAR
+(**)
+(*Inlet Shutter / Inlet Stopper*)
+VAR
+	p_eInletPneuStat : REFERENCE TO ePneuAction;
+	p_eInletPneuStatus : REFERENCE TO eFBStatus;
+	p_bInletPneuCls : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Outlet Shutter*)
+VAR
+	p_eOutletPneuStat : REFERENCE TO ePneuAction;
+	p_eOutletPneuStatus : REFERENCE TO eFBStatus;
+	p_eOutletPneuStat2 : REFERENCE TO ePneuAction;
+	p_eOutletPneuStatus2 : REFERENCE TO eFBStatus;
+	p_eOutletPneuStat3 : REFERENCE TO ePneuAction;
+	p_eOutletPneuStatus3 : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eStopperStat1 : REFERENCE TO ePneuAction;
+	p_eStopperStatus1 : REFERENCE TO eFBStatus;
+	p_bStopperBlk1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eStopperStat2 : REFERENCE TO ePneuAction;
+	p_eStopperStatus2 : REFERENCE TO eFBStatus;
+	p_bStopperBlk2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eStopperStat3 : REFERENCE TO ePneuAction;
+	p_eStopperStatus3 : REFERENCE TO eFBStatus;
+	p_bStopperBlk3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_bConvLftSen : REFERENCE TO BOOL;
+	p_bConvMidSen : REFERENCE TO BOOL;
+	p_bConvRgtSen : REFERENCE TO BOOL;
+	p_bConvClrSen : REFERENCE TO BOOL;
+	p_bConvLineAInletSen : REFERENCE TO BOOL;
+	p_bConvLineBInletSen : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Magazine*)
+VAR
+	p_bMagTransferBrd1 : REFERENCE TO BOOL;
+	p_bMagTransferBrd2 : REFERENCE TO BOOL;
+	p_bMagTransferBrd3 : REFERENCE TO BOOL;
+	p_bBufferMagPresent1 : REFERENCE TO BOOL;
+	p_bBufferMagPresent2 : REFERENCE TO BOOL;
+	p_bBufferMagPresent3 : REFERENCE TO BOOL;
+	p_bBufferMagDet1 : REFERENCE TO BOOL;
+	p_bBufferMagDet2 : REFERENCE TO BOOL;
+	p_bBufferMagDet3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_tyBufferStat1 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat2 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat3 : REFERENCE TO tyBffrStat;
+END_VAR
+(**)
+VAR
+	p_bDIInShutterOpenRS : REFERENCE TO BOOL;
+	p_bDIInShutterCloseRS : REFERENCE TO BOOL;
+	p_bDIOutShutterOpenRS : REFERENCE TO BOOL;
+	p_bDIOutShutterCloseRS : REFERENCE TO BOOL;
+	p_bDIOutShutterOpenRS3 : REFERENCE TO BOOL;
+	p_bDIOutShutterCloseRS3 : REFERENCE TO BOOL;
+	p_bDIOutShutterOpenRS2 : REFERENCE TO BOOL;
+	p_bDIOutShutterCloseRS2 : REFERENCE TO BOOL;
+	p_bDIPusherRetRS : REFERENCE TO BOOL;
+	p_bDIPusherExtRS : REFERENCE TO BOOL;
+	p_bDIUSWidthSen : REFERENCE TO BOOL;
+	p_bPshrConvPshrRetracted : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eNtParamProjMagBuffferActLoad : REFERENCE TO eLifMagULUpdateData;
+END_VAR
+(**)
+VAR
+	p_bTravAPosDiff : REFERENCE TO BOOL;
+	p_bTravBPosDiff : REFERENCE TO BOOL;
+	p_bTravPosDiff : REFERENCE TO BOOL;
+	p_bLifterBtmPosDiff : REFERENCE TO BOOL;
+	p_bLifterAPosDiff : REFERENCE TO BOOL;
+	p_bLifterBPosDiff : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bMagWidthChkSenOn : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_dtBufferMagPresentTm1 : REFERENCE TO DATE_AND_TIME;
+	p_dtBufferMagPresentTm2 : REFERENCE TO DATE_AND_TIME;
+	p_dtBufferMagPresentTm3 : REFERENCE TO DATE_AND_TIME;
+END_VAR
+(**)
+VAR
+	p_diProdRcpCurrRcp1Width : REFERENCE TO DINT;
+	p_diProdRcpCurrRcp2Width : REFERENCE TO DINT;
+END_VAR
+(**)
+VAR
+	p_bCurtainSenPB : REFERENCE TO BOOL;
+	p_bPneuUnclmpFBDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bInShutDis : REFERENCE TO BOOL;
+	p_bCurtainSenPrep : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Scanner*)
+VAR
+	p_bScanEn : REFERENCE TO BOOL;
+	p_bTopScannerEn : REFERENCE TO BOOL;
+	p_bBtmScannerEn : REFERENCE TO BOOL;
+	p_eTCPTopStat : REFERENCE TO eTCPAction1;
+	p_eTCPTopStatus : REFERENCE TO eFBStatus;
+	p_sTopMsgRd : REFERENCE TO STRING[80];
+	p_eTCPBtmStat : REFERENCE TO eTCPAction1;
+	p_eTCPBtmStatus : REFERENCE TO eFBStatus;
+	p_sBtmMsgRd : REFERENCE TO STRING[80];
+	p_bOpConPrep : REFERENCE TO BOOL;
+	p_bPass : REFERENCE TO BOOL;
+	p_tyPartReceiveRetCode : REFERENCE TO tyOpConPartReceive;
+	p_tyOpConPlcGrabRcvCode : REFERENCE TO tyOpConPlcGrabReceive;
+END_VAR
+(**)

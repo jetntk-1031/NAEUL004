@@ -1,0 +1,27 @@
+(*2021-08-01*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	bHermesRun : BOOL;
+	bHermesStop : BOOL;
+END_VAR
+(**)
+VAR
+	bLifterEmpty : BOOL;
+	tySendWorkOrderInfoAccPublish : BOOL;
+	bReplyWorkOrderInfo : BOOL;
+	bReplyBypassWorkOrderInfo : BOOL;
+	bRcvBoardInfoOk : BOOL;
+	bRetainNewAcc : BOOL;
+	bSendBoardForecast : BOOL;
+	bClearWorkOrder : BOOL;
+	p_bLinkBrdAvlDataNewBrdAvl1stZ : REFERENCE TO BOOL;
+	pa_tyLinkXMLTableDataBrdAvl1 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;
+	p_iLinkXMLTableDataBrdAvlTtlIdx1 : REFERENCE TO INT;
+	bNewIncomingBoard : BOOL;
+	sUSBarcode : STRING[254];
+	bQueryloaderWorkOrder : BOOL;
+	bQueryBypassWorkOrder : BOOL;
+	bRcvWorkBypassOrderInfo : BOOL;
+	bManualQueryWO : BOOL;
+END_VAR

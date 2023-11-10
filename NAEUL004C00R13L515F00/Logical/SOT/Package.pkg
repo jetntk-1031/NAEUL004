@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Do Not Change!!!">SOT.typ</Object>
+    <Object Type="File" Description="Change By Project">USSOT1.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">USSOT1</Object>
+    <Object Type="File" Description="Change By Project">DSSOT1.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">DSSOT1</Object>
+    <Object Type="File" Description="Change By Project">USSOT2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">USSOT2</Object>
+    <Object Type="File" Description="Change By Project">DSSOT2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">DSSOT2</Object>
+    <Object Type="File" Description="Change By Project">USSOT3.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">USSOT3</Object>
+    <Object Type="File" Description="Change By Project">DSSOT3.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtSOT v5.00.0">DSSOT3</Object>
+  </Objects>
+</Package>

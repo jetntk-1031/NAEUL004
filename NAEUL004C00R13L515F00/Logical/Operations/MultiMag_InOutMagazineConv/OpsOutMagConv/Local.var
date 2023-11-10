@@ -1,0 +1,90 @@
+(*2019-04-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt;
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	sStepTxt1 : STRING[80];
+	bPaused : BOOL;
+	bStepInitDone : BOOL := FALSE;
+	bStepEnterMag : BOOL := FALSE;
+	bStepEnterMidMag : BOOL := FALSE;
+	bStepExitMag : BOOL := FALSE;
+	bStepWaitMagToRmvMnl : BOOL := FALSE;
+	bStepInitDone2 : BOOL := FALSE;
+	bStepEnterMag2 : BOOL := FALSE;
+	bStepEnterMidMag2 : BOOL := FALSE;
+	bStepExitMag2 : BOOL := FALSE;
+	bStepWaitMagToRmvMnl2 : BOOL := FALSE;
+END_VAR
+(**)
+VAR
+	eOutMagConvAct : eMagConvAction;
+	eOutMagConv2Act : eMagConvAction;
+	eDSSOTAct : eSOTAction;
+	eDSSOTAct2 : eSOTAction;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+END_VAR
+(**)
+VAR
+	eOutMagConvStat : eMagConvAction;
+	eOutMagConvStatus : eFBStatus;
+	eOutMagConv2Stat : eMagConvAction;
+	eOutMagConv2Status : eFBStatus;
+END_VAR
+(* *)
+VAR
+	bStepEntMag : BOOL := FALSE;
+	bStepEntMag2 : BOOL := FALSE;
+	bEntSen : BOOL := FALSE;
+	bMidSen : BOOL := FALSE;
+	bExtSen : BOOL := FALSE;
+	bEntSen2 : BOOL := FALSE;
+	bMidSen2 : BOOL := FALSE;
+	bExtSen2 : BOOL := FALSE;
+	bExitSig : BOOL := FALSE;
+	bExitSig2 : BOOL := FALSE;
+	bOpsMnlUnloadMag : BOOL := FALSE;
+	fbMagToRmv : TON := (IN:=TRUE,PT:=T#1s);
+	fbMagToRmv2 : TON := (IN:=TRUE,PT:=T#1s);
+END_VAR
+(**)
+VAR
+	sProgNm : STRING[15] := 'OpsAW';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitialDone : BOOL;
+	bInitDone : BOOL;
+	eOpsStep : eOutMagConvStep := OutMagConvStepNA;
+	eGotoStep : eOutMagConvStep := OutMagConvStepInit;
+	eOpsStep1 : eOutMagConvStep := OutMagConvStepNA;
+	eGotoStep1 : eOutMagConvStep := OutMagConvStepInit;
+	bMagManEx : BOOL;
+	bMagAutoEx : BOOL;
+	udiModuleNum : UDINT := 6131;
+END_VAR

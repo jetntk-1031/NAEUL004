@@ -1,0 +1,34 @@
+(*2019-04-24*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_AWPushOrPullerStat : UDINT;
+	p_AWPushOrPullerStatus : UDINT;
+	p_AWPushOrPullerStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_AWPushOrPullerAlmData : UDINT;
+	p_AWPushOrPullerAlmData1 : UDINT;
+	p_AWPushOrPullerAlmData2 : UDINT;
+	p_AWPushOrPullerAlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_AWPushOrPullerParamOut : UDINT;
+	p_AWPushOrPullerPwrOn : UDINT;
+	p_AWPushOrPullerIsHomed : UDINT;
+	p_AWPushOrPullerPosDiff : UDINT;
+	p_AWPushOrPullerAxisErr : UDINT;
+	p_AWPushOrPullerAxisErrID : UDINT;
+	p_AWPushOrPullerAxisErrTxt : UDINT;
+	p_AWPushOrPullerFwdLmtSen : UDINT;
+	p_AWPushOrPullerRevLmtSen : UDINT;
+	p_AWPushOrPullerActualPos : UDINT;
+	p_AWPushOrPullerWidthPosDiff : UDINT;
+	p_AWPushOrPullerJogging : UDINT;
+	p_AWPushOrPullerOpenSen : UDINT;
+	p_AWPushOrPullerCloseSen : UDINT;
+END_VAR

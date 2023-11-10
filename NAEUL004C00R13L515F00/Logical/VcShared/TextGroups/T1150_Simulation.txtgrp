@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1150_Simulation">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="15"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="190742" Value="Simulation"/>
+    <Text ID="190743" Value="Start"/>
+    <Text ID="190744" Value="Stop"/>
+    <Text ID="190745" Value="Lifter Test"/>
+    <Text ID="190746" Value="Traverser Test"/>
+    <Text ID="190747" Value="AutoWidth Test"/>
+    <Text ID="190748" Value="Exit Board Test"/>
+    <Text ID="190749" Value="Lifter Slot Test"/>
+    <Text ID="190750" Value="Invet Test"/>
+    <Text ID="190751" Value="Engage Test"/>
+    <Text ID="190752" Value="Insepection Conveyor Machine Test"/>
+    <Text ID="190753" Value="Dual Mag. Unloader Machine Test"/>
+    <Text ID="190754" Value="Inverter Machine Test"/>
+    <Text ID="190755" Value="Loader Machine Test"/>
+    <Text ID="190756" Value="Reject Conveyor Machine Test"/>
+    <Text ID="190757" Value="Telescopic Machine Test"/>
+    <Text ID="190758" Value="Turner Machine Test"/>
+    <Text ID="190759" Value="Belt FIFO Machine Test"/>
+    <Text ID="190760" Value=" "/>
+    <Text ID="190761" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="190742" Value="Simulation"/>
+    <Text ID="190743" Value="Starten"/>
+    <Text ID="190744" Value="Stopp"/>
+    <Text ID="190745" Value="Heber Test"/>
+    <Text ID="190746" Value="Schiebebühne Test"/>
+    <Text ID="190747" Value="Auto Breite Test"/>
+    <Text ID="190748" Value="Ausgangs Brett Test"/>
+    <Text ID="190749" Value="Heberschlitz Test"/>
+    <Text ID="190750" Value="Umkehren Test"/>
+    <Text ID="190751" Value="Einkupplung Test"/>
+    <Text ID="190752" Value="Inspektion Förderband  Maschine Test"/>
+    <Text ID="190753" Value="Dual Mag. Entlader Maschine Test"/>
+    <Text ID="190754" Value="Wechselrichter Maschine Test"/>
+    <Text ID="190755" Value="Loader Maschine Test"/>
+    <Text ID="190756" Value="Schlechtteilförderband Machine Test"/>
+    <Text ID="190757" Value="Teleskop Maschine Test"/>
+    <Text ID="190758" Value="Wender Maschine Test"/>
+    <Text ID="190759" Value="Band FIFO Maschine Test"/>
+    <Text ID="190760" Value=" "/>
+    <Text ID="190761" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="190742" Value="模拟"/>
+    <Text ID="190743" Value="开始"/>
+    <Text ID="190744" Value="停止"/>
+    <Text ID="190745" Value="升降机测试"/>
+    <Text ID="190746" Value="平移机测试"/>
+    <Text ID="190747" Value="自动调整宽度测试"/>
+    <Text ID="190748" Value="输出电路板测试"/>
+    <Text ID="190749" Value="升降机插槽测试"/>
+    <Text ID="190750" Value="翻转测试"/>
+    <Text ID="190751" Value="接合测试"/>
+    <Text ID="190752" Value="检验式输送机测试"/>
+    <Text ID="190753" Value="双料架下板机测试"/>
+    <Text ID="190754" Value="翻转机测试"/>
+    <Text ID="190755" Value="上板机测试"/>
+    <Text ID="190756" Value="筛选式输送机测试"/>
+    <Text ID="190757" Value="伸缩机测试"/>
+    <Text ID="190758" Value="转角机测试"/>
+    <Text ID="190759" Value="皮带式先进先出缓存机测试"/>
+    <Text ID="190760" Value=" "/>
+    <Text ID="190761" Value=" "/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="190742" Value=""/>
+    <Text ID="190743" Value=""/>
+    <Text ID="190744" Value=""/>
+    <Text ID="190745" Value=""/>
+    <Text ID="190746" Value=""/>
+    <Text ID="190747" Value=""/>
+    <Text ID="190748" Value=""/>
+    <Text ID="190749" Value=""/>
+    <Text ID="190750" Value=""/>
+    <Text ID="190751" Value=""/>
+    <Text ID="190752" Value=""/>
+    <Text ID="190753" Value=""/>
+    <Text ID="190754" Value=""/>
+    <Text ID="190755" Value=""/>
+    <Text ID="190756" Value=""/>
+    <Text ID="190757" Value=""/>
+    <Text ID="190758" Value=""/>
+    <Text ID="190759" Value=""/>
+    <Text ID="190760" Value=""/>
+    <Text ID="190761" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="190742" Value="0"/>
+    <Index ID="190743" Value="1"/>
+    <Index ID="190744" Value="2"/>
+    <Index ID="190745" Value="3"/>
+    <Index ID="190746" Value="4"/>
+    <Index ID="190747" Value="5"/>
+    <Index ID="190748" Value="6"/>
+    <Index ID="190749" Value="7"/>
+    <Index ID="190750" Value="8"/>
+    <Index ID="190751" Value="9"/>
+    <Index ID="190752" Value="10"/>
+    <Index ID="190753" Value="11"/>
+    <Index ID="190754" Value="12"/>
+    <Index ID="190755" Value="13"/>
+    <Index ID="190756" Value="14"/>
+    <Index ID="190757" Value="15"/>
+    <Index ID="190758" Value="16"/>
+    <Index ID="190759" Value="17"/>
+    <Index ID="190760" Value="18"/>
+    <Index ID="190761" Value="19"/>
+  </IndexMap>
+</TextGroup>

@@ -1,0 +1,194 @@
+(*2019-04-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Magazine Not Present'),(sAlmText:='Magazine 1 Is Full'),(sAlmText:='Magazine 2 Is Full'),(sAlmText:='Magazine 3 Is Full'),(sAlmText:='Please Insert Good Magazine'),(sAlmText:='Please Insert Bad Magazine'),(sAlmText:='Wrong Magazine Width On Position 2'),(sAlmText:='Wrong Magazine Height On Position 2'),(sAlmText:='Waiting for Unload Magazine 2'),(sAlmText:='Rack/Magazine Auto Width Change Error',sRcyText:='Rack/Magazine Auto Width Motor Error While Doing Width Change'),(sAlmText:='Magazine 2 Auto Width Limit Sensor Activated, Ensure Senor Is Cleared Or Magazine Is Empty ',sRcyText:='Please make sure magazine wall is clear from limit sensor and there is no object in the magazine'),(sAlmText:='Wrong Magazine Orientation Placed Or Wrong Magazine Loaded',sRcyText:='Please Check And Correct the Magazine Orientation/Reload Correct Magazine.'),(sAlmText:='Reading Mag 2 in Progress'),(sAlmText:='Reading Mag 2 or Press Release Mag '),(sAlmText:='Writing Mag 2 in Progress'),(sAlmText:='Writing Mag 2 or Press Release Mag'),(sAlmText:='Wrong Magazine Position 2'),83(0)];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	bPaused : BOOL;
+END_VAR
+(**)
+VAR
+	eBufferAct : eBufferAction;
+	eSelClampCtrl : ePneuAction;
+	eMagConv2ClpAct : eMagConv2ClpAction;
+	eUSSMEMAAct : eSMEMAAction;
+	eAGVMagAct : eAGVMagAction;
+END_VAR
+(**)
+VAR
+	eSafetyBarAct : ePneuAction;
+	eMagAWEngageAct : ePneuAction;
+	eMagAWAct : eMagAWAction;
+END_VAR
+(**)
+VAR
+	eUSSOTAct : eSOTAction;
+	eDSSOTAct : eSOTAction;
+	bOpsInitDone : BOOL;
+	bMagBffrAvl : BOOL;
+	bNewMagAllw : BOOL;
+	bRlsMagAllw : BOOL;
+	bEjectMESStep : BOOL;
+	bEjectMagNotAllw : BOOL;
+	bStepMagExitedWait : BOOL;
+	bStepMagVerification : BOOL;
+	bStepMagFullExit : BOOL;
+	bStepMagUSCom : BOOL;
+	bStepMagBffrLoad : BOOL;
+	bStepPLCGrab : BOOL;
+END_VAR
+(*Step Logger*)
+VAR
+	bClsLog : BOOL;
+	blog : BOOL;
+	logStep : ARRAY[0..999] OF eMagConvULStep;
+	logIndexStep : INT;
+	eGotoOpsStepDummy : eMagConvULStep;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+	usiMagConv : USINT;
+	bInfoEn : BOOL := FALSE;
+	a_bMagDis : ARRAY[1..3] OF BOOL;
+	a_bMagRej : ARRAY[1..3] OF BOOL;
+	bUSAllow : BOOL := TRUE;
+	bAllwChgWidth : BOOL;
+	bAllwChgSlot : BOOL;
+	bNewMag : BOOL;
+	bRlsMag : BOOL;
+	bConvInitDone : BOOL;
+	bConvHvBrd : BOOL;
+	bConvGdBrd : BOOL;
+	tyBufferStat1 : tyBffrStat;
+	tyBufferStat2 : tyBffrStat;
+	tyBufferStat3 : tyBffrStat;
+	bMagClampRS1 : BOOL;
+	bMagClampRS2 : BOOL;
+	bMagClampRS3 : BOOL;
+	bMagEntrySen1 : BOOL;
+	bMagEntrySen2 : BOOL;
+	bMagEntrySen3 : BOOL;
+	bMagPresentSen1 : BOOL;
+	bMagPresentSen2 : BOOL;
+	bMagPresentSen3 : BOOL;
+	bBufferMagPresent1 : BOOL;
+	bBufferMagPresent2 : BOOL;
+	bBufferMagPresent3 : BOOL;
+	dtBufferMagPresentTm1 : DATE_AND_TIME;
+	dtBufferMagPresentTm2 : DATE_AND_TIME;
+	dtBufferMagPresentTm3 : DATE_AND_TIME;
+	eBufferStat : eBufferAction;
+	eBufferStatus : eFBStatus;
+	eMagConv2ClpStat : eMagConv2ClpAction;
+	eMagConv2ClpStatus : eFBStatus;
+	bMagConv2ClpHvMag : BOOL;
+	eUSSMEMAStat : eSMEMAAction;
+	eUSSMEMAStatus : eFBStatus;
+	bUSSMEMATransporting : BOOL;
+	bUSSMEMAConvStart : BOOL;
+	bUSSMEMAConvStop : BOOL;
+	eAGVMagStat : eAGVMagAction;
+	eAGVMagStatus : eFBStatus;
+	bAGVMagMcRunRdy : BOOL;
+	tyAGVToDualMag : tyTagAGVToDTMag;
+	sProgNm : STRING[15] := 'Ops MagConvUL';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+END_VAR
+VAR RETAIN
+	iMagMESAcptCond : INT;
+	bMagExitedWait : BOOL;
+	ePrevExitStep : eMagConvULStep;
+END_VAR
+VAR
+	eOpsStep : eMagConvULStep := MagConvULStepNA;
+	eGotoOpsStep : eMagConvULStep := MagConvULStepInitMag;
+	udi : UDINT;
+	udi1 : UDINT;
+	udiCount : UDINT;
+	udiCmpTm : UDINT;
+	udiMagAllwGo : UDINT;
+	a_tyMagAllwBffrStat : ARRAY[1..3] OF tyBffrStat;
+	a_bMagAllwMagClamped : ARRAY[1..3] OF BOOL;
+	a_bMagAllwMagPresent : ARRAY[1..3] OF BOOL;
+	a_udiMagAllwMagPresentTm : ARRAY[1..3] OF UDINT;
+	a_udiMagAllwPriority : ARRAY[1..3] OF UDINT;
+	a_udiMagAllwSum : ARRAY[1..3] OF UDINT;
+	p_tyLocalBufferStat : REFERENCE TO tyBffrStat;
+	p_bLocalMagEntrySen : REFERENCE TO BOOL;
+	p_bLocalBufferMagPresent : REFERENCE TO BOOL;
+	p_dtLocalBufferMagPresentTm : REFERENCE TO DATE_AND_TIME;
+	bPneuUnclmpDone : BOOL;
+	usiPrevHcomModchanged : USINT;
+END_VAR
+(**)
+VAR
+	fbWrongMagTm : TON := (PT:=T#5000ms);
+	fbMagAutoDetTm : TON := (PT:=T#2000ms);
+	fbMagRemovedTm : TON := (PT:=T#1000ms);
+	fbVerifyWarningDelay : TON := (PT:=T#1000ms);
+	fbEntSenOff : TON := (PT:=T#1000ms);
+	bNewMagAutoDetected : BOOL;
+	bNewMagVerified : BOOL;
+	bNewMagVerifyStarted : BOOL;
+	bIncorrectMagazineModel : BOOL;
+	bMagAWDone : BOOL;
+	bWrongHeight : BOOL;
+	bWrongWidth : BOOL;
+	bMagSizeLarge : BOOL;
+	bLimitSenActivated : BOOL;
+END_VAR
+VAR RETAIN
+	bManualUnloadMag : BOOL;
+END_VAR
+VAR
+	bAIVInPos : BOOL;
+	bMagManEx : BOOL;
+	bMagAutoEx : BOOL;
+	bAGVComm2Rdy : BOOL;
+	bStepOpsMagAWDone : BOOL;
+	bStepOpsPitchUpdated : BOOL;
+	udiModuleNum : UDINT := 6701;
+END_VAR
+(*ForSiemen*)
+VAR
+	bAutoRcpEn : BOOL;
+	ePrevStepBeforeMESStdBy : eMagConvULStep;
+	bWriteRFID : BOOL;
+	bReadRFID : BOOL;
+	fbReadRFIDTO : TON := (PT:=T#3s);
+	fbWriteRFIDTO : TON;
+END_VAR
+VAR RETAIN
+	dtMagConvAcptTm : DATE_AND_TIME;
+END_VAR
+VAR
+	a_iMagMESAcptCond : ARRAY[1..3] OF INT;
+END_VAR

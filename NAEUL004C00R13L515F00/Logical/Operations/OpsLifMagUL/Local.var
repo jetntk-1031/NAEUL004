@@ -1,0 +1,171 @@
+(*2019-04-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+	udiStatus2 : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	tyAlmData2 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Magazine Not Present'),(sAlmText:='Magazine 1 Is Full'),(sAlmText:='Magazine 2 Is Full'),(sAlmText:='Magazine 3 Is Full'),(sAlmText:='Please Insert Good Magazine'),(sAlmText:='Please Insert Bad Magazine'),2((sAlmText:='Last Magazine Is Almost Full')),(sAlmText:='All Magazines Full'),(sAlmText:='Please Insert Magazine'),90((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	sStepTxt1 : STRING[80];
+	bPaused : BOOL;
+END_VAR
+(**)
+VAR
+	eLifterAct : eLifterAction;
+	eLifter2Act : eLifterAction;
+	eLifterConvAct : eMagConvAction;
+	eLifterConv2Act : eMagConvAction;
+	eBufferAct1 : eBufferAction;
+	eBufferAct2 : eBufferAction;
+	eBufferAct3 : eBufferAction;
+	eUSSMEMAAct1 : eSMEMAAction;
+	eUSSMEMAAct2 : eSMEMAAction;
+	eUSSMEMAAct3 : eSMEMAAction;
+END_VAR
+(**)
+VAR
+	eMagNxtLoad : eLifMagULMagNxtLoad;
+	bUnloading : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+	a_bMagDis : ARRAY[1..3] OF BOOL;
+	a_bMagRej : ARRAY[1..3] OF BOOL;
+	bUnloadMag : BOOL;
+	bUSAllow : BOOL := TRUE;
+	eMagBuffferActLoad : eLifMagULUpdateData;
+	bConvInitDone : BOOL;
+	bConvHvBrdAllwGo : BOOL;
+	bConvHvBrd : BOOL;
+	bConvGdBrd : BOOL;
+	tyBufferStat1 : tyBffrStat;
+	tyBufferStat2 : tyBffrStat;
+	tyBufferStat3 : tyBffrStat;
+	bMagPresentSen1 : BOOL;
+	bMagPresentSen2 : BOOL;
+	bMagPresentSen3 : BOOL;
+	bBufferMagPresent1 : BOOL;
+	bBufferMagPresent2 : BOOL;
+	bBufferMagPresent3 : BOOL;
+	dtBufferMagPresentTm1 : DATE_AND_TIME;
+	dtBufferMagPresentTm2 : DATE_AND_TIME;
+	dtBufferMagPresentTm3 : DATE_AND_TIME;
+	eInMagConvStat : eMagConvAction;
+	eInMagConvStatus : eFBStatus;
+	eInMagConv2Stat : eMagConvAction;
+	eInMagConv2Status : eFBStatus;
+	eOutMagConvStat : eMagConvAction;
+	eOutMagConvStatus : eFBStatus;
+	eOutMagConv2Stat : eMagConvAction;
+	eOutMagConv2Status : eFBStatus;
+	eLifterStat : eLifterAction;
+	eLifterStatus : eFBStatus;
+	eLifter2Stat : eLifterAction;
+	eLifter2Status : eFBStatus;
+	eLifterMagConvStat : eMagConvAction;
+	eLifterMagConvStatus : eFBStatus;
+	eLifterMagConv2Stat : eMagConvAction;
+	eLifterMagConv2Status : eFBStatus;
+	eBufferStat1 : eBufferAction;
+	eBufferStatus1 : eFBStatus;
+	eBufferStat2 : eBufferAction;
+	eBufferStatus2 : eFBStatus;
+	eBufferStat3 : eBufferAction;
+	eBufferStatus3 : eFBStatus;
+	eUSSMEMAStat1 : eSMEMAAction;
+	eUSSMEMAStatus1 : eFBStatus;
+	bUSSMEMATransporting1 : BOOL;
+	bUSSMEMAConvStart1 : BOOL;
+	bUSSMEMAConvStop1 : BOOL;
+	eUSSMEMAStat2 : eSMEMAAction;
+	eUSSMEMAStatus2 : eFBStatus;
+	bUSSMEMATransporting2 : BOOL;
+	bUSSMEMAConvStart2 : BOOL;
+	bUSSMEMAConvStop2 : BOOL;
+	eUSSMEMAStat3 : eSMEMAAction;
+	eUSSMEMAStatus3 : eFBStatus;
+	bUSSMEMATransporting3 : BOOL;
+	bUSSMEMAConvStart3 : BOOL;
+	bUSSMEMAConvStop3 : BOOL;
+	sProgNm : STRING[15] := 'Ops LifMagUL';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	eOpsStep : eLifMagULStep := LifMagULStepNA;
+	eGotoOpsStep : eLifMagULStep := LifMagULStepInitLif;
+	eOpsStep1 : eLifMagULStep := LifMagULStepNA;
+	eGotoOpsStep1 : eLifMagULStep := LiftMagConvInit;
+	eOpsStep2 : eLifMagULStep := LifMagULStepNA;
+	eGotoOpsStep2 : eLifMagULStep := LiftMagConvInit;
+	udi : UDINT;
+	udi1 : UDINT;
+	udiCount : UDINT;
+	udiCmpTm : UDINT;
+	udiMagAllwGo : UDINT;
+	bMagNxtUnloadGd : BOOL;
+	a_tyMagAllwBffrStat : ARRAY[1..3] OF tyBffrStat;
+	a_bMagAllwMagPresent : ARRAY[1..3] OF BOOL;
+	a_udiMagAllwMagPresentTm : ARRAY[1..3] OF UDINT;
+	a_udiMagAllwPriority : ARRAY[1..3] OF UDINT;
+	a_udiMagAllwSum : ARRAY[1..3] OF UDINT;
+	p_tyLocalBufferStat : REFERENCE TO tyBffrStat;
+	p_bLocalBufferMagPresent : REFERENCE TO BOOL;
+	p_dtLocalBufferMagPresentTm : REFERENCE TO DATE_AND_TIME;
+	p_eLocalBufferAct : REFERENCE TO eBufferAction;
+	p_eLocalBufferStat : REFERENCE TO eBufferAction;
+	p_eLocalBufferStatus : REFERENCE TO eFBStatus;
+	p_eLocalUSSMEMAAct : REFERENCE TO eSMEMAAction;
+	p_eLocalUSSMEMAStat : REFERENCE TO eSMEMAAction;
+	p_eLocalUSSMEMAStatus : REFERENCE TO eFBStatus;
+	p_bLocalUSSMEMATransporting : REFERENCE TO BOOL;
+	p_bLocalUSSMEMAConvStart : REFERENCE TO BOOL;
+	p_bLocalUSSMEMAConvStop : REFERENCE TO BOOL;
+END_VAR
+(*local LiftConv*)
+VAR
+	bLocalMag1InPos : BOOL;
+	bLocalMag2InPos : BOOL;
+	bLift2Move : BOOL;
+	usiMag1Rdy : eLifterConvStatus;
+	usiMag2Rdy : eLifterConvStatus;
+	bStepEntMag1 : BOOL;
+	bStepExtMag1 : BOOL;
+	bStepEntMag2 : BOOL;
+	bStepExtMag2 : BOOL;
+	bStepInitDone1 : BOOL;
+	bStepInitDone2 : BOOL;
+	bPresentMag1 : BOOL;
+	bPresentMag2 : BOOL;
+	bStepLiftMagIdle2 : BOOL;
+	bMagConvLanePrep : BOOL;
+	bStepEntBoard : BOOL;
+	bMagSetFullExit : BOOL;
+	bMagSetFullExit2 : BOOL;
+	udiModuleNum : UDINT := 6091;
+END_VAR

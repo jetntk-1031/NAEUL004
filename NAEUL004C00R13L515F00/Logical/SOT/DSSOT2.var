@@ -1,0 +1,25 @@
+(*2021-04-20*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_DSSOT2Stat : UDINT;
+	p_DSSOT2Status : UDINT;
+	p_DSSOT2StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_DSSOT2AlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_DSSOT2USRdy : UDINT;
+	p_DSSOT2DSRdy : UDINT;
+	p_DSSOT2Transporting : UDINT;
+	p_DSSOT2ConvStart : UDINT;
+	p_DSSOT2ConvStop : UDINT;
+	p_DSSOT2DBA : UDINT;
+	p_DSSOT2MagSizeLarge : UDINT;
+	p_DSSOT2Virtual : UDINT;
+END_VAR

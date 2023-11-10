@@ -1,0 +1,39 @@
+(*2022-10-17*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_diSltCap : REFERENCE TO DINT;
+	p_diBffrTtlSlt : REFERENCE TO DINT;
+	p_bTravDPosDiff : REFERENCE TO BOOL;
+	p_bTravEPosDiff : REFERENCE TO BOOL;
+	p_bTravFPosDiff : REFERENCE TO BOOL;
+	p_bLifterBtmSltAPosDiff : REFERENCE TO BOOL;
+	p_bLifterBtmSltBPosDiff : REFERENCE TO BOOL;
+	p_bLifterBtmSltCPosDiff : REFERENCE TO BOOL;
+	p_diLifterBtmCurrSltA : REFERENCE TO DINT;
+	p_diLifterBtmCurrSltB : REFERENCE TO DINT;
+	p_diLifterBtmCurrSltC : REFERENCE TO DINT;
+	p_eOpsTravLifOpsStep : REFERENCE TO eTravLifULStep;
+	p_eOpsTravLifGotoOpsStep : REFERENCE TO eTravLifULStep;
+	p_dtTimeCurrDT : REFERENCE TO DATE_AND_TIME;
+	p_uiTimeCurrDTStructMS : REFERENCE TO UINT;
+	p_tyDispCycTmBffr : REFERENCE TO tyDispBffrCycTm;
+	p_tyBuffer : REFERENCE TO tyBffr;
+	p_diSlotCount : REFERENCE TO DINT;
+END_VAR
+(**)
+(**)
+(**)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR

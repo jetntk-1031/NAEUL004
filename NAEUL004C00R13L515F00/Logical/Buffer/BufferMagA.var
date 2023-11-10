@@ -1,0 +1,10 @@
+(*2019-01-30*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+(**)
+(*Output*)
+VAR
+	p_BufferMagABffrMtySlt : UDINT;
+END_VAR

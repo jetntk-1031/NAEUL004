@@ -1,0 +1,321 @@
+(*2019-04-16*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Magazine Not Present While Pushing Board Into Magazine',sRcyText:='Insert Magazine To Continue Operation.'),(sAlmText:='Conveyor Outlet Sensor Timeout Alarm',sRcyText:='Check Conveyor Outlet Sensor'),(sAlmText:='Conveyor Inlet Sensor Timeout Alarm',sRcyText:='Check Conveyor Inlet Sensor'),(sAlmText:='Clear Sensor Activated When Board Transfer In',sRcyText:='Please Check The Sensitivity of Pusher Conveyor Outlet Sensor'),(sAlmText:='Magazine Width Check Timeout Alarm',sRcyText:='Magazine Is Not Set In Correct Width'),(sAlmText:='Pusher AntiJam Sensor On',sRcyText:='Board Jam During Pusher Is Extending'),(sAlmText:='No Barcode Detected.',sRcyText:='Check The Barcode Position.'),(sAlmText:='Return Code Feedback Time Out.',sRcyText:='Reset And Resume Operation.'),(sAlmText:='Board Lost Before Traversing.',sRcyText:='Check If Outlet sensor False Triggerred or Board Stuck in Middle '),(sAlmText:='Inlet and outlet same time sensing error.',sRcyText:='Please Ensure No Blockage At Inlet Sensor.'),(0),(sAlmText:='ScanningTime Out Error',sRcyText:='Ensure Connection for Scan Completed Signal'),88((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sStepTxt : STRING[80];
+	bPaused : BOOL;
+END_VAR
+(**)
+VAR
+	eUSSMEMAAct1 : eSMEMAAction;
+	eUSSMEMAAct2 : eSMEMAAction;
+	eUSSMEMAAct3 : eSMEMAAction;
+	eDSSMEMAAct1 : eSMEMAAction;
+	eDSSMEMAAct2 : eSMEMAAction;
+	eDSSMEMAAct3 : eSMEMAAction;
+	eConvAct : eConvAction;
+	eAWAct : eAWAction;
+	eAWPushOrPullerAct : eAWAction;
+	eTravAct : eTravAction;
+	eLifAct : eLifterAction;
+	eInletPneuAct : ePneuAction;
+	eOutletPneuAct : ePneuAction;
+	eOutletPneuAct2 : ePneuAction;
+	eOutletPneuAct3 : ePneuAction;
+	eStopperAct1 : ePneuAction;
+	eStopperAct2 : ePneuAction;
+	eStopperAct3 : ePneuAction;
+	udiJogSpeed : UDINT := 290000;
+END_VAR
+(**)
+VAR
+	eTravLifPosGo : eTravLifULPos;
+	a_bMagDis : ARRAY[1..3] OF BOOL;
+	a_bMagRej : ARRAY[1..3] OF BOOL;
+	bInitConv : BOOL;
+	bOpsInitDone : BOOL;
+	bUSComm : BOOL;
+	bEntBrd : BOOL;
+	bDSComm : BOOL;
+	bExitBrd : BOOL;
+	bTravLifMove : BOOL;
+	bUSWidthChkBrdExist : BOOL := TRUE;
+	bStopperExtStep : BOOL;
+	fbWaitTimer : TON := (PT:=T#2s);
+	fbWidthChkSenOnTim : TON := (PT:=T#5s);
+	fbWidthChkSenOffTim : TON := (PT:=T#1s);
+END_VAR
+(*Step Logger*)
+VAR
+	bClsLog : BOOL;
+	blog : BOOL;
+	logStep : ARRAY[0..999] OF eTravLifULStep;
+	logIndexStep : INT;
+	eGotoOpsStepDummy : eTravLifULStep;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL;
+	bStop : BOOL;
+	bStep : BOOL;
+	eULMode : eULMod;
+	eULMagazine : eULMag;
+	bNonBffrMod : BOOL;
+	bBypsGdBadBrd : BOOL;
+	bUSAllow : BOOL := TRUE;
+	bDSAllow : BOOL := TRUE;
+	eUSCommMod1 : eMcSetCommMod;
+	eUSCommMod2 : eMcSetCommMod;
+	eUSCommMod3 : eMcSetCommMod;
+	eDSCommMod1 : eMcSetCommMod;
+	eDSCommMod2 : eMcSetCommMod;
+	eDSCommMod3 : eMcSetCommMod;
+	eUSSMEMAStat1 : eSMEMAAction;
+	eUSSMEMAStatus1 : eFBStatus;
+	bUSSMEMAUSRdy1 : BOOL;
+	bUSSMEMAGdBrdRdy1 : BOOL;
+	bUSSMEMATransporting1 : BOOL;
+	bUSSMEMAConvStart1 : BOOL;
+	bUSSMEMAConvStop1 : BOOL;
+	eUSSMEMAStat2 : eSMEMAAction;
+	eUSSMEMAStatus2 : eFBStatus;
+	bUSSMEMAUSRdy2 : BOOL;
+	bUSSMEMAGdBrdRdy2 : BOOL;
+	bUSSMEMATransporting2 : BOOL;
+	bUSSMEMAConvStart2 : BOOL;
+	bUSSMEMAConvStop2 : BOOL;
+	eUSSMEMAStat3 : eSMEMAAction;
+	eUSSMEMAStatus3 : eFBStatus;
+	bUSSMEMAUSRdy3 : BOOL;
+	bUSSMEMAGdBrdRdy3 : BOOL;
+	bUSSMEMATransporting3 : BOOL;
+	bUSSMEMAConvStart3 : BOOL;
+	bUSSMEMAConvStop3 : BOOL;
+	eDSSMEMAStat1 : eSMEMAAction;
+	eDSSMEMAStatus1 : eFBStatus;
+	bDSSMEMADSRdy1 : BOOL;
+	bDSSMEMAConvStart1 : BOOL;
+	eDSSMEMAStat2 : eSMEMAAction;
+	eDSSMEMAStatus2 : eFBStatus;
+	bDSSMEMADSRdy2 : BOOL;
+	bDSSMEMAConvStart2 : BOOL;
+	eDSSMEMAStat3 : eSMEMAAction;
+	eDSSMEMAStatus3 : eFBStatus;
+	bDSSMEMADSRdy3 : BOOL;
+	bDSSMEMAConvStart3 : BOOL;
+	bUSHermesUSRdy1 : BOOL;
+	bUSHermesUSGdRdy1 : BOOL;
+	bUSHermesTransporting1 : BOOL;
+	bUSHermesStopTransport1 : BOOL;
+	bUSHermesUSRdy2 : BOOL;
+	bUSHermesUSGdRdy2 : BOOL;
+	bUSHermesTransporting2 : BOOL;
+	bUSHermesStopTransport2 : BOOL;
+	bUSHermesUSRdy3 : BOOL;
+	bUSHermesUSGdRdy3 : BOOL;
+	bUSHermesTransporting3 : BOOL;
+	bUSHermesStopTransport3 : BOOL;
+	bDSHermesDSRdy1 : BOOL;
+	bDSHermesTransporting1 : BOOL;
+	bDSHermesStopTransport1 : BOOL;
+	bDSHermesDSRdy2 : BOOL;
+	bDSHermesTransporting2 : BOOL;
+	bDSHermesStopTransport2 : BOOL;
+	bDSHermesDSRdy3 : BOOL;
+	bDSHermesTransporting3 : BOOL;
+	bDSHermesStopTransport3 : BOOL;
+	eConvStat : eConvAction;
+	eConvStatus : eFBStatus;
+	eConvDirection : eConvDir;
+	bConvHvBrd : BOOL;
+	bConvGdBrd : BOOL;
+	eAWStat : eAWAction;
+	eAWStatus : eFBStatus;
+	bAWWidthPosDiff : BOOL;
+	eTravStat : eTravAction;
+	eTravStatus : eFBStatus;
+	eLifStat : eLifterAction;
+	eLifStatus : eFBStatus;
+	eInletPneuStat : ePneuAction;
+	eInletPneuStatus : eFBStatus;
+	bInletPneuCls : BOOL;
+	eOutletPneuStat : ePneuAction;
+	eOutletPneuStatus : eFBStatus;
+	bConvLftSen : BOOL;
+	bConvRgtSen : BOOL;
+	bMagTransferBrd1 : BOOL;
+	bMagTransferBrd2 : BOOL;
+	bMagTransferBrd3 : BOOL;
+	bBufferMagPresent1 : BOOL;
+	bBufferMagPresent2 : BOOL;
+	bBufferMagPresent3 : BOOL;
+	sProgNm : STRING[15] := 'Ops TravLifUL';
+	bNtSettingsLoadDone : BOOL := TRUE;
+	tShutterWaitTmr : TIME := T#0s;
+	eMagBuffferActLoad : eLifMagULUpdateData;
+	bScanEn : BOOL := FALSE;
+	eTCPTopStat : eTCPAction1;
+	eTCPTopStatus : eFBStatus;
+	sTopMsgRd : STRING[80] := '';
+	eTCPBtmStat : eTCPAction1;
+	eTCPBtmStatus : eFBStatus;
+	sBtmMsgRd : STRING[80] := '';
+	bInitInletPneu : BOOL := FALSE;
+	bWidthChkErrCmdUnclmp1 : BOOL;
+	bWidthChkErrCmdUnclmp2 : BOOL;
+	bWidthChkErrCmdUnclmp3 : BOOL;
+	bCmdUnclmpFlag : BOOL;
+	bPneuUnclmpFBDone : BOOL;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	eOpsStep : eTravLifULStep := TravLifULStepNA;
+	eGotoOpsStep : eTravLifULStep := TravLifULStepInitConv;
+	tyParamTravLif : tyParamTravLifUL;
+	bOpsModGonethrough : BOOL;
+	udiMagPresentTm1 : UDINT;
+	udiMagPresentTm : UDINT;
+	udiCmpTm : UDINT;
+	udiCount : UDINT;
+	udi : UDINT;
+	bGdChk : BOOL;
+	udiPosAllwGo : UDINT;
+	a_bPosAllwSigOn : ARRAY[1..3] OF BOOL;
+	a_udiPosAllwSum : ARRAY[1..3] OF UDINT;
+	a_tyMagAllwBffrStat : ARRAY[1..3] OF tyBffrStat;
+	a_udiMagAllwMagPresentTm : ARRAY[1..3] OF UDINT;
+	a_udiMagAllwPriority : ARRAY[1..3] OF UDINT;
+	bBrdOnSen : BOOL;
+	bBrdOnStopperSen : BOOL;
+	bStopperBrdOnSen : BOOL;
+	bConvInSenOn : BOOL;
+	bConvOutSenOn : BOOL;
+	bLocalUSRdy1 : BOOL;
+	bLocalUSGdRdy1 : BOOL;
+	bLocalUSRdy2 : BOOL;
+	bLocalUSGdRdy2 : BOOL;
+	bLocalUSRdy3 : BOOL;
+	bLocalUSGdRdy3 : BOOL;
+	bLocalDSRdy1 : BOOL;
+	bLocalDSRdy2 : BOOL;
+	bLocalDSRdy3 : BOOL;
+	bSkipCloseInletShutter : BOOL;
+	tConvRgtSenOff : TON := (PT:=T#100ms);
+	tConvLftSenOff : TON := (PT:=T#100ms);
+	tEntBoardTimoutErr : TON := (PT:=T#6s);
+	tExitBoardTimoutErr : TON := (PT:=T#10s);
+	tTravLiftInPos : TON := (PT:=T#100ms);
+	bTravLifInDSPos : BOOL;
+	bSelfTest : BOOL;
+	bLifterBtmPosDiff : BOOL;
+	bLifterAPosDiff : BOOL;
+	bLifterBPosDiff : BOOL;
+	bBypCurtainSenPB : BOOL;
+	bBypCurtainSenCtrl : BOOL;
+	bBypCurtainSensorPBLED : BOOL;
+	bMagWidthChkDis : BOOL;
+	fbRstCurtain : TON := (PT:=T#1m);
+	fb2SenTm : TON;
+	p_eStopperAct : REFERENCE TO ePneuAction;
+	p_eStopperStat : REFERENCE TO ePneuAction;
+	p_eStopperStatus : REFERENCE TO eFBStatus;
+	p_bStopperBlk : REFERENCE TO BOOL;
+	p_eLocalUSCommMod : REFERENCE TO eMcSetCommMod;
+	p_eLocalDSCommMod : REFERENCE TO eMcSetCommMod;
+	p_bLocalUSRdy : REFERENCE TO BOOL;
+	p_bLocalUSGdRdy : REFERENCE TO BOOL;
+	p_bLocalDSRdy : REFERENCE TO BOOL;
+	p_eLocalUSSMEMAAct : REFERENCE TO eSMEMAAction;
+	p_eLocalUSSMEMAStat : REFERENCE TO eSMEMAAction;
+	p_eLocalUSSMEMAStatus : REFERENCE TO eFBStatus;
+	p_bLocalUSSMEMAUSRdy : REFERENCE TO BOOL;
+	p_bLocalUSSMEMAGdBrdRdy : REFERENCE TO BOOL;
+	p_bLocalUSSMEMATransporting : REFERENCE TO BOOL;
+	p_bLocalUSSMEMAConvStart : REFERENCE TO BOOL;
+	p_bLocalUSSMEMAConvStop : REFERENCE TO BOOL;
+	p_eLocalDSSMEMAAct : REFERENCE TO eSMEMAAction;
+	p_eLocalDSSMEMAStat : REFERENCE TO eSMEMAAction;
+	p_eLocalDSSMEMAStatus : REFERENCE TO eFBStatus;
+	p_bLocalDSSMEMADSRdy : REFERENCE TO BOOL;
+	p_bLocalDSSMEMAConvStart : REFERENCE TO BOOL;
+	p_bLocalUSHermesUSRdy : REFERENCE TO BOOL;
+	p_bLocalUSHermesUSGdRdy : REFERENCE TO BOOL;
+	p_bLocalUSHermesTransporting : REFERENCE TO BOOL;
+	p_bLocalUSHermesStopTransport : REFERENCE TO BOOL;
+	p_bLocalDSHermesDSRdy : REFERENCE TO BOOL;
+	p_bLocalDSHermesTransporting : REFERENCE TO BOOL;
+	p_bLocalDSHermesStopTransport : REFERENCE TO BOOL;
+	fbBypCurtainPBLEDBlinkTm : TON := (IN:=FALSE,PT:=T#500ms,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	eLocalUSCommMod : eMcSetCommMod;
+	bWait : BOOL;
+END_VAR
+(*Inlet stopper*)
+VAR
+	eInletStopperAct : ePneuAction;
+END_VAR
+(*Scanner Param *)
+VAR
+	eTCPTopAct : eTCPAction1;
+	eTCPBtmAct : eTCPAction1;
+	sBarcode : STRING[80];
+	bPass : BOOL;
+END_VAR
+(*xml*)
+VAR
+	tyOpConParam : tyLocationParam;
+	tyOpConMsgReq : eOpConMsgType;
+	bJamStarted : BOOL := FALSE;
+	bWaitMagChkRetCode : BOOL;
+	fbIdleTm : TON := (PT:=T#3m);
+	fbReturnCodeTO : TON := (PT:=T#30s);
+END_VAR
+(**)
+VAR
+	tyPartReceive : tyOpConPartReceive;
+	tyPartProcessedItems : tyOpConPartProcessed; (*Output*)
+	tyMagCoordinate : tyMagCoord;
+	diTemp : DINT;
+	bHermesBC : BOOL;
+	diMagBrdQty : ARRAY[1..3] OF DINT;
+	bPLCGrabPic : BOOL;
+	asMagEntered : ARRAY[0..4] OF STRING[10];
+	udiModuleNum : UDINT := 6621;
+END_VAR
+(*Siemen *)
+VAR
+	bAllwExitMag1 : BOOL;
+	bAllwExitMag2 : BOOL;
+	bAllwExitMag3 : BOOL;
+	fbInletStopperOffTim : TON := (PT:=T#1s);
+END_VAR
+(*Bosch Scanner*)
+VAR
+	bScannerEn : BOOL;
+	bSignalTrigMagOutEn : BOOL;
+	fbScanTimOut : TON := (PT:=T#10s);
+	bStartScanSig : BOOL;
+	bPCBExitMag1 : BOOL;
+	bPCBExitMag2 : BOOL;
+	bPCBExitMag3 : BOOL;
+END_VAR

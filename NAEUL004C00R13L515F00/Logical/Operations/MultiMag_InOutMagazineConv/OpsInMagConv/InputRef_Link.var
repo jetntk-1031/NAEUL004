@@ -1,0 +1,28 @@
+(*2018-12-11*)
+(**)
+(*External Data*)
+VAR
+	p_bLinkOpsLifMagULInitDone1 : REFERENCE TO BOOL;
+	p_bLinkOpsLifMagULInitDone2 : REFERENCE TO BOOL;
+	p_diLinkLifterActualPos : REFERENCE TO DINT;
+	p_diLinkLifter2ActualPos : REFERENCE TO DINT;
+	p_diLinkLifterTopPos : REFERENCE TO DINT;
+	p_diLinkLifterTopPos2 : REFERENCE TO DINT;
+	bLifterTopPos : BOOL;
+	bLifterTopPos2 : BOOL;
+	p_bLinkExtStprExtended : REFERENCE TO BOOL;
+	p_bLinkExtStprRetracted : REFERENCE TO BOOL;
+	p_bLinkExtStpr2Retracted : REFERENCE TO BOOL;
+	p_bLinkInMagConvEntSen : REFERENCE TO BOOL;
+	p_bLinkInMagConvExtSen : REFERENCE TO BOOL;
+	p_bLinkInMagConvMidSen : REFERENCE TO BOOL;
+	p_bLinkInMagConv2EntSen : REFERENCE TO BOOL;
+	p_bLinkInMagConv2ExtSen : REFERENCE TO BOOL;
+	p_bLinkInMagConv2MidSen : REFERENCE TO BOOL;
+	p_bLinkUIMagRun : REFERENCE TO BOOL;
+	p_bLinkOpsLifterMagStepEntMag : REFERENCE TO BOOL;
+	p_bLinkOpsLifterMagStepExtMag : REFERENCE TO BOOL;
+	p_bLinkOpsLifterMagStepEntMag2 : REFERENCE TO BOOL;
+	p_bLinkOpsLifterMagStepExtMag2 : REFERENCE TO BOOL;
+	p_eLinkMcParamMagExMode : REFERENCE TO eMcMagExchangeMode;
+END_VAR

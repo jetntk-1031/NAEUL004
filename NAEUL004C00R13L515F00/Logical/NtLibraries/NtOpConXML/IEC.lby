@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Library Version="5.00.0" SubType="IEC" xmlns="http://br-automation.co.at/AS/Library">
+  <Files>
+    <File Description="Exported data types">Types.typ</File>
+    <File Description="Exported constants">Constants.var</File>
+    <File Description="Exported functions and function blocks">NtOpConXML.fun</File>
+    <File>fbOpConParseXMLTable.st</File>
+    <File>fOpConParseEventReceive.st</File>
+    <File>fOpConParsePartReceive.st</File>
+    <File>fOpConParsePlcGrabReceive.st</File>
+    <File>fOpConFormPartReceive.st</File>
+    <File>fOpConFormPartProcessed.st</File>
+    <File>fOpConFormPLCError.st</File>
+    <File>fOpConFormPartMissing.st</File>
+    <File>fOpConFormPLCJam.st</File>
+    <File>fOpConFormPLCGrab.st</File>
+    <File>fOpConAddOneMsgSend.st</File>
+    <File>fOpConRmvOneMsgSend.st</File>
+  </Files>
+</Library>

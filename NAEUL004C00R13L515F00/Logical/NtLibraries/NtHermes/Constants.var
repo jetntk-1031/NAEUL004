@@ -1,0 +1,3 @@
+VAR CONSTANT
+	c_diHermesConfigMaxIdx : DINT := 3; (*Total Config Buffer Size, now is limit at 0~3 = Four*)
+END_VAR

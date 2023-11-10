@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T3010_IOMonitor">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="31"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="191805" Value="Machine Status:"/>
+    <Text ID="192678" Value="Digital Input:"/>
+    <Text ID="385149" Value="Auto"/>
+    <Text ID="385150" Value="Stop"/>
+    <Text ID="385151" Value="Manual"/>
+    <Text ID="385152" Value="Settings"/>
+    <Text ID="385153" Value="Simulation"/>
+    <Text ID="385154" Value="Error"/>
+    <Text ID="385155" Value="Safety Relay Signal"/>
+    <Text ID="385156" Value="E-Stop Signal"/>
+    <Text ID="385157" Value="Cover Switch Signal"/>
+    <Text ID="385159" Value="UBA State Signal A"/>
+    <Text ID="385165" Value="Mag 2 Remote Clamp RS"/>
+    <Text ID="385166" Value="UBA Signal A"/>
+    <Text ID="385167" Value="UBA Signal B"/>
+    <Text ID="385168" Value="Pusher Extend RS"/>
+    <Text ID="385171" Value="Pusher Retract RS"/>
+    <Text ID="385172" Value="Conv Left Sensor"/>
+    <Text ID="385173" Value="Conv Mid Sensor"/>
+    <Text ID="385175" Value="Mag 1 Conv Entry Sensor"/>
+    <Text ID="385176" Value="Mag 2 Conv Entry Sensor"/>
+    <Text ID="385179" Value="Mag 3 Conv Entry Sensor"/>
+    <Text ID="385183" Value="Lifter Timing Belt Sensor"/>
+    <Text ID="385184" Value="Lifter Limit Safety Switch 2"/>
+    <Text ID="385186" Value="Mag 1 Fixed Clamp RS"/>
+    <Text ID="394234" Value="Mag 1 Remote Unclamp RS"/>
+    <Text ID="394239" Value="Mag 3 Orientation Check Sensor 1"/>
+    <Text ID="439237" Value="Lifter Limit Safety Switch 1"/>
+    <Text ID="441222" Value="Loader : Check Buffer Status"/>
+    <Text ID="441223" Value="Loader : Load Full Magazine"/>
+    <Text ID="441224" Value="Loader : Check Magazine Status"/>
+    <Text ID="441225" Value="Loader : Lifter Next Position Update"/>
+    <Text ID="441226" Value="Loader : Check Lifter Position Different"/>
+    <Text ID="441227" Value="Loader : Lifter Moving"/>
+    <Text ID="441228" Value="Loader : Unload Empty Magazine &amp; Load Full Magazine"/>
+    <Text ID="441229" Value="Loader : Check Auto Width Position Different"/>
+    <Text ID="441230" Value="Loader : Unload Board From Magazine Buffer"/>
+    <Text ID="441238" Value="Loader Init : Reset"/>
+    <Text ID="441239" Value="Loader Init : Retract Pusher"/>
+    <Text ID="441243" Value="Loader Init : Run Magazine Conveyor"/>
+    <Text ID="441245" Value="Loader Init : Lifter Homing"/>
+    <Text ID="441247" Value="Loader Init : Done"/>
+    <Text ID="441264" Value="Loader : Auto Width"/>
+    <Text ID="441265" Value="Loader : Upstream Communication"/>
+    <Text ID="441266" Value="Loader : Enter Board"/>
+    <Text ID="441267" Value="Loader : Process"/>
+    <Text ID="441268" Value="Loader : Downstream Communication"/>
+    <Text ID="441269" Value="Loader : Exit Board"/>
+    <Text ID="453975" Value="Loader : Done"/>
+    <Text ID="453976" Value="Loader : Init"/>
+    <Text ID="453977" Value="Loader : Check Auto Width Position Different"/>
+    <Text ID="453978" Value="Loader : Check Magazine &amp; Lifter Condition"/>
+    <Text ID="453980" Value="Loader : Auto Width"/>
+    <Text ID="453981" Value="Loader : Done"/>
+    <Text ID="459212" Value="Loader Init : Set Magazine Empty"/>
+    <Text ID="460753" Value="Warning"/>
+    <Text ID="462313" Value="Mag 1 Fixed Unclamp RS"/>
+    <Text ID="462314" Value="Mag 1 Remote Clamp RS"/>
+    <Text ID="465419" Value="Loader Init : Close Outlet Shutter"/>
+    <Text ID="465420" Value="Loader : Open Outlet Shutter"/>
+    <Text ID="465421" Value="Loader : Close Outlet Shutter"/>
+    <Text ID="500272" Value="Loader : Close Outlet Shutter"/>
+    <Text ID="500273" Value="Loader : Close Outlet Shutter"/>
+    <Text ID="530306" Value="UBA State Signal B"/>
+    <Text ID="530320" Value="Mag 2 Orientation Check Sensor 1"/>
+    <Text ID="530321" Value="Mag 1 Orientation Check Sensor 1"/>
+    <Text ID="530322" Value="Mag 3 AIV In Position Sensor 2"/>
+    <Text ID="530323" Value="Mag 3 AIV In Position Sensor 1"/>
+    <Text ID="530324" Value="Mag 2 AIV In Position Sensor 2"/>
+    <Text ID="530325" Value="Mag 2 AIV In Position Sensor 1"/>
+    <Text ID="530326" Value="Mag 1 AIV In Position Sensor 2"/>
+    <Text ID="530327" Value="Mag 1 AIV In Position Sensor 1"/>
+    <Text ID="530328" Value="Mag 3 Present Sensor"/>
+    <Text ID="530329" Value="Mag 2 Present Sensor"/>
+    <Text ID="530330" Value="Mag 1 Present Sensor"/>
+    <Text ID="530331" Value="Outlet Shutter Close Reed Switch"/>
+    <Text ID="530332" Value="Outlet Shutter Open Reed Switch"/>
+    <Text ID="530333" Value="Inlet Shutter Close Reed Switch"/>
+    <Text ID="530334" Value="Inlet Shutter Open Reed Switch"/>
+    <Text ID="530335" Value="Mag 2 Fixed Unclamp RS"/>
+    <Text ID="530336" Value="Mag 2 Fixed Clamp RS"/>
+    <Text ID="530337" Value="Mag 2 Orientation Check Sensor 2"/>
+    <Text ID="530338" Value="Mag 1 Orientation Check Sensor 2"/>
+    <Text ID="530339" Value="Mag 3 Orientation Check Sensor 2"/>
+    <Text ID="530418" Value="Mag 2 Remote Unclamp RS"/>
+    <Text ID="530419" Value="Mag 3 Fixed Clamp RS"/>
+    <Text ID="530420" Value="Mag 3 Fixed Unclamp RS"/>
+    <Text ID="530421" Value="Mag 3 Remote Clamp RS"/>
+    <Text ID="530422" Value="Mag 3 Remote Unclamp RS"/>
+    <Text ID="530423" Value=""/>
+    <Text ID="530424" Value="Digital Output:"/>
+    <Text ID="530425" Value="Safety Relay Reset"/>
+    <Text ID="530426" Value="Tower Light Green"/>
+    <Text ID="530427" Value="Tower Light Amber"/>
+    <Text ID="530428" Value="Tower Light Red"/>
+    <Text ID="530429" Value="Buzzer"/>
+    <Text ID="530430" Value="USB Signal A"/>
+    <Text ID="530431" Value="USB Signal B"/>
+    <Text ID="530432" Value="Pusher Extend Control"/>
+    <Text ID="530434" Value="Mag 1 Fixed Clamp Control"/>
+    <Text ID="530435" Value="Mag 2 Fixed Clamp Control"/>
+    <Text ID="530436" Value="Mag 3 Fixed Clamp Control"/>
+    <Text ID="530437" Value="Inlet Shutter Open Control"/>
+    <Text ID="530438" Value="Inlet Shutter Close Control"/>
+    <Text ID="530439" Value="Outlet Shutter Open Control"/>
+    <Text ID="530440" Value="Outlet Shutter Close Control"/>
+    <Text ID="530441" Value="Mag 1 Conveyor Motor In"/>
+    <Text ID="530442" Value="Mag 1 Conveyor Motor Out"/>
+    <Text ID="530443" Value="Mag 2 Conveyor Motor In"/>
+    <Text ID="530444" Value="Mag 2 Conveyor Motor Out"/>
+    <Text ID="530445" Value="Mag 3 Conveyor Motor In"/>
+    <Text ID="530446" Value="Mag 3 Conveyor Motor Out"/>
+    <Text ID="530447" Value="Pusher Conveyor Motor On"/>
+    <Text ID="530448" Value="Mag 1 Remote Clamp Control"/>
+    <Text ID="530449" Value="Mag 2 Remote Clamp Control"/>
+    <Text ID="530450" Value="Mag 3 Remote Clamp Control"/>
+    <Text ID="597552" Value="Conv Right Sensor"/>
+    <Text ID="597555" Value="Conv Clear Sensor"/>
+    <Text ID="597557" Value="Oven Infeed Signal A"/>
+    <Text ID="597558" Value="Oven Infeed Signal B"/>
+    <Text ID="597559" Value="Oven Info Signal A"/>
+    <Text ID="597560" Value="Stopper Unblock Control A"/>
+    <Text ID="597561" Value="Stopper Unblock Control B"/>
+    <Text ID="599552" Value="Oven Info Signal B"/>
+    <Text ID="665407" Value="Mag 1 Remote Clamp RS"/>
+    <Text ID="665408" Value="Mag 1 Remote Unclamp RS"/>
+    <Text ID="665409" Value="Mag 2 Remote Clamp RS"/>
+    <Text ID="665410" Value="Mag 2 Remote Unclamp RS"/>
+    <Text ID="665411" Value="Mag 3 Remote Clamp RS"/>
+    <Text ID="665412" Value="Mag 3 Remote Unclamp RS"/>
+    <Text ID="665413" Value="Mag 1 Remote Clamp Ctrl"/>
+    <Text ID="665414" Value="Mag 2 Remote Clamp Ctrl"/>
+    <Text ID="665415" Value="Mag 3 Remote Clamp Ctrl"/>
+    <Text ID="665416" Value="Mag 1 Bottom Clamp RS"/>
+    <Text ID="665417" Value="Mag 1 Bottom Unclamp RS"/>
+    <Text ID="665418" Value="Mag 2 Bottom Clamp RS"/>
+    <Text ID="665419" Value="Mag 2 Bottom Unclamp RS"/>
+    <Text ID="665420" Value="Mag 3 Bottom Clamp RS"/>
+    <Text ID="665421" Value="Mag 3 Bottom Unclamp RS"/>
+    <Text ID="665422" Value="Mag 1 Top Clamp RS"/>
+    <Text ID="665423" Value="Mag 1 Top Unclamp RS"/>
+    <Text ID="665424" Value="Mag 2 Top Clamp RS"/>
+    <Text ID="665425" Value="Mag 2 Top Unclamp RS"/>
+    <Text ID="665426" Value="Mag 3 Top Clamp RS"/>
+    <Text ID="665427" Value="Mag 3 Top Unclamp RS"/>
+    <Text ID="665428" Value="Mag 1 Bottom Clamp Control"/>
+    <Text ID="665429" Value="Mag 2 Bottom Clamp Control"/>
+    <Text ID="665430" Value="Mag 3 Bottom Clamp Control"/>
+    <Text ID="665431" Value="Mag 1 Top Clamp Ctrl"/>
+    <Text ID="665432" Value="Mag 2 Top Clamp Ctrl"/>
+    <Text ID="665433" Value="Mag 3 Top Clamp Ctrl"/>
+    <Text ID="665434" Value="Mag 1 Selection Clamp Ctrl"/>
+    <Text ID="665435" Value="Mag 2 Selection Clamp Ctrl"/>
+    <Text ID="665436" Value="Mag 3 Selection Clamp Ctrl"/>
+    <Text ID="530451" Value=""/>
+    <Text ID="530452" Value=""/>
+    <Text ID="530453" Value="Anti Jam Sensor"/>
+    <Text ID="530454" Value="Tower Light White"/>
+    <Text ID="530455" Value=""/>
+    <Text ID="530456" Value="Mag 1 Bottom Clamp RS"/>
+    <Text ID="597553" Value="Mag 1 Bottom Unclamp RS"/>
+    <Text ID="597554" Value="Mag 2 Bottom Clamp RS"/>
+    <Text ID="597556" Value="Mag 2 Bottom Unclamp RS"/>
+    <Text ID="678146" Value="MES Active"/>
+    <Text ID="678147" Value="Request AIV to bring"/>
+    <Text ID="678148" Value="Request AIV to get"/>
+    <Text ID="678149" Value="SOT RCV communication OK"/>
+    <Text ID="678150" Value="AW Engage RS"/>
+    <Text ID="678151" Value="AW Disengage RS"/>
+    <Text ID="678152" Value="Fleet Management Active"/>
+    <Text ID="678153" Value=""/>
+    <Text ID="678154" Value="Mag1 Top Entry Sensor"/>
+    <Text ID="678155" Value="Mag1 Top Middle Sensor"/>
+    <Text ID="678156" Value="Mag1 Top Exit Sensor"/>
+    <Text ID="678157" Value="Mag1 Btm Entry Sensor"/>
+    <Text ID="721638" Value="Mag1 Btm Middle Sensor"/>
+    <Text ID="721639" Value="Mag1 Btm Exit Sensor"/>
+    <Text ID="792600" Value=""/>
+    <Text ID="792607" Value="Mag2 Top Entry Sensor"/>
+    <Text ID="792608" Value="Mag2 Top Middle Sensor"/>
+    <Text ID="792609" Value="Mag2 Top Exit Sensor"/>
+    <Text ID="792610" Value="Mag2 Btm Entry Sensor"/>
+    <Text ID="792611" Value="Mag2 Btm Middle Sensor"/>
+    <Text ID="792612" Value="Mag2 Btm Exit Sensor"/>
+    <Text ID="792613" Value=""/>
+    <Text ID="792614" Value=""/>
+    <Text ID="792615" Value=""/>
+    <Text ID="792616" Value=""/>
+    <Text ID="792617" Value=""/>
+    <Text ID="792618" Value=""/>
+    <Text ID="792619" Value="Top Ent Stopper Retract Ctrl"/>
+    <Text ID="792621" Value="Top Ent Stopper Extend Ctrl"/>
+    <Text ID="792622" Value="Top Mid Stopper Retract Ctrl"/>
+    <Text ID="792623" Value="Top Mid Stopper Extend Ctrl"/>
+    <Text ID="792624" Value="Top Ext Stopper Retract Ctrl"/>
+    <Text ID="792625" Value="Top Ext Stopper Extend Ctrl"/>
+    <Text ID="792626" Value="Btm Ext Stopper Retract Ctrl"/>
+    <Text ID="792627" Value="Btm Ext Stopper Extend Ctrl"/>
+    <Text ID="792628" Value="Btm Mid Stopper Retract Ctrl"/>
+    <Text ID="792629" Value="Btm Mid Stopper Extend Ctrl"/>
+    <Text ID="792630" Value=""/>
+    <Text ID="792631" Value="Curtain Sensor"/>
+    <Text ID="819969" Value="Curtain Sensor PB LED"/>
+    <Text ID="826843" Value="Curtain Sensor PB"/>
+    <Text ID="826844" Value="Outlet Shutter Open Reed Switch 2"/>
+    <Text ID="826845" Value="Outlet Shutter Close Reed Switch 2"/>
+    <Text ID="826846" Value="Outlet Shutter Open Reed Switch 3"/>
+    <Text ID="826847" Value="Outlet Shutter Close Reed Switch 3"/>
+    <Text ID="826848" Value="Outlet Shutter Open Control 2"/>
+    <Text ID="826855" Value="Outlet Shutter Close Control 2"/>
+    <Text ID="826856" Value="Outlet Shutter Open Control 3"/>
+    <Text ID="826857" Value="Outlet Shutter Close Control 3"/>
+    <Text ID="847743" Value="Magazine Width Check"/>
+    <Text ID="931877" Value="Inlet Stoppper A Sensor"/>
+    <Text ID="939622" Value="DMC Scan Complete Signal"/>
+    <Text ID="939623" Value="DMC Trigger Scan Signal"/>
+    <Text ID="939624" Value="PCB Presence Signal"/>
+    <Text ID="939625" Value="Mag1 PCB Transfer Signal"/>
+    <Text ID="939626" Value="Mag2 PCB Transfer Signal"/>
+    <Text ID="939627" Value="Mag3 PCB Transfer Signal"/>
+    <Text ID="978621" Value="Mag 1 Selection Clamp Ctrl"/>
+    <Text ID="978622" Value="Mag 2 Selection Clamp Ctrl"/>
+    <Text ID="978623" Value="Mag 3 Selection Clamp Ctrl"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="191805" Value="Maschinenstatus"/>
+    <Text ID="192678" Value=""/>
+    <Text ID="385149" Value="Auto"/>
+    <Text ID="385150" Value="Stopp"/>
+    <Text ID="385151" Value="Manuell"/>
+    <Text ID="385152" Value="Einstellungen"/>
+    <Text ID="385153" Value="Simulation"/>
+    <Text ID="385154" Value="Fehler"/>
+    <Text ID="385155" Value=""/>
+    <Text ID="385156" Value=""/>
+    <Text ID="385157" Value=""/>
+    <Text ID="385159" Value=""/>
+    <Text ID="385165" Value=""/>
+    <Text ID="385166" Value=""/>
+    <Text ID="385167" Value=""/>
+    <Text ID="385168" Value=""/>
+    <Text ID="385171" Value=""/>
+    <Text ID="385172" Value=""/>
+    <Text ID="385173" Value=""/>
+    <Text ID="385175" Value=""/>
+    <Text ID="385176" Value=""/>
+    <Text ID="385179" Value=""/>
+    <Text ID="385183" Value=""/>
+    <Text ID="385184" Value=""/>
+    <Text ID="385186" Value=""/>
+    <Text ID="394234" Value=""/>
+    <Text ID="394239" Value=""/>
+    <Text ID="439237" Value=""/>
+    <Text ID="441222" Value="Lader : Überprüfen Sie den Pufferstatus"/>
+    <Text ID="441223" Value="Lader : Volles Magazin Laden"/>
+    <Text ID="441224" Value="Lader : Überprüfen Sie den Magazinstatus"/>
+    <Text ID="441225" Value="Lader : Heber Nächste Positionsaktualisierung"/>
+    <Text ID="441226" Value="Lader : Heber Überprüfen Sie die Position Anders"/>
+    <Text ID="441227" Value="Lader : Heber Bewegen"/>
+    <Text ID="441228" Value="Lader : Entladen Sie das Leere Magazin &amp; Laden Sie das Volle Magazin"/>
+    <Text ID="441229" Value="Lader : AW Überprüfen Sie die Position Anders"/>
+    <Text ID="441230" Value="Lader : Entladen Sie das Board vom Magazin-Puffer"/>
+    <Text ID="441238" Value="Lader Init : Zurücksetzen"/>
+    <Text ID="441239" Value="Lader Init : Pusher Einfahren"/>
+    <Text ID="441243" Value="Lader Init : Magazinförderer Laufen Lassen"/>
+    <Text ID="441245" Value="Lader Init : Heber Homing"/>
+    <Text ID="441247" Value="Lader Init : Fertig"/>
+    <Text ID="441264" Value="Lader : Auto Breite"/>
+    <Text ID="441265" Value="Lader : Upstream Kommunikation"/>
+    <Text ID="441266" Value="Lader : Betreten Leiterplatte"/>
+    <Text ID="441267" Value="Lader : Verarbeiten"/>
+    <Text ID="441268" Value="Lader : Downstream Kommunikation"/>
+    <Text ID="441269" Value="Lader : Verlassen Leiterplatte"/>
+    <Text ID="453975" Value="Lader : Fertig"/>
+    <Text ID="453976" Value="Lader : Initiale"/>
+    <Text ID="453977" Value="Lader : AW Überprüfen Sie die Position Anders"/>
+    <Text ID="453978" Value="Lader : Überprüfen Sie den Magazin- &amp; Lifter-Zustand"/>
+    <Text ID="453980" Value="Lader : Auto Breite"/>
+    <Text ID="453981" Value="Lader : Fertig"/>
+    <Text ID="459212" Value="Lader Init : Magazin Leer Einstellen"/>
+    <Text ID="460753" Value="Warnung"/>
+    <Text ID="462313" Value=""/>
+    <Text ID="462314" Value=""/>
+    <Text ID="465419" Value=""/>
+    <Text ID="465420" Value=""/>
+    <Text ID="465421" Value=""/>
+    <Text ID="500272" Value=""/>
+    <Text ID="500273" Value=""/>
+    <Text ID="530306" Value=""/>
+    <Text ID="530320" Value=""/>
+    <Text ID="530321" Value=""/>
+    <Text ID="530322" Value=""/>
+    <Text ID="530323" Value=""/>
+    <Text ID="530324" Value=""/>
+    <Text ID="530325" Value=""/>
+    <Text ID="530326" Value=""/>
+    <Text ID="530327" Value=""/>
+    <Text ID="530328" Value=""/>
+    <Text ID="530329" Value=""/>
+    <Text ID="530330" Value=""/>
+    <Text ID="530331" Value=""/>
+    <Text ID="530332" Value=""/>
+    <Text ID="530333" Value=""/>
+    <Text ID="530334" Value=""/>
+    <Text ID="530335" Value=""/>
+    <Text ID="530336" Value=""/>
+    <Text ID="530337" Value=""/>
+    <Text ID="530338" Value=""/>
+    <Text ID="530339" Value=""/>
+    <Text ID="530418" Value=""/>
+    <Text ID="530419" Value=""/>
+    <Text ID="530420" Value=""/>
+    <Text ID="530421" Value=""/>
+    <Text ID="530422" Value=""/>
+    <Text ID="530423" Value=""/>
+    <Text ID="530424" Value=""/>
+    <Text ID="530425" Value=""/>
+    <Text ID="530426" Value=""/>
+    <Text ID="530427" Value=""/>
+    <Text ID="530428" Value=""/>
+    <Text ID="530429" Value=""/>
+    <Text ID="530430" Value=""/>
+    <Text ID="530431" Value=""/>
+    <Text ID="530432" Value=""/>
+    <Text ID="530434" Value=""/>
+    <Text ID="530435" Value=""/>
+    <Text ID="530436" Value=""/>
+    <Text ID="530437" Value=""/>
+    <Text ID="530438" Value=""/>
+    <Text ID="530439" Value=""/>
+    <Text ID="530440" Value=""/>
+    <Text ID="530441" Value=""/>
+    <Text ID="530442" Value=""/>
+    <Text ID="530443" Value=""/>
+    <Text ID="530444" Value=""/>
+    <Text ID="530445" Value=""/>
+    <Text ID="530446" Value=""/>
+    <Text ID="530447" Value=""/>
+    <Text ID="530448" Value=""/>
+    <Text ID="530449" Value=""/>
+    <Text ID="530450" Value=""/>
+    <Text ID="597552" Value=""/>
+    <Text ID="597555" Value=""/>
+    <Text ID="597557" Value=""/>
+    <Text ID="597558" Value=""/>
+    <Text ID="597559" Value=""/>
+    <Text ID="597560" Value=""/>
+    <Text ID="597561" Value=""/>
+    <Text ID="599552" Value=""/>
+    <Text ID="665407" Value=""/>
+    <Text ID="665408" Value=""/>
+    <Text ID="665409" Value=""/>
+    <Text ID="665410" Value=""/>
+    <Text ID="665411" Value=""/>
+    <Text ID="665412" Value=""/>
+    <Text ID="665413" Value=""/>
+    <Text ID="665414" Value=""/>
+    <Text ID="665415" Value=""/>
+    <Text ID="665416" Value=""/>
+    <Text ID="665417" Value=""/>
+    <Text ID="665418" Value=""/>
+    <Text ID="665419" Value=""/>
+    <Text ID="665420" Value=""/>
+    <Text ID="665421" Value=""/>
+    <Text ID="665422" Value=""/>
+    <Text ID="665423" Value=""/>
+    <Text ID="665424" Value=""/>
+    <Text ID="665425" Value=""/>
+    <Text ID="665426" Value=""/>
+    <Text ID="665427" Value=""/>
+    <Text ID="665428" Value=""/>
+    <Text ID="665429" Value=""/>
+    <Text ID="665430" Value=""/>
+    <Text ID="665431" Value=""/>
+    <Text ID="665432" Value=""/>
+    <Text ID="665433" Value=""/>
+    <Text ID="665434" Value=""/>
+    <Text ID="665435" Value=""/>
+    <Text ID="665436" Value=""/>
+    <Text ID="530451" Value=""/>
+    <Text ID="530452" Value=""/>
+    <Text ID="530453" Value=""/>
+    <Text ID="530454" Value=""/>
+    <Text ID="530455" Value=""/>
+    <Text ID="530456" Value=""/>
+    <Text ID="597553" Value=""/>
+    <Text ID="597554" Value=""/>
+    <Text ID="597556" Value=""/>
+    <Text ID="678146" Value=""/>
+    <Text ID="678147" Value=""/>
+    <Text ID="678148" Value=""/>
+    <Text ID="678149" Value=""/>
+    <Text ID="678150" Value=""/>
+    <Text ID="678151" Value=""/>
+    <Text ID="678152" Value=""/>
+    <Text ID="678153" Value=""/>
+    <Text ID="678154" Value=""/>
+    <Text ID="678155" Value=""/>
+    <Text ID="678156" Value=""/>
+    <Text ID="678157" Value=""/>
+    <Text ID="721638" Value=""/>
+    <Text ID="721639" Value=""/>
+    <Text ID="792600" Value=""/>
+    <Text ID="792607" Value=""/>
+    <Text ID="792608" Value=""/>
+    <Text ID="792609" Value=""/>
+    <Text ID="792610" Value=""/>
+    <Text ID="792611" Value=""/>
+    <Text ID="792612" Value=""/>
+    <Text ID="792613" Value=""/>
+    <Text ID="792614" Value=""/>
+    <Text ID="792615" Value=""/>
+    <Text ID="792616" Value=""/>
+    <Text ID="792617" Value=""/>
+    <Text ID="792618" Value=""/>
+    <Text ID="792619" Value=""/>
+    <Text ID="792621" Value=""/>
+    <Text ID="792622" Value=""/>
+    <Text ID="792623" Value=""/>
+    <Text ID="792624" Value=""/>
+    <Text ID="792625" Value=""/>
+    <Text ID="792626" Value=""/>
+    <Text ID="792627" Value=""/>
+    <Text ID="792628" Value=""/>
+    <Text ID="792629" Value=""/>
+    <Text ID="792630" Value=""/>
+    <Text ID="792631" Value=""/>
+    <Text ID="819969" Value=""/>
+    <Text ID="826843" Value=""/>
+    <Text ID="826844" Value=""/>
+    <Text ID="826845" Value=""/>
+    <Text ID="826846" Value=""/>
+    <Text ID="826847" Value=""/>
+    <Text ID="826848" Value=""/>
+    <Text ID="826855" Value=""/>
+    <Text ID="826856" Value=""/>
+    <Text ID="826857" Value=""/>
+    <Text ID="847743" Value=""/>
+    <Text ID="931877" Value=""/>
+    <Text ID="939622" Value=""/>
+    <Text ID="939623" Value=""/>
+    <Text ID="939624" Value=""/>
+    <Text ID="939625" Value=""/>
+    <Text ID="939626" Value=""/>
+    <Text ID="939627" Value=""/>
+    <Text ID="978621" Value=""/>
+    <Text ID="978622" Value=""/>
+    <Text ID="978623" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="191805" Value="机器状态"/>
+    <Text ID="192678" Value=""/>
+    <Text ID="385149" Value="自动"/>
+    <Text ID="385150" Value="停止"/>
+    <Text ID="385151" Value="手动"/>
+    <Text ID="385152" Value="设置"/>
+    <Text ID="385153" Value="模拟"/>
+    <Text ID="385154" Value="警报"/>
+    <Text ID="385155" Value=""/>
+    <Text ID="385156" Value=""/>
+    <Text ID="385157" Value=""/>
+    <Text ID="385159" Value=""/>
+    <Text ID="385165" Value=""/>
+    <Text ID="385166" Value=""/>
+    <Text ID="385167" Value=""/>
+    <Text ID="385168" Value=""/>
+    <Text ID="385171" Value=""/>
+    <Text ID="385172" Value=""/>
+    <Text ID="385173" Value=""/>
+    <Text ID="385175" Value=""/>
+    <Text ID="385176" Value=""/>
+    <Text ID="385179" Value=""/>
+    <Text ID="385183" Value=""/>
+    <Text ID="385184" Value=""/>
+    <Text ID="385186" Value=""/>
+    <Text ID="394234" Value=""/>
+    <Text ID="394239" Value=""/>
+    <Text ID="439237" Value=""/>
+    <Text ID="441222" Value="上板 ：检查缓存状态"/>
+    <Text ID="441223" Value="上板 ：加载满板的料箱"/>
+    <Text ID="441224" Value="上板 ：检查料箱状态"/>
+    <Text ID="441225" Value="上板 ：更新下一个升降机位置"/>
+    <Text ID="441226" Value="上板 ：检查升降机位置差异"/>
+    <Text ID="441227" Value="上板 ：运行升降机"/>
+    <Text ID="441228" Value="上板 ：卸载空的料箱 &amp; 加载满板的料箱"/>
+    <Text ID="441229" Value="上板 ：检查自动改宽位置差异"/>
+    <Text ID="441230" Value="上板 ：从料箱缓存去除板资料"/>
+    <Text ID="441238" Value="上板初始 ：重置"/>
+    <Text ID="441239" Value="上板初始 ：回缩推杆"/>
+    <Text ID="441243" Value="上板初始 ：运行料箱输送机"/>
+    <Text ID="441245" Value="上板初始 ：升降机归位"/>
+    <Text ID="441247" Value="上板初始 ：完成"/>
+    <Text ID="441264" Value="上板 ：自动改宽"/>
+    <Text ID="441265" Value="上板 ：上游通讯"/>
+    <Text ID="441266" Value="上板 ：输入电子板"/>
+    <Text ID="441267" Value="上板 ：过程"/>
+    <Text ID="441268" Value="上板 ：下游通讯"/>
+    <Text ID="441269" Value="上板 ：输出电子板"/>
+    <Text ID="453975" Value="上板 ：完成"/>
+    <Text ID="453976" Value="上板 ：初始"/>
+    <Text ID="453977" Value="上板 ：检查自动改宽位置差异"/>
+    <Text ID="453978" Value="上板 ：检查料箱&amp;升降机状态"/>
+    <Text ID="453980" Value="上板 ：自动改宽"/>
+    <Text ID="453981" Value="上板 ：完成"/>
+    <Text ID="459212" Value="上板初始 ：设置料架为空"/>
+    <Text ID="460753" Value="警告"/>
+    <Text ID="462313" Value=""/>
+    <Text ID="462314" Value=""/>
+    <Text ID="465419" Value=""/>
+    <Text ID="465420" Value=""/>
+    <Text ID="465421" Value=""/>
+    <Text ID="500272" Value=""/>
+    <Text ID="500273" Value=""/>
+    <Text ID="530306" Value=""/>
+    <Text ID="530320" Value=""/>
+    <Text ID="530321" Value=""/>
+    <Text ID="530322" Value=""/>
+    <Text ID="530323" Value=""/>
+    <Text ID="530324" Value=""/>
+    <Text ID="530325" Value=""/>
+    <Text ID="530326" Value=""/>
+    <Text ID="530327" Value=""/>
+    <Text ID="530328" Value=""/>
+    <Text ID="530329" Value=""/>
+    <Text ID="530330" Value=""/>
+    <Text ID="530331" Value=""/>
+    <Text ID="530332" Value=""/>
+    <Text ID="530333" Value=""/>
+    <Text ID="530334" Value=""/>
+    <Text ID="530335" Value=""/>
+    <Text ID="530336" Value=""/>
+    <Text ID="530337" Value=""/>
+    <Text ID="530338" Value=""/>
+    <Text ID="530339" Value=""/>
+    <Text ID="530418" Value=""/>
+    <Text ID="530419" Value=""/>
+    <Text ID="530420" Value=""/>
+    <Text ID="530421" Value=""/>
+    <Text ID="530422" Value=""/>
+    <Text ID="530423" Value=""/>
+    <Text ID="530424" Value=""/>
+    <Text ID="530425" Value=""/>
+    <Text ID="530426" Value=""/>
+    <Text ID="530427" Value=""/>
+    <Text ID="530428" Value=""/>
+    <Text ID="530429" Value=""/>
+    <Text ID="530430" Value=""/>
+    <Text ID="530431" Value=""/>
+    <Text ID="530432" Value=""/>
+    <Text ID="530434" Value=""/>
+    <Text ID="530435" Value=""/>
+    <Text ID="530436" Value=""/>
+    <Text ID="530437" Value=""/>
+    <Text ID="530438" Value=""/>
+    <Text ID="530439" Value=""/>
+    <Text ID="530440" Value=""/>
+    <Text ID="530441" Value=""/>
+    <Text ID="530442" Value=""/>
+    <Text ID="530443" Value=""/>
+    <Text ID="530444" Value=""/>
+    <Text ID="530445" Value=""/>
+    <Text ID="530446" Value=""/>
+    <Text ID="530447" Value=""/>
+    <Text ID="530448" Value=""/>
+    <Text ID="530449" Value=""/>
+    <Text ID="530450" Value=""/>
+    <Text ID="597552" Value=""/>
+    <Text ID="597555" Value=""/>
+    <Text ID="597557" Value=""/>
+    <Text ID="597558" Value=""/>
+    <Text ID="597559" Value=""/>
+    <Text ID="597560" Value=""/>
+    <Text ID="597561" Value=""/>
+    <Text ID="599552" Value=""/>
+    <Text ID="665407" Value=""/>
+    <Text ID="665408" Value=""/>
+    <Text ID="665409" Value=""/>
+    <Text ID="665410" Value=""/>
+    <Text ID="665411" Value=""/>
+    <Text ID="665412" Value=""/>
+    <Text ID="665413" Value=""/>
+    <Text ID="665414" Value=""/>
+    <Text ID="665415" Value=""/>
+    <Text ID="665416" Value=""/>
+    <Text ID="665417" Value=""/>
+    <Text ID="665418" Value=""/>
+    <Text ID="665419" Value=""/>
+    <Text ID="665420" Value=""/>
+    <Text ID="665421" Value=""/>
+    <Text ID="665422" Value=""/>
+    <Text ID="665423" Value=""/>
+    <Text ID="665424" Value=""/>
+    <Text ID="665425" Value=""/>
+    <Text ID="665426" Value=""/>
+    <Text ID="665427" Value=""/>
+    <Text ID="665428" Value=""/>
+    <Text ID="665429" Value=""/>
+    <Text ID="665430" Value=""/>
+    <Text ID="665431" Value=""/>
+    <Text ID="665432" Value=""/>
+    <Text ID="665433" Value=""/>
+    <Text ID="665434" Value=""/>
+    <Text ID="665435" Value=""/>
+    <Text ID="665436" Value=""/>
+    <Text ID="530451" Value=""/>
+    <Text ID="530452" Value=""/>
+    <Text ID="530453" Value=""/>
+    <Text ID="530454" Value=""/>
+    <Text ID="530455" Value=""/>
+    <Text ID="530456" Value=""/>
+    <Text ID="597553" Value=""/>
+    <Text ID="597554" Value=""/>
+    <Text ID="597556" Value=""/>
+    <Text ID="678146" Value=""/>
+    <Text ID="678147" Value=""/>
+    <Text ID="678148" Value=""/>
+    <Text ID="678149" Value=""/>
+    <Text ID="678150" Value=""/>
+    <Text ID="678151" Value=""/>
+    <Text ID="678152" Value=""/>
+    <Text ID="678153" Value=""/>
+    <Text ID="678154" Value=""/>
+    <Text ID="678155" Value=""/>
+    <Text ID="678156" Value=""/>
+    <Text ID="678157" Value=""/>
+    <Text ID="721638" Value=""/>
+    <Text ID="721639" Value=""/>
+    <Text ID="792600" Value=""/>
+    <Text ID="792607" Value=""/>
+    <Text ID="792608" Value=""/>
+    <Text ID="792609" Value=""/>
+    <Text ID="792610" Value=""/>
+    <Text ID="792611" Value=""/>
+    <Text ID="792612" Value=""/>
+    <Text ID="792613" Value=""/>
+    <Text ID="792614" Value=""/>
+    <Text ID="792615" Value=""/>
+    <Text ID="792616" Value=""/>
+    <Text ID="792617" Value=""/>
+    <Text ID="792618" Value=""/>
+    <Text ID="792619" Value=""/>
+    <Text ID="792621" Value=""/>
+    <Text ID="792622" Value=""/>
+    <Text ID="792623" Value=""/>
+    <Text ID="792624" Value=""/>
+    <Text ID="792625" Value=""/>
+    <Text ID="792626" Value=""/>
+    <Text ID="792627" Value=""/>
+    <Text ID="792628" Value=""/>
+    <Text ID="792629" Value=""/>
+    <Text ID="792630" Value=""/>
+    <Text ID="792631" Value=""/>
+    <Text ID="819969" Value=""/>
+    <Text ID="826843" Value=""/>
+    <Text ID="826844" Value=""/>
+    <Text ID="826845" Value=""/>
+    <Text ID="826846" Value=""/>
+    <Text ID="826847" Value=""/>
+    <Text ID="826848" Value=""/>
+    <Text ID="826855" Value=""/>
+    <Text ID="826856" Value=""/>
+    <Text ID="826857" Value=""/>
+    <Text ID="847743" Value=""/>
+    <Text ID="931877" Value=""/>
+    <Text ID="939622" Value=""/>
+    <Text ID="939623" Value=""/>
+    <Text ID="939624" Value=""/>
+    <Text ID="939625" Value=""/>
+    <Text ID="939626" Value=""/>
+    <Text ID="939627" Value=""/>
+    <Text ID="978621" Value=""/>
+    <Text ID="978622" Value=""/>
+    <Text ID="978623" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="191805" Value=""/>
+    <Text ID="192678" Value=""/>
+    <Text ID="385149" Value=""/>
+    <Text ID="385150" Value=""/>
+    <Text ID="385151" Value=""/>
+    <Text ID="385152" Value=""/>
+    <Text ID="385153" Value=""/>
+    <Text ID="385154" Value=""/>
+    <Text ID="385155" Value=""/>
+    <Text ID="385156" Value=""/>
+    <Text ID="385157" Value=""/>
+    <Text ID="385159" Value=""/>
+    <Text ID="385165" Value=""/>
+    <Text ID="385166" Value=""/>
+    <Text ID="385167" Value=""/>
+    <Text ID="385168" Value=""/>
+    <Text ID="385171" Value=""/>
+    <Text ID="385172" Value=""/>
+    <Text ID="385173" Value=""/>
+    <Text ID="385175" Value=""/>
+    <Text ID="385176" Value=""/>
+    <Text ID="385179" Value=""/>
+    <Text ID="385183" Value=""/>
+    <Text ID="385184" Value=""/>
+    <Text ID="385186" Value=""/>
+    <Text ID="394234" Value=""/>
+    <Text ID="394239" Value=""/>
+    <Text ID="439237" Value=""/>
+    <Text ID="441222" Value=""/>
+    <Text ID="441223" Value=""/>
+    <Text ID="441224" Value=""/>
+    <Text ID="441225" Value=""/>
+    <Text ID="441226" Value=""/>
+    <Text ID="441227" Value=""/>
+    <Text ID="441228" Value=""/>
+    <Text ID="441229" Value=""/>
+    <Text ID="441230" Value=""/>
+    <Text ID="441238" Value=""/>
+    <Text ID="441239" Value=""/>
+    <Text ID="441243" Value=""/>
+    <Text ID="441245" Value=""/>
+    <Text ID="441247" Value=""/>
+    <Text ID="441264" Value=""/>
+    <Text ID="441265" Value=""/>
+    <Text ID="441266" Value=""/>
+    <Text ID="441267" Value=""/>
+    <Text ID="441268" Value=""/>
+    <Text ID="441269" Value=""/>
+    <Text ID="453975" Value=""/>
+    <Text ID="453976" Value=""/>
+    <Text ID="453977" Value=""/>
+    <Text ID="453978" Value=""/>
+    <Text ID="453980" Value=""/>
+    <Text ID="453981" Value=""/>
+    <Text ID="459212" Value=""/>
+    <Text ID="460753" Value=""/>
+    <Text ID="462313" Value=""/>
+    <Text ID="462314" Value=""/>
+    <Text ID="465419" Value=""/>
+    <Text ID="465420" Value=""/>
+    <Text ID="465421" Value=""/>
+    <Text ID="500272" Value=""/>
+    <Text ID="500273" Value=""/>
+    <Text ID="530306" Value=""/>
+    <Text ID="530320" Value=""/>
+    <Text ID="530321" Value=""/>
+    <Text ID="530322" Value=""/>
+    <Text ID="530323" Value=""/>
+    <Text ID="530324" Value=""/>
+    <Text ID="530325" Value=""/>
+    <Text ID="530326" Value=""/>
+    <Text ID="530327" Value=""/>
+    <Text ID="530328" Value=""/>
+    <Text ID="530329" Value=""/>
+    <Text ID="530330" Value=""/>
+    <Text ID="530331" Value=""/>
+    <Text ID="530332" Value=""/>
+    <Text ID="530333" Value=""/>
+    <Text ID="530334" Value=""/>
+    <Text ID="530335" Value=""/>
+    <Text ID="530336" Value=""/>
+    <Text ID="530337" Value=""/>
+    <Text ID="530338" Value=""/>
+    <Text ID="530339" Value=""/>
+    <Text ID="530418" Value=""/>
+    <Text ID="530419" Value=""/>
+    <Text ID="530420" Value=""/>
+    <Text ID="530421" Value=""/>
+    <Text ID="530422" Value=""/>
+    <Text ID="530423" Value=""/>
+    <Text ID="530424" Value=""/>
+    <Text ID="530425" Value=""/>
+    <Text ID="530426" Value=""/>
+    <Text ID="530427" Value=""/>
+    <Text ID="530428" Value=""/>
+    <Text ID="530429" Value=""/>
+    <Text ID="530430" Value=""/>
+    <Text ID="530431" Value=""/>
+    <Text ID="530432" Value=""/>
+    <Text ID="530434" Value=""/>
+    <Text ID="530435" Value=""/>
+    <Text ID="530436" Value=""/>
+    <Text ID="530437" Value=""/>
+    <Text ID="530438" Value=""/>
+    <Text ID="530439" Value=""/>
+    <Text ID="530440" Value=""/>
+    <Text ID="530441" Value=""/>
+    <Text ID="530442" Value=""/>
+    <Text ID="530443" Value=""/>
+    <Text ID="530444" Value=""/>
+    <Text ID="530445" Value=""/>
+    <Text ID="530446" Value=""/>
+    <Text ID="530447" Value=""/>
+    <Text ID="530448" Value=""/>
+    <Text ID="530449" Value=""/>
+    <Text ID="530450" Value=""/>
+    <Text ID="597552" Value=""/>
+    <Text ID="597555" Value=""/>
+    <Text ID="597557" Value=""/>
+    <Text ID="597558" Value=""/>
+    <Text ID="597559" Value=""/>
+    <Text ID="597560" Value=""/>
+    <Text ID="597561" Value=""/>
+    <Text ID="599552" Value=""/>
+    <Text ID="665407" Value=""/>
+    <Text ID="665408" Value=""/>
+    <Text ID="665409" Value=""/>
+    <Text ID="665410" Value=""/>
+    <Text ID="665411" Value=""/>
+    <Text ID="665412" Value=""/>
+    <Text ID="665413" Value=""/>
+    <Text ID="665414" Value=""/>
+    <Text ID="665415" Value=""/>
+    <Text ID="665416" Value=""/>
+    <Text ID="665417" Value=""/>
+    <Text ID="665418" Value=""/>
+    <Text ID="665419" Value=""/>
+    <Text ID="665420" Value=""/>
+    <Text ID="665421" Value=""/>
+    <Text ID="665422" Value=""/>
+    <Text ID="665423" Value=""/>
+    <Text ID="665424" Value=""/>
+    <Text ID="665425" Value=""/>
+    <Text ID="665426" Value=""/>
+    <Text ID="665427" Value=""/>
+    <Text ID="665428" Value=""/>
+    <Text ID="665429" Value=""/>
+    <Text ID="665430" Value=""/>
+    <Text ID="665431" Value=""/>
+    <Text ID="665432" Value=""/>
+    <Text ID="665433" Value=""/>
+    <Text ID="665434" Value=""/>
+    <Text ID="665435" Value=""/>
+    <Text ID="665436" Value=""/>
+    <Text ID="530451" Value=""/>
+    <Text ID="530452" Value=""/>
+    <Text ID="530453" Value=""/>
+    <Text ID="530454" Value=""/>
+    <Text ID="530455" Value=""/>
+    <Text ID="530456" Value=""/>
+    <Text ID="597553" Value=""/>
+    <Text ID="597554" Value=""/>
+    <Text ID="597556" Value=""/>
+    <Text ID="678146" Value=""/>
+    <Text ID="678147" Value=""/>
+    <Text ID="678148" Value=""/>
+    <Text ID="678149" Value=""/>
+    <Text ID="678150" Value=""/>
+    <Text ID="678151" Value=""/>
+    <Text ID="678152" Value=""/>
+    <Text ID="678153" Value=""/>
+    <Text ID="678154" Value=""/>
+    <Text ID="678155" Value=""/>
+    <Text ID="678156" Value=""/>
+    <Text ID="678157" Value=""/>
+    <Text ID="721638" Value=""/>
+    <Text ID="721639" Value=""/>
+    <Text ID="792600" Value=""/>
+    <Text ID="792607" Value=""/>
+    <Text ID="792608" Value=""/>
+    <Text ID="792609" Value=""/>
+    <Text ID="792610" Value=""/>
+    <Text ID="792611" Value=""/>
+    <Text ID="792612" Value=""/>
+    <Text ID="792613" Value=""/>
+    <Text ID="792614" Value=""/>
+    <Text ID="792615" Value=""/>
+    <Text ID="792616" Value=""/>
+    <Text ID="792617" Value=""/>
+    <Text ID="792618" Value=""/>
+    <Text ID="792619" Value=""/>
+    <Text ID="792621" Value=""/>
+    <Text ID="792622" Value=""/>
+    <Text ID="792623" Value=""/>
+    <Text ID="792624" Value=""/>
+    <Text ID="792625" Value=""/>
+    <Text ID="792626" Value=""/>
+    <Text ID="792627" Value=""/>
+    <Text ID="792628" Value=""/>
+    <Text ID="792629" Value=""/>
+    <Text ID="792630" Value=""/>
+    <Text ID="792631" Value=""/>
+    <Text ID="819969" Value=""/>
+    <Text ID="826843" Value=""/>
+    <Text ID="826844" Value=""/>
+    <Text ID="826845" Value=""/>
+    <Text ID="826846" Value=""/>
+    <Text ID="826847" Value=""/>
+    <Text ID="826848" Value=""/>
+    <Text ID="826855" Value=""/>
+    <Text ID="826856" Value=""/>
+    <Text ID="826857" Value=""/>
+    <Text ID="847743" Value=""/>
+    <Text ID="931877" Value=""/>
+    <Text ID="939622" Value=""/>
+    <Text ID="939623" Value=""/>
+    <Text ID="939624" Value=""/>
+    <Text ID="939625" Value=""/>
+    <Text ID="939626" Value=""/>
+    <Text ID="939627" Value=""/>
+    <Text ID="978621" Value=""/>
+    <Text ID="978622" Value=""/>
+    <Text ID="978623" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="191805" Value="0"/>
+    <Index ID="192678" Value="200"/>
+    <Index ID="385149" Value="1"/>
+    <Index ID="385150" Value="2"/>
+    <Index ID="385151" Value="3"/>
+    <Index ID="385152" Value="4"/>
+    <Index ID="385153" Value="5"/>
+    <Index ID="385154" Value="6"/>
+    <Index ID="385155" Value="201"/>
+    <Index ID="385156" Value="202"/>
+    <Index ID="385157" Value="203"/>
+    <Index ID="385159" Value="204"/>
+    <Index ID="385165" Value="247"/>
+    <Index ID="385166" Value="206"/>
+    <Index ID="385167" Value="207"/>
+    <Index ID="385168" Value="208"/>
+    <Index ID="385171" Value="209"/>
+    <Index ID="385172" Value="210"/>
+    <Index ID="385173" Value="211"/>
+    <Index ID="385175" Value="232"/>
+    <Index ID="385176" Value="233"/>
+    <Index ID="385179" Value="234"/>
+    <Index ID="385183" Value="216"/>
+    <Index ID="385184" Value="218"/>
+    <Index ID="385186" Value="219"/>
+    <Index ID="394234" Value="222"/>
+    <Index ID="394239" Value="243"/>
+    <Index ID="439237" Value="217"/>
+    <Index ID="441222" Value="32"/>
+    <Index ID="441223" Value="31"/>
+    <Index ID="441224" Value="30"/>
+    <Index ID="441225" Value="34"/>
+    <Index ID="441226" Value="35"/>
+    <Index ID="441227" Value="36"/>
+    <Index ID="441228" Value="33"/>
+    <Index ID="441229" Value="38"/>
+    <Index ID="441230" Value="39"/>
+    <Index ID="441238" Value="10"/>
+    <Index ID="441239" Value="11"/>
+    <Index ID="441243" Value="13"/>
+    <Index ID="441245" Value="14"/>
+    <Index ID="441247" Value="16"/>
+    <Index ID="441264" Value="91"/>
+    <Index ID="441265" Value="92"/>
+    <Index ID="441266" Value="93"/>
+    <Index ID="441267" Value="94"/>
+    <Index ID="441268" Value="95"/>
+    <Index ID="441269" Value="96"/>
+    <Index ID="453975" Value="43"/>
+    <Index ID="453976" Value="90"/>
+    <Index ID="453977" Value="50"/>
+    <Index ID="453978" Value="51"/>
+    <Index ID="453980" Value="52"/>
+    <Index ID="453981" Value="53"/>
+    <Index ID="459212" Value="15"/>
+    <Index ID="460753" Value="7"/>
+    <Index ID="462313" Value="220"/>
+    <Index ID="462314" Value="221"/>
+    <Index ID="465419" Value="12"/>
+    <Index ID="465420" Value="37"/>
+    <Index ID="465421" Value="40"/>
+    <Index ID="500272" Value="41"/>
+    <Index ID="500273" Value="42"/>
+    <Index ID="530306" Value="205"/>
+    <Index ID="530320" Value="242"/>
+    <Index ID="530321" Value="241"/>
+    <Index ID="530322" Value="240"/>
+    <Index ID="530323" Value="239"/>
+    <Index ID="530324" Value="238"/>
+    <Index ID="530325" Value="237"/>
+    <Index ID="530326" Value="236"/>
+    <Index ID="530327" Value="235"/>
+    <Index ID="530328" Value="231"/>
+    <Index ID="530329" Value="230"/>
+    <Index ID="530330" Value="229"/>
+    <Index ID="530331" Value="228"/>
+    <Index ID="530332" Value="227"/>
+    <Index ID="530333" Value="226"/>
+    <Index ID="530334" Value="225"/>
+    <Index ID="530335" Value="224"/>
+    <Index ID="530336" Value="223"/>
+    <Index ID="530337" Value="245"/>
+    <Index ID="530338" Value="244"/>
+    <Index ID="530339" Value="246"/>
+    <Index ID="530418" Value="248"/>
+    <Index ID="530419" Value="249"/>
+    <Index ID="530420" Value="250"/>
+    <Index ID="530421" Value="251"/>
+    <Index ID="530422" Value="252"/>
+    <Index ID="530423" Value="253"/>
+    <Index ID="530424" Value="254"/>
+    <Index ID="530425" Value="255"/>
+    <Index ID="530426" Value="256"/>
+    <Index ID="530427" Value="257"/>
+    <Index ID="530428" Value="258"/>
+    <Index ID="530429" Value="259"/>
+    <Index ID="530430" Value="261"/>
+    <Index ID="530431" Value="262"/>
+    <Index ID="530432" Value="264"/>
+    <Index ID="530434" Value="267"/>
+    <Index ID="530435" Value="268"/>
+    <Index ID="530436" Value="269"/>
+    <Index ID="530437" Value="270"/>
+    <Index ID="530438" Value="271"/>
+    <Index ID="530439" Value="272"/>
+    <Index ID="530440" Value="273"/>
+    <Index ID="530441" Value="274"/>
+    <Index ID="530442" Value="275"/>
+    <Index ID="530443" Value="276"/>
+    <Index ID="530444" Value="277"/>
+    <Index ID="530445" Value="278"/>
+    <Index ID="530446" Value="279"/>
+    <Index ID="530447" Value="280"/>
+    <Index ID="530448" Value="286"/>
+    <Index ID="530449" Value="287"/>
+    <Index ID="530450" Value="288"/>
+    <Index ID="597552" Value="212"/>
+    <Index ID="597555" Value="213"/>
+    <Index ID="597557" Value="214"/>
+    <Index ID="597558" Value="215"/>
+    <Index ID="597559" Value="260"/>
+    <Index ID="597560" Value="265"/>
+    <Index ID="597561" Value="266"/>
+    <Index ID="599552" Value="263"/>
+    <Index ID="665407" Value="8"/>
+    <Index ID="665408" Value="9"/>
+    <Index ID="665409" Value="17"/>
+    <Index ID="665410" Value="18"/>
+    <Index ID="665411" Value="19"/>
+    <Index ID="665412" Value="20"/>
+    <Index ID="665413" Value="21"/>
+    <Index ID="665414" Value="22"/>
+    <Index ID="665415" Value="23"/>
+    <Index ID="665416" Value="24"/>
+    <Index ID="665417" Value="25"/>
+    <Index ID="665418" Value="26"/>
+    <Index ID="665419" Value="27"/>
+    <Index ID="665420" Value="293"/>
+    <Index ID="665421" Value="294"/>
+    <Index ID="665422" Value="295"/>
+    <Index ID="665423" Value="296"/>
+    <Index ID="665424" Value="297"/>
+    <Index ID="665425" Value="298"/>
+    <Index ID="665426" Value="299"/>
+    <Index ID="665427" Value="300"/>
+    <Index ID="665428" Value="301"/>
+    <Index ID="665429" Value="302"/>
+    <Index ID="665430" Value="303"/>
+    <Index ID="665431" Value="304"/>
+    <Index ID="665432" Value="305"/>
+    <Index ID="665433" Value="306"/>
+    <Index ID="665434" Value="307"/>
+    <Index ID="665435" Value="308"/>
+    <Index ID="665436" Value="309"/>
+    <Index ID="530451" Value="284"/>
+    <Index ID="530452" Value="285"/>
+    <Index ID="530453" Value="281"/>
+    <Index ID="530454" Value="282"/>
+    <Index ID="530455" Value="283"/>
+    <Index ID="530456" Value="289"/>
+    <Index ID="597553" Value="290"/>
+    <Index ID="597554" Value="291"/>
+    <Index ID="597556" Value="292"/>
+    <Index ID="678146" Value="310"/>
+    <Index ID="678147" Value="311"/>
+    <Index ID="678148" Value="312"/>
+    <Index ID="678149" Value="313"/>
+    <Index ID="678150" Value="314"/>
+    <Index ID="678151" Value="315"/>
+    <Index ID="678152" Value="316"/>
+    <Index ID="678153" Value="317"/>
+    <Index ID="678154" Value="318"/>
+    <Index ID="678155" Value="319"/>
+    <Index ID="678156" Value="320"/>
+    <Index ID="678157" Value="321"/>
+    <Index ID="721638" Value="322"/>
+    <Index ID="721639" Value="323"/>
+    <Index ID="792600" Value="28"/>
+    <Index ID="792607" Value="324"/>
+    <Index ID="792608" Value="325"/>
+    <Index ID="792609" Value="326"/>
+    <Index ID="792610" Value="327"/>
+    <Index ID="792611" Value="328"/>
+    <Index ID="792612" Value="329"/>
+    <Index ID="792613" Value="330"/>
+    <Index ID="792614" Value="331"/>
+    <Index ID="792615" Value="332"/>
+    <Index ID="792616" Value="333"/>
+    <Index ID="792617" Value="334"/>
+    <Index ID="792618" Value="335"/>
+    <Index ID="792619" Value="336"/>
+    <Index ID="792621" Value="337"/>
+    <Index ID="792622" Value="338"/>
+    <Index ID="792623" Value="339"/>
+    <Index ID="792624" Value="340"/>
+    <Index ID="792625" Value="341"/>
+    <Index ID="792626" Value="344"/>
+    <Index ID="792627" Value="345"/>
+    <Index ID="792628" Value="342"/>
+    <Index ID="792629" Value="343"/>
+    <Index ID="792630" Value="346"/>
+    <Index ID="792631" Value="347"/>
+    <Index ID="819969" Value="348"/>
+    <Index ID="826843" Value="349"/>
+    <Index ID="826844" Value="350"/>
+    <Index ID="826845" Value="351"/>
+    <Index ID="826846" Value="352"/>
+    <Index ID="826847" Value="353"/>
+    <Index ID="826848" Value="354"/>
+    <Index ID="826855" Value="355"/>
+    <Index ID="826856" Value="356"/>
+    <Index ID="826857" Value="357"/>
+    <Index ID="847743" Value="358"/>
+    <Index ID="931877" Value="359"/>
+    <Index ID="939622" Value="360"/>
+    <Index ID="939623" Value="361"/>
+    <Index ID="939624" Value="362"/>
+    <Index ID="939625" Value="363"/>
+    <Index ID="939626" Value="364"/>
+    <Index ID="939627" Value="365"/>
+    <Index ID="978621" Value="366"/>
+    <Index ID="978622" Value="367"/>
+    <Index ID="978623" Value="368"/>
+  </IndexMap>
+</TextGroup>

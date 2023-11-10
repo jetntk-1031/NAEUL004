@@ -1,0 +1,48 @@
+(*2020-07-24*)
+(**)
+(*Constant*)
+VAR CONSTANT
+	c_udiMagRcpMax : UDINT := 10;
+END_VAR
+(**)
+(*Action & State & Status*)
+VAR
+	p_MagRcpStat : UDINT;
+	p_MagRcpStatus : UDINT;
+	p_MagRcpStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_MagRcpAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_MagRcpNmExist : UDINT;
+	p_MagRcpNmNotExist : UDINT;
+	p_MagRcpNmEmpty : UDINT;
+	p_MagRcpListFull : UDINT;
+	p_MagRcpCurrList : UDINT;
+	p_MagRcpFilterList : UDINT;
+	p_MagRcpSortedList : UDINT;
+	p_MagRcpInfoOut : UDINT;
+	p_MagRcpFileNotFound : UDINT;
+	p_MagRcpCurrRcp : UDINT;
+	p_MagRcpCurrRcpNm : UDINT;
+	p_MagRcpCurrRcpTtlSlt : UDINT;
+	p_MagRcpCurrRcpSltToSlt : UDINT;
+	p_MagRcpCurrRcpMag1Slt1Pos : UDINT;
+	p_MagRcpCurrRcpMag2Slt1Pos : UDINT;
+	p_MagRcpCurrRcpMag3Slt1Pos : UDINT;
+	p_MagRcpCurrRcpMag1TravPos : UDINT;
+	p_MagRcpCurrRcpMag2TravPos : UDINT;
+	p_MagRcpCurrRcpMag3TravPos : UDINT;
+	p_MagRcpCurrRcpDisplayInfo : UDINT;
+	p_MagRcpCurrRcpMagMaxBrdWidth : UDINT;
+	p_MagRcpCurrRcpLastModified : UDINT;
+	p_MagRcpCurrRcpMagModel : UDINT;
+	p_MagRcpCurrRcpSBarDisabled : UDINT;
+	p_MagRcpCurrRcpMagHeightChkEn : UDINT;
+END_VAR
+(**)

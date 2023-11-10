@@ -1,0 +1,8 @@
+(*2019-03-25*)
+(**)
+VAR
+	rSltToSlt : REAL;
+	sSltToSlt : STRING[30];
+	sTtlSlt : STRING[30];
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR

@@ -1,0 +1,38 @@
+(*2019-01-30*)
+(**)
+(*General*)
+VAR
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_eNtParamMag : REFERENCE TO eULMag;
+	p_usiMcParamProdSelMcMod : REFERENCE TO USINT;
+END_VAR
+(**)
+VAR
+	p_bOpsStatusRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bBufferMagPresent1 : REFERENCE TO BOOL;
+	p_bBufferMagPresent2 : REFERENCE TO BOOL;
+	p_bBufferMagPresent3 : REFERENCE TO BOOL;
+	p_bDIMagPresentSen1 : REFERENCE TO BOOL;
+	p_bDIMagPresentSen2 : REFERENCE TO BOOL;
+	p_bDIMagPresentSen3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_tyBufferStat1 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat2 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat3 : REFERENCE TO tyBffrStat;
+END_VAR
+(*AutoRcp*)
+VAR
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
+	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+END_VAR

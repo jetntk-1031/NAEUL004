@@ -1,0 +1,27 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_MtrPshrStat : UDINT;
+	p_MtrPshrStatus : UDINT;
+	p_MtrPshrStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_MtrPshrAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_MtrPshrExtended : UDINT;
+	p_MtrPshrRetracted : UDINT;
+	p_MtrPshrCW : UDINT;
+	p_MtrPshrCCW : UDINT;
+	p_MtrPshrSpdBinBit0 : UDINT;
+	p_MtrPshrSpdBinBit1 : UDINT;
+	p_MtrPshrSpdBinBit2 : UDINT;
+	p_MtrPshrSigOn : UDINT;
+	p_MtrPshrBrake : UDINT;
+	p_MtrPshrAlmRst : UDINT;
+END_VAR

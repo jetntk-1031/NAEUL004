@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1140_RecipeLabels">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="14"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="190641" Value="Product Name"/>
+    <Text ID="190642" Value="Product Width"/>
+    <Text ID="190643" Value="Minimum Slot Value"/>
+    <Text ID="190644" Value="Maximum Slot Value"/>
+    <Text ID="190645" Value="Pitch"/>
+    <Text ID="190646" Value="Pusher Offset"/>
+    <Text ID="190647" Value="Board per slot"/>
+    <Text ID="190648" Value="Gap between boards"/>
+    <Text ID="190649" Value="No of Programs"/>
+    <Text ID="190650" Value="Search"/>
+    <Text ID="190651" Value="Min"/>
+    <Text ID="190652" Value="Max"/>
+    <Text ID="190653" Value="Oven capacity on upstream machine"/>
+    <Text ID="190654" Value="Program Name"/>
+    <Text ID="190655" Value="Check Mode"/>
+    <Text ID="190656" Value="Recipe Name"/>
+    <Text ID="190657" Value="Last Modified"/>
+    <Text ID="190658" Value="Bypass Quantity"/>
+    <Text ID="190659" Value="Selected Recipe"/>
+    <Text ID="190660" Value="To load program, please take away the Magazine!!!"/>
+    <Text ID="190661" Value="Oven"/>
+    <Text ID="190662" Value="Product"/>
+    <Text ID="190663" Value="Display Counter"/>
+    <Text ID="190664" Value="Mag 1"/>
+    <Text ID="190665" Value="Mag 2"/>
+    <Text ID="190666" Value="Check At Zone 2"/>
+    <Text ID="190667" Value="Check At\nExit"/>
+    <Text ID="190668" Value="Preview"/>
+    <Text ID="190669" Value="Load"/>
+    <Text ID="190670" Value="Top To Bottom"/>
+    <Text ID="190671" Value="Long Board"/>
+    <Text ID="190672" Value="Gap between Boards"/>
+    <Text ID="190673" Value="Min. required free places in buffer to stop upstream:"/>
+    <Text ID="190674" Value="Max. amount of buffer places between buffer and oven:"/>
+    <Text ID="190675" Value="Oven capacity on upstream machine:"/>
+    <Text ID="190676" Value="Current Recipe"/>
+    <Text ID="190677" Value="Board Per Slot"/>
+    <Text ID="190678" Value=" Magazine Model"/>
+    <Text ID="190679" Value=" "/>
+    <Text ID="190680" Value=" "/>
+    <Text ID="190695" Value="To select magazine please empty magazine platform"/>
+    <Text ID="190696" Value="Sort By\nName"/>
+    <Text ID="190697" Value="Sort By\nDefault"/>
+    <Text ID="190698" Value=" "/>
+    <Text ID="190699" Value=" "/>
+    <Text ID="190704" Value="Recipe Process Status"/>
+    <Text ID="190705" Value="Idle"/>
+    <Text ID="190706" Value="Ready"/>
+    <Text ID="190707" Value="Done"/>
+    <Text ID="190708" Value="Error"/>
+    <Text ID="190709" Value="Load"/>
+    <Text ID="190710" Value="Save"/>
+    <Text ID="190711" Value="List"/>
+    <Text ID="190712" Value="Delete"/>
+    <Text ID="190713" Value="To XML"/>
+    <Text ID="190714" Value="From XML"/>
+    <Text ID="190715" Value=" "/>
+    <Text ID="190716" Value="Motorized Pusher Extend Speed"/>
+    <Text ID="190717" Value="Motorized Pusher Extend Torque"/>
+    <Text ID="190718" Value=" "/>
+    <Text ID="190725" Value=" "/>
+    <Text ID="190726" Value="Magazine Max Board Width"/>
+    <Text ID="190727" Value=" "/>
+    <Text ID="190728" Value=" "/>
+    <Text ID="243634" Value="Selected Magazine :"/>
+    <Text ID="243635" Value="Name"/>
+    <Text ID="243636" Value="Slot to Slot Distance"/>
+    <Text ID="243637" Value="Lifter Mag 1 Slot 1 Position"/>
+    <Text ID="243638" Value="Trav Pos Mag 1"/>
+    <Text ID="243639" Value="Trav Pos Mag 2"/>
+    <Text ID="243640" Value="Total Slots"/>
+    <Text ID="243641" Value=""/>
+    <Text ID="243642" Value=""/>
+    <Text ID="243643" Value="No."/>
+    <Text ID="243644" Value="Selected"/>
+    <Text ID="243645" Value="Maximum  Slots"/>
+    <Text ID="243646" Value="Lifter Unload Pos"/>
+    <Text ID="243647" Value="To select magazine please empty lifter!"/>
+    <Text ID="243648" Value="Save"/>
+    <Text ID="243649" Value="Copy"/>
+    <Text ID="243651" Value="Paste"/>
+    <Text ID="243652" Value="Undo"/>
+    <Text ID="243653" Value="Machine Mode"/>
+    <Text ID="243654" Value="Redo"/>
+    <Text ID="243655" Value="Delete"/>
+    <Text ID="509782" Value="Lifter Mag 2 Slot 1 Position"/>
+    <Text ID="509783" Value="Lifter Mag 3 Slot 1 Position"/>
+    <Text ID="509785" Value="Trav Pos Mag 3"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="190641" Value="Recipe Name"/>
+    <Text ID="190642" Value="Produktbreite"/>
+    <Text ID="190643" Value=""/>
+    <Text ID="190644" Value=""/>
+    <Text ID="190645" Value="Tonhöhe"/>
+    <Text ID="190646" Value=""/>
+    <Text ID="190647" Value="Leiterplatte pro Steckplatz"/>
+    <Text ID="190648" Value="Lücke zwischen den Brett in einem Steckplatz"/>
+    <Text ID="190649" Value="Programmzahl"/>
+    <Text ID="190650" Value="Suchen"/>
+    <Text ID="190651" Value="Min"/>
+    <Text ID="190652" Value="Max"/>
+    <Text ID="190653" Value="Ofenkapazität auf Stromaufwärts Maschine"/>
+    <Text ID="190654" Value="Programmname"/>
+    <Text ID="190655" Value="Prüfmodus"/>
+    <Text ID="190656" Value="Rezeptname"/>
+    <Text ID="190657" Value="Letzte Änderung"/>
+    <Text ID="190658" Value="Bypass Menge"/>
+    <Text ID="190659" Value="Ausgewähltes Rezept"/>
+    <Text ID="190660" Value="Zum Laden des Programms bitte das Magazin entfernen!!!"/>
+    <Text ID="190661" Value="Ofen"/>
+    <Text ID="190662" Value="Produkt"/>
+    <Text ID="190663" Value="Display Zähler"/>
+    <Text ID="190664" Value="Mag 1"/>
+    <Text ID="190665" Value="Mag 2"/>
+    <Text ID="190666" Value="Prüfen beim Bereich 2"/>
+    <Text ID="190667" Value="Prüfen beim Ausgang"/>
+    <Text ID="190668" Value="Vorschau"/>
+    <Text ID="190669" Value="Laden"/>
+    <Text ID="190670" Value="Oben nach Unten"/>
+    <Text ID="190671" Value="Lange Leiterplatte"/>
+    <Text ID="190672" Value="Lücke zwischen Board"/>
+    <Text ID="190673" Value="Min. Erforderlich Freie Plätze im Puffer zu Haltestelle Stromaufwärts"/>
+    <Text ID="190674" Value="Max. Menge Von Puffer Platz Zwischen Ofen"/>
+    <Text ID="190675" Value="Ofenkapazität auf Stromaufwärts Maschine"/>
+    <Text ID="190676" Value="Current Recipe"/>
+    <Text ID="190677" Value=" "/>
+    <Text ID="190678" Value=" "/>
+    <Text ID="190679" Value=" "/>
+    <Text ID="190680" Value=" "/>
+    <Text ID="190695" Value=" "/>
+    <Text ID="190696" Value=" "/>
+    <Text ID="190697" Value=" "/>
+    <Text ID="190698" Value=" "/>
+    <Text ID="190699" Value=" "/>
+    <Text ID="190704" Value="Rezeptprozessstatus"/>
+    <Text ID="190705" Value="Leerlauf"/>
+    <Text ID="190706" Value="Bereit"/>
+    <Text ID="190707" Value="Erledigt"/>
+    <Text ID="190708" Value="Error"/>
+    <Text ID="190709" Value="Belastung"/>
+    <Text ID="190710" Value="Sparen"/>
+    <Text ID="190711" Value="Liste"/>
+    <Text ID="190712" Value="Löschen"/>
+    <Text ID="190713" Value=" "/>
+    <Text ID="190714" Value=" "/>
+    <Text ID="190715" Value=" "/>
+    <Text ID="190716" Value=" "/>
+    <Text ID="190717" Value=" "/>
+    <Text ID="190718" Value=" "/>
+    <Text ID="190725" Value=" "/>
+    <Text ID="190726" Value=" "/>
+    <Text ID="190727" Value=" "/>
+    <Text ID="190728" Value=" "/>
+    <Text ID="243634" Value="Ausgewähltes Magazin:"/>
+    <Text ID="243635" Value="Name"/>
+    <Text ID="243636" Value="Abstand der Steckplätze"/>
+    <Text ID="243637" Value="Lifter Mag 1 Slot 1 Position"/>
+    <Text ID="243638" Value="Trav Pos Mag 1"/>
+    <Text ID="243639" Value="Trav Pos Mag 2"/>
+    <Text ID="243640" Value="Steckplätze gesamt"/>
+    <Text ID="243641" Value=" "/>
+    <Text ID="243642" Value=" "/>
+    <Text ID="243643" Value="Anz"/>
+    <Text ID="243644" Value="Ausgewählt"/>
+    <Text ID="243645" Value="Maximal Steckplatze"/>
+    <Text ID="243646" Value="Haber Entladen Pos"/>
+    <Text ID="243647" Value="Zum Auswählen des Magazins bitte Heber leeren!'"/>
+    <Text ID="243648" Value="Sich."/>
+    <Text ID="243649" Value="Kopie"/>
+    <Text ID="243651" Value="Einfügen"/>
+    <Text ID="243652" Value="Rück."/>
+    <Text ID="243653" Value="Machine Mode"/>
+    <Text ID="243654" Value="Wied"/>
+    <Text ID="243655" Value="Löschen"/>
+    <Text ID="509782" Value="Lifter Mag 2 Slot 1 Position"/>
+    <Text ID="509783" Value="Lifter Mag 3 Slot 1 Position"/>
+    <Text ID="509785" Value="Trav Pos Mag 3"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="190641" Value="Recipe Name"/>
+    <Text ID="190642" Value="产品宽度"/>
+    <Text ID="190643" Value=""/>
+    <Text ID="190644" Value=""/>
+    <Text ID="190645" Value="齿距"/>
+    <Text ID="190646" Value=""/>
+    <Text ID="190647" Value="每个插槽的电路板数量"/>
+    <Text ID="190648" Value="同一插槽内的电路板间隔"/>
+    <Text ID="190649" Value="程序序号"/>
+    <Text ID="190650" Value="搜索"/>
+    <Text ID="190651" Value="最小"/>
+    <Text ID="190652" Value="最大"/>
+    <Text ID="190653" Value="上游机器回流炉容量"/>
+    <Text ID="190654" Value="程序名称"/>
+    <Text ID="190655" Value="检测模式"/>
+    <Text ID="190656" Value="配方名称"/>
+    <Text ID="190657" Value="最后更改"/>
+    <Text ID="190658" Value="直通数量"/>
+    <Text ID="190659" Value="选定配方"/>
+    <Text ID="190660" Value="欲加载程序, 请移除料架 !"/>
+    <Text ID="190661" Value="回流炉"/>
+    <Text ID="190662" Value="产品"/>
+    <Text ID="190663" Value="显示计数器"/>
+    <Text ID="190664" Value="料架 1"/>
+    <Text ID="190665" Value="料架 2"/>
+    <Text ID="190666" Value="2 区检测"/>
+    <Text ID="190667" Value="出口处检测"/>
+    <Text ID="190668" Value="预览"/>
+    <Text ID="190669" Value="装载"/>
+    <Text ID="190670" Value="由上往下"/>
+    <Text ID="190671" Value="长型电路板"/>
+    <Text ID="190672" Value="插槽内电路板间隔"/>
+    <Text ID="190673" Value="欲停止上游,缓存机内所需的最小空位:"/>
+    <Text ID="190674" Value="缓存机之间最大缓冲区数量:"/>
+    <Text ID="190675" Value="上游机器回流炉容量"/>
+    <Text ID="190676" Value="Current Recipe"/>
+    <Text ID="190677" Value=" "/>
+    <Text ID="190678" Value=" "/>
+    <Text ID="190679" Value=" "/>
+    <Text ID="190680" Value=" "/>
+    <Text ID="190695" Value=" "/>
+    <Text ID="190696" Value=" "/>
+    <Text ID="190697" Value=" "/>
+    <Text ID="190698" Value=" "/>
+    <Text ID="190699" Value=" "/>
+    <Text ID="190704" Value="配方过程状态"/>
+    <Text ID="190705" Value="闲置"/>
+    <Text ID="190706" Value="准备"/>
+    <Text ID="190707" Value="完成"/>
+    <Text ID="190708" Value="警报"/>
+    <Text ID="190709" Value="加载"/>
+    <Text ID="190710" Value="保存"/>
+    <Text ID="190711" Value="列表"/>
+    <Text ID="190712" Value="删除"/>
+    <Text ID="190713" Value=" "/>
+    <Text ID="190714" Value=" "/>
+    <Text ID="190715" Value=" "/>
+    <Text ID="190716" Value=" "/>
+    <Text ID="190717" Value=" "/>
+    <Text ID="190718" Value=" "/>
+    <Text ID="190725" Value=" "/>
+    <Text ID="190726" Value=" "/>
+    <Text ID="190727" Value=" "/>
+    <Text ID="190728" Value=" "/>
+    <Text ID="243634" Value="选定料架:"/>
+    <Text ID="243635" Value="名称"/>
+    <Text ID="243636" Value="插槽间距"/>
+    <Text ID="243637" Value="Lifter Mag 1 Slot 1 Position"/>
+    <Text ID="243638" Value="Trav Pos Mag 1"/>
+    <Text ID="243639" Value="Trav Pos Mag 2"/>
+    <Text ID="243640" Value="插槽总数"/>
+    <Text ID="243641" Value=" "/>
+    <Text ID="243642" Value=" "/>
+    <Text ID="243643" Value="号码"/>
+    <Text ID="243644" Value="选定"/>
+    <Text ID="243645" Value="最大插槽"/>
+    <Text ID="243646" Value="升降机卸载位置"/>
+    <Text ID="243647" Value="欲选择料架，请清空升降机！"/>
+    <Text ID="243648" Value="储存"/>
+    <Text ID="243649" Value="复制"/>
+    <Text ID="243651" Value="粘贴"/>
+    <Text ID="243652" Value="复原"/>
+    <Text ID="243653" Value="Machine Mode"/>
+    <Text ID="243654" Value="重做"/>
+    <Text ID="243655" Value="删除"/>
+    <Text ID="509782" Value="Lifter Mag 2 Slot 1 Position"/>
+    <Text ID="509783" Value="Lifter Mag 3 Slot 1 Position"/>
+    <Text ID="509785" Value="Trav Pos Mag 3"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="190641" Value=""/>
+    <Text ID="190642" Value=""/>
+    <Text ID="190643" Value=""/>
+    <Text ID="190644" Value=""/>
+    <Text ID="190645" Value=""/>
+    <Text ID="190646" Value=""/>
+    <Text ID="190647" Value=""/>
+    <Text ID="190648" Value=""/>
+    <Text ID="190649" Value=""/>
+    <Text ID="190650" Value=""/>
+    <Text ID="190651" Value=""/>
+    <Text ID="190652" Value=""/>
+    <Text ID="190653" Value=""/>
+    <Text ID="190654" Value=""/>
+    <Text ID="190655" Value=""/>
+    <Text ID="190656" Value=""/>
+    <Text ID="190657" Value=""/>
+    <Text ID="190658" Value=""/>
+    <Text ID="190659" Value=""/>
+    <Text ID="190660" Value=""/>
+    <Text ID="190661" Value=""/>
+    <Text ID="190662" Value=""/>
+    <Text ID="190663" Value=""/>
+    <Text ID="190664" Value=""/>
+    <Text ID="190665" Value=""/>
+    <Text ID="190666" Value=""/>
+    <Text ID="190667" Value=""/>
+    <Text ID="190668" Value=""/>
+    <Text ID="190669" Value=""/>
+    <Text ID="190670" Value=""/>
+    <Text ID="190671" Value=""/>
+    <Text ID="190672" Value=""/>
+    <Text ID="190673" Value=""/>
+    <Text ID="190674" Value=""/>
+    <Text ID="190675" Value=""/>
+    <Text ID="190676" Value=""/>
+    <Text ID="190677" Value=""/>
+    <Text ID="190678" Value=""/>
+    <Text ID="190679" Value=""/>
+    <Text ID="190680" Value=""/>
+    <Text ID="190695" Value=""/>
+    <Text ID="190696" Value=""/>
+    <Text ID="190697" Value=""/>
+    <Text ID="190698" Value=""/>
+    <Text ID="190699" Value=""/>
+    <Text ID="190704" Value=""/>
+    <Text ID="190705" Value=""/>
+    <Text ID="190706" Value=""/>
+    <Text ID="190707" Value=""/>
+    <Text ID="190708" Value=""/>
+    <Text ID="190709" Value=""/>
+    <Text ID="190710" Value=""/>
+    <Text ID="190711" Value=""/>
+    <Text ID="190712" Value=""/>
+    <Text ID="190713" Value=""/>
+    <Text ID="190714" Value=""/>
+    <Text ID="190715" Value=""/>
+    <Text ID="190716" Value=""/>
+    <Text ID="190717" Value=""/>
+    <Text ID="190718" Value=""/>
+    <Text ID="190725" Value=""/>
+    <Text ID="190726" Value=""/>
+    <Text ID="190727" Value=""/>
+    <Text ID="190728" Value=""/>
+    <Text ID="243634" Value=""/>
+    <Text ID="243635" Value=""/>
+    <Text ID="243636" Value=""/>
+    <Text ID="243637" Value=""/>
+    <Text ID="243638" Value=""/>
+    <Text ID="243639" Value=""/>
+    <Text ID="243640" Value=""/>
+    <Text ID="243641" Value=""/>
+    <Text ID="243642" Value=""/>
+    <Text ID="243643" Value=""/>
+    <Text ID="243644" Value=""/>
+    <Text ID="243645" Value=""/>
+    <Text ID="243646" Value=""/>
+    <Text ID="243647" Value=""/>
+    <Text ID="243648" Value=""/>
+    <Text ID="243649" Value=""/>
+    <Text ID="243651" Value=""/>
+    <Text ID="243652" Value=""/>
+    <Text ID="243653" Value=""/>
+    <Text ID="243654" Value=""/>
+    <Text ID="243655" Value=""/>
+    <Text ID="509782" Value=""/>
+    <Text ID="509783" Value=""/>
+    <Text ID="509785" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="190641" Value="0"/>
+    <Index ID="190642" Value="1"/>
+    <Index ID="190643" Value="2"/>
+    <Index ID="190644" Value="3"/>
+    <Index ID="190645" Value="4"/>
+    <Index ID="190646" Value="5"/>
+    <Index ID="190647" Value="6"/>
+    <Index ID="190648" Value="7"/>
+    <Index ID="190649" Value="8"/>
+    <Index ID="190650" Value="9"/>
+    <Index ID="190651" Value="10"/>
+    <Index ID="190652" Value="11"/>
+    <Index ID="190653" Value="12"/>
+    <Index ID="190654" Value="13"/>
+    <Index ID="190655" Value="14"/>
+    <Index ID="190656" Value="15"/>
+    <Index ID="190657" Value="16"/>
+    <Index ID="190658" Value="17"/>
+    <Index ID="190659" Value="18"/>
+    <Index ID="190660" Value="19"/>
+    <Index ID="190661" Value="20"/>
+    <Index ID="190662" Value="21"/>
+    <Index ID="190663" Value="22"/>
+    <Index ID="190664" Value="23"/>
+    <Index ID="190665" Value="24"/>
+    <Index ID="190666" Value="25"/>
+    <Index ID="190667" Value="26"/>
+    <Index ID="190668" Value="27"/>
+    <Index ID="190669" Value="34"/>
+    <Index ID="190670" Value="35"/>
+    <Index ID="190671" Value="36"/>
+    <Index ID="190672" Value="37"/>
+    <Index ID="190673" Value="38"/>
+    <Index ID="190674" Value="39"/>
+    <Index ID="190675" Value="40"/>
+    <Index ID="190676" Value="42"/>
+    <Index ID="190677" Value="43"/>
+    <Index ID="190678" Value="44"/>
+    <Index ID="190679" Value="45"/>
+    <Index ID="190680" Value="46"/>
+    <Index ID="190695" Value="64"/>
+    <Index ID="190696" Value="65"/>
+    <Index ID="190697" Value="66"/>
+    <Index ID="190698" Value="67"/>
+    <Index ID="190699" Value="68"/>
+    <Index ID="190704" Value="73"/>
+    <Index ID="190705" Value="74"/>
+    <Index ID="190706" Value="75"/>
+    <Index ID="190707" Value="76"/>
+    <Index ID="190708" Value="77"/>
+    <Index ID="190709" Value="78"/>
+    <Index ID="190710" Value="79"/>
+    <Index ID="190711" Value="80"/>
+    <Index ID="190712" Value="81"/>
+    <Index ID="190713" Value="82"/>
+    <Index ID="190714" Value="83"/>
+    <Index ID="190715" Value="84"/>
+    <Index ID="190716" Value="85"/>
+    <Index ID="190717" Value="86"/>
+    <Index ID="190718" Value="87"/>
+    <Index ID="190725" Value="94"/>
+    <Index ID="190726" Value="95"/>
+    <Index ID="190727" Value="96"/>
+    <Index ID="190728" Value="97"/>
+    <Index ID="243634" Value="47"/>
+    <Index ID="243635" Value="48"/>
+    <Index ID="243636" Value="49"/>
+    <Index ID="243637" Value="50"/>
+    <Index ID="243638" Value="53"/>
+    <Index ID="243639" Value="54"/>
+    <Index ID="243640" Value="56"/>
+    <Index ID="243641" Value="57"/>
+    <Index ID="243642" Value="58"/>
+    <Index ID="243643" Value="59"/>
+    <Index ID="243644" Value="60"/>
+    <Index ID="243645" Value="61"/>
+    <Index ID="243646" Value="62"/>
+    <Index ID="243647" Value="63"/>
+    <Index ID="243648" Value="32"/>
+    <Index ID="243649" Value="28"/>
+    <Index ID="243651" Value="29"/>
+    <Index ID="243652" Value="30"/>
+    <Index ID="243653" Value="41"/>
+    <Index ID="243654" Value="31"/>
+    <Index ID="243655" Value="33"/>
+    <Index ID="509782" Value="51"/>
+    <Index ID="509783" Value="52"/>
+    <Index ID="509785" Value="55"/>
+  </IndexMap>
+</TextGroup>

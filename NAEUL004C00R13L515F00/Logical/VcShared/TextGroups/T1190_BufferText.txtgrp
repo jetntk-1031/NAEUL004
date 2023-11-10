@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1190_BufferText">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="19"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="191111" Value="Magazine Status Here:"/>
+    <Text ID="191112" Value="Magazine Not Present"/>
+    <Text ID="191113" Value="Magazine Empty"/>
+    <Text ID="191114" Value="Magazine Full"/>
+    <Text ID="191115" Value="Magazine Available"/>
+    <Text ID="191116" Value=" "/>
+    <Text ID="191117" Value="Buffer Status Here:"/>
+    <Text ID="191118" Value="Buffer Available"/>
+    <Text ID="191119" Value="Buffer Empty"/>
+    <Text ID="191120" Value="Buffer Full"/>
+    <Text ID="191121" Value=" "/>
+    <Text ID="191122" Value="Buffer Titles Here:"/>
+    <Text ID="191123" Value="Magazine 1"/>
+    <Text ID="191124" Value="Magazine 2"/>
+    <Text ID="191125" Value="Magazine 3"/>
+    <Text ID="191126" Value="/"/>
+    <Text ID="191127" Value=" "/>
+    <Text ID="191128" Value=" "/>
+    <Text ID="191129" Value=" "/>
+    <Text ID="191130" Value=" "/>
+    <Text ID="191139" Value=" "/>
+    <Text ID="191140" Value=" "/>
+    <Text ID="191149" Value=" "/>
+    <Text ID="191150" Value=" "/>
+    <Text ID="191196" Value="Idle"/>
+    <Text ID="193275" Value="Ready"/>
+    <Text ID="193276" Value="Done"/>
+    <Text ID="193277" Value="Error"/>
+    <Text ID="193278" Value="Set Full"/>
+    <Text ID="193279" Value="Set Empty"/>
+    <Text ID="193280" Value="Load"/>
+    <Text ID="193281" Value="Unload"/>
+    <Text ID="193282" Value="Refresh"/>
+    <Text ID="193283" Value="Next Load"/>
+    <Text ID="193284" Value="Next Unload"/>
+    <Text ID="193285" Value=" "/>
+    <Text ID="193286" Value=" "/>
+    <Text ID="243669" Value=""/>
+    <Text ID="662354" Value="Set Mag1 Full"/>
+    <Text ID="662355" Value="Set Mag2 Full"/>
+    <Text ID="662356" Value="Set Mag3 Full"/>
+    <Text ID="662357" Value="Set Mag1 Empty"/>
+    <Text ID="662358" Value="Set Mag2 Empty"/>
+    <Text ID="662359" Value="Set Mag3 Empty"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="191111" Value="Magazin Status:"/>
+    <Text ID="191112" Value="Magazin nicht Vorhanden"/>
+    <Text ID="191113" Value="Magazin Leer"/>
+    <Text ID="191114" Value="Magazin Voll"/>
+    <Text ID="191115" Value="Magazin Verfügbar"/>
+    <Text ID="191116" Value=" "/>
+    <Text ID="191117" Value="Puffer Status:"/>
+    <Text ID="191118" Value="Puffer Verfügbar"/>
+    <Text ID="191119" Value="Puffer Leer"/>
+    <Text ID="191120" Value="Puffer Voll"/>
+    <Text ID="191121" Value=" "/>
+    <Text ID="191122" Value="Puffer Bezeichnung:"/>
+    <Text ID="191123" Value="Magazine 1"/>
+    <Text ID="191124" Value="Magazine 2"/>
+    <Text ID="191125" Value="Magazine 3"/>
+    <Text ID="191126" Value="/"/>
+    <Text ID="191127" Value=" "/>
+    <Text ID="191128" Value=" "/>
+    <Text ID="191129" Value=" "/>
+    <Text ID="191130" Value=" "/>
+    <Text ID="191139" Value=" "/>
+    <Text ID="191140" Value=" "/>
+    <Text ID="191149" Value=" "/>
+    <Text ID="191150" Value=" "/>
+    <Text ID="191196" Value="Leerlauf"/>
+    <Text ID="193275" Value="Bereit"/>
+    <Text ID="193276" Value="Erledigt"/>
+    <Text ID="193277" Value="Fehler"/>
+    <Text ID="193278" Value="Voll Einstellen"/>
+    <Text ID="193279" Value="Leer Einstellen"/>
+    <Text ID="193280" Value="Belastung"/>
+    <Text ID="193281" Value="Entladen"/>
+    <Text ID="193282" Value="Aktualisierung"/>
+    <Text ID="193283" Value="Nächstes Laden"/>
+    <Text ID="193284" Value="Nächste Entladen"/>
+    <Text ID="193285" Value=" "/>
+    <Text ID="193286" Value=" "/>
+    <Text ID="243669" Value=""/>
+    <Text ID="662354" Value="Magazin1 Voll Einstellen"/>
+    <Text ID="662355" Value="Magazin2 Voll Einstellen"/>
+    <Text ID="662356" Value="Magazin3 Voll Einstellen"/>
+    <Text ID="662357" Value="Magazin1 Leer Setzen"/>
+    <Text ID="662358" Value="Magazin2 Leer Setzen"/>
+    <Text ID="662359" Value="Magazin3 Leer Setzen"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="191111" Value="料架状态:"/>
+    <Text ID="191112" Value="料架不存在"/>
+    <Text ID="191113" Value="料架为空"/>
+    <Text ID="191114" Value="料架已满"/>
+    <Text ID="191115" Value="有效料架"/>
+    <Text ID="191116" Value=" "/>
+    <Text ID="191117" Value="缓存机状态:"/>
+    <Text ID="191118" Value="可用缓存"/>
+    <Text ID="191119" Value="缓存为空"/>
+    <Text ID="191120" Value="缓存已满"/>
+    <Text ID="191121" Value=" "/>
+    <Text ID="191122" Value="缓存机标题:"/>
+    <Text ID="191123" Value="Magazine 1"/>
+    <Text ID="191124" Value="Magazine 2"/>
+    <Text ID="191125" Value="Magazine 3"/>
+    <Text ID="191126" Value="/"/>
+    <Text ID="191127" Value=" "/>
+    <Text ID="191128" Value=" "/>
+    <Text ID="191129" Value=" "/>
+    <Text ID="191130" Value=" "/>
+    <Text ID="191139" Value=" "/>
+    <Text ID="191140" Value=" "/>
+    <Text ID="191149" Value=" "/>
+    <Text ID="191150" Value=" "/>
+    <Text ID="191196" Value="闲置"/>
+    <Text ID="193275" Value="准备"/>
+    <Text ID="193276" Value="完成"/>
+    <Text ID="193277" Value="警报"/>
+    <Text ID="193278" Value="设置为满"/>
+    <Text ID="193279" Value="设置为空"/>
+    <Text ID="193280" Value="加载"/>
+    <Text ID="193281" Value="卸载"/>
+    <Text ID="193282" Value="刷新"/>
+    <Text ID="193283" Value="下一个加载"/>
+    <Text ID="193284" Value="下一次卸载"/>
+    <Text ID="193285" Value=" "/>
+    <Text ID="193286" Value=" "/>
+    <Text ID="243669" Value=""/>
+    <Text ID="662354" Value="设置料架1为满"/>
+    <Text ID="662355" Value="设置料架2为满"/>
+    <Text ID="662356" Value="设置料架3为满"/>
+    <Text ID="662357" Value="设置料架1为空"/>
+    <Text ID="662358" Value="设置料架2为空"/>
+    <Text ID="662359" Value="设置料架3为空"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="191111" Value=""/>
+    <Text ID="191112" Value=""/>
+    <Text ID="191113" Value=""/>
+    <Text ID="191114" Value=""/>
+    <Text ID="191115" Value=""/>
+    <Text ID="191116" Value=""/>
+    <Text ID="191117" Value=""/>
+    <Text ID="191118" Value=""/>
+    <Text ID="191119" Value=""/>
+    <Text ID="191120" Value=""/>
+    <Text ID="191121" Value=""/>
+    <Text ID="191122" Value=""/>
+    <Text ID="191123" Value=""/>
+    <Text ID="191124" Value=""/>
+    <Text ID="191125" Value=""/>
+    <Text ID="191126" Value=""/>
+    <Text ID="191127" Value=""/>
+    <Text ID="191128" Value=""/>
+    <Text ID="191129" Value=""/>
+    <Text ID="191130" Value=""/>
+    <Text ID="191139" Value=""/>
+    <Text ID="191140" Value=""/>
+    <Text ID="191149" Value=""/>
+    <Text ID="191150" Value=""/>
+    <Text ID="191196" Value=""/>
+    <Text ID="193275" Value=""/>
+    <Text ID="193276" Value=""/>
+    <Text ID="193277" Value=""/>
+    <Text ID="193278" Value=""/>
+    <Text ID="193279" Value=""/>
+    <Text ID="193280" Value=""/>
+    <Text ID="193281" Value=""/>
+    <Text ID="193282" Value=""/>
+    <Text ID="193283" Value=""/>
+    <Text ID="193284" Value=""/>
+    <Text ID="193285" Value=""/>
+    <Text ID="193286" Value=""/>
+    <Text ID="243669" Value=""/>
+    <Text ID="662354" Value=""/>
+    <Text ID="662355" Value=""/>
+    <Text ID="662356" Value=""/>
+    <Text ID="662357" Value=""/>
+    <Text ID="662358" Value=""/>
+    <Text ID="662359" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="191111" Value="15"/>
+    <Index ID="191112" Value="16"/>
+    <Index ID="191113" Value="17"/>
+    <Index ID="191114" Value="18"/>
+    <Index ID="191115" Value="19"/>
+    <Index ID="191116" Value="20"/>
+    <Index ID="191117" Value="21"/>
+    <Index ID="191118" Value="22"/>
+    <Index ID="191119" Value="23"/>
+    <Index ID="191120" Value="24"/>
+    <Index ID="191121" Value="25"/>
+    <Index ID="191122" Value="26"/>
+    <Index ID="191123" Value="27"/>
+    <Index ID="191124" Value="28"/>
+    <Index ID="191125" Value="29"/>
+    <Index ID="191126" Value="30"/>
+    <Index ID="191127" Value="31"/>
+    <Index ID="191128" Value="32"/>
+    <Index ID="191129" Value="33"/>
+    <Index ID="191130" Value="34"/>
+    <Index ID="191139" Value="43"/>
+    <Index ID="191140" Value="44"/>
+    <Index ID="191149" Value="53"/>
+    <Index ID="191150" Value="54"/>
+    <Index ID="191196" Value="100"/>
+    <Index ID="193275" Value="101"/>
+    <Index ID="193276" Value="102"/>
+    <Index ID="193277" Value="103"/>
+    <Index ID="193278" Value="104"/>
+    <Index ID="193279" Value="105"/>
+    <Index ID="193280" Value="106"/>
+    <Index ID="193281" Value="107"/>
+    <Index ID="193282" Value="108"/>
+    <Index ID="193283" Value="109"/>
+    <Index ID="193284" Value="110"/>
+    <Index ID="193285" Value="111"/>
+    <Index ID="193286" Value="112"/>
+    <Index ID="243669" Value="14"/>
+    <Index ID="662354" Value="40"/>
+    <Index ID="662355" Value="41"/>
+    <Index ID="662356" Value="42"/>
+    <Index ID="662357" Value="50"/>
+    <Index ID="662358" Value="51"/>
+    <Index ID="662359" Value="52"/>
+  </IndexMap>
+</TextGroup>

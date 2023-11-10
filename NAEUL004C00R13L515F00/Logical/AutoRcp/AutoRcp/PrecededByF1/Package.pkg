@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">PrecededByF1Initial.st</Object>
+    <Object Type="File">PrecededByF1Link.st</Object>
+    <Object Type="File">PrecededByF1Background1.st</Object>
+    <Object Type="File">PrecededByF1Background2.st</Object>
+  </Objects>
+</Package>

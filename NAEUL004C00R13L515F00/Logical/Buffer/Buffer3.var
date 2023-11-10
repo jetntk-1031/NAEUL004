@@ -1,0 +1,38 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_Buffer3Stat : UDINT;
+	p_Buffer3Status : UDINT;
+	p_Buffer3StatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_Buffer3AlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_Buffer3NxtLoadSlt : UDINT;
+	p_Buffer3NxtUnloadSlt : UDINT;
+	p_Buffer3CoolBrdAny : UDINT;
+	p_Buffer3CoolBrdGd : UDINT;
+	p_Buffer3CoolBrdBad : UDINT;
+	p_Buffer3CoolNotRdy : UDINT;
+	p_Buffer3Bffr : UDINT;
+	p_Buffer3DispBffr : UDINT;
+	p_Buffer3BffrStat : UDINT;
+	p_Buffer3BrdUnloadStat : UDINT;
+	p_Buffer3FileNotFound : UDINT;
+	p_Buffer3CoolFanCtrl : UDINT;
+	p_Buffer3MagPresent : UDINT;
+	p_Buffer3MagPresentTm : UDINT;
+	p_Buffer3NewProduct : UDINT;
+	p_Buffer3LastProductUnload : UDINT;
+	p_Buffer3LastProductLeftInBffr : UDINT;
+	p_Buffer3ParamDiff : UDINT;
+	p_Buffer3MagRemoved : UDINT;
+	p_Buffer3FIFOOld : UDINT;
+	p_Buffer3SlotNo : UDINT;
+END_VAR

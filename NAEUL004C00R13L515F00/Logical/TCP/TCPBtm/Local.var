@@ -1,0 +1,75 @@
+(*2019-06-07*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eTCPAction1 := TCPActIdle_0;
+	eStat : eTCPAction1 := TCPActIdle_0;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','TCP Write Then Read','TCP Write Then Read Until Valid',48('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='TCP Open Port Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Send Buffer Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Receive Buffer Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting No Waiting Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Count Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Idle Time Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Interval Time Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Server Connection Failed While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Ident In Used While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Connect To Server Error While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Client Connect Time Out While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Closing TCP Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='TCP Retry Send Data Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Opposite Closed Connection While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='TCP Send Data Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Data Receive Length Is Zero Due To Opposite Closed Connection While TCP Receiving Data While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Invalid Ident While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Opposite Closed Connection While Full Write & Read',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='TCP Receive Data Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Closing TCP Error While Full Write & Read',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='TCP Open Port Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Send Buffer Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Receive Buffer Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting No Waiting Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Count Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Idle Time Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Setting Keep Alive Interval Time Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Server Connection Failed While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Ident In Used While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Connect To Server Error While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Client Connect Time Out While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Closing TCP Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='TCP Retry Send Data Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Opposite Closed Connection While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='TCP Send Data Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Data Receive Length Is Zero Due To Opposite Closed Connection While TCP Receiving Data While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='Invalid Ident While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Opposite Closed Connection While Full Write & Read Until Valid',sRcyText:='Check Whether Server Connection Is Valid'),(sAlmText:='TCP Receive Data Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Invalid Ident While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),(sAlmText:='Closing TCP Error While Full Write & Read Until Valid',sRcyText:='Pleae Contact Nutek For Future Possible Solution'),52(0)];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	sFullMsgRd : STRING[80];
+	sMsgRd : STRING[80];
+	bMsgRdValid : BOOL;
+	uiMsgRdLen : UINT;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bRun : BOOL := FALSE;
+	sClntIP : STRING[15];
+	sSvrIP : STRING[15];
+	uiClntPort : UINT;
+	uiSvrPort : UINT;
+	udiSndBffrSize : UDINT := 65536;
+	udiRcvBffrSize : UDINT := 65536;
+	udiAliveIdleTmInSec : UDINT := 10;
+	tConnectTO : TIME := T#30s;
+	sMsgWr : STRING[80] := 'T'; (*trigger scanner*)
+	diStartCode1 : DINT := -1;
+	diStartCode2 : DINT := -1;
+	diEndCode1 : DINT := -1;
+	diEndCode2 : DINT := -1;
+	sProgNm : STRING[15] := 'TCPTop';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	fbClntConnect : fbTCPClntConnect;
+	fbSnd : fbTCPSnd;
+	fbRcv : fbTCPRcv;
+	fbClose : fbTCPClose;
+	udiTCPIdent : UDINT;
+	udiTCPIdent1 : UDINT;
+	usiStep : USINT;
+	iStartCodeLen : INT;
+	siStartCode1 : SINT;
+	siStartCode2 : SINT;
+	sStartCode : STRING[2];
+	iStartCodePos : INT;
+	iEndCodeLen : INT;
+	siEndCode1 : SINT;
+	siEndCode2 : SINT;
+	sEndCode : STRING[2];
+	iEndCodePos : INT;
+	bRstConnection : BOOL;
+END_VAR

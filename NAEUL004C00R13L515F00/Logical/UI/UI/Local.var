@@ -1,0 +1,484 @@
+(*2019-03-25*)
+(*Global IP Address*)
+VAR
+	g_sIPAddress : tyIPAddress;
+	sSelectedNetworkMode : STRING[30];
+	sTempNetworkMode : STRING[30];
+END_VAR
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eUIAction := UIActIdle;
+	eStat : eUIAction := UIActIdle;
+	eStatus : eFBStatus := Idle;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Initializing UI Page',49('')];
+END_VAR
+(**)
+(*All General Alarm*)
+VAR
+	tyUIAlmData : tyUIAllAlm;
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	eStartupAct : eStartupAction;
+	eSimuAct : eSimulationsAction;
+	eHWInfoAct : eHWInfoAction;
+	eTLBuzAct : eTLBuzAction;
+	eRstErrAct : eRstErrAction;
+	eProdRcpAct : eProdRcpAction;
+	eMpProdRcpAct : eMpProdRcpAction;
+	eMagRcpAct : eMagRcpAction;
+	eMcParamAct : eMcParamAction;
+	eUsrMgmtAct : eUsrMgmtAction;
+	eOvenInfoAAct : eOvenInfoAction;
+	eOvenInfoBAct : eOvenInfoAction;
+	eBuffer1Act : eBufferAction;
+	eBuffer2Act : eBufferAction;
+	eBuffer3Act : eBufferAction;
+	eUSSMEMAAAct : eSMEMAAction;
+	eUSSMEMABAct : eSMEMAAction;
+	eInShutterAct : ePneuAction;
+	eOutShutterAct : ePneuAction;
+	eOutShutterAct2 : ePneuAction;
+	eOutShutterAct3 : ePneuAction;
+	eStopperAAct : ePneuAction;
+	eStopperBAct : ePneuAction;
+	eInStopperAct : ePneuAction;
+	eMag1SafetyBarAct : ePneuAction;
+	eMag2SafetyBarAct : ePneuAction;
+	eMag3SafetyBarAct : ePneuAction;
+	eMag1AWEngageAct : ePneuAction;
+	eMag2AWEngageAct : ePneuAction;
+	eMag3AWEngageAct : ePneuAction;
+	ePshrConvAct : eConvAction;
+	eMtrPshrAct : eMtrPshrAction;
+	eMagConvSelClp1Act : ePneuAction;
+	eMagConvSelClp2Act : ePneuAction;
+	eMagConvSelClp3Act : ePneuAction;
+	eMagConv2Clp1Act : eMagConv2ClpAction;
+	eMagConv2Clp2Act : eMagConv2ClpAction;
+	eMagConv2Clp3Act : eMagConv2ClpAction;
+	eAWPushOrPullerAct : eAWAction;
+	eAWOpenAct : eAWAction;
+	eLifterBtmAct : eLifterAction;
+	eLifter2Act : eLifterAction;
+	eTravAct : eTravAction;
+	eMagAWOpen1Act : eMagAWAction;
+	eMagAWOpen2Act : eMagAWAction;
+	eMagAWOpen3Act : eMagAWAction;
+	eDOAct : eDOAction;
+	eHermesAct : eHermesAction;
+	eLFLeaderAct : eLFAction;
+	eOpsAct : eOperationsAction;
+	eInMagConvAct : eMagConvAction;
+	eOutMagConvAct : eMagConvAction;
+	eInMagConv2Act : eMagConvAction;
+	eOutMagConv2Act : eMagConvAction;
+	eLifterMagConvAct : eMagConvAction;
+	eLifterMagConv2Act : eMagConvAction;
+	eStopper1Act : ePneuAction;
+	eStopper2Act : ePneuAction;
+	eStopper3Act : ePneuAction;
+	eStopper4Act : ePneuAction;
+	eStopper5Act : ePneuAction;
+	eStopper1Act2 : ePneuAction;
+	eStopper2Act2 : ePneuAction;
+	eStopper3Act2 : ePneuAction;
+	eStopper4Act2 : ePneuAction;
+	eStopper5Act2 : ePneuAction;
+	bSafetyCurtainReset : BOOL;
+	bBypCurtainSen : BOOL;
+	bBypCurtainPBLED : BOOL;
+	fbCurtainRstDly : TON := (PT:=T#500ms);
+END_VAR
+(**)
+VAR
+	tyMcParamWr : tyMcParam;
+	tyProdRcpInfoIn : tyProdRcpParam;
+	sProdRcpSearch : STRING[30];
+	sProdRcpScan : STRING[30];
+	tyProdRcpCurrRcpWr : tyProdRcpParam;
+	tyMagRcpInfoIn : tyMagRcpParam;
+	sMagRcpSearch : STRING[30];
+	tyMagRcpCurrRcpWr : tyMagRcpParam;
+	tyUsrMgmtInfoIn : tyUsrMgmtParam;
+	tyUsrMgmtAccessRightLvl1Wr : tyUsrMgmtAccessRight;
+	tyUsrMgmtAccessRightLvl2Wr : tyUsrMgmtAccessRight;
+	tyUsrMgmtAccessRightLvl3Wr : tyUsrMgmtAccessRight;
+	a_tyHermesUSParamWr : ARRAY[0..c_diHermesConfigMaxIdx] OF tyHermesUSParam;
+	tyHermesSvyParamWr : tyHermesSvyParam;
+	sSetIPAddr : STRING[30];
+	sSetSubnetMask : STRING[30];
+	bManualMod : BOOL := FALSE;
+	bUIManualMod : BOOL;
+	bMuteBuz : BOOL := FALSE;
+	diConstant1 : DINT := 8;
+	diConstant2 : DINT := 267;
+	diMnlMtrPshrExtSpd : DINT;
+	diMnlMtrPshrExtTorq : DINT;
+	diMnlAWPushOrPullerGoWidth : DINT;
+	diMnlAWPushOrPullerNomSpd : DINT;
+	diMnlAWPushOrPullerTargetPos : DINT;
+	diMnlAWPushOrPullerStepSize : DINT;
+	diMnlAWPushOrPullerJogSpd : DINT;
+	diMnlAWGoWidth : DINT;
+	diMnlAWNomSpd : DINT;
+	diMnlAWTargetPos : DINT;
+	diMnlAWStepSize : DINT;
+	diMnlAWJogSpd : DINT;
+	diMnlLifterGoSlt1Pos : DINT;
+	diMnlLifterMag1GoSlt : DINT;
+	diMnlLifterMag2GoSlt : DINT;
+	diMnlLifterMag3GoSlt : DINT;
+	diMnlLifterNomSpd : DINT;
+	diMnlLifterTargetPos : DINT;
+	diMnlLifterStepSize : DINT;
+	diMnlLifterJogSpd : DINT;
+	diMnlLifterGoSlt1Pos2 : DINT;
+	diMnlLifterMag1GoSlt2 : DINT;
+	diMnlLifterMag2GoSlt2 : DINT;
+	diMnlLifterMag3GoSlt2 : DINT;
+	diMnlLifterNomSpd2 : DINT;
+	diMnlLifterTargetPos2 : DINT;
+	diMnlLifterStepSize2 : DINT;
+	diMnlLifterJogSpd2 : DINT;
+	diMnlTravNomSpd : DINT;
+	diMnlTravTargetPos : DINT;
+	diMnlTravStepSize : DINT;
+	diMnlTravJogSpd : DINT;
+	diMnlMagAW1GoWidth : DINT;
+	diMnlMagAW1NomSpd : DINT;
+	diMnlMagAW1TargetPos : DINT;
+	diMnlMagAW1StepSize : DINT;
+	diMnlMagAW1JogSpd : DINT;
+	diMnlMagAW2GoWidth : DINT;
+	diMnlMagAW2NomSpd : DINT;
+	diMnlMagAW2TargetPos : DINT;
+	diMnlMagAW2StepSize : DINT;
+	diMnlMagAW2JogSpd : DINT;
+	diMnlMagAW3GoWidth : DINT;
+	diMnlMagAW3NomSpd : DINT;
+	diMnlMagAW3TargetPos : DINT;
+	diMnlMagAW3StepSize : DINT;
+	diMnlMagAW3JogSpd : DINT;
+	bVSMEMAUSAEn : BOOL;
+	bVSMEMAUSBEn : BOOL;
+	bVSMEMAUBAA : BOOL;
+	bVSMEMAUBAAStat : BOOL;
+	bVSMEMAUBAB : BOOL;
+	bVSMEMAUBABStat : BOOL;
+	diSetBrdInOvenA : DINT;
+	diSetBrdInOvenB : DINT;
+	bLeaderRun : BOOL;
+	bProdAccData : BOOL;
+	bOpsBypsInitConv : BOOL;
+	bEjectMag1 : BOOL;
+	bEjectMag2 : BOOL;
+	bEjectMag3 : BOOL;
+	bNewMag1 : BOOL;
+	bNewMag2 : BOOL;
+	bNewMag3 : BOOL;
+	bRlsMag1 : BOOL;
+	bRlsMag2 : BOOL;
+	bRlsMag3 : BOOL;
+	tyAGVSimulateSig : tyTagAGVToDTMag;
+	bAGVSimulateOnline : BOOL;
+	bAGVSimulationOn : BOOL;
+	tySOTSimulateSig1 : tyLyrP0950SOTstatus;
+	tySOTSimulateSig2 : tyLyrP0950SOTstatus;
+	tySOTSimulateSig3 : tyLyrP0950SOTstatus;
+	diMnlPPGoWidth : DINT;
+	diMnlPPTargetPos : DINT;
+	diMnlPPStepSize : DINT;
+	diMnlPPNomSpd : DINT;
+	diMnlPPJogSpd : DINT;
+	diMnlServoMtrMaxPulRatio : DINT := 3000;
+	usiHComModChaged : USINT;
+END_VAR
+(**)
+(*Local Input*)
+(**)
+(*Local*)
+VAR
+	bInitDone : BOOL := FALSE;
+	bInitialDone : BOOL;
+	eUIInit : eUIInitial := UIInitialC0005;
+	i : UINT := 0;
+	eChgPage : ePage := UIP0001Startup;
+	eChgPageOld : ePage := UIP0001Startup;
+	eCurrPage : ePage := UIP0001Startup;
+	bChgPage : BOOL;
+	bJogFast : BOOL := FALSE;
+	bJogSlow : BOOL := FALSE;
+	bJogStopAWPushOrPuller : BOOL := FALSE;
+	bJogStopAW : BOOL := FALSE;
+	bJogStopTrav : BOOL := FALSE;
+	bJogStopLifter : BOOL := FALSE;
+	bLoginSuccess : BOOL := FALSE;
+	bRefreshMagRcpDetail : BOOL := FALSE;
+	bRefreshMagRcpTable : BOOL := TRUE;
+	bRefreshProdRcpDetail : BOOL := FALSE;
+	bRefreshProdRcpTable : BOOL := TRUE;
+	bRefreshUsrMgmtTable : BOOL := TRUE;
+	bIPDuplicate : BOOL := FALSE;
+	bOnlineTemp : BOOL := FALSE;
+	bTeachTravPosA : BOOL := FALSE;
+	bTeachTravPosB : BOOL := FALSE;
+	bTeachLifterPosA : BOOL := FALSE;
+	bTeachLifterPosB : BOOL := FALSE;
+	bTeachLifterTopPos : BOOL := FALSE;
+	bTeachLifterBtmPos : BOOL := FALSE;
+	bTeachLifterTopPos2 : BOOL := FALSE;
+	bTeachLifterBtmPos2 : BOOL := FALSE;
+	bTeachLifterMag1Slt1Pos : BOOL := FALSE;
+	bTeachLifterMag2Slt1Pos : BOOL := FALSE;
+	bTeachLifterMag3Slt1Pos : BOOL := FALSE;
+	bTeachTravPosMag1 : BOOL := FALSE;
+	bTeachTravPosMag2 : BOOL := FALSE;
+	bTeachTravPosMag3 : BOOL := FALSE;
+	usiLoginStep : USINT := 0;
+	usiSelProdRcpStep : USINT := 0;
+	usiSelMagRcpStep : USINT := 0;
+	usiSaveCommStep : USINT := 0;
+	usiSaveAIVCommStep : USINT := 0;
+	usiSaveSubnetMaskStep : USINT := 0;
+	usiSaveIPAddrStep : USINT := 0;
+	usiSaveUsrMgmtStep : USINT := 0;
+	usiEditUsrMgmtStep : USINT := 0;
+	usiDelUsrMgmtStep : USINT := 0;
+	usiSaveProdRcpStep : USINT := 0;
+	usiDelProdRcpStep : USINT := 0;
+	usiProdRcpToXMLStep : USINT := 0;
+	usiProdRcpFromXMLStep : USINT := 0;
+	usiSaveMagRcpStep : USINT := 0;
+	usiDelMagRcpStep : USINT := 0;
+	usiLFLeaderCtrlStep : USINT := 0;
+	usiChgPage : USINT := 1;
+	usiDelMcDetailsStep : USINT := 0;
+	usiTableShftStep : USINT := 0;
+	bSimuMod : BOOL := FALSE;
+	eNtWr : eNtParamAction;
+	usiTestTravStep : USINT;
+	usiSimuNtStep : USINT;
+	fbShutterSimChgOver : TON := (PT:=T#1500ms);
+	fbActSimuTmr : TON;
+	fbSSaverTm : TON := (0);
+	fbJogSlowToFastDlyTm : TON := (IN:=FALSE,PT:=T#2s,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbLmtRstTm : TON := (PT:=T#1s);
+	fbErrBlinkTm : TON := (IN:=FALSE,PT:=T#1s,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbRstBlinkTm : TON := (IN:=FALSE,PT:=T#1s,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbAccDatBlinkTm : TON := (IN:=FALSE,PT:=T#500ms,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbBypsInitConvBlinkTm : TON := (PT:=T#500ms);
+	fbMcStatUpdtTm : TON := (IN:=FALSE,PT:=T#1s,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbStopBlinkTm : TON := (IN:=FALSE,PT:=T#500ms,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbLFLeaderCtrlBlinkTm : TON := (IN:=FALSE,PT:=T#500ms,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	fbMag1EntrySenOnTm : TON := (PT:=T#3s);
+	fbMag2EntrySenOnTm : TON := (PT:=T#3s);
+	fbMag3EntrySenOnTm : TON := (PT:=T#3s);
+	tyP0400Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0400Table : fbTableCtrl;
+	tyP0410Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0410Table : fbTableCtrl;
+	tyP0700Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0700Table : fbTableCtrl;
+	tyP0800Table1 : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0800Table1 : fbTableCtrl;
+	tyP0800Table2 : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0800Table2 : fbTableCtrl;
+	tyP0800Table3 : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0800Table3 : fbTableCtrl;
+	tyP0950Table1 : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP0950Table1 : fbTableCtrl;
+	tyP1030Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP1030Table : fbTableCtrl_v2;
+	tyP1040Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP1040Table : fbTableCtrl_v2;
+	tyP1050Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP1050Table : fbTableCtrl;
+	tyP1080Table : tyTable := (bSliderActive:=FALSE,bTableActive:=FALSE,sVisuNm:='Visu',uiSelectedRow:=1,uiSelectedRowOld:=1,uiTablePos:=1);
+	fbP1080Table : fbTableCtrl;
+	udiP1030SelectedRowOld : UDINT := 0;
+	udiP1030SelectedRow : UDINT := 0;
+	udiP1040SelectedRowOld : UDINT := 0;
+	udiP1040SelectedRow : UDINT := 0;
+	usiP1080SelectedLvl : USINT := 0;
+	udiP1080SelectedRow : UDINT := 0;
+	uiSSaverCnt : UINT := 0;
+	a_iIPPart1 : ARRAY[1..4] OF INT := [4(0)];
+	a_iIPPart2 : ARRAY[1..4] OF INT := [4(0)];
+	a_iSubnetMaskPart1 : ARRAY[1..4] OF INT := [4(0)];
+	bCheckDone : BOOL;
+	sLFIPAddrTemp : STRING[15];
+	bFilterSortP0400 : BOOL;
+	bFilterSortP1040 : BOOL;
+	iSelectedRowValue : UINT;
+	bUpdateP0400Table : BOOL;
+	bUpdateP0410Table : BOOL;
+	bUpdateP1030Table : BOOL;
+	bUpdateP1040Table : BOOL;
+	bUpdateP1030LoadData : BOOL;
+	bUpdateP1040LoadData : BOOL;
+	bMismatchOverWriteConfig : BOOL;
+	bTempAddrFillDone : BOOL;
+	sTempIPAddr : STRING[15];
+	sTempSubnetMask : STRING[15];
+	bIPConfigChgDone : BOOL;
+	bOverwriteIP : BOOL;
+	bOverwriteSubnet : BOOL;
+	bOverwriteEthMode : BOOL;
+	bSaveNetworkPriority : BOOL;
+	bNetworkConfigChanged : BOOL;
+	bTeachServo : BOOL := FALSE;
+	usiNetworkModeOld : USINT;
+	usiNetworkModeNew : USINT;
+	usiNetworkModeSelected : USINT := 0;
+	usiChgNetworkConfigStep : USINT := 0;
+	usiRefreshDetailStep : USINT := 0;
+	udiTempEthMode : UDINT;
+	bUITravLifShowIOMonitor2 : BOOL;
+END_VAR
+(*AutoLogout*)
+VAR
+	bChgPageDone : BOOL;
+	bPromptSessionExp : BOOL := FALSE;
+	fbAutoLogoutTm : TON;
+	fbTouchTm : fbTouchGetAction := (sVisuNm:='Visu');
+	bLFRunInBG : BOOL;
+	bUpdateP1021Network : BOOL;
+	bUpdateP1050Table : BOOL;
+	iIPExtract : INT;
+	sLFSettingCurrentIP : STRING[4];
+	iLFSettingCurrentIP : INT;
+	sLFSettingAutoFill : STRING[15];
+	sLFSettingTemp : STRING[15];
+	bLFSettingAutoFill : BOOL;
+	bLFSettingAutoClear : BOOL;
+END_VAR
+(*SafetyBar and MagAW*)
+VAR
+	bDispSafetyBar1 : BOOL := TRUE;
+	bDispSafetyBar2 : BOOL := FALSE;
+	bDispMagAW1 : BOOL := TRUE;
+	bDispMagAW2 : BOOL := FALSE;
+	bDispMagAW3 : BOOL := FALSE;
+	bDispMagConv1 : BOOL := TRUE;
+	bDispMagConv2 : BOOL := FALSE;
+	bDispMagConv3 : BOOL := FALSE;
+	bJogStopMagAW1 : BOOL := FALSE;
+	bJogStopMagAW2 : BOOL := FALSE;
+	bJogStopMagAW3 : BOOL := FALSE;
+END_VAR
+(*AIV COMM*)
+VAR
+	bSOTMagErr1 : BOOL := FALSE;
+	bSOTMagErr2 : BOOL := FALSE;
+	bSOTMagErr3 : BOOL := FALSE;
+	bSOTMagErr4 : BOOL := FALSE;
+	bSOTMagRdy1 : BOOL := FALSE;
+	bSOTMagRdy2 : BOOL := FALSE;
+	bSOTMagRdy3 : BOOL := FALSE;
+	bSOTMagRdy4 : BOOL := FALSE;
+	bSOTMagAvail1 : BOOL := FALSE;
+	bSOTMagAvail2 : BOOL := FALSE;
+	bSOTMagAvail3 : BOOL := FALSE;
+	bSOTMagAvail4 : BOOL := FALSE;
+	bSOTMagSLarge1 : BOOL := FALSE;
+	bSOTMagSLarge2 : BOOL := FALSE;
+	bSOTMagSLarge3 : BOOL := FALSE;
+	bSOTMagSLarge4 : BOOL := FALSE;
+	bAIVReqBring1 : BOOL := FALSE;
+	bAIVReqBring2 : BOOL := FALSE;
+	bAIVReqBring3 : BOOL := FALSE;
+	bAIVReqBring4 : BOOL := FALSE;
+	bAIVReqGet1 : BOOL := FALSE;
+	bAIVReqGet2 : BOOL := FALSE;
+	bAIVReqGet3 : BOOL := FALSE;
+	bAIVReqGet4 : BOOL := FALSE;
+END_VAR
+(*MagAW*)
+VAR
+	bMagAWOpenLimByp1 : BOOL := FALSE;
+	bMagAWOpenLimByp2 : BOOL := FALSE;
+	bMagAWOpenLimByp3 : BOOL := FALSE;
+	bMagAWOpenLimByp4 : BOOL := FALSE;
+	bSmallMagLimSen1 : BOOL := FALSE;
+	bSmallMagLimSen2 : BOOL := FALSE;
+	bSmallMagLimSen3 : BOOL := FALSE;
+	bSmallMagLimSen4 : BOOL := FALSE;
+END_VAR
+(*DMCRFID Comm*)
+VAR
+	bStartScanSig : BOOL;
+	bPCBExitMag1 : BOOL;
+	bPCBExitMag2 : BOOL;
+	bPCBExitMag3 : BOOL;
+END_VAR
+(**)
+VAR
+	uiLFStartEditNo : UINT;
+END_VAR
+(*Mag AW self test*)
+VAR
+	bMagAWSelfTest : BOOL := FALSE;
+	usiMagAWSelfTestStep1 : USINT := 0;
+	fbMagAWSelfTestTim1 : TON := (PT:=T#1S);
+	usiMagAWSelfTestStep2 : USINT := 0;
+	fbMagAWSelfTestTim2 : TON := (PT:=T#1S);
+	usiMagAWSelfTestStep : USINT := 0;
+	fbMagAWSelfTestTim : TON := (PT:=T#1S);
+END_VAR
+(**)
+VAR
+	bUnloadMag : BOOL; (*Magazine platform*)
+	fbUnloadBlinkTm : TON := (PT:=T#500ms);
+	bChgMag : BOOL;
+	tChgMag : TON;
+	fbChgMagBlinkTm : TON := (IN:=FALSE,PT:=T#500ms,Q:=FALSE,ET:=0,StartTime:=0,M:=FALSE,Restart:=0);
+	bFllw2SetFull : BOOL;
+	bChgMagSig : BOOL;
+	bOpsMnlUnloadMag : BOOL; (*Lane1 Magazine unload*)
+	bOpsMnlUnloadMag2 : BOOL; (*Lane2 Magazine unload*)
+END_VAR
+(**)
+VAR
+	IPshrSafeDistanceValue : INT := 3000;
+	sPshrExtWarnMsg : STRING[254] := 'Please make sure the following is in magazine position:$r$n1: Traverser$r$n2: Lifter$r$n3: Outlet Shutter is opened';
+END_VAR
+(*Start Hermes var*)
+VAR
+	bNaviLyr1 : BOOL;
+	bNaviLyr2 : BOOL;
+	bQueryBoardInfo : BOOL := FALSE;
+	bQueryWorkOrderInfo : BOOL := FALSE;
+	bDeleteWorkOrder : BOOL := FALSE;
+	bSaveHMISvyConfig : BOOL;
+	bSaveHMIConfigure : BOOL;
+	bSkipWorkOrder : BOOL;
+	bReadWorkOrder : BOOL;
+	iSlotId : INT := 0;
+END_VAR
+(*end Hermes var*)
+(*Insert your comment here.*)
+VAR
+	fbPushRetRestTmr : TON := (PT:=T#5s);
+	fbPushExtRestTmr : TON := (PT:=T#5s);
+	usiExtRetTest : USINT;
+END_VAR
+(*calibration*)
+VAR
+	bBypassShutForCalib : BOOL;
+END_VAR
+(*Mainmenu*)
+VAR
+	usiGenSaveStep : USINT;
+	usiDuplicate : USINT;
+END_VAR
+(*//ADD*)
+VAR
+	usiSaveHMIIPAddrStep : USINT;
+	sSetHMIIPAddr : STRING[15];
+	sHMIIPAddr : STRING[15];
+	bUpdtHMIIPAddr : BOOL;
+END_VAR

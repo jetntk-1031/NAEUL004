@@ -1,0 +1,148 @@
+(*2019-04-16*)
+(**)
+(*General*)
+VAR
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+	p_bStop : REFERENCE TO BOOL;
+	p_bStep : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	pa_bMagDis : REFERENCE TO ARRAY[1..3] OF BOOL;
+	pa_bMagRej : REFERENCE TO ARRAY[1..3] OF BOOL;
+	p_bUnloadMag : REFERENCE TO BOOL;
+	p_bUSAllow : REFERENCE TO BOOL;
+	p_eNtParamProjMagBuffferActLoad : REFERENCE TO eLifMagULUpdateData;
+END_VAR
+(**)
+VAR
+	p_bConvInitDone : REFERENCE TO BOOL;
+	p_bConvHvBrd : REFERENCE TO BOOL;
+	p_bConvGdBrd : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_tyBufferStat1 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat2 : REFERENCE TO tyBffrStat;
+	p_tyBufferStat3 : REFERENCE TO tyBffrStat;
+END_VAR
+(**)
+VAR
+	p_bMagPresentSen1 : REFERENCE TO BOOL;
+	p_bMagPresentSen2 : REFERENCE TO BOOL;
+	p_bMagPresentSen3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bBufferMagPresent1 : REFERENCE TO BOOL;
+	p_bBufferMagPresent2 : REFERENCE TO BOOL;
+	p_bBufferMagPresent3 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_dtBufferMagPresentTm1 : REFERENCE TO DATE_AND_TIME;
+	p_dtBufferMagPresentTm2 : REFERENCE TO DATE_AND_TIME;
+	p_dtBufferMagPresentTm3 : REFERENCE TO DATE_AND_TIME;
+END_VAR
+(**)
+VAR
+	p_eLifterStat : REFERENCE TO eLifterAction;
+	p_eLifterStatus : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eLifter2Stat : REFERENCE TO eLifterAction;
+	p_eLifter2Status : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eLifterMagConvStat : REFERENCE TO eMagConvAction;
+	p_eLifterMagConvStatus : REFERENCE TO eFBStatus;
+	p_eLifterMagConv2Stat : REFERENCE TO eMagConvAction;
+	p_eLifterMagConv2Status : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eInMagConvStat : REFERENCE TO eMagConvAction;
+	p_eInMagConvStatus : REFERENCE TO eFBStatus;
+	p_eOutMagConvStat : REFERENCE TO eMagConvAction;
+	p_eOutMagConvStatus : REFERENCE TO eFBStatus;
+	p_eInMagConv2Stat : REFERENCE TO eMagConvAction;
+	p_eInMagConv2Status : REFERENCE TO eFBStatus;
+	p_eOutMagConv2Stat : REFERENCE TO eMagConvAction;
+	p_eOutMagConv2Status : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eBufferStat1 : REFERENCE TO eBufferAction;
+	p_eBufferStatus1 : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eBufferStat2 : REFERENCE TO eBufferAction;
+	p_eBufferStatus2 : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eBufferStat3 : REFERENCE TO eBufferAction;
+	p_eBufferStatus3 : REFERENCE TO eFBStatus;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat1 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus1 : REFERENCE TO eFBStatus;
+	p_bUSSMEMATransporting1 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart1 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop1 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat2 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus2 : REFERENCE TO eFBStatus;
+	p_bUSSMEMATransporting2 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart2 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop2 : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_eUSSMEMAStat3 : REFERENCE TO eSMEMAAction;
+	p_eUSSMEMAStatus3 : REFERENCE TO eFBStatus;
+	p_bUSSMEMATransporting3 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStart3 : REFERENCE TO BOOL;
+	p_bUSSMEMAConvStop3 : REFERENCE TO BOOL;
+END_VAR
+(*Shutter*)
+VAR
+	p_bDIInShutterOpenRS : REFERENCE TO BOOL;
+	p_bDIInShutterCloseRS : REFERENCE TO BOOL;
+	p_bDIOutShutterOpenRS : REFERENCE TO BOOL;
+	p_bDIOutShutterCloseRS : REFERENCE TO BOOL;
+	p_bDIPusherRetRS : REFERENCE TO BOOL;
+	p_bMcParamMagFullBuzOff : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_sProdRcpCurrRcp1Name : REFERENCE TO DINT;
+	p_sProdRcpCurrRcp2Name : REFERENCE TO DINT;
+END_VAR
+(*MagConv*)
+VAR
+	p_usiMag1Rdy : REFERENCE TO eLifterConvStatus;
+	p_usiMag2Rdy : REFERENCE TO eLifterConvStatus;
+	p_bPresentMag1 : REFERENCE TO BOOL;
+	p_bPresentMag2 : REFERENCE TO BOOL;
+	p_bMagConvLanePrep : REFERENCE TO BOOL;
+	p_bMagConvLane2Prep : REFERENCE TO BOOL;
+	p_bNtParamProjLifter2Prep : REFERENCE TO BOOL;
+	p_bOutShutterExtended : REFERENCE TO BOOL;
+END_VAR
+(**)

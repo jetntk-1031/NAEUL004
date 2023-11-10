@@ -1,0 +1,37 @@
+(*2018-12-11*)
+(**)
+VAR
+	p_bLinkDIMagPresentSen1 : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp1MtrIn : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp1MtrOut : REFERENCE TO BOOL;
+	p_bLinkDIMagPresentSen2 : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp2MtrIn : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp2MtrOut : REFERENCE TO BOOL;
+	p_bLinkDIMagPresentSen3 : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp3MtrIn : REFERENCE TO BOOL;
+	p_bLinkMagConv2Clp3MtrOut : REFERENCE TO BOOL;
+	p_bLinkFixedMagClampRS1 : REFERENCE TO BOOL;
+	p_bLinkRmtMagClampRS1 : REFERENCE TO BOOL;
+	p_bLinkFixedMagClampRS2 : REFERENCE TO BOOL;
+	p_bLinkRmtMagClampRS2 : REFERENCE TO BOOL;
+	p_bLinkFixedMagClampRS3 : REFERENCE TO BOOL;
+	p_bLinkRmtMagClampRS3 : REFERENCE TO BOOL;
+	p_bLinkMcParamMagAutoDetTm : REFERENCE TO DINT;
+	p_bLinkDIMagEntrySen : REFERENCE TO BOOL;
+	p_bLinkNtParamMagModelAutoVerify : REFERENCE TO BOOL;
+	p_bLinkMagRcpCurrRcpMagModel : REFERENCE TO USINT;
+	p_bLinkNewMagVerified1 : REFERENCE TO BOOL;
+	p_bLinkNewMagVerified2 : REFERENCE TO BOOL;
+	p_bLinkNewMagVerified3 : REFERENCE TO BOOL;
+	p_eNtParamProjMagBuffferActLoad : REFERENCE TO eLifMagULUpdateData;
+	p_eLinkMcParamMagExMode : REFERENCE TO eMcMagExchangeMode;
+END_VAR
+(**)
+VAR
+	p_bMag2OrientationChkSen1 : REFERENCE TO BOOL;
+	p_bMagHeightDetSen2 : REFERENCE TO BOOL;
+	p_bMagHeightDetEn : REFERENCE TO BOOL;
+	p_bMagHeightDetPrep : REFERENCE TO BOOL;
+	p_bProjLifTravMnlLoad : REFERENCE TO BOOL;
+	p_bMag2 : BOOL;
+END_VAR

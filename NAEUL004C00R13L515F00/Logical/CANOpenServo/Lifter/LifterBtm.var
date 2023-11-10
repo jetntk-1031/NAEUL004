@@ -1,0 +1,49 @@
+(*2019-04-24*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_LifterBtmStat : UDINT;
+	p_LifterBtmStatus : UDINT;
+	p_LifterBtmStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_LifterBtmAlmData : UDINT;
+	p_LifterBtmAlmData1 : UDINT;
+	p_LifterBtmAlmData2 : UDINT;
+	p_LifterBtmAlmData3 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_LifterBtmParamOut : UDINT;
+	p_LifterBtmPwrOn : UDINT;
+	p_LifterBtmIsHomed : UDINT;
+	p_LifterBtmPosDiff : UDINT;
+	p_LifterBtmAxisErr : UDINT;
+	p_LifterBtmAxisErrID : UDINT;
+	p_LifterBtmAxisErrTxt : UDINT;
+	p_LifterBtmFwdLmtSen : UDINT;
+	p_LifterBtmRevLmtSen : UDINT;
+	p_LifterBtmActualPos : UDINT;
+	p_LifterBtmSltAPosDiff : UDINT;
+	p_LifterBtmSltBPosDiff : UDINT;
+	p_LifterBtmSltCPosDiff : UDINT;
+	p_LifterBtmSltDPosDiff : UDINT;
+	p_LifterBtmCurrSltA : UDINT;
+	p_LifterBtmCurrSltB : UDINT;
+	p_LifterBtmCurrSltC : UDINT;
+	p_LifterBtmCurrSltD : UDINT;
+	p_LifterBtmAPosDiff : UDINT;
+	p_LifterBtmBPosDiff : UDINT;
+	p_LifterBtmCPosDiff : UDINT;
+	p_LifterBtmDPosDiff : UDINT;
+	p_LifterBtmEPosDiff : UDINT;
+	p_LifterBtmFPosDiff : UDINT;
+	p_LifterBtmGPosDiff : UDINT;
+	p_LifterBtmHPosDiff : UDINT;
+	p_LifterBtmJogging : UDINT;
+	p_LifterBtmUpSen : UDINT;
+	p_LifterBtmDownSen : UDINT;
+END_VAR

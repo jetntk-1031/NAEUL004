@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OpcUaSource FileVersion="3">
+  <DefaultView>
+    <Module>
+      <Task Name="ProdRcp" Enable="True">
+        <Variable Name="a_tyCurrList" Enable="True" EnableArrayElements="True" />
+      </Task>
+      <Task Name="LFFollower" Enable="True">
+        <Variable Name="tyFollowerToLeaderTag" Enable="True">
+          <Variable Name="sCurrProdRcp" Enable="True" />
+          <Variable Name="diCurrProdWidthUS" Enable="True" />
+          <Variable Name="diCurrProdWidthDS" Enable="True" />
+          <Variable Name="sCurrMagRcp" Enable="True" />
+          <Variable Name="sIPAddr" Enable="True" />
+          <Variable Name="sMcNm" Enable="True" />
+          <Variable Name="bSectionLeader" Enable="True" />
+          <Variable Name="usiRunTm" Enable="True" />
+          <Variable Name="bProdRcpErr" Enable="True" />
+          <Variable Name="bProdWidthErr" Enable="True" />
+          <Variable Name="bMagRcpErr" Enable="True" />
+          <Variable Name="bSyncTmErr" Enable="True" />
+          <Variable Name="eCurrMachineStat" Enable="True" />
+          <Variable Name="bProdChgOverActive" Enable="True" />
+        </Variable>
+        <Variable Name="tyLeaderToFollowerTag" Enable="True">
+          <Variable Name="sReqProdRcpNm" Enable="True" />
+          <Variable Name="diReqProdRcpWidth" Enable="True" />
+          <Variable Name="sReqMagRcpNm" Enable="True" />
+          <Variable Name="bMnlAccData" Enable="True" />
+          <Variable Name="bBypassMnlAccData" Enable="True" />
+          <Variable Name="bBlkDS" Enable="True" />
+          <Variable Name="bBlkUS" Enable="True" />
+          <Variable Name="bBypassWidthChk" Enable="True" />
+          <Variable Name="bSetTm" Enable="True" />
+          <Variable Name="dtTm" Enable="True" />
+          <Variable Name="uiTmZone" Enable="True" />
+          <Variable Name="usiRunTm" Enable="True" />
+          <Variable Name="bProdNameUSWarn" Enable="True" />
+          <Variable Name="bProdNameDSWarn" Enable="True" />
+          <Variable Name="bProdWidthUSWarn" Enable="True" />
+          <Variable Name="bProdWidthDSWarn" Enable="True" />
+          <Variable Name="bLeaderSeqCtrlInActive" Enable="True" />
+        </Variable>
+      </Task>
+      <Task Name="LCS" Enable="True">
+        <Variable Name="tyTagNm" Enable="True">
+          <Variable Name="eAct" Enable="True" />
+          <Variable Name="eStat" Enable="True" />
+          <Variable Name="udiStatus" Enable="True" />
+          <Variable Name="sErrMsg" Enable="True" />
+          <Variable Name="iIdxAct" Enable="True" />
+          <Variable Name="iIdxStat" Enable="True" />
+          <Variable Name="tyProdRcpInfo" Enable="True">
+            <Variable Name="sRcpNm" Enable="True" />
+            <Variable Name="diWidthInUM" Enable="True" />
+            <Variable Name="diWidthInUM2" Enable="True" />
+            <Variable Name="diIntvlCntr" Enable="True" />
+            <Variable Name="diMinSltValue" Enable="True" />
+            <Variable Name="diMaxSltValue" Enable="True" />
+            <Variable Name="diPitch" Enable="True" />
+            <Variable Name="diBrdPerSlt" Enable="True" />
+            <Variable Name="usiMcMod" Enable="True" />
+            <Variable Name="bTopToBtm" Enable="True" />
+            <Variable Name="bGapBwtnBrd" Enable="True" />
+            <Variable Name="bLongBrd" Enable="True" />
+            <Variable Name="diMinReqFreeBffr" Enable="True" />
+            <Variable Name="sDisplayInfo" Enable="True" />
+            <Variable Name="dtLastModified" Enable="True" />
+          </Variable>
+          <Variable Name="tyCurrProdRcpParam" Enable="True">
+            <Variable Name="sRcpNm" Enable="True" />
+            <Variable Name="diWidthInUM" Enable="True" />
+            <Variable Name="diWidthInUM2" Enable="True" />
+            <Variable Name="diIntvlCntr" Enable="True" />
+            <Variable Name="diMinSltValue" Enable="True" />
+            <Variable Name="diMaxSltValue" Enable="True" />
+            <Variable Name="diPitch" Enable="True" />
+            <Variable Name="diBrdPerSlt" Enable="True" />
+            <Variable Name="usiMcMod" Enable="True" />
+            <Variable Name="bTopToBtm" Enable="True" />
+            <Variable Name="bGapBwtnBrd" Enable="True" />
+            <Variable Name="bLongBrd" Enable="True" />
+            <Variable Name="diMinReqFreeBffr" Enable="True" />
+            <Variable Name="sDisplayInfo" Enable="True" />
+            <Variable Name="dtLastModified" Enable="True" />
+          </Variable>
+          <Variable Name="sCurrRcpNm" Enable="True" />
+          <Variable Name="rCurrWidth" Enable="True" />
+          <Variable Name="eCurrOpsStatus" Enable="True" />
+          <Variable Name="usiBrdStatus" Enable="True" />
+          <Variable Name="usiMode" Enable="True" />
+          <Variable Name="iTopToBtm" Enable="True" />
+          <Variable Name="sLastModified" Enable="True" />
+          <Variable Name="bMngRcpEn" Enable="True" />
+          <Variable Name="bLiveData" Enable="True" />
+          <Variable Name="bLFEn" Enable="True" />
+        </Variable>
+      </Task>
+      <Task Name="AGV" Enable="True">
+        <Variable Name="bAGVOnline" Enable="True" />
+        <Variable Name="bMachineOnline" Enable="True" />
+        <Variable Name="tyAGVToDTMag" Enable="True">
+          <Variable Name="bVEHInPos1" Enable="True" />
+          <Variable Name="bVEHInPos2" Enable="True" />
+          <Variable Name="bVEHInPos3" Enable="True" />
+          <Variable Name="bVEHAuto" Enable="True" />
+          <Variable Name="bVEH1Occupied" Enable="True" />
+          <Variable Name="bVEH2Occupied" Enable="True" />
+          <Variable Name="bVEH3Occupied" Enable="True" />
+          <Variable Name="bVEHRunning" Enable="True" />
+        </Variable>
+        <Variable Name="tyDTMagToAGV" Enable="True">
+          <Variable Name="bEStopErr" Enable="True" />
+          <Variable Name="bCI1MagazineFull" Enable="True" />
+          <Variable Name="bCI1Rdy" Enable="True" />
+          <Variable Name="bCI1Auto" Enable="True" />
+          <Variable Name="bCI1Occupied" Enable="True" />
+          <Variable Name="bCI1Running" Enable="True" />
+          <Variable Name="bCI1IncorrectMagazineModel" Enable="True" />
+          <Variable Name="bCI2MagazineFull" Enable="True" />
+          <Variable Name="bCI2Rdy" Enable="True" />
+          <Variable Name="bCI2Auto" Enable="True" />
+          <Variable Name="bCI2Occupied" Enable="True" />
+          <Variable Name="bCI2Running" Enable="True" />
+          <Variable Name="bCI2IncorrectMagazineModel" Enable="True" />
+          <Variable Name="bCI3MagazineFull" Enable="True" />
+          <Variable Name="bCI3Rdy" Enable="True" />
+          <Variable Name="bCI3Auto" Enable="True" />
+          <Variable Name="bCI3Occupied" Enable="True" />
+          <Variable Name="bCI3Running" Enable="True" />
+          <Variable Name="bCI3IncorrectMagazineModel" Enable="True" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

@@ -1,0 +1,10 @@
+(*2019-04-09*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_diLinkProdSelWidth : REFERENCE TO DINT;
+	p_diLinkPshrOffset : REFERENCE TO DINT;
+	p_diLinkMnlGoWidth : REFERENCE TO DINT;
+	p_bLinkSafetyRelay : REFERENCE TO BOOL;
+END_VAR

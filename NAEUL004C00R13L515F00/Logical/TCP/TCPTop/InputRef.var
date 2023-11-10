@@ -1,0 +1,30 @@
+(*2019-06-07*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eTCPAction1;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+	p_bRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_sClntIP : REFERENCE TO STRING[15];
+	p_sSvrIP : REFERENCE TO STRING[15];
+	p_uiClntPort : REFERENCE TO UINT;
+	p_uiSvrPort : REFERENCE TO UINT;
+	p_udiSndBffrSize : REFERENCE TO UDINT;
+	p_udiRcvBffrSize : REFERENCE TO UDINT;
+	p_udiAliveIdleTmInSec : REFERENCE TO UDINT;
+	p_tConnectTO : REFERENCE TO TIME;
+	p_sMsgWr : REFERENCE TO STRING[80];
+	p_diStartCode1 : REFERENCE TO DINT;
+	p_diStartCode2 : REFERENCE TO DINT;
+	p_diEndCode1 : REFERENCE TO DINT;
+	p_diEndCode2 : REFERENCE TO DINT;
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR

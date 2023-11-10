@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Physical xmlns="http://br-automation.co.at/AS/Physical">
+  <Objects>
+    <Object Type="Configuration" Description="Reference Job: 2021-0895H01">23Mag_UL_MagPlatORLifTrav_Estun_laneMag</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0895H01">23Mag_UL_MagPlatORLifTrav_Estun</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0694L01">3Mag_UL_SOT_Estun_MPuller</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0694L01">3Mag_UL_SOT_MPuller1</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0346E01">2Mag_UL_MagAW_SOT</Object>
+    <Object Type="Configuration" Description="Reference Job: 2020-0333B01">3Mag_UL</Object>
+    <Object Type="Configuration">2Mag_UL</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0534B01">2Mag_AIV_IOComm</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0895H01">DualLaneMultiMag_UL_Estun</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0346N01">3Mag_UL_MagAW_SOT</Object>
+    <Object Type="Configuration" Description="Reference Job: 2023-0150N01">3Mag_UL_SOT_MPushr_NoRoller</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0061C01">3Mag_UL_MagAW_MPshr_XSafety</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0061C01">3Mag_UL_MagAW_MPshr</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0061C01">3Mag_UL_MagAW_PneuPshr_XSafety</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0694L01">3Mag_UL_MagPlat</Object>
+    <Object Type="Configuration" Description="Reference Job: 2021-0694L01">Demo</Object>
+  </Objects>
+</Physical>

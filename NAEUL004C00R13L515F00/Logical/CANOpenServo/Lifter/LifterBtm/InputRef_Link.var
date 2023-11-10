@@ -1,0 +1,20 @@
+(*2019-04-09*)
+(**)
+(*External*)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_diLinkSltToSltDist : REFERENCE TO DINT;
+	p_bLinkDILifterTimingBeltSen : REFERENCE TO BOOL;
+	p_bLinkDILifterSafetyLmtSW1 : REFERENCE TO BOOL;
+	p_bLinkDILifterSafetyLmtSW2 : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULInDSPos : REFERENCE TO BOOL;
+	p_bLinkSafetyRelay : REFERENCE TO BOOL;
+	p_bLinkProjLifterMagPlatform : REFERENCE TO BOOL;
+	p_bLinkProjMagConvLane1Prep : REFERENCE TO BOOL;
+	p_bLinkOpsTravLifULMagWidthChk : REFERENCE TO BOOL;
+	p_usiOpsTravLifULMagWidthChkStep : REFERENCE TO USINT;
+END_VAR

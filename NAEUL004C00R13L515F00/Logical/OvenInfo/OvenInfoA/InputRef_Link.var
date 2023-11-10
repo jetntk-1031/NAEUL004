@@ -1,0 +1,10 @@
+(*2019-04-04*)
+(**)
+(*External*)
+VAR
+	p_bLinkOpsStatusRun : REFERENCE TO BOOL;
+	p_usiLinkProdRcpCurrRcpMcMod : REFERENCE TO USINT;
+	p_eLinkOpsTravLifPosGo : REFERENCE TO eTravLifULPos;
+	p_eLinkConvStat : REFERENCE TO eConvAction;
+	p_bLinkConvHvBrd : REFERENCE TO BOOL;
+END_VAR

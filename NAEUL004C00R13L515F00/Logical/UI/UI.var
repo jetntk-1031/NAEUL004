@@ -1,0 +1,360 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_UIStat : UDINT;
+	p_UIStatus : UDINT;
+	p_UIStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+(**)
+(*Output*)
+VAR
+	p_UIStartupAct : UDINT;
+	p_UISimuAct : UDINT;
+	p_UIHWInfoAct : UDINT;
+	p_UITLBuzAct : UDINT;
+	p_UIRstErrAct : UDINT;
+	p_UIProdRcpAct : UDINT;
+	p_UIMpProdRcpAct : UDINT;
+	p_UIMagRcpAct : UDINT;
+	p_UIMcParamAct : UDINT;
+	p_UIUsrMgmtAct : UDINT;
+	p_UIOvenInfoAAct : UDINT;
+	p_UIOvenInfoBAct : UDINT;
+	p_UIBuffer1Act : UDINT;
+	p_UIBuffer2Act : UDINT;
+	p_UIBuffer3Act : UDINT;
+	p_UIUSSMEMAAAct : UDINT;
+	p_UIUSSMEMABAct : UDINT;
+	p_UIInShutterAct : UDINT;
+	p_UIOutShutterAct : UDINT;
+	p_UIOutShutterAct2 : UDINT;
+	p_UIOutShutterAct3 : UDINT;
+	p_UIStopperAAct : UDINT;
+	p_UIStopperBAct : UDINT;
+	p_UIInStopperAct : UDINT;
+	p_UIMag1SafetyBarAct : UDINT;
+	p_UIMag2SafetyBarAct : UDINT;
+	p_UIMag3SafetyBarAct : UDINT;
+	p_UIMag1AWEngageAct : UDINT;
+	p_UIMag2AWEngageAct : UDINT;
+	p_UIMag3AWEngageAct : UDINT;
+	p_UIPshrConvAct : UDINT;
+	p_UIMagConvSelClp1Act : UDINT;
+	p_UIMagConvSelClp2Act : UDINT;
+	p_UIMagConvSelClp3Act : UDINT;
+	p_UIMagConv2Clp1Act : UDINT;
+	p_UIMagConv2Clp2Act : UDINT;
+	p_UIMagConv2Clp3Act : UDINT;
+	p_UIAWPushOrPullerAct : UDINT;
+	p_UIAWOpenAct : UDINT;
+	p_UILifterBtmAct : UDINT;
+	p_UILifter2Act : UDINT;
+	p_UITravAct : UDINT;
+	p_UIMagAWOpen1Act : UDINT;
+	p_UIMagAWOpen2Act : UDINT;
+	p_UIMagAWOpen3Act : UDINT;
+	p_UIDOAct : UDINT;
+	p_UIHermesAct : UDINT;
+	p_UILFLeaderAct : UDINT;
+	p_UIOpsAct : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMcParamWr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIProdRcpInfoIn : UDINT;
+	p_UIProdRcpSearch : UDINT;
+	p_UIProdRcpScan : UDINT;
+	p_UIProdRcpCurrRcpWr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMagRcpInfoIn : UDINT;
+	p_UIMagRcpSearch : UDINT;
+	p_UIMagRcpCurrRcpWr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIUsrMgmtInfoIn : UDINT;
+	p_UIUsrMgmtAccessRightLvl1Wr : UDINT;
+	p_UIUsrMgmtAccessRightLvl2Wr : UDINT;
+	p_UIUsrMgmtAccessRightLvl3Wr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIHermesUSParamWr : UDINT;
+	p_UIHermesSvyParamWr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UISectionLdr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UISetIPAddr : UDINT;
+	p_UISetSubnetMask : UDINT;
+	p_UINetworkMode : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlMod : UDINT;
+	p_UIUIMnlMod : UDINT;
+	p_UIMuteBuz : UDINT;
+	p_UISimuMod : UDINT;
+	p_UINtWr : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlAWPushOrPullerGoWidth : UDINT;
+	p_UIMnlAWPushOrPullerNomSpd : UDINT;
+	p_UIMnlAWPushOrPullerTargetPos : UDINT;
+	p_UIMnlAWPushOrPullerStepSize : UDINT;
+	p_UIMnlAWPushOrPullerJogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlAWGoWidth : UDINT;
+	p_UIMnlAWNomSpd : UDINT;
+	p_UIMnlAWTargetPos : UDINT;
+	p_UIMnlAWStepSize : UDINT;
+	p_UIMnlAWJogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlLifterBtmGoSlt1Pos : UDINT;
+	p_UIMnlLifterBtmMag1GoSlt : UDINT;
+	p_UIMnlLifterBtmMag2GoSlt : UDINT;
+	p_UIMnlLifterBtmMag3GoSlt : UDINT;
+	p_UIMnlLifterBtmNomSpd : UDINT;
+	p_UIMnlLifterBtmTargetPos : UDINT;
+	p_UIMnlLifterBtmStepSize : UDINT;
+	p_UIMnlLifterBtmJogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlLifter2GoSlt1Pos : UDINT;
+	p_UIMnlLifter2Mag1GoSlt : UDINT;
+	p_UIMnlLifter2Mag2GoSlt : UDINT;
+	p_UIMnlLifter2Mag3GoSlt : UDINT;
+	p_UIMnlLifter2NomSpd : UDINT;
+	p_UIMnlLifter2TargetPos : UDINT;
+	p_UIMnlLifter2StepSize : UDINT;
+	p_UIMnlLifter2JogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlTravNomSpd : UDINT;
+	p_UIMnlTravTargetPos : UDINT;
+	p_UIMnlTravStepSize : UDINT;
+	p_UIMnlTravJogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlMagAW1GoWidth : UDINT;
+	p_UIMnlMagAW1NomSpd : UDINT;
+	p_UIMnlMagAW1TargetPos : UDINT;
+	p_UIMnlMagAW1StepSize : UDINT;
+	p_UIMnlMagAW1JogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlMagAW2GoWidth : UDINT;
+	p_UIMnlMagAW2NomSpd : UDINT;
+	p_UIMnlMagAW2TargetPos : UDINT;
+	p_UIMnlMagAW2StepSize : UDINT;
+	p_UIMnlMagAW2JogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlMagAW3GoWidth : UDINT;
+	p_UIMnlMagAW3NomSpd : UDINT;
+	p_UIMnlMagAW3TargetPos : UDINT;
+	p_UIMnlMagAW3StepSize : UDINT;
+	p_UIMnlMagAW3JogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlPPNomSpd : UDINT;
+	p_UIMnlPPTargetPos : UDINT;
+	p_UIMnlPPStepSize : UDINT;
+	p_UIMnlPPJogSpd : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIVSMEMAUSAEn : UDINT;
+	p_UIVSMEMAUSBEn : UDINT;
+	p_UIVSMEMAUBAA : UDINT;
+	p_UIVSMEMAUBAAStat : UDINT;
+	p_UIVSMEMAUBAB : UDINT;
+	p_UIVSMEMAUBABStat : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIOvenInfoSetBrdInOvenA : UDINT;
+	p_UIOvenInfoSetBrdInOvenB : UDINT;
+END_VAR
+(**)
+VAR
+	p_UILeaderRun : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIProdAccData : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIOpsBypsInitConv : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIAIVCommReconnect : UDINT;
+END_VAR
+(**)
+VAR
+	p_UINewMag1 : UDINT;
+	p_UINewMag2 : UDINT;
+	p_UINewMag3 : UDINT;
+	p_UIRlsMag1 : UDINT;
+	p_UIRlsMag2 : UDINT;
+	p_UIRlsMag3 : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIAGVSimulateOnline : UDINT;
+	p_UIAGVSimulateSig : UDINT;
+	p_UIAGVSimulationOn : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMismatchOverWriteConfig : UDINT;
+	p_UITempAddrFillDone : UDINT;
+	p_UIIPConfigChgDone : UDINT;
+	p_UIOverwriteIP : UDINT;
+	p_UIOverwriteSubnet : UDINT;
+	p_UIOverwriteEthMode : UDINT;
+END_VAR
+(*Hermes 1.3*)
+VAR
+	p_UIQueryBoardInfo : UDINT;
+	p_UIQueryWorkOrderInfo : UDINT;
+	p_UISaveHMIConfigure : UDINT;
+	p_UISaveHMISvyConfig : UDINT;
+	p_UITravLifTopBarcode : UDINT;
+	p_UITravLifBottomBarcode : UDINT;
+	p_UIMagazine1Id : UDINT;
+	p_UIMagazine1PCBBarcode : UDINT;
+	p_UIMagazine2Id : UDINT;
+	p_UIMagazine2PCBBarcode : UDINT;
+	p_UIMagazine3Id : UDINT;
+	p_UIMagazine3PCBBarcode : UDINT;
+	p_UIMagazineSlotId : UDINT;
+	p_UITravLifPCBBarcode : UDINT;
+	p_UISkipWorkOrder : UDINT;
+	p_UIReadWorkOrder : UDINT;
+	p_UIDeleteWorkOrder : UDINT;
+END_VAR
+(**)
+VAR
+	p_UISOTMagErr1 : UDINT;
+	p_UISOTMagErr2 : UDINT;
+	p_UISOTMagErr3 : UDINT;
+	p_UISOTMagErr4 : UDINT;
+	p_UISOTMagRdy1 : UDINT;
+	p_UISOTMagRdy2 : UDINT;
+	p_UISOTMagRdy3 : UDINT;
+	p_UISOTMagRdy4 : UDINT;
+	p_UISOTMagAvail1 : UDINT;
+	p_UISOTMagAvail2 : UDINT;
+	p_UISOTMagAvail3 : UDINT;
+	p_UISOTMagAvail4 : UDINT;
+	p_UISOTMagSLarge1 : UDINT;
+	p_UISOTMagSLarge2 : UDINT;
+	p_UISOTMagSLarge3 : UDINT;
+	p_UISOTMagSLarge4 : UDINT;
+	p_UIAIVReqBring1 : UDINT;
+	p_UIAIVReqBring2 : UDINT;
+	p_UIAIVReqBring3 : UDINT;
+	p_UIAIVReqBring4 : UDINT;
+	p_UIAIVReqGet1 : UDINT;
+	p_UIAIVReqGet2 : UDINT;
+	p_UIAIVReqGet3 : UDINT;
+	p_UIAIVReqGet4 : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMagAWOpenLimByp1 : UDINT;
+	p_UIMagAWOpenLimByp2 : UDINT;
+	p_UIMagAWOpenLimByp3 : UDINT;
+	p_UIMagAWOpenLimByp4 : UDINT;
+	p_UIMagAWSmallLimSen1 : UDINT;
+	p_UIMagAWSmallLimSen2 : UDINT;
+	p_UIMagAWSmallLimSen3 : UDINT;
+	p_UIMagAWSmallLimSen4 : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMagAccData : UDINT;
+END_VAR
+(**)
+VAR
+	p_UISOTSimulationSig1 : UDINT;
+	p_UISOTSimulationSig2 : UDINT;
+	p_UISOTSimulationSig3 : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIMnlMtrPshrExtSpd : UDINT;
+	p_UIMnlMtrPshrExtTorq : UDINT;
+	p_UIMnlMtrPshrRetSpd : UDINT;
+	p_UIMnlMtrPshrRetTorq : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIUnloadMag : UDINT;
+	p_UIOpsMnlUnloadMag : UDINT;
+	p_UIOpsMnlUnloadMag2 : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIInMagConvAct : UDINT;
+	p_UIOutMagConvAct : UDINT;
+	p_UIInMagConv2Act : UDINT;
+	p_UIOutMagConv2Act : UDINT;
+	p_UILifterMagConvAct : UDINT;
+	p_UILifterMagConv2Act : UDINT;
+	p_UIStopper1Act : UDINT;
+	p_UIStopper2Act : UDINT;
+	p_UIStopper3Act : UDINT;
+	p_UIStopper4Act : UDINT;
+	p_UIStopper5Act : UDINT;
+	p_UIStopper1Act2 : UDINT;
+	p_UIStopper2Act2 : UDINT;
+	p_UIStopper3Act2 : UDINT;
+	p_UIStopper4Act2 : UDINT;
+	p_UIStopper5Act2 : UDINT;
+	p_UISafetyCurtainReset : UDINT;
+	p_UIMnlBypCurtainSen : UDINT;
+	p_UIMnlBypCurtainPBLED : UDINT;
+END_VAR
+(**)
+VAR
+	p_SelProdRcpStep : UDINT;
+	p_UIHcomModchanged : UDINT;
+END_VAR
+(**)
+VAR
+	p_UIStartScanSig : UDINT;
+	p_UIMag1TransOut : UDINT;
+	p_UIMag2TransOut : UDINT;
+	p_UIMag3TransOut : UDINT;
+END_VAR
+(*//ADD*)
+VAR
+	p_UIUpdtHMIIPAddr : UDINT;
+	p_UISetHMIIPAddr : UDINT;
+END_VAR

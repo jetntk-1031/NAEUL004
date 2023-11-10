@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T0002_LibraryStatus">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="27"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="346103" Value=""/>
+    <Text ID="346104" Value=""/>
+    <Text ID="346105" Value=""/>
+    <Text ID="346107" Value="Pneumatic Idling"/>
+    <Text ID="346159" Value=""/>
+    <Text ID="346166" Value=""/>
+    <Text ID="346167" Value=""/>
+    <Text ID="346168" Value=""/>
+    <Text ID="346169" Value=""/>
+    <Text ID="346179" Value=""/>
+    <Text ID="346209" Value="Motion Idling"/>
+    <Text ID="377163" Value="Conveyor Status"/>
+    <Text ID="377164" Value="Conveyor Idling"/>
+    <Text ID="377165" Value="Init Running To Outlet Sensor"/>
+    <Text ID="377166" Value="Entering Board to Outlet Sensor"/>
+    <Text ID="377167" Value="Entering Board to Inlet Sensor Deactivate"/>
+    <Text ID="377168" Value="Exiting Board With Outlet Sensor Check"/>
+    <Text ID="377169" Value="Move Board to Outlet Sensor"/>
+    <Text ID="377170" Value="Move Board By Time Without Check"/>
+    <Text ID="377171" Value="Move Board By Time With Check"/>
+    <Text ID="377172" Value="Move Board From Inlet to Outlet Sensor"/>
+    <Text ID="377173" Value="Move Board From Inlet By Time Without Check"/>
+    <Text ID="377174" Value="Move Board From Inlet By Time With Check"/>
+    <Text ID="377175" Value="Conveyor Motor Stopping"/>
+    <Text ID="377176" Value="Safety Relay Error"/>
+    <Text ID="377177" Value=""/>
+    <Text ID="377178" Value=""/>
+    <Text ID="377179" Value=""/>
+    <Text ID="377180" Value=""/>
+    <Text ID="377193" Value="Telescopic Status:"/>
+    <Text ID="377194" Value="Telescopic Idling"/>
+    <Text ID="377195" Value="Operation Preset Value"/>
+    <Text ID="377196" Value="Operation Motor Running"/>
+    <Text ID="377197" Value="Operation Motor Stopping"/>
+    <Text ID="377198" Value="Telescopic Stopping"/>
+    <Text ID="377199" Value="Safety Relay Error"/>
+    <Text ID="377200" Value="Telescopic Status:"/>
+    <Text ID="377201" Value="Telescopic Idling"/>
+    <Text ID="377202" Value="Operation Preset Value"/>
+    <Text ID="377203" Value="Operation Motor Running"/>
+    <Text ID="377204" Value="Operation Motor Stopping"/>
+    <Text ID="377205" Value="Telescopic Stopping"/>
+    <Text ID="377206" Value="Safety Relay Error"/>
+    <Text ID="377207" Value=""/>
+    <Text ID="377208" Value=""/>
+    <Text ID="377209" Value="Invert Status:"/>
+    <Text ID="377210" Value="Invert Idling"/>
+    <Text ID="377211" Value="Operation Motor Running"/>
+    <Text ID="377212" Value="Operation Motor Stopping"/>
+    <Text ID="377213" Value="Invert Stopping"/>
+    <Text ID="377214" Value="Safety Relay Error"/>
+    <Text ID="377215" Value="Pneumatic Status:"/>
+    <Text ID="377217" Value="Pneumatic Extending"/>
+    <Text ID="377218" Value="Pneumatic Retracting"/>
+    <Text ID="377219" Value="Setting All Output Off"/>
+    <Text ID="377220" Value="Setting All Output ON"/>
+    <Text ID="377221" Value="Setting Extend Output ON Only"/>
+    <Text ID="377222" Value="Setting Retract Output ON Only"/>
+    <Text ID="377223" Value="Safety Relay Error"/>
+    <Text ID="377235" Value="Motion Status:"/>
+    <Text ID="377237" Value="Powering Off"/>
+    <Text ID="377238" Value="Powering On"/>
+    <Text ID="377239" Value="Power On Status Checking"/>
+    <Text ID="377240" Value="Homing"/>
+    <Text ID="377241" Value="Waiting Homing Done"/>
+    <Text ID="377242" Value="Homing Done Status Checking"/>
+    <Text ID="377243" Value="Moving Absolute"/>
+    <Text ID="377244" Value="Moving Relative"/>
+    <Text ID="377245" Value="Jogging"/>
+    <Text ID="377246" Value="Axis Error Resetting"/>
+    <Text ID="377247" Value="Axis Error Status Checking"/>
+    <Text ID="377248" Value="Motion Stopping"/>
+    <Text ID="377249" Value=""/>
+    <Text ID="377250" Value="Over Current"/>
+    <Text ID="377251" Value="Over Voltage"/>
+    <Text ID="377252" Value="Under Voltage"/>
+    <Text ID="377253" Value="Input Power Phase Loss"/>
+    <Text ID="377254" Value="Regeneration Error"/>
+    <Text ID="377255" Value="Overload"/>
+    <Text ID="377256" Value="Pre-overload Warning"/>
+    <Text ID="377257" Value="U,V,W Wiring Error"/>
+    <Text ID="377258" Value="IGBT Temperature Error"/>
+    <Text ID="377259" Value="Memory Error"/>
+    <Text ID="377260" Value="Emergency Stop Activated"/>
+    <Text ID="377261" Value="Forward Limit Switch Error"/>
+    <Text ID="377262" Value="Reverse Limit Switch Error"/>
+    <Text ID="377263" Value="Forward Software Limit"/>
+    <Text ID="377264" Value="Reverse Software Limit"/>
+    <Text ID="377265" Value="DSP Firmware Upgrade"/>
+    <Text ID="377266" Value="CANopen SYNC Error"/>
+    <Text ID="377267" Value="CANopen Data Initial Error"/>
+    <Text ID="377268" Value="Adjustment Error"/>
+    <Text ID="377269" Value="Motor Protection Error"/>
+    <Text ID="377270" Value="Motor Error"/>
+    <Text ID="377271" Value="Encoder Error"/>
+    <Text ID="377272" Value="Encoder Output Error"/>
+    <Text ID="377273" Value="Serial Communication Error"/>
+    <Text ID="377274" Value="Serial Communication Time Out"/>
+    <Text ID="377275" Value="CANbus Error (Bus-off)"/>
+    <Text ID="377276" Value="CANopen SDO receive buffer overrun"/>
+    <Text ID="377277" Value="CANbus Error (Warning)"/>
+    <Text ID="377278" Value="Node Guarding or Heartbeat Error"/>
+    <Text ID="377279" Value="CANopen PDO Object Error"/>
+    <Text ID="377280" Value="Over Speed"/>
+    <Text ID="377281" Value="Abnormal Pulse Control Command"/>
+    <Text ID="377282" Value="Full Closed Loop Excessive Deviation"/>
+    <Text ID="377283" Value="Excessive Deviation"/>
+    <Text ID="377284" Value="Conveyor Sensor Interrupt"/>
+    <Text ID="377285" Value="Safety Relay Error"/>
+    <Text ID="377286" Value="Turner Table Status:"/>
+    <Text ID="377287" Value="Turner Table Idling"/>
+    <Text ID="377288" Value="Stopper Unblock"/>
+    <Text ID="377289" Value="Motor Moving"/>
+    <Text ID="377290" Value="Stopper Block"/>
+    <Text ID="377291" Value="Motor Stopping"/>
+    <Text ID="377292" Value="Turner Table Stopping"/>
+    <Text ID="377293" Value="Safety Relay Error"/>
+    <Text ID="377294" Value=""/>
+    <Text ID="377295" Value=""/>
+    <Text ID="377296" Value="Turner Traverser Status:"/>
+    <Text ID="377297" Value="Turner Traverser Idling"/>
+    <Text ID="377298" Value="Home Position Check"/>
+    <Text ID="377299" Value="Home At Forward Sensor"/>
+    <Text ID="377300" Value="Home At Reverse Sensor"/>
+    <Text ID="377301" Value="Home At Mid Sensor"/>
+    <Text ID="377302" Value="Home Not At Sensors"/>
+    <Text ID="377303" Value="Motor Move Forward"/>
+    <Text ID="377304" Value="Motor Move Reverse"/>
+    <Text ID="377305" Value="Turner Traverser Stopping"/>
+    <Text ID="377306" Value="Safety Relay Error"/>
+    <Text ID="377307" Value=""/>
+    <Text ID="377308" Value=""/>
+    <Text ID="377309" Value=""/>
+    <Text ID="377310" Value=""/>
+    <Text ID="377311" Value=""/>
+    <Text ID="377312" Value=""/>
+    <Text ID="377313" Value=""/>
+    <Text ID="377314" Value=""/>
+    <Text ID="377315" Value=""/>
+    <Text ID="432173" Value="Magazine Conveyor Status:"/>
+    <Text ID="432174" Value=""/>
+    <Text ID="432175" Value=""/>
+    <Text ID="432176" Value=""/>
+    <Text ID="432183" Value="Magazine Conveyor Idling"/>
+    <Text ID="432185" Value="Initial Exit Magazine"/>
+    <Text ID="432186" Value="Enter Magazine"/>
+    <Text ID="432187" Value="Exit Magazine"/>
+    <Text ID="432188" Value="Magazine Conveyor Stop"/>
+    <Text ID="432191" Value="Safety Relay Error"/>
+    <Text ID="455499" Value="Magazine Conveyor Status:"/>
+    <Text ID="455500" Value="Magazine Conveyor Idling"/>
+    <Text ID="455501" Value="Enter Magazine"/>
+    <Text ID="455502" Value="Exit Magazine"/>
+    <Text ID="455503" Value="Magazine Conveyor Stop"/>
+    <Text ID="455504" Value="Safety Relay Error"/>
+    <Text ID="456675" Value="Init Enter Magazine"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="346103" Value=""/>
+    <Text ID="346104" Value=""/>
+    <Text ID="346105" Value=""/>
+    <Text ID="346107" Value="Pneumatik Leerlauf"/>
+    <Text ID="346159" Value=""/>
+    <Text ID="346166" Value=""/>
+    <Text ID="346167" Value=""/>
+    <Text ID="346168" Value=""/>
+    <Text ID="346169" Value=""/>
+    <Text ID="346179" Value=""/>
+    <Text ID="346209" Value="Bewegung Leerlauf"/>
+    <Text ID="377163" Value="Förderband Status:"/>
+    <Text ID="377164" Value="Förderband  Leerlauf"/>
+    <Text ID="377165" Value="Testlauf zum Auslasssensor"/>
+    <Text ID="377166" Value="Eingeben der Platine zum Auslasssensor"/>
+    <Text ID="377167" Value="Eingang in Leiterplatte zum Einlasssensor deaktivieren"/>
+    <Text ID="377168" Value="Ausgang Leiterplatte mit Auslasssensor Prüfen"/>
+    <Text ID="377169" Value="Verschieben Leiterplatte zum Auslasssensor"/>
+    <Text ID="377170" Value="Verschieben Leiterplatte von Zeit ohne Prüfen"/>
+    <Text ID="377171" Value="Verschieben Leiterplatte von Zeit Mit Prüfen "/>
+    <Text ID="377172" Value="Verschieben Leiterplatte vom Einlasssensor zum Auslasssensor"/>
+    <Text ID="377173" Value="Verschieben Leiterplatte vom Einlasssensor ohne Prüfen"/>
+    <Text ID="377174" Value="Verschieben Leiterplatte vom Einlasssensor Mit Prüfen"/>
+    <Text ID="377175" Value="Fördermotorstopp"/>
+    <Text ID="377176" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377177" Value=""/>
+    <Text ID="377178" Value=""/>
+    <Text ID="377179" Value=""/>
+    <Text ID="377180" Value=""/>
+    <Text ID="377193" Value="Teleskop Status:"/>
+    <Text ID="377194" Value="Teleskop Leelauf"/>
+    <Text ID="377195" Value="Betriebsvo Einstellungswert"/>
+    <Text ID="377196" Value="Betrieb Motor Läuft"/>
+    <Text ID="377197" Value="Betrieb Motorstopp"/>
+    <Text ID="377198" Value="Teleskopstopp"/>
+    <Text ID="377199" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377200" Value="Teleskop Status:"/>
+    <Text ID="377201" Value="Teleskop Leelauf"/>
+    <Text ID="377202" Value="Betriebsvo Einstellungswert"/>
+    <Text ID="377203" Value="Betrieb Motor Läuft"/>
+    <Text ID="377204" Value="Betrieb Motorstopp"/>
+    <Text ID="377205" Value="Teleskopstopp"/>
+    <Text ID="377206" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377207" Value=""/>
+    <Text ID="377208" Value=""/>
+    <Text ID="377209" Value="Wechselrichter Status:"/>
+    <Text ID="377210" Value="Wechselrichter "/>
+    <Text ID="377211" Value="Betrieb Motor Läuft"/>
+    <Text ID="377212" Value="Betrieb Motorstopp"/>
+    <Text ID="377213" Value="Wechselrichter Stopp:"/>
+    <Text ID="377214" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377215" Value="Pneumatik Status:"/>
+    <Text ID="377217" Value="Pneumatische Verlängerung"/>
+    <Text ID="377218" Value="Pneumatik Einfahren"/>
+    <Text ID="377219" Value="Alle Ausgänge auf AUS stellen"/>
+    <Text ID="377220" Value="Alle Ausgänge EIN einstellen"/>
+    <Text ID="377221" Value="Nur Ausfahren Ausgänge Auf"/>
+    <Text ID="377222" Value="Nur Einfahren Ausgänge Auf"/>
+    <Text ID="377223" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377235" Value="Bewegung Status:"/>
+    <Text ID="377237" Value="Ausschalten"/>
+    <Text ID="377238" Value="Einschalten"/>
+    <Text ID="377239" Value="Einschaltstatus Prüfen"/>
+    <Text ID="377240" Value="Homing"/>
+    <Text ID="377241" Value="Warten Homing Fertig"/>
+    <Text ID="377242" Value="Homing Fertig Statusprüfung"/>
+    <Text ID="377243" Value="Rücken Absolut"/>
+    <Text ID="377244" Value="Rücken Rel"/>
+    <Text ID="377245" Value="Rütteln"/>
+    <Text ID="377246" Value="Achse Zurücksetzen Fehler"/>
+    <Text ID="377247" Value="Achsfehler Statusprüfung"/>
+    <Text ID="377248" Value="Bewegingsstopp"/>
+    <Text ID="377249" Value=""/>
+    <Text ID="377250" Value="Überstrom"/>
+    <Text ID="377251" Value="Überspannung"/>
+    <Text ID="377252" Value="Unterspannung"/>
+    <Text ID="377253" Value="Eingangsleistung Phase Verlust"/>
+    <Text ID="377254" Value="Wiederherstellungs Fehler"/>
+    <Text ID="377255" Value="Überlastung"/>
+    <Text ID="377256" Value="Vor-Überlastung Warnung"/>
+    <Text ID="377257" Value="U,V,W Verdrahtung Fehler"/>
+    <Text ID="377258" Value="IGBT Temperatur Fehler"/>
+    <Text ID="377259" Value="Speicher Fehler"/>
+    <Text ID="377260" Value="Nonstop Aktiviert"/>
+    <Text ID="377261" Value="Vorwärts-Endschalter Fehler"/>
+    <Text ID="377262" Value="Umkehr-Endschalter Fehler"/>
+    <Text ID="377263" Value="Vorwärts Softwarebeschränkung"/>
+    <Text ID="377264" Value="Umkehr Softwarebeschränkung"/>
+    <Text ID="377265" Value="DSP Firmare-Aktualisierung"/>
+    <Text ID="377266" Value="CANopen SYNC Fehler"/>
+    <Text ID="377267" Value="CANopen Data Initial Fehler"/>
+    <Text ID="377268" Value="Anpassungs Fehler"/>
+    <Text ID="377269" Value="Motorschutz Fehler"/>
+    <Text ID="377270" Value="Speicher Fehler"/>
+    <Text ID="377271" Value="Encoder Fehler"/>
+    <Text ID="377272" Value="Encoder-Ausgang Fehler"/>
+    <Text ID="377273" Value="Serielle Übertragung Fehler"/>
+    <Text ID="377274" Value="Serielle Übertragung Zeitüberschreitung"/>
+    <Text ID="377275" Value="CANbus Fehler (Bus-off)"/>
+    <Text ID="377276" Value="CANopen SDO Puffer Überschreitung"/>
+    <Text ID="377277" Value="CANbus Fehler (Warning)"/>
+    <Text ID="377278" Value="Knotenüberwachung oder Heartbeat Fehler"/>
+    <Text ID="377279" Value="CANopen PDO Objekt Fehler"/>
+    <Text ID="377280" Value="Überdrehzahl"/>
+    <Text ID="377281" Value="Unregelmäßiges Puls-Kontroll-Kommando"/>
+    <Text ID="377282" Value="Vollständig geschlossene Programmschleife übermäßige Abweichung "/>
+    <Text ID="377283" Value="Übermäßige Abweichung"/>
+    <Text ID="377284" Value="Unterbrechung des Förderersensors"/>
+    <Text ID="377285" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377286" Value="Wender Tabelle Status:"/>
+    <Text ID="377287" Value="Wender Tabelle Leerlauf"/>
+    <Text ID="377288" Value="Stopper Enstperren"/>
+    <Text ID="377289" Value="Motor Bewegen"/>
+    <Text ID="377290" Value="Stopper Block"/>
+    <Text ID="377291" Value="Motorstopp"/>
+    <Text ID="377292" Value="Wender Tabelle Stopp"/>
+    <Text ID="377293" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377294" Value=""/>
+    <Text ID="377295" Value=""/>
+    <Text ID="377296" Value="Wender Schiebebühne Status:"/>
+    <Text ID="377297" Value="Wender Schiebebühne Leerlauf"/>
+    <Text ID="377298" Value="Überprüfen Referenzposition"/>
+    <Text ID="377299" Value="Referenzieren am Vorwärtssensor"/>
+    <Text ID="377300" Value="Referenzieren am Rückwärtssensor"/>
+    <Text ID="377301" Value="Referenzieren am mittleren Sensor"/>
+    <Text ID="377302" Value="Referenzieren Nichi bei Sensoren"/>
+    <Text ID="377303" Value="Motor Vorwärts Bewegen"/>
+    <Text ID="377304" Value="Motor Ruckwärts Bewegen"/>
+    <Text ID="377305" Value="Wender Schiebebühne Stopp"/>
+    <Text ID="377306" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="377307" Value=""/>
+    <Text ID="377308" Value=""/>
+    <Text ID="377309" Value=""/>
+    <Text ID="377310" Value=""/>
+    <Text ID="377311" Value=""/>
+    <Text ID="377312" Value=""/>
+    <Text ID="377313" Value=""/>
+    <Text ID="377314" Value=""/>
+    <Text ID="377315" Value=""/>
+    <Text ID="432173" Value="Status Des Magazinförderers:"/>
+    <Text ID="432174" Value=""/>
+    <Text ID="432175" Value=""/>
+    <Text ID="432176" Value=""/>
+    <Text ID="432183" Value="Magazinförderer Im Leerlauf"/>
+    <Text ID="432185" Value="Initial Magazin Ausgang"/>
+    <Text ID="432186" Value="Magazin Eingeben"/>
+    <Text ID="432187" Value="Magazin Ausgang"/>
+    <Text ID="432188" Value="Magazin-Förderstopp"/>
+    <Text ID="432191" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="455499" Value="Status Des Magazinförderers:"/>
+    <Text ID="455500" Value="Magazinförderer Im Leerlauf"/>
+    <Text ID="455501" Value="Magazin Eingeben"/>
+    <Text ID="455502" Value="Magazin Ausgang"/>
+    <Text ID="455503" Value="Magazin-Förderstopp"/>
+    <Text ID="455504" Value="Sicherheiysrelais Fehler"/>
+    <Text ID="456675" Value="Initial Magazin Eingeben"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="346103" Value=""/>
+    <Text ID="346104" Value=""/>
+    <Text ID="346105" Value=""/>
+    <Text ID="346107" Value="气动闲置"/>
+    <Text ID="346159" Value=""/>
+    <Text ID="346166" Value=""/>
+    <Text ID="346167" Value=""/>
+    <Text ID="346168" Value=""/>
+    <Text ID="346169" Value=""/>
+    <Text ID="346179" Value=""/>
+    <Text ID="346209" Value="动力闲置"/>
+    <Text ID="377163" Value="输送机状态:"/>
+    <Text ID="377164" Value="输送机闲置"/>
+    <Text ID="377165" Value="初始运行至出口传感器"/>
+    <Text ID="377166" Value="输入电路板至出口传感器"/>
+    <Text ID="377167" Value="输入电路板至入口传感器解除"/>
+    <Text ID="377168" Value="输出电路板至出口传感器检测"/>
+    <Text ID="377169" Value="移动电路板至出口传感器"/>
+    <Text ID="377170" Value="按时移动电路板而不检查"/>
+    <Text ID="377171" Value="按时移动电路板带检查"/>
+    <Text ID="377172" Value="从入口处移动电路板至出口传感器"/>
+    <Text ID="377173" Value="按时间从入口处移动电路板而不检查"/>
+    <Text ID="377174" Value="按时间从入口处移动电路板带检查"/>
+    <Text ID="377175" Value="输送机马达停止"/>
+    <Text ID="377176" Value="安全继电器警报"/>
+    <Text ID="377177" Value=""/>
+    <Text ID="377178" Value=""/>
+    <Text ID="377179" Value=""/>
+    <Text ID="377180" Value=""/>
+    <Text ID="377193" Value="伸缩机状态:"/>
+    <Text ID="377194" Value="伸缩机闲置"/>
+    <Text ID="377195" Value="操作现值"/>
+    <Text ID="377196" Value="操作马达运作"/>
+    <Text ID="377197" Value="操作马达停止"/>
+    <Text ID="377198" Value="伸缩机停止"/>
+    <Text ID="377199" Value="安全继电器警报"/>
+    <Text ID="377200" Value="伸缩机状态:"/>
+    <Text ID="377201" Value="伸缩机闲置"/>
+    <Text ID="377202" Value="操作现值"/>
+    <Text ID="377203" Value="操作马达运作"/>
+    <Text ID="377204" Value="操作马达停止"/>
+    <Text ID="377205" Value="伸缩机停止"/>
+    <Text ID="377206" Value="安全继电器警报"/>
+    <Text ID="377207" Value=""/>
+    <Text ID="377208" Value=""/>
+    <Text ID="377209" Value="翻板机状态:"/>
+    <Text ID="377210" Value="翻板机闲置"/>
+    <Text ID="377211" Value="操作马达运作"/>
+    <Text ID="377212" Value="操作马达停止"/>
+    <Text ID="377213" Value="翻板机停止"/>
+    <Text ID="377214" Value="安全继电器警报"/>
+    <Text ID="377215" Value="气动状态:"/>
+    <Text ID="377217" Value="气动延伸"/>
+    <Text ID="377218" Value="气动伸缩"/>
+    <Text ID="377219" Value="设置所有输出关闭"/>
+    <Text ID="377220" Value="设置所有输出开启"/>
+    <Text ID="377221" Value="设置延伸输出开启"/>
+    <Text ID="377222" Value="设置回缩输出开启"/>
+    <Text ID="377223" Value="安全继电器警报"/>
+    <Text ID="377235" Value="动力状态:"/>
+    <Text ID="377237" Value="断电"/>
+    <Text ID="377238" Value="通电"/>
+    <Text ID="377239" Value="通电状态检测"/>
+    <Text ID="377240" Value="归位"/>
+    <Text ID="377241" Value="等待归位完成"/>
+    <Text ID="377242" Value="完成归位状态检查"/>
+    <Text ID="377243" Value="绝对移动"/>
+    <Text ID="377244" Value="相对移动"/>
+    <Text ID="377245" Value="点动"/>
+    <Text ID="377246" Value="轴警报重置"/>
+    <Text ID="377247" Value="轴警报状态检测"/>
+    <Text ID="377248" Value="动力停止"/>
+    <Text ID="377249" Value=""/>
+    <Text ID="377250" Value="过电流"/>
+    <Text ID="377251" Value="过电压"/>
+    <Text ID="377252" Value="低电压"/>
+    <Text ID="377253" Value="主回路电源异常"/>
+    <Text ID="377254" Value="再生错误"/>
+    <Text ID="377255" Value="超载"/>
+    <Text ID="377256" Value="预先过负载警告"/>
+    <Text ID="377257" Value="马达U,V,W接线错误"/>
+    <Text ID="377258" Value="IGBT 过热"/>
+    <Text ID="377259" Value="记忆体异常"/>
+    <Text ID="377260" Value="紧急停止"/>
+    <Text ID="377261" Value="正向极限异常"/>
+    <Text ID="377262" Value="反向极限异常"/>
+    <Text ID="377263" Value="软体正向极限"/>
+    <Text ID="377264" Value="软体反向极限"/>
+    <Text ID="377265" Value="DSP 韧体升级"/>
+    <Text ID="377266" Value="CANopen 同步异常"/>
+    <Text ID="377267" Value="CANopen 资料初始错误"/>
+    <Text ID="377268" Value="矫正异常"/>
+    <Text ID="377269" Value="马达碰撞错误"/>
+    <Text ID="377270" Value="马达异常"/>
+    <Text ID="377271" Value="编码器错误"/>
+    <Text ID="377272" Value="编码器输出异常"/>
+    <Text ID="377273" Value="串联通讯异常"/>
+    <Text ID="377274" Value="串联通讯逾时"/>
+    <Text ID="377275" Value="CANbus 硬体异常 (Bus-off)"/>
+    <Text ID="377276" Value="CANopen SDO 接收溢位"/>
+    <Text ID="377277" Value="CANbus 硬体异常(警告)"/>
+    <Text ID="377278" Value="节点保护功能或心跳监控错误"/>
+    <Text ID="377279" Value="CANopen PDO 物件错误"/>
+    <Text ID="377280" Value="超速"/>
+    <Text ID="377281" Value="异常脈波控制命令"/>
+    <Text ID="377282" Value="全闭环位置控制误差过大"/>
+    <Text ID="377283" Value="位置控制误差过大"/>
+    <Text ID="377284" Value="输送机传感器中断"/>
+    <Text ID="377285" Value="安全继电器警报"/>
+    <Text ID="377286" Value="转角机转台状态:"/>
+    <Text ID="377287" Value="转角机转台闲置"/>
+    <Text ID="377288" Value="制动器解锁"/>
+    <Text ID="377289" Value="马达移动"/>
+    <Text ID="377290" Value="制动器锁定"/>
+    <Text ID="377291" Value="马达停止"/>
+    <Text ID="377292" Value="转角机转台停止"/>
+    <Text ID="377293" Value="安全继电器警报"/>
+    <Text ID="377294" Value=""/>
+    <Text ID="377295" Value=""/>
+    <Text ID="377296" Value="转角机平移台状态"/>
+    <Text ID="377297" Value="转角机平移台闲置"/>
+    <Text ID="377298" Value="初始位置检查"/>
+    <Text ID="377299" Value="初始位置于正面传感器"/>
+    <Text ID="377300" Value="初始位置于反向传感器"/>
+    <Text ID="377301" Value="初始位置于居中传感器"/>
+    <Text ID="377302" Value="初始位置不于传感器"/>
+    <Text ID="377303" Value="马达正向前进"/>
+    <Text ID="377304" Value="马达反向前进"/>
+    <Text ID="377305" Value="转角机平移台停止"/>
+    <Text ID="377306" Value="安全继电器警报"/>
+    <Text ID="377307" Value=""/>
+    <Text ID="377308" Value=""/>
+    <Text ID="377309" Value=""/>
+    <Text ID="377310" Value=""/>
+    <Text ID="377311" Value=""/>
+    <Text ID="377312" Value=""/>
+    <Text ID="377313" Value=""/>
+    <Text ID="377314" Value=""/>
+    <Text ID="377315" Value=""/>
+    <Text ID="432173" Value="料架输送机状态："/>
+    <Text ID="432174" Value=""/>
+    <Text ID="432175" Value=""/>
+    <Text ID="432176" Value=""/>
+    <Text ID="432183" Value="料架输送机闲置"/>
+    <Text ID="432185" Value="初始化输出料架"/>
+    <Text ID="432186" Value="输入料架"/>
+    <Text ID="432187" Value="输出料架"/>
+    <Text ID="432188" Value="料架输送机停止"/>
+    <Text ID="432191" Value="安全继电器警报"/>
+    <Text ID="455499" Value="料架输送机状态："/>
+    <Text ID="455500" Value="料架输送机闲置"/>
+    <Text ID="455501" Value="输入料架"/>
+    <Text ID="455502" Value="输出料架"/>
+    <Text ID="455503" Value="料架输送机停止"/>
+    <Text ID="455504" Value="安全继电器警报"/>
+    <Text ID="456675" Value="初始化输入料架"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="346103" Value=""/>
+    <Text ID="346104" Value=""/>
+    <Text ID="346105" Value=""/>
+    <Text ID="346107" Value=""/>
+    <Text ID="346159" Value=""/>
+    <Text ID="346166" Value=""/>
+    <Text ID="346167" Value=""/>
+    <Text ID="346168" Value=""/>
+    <Text ID="346169" Value=""/>
+    <Text ID="346179" Value=""/>
+    <Text ID="346209" Value=""/>
+    <Text ID="377163" Value=""/>
+    <Text ID="377164" Value=""/>
+    <Text ID="377165" Value=""/>
+    <Text ID="377166" Value=""/>
+    <Text ID="377167" Value=""/>
+    <Text ID="377168" Value=""/>
+    <Text ID="377169" Value=""/>
+    <Text ID="377170" Value=""/>
+    <Text ID="377171" Value=""/>
+    <Text ID="377172" Value=""/>
+    <Text ID="377173" Value=""/>
+    <Text ID="377174" Value=""/>
+    <Text ID="377175" Value=""/>
+    <Text ID="377176" Value=""/>
+    <Text ID="377177" Value=""/>
+    <Text ID="377178" Value=""/>
+    <Text ID="377179" Value=""/>
+    <Text ID="377180" Value=""/>
+    <Text ID="377193" Value=""/>
+    <Text ID="377194" Value=""/>
+    <Text ID="377195" Value=""/>
+    <Text ID="377196" Value=""/>
+    <Text ID="377197" Value=""/>
+    <Text ID="377198" Value=""/>
+    <Text ID="377199" Value=""/>
+    <Text ID="377200" Value=""/>
+    <Text ID="377201" Value=""/>
+    <Text ID="377202" Value=""/>
+    <Text ID="377203" Value=""/>
+    <Text ID="377204" Value=""/>
+    <Text ID="377205" Value=""/>
+    <Text ID="377206" Value=""/>
+    <Text ID="377207" Value=""/>
+    <Text ID="377208" Value=""/>
+    <Text ID="377209" Value=""/>
+    <Text ID="377210" Value=""/>
+    <Text ID="377211" Value=""/>
+    <Text ID="377212" Value=""/>
+    <Text ID="377213" Value=""/>
+    <Text ID="377214" Value=""/>
+    <Text ID="377215" Value=""/>
+    <Text ID="377217" Value=""/>
+    <Text ID="377218" Value=""/>
+    <Text ID="377219" Value=""/>
+    <Text ID="377220" Value=""/>
+    <Text ID="377221" Value=""/>
+    <Text ID="377222" Value=""/>
+    <Text ID="377223" Value=""/>
+    <Text ID="377235" Value=""/>
+    <Text ID="377237" Value=""/>
+    <Text ID="377238" Value=""/>
+    <Text ID="377239" Value=""/>
+    <Text ID="377240" Value=""/>
+    <Text ID="377241" Value=""/>
+    <Text ID="377242" Value=""/>
+    <Text ID="377243" Value=""/>
+    <Text ID="377244" Value=""/>
+    <Text ID="377245" Value=""/>
+    <Text ID="377246" Value=""/>
+    <Text ID="377247" Value=""/>
+    <Text ID="377248" Value=""/>
+    <Text ID="377249" Value=""/>
+    <Text ID="377250" Value=""/>
+    <Text ID="377251" Value=""/>
+    <Text ID="377252" Value=""/>
+    <Text ID="377253" Value=""/>
+    <Text ID="377254" Value=""/>
+    <Text ID="377255" Value=""/>
+    <Text ID="377256" Value=""/>
+    <Text ID="377257" Value=""/>
+    <Text ID="377258" Value=""/>
+    <Text ID="377259" Value=""/>
+    <Text ID="377260" Value=""/>
+    <Text ID="377261" Value=""/>
+    <Text ID="377262" Value=""/>
+    <Text ID="377263" Value=""/>
+    <Text ID="377264" Value=""/>
+    <Text ID="377265" Value=""/>
+    <Text ID="377266" Value=""/>
+    <Text ID="377267" Value=""/>
+    <Text ID="377268" Value=""/>
+    <Text ID="377269" Value=""/>
+    <Text ID="377270" Value=""/>
+    <Text ID="377271" Value=""/>
+    <Text ID="377272" Value=""/>
+    <Text ID="377273" Value=""/>
+    <Text ID="377274" Value=""/>
+    <Text ID="377275" Value=""/>
+    <Text ID="377276" Value=""/>
+    <Text ID="377277" Value=""/>
+    <Text ID="377278" Value=""/>
+    <Text ID="377279" Value=""/>
+    <Text ID="377280" Value=""/>
+    <Text ID="377281" Value=""/>
+    <Text ID="377282" Value=""/>
+    <Text ID="377283" Value=""/>
+    <Text ID="377284" Value=""/>
+    <Text ID="377285" Value=""/>
+    <Text ID="377286" Value=""/>
+    <Text ID="377287" Value=""/>
+    <Text ID="377288" Value=""/>
+    <Text ID="377289" Value=""/>
+    <Text ID="377290" Value=""/>
+    <Text ID="377291" Value=""/>
+    <Text ID="377292" Value=""/>
+    <Text ID="377293" Value=""/>
+    <Text ID="377294" Value=""/>
+    <Text ID="377295" Value=""/>
+    <Text ID="377296" Value=""/>
+    <Text ID="377297" Value=""/>
+    <Text ID="377298" Value=""/>
+    <Text ID="377299" Value=""/>
+    <Text ID="377300" Value=""/>
+    <Text ID="377301" Value=""/>
+    <Text ID="377302" Value=""/>
+    <Text ID="377303" Value=""/>
+    <Text ID="377304" Value=""/>
+    <Text ID="377305" Value=""/>
+    <Text ID="377306" Value=""/>
+    <Text ID="377307" Value=""/>
+    <Text ID="377308" Value=""/>
+    <Text ID="377309" Value=""/>
+    <Text ID="377310" Value=""/>
+    <Text ID="377311" Value=""/>
+    <Text ID="377312" Value=""/>
+    <Text ID="377313" Value=""/>
+    <Text ID="377314" Value=""/>
+    <Text ID="377315" Value=""/>
+    <Text ID="432173" Value=""/>
+    <Text ID="432174" Value=""/>
+    <Text ID="432175" Value=""/>
+    <Text ID="432176" Value=""/>
+    <Text ID="432183" Value=""/>
+    <Text ID="432185" Value=""/>
+    <Text ID="432186" Value=""/>
+    <Text ID="432187" Value=""/>
+    <Text ID="432188" Value=""/>
+    <Text ID="432191" Value=""/>
+    <Text ID="455499" Value=""/>
+    <Text ID="455500" Value=""/>
+    <Text ID="455501" Value=""/>
+    <Text ID="455502" Value=""/>
+    <Text ID="455503" Value=""/>
+    <Text ID="455504" Value=""/>
+    <Text ID="456675" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="346103" Value="67"/>
+    <Index ID="346104" Value="68"/>
+    <Index ID="346105" Value="69"/>
+    <Index ID="346107" Value="91"/>
+    <Index ID="346159" Value="79"/>
+    <Index ID="346166" Value="86"/>
+    <Index ID="346167" Value="87"/>
+    <Index ID="346168" Value="88"/>
+    <Index ID="346169" Value="89"/>
+    <Index ID="346179" Value="99"/>
+    <Index ID="346209" Value="101"/>
+    <Index ID="377163" Value="30"/>
+    <Index ID="377164" Value="31"/>
+    <Index ID="377165" Value="32"/>
+    <Index ID="377166" Value="33"/>
+    <Index ID="377167" Value="34"/>
+    <Index ID="377168" Value="35"/>
+    <Index ID="377169" Value="36"/>
+    <Index ID="377170" Value="37"/>
+    <Index ID="377171" Value="38"/>
+    <Index ID="377172" Value="39"/>
+    <Index ID="377173" Value="40"/>
+    <Index ID="377174" Value="41"/>
+    <Index ID="377175" Value="42"/>
+    <Index ID="377176" Value="43"/>
+    <Index ID="377177" Value="44"/>
+    <Index ID="377178" Value="45"/>
+    <Index ID="377179" Value="46"/>
+    <Index ID="377180" Value="47"/>
+    <Index ID="377193" Value="60"/>
+    <Index ID="377194" Value="61"/>
+    <Index ID="377195" Value="62"/>
+    <Index ID="377196" Value="63"/>
+    <Index ID="377197" Value="64"/>
+    <Index ID="377198" Value="65"/>
+    <Index ID="377199" Value="66"/>
+    <Index ID="377200" Value="70"/>
+    <Index ID="377201" Value="71"/>
+    <Index ID="377202" Value="72"/>
+    <Index ID="377203" Value="73"/>
+    <Index ID="377204" Value="74"/>
+    <Index ID="377205" Value="75"/>
+    <Index ID="377206" Value="76"/>
+    <Index ID="377207" Value="77"/>
+    <Index ID="377208" Value="78"/>
+    <Index ID="377209" Value="80"/>
+    <Index ID="377210" Value="81"/>
+    <Index ID="377211" Value="82"/>
+    <Index ID="377212" Value="83"/>
+    <Index ID="377213" Value="84"/>
+    <Index ID="377214" Value="85"/>
+    <Index ID="377215" Value="90"/>
+    <Index ID="377217" Value="92"/>
+    <Index ID="377218" Value="93"/>
+    <Index ID="377219" Value="94"/>
+    <Index ID="377220" Value="95"/>
+    <Index ID="377221" Value="96"/>
+    <Index ID="377222" Value="97"/>
+    <Index ID="377223" Value="98"/>
+    <Index ID="377235" Value="100"/>
+    <Index ID="377237" Value="102"/>
+    <Index ID="377238" Value="103"/>
+    <Index ID="377239" Value="104"/>
+    <Index ID="377240" Value="105"/>
+    <Index ID="377241" Value="106"/>
+    <Index ID="377242" Value="107"/>
+    <Index ID="377243" Value="108"/>
+    <Index ID="377244" Value="109"/>
+    <Index ID="377245" Value="110"/>
+    <Index ID="377246" Value="111"/>
+    <Index ID="377247" Value="112"/>
+    <Index ID="377248" Value="113"/>
+    <Index ID="377249" Value="114"/>
+    <Index ID="377250" Value="115"/>
+    <Index ID="377251" Value="116"/>
+    <Index ID="377252" Value="117"/>
+    <Index ID="377253" Value="118"/>
+    <Index ID="377254" Value="119"/>
+    <Index ID="377255" Value="120"/>
+    <Index ID="377256" Value="121"/>
+    <Index ID="377257" Value="122"/>
+    <Index ID="377258" Value="123"/>
+    <Index ID="377259" Value="124"/>
+    <Index ID="377260" Value="125"/>
+    <Index ID="377261" Value="126"/>
+    <Index ID="377262" Value="127"/>
+    <Index ID="377263" Value="128"/>
+    <Index ID="377264" Value="129"/>
+    <Index ID="377265" Value="130"/>
+    <Index ID="377266" Value="131"/>
+    <Index ID="377267" Value="132"/>
+    <Index ID="377268" Value="133"/>
+    <Index ID="377269" Value="134"/>
+    <Index ID="377270" Value="135"/>
+    <Index ID="377271" Value="136"/>
+    <Index ID="377272" Value="137"/>
+    <Index ID="377273" Value="138"/>
+    <Index ID="377274" Value="139"/>
+    <Index ID="377275" Value="140"/>
+    <Index ID="377276" Value="141"/>
+    <Index ID="377277" Value="142"/>
+    <Index ID="377278" Value="143"/>
+    <Index ID="377279" Value="144"/>
+    <Index ID="377280" Value="145"/>
+    <Index ID="377281" Value="146"/>
+    <Index ID="377282" Value="147"/>
+    <Index ID="377283" Value="148"/>
+    <Index ID="377284" Value="149"/>
+    <Index ID="377285" Value="150"/>
+    <Index ID="377286" Value="0"/>
+    <Index ID="377287" Value="1"/>
+    <Index ID="377288" Value="2"/>
+    <Index ID="377289" Value="3"/>
+    <Index ID="377290" Value="4"/>
+    <Index ID="377291" Value="5"/>
+    <Index ID="377292" Value="6"/>
+    <Index ID="377293" Value="7"/>
+    <Index ID="377294" Value="8"/>
+    <Index ID="377295" Value="9"/>
+    <Index ID="377296" Value="10"/>
+    <Index ID="377297" Value="11"/>
+    <Index ID="377298" Value="12"/>
+    <Index ID="377299" Value="13"/>
+    <Index ID="377300" Value="14"/>
+    <Index ID="377301" Value="15"/>
+    <Index ID="377302" Value="16"/>
+    <Index ID="377303" Value="17"/>
+    <Index ID="377304" Value="18"/>
+    <Index ID="377305" Value="19"/>
+    <Index ID="377306" Value="20"/>
+    <Index ID="377307" Value="21"/>
+    <Index ID="377308" Value="22"/>
+    <Index ID="377309" Value="23"/>
+    <Index ID="377310" Value="24"/>
+    <Index ID="377311" Value="25"/>
+    <Index ID="377312" Value="26"/>
+    <Index ID="377313" Value="27"/>
+    <Index ID="377314" Value="28"/>
+    <Index ID="377315" Value="29"/>
+    <Index ID="432173" Value="160"/>
+    <Index ID="432174" Value="151"/>
+    <Index ID="432175" Value="152"/>
+    <Index ID="432176" Value="153"/>
+    <Index ID="432183" Value="161"/>
+    <Index ID="432185" Value="162"/>
+    <Index ID="432186" Value="163"/>
+    <Index ID="432187" Value="164"/>
+    <Index ID="432188" Value="165"/>
+    <Index ID="432191" Value="166"/>
+    <Index ID="455499" Value="170"/>
+    <Index ID="455500" Value="171"/>
+    <Index ID="455501" Value="173"/>
+    <Index ID="455502" Value="174"/>
+    <Index ID="455503" Value="175"/>
+    <Index ID="455504" Value="176"/>
+    <Index ID="456675" Value="172"/>
+  </IndexMap>
+</TextGroup>

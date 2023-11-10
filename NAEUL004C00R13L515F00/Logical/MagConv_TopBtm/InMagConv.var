@@ -1,0 +1,22 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_InMagConvStat : UDINT;
+	p_InMagConvStatus : UDINT;
+	p_InMagConvStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+VAR
+	p_InMagConvAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_InMagConvHvMag : UDINT;
+	p_InMagConvMtrSigOnOrLToR : UDINT;
+	p_InMagConvMtrDirOrRToL : UDINT;
+	p_InMagConvClprClampCtrl : UDINT;
+	p_InMagConvClprTwoOutputControl : UDINT;
+END_VAR

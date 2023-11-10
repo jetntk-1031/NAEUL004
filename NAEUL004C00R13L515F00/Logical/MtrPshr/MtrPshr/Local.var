@@ -1,0 +1,81 @@
+(*2019-06-17*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eMtrPshrAction := MtrPshrActIdle;
+	eStat : eMtrPshrAction := MtrPshrActIdle;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..60] OF STRING[200] := ['Idling','Extending','Retracting','Stopping','Turning On Motor Extend','Turning Off Motor Extend','Turning On Motor Retract','Turning Off Motor Retract','Turning On Speed Binary Bit 0','Turning Off Speed Binary Bit 0','Turning On Speed Binary Bit 1','Turning Off Speed Binary Bit 1','Turning On Speed Binary Bit 2','Turning Off Speed Binary Bit 2','Turning On Signal On','Turning Off Signal On','Turning On Brake','Turning Off Brake','Turning On Alarm Reset','Turning Off Alarm Reset','Turning On All Motor Output','Turning Of All Motor Output',39('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10199] OF tyAlmTxt := [(sAlmText:='Pusher Retract Sensor Off Time Out In Extend Check While Pusher Extend',sRcyText:='Sensor Timeout Expired Before Operation Completed. Sensor Operation Is Abnormal. Solve The Error To Resume Operation.'),(sAlmText:='Pusher Extend Sensor On Time Out In Extend Check While Pusher Extend',sRcyText:='Sensor Timeout Expired Before Operation Completed. Sensor Operation Is Abnormal. Solve The Error To Resume Operation.'),(sAlmText:='Pusher Extend Safety Sensor Error In Extend Check While Pusher Extend',sRcyText:='Safety System Has Been Triggered. All Operations Are Disable. Remove the Obstacle That Triggered The Safety Interlock To Resume Operation.'),(sAlmText:='Pusher Extend Sensor Off Time Out In Retract Check While Pusher Retract',sRcyText:='Sensor Timeout Expired Before Operation Completed. Sensor Operation Is Abnormal. Solve The Error To Resume Operation.'),(sAlmText:='Pusher Retract Sensor On Time Out In Retract Check While Pusher Retract',sRcyText:='Sensor Timeout Expired Before Operation Completed. Sensor Operation Is Abnormal. Solve The Error To Resume Operation.'),(sAlmText:='Pusher Retract Safety Sensor Error In Retract Check While Pusher Retract',sRcyText:='Safety System Has Been Triggered. All Operations Are Disable. Remove the Obstacle That Triggered The Safety Interlock To Resume Operation.'),(sAlmText:='Motorized Pusher Alarm Occur',sRcyText:='Motorized Pusher Operated Abnormal. Reset The Error To Resume Operation. If The Problem Persists, Please Contact Nutek For A Possible Solution.'),193((sAlmText:='',sRcyText:=''))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bExtended : BOOL;
+	bRetracted : BOOL;
+	bCW : BOOL;
+	bCCW : BOOL;
+	bSpdBinBit0 : BOOL;
+	bSpdBinBit1 : BOOL;
+	bSpdBinBit2 : BOOL;
+	bSigOn : BOOL;
+	bBrake : BOOL;
+	bAlmRst : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	bManual : BOOL := FALSE;
+	bDir : BOOL := FALSE;
+	tAlmRstTm : TIME := T#1s;
+	tAlmTrigTm : TIME := T#1s;
+	tMtrBrkOffDlyTm : TIME := T#500ms;
+	tExtTO : TIME := T#20s;
+	tRetTO : TIME := T#20s;
+	diExtSlowSpd : DINT;
+	diRetSlowSpd : DINT;
+	diExtNomSpd : DINT;
+	diRetNomSpd : DINT;
+	diExtTorque : DINT;
+	diRetTorque : DINT;
+	diStartTorque : DINT;
+	bExtSen : BOOL;
+	bRetSen : BOOL;
+	bExtSlowSen : BOOL;
+	bRetSlowSen : BOOL;
+	bExtSafetySen : BOOL := TRUE;
+	bRetSafetySen : BOOL := TRUE;
+	bAlarmSig : BOOL;
+	bTorqueSig : BOOL;
+	sProgNm : STRING[15] := 'MtrPshr';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	eStatOld : eMtrPshrAction := MtrPshrActIdle;
+	iAnalogTorque : INT;
+	diMtrSpd : DINT;
+	bMtrSpdSlw : BOOL;
+	fbAlmRstTm : TON := (PT:=T#1s);
+	fbAlmTrigTm : TON := (PT:=T#2s);
+	fbMtrBrkOffDlyTm : TON;
+	fbMtrPshrExtChk : fbPneuExtRetSenExtChk;
+	fbMtrPshrRetChk : fbPneuExtRetSenRetChk;
+	udiModuleNum : UDINT := 2201;
+END_VAR

@@ -1,0 +1,30 @@
+(*2019-05-07*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_eLinkMcParamUSCommMod : REFERENCE TO eMcSetCommMod;
+	p_bLinkAWWidthPosDiff : REFERENCE TO BOOL;
+	p_bLinkConvBffrLastProduct : REFERENCE TO BOOL;
+	p_bLinkBufferLastProductUnload : REFERENCE TO BOOL;
+	p_tyLinkBufferBffrStat : REFERENCE TO tyBffrStat;
+	p_bLinkNtParamProjLaneBPrep : REFERENCE TO BOOL;
+	p_eLinkMcParamUSACommMod : REFERENCE TO eMcSetCommMod;
+	p_eLinkMcParamUSBCommMod : REFERENCE TO eMcSetCommMod;
+	p_eLinkNtParamProjMag : REFERENCE TO eULMag;
+	p_bLinkPshrConvHvBrd : REFERENCE TO BOOL;
+	p_bLinkBffr1MagRemoved : REFERENCE TO BOOL;
+	p_bLinkBffr2MagRemoved : REFERENCE TO BOOL;
+	p_bLinkBffr3MagRemoved : REFERENCE TO BOOL;
+END_VAR
+(**)
+(**)
+VAR
+	sWidthInUMTemp : STRING[80];
+END_VAR
+VAR
+	p_eLinkUIProdRcpAct : REFERENCE TO eProdRcpAction;
+	p_eProdRcpStat : REFERENCE TO eProdRcpAction;
+	p_eProdRcpStatus : REFERENCE TO eFBStatus;
+	p_tyProdRcpCurrRcpWr : REFERENCE TO tyProdRcpParam;
+END_VAR

@@ -1,0 +1,15 @@
+(*2019-04-09*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkDISafetyRlySig : REFERENCE TO BOOL;
+	p_bLinkOpsInitULDStepInitDone : REFERENCE TO BOOL;
+	p_bLinkInMagConvMidSen : REFERENCE TO BOOL;
+	p_bLinkInMagConvExtSen : REFERENCE TO BOOL;
+	p_bLinkLifterLmtSW : REFERENCE TO BOOL;
+	fbLeftSenOnChk : TON;
+	p_bLinkOpsInMagConvStepEntToMid : REFERENCE TO BOOL;
+END_VAR

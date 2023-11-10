@@ -1,0 +1,9 @@
+(*2019-04-09*)
+(**)
+(*External Data*)
+VAR
+	p_eLinkAGVComProtocol : REFERENCE TO eMcAGVCommProtocol;
+	p_bLinkNtParamProjSOTSenPrep : REFERENCE TO BOOL;
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bOpsTravLifULBypCurtainSenCtrl : REFERENCE TO BOOL;
+END_VAR

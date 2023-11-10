@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP0921Disp.st</Object>
+    <Object Type="File">Act_OptP0921Navi.st</Object>
+    <Object Type="File">Act_OptP0921DualMask.st</Object>
+    <Object Type="File">Act_OptP0921InletShutterChgLyr.st</Object>
+    <Object Type="File">Act_OptP0921InletShutterSen.st</Object>
+    <Object Type="File">Act_OptP0921InletShutterFB.st</Object>
+    <Object Type="File">Act_OptP0921InletShutterFBStat.st</Object>
+    <Object Type="File">Act_OptP0921InletShutterDC.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterChgLyr.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterSen.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFB.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFBStat.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterDC.st</Object>
+    <Object Type="File">Act_OptP0921RstMnl.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterChgLyr3.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterSen3.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFB3.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFBStat3.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterDC3.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterChgLyr2.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterSen2.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFB2.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterFBStat2.st</Object>
+    <Object Type="File">Act_OptP0921OutletShutterDC2.st</Object>
+  </Objects>
+</Package>

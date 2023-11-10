@@ -1,0 +1,16 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+VAR
+	p_OvenInfoBStat : UDINT;
+	p_OvenInfoBStatus : UDINT;
+	p_OvenInfoBStatTxt : UDINT;
+END_VAR
+(**)
+(*Alarm*)
+(**)
+(*Output*)
+VAR
+	p_OvenInfoBOvenAllow : UDINT;
+	p_OvenInfoBBrdInOven : UDINT;
+END_VAR

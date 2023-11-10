@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Do Not Change!!!">Operations.typ</Object>
+    <Object Type="File" Description="Change By Project">Ops.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - ">Ops</Object>
+    <Object Type="File" Description="Do Not Change!!!">OpsTravLifUL.typ</Object>
+    <Object Type="File" Description="Change By Project">OpsTravLifUL.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - ">OpsTravLifUL</Object>
+    <Object Type="File" Description="Do Not Change!!!" Private="true">OpsPosAllwGo.typ</Object>
+    <Object Type="File" Description="Change By Project">OpsPosAllwGo.var</Object>
+    <Object Type="Program" Language="IEC">OpsPosAllwGo</Object>
+    <Object Type="Package">MagConv_StationaryPlat</Object>
+    <Object Type="File" Description="Do Not Change!!!">OpsLifMagUL.typ</Object>
+    <Object Type="File" Description="Change By Project">OpsLifMagUL.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - ">OpsLifMagUL</Object>
+    <Object Type="Package">MultiMag_InOutMagazineConv</Object>
+  </Objects>
+</Package>

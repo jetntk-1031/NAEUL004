@@ -1,0 +1,87 @@
+(*2019-05-04*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eHermesAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+(**)
+(*Input*)
+VAR
+	pa_tyUSParam : REFERENCE TO ARRAY[0..c_diHermesConfigMaxIdx] OF tyHermesUSParam;
+	pa_tyDSParam : REFERENCE TO ARRAY[0..c_diHermesConfigMaxIdx] OF tyHermesDSParam;
+	p_tyRmtParam : REFERENCE TO tyHermesRmtParam;
+	p_tySvyParam : REFERENCE TO tyHermesSvyParam;
+	p_sMcId : REFERENCE TO STRING[30];
+	p_bRmtHermesWriteConfig : REFERENCE TO BOOL;
+	p_bSvyHermesWriteConfig : REFERENCE TO BOOL;
+	p_bUISaveHMIConfigure : REFERENCE TO BOOL;
+	p_bUISaveHMISvyConfig : REFERENCE TO BOOL;
+	p_tyRmtSetConfiguration : REFERENCE TO tyHermesCurrentConfiguration;
+	p_bRmtPrep : REFERENCE TO BOOL;
+	p_bRmtEn : REFERENCE TO BOOL;
+	p_tySvySetConfiguration : REFERENCE TO tyHermesCurrentConfiguration;
+	p_bSvyPrep : REFERENCE TO BOOL;
+	p_bSvyEn : REFERENCE TO BOOL;
+	p_sRetainFileName1 : REFERENCE TO STRING[80];
+	p_sRetainFileName2 : REFERENCE TO STRING[80];
+	p_sRetainFileName3 : REFERENCE TO STRING[80];
+	p_sRetainFileName4 : REFERENCE TO STRING[80];
+	p_udiRetainDataAddr1 : REFERENCE TO UDINT;
+	p_udiRetainDataLen1 : REFERENCE TO UDINT;
+	p_udiRetainDataAddr2 : REFERENCE TO UDINT;
+	p_udiRetainDataLen2 : REFERENCE TO UDINT;
+	p_udiRetainDataAddr3 : REFERENCE TO UDINT;
+	p_udiRetainDataLen3 : REFERENCE TO UDINT;
+	p_udiRetainDataAddr4 : REFERENCE TO UDINT;
+	p_udiRetainDataLen4 : REFERENCE TO UDINT;
+	p_sConfigFileName : REFERENCE TO STRING[80];
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*RmtHermes*)
+VAR
+	p_bRmtFoundIndexUS1 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexUS2 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexUS3 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexUS4 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexDS1 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexDS2 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexDS3 : REFERENCE TO BOOL;
+	p_bRmtFoundIndexDS4 : REFERENCE TO BOOL;
+	p_udiRmtIndexUS1 : REFERENCE TO UDINT;
+	p_udiRmtIndexUS2 : REFERENCE TO UDINT;
+	p_udiRmtIndexUS3 : REFERENCE TO UDINT;
+	p_udiRmtIndexUS4 : REFERENCE TO UDINT;
+	p_udiRmtIndexDS1 : REFERENCE TO UDINT;
+	p_udiRmtIndexDS2 : REFERENCE TO UDINT;
+	p_udiRmtIndexDS3 : REFERENCE TO UDINT;
+	p_udiRmtIndexDS4 : REFERENCE TO UDINT;
+END_VAR
+(**)
+(*SvyHermes*)
+VAR
+	p_bSvyFoundIndexUS1 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexUS2 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexUS3 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexUS4 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexDS1 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexDS2 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexDS3 : REFERENCE TO BOOL;
+	p_bSvyFoundIndexDS4 : REFERENCE TO BOOL;
+	p_udiSvyIndexUS1 : REFERENCE TO UDINT;
+	p_udiSvyIndexUS2 : REFERENCE TO UDINT;
+	p_udiSvyIndexUS3 : REFERENCE TO UDINT;
+	p_udiSvyIndexUS4 : REFERENCE TO UDINT;
+	p_udiSvyIndexDS1 : REFERENCE TO UDINT;
+	p_udiSvyIndexDS2 : REFERENCE TO UDINT;
+	p_udiSvyIndexDS3 : REFERENCE TO UDINT;
+	p_udiSvyIndexDS4 : REFERENCE TO UDINT;
+END_VAR
+(**)

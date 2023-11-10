@@ -1,0 +1,109 @@
+(*2019-06-07*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	eAct : eBufferAction := BufferActIdle;
+	eStat : eBufferAction := BufferActIdle;
+	eStatus : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Creating Directory','Getting Retained Buffer Data','Setting Buffer Full','Setting Buffer Empty','Loading Board','Loading Board With Slot Check','Unloading Board','Unloading Board With Slot Check','Unloading Board With Cooling Time Check','Unloading Board With Slot Check And Cooling Time Check','Getting Next Load Board Slot Number','Getting Next Load Good Board Slot Number','Getting Next Load Bad Board Slot Number','Getting Next Unload Board Slot Number','Getting Next Unload Good Board Slot Number','Getting Next Unload Bad Board Slot Number','Checking Cooling Time','Checking Cooling Board','Checking Cooling Good Board','Checking Cooling Bad Board','Resetting Buffer','Turning On Cooling Fan','Turning Off Cooling Fan','Background Starting Buffer Set Full','Background Starting Buffer Set Empty','Background Stopping Buffer Set','Background Starting Update Sensor','Background Stopping Update Sensor','Background Starting Update Display','Background Stopping Update Display','Background Starting Cooling Fan','Background Stopping Cooling Fan',18('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Create User Directory Error',sRcyText:='An Error Occurred While Attempting To Create User Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='Create Retain Directory Error',sRcyText:='An Error Occurred While Attempting To Create Retain Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='File Open Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Read Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Read File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Reading Retain File',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Setting Full Buffer',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Setting Full Buffer',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Setting Full Buffer',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Setting Full Buffer',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Setting Empty Buffer',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Setting Empty Buffer',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Setting Empty Buffer',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Setting Empty Buffer',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Loading Info To Buffer',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Loading Info To Buffer',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Loading Info To Buffer',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Loading Info To Buffer',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Wrong Slot Number To Load',sRcyText:='Invalid Slot to Load The Board.'),(sAlmText:='File Open Error While Loading Info To Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Loading Info To Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Loading Info To Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Loading Info To Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Unloading Info From Buffer',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Unloading Info From Buffer',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Unloading Info From Buffer',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Unloading Info From Buffer',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Wrong Slot Number To Unload',sRcyText:='Invalid Slot to Unload The Board.'),(sAlmText:='File Open Error While Unloading Info From Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Unloading Info From Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Unloading Info From Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Unloading Info From Buffer With Slot Check',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Open Error While Unloading Info From Buffer With Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Unloading Info From Buffer With Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Unloading Info From Buffer With Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Unloading Info From Buffer With Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Wrong Slot Number To Unload With Cooling Time Check',sRcyText:='Invalid Slot to Unload The Board with Cooling Time Check.'),(sAlmText:='File Open Error While Unloading Info From Buffer With Slot Check And Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Unloading Info From Buffer With Slot Check And Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Unloading Info From Buffer With Slot Check And Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Write File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Unloading Info From Buffer With Slot Check And Cooling Time Check',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Setting Full Buffer',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Setting Empty Buffer',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Loading Info To Buffer',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Loading Info To Buffer With Slot Check',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Unloading Info From Buffer',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Unloading Info From Buffer With Slot Check',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Unloading Info From Buffer With Cooling Time Check',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Unloading Info From Buffer With Slot Check And Cooling Time Check',sRcyText:='The Directory Does Not Exist. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Unloading Slot Is Skipped While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Skip Slot).'),(sAlmText:='Unloading Slot Is Not For Board While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Not For Board).'),(sAlmText:='Unloading Slot Board Is Not Available While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Board Is Not Available).'),(sAlmText:='Unloading Last Sub Slot Is Not For Board While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Last Sub Slot Is Not For Board).'),(sAlmText:='Unloading Last Sub Slot Has No Board While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Last Sub Slot Has No Board).'),(sAlmText:='Board Quantity In Slot Is 0 While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Board Quantity In Slot = 0).'),(sAlmText:='Board Capacity In Slot Is 0 While Unloading Buffer',sRcyText:='Unload From Wrong Slot (Board Capacity In Slot = 0).'),(sAlmText:='Unloading Slot Is Skipped While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Skip Slot).'),(sAlmText:='Unloading Slot Is Not For Board While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Not For Board).'),(sAlmText:='Unloading Slot Board Is Not available While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Board Is Not Available).'),(sAlmText:='Unloading Last Sub Slot Is Not For Board While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Is Not For Board).'),(sAlmText:='Unloading Last Sub Slot Has No Board While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Has No Board).'),(sAlmText:='Board Quantity In Slot Is 0 While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Board Quantity In Slot = 0).'),(sAlmText:='Board Capacity In Slot Is 0 While Unloading Buffer With Slot Check',sRcyText:='Unload From Wrong Slot (Board Capacity In Slot = 0).'),(sAlmText:='Unloading Slot Is Skipped While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Skip Slot).'),(sAlmText:='Unloading Slot Is Not For Board While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Not For Board).'),(sAlmText:='Unloading Slot Board Is Not available While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Board Is Not Available).'),(sAlmText:='Unloading Last Sub Slot Is Not For Board While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Is Not For Board).'),(sAlmText:='Unloading Last Sub Slot Has No Board While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Has No Board).'),(sAlmText:='Board Quantity In Slot Is 0 While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Board Quantity In Slot = 0).'),(sAlmText:='Board Capacity In Slot Is 0 While Unloading Buffer With Cool Check',sRcyText:='Unload From Wrong Slot (Board Capacity In Slot = 0).'),(sAlmText:='Unloading Slot Is Skipped While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Skip Slot).'),(sAlmText:='Unloading Slot Is Not For Board While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Not For Board).'),(sAlmText:='Unloading Slot Board Is Not available While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Board Is Not Available).'),(sAlmText:='Unloading Last Sub Slot Is Not For Board While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Is Not For Board).'),(sAlmText:='Unloading Last Sub Slot Has No Board While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Last Sub Slot Has No Board).'),(sAlmText:='Board Quantity In Slot Is 0 While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Board Quantity In Slot = 0).'),(sAlmText:='Board Capacity In Slot Is 0 While Unloading Buffer With Cool & Slot Check',sRcyText:='Unload From Wrong Slot (Board Capacity In Slot = 0).'),(sAlmText:='Loading Slot Is Not For Board',sRcyText:='Load To Wrong Slot (Not For Board).'),(sAlmText:='Loading Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board).'),(sAlmText:='Loading First Sub-Slot Is Not For Board',sRcyText:='Load To Wrong Slot (First Sub Slot Not For Board).'),(sAlmText:='Loading Last Sub-Slot Have Board, Which Mean Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board(Last Sub Slot Have Board)).'),(sAlmText:='Loading Last Sub-Slot Is Not For Board',sRcyText:='Load To Wrong Slot (Last Sub Slot Not For Board).'),(sAlmText:='Loading Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board).'),(sAlmText:='Loading Slot Is Skipped',sRcyText:='Load To Wrong Slot (Skip Slot).'),(sAlmText:='Existing Board Status Is Different With Loading Board Status',sRcyText:='Existing Board Status Is Different With Loading Buffer Status.'),(sAlmText:='Loading Slot Is Not For Board',sRcyText:='Load To Wrong Slot (Not For Board).'),(sAlmText:='Loading Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board).'),(sAlmText:='Loading First Sub-Slot Is Not For Board',sRcyText:='Load To Wrong Slot (First Sub Slot Not For Board).'),(sAlmText:='Loading Last Sub-Slot Have Board, Which Mean Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board(Last Sub Slot Have Board)).'),(sAlmText:='Loading Last Sub-Slot Is Not For Board',sRcyText:='Load To Wrong Slot (Last Sub Slot Not For Board).'),(sAlmText:='Loading Slot Is Full Of Board',sRcyText:='Load To Wrong Slot (Full With Board).'),(sAlmText:='Loading Slot Is Skipped',sRcyText:='Load To Wrong Slot (Skip Slot).'),(sAlmText:='Existing Board Status Is Different With Loading Board Status',sRcyText:='Existing Board Status Is Different With Loading Buffer Status.'),8((0))];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	diNxtLoadSlt : DINT;
+	diNxtUnloadSlt : DINT;
+	diCoolBrdAny : DINT;
+	diCoolBrdGd : DINT;
+	diCoolBrdBad : DINT;
+	bCoolNotRdy : BOOL;
+	tyBuffer : tyBffr;
+	tyDispBuffer : tyDispBffr;
+	tyBufferStat : tyBffrStat;
+	tyBoardUnloadStat : tyBrdUnloadStat;
+	bFileNotFound : BOOL;
+	bCoolFanCtrl : BOOL;
+END_VAR
+VAR RETAIN
+	bMagPresent : BOOL;
+END_VAR
+VAR
+	dtMagPresentTm : DATE_AND_TIME;
+	bNewProduct : BOOL;
+	bLastProductUnload : BOOL;
+	bLastProductLeftInBffr : BOOL;
+	bParamDiff : BOOL;
+	bMagRemoved : BOOL;
+	bFIFOOld : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	udiRstErr : UDINT := 0;
+	sFileName : STRING[80] := 'Buffer.dat';
+	bManual : BOOL := FALSE;
+	dtCurrDT : DATE_AND_TIME;
+	diMinSlt : DINT;
+	diMaxSlt : DINT;
+	diPitch : DINT;
+	diSltCap : DINT := 1;
+	diBffrTtlSlt : DINT;
+	diCoolTm : DINT;
+	diSltToSltInUM : DINT;
+	diLifterBtmPosInUM : DINT;
+	diLifterCurrPosInUM : DINT;
+	bAscending : BOOL;
+	bFIFO : BOOL;
+	bGdBrdIn : BOOL;
+	bGdBrdReq : BOOL;
+	bNxtLoadSeq : BOOL;
+	a_bSkip : ARRAY[1..c_diBffrSize] OF BOOL;
+	diCoolFanOffDlyTm : DINT := 30000;
+	bMagPresentSensor : BOOL;
+	bPrepCoolFan : BOOL := TRUE;
+	bCoolFanTm : BOOL := TRUE;
+	sBffrNm : STRING[15];
+	sProdNm : STRING[15];
+	sBarcode1 : STRING[80];
+	sBarcode2 : STRING[80];
+	sCurrRcpNm : {REDUND_UNREPLICABLE} STRING[15];
+	sProgNm : STRING[15] := 'Buffer';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	bUpdateSensor : BOOL;
+	bBffrSetMty : BOOL;
+	bBffrSetFull : BOOL;
+	bUpdtDisplay : BOOL;
+	usiStep : USINT;
+	diCurrSlt : DINT;
+	diExpectedSlt : DINT;
+	bSetFull : BOOL;
+	bSetMty : BOOL;
+	bCoolFanRun : BOOL;
+	tyBffrParameter : tyBffrParam;
+	fbDirCreate1 : fbDirCreate;
+	fbDirCreate2 : fbDirCreate;
+	fbFileRead1 : fbFileFullRead;
+	fbFileWrite1 : fbFileFullWrite;
+	fbCoolFanOffDlyTm : TON;
+	fbCoolFanOffChkTm : TON := (PT:=T#500ms);
+	fbMagAbsentTm : TON := (PT:=T#5s);
+	fbMagPresentTm : TON := (PT:=T#8s);
+	eStatOld : eBufferAction := BufferActIdle;
+	bMESTrigSetFull : BOOL;
+	udiModuleNum : UDINT := 2001;
+END_VAR

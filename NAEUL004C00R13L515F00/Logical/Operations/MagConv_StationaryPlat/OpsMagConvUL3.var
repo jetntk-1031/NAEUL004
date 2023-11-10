@@ -1,0 +1,60 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+VAR
+	p_OpsMagConvUL3AlmData : UDINT;
+	p_OpsMagConvUL3AlmData1 : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_OpsMagConvUL3StepTxt : UDINT;
+	p_OpsMagConvUL3Paused : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsMagConvUL3BufferAct : UDINT;
+	p_OpsMagConvUL3MagConv2ClpAct : UDINT;
+	p_OpsMagConvUL3USSMEMAAct : UDINT;
+	p_OpsMagConvUL3AGVMagAct : UDINT;
+	p_OpsMagConvUL3MagFullExit : UDINT;
+	p_OpsMagConvUL3IncorrectMagModel : UDINT;
+	p_OpsMagConvUL3MagSizeL : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsMagConvUL3InitDone : UDINT;
+	p_OpsMagConvUL3MagBffrAvl : UDINT;
+	p_OpsMagConvUL3NewMagAllw : UDINT;
+	p_OpsMagConvUL3RlsMagAllw : UDINT;
+	p_OpsMagConvUL3EjectMESStep : UDINT;
+	p_OpsMagConvUL3EjectMagNotAllw : UDINT;
+	p_OpsMagConvUL3StepSelClampCtrl : UDINT;
+	p_OpsMagConvUL3StepMagExitedWait : UDINT;
+	p_OpsMagConvUL3NewMagVerified : UDINT;
+	p_OpsMagConvUL3StepUSCom : UDINT;
+	p_OpsMagConvUL3StepPLCGrab : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsMagConvUL3SafetyBarAct : UDINT;
+	p_OpsMagConvUL3MagAWEngageAct : UDINT;
+	p_OpsMagConvUL3MagAWAct : UDINT;
+	p_OpsAGVCommRdy3 : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsMagConvUL3USSOTAct : UDINT;
+	p_OpsMagConvUL3DSSOTAct : UDINT;
+	p_OpsMagConvUL3UnclmpDone : UDINT;
+	p_OpsMagConvUL3MagAllwGo : UDINT;
+	p_OpsMagConvUL3ReadRFID : UDINT;
+	p_OpsMagConvUL3WriteRFID : UDINT;
+	p_OpsMagConvUL3AWDone : UDINT;
+	p_OpsMagConvUL3SlotUpdtDone : UDINT;
+	p_OpsMagConvUL3AcptTm : UDINT;
+	p_OpsMagConvUL3MESAcptCond : UDINT;
+	p_OpsMagConvUL3MagExitedWait : UDINT;
+END_VAR

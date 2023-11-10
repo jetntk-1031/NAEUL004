@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T2050_RS232">
+  <Property Name="Description" Value=""/>
+  <Property Name="Index" Value="1"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="490827" Value="Baud Rate"/>
+    <Text ID="490828" Value="2400"/>
+    <Text ID="490829" Value="4800"/>
+    <Text ID="490830" Value="9600"/>
+    <Text ID="490831" Value="19200"/>
+    <Text ID="490832" Value="38400"/>
+    <Text ID="490833" Value="57600"/>
+    <Text ID="490834" Value="115200"/>
+    <Text ID="490836" Value=""/>
+    <Text ID="490837" Value="Data Bits"/>
+    <Text ID="490838" Value="7"/>
+    <Text ID="490839" Value="8"/>
+    <Text ID="490846" Value=""/>
+    <Text ID="490847" Value="Stop Bits"/>
+    <Text ID="490848" Value="1"/>
+    <Text ID="490849" Value="2"/>
+    <Text ID="490855" Value=""/>
+    <Text ID="490857" Value="Parity"/>
+    <Text ID="490858" Value="None"/>
+    <Text ID="490859" Value="Even"/>
+    <Text ID="490860" Value="Odd"/>
+    <Text ID="490861" Value=""/>
+    <Text ID="490867" Value="Start Code 1"/>
+    <Text ID="490873" Value="End Code 1"/>
+    <Text ID="503086" Value="Start Code 2"/>
+    <Text ID="503087" Value="End Code 2"/>
+    <Text ID="503095" Value="Decimal"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="490827" Value=""/>
+    <Text ID="490828" Value=""/>
+    <Text ID="490829" Value=""/>
+    <Text ID="490830" Value=""/>
+    <Text ID="490831" Value=""/>
+    <Text ID="490832" Value=""/>
+    <Text ID="490833" Value=""/>
+    <Text ID="490834" Value=""/>
+    <Text ID="490836" Value=""/>
+    <Text ID="490837" Value=""/>
+    <Text ID="490838" Value=""/>
+    <Text ID="490839" Value=""/>
+    <Text ID="490846" Value=""/>
+    <Text ID="490847" Value=""/>
+    <Text ID="490848" Value=""/>
+    <Text ID="490849" Value=""/>
+    <Text ID="490855" Value=""/>
+    <Text ID="490857" Value=""/>
+    <Text ID="490858" Value=""/>
+    <Text ID="490859" Value=""/>
+    <Text ID="490860" Value=""/>
+    <Text ID="490861" Value=""/>
+    <Text ID="490867" Value=""/>
+    <Text ID="490873" Value=""/>
+    <Text ID="503086" Value=""/>
+    <Text ID="503087" Value=""/>
+    <Text ID="503095" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="490827" Value=""/>
+    <Text ID="490828" Value=""/>
+    <Text ID="490829" Value=""/>
+    <Text ID="490830" Value=""/>
+    <Text ID="490831" Value=""/>
+    <Text ID="490832" Value=""/>
+    <Text ID="490833" Value=""/>
+    <Text ID="490834" Value=""/>
+    <Text ID="490836" Value=""/>
+    <Text ID="490837" Value=""/>
+    <Text ID="490838" Value=""/>
+    <Text ID="490839" Value=""/>
+    <Text ID="490846" Value=""/>
+    <Text ID="490847" Value=""/>
+    <Text ID="490848" Value=""/>
+    <Text ID="490849" Value=""/>
+    <Text ID="490855" Value=""/>
+    <Text ID="490857" Value=""/>
+    <Text ID="490858" Value=""/>
+    <Text ID="490859" Value=""/>
+    <Text ID="490860" Value=""/>
+    <Text ID="490861" Value=""/>
+    <Text ID="490867" Value=""/>
+    <Text ID="490873" Value=""/>
+    <Text ID="503086" Value=""/>
+    <Text ID="503087" Value=""/>
+    <Text ID="503095" Value=""/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="490827" Value=""/>
+    <Text ID="490828" Value=""/>
+    <Text ID="490829" Value=""/>
+    <Text ID="490830" Value=""/>
+    <Text ID="490831" Value=""/>
+    <Text ID="490832" Value=""/>
+    <Text ID="490833" Value=""/>
+    <Text ID="490834" Value=""/>
+    <Text ID="490836" Value=""/>
+    <Text ID="490837" Value=""/>
+    <Text ID="490838" Value=""/>
+    <Text ID="490839" Value=""/>
+    <Text ID="490846" Value=""/>
+    <Text ID="490847" Value=""/>
+    <Text ID="490848" Value=""/>
+    <Text ID="490849" Value=""/>
+    <Text ID="490855" Value=""/>
+    <Text ID="490857" Value=""/>
+    <Text ID="490858" Value=""/>
+    <Text ID="490859" Value=""/>
+    <Text ID="490860" Value=""/>
+    <Text ID="490861" Value=""/>
+    <Text ID="490867" Value=""/>
+    <Text ID="490873" Value=""/>
+    <Text ID="503086" Value=""/>
+    <Text ID="503087" Value=""/>
+    <Text ID="503095" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="490827" Value="0"/>
+    <Index ID="490828" Value="1"/>
+    <Index ID="490829" Value="2"/>
+    <Index ID="490830" Value="3"/>
+    <Index ID="490831" Value="4"/>
+    <Index ID="490832" Value="5"/>
+    <Index ID="490833" Value="6"/>
+    <Index ID="490834" Value="7"/>
+    <Index ID="490836" Value="9"/>
+    <Index ID="490837" Value="10"/>
+    <Index ID="490838" Value="11"/>
+    <Index ID="490839" Value="12"/>
+    <Index ID="490846" Value="19"/>
+    <Index ID="490847" Value="20"/>
+    <Index ID="490848" Value="21"/>
+    <Index ID="490849" Value="22"/>
+    <Index ID="490855" Value="28"/>
+    <Index ID="490857" Value="30"/>
+    <Index ID="490858" Value="31"/>
+    <Index ID="490859" Value="32"/>
+    <Index ID="490860" Value="33"/>
+    <Index ID="490861" Value="34"/>
+    <Index ID="490867" Value="100"/>
+    <Index ID="490873" Value="102"/>
+    <Index ID="503086" Value="101"/>
+    <Index ID="503087" Value="103"/>
+    <Index ID="503095" Value="104"/>
+  </IndexMap>
+</TextGroup>

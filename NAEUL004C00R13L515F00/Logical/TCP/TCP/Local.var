@@ -1,0 +1,167 @@
+(*2020-09-10*)
+(**)
+(*Local Action, State & Status*)
+VAR
+	bManual : BOOL := FALSE;
+	eAct : eTCPAction := TCPActIdle;
+	eStat : eTCPAction := TCPActIdle;
+	eMainStatus : eFBStatus := Idle;
+	eStatus : eFBStatus := Idle;
+	eStatus1 : eFBStatus := Idle;
+	eStatus2 : eFBStatus := Idle;
+	udiStatus : UDINT := 0;
+	udiStatus1 : UDINT := 0;
+	udiStatus2 : UDINT := 0;
+	udiStatus3 : UDINT := 0;
+	udiStatus4 : UDINT := 0;
+	udiStatus5 : UDINT := 0;
+	sStatTxt : STRING[200] := '';
+	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Creating Directory','Deleting Old Log',48('')];
+END_VAR
+(**)
+(*Local Alarm*)
+VAR
+	tyAlmData : tyAlmDat;
+	tyAlmData1 : tyAlmDat;
+	tyAlmData2 : tyAlmDat;
+	tyAlmData3 : tyAlmDat;
+	a_tyAlmText : ARRAY[10000..10199] OF tyAlmTxt := [(sAlmText:='Invalid Ident While Client Connecting',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='Setting Keep Alive Interval Time Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting Keep Alive Idle Time Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting Keep Alive Count Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting Keep Alive Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting Receive Buffer Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting Send Buffer Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='Setting No Waiting Error While Client Connecting',sRcyText:='Unable To Establish Connection Between Machine. Check For Setting And Resume Operation.'),(sAlmText:='TCP Open Port Error While Client Connecting',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='Closing TCP Error While Client Connecting',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='Server Connection Failed While Client Connecting',sRcyText:='There Was A Problem Connecting To The Server. The Server May Not Exist or It is Unavailable At This Time. Check The Connection and Try Again.'),(sAlmText:='Ident In Used While Client Connecting',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Reconnect.'),(sAlmText:='TCP Connection Lost',sRcyText:='There Was A Problem Connecting To The Server. The Server May Not Exist or It is Unavailable At This Time. Check The Connection and Try Again.'),(sAlmText:='TCP Connection Lost',sRcyText:='Please Check Network Connection.'),(sAlmText:='Invalid Ident While Receiving Data',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='TCP Receive Data Error While Receiving Data',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='Create User Directory Error',sRcyText:='An Error Occurred While Attempting To Create User Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='Create Log Directory Error',sRcyText:='An Error Occurred While Attempting To Create User Directory. Please Contact Nutek For A Possible Solution'),(sAlmText:='File Open Error While Writing Log',sRcyText:='An Error Was Encountered While Trying To Open File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Create Error While Writing Log',sRcyText:='An Error Was Encountered While Trying To Create File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get File Info Error While Writing Log',sRcyText:='An Error Was Encountered While Getting File Info. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Write Error While Writing Log',sRcyText:='An Error Was Encountered While Getting File Info. Please Contact Nutek For A Possible Solution.'),(sAlmText:='File Close Error While Writing Log',sRcyText:='An Error Was Encountered While Trying To Close File. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Directory Does Not Exist While Writing Log',sRcyText:='The Directory Does Not Exist.Please Contact Nutek For A Possible Solution.'),(sAlmText:='Invalid Ident While Sending Data',sRcyText:='Invalid Ident Value.'),(sAlmText:='TCP Retry Send Data Error While Sending Data',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='TCP Send Data Error',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),(sAlmText:='Invalid Ident While Closing TCP',sRcyText:='Invalid Ident Value.'),(sAlmText:='Closing TCP Error',sRcyText:='Problem Occurred In The TCP/IP Connection. Check The Connection And Try To Reconnect.'),171(0)];
+END_VAR
+(**)
+(*Local Output*)
+VAR
+	bConnected : BOOL;
+	bUSB : BOOL;
+	bUBA : BOOL;
+	bDSB : BOOL;
+	bDBA : BOOL;
+	bUSB2 : BOOL;
+	bUBA2 : BOOL;
+	bDSB2 : BOOL;
+	bDBA2 : BOOL;
+END_VAR
+(**)
+(*Local Input*)
+VAR
+	sSvrIP : STRING[15] := '192.168.0.16';
+	uiSvrPort : UINT := 7171;
+	uiClientPort : UINT := 5000;
+	udiRstErr : UDINT := 0;
+	bPrep : BOOL := TRUE;
+	bEn : BOOL := TRUE;
+	bDis : BOOL := FALSE;
+	sIPAddr : STRING[15] := '192.168.0.16';
+	tyDTStructure : DTStructure := (year:=2019,month:=01,day:=05,wday:=05,hour:=21,minute:=28,second:=30,millisec:=123,microsec:=456);
+	dtCurrDT : DATE_AND_TIME := DT#2019-02-23-12:30:50;
+	udiSndBffrSize : UDINT := 65536;
+	udiRcvBffrSize : UDINT := 65536;
+	udiAliveIdleTimeInSec : UDINT := 5;
+	tConnTimeOut : TIME := T#30s;
+	bOpsRun : BOOL := FALSE;
+	udiFileKeepDay : UDINT := 30;
+	usiProjMag : USINT := 0;
+	sProgNm : STRING[15] := 'TCP';
+	bNtSettingsLoadDone : BOOL := TRUE;
+END_VAR
+(**)
+(*Local*)
+VAR
+	eTCPModel : eTCPClientServer := Server;
+	eStatOld : eTCPAction := TCPActIdle;
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	bRun : BOOL;
+	bStop : BOOL;
+	bRstConnection : BOOL;
+	bRstState : BOOL;
+	usiStep : USINT;
+	udiTCPIdent : UDINT; (*Client ident*)
+	udiMsgSendBffr : UDINT;
+	udiSndMsgLen : UDINT;
+	iFindBatteryLvl : INT;
+	rCurrentBatteryLvl : REAL;
+	sExtractBatteryLvl : STRING[30];
+	sDecodeMsg : STRING[65535];
+	a_sMsgSend : ARRAY[0..50] OF STRING[65535];
+	bMsgSnd : BOOL;
+	bMsgRcv : BOOL;
+	sMsgSnd : STRING[65535];
+	sMsgRcv : STRING[65535];
+	sSvrMsgRcv : STRING[65535];
+	sSnd : STRING[65535];
+	sRcv : STRING[65535];
+	fbClntConnect : fbTCPClntConnect;
+	fbTCPSvrCreateSvr : fbTCPCreateSvr;
+	fbTCPSvrSvrListenFltr : fbTCPSvrListenFltr;
+	fbRcv : fbTCPRcv;
+	fbSend : fbTCPSnd;
+	fbClose : fbTCPClose;
+	fbTrig : RF_TRIG;
+	fbTrig1 : RF_TRIG;
+	fbTrig2 : RF_TRIG;
+	fbTrig3 : RF_TRIG;
+	udiLogCntr : UDINT := 1;
+	udiWriteLogCntr : UDINT := 1;
+	a_sLogList : ARRAY[1..10] OF STRING[65535];
+	sDT : STRING[80];
+	dtCurrDTTemp : DATE_AND_TIME;
+	fbDirCreate1 : fbDirCreate;
+	fbDirCreate2 : fbDirCreate;
+	fbFileAppend1 : fbFileFullAppend;
+	fbFileOldDel1 : fbFileOldDel;
+	iWriteLogStep : INT := 0;
+	iHistoryCntr : INT := 1;
+	a_tyHistoryList : ARRAY[1..8] OF tyTCPHistoryMsg;
+	bLoginSuccess : BOOL;
+	bCheckAliveTimeout : BOOL;
+	bWaitAliveResponse : BOOL;
+	fbSendAliveTimer : TON;
+	fbCheckAliveTimer : TON;
+END_VAR
+(**)
+VAR
+	tyAIVMsgRcvData : tyAIVMsgRcvDat;
+	sELD1Reached : STRING[80] := 'Arrived At ELD1';
+	sELD1Completed : STRING[80] := 'ELD1_completed';
+	sELD2Reached : STRING[80] := 'Arrived At ELD2';
+	sELD2Completed : STRING[80] := 'ELD2_completed';
+	sELD3Reached : STRING[80] := 'Arrived At ELD3';
+	sELD3Completed : STRING[80] := 'ELD3_completed';
+	sEUL1Reached : STRING[80] := 'Arrived At EUL1';
+	sEUL1Completed : STRING[80] := 'EUL1_completed';
+	sEUL2Reached : STRING[80] := 'Arrived At EUL2';
+	sEUL2Completed : STRING[80] := 'EUL2_completed';
+	sEUL3Reached : STRING[80] := 'Arrived At EUL3';
+	sEUL3Completed : STRING[80] := 'EUL3_completed';
+	sSTANDBYReached : STRING[80] := 'Arrived At STANDBY';
+	sSTANDBYCompleted : STRING[80] := 'STANDBY_completed';
+END_VAR
+(*Server*)
+VAR
+	udiSvrIdent : UDINT := 0;
+	bFltrIP : BOOL;
+	bFltrPort : BOOL;
+	sAllwClntIP : STRING[15];
+	uiAllwClntPort : UINT;
+	bReconnect : BOOL;
+	eSvrStat : eTCPSvrAction := SvrActIdle;
+	eSvrStatus : eFBStatus := Idle;
+	bSingleMagLine : BOOL := FALSE;
+END_VAR
+(**)
+(*Data Parameter(Read1)*)
+VAR
+	i : INT;
+	iSeparator : INT := 0;
+	tyAGVCurr : ARRAY[1..2] OF tyTCPAGVDetail;
+	sData : ARRAY[0..7] OF STRING[30]; (*Buffer *)
+END_VAR
+(*Data Parameter(Read/write)*)
+VAR
+	eMagAGVStatus : ARRAY[0..7] OF eTCPAGVStatus := [8(AGVNA)];
+	a_sMagMcStatus : ARRAY[0..7] OF STRING[2] := [8('')];
+	tyDTMagToAGV : tyTagDTMagToAGV;
+	udiModuleNum : UDINT := 4301;
+END_VAR

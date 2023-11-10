@@ -1,0 +1,18 @@
+(*2019-06-28*)
+(**)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_eLinkMcParamUSCommMod : REFERENCE TO eMcSetCommMod;
+	bHermesRun : BOOL;
+	bHermesStop : BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkDILeftSen : REFERENCE TO BOOL;
+	p_eLinkTravLifULPosGo : REFERENCE TO eTravLifULPos;
+	p_bLinkOpsTravLifULUSComm : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	sWidthInUMTemp : STRING[80];
+END_VAR

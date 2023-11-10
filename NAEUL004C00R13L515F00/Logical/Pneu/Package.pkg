@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Do Not Change!!!">Pneu.typ</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenInShutter.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenInShutter</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenOutShutter.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenOutShutter</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenStopperA.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenStopperA</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenStopperB.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenStopperB</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenStopperC.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenStopperC</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenSelClamp1.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenSelClamp1</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenSelClamp2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenSelClamp2</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenSelClamp3.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenSelClamp3</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag1SafetyBar.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag1SafetyBar</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag2SafetyBar.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag2SafetyBar</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag3SafetyBar.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag3SafetyBar</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag1AWEngage.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag1AWEngage</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag2AWEngage.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag2AWEngage</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenMag3AWEngage.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenMag3AWEngage</Object>
+    <Object Type="Package">MagConv_Stopper</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenOutShutter2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenOutShutter2</Object>
+    <Object Type="File" Description="Change By Project">Pneu2SenOutShutter3.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">Pneu2SenOutShutter3</Object>
+    <Object Type="File" Description="Change By Project">PneuNoSenInletStopper.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtPneu v5.00.0">PneuNoSenInletStopper</Object>
+  </Objects>
+</Package>

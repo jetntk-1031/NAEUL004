@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?AutomationStudio Version="4.8.4.50 SP"?>
+<TextGroup xmlns="http://br-automation.co.at/AS/VC/Project" Name="T1000_Alarm">
+  <Property Name="Description" Value="Alarm Event and Page"/>
+  <Property Name="Index" Value="0"/>
+  <TextSnippets/>
+  <TextLayer LanguageId="en">
+    <Text ID="189437" Value="Current"/>
+    <Text ID="189438" Value="History"/>
+    <Text ID="189445" Value=" "/>
+    <Text ID="377336" Value="Alarm Event:"/>
+    <Text ID="377337" Value="Triggered"/>
+    <Text ID="377338" Value="Reset"/>
+    <Text ID="377339" Value="Bypassed"/>
+    <Text ID="377340" Value="Not Bypassed"/>
+    <Text ID="377341" Value="Reset Acknowledged"/>
+    <Text ID="377342" Value="Achnowledged Reset"/>
+    <Text ID="377343" Value="T"/>
+    <Text ID="377344" Value="R"/>
+    <Text ID="377345" Value="B"/>
+    <Text ID="377346" Value="nB"/>
+    <Text ID="377347" Value="RA"/>
+    <Text ID="377348" Value="AR"/>
+    <Text ID="377349" Value=" "/>
+    <Text ID="377350" Value=" "/>
+    <Text ID="377356" Value="Alarm Page:"/>
+    <Text ID="377357" Value=""/>
+    <Text ID="377358" Value=""/>
+    <Text ID="377361" Value="|"/>
+    <Text ID="377362" Value=" "/>
+    <Text ID="377366" Value="Alarm\nMute"/>
+    <Text ID="377367" Value="Alarm\nReset"/>
+  </TextLayer>
+  <TextLayer LanguageId="de">
+    <Text ID="189437" Value="Aktuell"/>
+    <Text ID="189438" Value="Verlauf"/>
+    <Text ID="189445" Value=" "/>
+    <Text ID="377336" Value="Alarmereignis:"/>
+    <Text ID="377337" Value="Ausgelöst"/>
+    <Text ID="377338" Value="Reset"/>
+    <Text ID="377339" Value="Bypass"/>
+    <Text ID="377340" Value="Nicht Bypass"/>
+    <Text ID="377341" Value="Reset Anerkannt"/>
+    <Text ID="377342" Value="Bestätigt Rückstellung"/>
+    <Text ID="377343" Value="T"/>
+    <Text ID="377344" Value="R"/>
+    <Text ID="377345" Value="B"/>
+    <Text ID="377346" Value="nB"/>
+    <Text ID="377347" Value="RA"/>
+    <Text ID="377348" Value="AR"/>
+    <Text ID="377349" Value=" "/>
+    <Text ID="377350" Value=" "/>
+    <Text ID="377356" Value="Alarmseite:"/>
+    <Text ID="377357" Value=""/>
+    <Text ID="377358" Value=""/>
+    <Text ID="377361" Value="|"/>
+    <Text ID="377362" Value=" "/>
+    <Text ID="377366" Value="Alarm\nStumm"/>
+    <Text ID="377367" Value="Alarm\nRückstellung"/>
+  </TextLayer>
+  <TextLayer LanguageId="zh">
+    <Text ID="189437" Value="当前"/>
+    <Text ID="189438" Value="历史"/>
+    <Text ID="189445" Value=" "/>
+    <Text ID="377336" Value="警报事件"/>
+    <Text ID="377337" Value="触发"/>
+    <Text ID="377338" Value="重置"/>
+    <Text ID="377339" Value="直通"/>
+    <Text ID="377340" Value="未直通"/>
+    <Text ID="377341" Value="重置已确认"/>
+    <Text ID="377342" Value="已确认重置"/>
+    <Text ID="377343" Value="T"/>
+    <Text ID="377344" Value="R"/>
+    <Text ID="377345" Value="B"/>
+    <Text ID="377346" Value="nB"/>
+    <Text ID="377347" Value="RA"/>
+    <Text ID="377348" Value="AR"/>
+    <Text ID="377349" Value=" "/>
+    <Text ID="377350" Value=" "/>
+    <Text ID="377356" Value="警报页面:"/>
+    <Text ID="377357" Value=""/>
+    <Text ID="377358" Value=""/>
+    <Text ID="377361" Value="|"/>
+    <Text ID="377362" Value=" "/>
+    <Text ID="377366" Value="警报\n静音"/>
+    <Text ID="377367" Value="警报\n复位"/>
+  </TextLayer>
+  <TextLayer LanguageId="pt">
+    <Text ID="189437" Value=""/>
+    <Text ID="189438" Value=""/>
+    <Text ID="189445" Value=""/>
+    <Text ID="377336" Value=""/>
+    <Text ID="377337" Value=""/>
+    <Text ID="377338" Value=""/>
+    <Text ID="377339" Value=""/>
+    <Text ID="377340" Value=""/>
+    <Text ID="377341" Value=""/>
+    <Text ID="377342" Value=""/>
+    <Text ID="377343" Value=""/>
+    <Text ID="377344" Value=""/>
+    <Text ID="377345" Value=""/>
+    <Text ID="377346" Value=""/>
+    <Text ID="377347" Value=""/>
+    <Text ID="377348" Value=""/>
+    <Text ID="377349" Value=""/>
+    <Text ID="377350" Value=""/>
+    <Text ID="377356" Value=""/>
+    <Text ID="377357" Value=""/>
+    <Text ID="377358" Value=""/>
+    <Text ID="377361" Value=""/>
+    <Text ID="377362" Value=""/>
+    <Text ID="377366" Value=""/>
+    <Text ID="377367" Value=""/>
+  </TextLayer>
+  <IndexMap>
+    <Index ID="189437" Value="21"/>
+    <Index ID="189438" Value="22"/>
+    <Index ID="189445" Value="29"/>
+    <Index ID="377336" Value="0"/>
+    <Index ID="377337" Value="1"/>
+    <Index ID="377338" Value="2"/>
+    <Index ID="377339" Value="3"/>
+    <Index ID="377340" Value="4"/>
+    <Index ID="377341" Value="5"/>
+    <Index ID="377342" Value="6"/>
+    <Index ID="377343" Value="7"/>
+    <Index ID="377344" Value="8"/>
+    <Index ID="377345" Value="9"/>
+    <Index ID="377346" Value="10"/>
+    <Index ID="377347" Value="11"/>
+    <Index ID="377348" Value="12"/>
+    <Index ID="377349" Value="13"/>
+    <Index ID="377350" Value="14"/>
+    <Index ID="377356" Value="20"/>
+    <Index ID="377357" Value="23"/>
+    <Index ID="377358" Value="24"/>
+    <Index ID="377361" Value="27"/>
+    <Index ID="377362" Value="28"/>
+    <Index ID="377366" Value="30"/>
+    <Index ID="377367" Value="31"/>
+  </IndexMap>
+</TextGroup>

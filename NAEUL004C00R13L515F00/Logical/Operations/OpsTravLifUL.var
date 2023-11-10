@@ -1,0 +1,80 @@
+(*2019-03-25*)
+(**)
+(*Action & State & Status*)
+(**)
+(*Alarm*)
+VAR
+	p_OpsTravLifULAlmData : UDINT;
+END_VAR
+(**)
+(*Output*)
+VAR
+	p_OpsTravLifULStepTxt : UDINT;
+	p_OpsTravLifULPaused : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsTravLifULUSSMEMAAct1 : UDINT;
+	p_OpsTravLifULUSSMEMAAct2 : UDINT;
+	p_OpsTravLifULUSSMEMAAct3 : UDINT;
+	p_OpsTravLifULDSSMEMAAct1 : UDINT;
+	p_OpsTravLifULDSSMEMAAct2 : UDINT;
+	p_OpsTravLifULDSSMEMAAct3 : UDINT;
+	p_OpsTravLifULConvAct : UDINT;
+	p_OpsTravLifULAWPushPullAct : UDINT;
+	p_OpsTravLifULAWAct : UDINT;
+	p_OpsTravLifULTravAct : UDINT;
+	p_OpsTravLifULLifAct : UDINT;
+	p_OpsTravLifULInletPneuAct : UDINT;
+	p_OpsTravLifULOutletPneuAct : UDINT;
+	p_OpsTravLifULOutletPneuAct2 : UDINT;
+	p_OpsTravLifULOutletPneuAct3 : UDINT;
+	p_OpsTravLifULStopperAct1 : UDINT;
+	p_OpsTravLifULStopperAct2 : UDINT;
+	p_OpsTravLifULStopperAct3 : UDINT;
+END_VAR
+(**)
+VAR
+	p_OpsTravLifULPosGo : UDINT;
+	p_OpsTravLifULMagDis : UDINT;
+	p_OpsTravLifULMagRej : UDINT;
+	p_OpsTravLifULInitConv : UDINT;
+	p_OpsTravLifULInitDone : UDINT;
+	p_OpsTravLifULUSComm : UDINT;
+	p_OpsTravLifULEntBrd : UDINT;
+	p_OpsTravLifULDSComm : UDINT;
+	p_OpsTravLifULExitBrd : UDINT;
+	p_OpsTravLifULTravLifMov : UDINT;
+	p_OpsTravLifULSelfTest : UDINT;
+	p_OpsTravLifULTravGotoChkPt : UDINT;
+	p_OpsTravLifULInDSPos : UDINT;
+	p_OpsTravLifULUSWidthChkBrdExist : UDINT;
+	p_OpsTravLifULJogSpeed : UDINT;
+	p_OpsTravLifULStpExt : UDINT;
+	p_OpsTravLifULBypCurtainSenCtrl : UDINT;
+	p_OpsTravLifULBypCurtainLED : UDINT;
+	p_OpsTravLifULMagWidthChk : UDINT;
+	p_OpsTravLifULMagWidthChkStep : UDINT;
+	p_OpsTravLifULTopScan : UDINT;
+	p_OpsTravLifULBtmScan : UDINT;
+	p_OpsTravLifULBarcode : UDINT;
+	p_OpsTravLifULMsgReq : UDINT;
+	p_OpsTravLifWChkErrCmdUnclmp1 : UDINT;
+	p_OpsTravLifWChkErrCmdUnclmp2 : UDINT;
+	p_OpsTravLifWChkErrCmdUnclmp3 : UDINT;
+	p_OpsTravLifParamTravLif : UDINT;
+	p_OpsTravLifOpsModGonethrough : UDINT;
+	p_OpsTravLifWGdBrdChk : UDINT;
+	p_OpsTravLifAllwExitMag1 : UDINT;
+	p_OpsTravLifAllwExitMag2 : UDINT;
+	p_OpsTravLifAllwExitMag3 : UDINT;
+	p_OpsTravLifULPartProcessItms : UDINT;
+	p_OpsTravLifULMagEntered : UDINT;
+	p_OpsTravLifInletStprAct : UDINT;
+	p_OpsTravLifStartScanSig : UDINT;
+	p_OpsTravLifMag1TransOut : UDINT;
+	p_OpsTravLifMag2TransOut : UDINT;
+	p_OpsTravLifMag3TransOut : UDINT;
+	p_OpsTravLifOpsStep : UDINT;
+	p_OpsTravLifGotoOpsStep : UDINT;
+END_VAR

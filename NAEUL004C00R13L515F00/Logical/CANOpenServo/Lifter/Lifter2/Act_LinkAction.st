@@ -1,0 +1,28 @@
+(** 2019-10-21 **)
+ACTION Act_LinkAction:
+	
+	IF eStatus = Idle THEN
+		IF bModuleNotOK THEN
+			p_eAct ACCESS ADR(eAct);
+		ELSE
+			IF p_bLinkStartupRun = TRUE THEN
+				p_eAct ACCESS p_StartupLifter2Act;
+			ELSIF p_bLinkOpsRun = TRUE THEN
+//				IF p_bLinkOpsInitULDStepInitDone = FALSE THEN
+//					p_eAct ACCESS p_OpsInitULDLifterAct;
+//				ELSE
+					p_eAct ACCESS p_OpsLifMagULLifter2Act;
+//				END_IF
+			ELSIF p_bManual = TRUE THEN
+				p_eAct ACCESS p_UILifter2Act;
+			ELSE
+				p_eAct ACCESS ADR(eAct);
+			END_IF
+		END_IF
+	END_IF
+	
+	IF EDGENEG(p_bManual) OR EDGENEG(p_bLinkOpsRun) OR EDGENEG(p_bLinkStartupRun) THEN
+		tyParamOutDriver.uiCtrlword_6040	:= 0;
+	END_IF
+	
+END_ACTION

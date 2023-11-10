@@ -1,0 +1,82 @@
+(*2021-08-01*)
+(**)
+(*General*)
+VAR
+	p_eAct : REFERENCE TO eHermesAction;
+	p_udiRstErr : REFERENCE TO UDINT;
+	p_bPrep : REFERENCE TO BOOL;
+	p_bEn : REFERENCE TO BOOL;
+	p_bDis : REFERENCE TO BOOL;
+END_VAR
+(**)
+(*Configuration*)
+VAR
+	p_tyParam : REFERENCE TO tyHermesUSParam;
+	p_sIPAddr : REFERENCE TO STRING[15];
+	p_tyDTStructure : REFERENCE TO DTStructure;
+	p_dtCurrDT : REFERENCE TO DATE_AND_TIME;
+	p_sMcId : REFERENCE TO STRING[80];
+END_VAR
+(**)
+(*Input*)
+VAR
+	p_bRdyRcv : REFERENCE TO BOOL;
+	p_bRdyTransport : REFERENCE TO BOOL;
+	p_bRcvCompl : REFERENCE TO BOOL;
+	p_bRcvIncompl : REFERENCE TO BOOL;
+	p_bRcvNotStart : REFERENCE TO BOOL;
+	p_bBAWidthEn : REFERENCE TO BOOL; (*Board Available Check Width*)
+	p_bBASltEn : REFERENCE TO BOOL; (*Board Available Check Slot*)
+	p_bBFWidthEn : REFERENCE TO BOOL; (*Board Forecast Check Width*)
+	p_bBFSltEn : REFERENCE TO BOOL; (*Board Forecast Check Slot*)
+	p_sRecipeNm : REFERENCE TO STRING[254];
+	p_sInterfaceId : REFERENCE TO STRING[80];
+	p_sVersion : REFERENCE TO STRING[7];
+	p_eFailedBoard : REFERENCE TO eHermesFailedBoard;
+	p_diWidthInUM : REFERENCE TO DINT;
+	p_diMinSltValue : REFERENCE TO DINT;
+	p_diMaxSltValue : REFERENCE TO DINT;
+	p_diPitch : REFERENCE TO DINT;
+	p_diTtlSlt : REFERENCE TO DINT;
+	p_diSltToSltInUM : REFERENCE TO DINT;
+	p_udiSndBffrSize : REFERENCE TO UDINT;
+	p_udiRcvBffrSize : REFERENCE TO UDINT;
+	p_udiAliveIdleTimeInSec : REFERENCE TO UDINT;
+	p_tConnTimeOut : REFERENCE TO TIME;
+	p_diTransferInTO : REFERENCE TO DINT;
+	p_bOpsRun : REFERENCE TO BOOL;
+	p_bInterruptSen : REFERENCE TO BOOL;
+	p_udiFileKeepDay : REFERENCE TO UDINT;
+	p_sProgNm : REFERENCE TO STRING[15];
+	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_bAccDataRdy : REFERENCE TO BOOL;
+	p_bRmtPrep : REFERENCE TO BOOL;
+	p_bRmtEn : REFERENCE TO BOOL;
+	p_bSvyPrep : REFERENCE TO BOOL;
+	p_bSvyEn : REFERENCE TO BOOL;
+	p_bAccNewRcpCond : REFERENCE TO BOOL;
+	p_sInfoMsg : REFERENCE TO STRING[200];
+	p_sInfoMsg1 : REFERENCE TO STRING[200];
+	p_sInfoMsg2 : REFERENCE TO STRING[200];
+	pa_tyProdRcpList : REFERENCE TO ARRAY[1..c_udiProdRcpMax] OF tyProdRcpParam;
+	p_tyProdRcpCurrRcp : REFERENCE TO tyProdRcpParam;
+	p_bMcParamMnlAccData : REFERENCE TO BOOL;
+	p_bOpsGConv1HvBrd : REFERENCE TO BOOL;
+	p_bManualInsertZoneHvBrd : REFERENCE TO BOOL;
+	p_bUIAccData : REFERENCE TO BOOL;
+	p_bQueryBoardInfo : REFERENCE TO BOOL;
+	p_sTopBarcode : REFERENCE TO STRING[254];
+	p_sBottomBarcode : REFERENCE TO STRING[254];
+	p_tyHermesConfiguration : REFERENCE TO tyHermesConfiguration;
+	p_bTransportFinished : REFERENCE TO BOOL;
+	p_bManualInsertEndSen : REFERENCE TO BOOL;
+	p_bInternalUse : REFERENCE TO BOOL;
+	p_sInternalRcv : REFERENCE TO STRING[65535];
+	p_usiLinkProdRcpCurrRcpMcMod : REFERENCE TO USINT;
+	p_bNewIncomingBoard : REFERENCE TO BOOL;
+	p_bQueryBypassWorkOrder : REFERENCE TO BOOL;
+	p_bSiemensMcModeChgPrep : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
+	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
+END_VAR

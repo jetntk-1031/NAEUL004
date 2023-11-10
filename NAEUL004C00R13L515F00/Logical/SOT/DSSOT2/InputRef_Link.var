@@ -1,0 +1,11 @@
+(*2021-04-20*)
+(**)
+VAR
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+END_VAR
+(**)
+VAR
+	p_bLinkProjMag2ConvPrep : REFERENCE TO BOOL;
+	p_bLinkProjMagConvLane2Prep : REFERENCE TO BOOL;
+	p_bLinkProjTCPAGVSigPrep : REFERENCE TO BOOL;
+END_VAR

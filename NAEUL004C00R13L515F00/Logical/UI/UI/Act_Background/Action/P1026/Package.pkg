@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File">Act_EntP1026Disp.st</Object>
+    <Object Type="File">Act_ExitP1026.st</Object>
+    <Object Type="File">Act_OptP1026Navi.st</Object>
+    <Object Type="File">Act_OptP1026FullMask.st</Object>
+    <Object Type="File">Act_OptP1026Mnl.st</Object>
+    <Object Type="File">Act_OptP1026TravTeach.st</Object>
+    <Object Type="File">Act_OptP1026TravFBCtrl.st</Object>
+    <Object Type="File">Act_OptP1026TravFBStat.st</Object>
+    <Object Type="File">Act_OptP1026TravMask.st</Object>
+    <Object Type="File">Act_OptP1026TravUpdtDat.st</Object>
+    <Object Type="File">Act_OptP1026TravKeypad.st</Object>
+    <Object Type="File">Act_OptP1026TravRstMnl.st</Object>
+    <Object Type="File">Act_OptP1026LifterTeach.st</Object>
+    <Object Type="File">Act_OptP1026LifterFBCtrl.st</Object>
+    <Object Type="File">Act_OptP1026LifterFBStat.st</Object>
+    <Object Type="File">Act_OptP1026LifterMask.st</Object>
+    <Object Type="File">Act_OptP1026LifterUpdtDat.st</Object>
+    <Object Type="File">Act_OptP1026Lifter2FBCtrl.st</Object>
+    <Object Type="File">Act_OptP1026Lifter2FBStat.st</Object>
+    <Object Type="File">Act_OptP1026Lifter2Mask.st</Object>
+    <Object Type="File">Act_OptP1026Lifter2UpdtDat.st</Object>
+    <Object Type="File">Act_OptP1026LifterKeypad.st</Object>
+    <Object Type="File">Act_OptP1026LifterRstMnl.st</Object>
+  </Objects>
+</Package>

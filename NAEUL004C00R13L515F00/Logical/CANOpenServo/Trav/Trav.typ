@@ -1,0 +1,33 @@
+(*2018-12-27*)
+(**)
+(*Action*)
+
+TYPE
+	eTravAction : 
+		(
+		TravActIdle,
+		TravActGoAPos,
+		TravActGoBPos,
+		TravActGoCPos,
+		TravActGoDPos,
+		TravActGoEPos,
+		TravActGoFPos,
+		TravActGoGPos,
+		TravActGoHPos,
+		TravActFullHm,
+		TravActPwrOn,
+		TravActPwrOff,
+		TravActHoming,
+		TravActMovAbs,
+		TravActMovRel,
+		TravActJogFront,
+		TravActJogRear,
+		TravActJogStop,
+		TravActRstAxisErr,
+		TravActStop,
+		TravActSDOWrite,
+		TravActBGStartModOKChk,
+		TravActBGStopModOKChk,
+		TravActRstNode
+		);
+END_TYPE

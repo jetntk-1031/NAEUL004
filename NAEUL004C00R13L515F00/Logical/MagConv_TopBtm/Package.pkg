@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Change By Project">MagConv.typ</Object>
+    <Object Type="File" Description="Change By Project">InMagConv.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">InMagConv</Object>
+    <Object Type="File" Description="Change By Project">OutMagConv.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">OutMagConv</Object>
+    <Object Type="File" Description="Change By Project">LifterMagConv.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">LifterMagConv</Object>
+    <Object Type="File" Description="Change By Project">InMagConv2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">InMagConv2</Object>
+    <Object Type="File" Description="Change By Project">OutMagConv2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">OutMagConv2</Object>
+    <Object Type="File" Description="Change By Project">LifterMagConv2.var</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - NtConv v5.00.0 , NtPneu v5.00.0">LifterMagConv2</Object>
+  </Objects>
+</Package>

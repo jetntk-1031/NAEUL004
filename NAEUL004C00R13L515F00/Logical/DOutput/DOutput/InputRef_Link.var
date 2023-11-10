@@ -1,0 +1,17 @@
+(*2021-05-25*)
+(**)
+(*General*)
+VAR
+	p_bLinkStartupRun : REFERENCE TO BOOL;
+	p_bLinkOpsRun : REFERENCE TO BOOL;
+	p_bLinkError : REFERENCE TO BOOL;
+	p_eLinkAGVComProtocol : REFERENCE TO eMcAGVCommProtocol;
+	p_bLinkNtParamProjSOTSenPrep : REFERENCE TO BOOL;
+	p_bLinkProjMagConvLane1Prep : REFERENCE TO BOOL;
+	p_bLinkProjMagConvLane2Prep : REFERENCE TO BOOL;
+	p_bLinkAGVCommRdy1 : REFERENCE TO BOOL;
+	p_bLinkAGVCommRdy2 : REFERENCE TO BOOL;
+	p_bLinkAGVCommRdy3 : REFERENCE TO BOOL;
+	p_bLinkOpsBypCurtainSen : REFERENCE TO BOOL;
+	p_bLinkOpsBypCurtainLED : REFERENCE TO BOOL;
+END_VAR

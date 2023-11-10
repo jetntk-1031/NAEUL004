@@ -1,0 +1,31 @@
+(*2019-06-17*)
+(**)
+(*Action*)
+
+TYPE
+	eMtrPshrAction : 
+		(
+		MtrPshrActIdle,
+		MtrPshrActExt,
+		MtrPshrActRet,
+		MtrPshrActStop,
+		MtrPshrActSetExt,
+		MtrPshrActRstExt,
+		MtrPshrActSetRet,
+		MtrPshrActRstRet,
+		MtrPshrActSetSpdBit0,
+		MtrPshrActRstSpdBit0,
+		MtrPshrActSetSpdBit1,
+		MtrPshrActRstSpdBit1,
+		MtrPshrActSetSpdBit2,
+		MtrPshrActRstSpdBit2,
+		MtrPshrActSetSigOn,
+		MtrPshrActRstSigOn,
+		MtrPshrActSetBrake,
+		MtrPshrActRstBrake,
+		MtrPshrActSetAlmRst,
+		MtrPshrActRstAlmRst,
+		MtrPshrActSetAll,
+		MtrPshrActRstAll
+		);
+END_TYPE
