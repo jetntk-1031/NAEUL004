@@ -243,5 +243,6 @@ VAR
 	p_McParamAutoRcpIgnoreThickns : UDINT;
 	p_McParamDMCScannerEn : UDINT;
 	p_McParamDMCScanWriteTO : UDINT;
+	p_McParamDefaultGateway : UDINT;
 END_VAR
 (**)

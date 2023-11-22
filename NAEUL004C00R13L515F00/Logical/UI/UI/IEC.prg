@@ -18,7 +18,7 @@
     <Object Type="File" Description="Change By Project" Private="true">Local.var</Object>
     <Object Type="File" Private="true">Visu_Page.typ</Object>
     <Object Type="File" Private="true">Visu_Page.var</Object>
-    <Object Type="File" Private="true">Visu_Layer.typ</Object>
     <Object Type="File" Private="true">Visu_Layer.var</Object>
+    <Object Type="File" Private="true">Visu_Layer.typ</Object>
   </Objects>
 </Program>

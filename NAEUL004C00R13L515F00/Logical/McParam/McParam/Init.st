@@ -209,6 +209,7 @@ PROGRAM _INIT
 	p_McParamDMCScannerEn			:= ADR(tyMcParamCurr.bDMCScannerEn);
 	p_McParamDMCScanWriteTO			:= ADR(tyMcParamCurr.diDMCScanTOErrInMs);
 	
+	p_McParamDefaultGateway			:= ADR(tyMcParamCurr.sDefaultGateWay);//
 
 	(* Always Change If Project Change *)
 	

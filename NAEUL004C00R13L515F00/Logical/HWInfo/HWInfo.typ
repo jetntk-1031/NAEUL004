@@ -12,7 +12,8 @@ TYPE
 		HWInfoActSetIPAddr,
 		HWInfoActSetSubnetMask,
 		HWInfoActGetEthConfigMode,
-		HWInfoActSetEthConfigMode
+		HWInfoActSetEthConfigMode,
+		HWInfoActSetDefaultGateway
 		);
 	eNetworkConfigMod : 
 		(

@@ -24368,6 +24368,30 @@
       <Property Name="RecordTrigger" Value="True"/>
       <Property Name="TriggerGroupAlarm" Value="False"/>
     </Alarm>
+    <Alarm Index="5658">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
+    <Alarm Index="6633">
+      <Property Name="Acknowledge" Value="Possible"/>
+      <Property Name="AcknowledgeActive" Value="Enabled"/>
+      <Property Name="Bypass" Value="Enabled"/>
+      <Property Name="Description" Value=""/>
+      <Property Name="Latched" Value="False"/>
+      <Property Name="RecordAcknowledge" Value="True"/>
+      <Property Name="RecordBypass" Value="All"/>
+      <Property Name="RecordReset" Value="All"/>
+      <Property Name="RecordTrigger" Value="True"/>
+      <Property Name="TriggerGroupAlarm" Value="False"/>
+    </Alarm>
     <Alarm Index="Group">
       <Property Name="Acknowledge" Value="Possible"/>
       <Property Name="AcknowledgeActive" Value="Enabled"/>
@@ -26935,6 +26959,8 @@
       <Text ID="17405" Value=" {TextSnippet_4} | Reverse Limit Activated In Move Absolute While Going H Position"/>
       <Text ID="17406" Value=" {TextSnippet_4} | Request Absolute Position Out Of Range"/>
       <Text ID="17407" Value=" {TextSnippet_4} | Sensor Interrupt Traverser Movement"/>
+      <Text ID="17427" Value=" {TextSnippet_44} | Set Default Gateway IP Error"/>
+      <Text ID="17446" Value=" {TextSnippet_54} | Anti Crash Sensor Activated Before Traversing"/>
       <Text ID="27" Value=""/>
     </TextLayer>
     <TextLayer LanguageId="de">
@@ -28967,6 +28993,8 @@
       <Text ID="17405" Value=""/>
       <Text ID="17406" Value=""/>
       <Text ID="17407" Value=""/>
+      <Text ID="17427" Value=""/>
+      <Text ID="17446" Value=""/>
       <Text ID="27" Value=""/>
     </TextLayer>
     <TextLayer LanguageId="zh">
@@ -30999,6 +31027,8 @@
       <Text ID="17405" Value=""/>
       <Text ID="17406" Value=""/>
       <Text ID="17407" Value=""/>
+      <Text ID="17427" Value=""/>
+      <Text ID="17446" Value=""/>
       <Text ID="27" Value=""/>
     </TextLayer>
     <TextLayer LanguageId="pt">
@@ -33031,6 +33061,8 @@
       <Text ID="17405" Value=""/>
       <Text ID="17406" Value=""/>
       <Text ID="17407" Value=""/>
+      <Text ID="17427" Value=""/>
+      <Text ID="17446" Value=""/>
       <Text ID="27" Value=""/>
     </TextLayer>
     <IndexMap>
@@ -35063,6 +35095,8 @@
       <Index ID="17405" Value="1050"/>
       <Index ID="17406" Value="1051"/>
       <Index ID="17407" Value="1052"/>
+      <Index ID="17427" Value="5658"/>
+      <Index ID="17446" Value="6633"/>
       <Index ID="27" Value="Group"/>
     </IndexMap>
   </TextGroup>

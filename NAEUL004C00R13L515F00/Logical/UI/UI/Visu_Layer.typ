@@ -2340,6 +2340,7 @@ TYPE
 		tyStringIPAddr : tyUIString;
 		tyStringSubnetMask : tyUIString;
 		tyStringHMIIPAddr : tyUIString;
+		tyStringDefaultGWIP : tyUIString := (sKeypadTitle:='Default Gateway');
 		tyTxtWidthAtHm : tyUITxt;
 		tyNumWidthAtHm : tyUINum;
 		tyNumConvInitTm : tyUINum;

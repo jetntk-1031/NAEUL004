@@ -54,14 +54,17 @@ TYPE
 		tyBtnBuz : tyUIBtn;
 		tyBtnReset : tyUIBtn;
 		tyBtnMnlUnload : tyUIBtn := (usiTxtIdx:=5);
-		tyBtnRlsNewMag : tyUIBtn := (usiTxtIdx:=6);
-		tyBtn2 : tyUIBtn := (usiTxtIdx:=7);
-		tyBtnAccDat : tyUIBtn;
-		tyBtn4 : tyUIBtn := (uiRtStat:=1);
+		tyBtnRlsNewMag1 : tyUIBtn;
+		tyBtnRlsNewMag2 : tyUIBtn;
+		tyBtnRlsNewMag3 : tyUIBtn;
+		tyBtnAccDat : tyUIBtn := (uiRtStat:=1);
 		tyBtn5 : tyUIBtn := (uiRtStat:=1);
 		tyBtn6 : tyUIBtn := (uiRtStat:=1);
 		tyBtn7 : tyUIBtn := (uiRtStat:=1);
 		tyBtnHide : tyUIBtn := (uiRtStat:=1);
+		tyBtnRlsNewMagBk1 : tyUIBtn := (usiTxtIdx:=6);
+		tyBtnRlsNewMagBk2 : tyUIBtn := (usiTxtIdx:=8);
+		tyBtnRlsNewMagBk3 : tyUIBtn := (usiTxtIdx:=10);
 	END_STRUCT;
 END_TYPE
 
@@ -840,6 +843,7 @@ TYPE
 		tyMsgBoxHMIIPAddrInvalid : tyLyrC0008MsgBox := (tyBitmapIcon:=(usiValueIdx:=1),tyBtnNo:=(usiBitmapIdx:=1,usiTxtIdx:=3),tyBtnYes:=(uiRtStat:=1),tyTxtMsg:=(usiValueIdx:=74),tyTxtTitle:=(usiValueIdx:=14));
 		tyMsgBoxHMIIPAddrInvalidEdit : tyLyrC0008MsgBox := (tyBitmapIcon:=(usiValueIdx:=1),tyBtnNo:=(usiBitmapIdx:=1,usiTxtIdx:=3),tyBtnYes:=(uiRtStat:=1),tyTxtMsg:=(usiValueIdx:=104),tyTxtTitle:=(usiValueIdx:=14));
 		tyMsgBoxGetHMIIPAddrErr : tyLyrC0008MsgBox := (tyBitmapIcon:=(usiValueIdx:=1),tyBtnNo:=(usiBitmapIdx:=1,usiTxtIdx:=3),tyBtnYes:=(uiRtStat:=1),tyTxtMsg:=(usiValueIdx:=107),tyTxtTitle:=(usiValueIdx:=14));
+		tyMsgBoxSetDefaultGWErr : tyLyrC0008MsgBox := (tyBitmapIcon:=(usiValueIdx:=2),tyBtnNo:=(usiBitmapIdx:=1,usiTxtIdx:=3),tyBtnYes:=(uiRtStat:=1),tyTxtMsg:=(usiValueIdx:=104),tyTxtTitle:=(usiValueIdx:=14));
 	END_STRUCT;
 END_TYPE
 

@@ -33,11 +33,11 @@ ACTION Act_Link:
 	END_IF
 	
 	
-	IF p_bDIConvLftSen OR p_bDIConvClrSen THEN
-		p_bInterruptSensor3 := TRUE;
-	ELSE
-		p_bInterruptSensor3 := FALSE;
-	END_IF
+//	IF p_bDIConvLftSen OR p_bDIConvClrSen THEN
+//		p_bInterruptSensor3 := TRUE;
+//	ELSE
+//		p_bInterruptSensor3 := FALSE;
+//	END_IF
 	
 	
 	//Add

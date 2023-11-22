@@ -7,7 +7,7 @@
     <Object Type="File">Act_OptP0203ChgPage.st</Object>
     <Object Type="File">Act_OptP0203UpdtDat.st</Object>
     <Object Type="File">Act_OptP0203IOMonitor.st</Object>
-    <Object Type="File">Act_OptP0203AIVDat.st</Object>
+    <Object Type="File">Act_OptP0203_P0003AIVDat.st</Object>
     <Object Type="File">Act_OptP0203ChgParam.st</Object>
     <Object Type="File">Act_OptP0203InsertRmvMag.st</Object>
     <Object Type="File">Act_OptP0203RstMnl.st</Object>

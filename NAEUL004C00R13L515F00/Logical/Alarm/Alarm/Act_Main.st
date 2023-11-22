@@ -204,26 +204,30 @@ ACTION Act_Main:
 				eStatus	:= Busy;
 		
 				sStatTxt	:= a_sStatText[eStat];
-		
-				dtCurrDTTemp			:= p_dtCurrDT;
-				fbFileAppend1.sFile		:= DT_TO_STRING(dtCurrDTTemp);
-				fbFileAppend1.sFile		:= MID(fbFileAppend1.sFile , 10 , 4);
-				fbFileAppend1.sFile		:= CONCAT('ALARM_' , fbFileAppend1.sFile);
-				fbFileAppend1.sFile		:= CONCAT(fbFileAppend1.sFile , '.dat');
-				
-				fbFileAppend1.p_Src		:= ADR(a_sLogList[udiWriteLogCntr]);
-				fbFileAppend1.udiLen	:= LEN(a_sLogList[udiWriteLogCntr]);
-				
-				fbFileAppend1(bEn := TRUE);
-				fbFileWrite1(bEn := TRUE);
-				
+				CASE usiStep OF 
+					0:
+						dtCurrDTTemp			:= p_dtCurrDT;
+						fbFileAppend1.sFile		:= DT_TO_STRING(dtCurrDTTemp);
+						fbFileAppend1.sFile		:= MID(fbFileAppend1.sFile , 10 , 4);
+						fbFileAppend1.sFile		:= CONCAT('ALARM_' , fbFileAppend1.sFile);
+						fbFileAppend1.sFile		:= CONCAT(fbFileAppend1.sFile , '.dat');
+						sLogString				:= a_sLogList[udiWriteLogCntr];
+						
+						fbFileAppend1.p_Src		:= ADR(sLogString);
+						fbFileAppend1.udiLen	:= LEN(sLogString);
+						usiStep := 1;
+						
+					1:
+						fbFileAppend1(bEn := TRUE);
+						fbFileWrite1(bEn := TRUE);
+				END_CASE	
 				IF (fbFileAppend1.udiStatus = 0) AND (udiWriteLogCntr >= udiLogCntr) AND fbFileWrite1.udiStatus = 0 THEN
 					eStatus	:= Done;
 					
 				ELSIF fbFileAppend1.udiStatus = 0 AND udiWriteLogCntr < udiLogCntr THEN
 					udiWriteLogCntr	:= udiWriteLogCntr + 1;
 					fbFileAppend1(bEn := FALSE);
-					
+					usiStep := 0;
 				ELSIF fbFileWrite1.udiStatus > 0 AND fbFileWrite1.udiStatus < 65534 THEN
 					eStatus		:= Error;
 					

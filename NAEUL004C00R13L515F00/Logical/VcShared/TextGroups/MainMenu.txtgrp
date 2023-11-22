@@ -11,16 +11,17 @@
     <Text ID="1002279" Value="Accept\nData"/>
     <Text ID="1002280" Value="Reset"/>
     <Text ID="1002281" Value="Magazine\nUnload"/>
-    <Text ID="1002282" Value="Barcode\nScan"/>
-    <Text ID="1002283" Value="Manual\nUnload"/>
-    <Text ID="1002284" Value=""/>
-    <Text ID="1002285" Value=""/>
-    <Text ID="1002286" Value=""/>
+    <Text ID="1002282" Value="New\nMagazine 1"/>
+    <Text ID="1002283" Value="Release\nMagazine 1"/>
+    <Text ID="1002284" Value="New\nMagazine 2"/>
+    <Text ID="1002285" Value="Release\nMagazine 2"/>
+    <Text ID="1002286" Value="New\nMagazine 3"/>
     <Text ID="1002287" Value="Auto Running"/>
     <Text ID="1002288" Value="Stand By"/>
     <Text ID="1002289" Value="Cycle Stopping"/>
     <Text ID="1002290" Value="Error"/>
     <Text ID="1002291" Value="Resume\nOperation"/>
+    <Text ID="1058009" Value="Release\nMagazine 3"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="1002276" Value=""/>
@@ -39,6 +40,7 @@
     <Text ID="1002289" Value=""/>
     <Text ID="1002290" Value=""/>
     <Text ID="1002291" Value=""/>
+    <Text ID="1058009" Value=""/>
   </TextLayer>
   <TextLayer LanguageId="zh">
     <Text ID="1002276" Value=""/>
@@ -57,6 +59,7 @@
     <Text ID="1002289" Value=""/>
     <Text ID="1002290" Value=""/>
     <Text ID="1002291" Value=""/>
+    <Text ID="1058009" Value=""/>
   </TextLayer>
   <TextLayer LanguageId="pt">
     <Text ID="1002276" Value=""/>
@@ -75,6 +78,7 @@
     <Text ID="1002289" Value=""/>
     <Text ID="1002290" Value=""/>
     <Text ID="1002291" Value=""/>
+    <Text ID="1058009" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="1002276" Value="0"/>
@@ -93,5 +97,6 @@
     <Index ID="1002289" Value="21"/>
     <Index ID="1002290" Value="22"/>
     <Index ID="1002291" Value="30"/>
+    <Index ID="1058009" Value="11"/>
   </IndexMap>
 </TextGroup>

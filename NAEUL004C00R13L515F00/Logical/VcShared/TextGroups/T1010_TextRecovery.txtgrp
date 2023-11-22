@@ -2084,6 +2084,8 @@
     <Text ID="970775" Value="Request Absolute Position Does Not Fall Within The Expected Range."/>
     <Text ID="970776" Value="Operation Stop Due To The Interruption Of Sensor While Traverser Moving. Solve The Interruption To Resume Operation."/>
     <Text ID="1034198" Value="The Directory Does Not Exist.Please Contact Nutek For A Possibe Solution."/>
+    <Text ID="1042133" Value=""/>
+    <Text ID="1050071" Value="Please Check Board is away from Clear Sensor"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="853370" Value=""/>
@@ -4165,6 +4167,8 @@
     <Text ID="970775" Value=""/>
     <Text ID="970776" Value=""/>
     <Text ID="1034198" Value=""/>
+    <Text ID="1042133" Value=""/>
+    <Text ID="1050071" Value=""/>
   </TextLayer>
   <TextLayer LanguageId="zh">
     <Text ID="853370" Value=""/>
@@ -6246,6 +6250,8 @@
     <Text ID="970775" Value=""/>
     <Text ID="970776" Value=""/>
     <Text ID="1034198" Value=""/>
+    <Text ID="1042133" Value=""/>
+    <Text ID="1050071" Value=""/>
   </TextLayer>
   <TextLayer LanguageId="pt">
     <Text ID="853370" Value=""/>
@@ -8327,6 +8333,8 @@
     <Text ID="970775" Value=""/>
     <Text ID="970776" Value=""/>
     <Text ID="1034198" Value=""/>
+    <Text ID="1042133" Value=""/>
+    <Text ID="1050071" Value=""/>
   </TextLayer>
   <IndexMap>
     <Index ID="853370" Value="0"/>
@@ -10408,5 +10416,7 @@
     <Index ID="970775" Value="1051"/>
     <Index ID="970776" Value="1052"/>
     <Index ID="1034198" Value="5260"/>
+    <Index ID="1042133" Value="5658"/>
+    <Index ID="1050071" Value="6633"/>
   </IndexMap>
 </TextGroup>

@@ -149,7 +149,8 @@ TYPE
 		bDMCScannerEn : BOOL := FALSE;
 		diDMCScanTOErrInMs : DINT;
 		tyOptBtnPos : tyBtnPos := (ePos1:=eMagUnload,ePos2:=eNA,ePos3:=eNA);
-		sHMIIPAddr : STRING[15] := '192.168.0.21';
+		sHMIIPAddr : STRING[15] := '192.168.0.11';
+		sDefaultGateWay : STRING[15] := '0.0.0.0';
 	END_STRUCT;
 END_TYPE
 
@@ -185,14 +186,20 @@ END_TYPE
 
 TYPE
 	tyBtnPos : 	STRUCT 
-		ePos1 : eOptBtn := eMagUnload;
-		ePos2 : eOptBtn := eNA;
-		ePos3 : eOptBtn := eNA;
+		ePos1 : eOptBtn := eNA;
+		ePos2 : eOptBtn := eRlsNewMagazine1;
+		ePos3 : eOptBtn := eRlsNewMagazine2;
+		ePos4 : eOptBtn := eRlsNewMagazine3;
+		ePos5 : eOptBtn := eRlsNewMagazine3;
+		ePos6 : eOptBtn := eRlsNewMagazine3;
+		ePos7 : eOptBtn := eRlsNewMagazine3;
 	END_STRUCT;
 	eOptBtn : 
 		(
 		eNA := 0,
 		eMagUnload := 1,
-		eRlsNewMagazine := 2
+		eRlsNewMagazine1 := 2,
+		eRlsNewMagazine2 := 3,
+		eRlsNewMagazine3 := 4
 		);
 END_TYPE

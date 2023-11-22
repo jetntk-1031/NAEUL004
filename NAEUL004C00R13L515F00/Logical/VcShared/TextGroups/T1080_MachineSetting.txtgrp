@@ -309,7 +309,7 @@
     <Text ID="654169" Value="Query Work Order Info"/>
     <Text ID="654170" Value="Send Work Order Info"/>
     <Text ID="654171" Value="Send Alive Time"/>
-    <Text ID="654172" Value=""/>
+    <Text ID="654172" Value="Default Gateway"/>
     <Text ID="654173" Value=""/>
     <Text ID="654174" Value="Traverser Inlet Fix To Fix Rail Distance"/>
     <Text ID="654175" Value=""/>
@@ -385,9 +385,9 @@
     <Text ID="1002350" Value="Optional Feature Pos 3 in HMI"/>
     <Text ID="1002351" Value=""/>
     <Text ID="1002352" Value="Magazine Unload"/>
-    <Text ID="1002353" Value="Release Magazine"/>
-    <Text ID="1034196" Value="New Magazine"/>
-    <Text ID="1034197" Value=""/>
+    <Text ID="1002353" Value="Release Magazine 1"/>
+    <Text ID="1034196" Value="Release Magazine 2"/>
+    <Text ID="1034197" Value="Release Magazine 3"/>
   </TextLayer>
   <TextLayer LanguageId="de">
     <Text ID="189884" Value="Machine Einstellung"/>

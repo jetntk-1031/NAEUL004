@@ -17,6 +17,7 @@ ACTION Act_InitGlobal:
 	
 	//HMI MAC Address
 	p_sHMIMacAdd ACCESS p_NtParamHWInfoHMIMacAddress;
+	p_sSetDefaultGW ACCESS p_McParamDefaultGateway;
 	
 	(* Always Change If Project Change *)
 	

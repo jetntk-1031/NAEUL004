@@ -46,11 +46,11 @@ ACTION Act_Link:
 	END_IF
 	
 	
-	IF (NOT(p_bLinkProjLifterMagPlatform) AND p_bDIConvLftSen) OR p_bDIConvClrSen  THEN
-		p_bInterruptSensor6 := TRUE;
-	ELSE
-		p_bInterruptSensor6 := FALSE;
-	END_IF
+//	IF (NOT(p_bLinkProjLifterMagPlatform) AND p_bDIConvLftSen) OR p_bDIConvClrSen  THEN
+//		p_bInterruptSensor6 := TRUE;
+//	ELSE
+//		p_bInterruptSensor6 := FALSE;
+//	END_IF
 	
 	IF NOT p_bOps THEN
 		p_bInterruptSensor4 := FALSE;

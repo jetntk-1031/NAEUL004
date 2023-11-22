@@ -186,7 +186,30 @@ ACTION Act_Main:
 				END_IF
 				
 			END_IF
+			
+		HWInfoActSetDefaultGateway:
+			IF eStatus = Idle OR eStatus = Busy THEN
+				
+				eStatus	:= Busy;
 		
+				sStatTxt	:= a_sStatText[eStat];
+				
+				IF DiagCpuIsSimulated() = FALSE THEN
+					fbSetDefaultGateway.pGateway := ADR(p_sSetDefaultGW);
+					fbSetDefaultGateway(enable := TRUE);
+					
+					IF fbSetDefaultGateway.status = 0 THEN
+						eStatus	:= Done;
+					ELSIF fbSetDefaultGateway.status < 65534 THEN
+						udiStatus	:= 10007;	//'Set Default Gateway IP Error' 
+						eStatus		:= Error;
+					END_IF
+					
+				ELSE
+					eStatus	:= Done;
+				END_IF
+				
+			END_IF
 		
 	END_CASE
 	

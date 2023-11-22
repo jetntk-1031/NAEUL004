@@ -49,7 +49,7 @@ ACTION Act_Background:
 				
 				Act_Background_TCPSend;
 				
-				Act_Background_Log;
+			//	Act_Background_Log;
 				
 			ELSE
 				Act_Background_TCPClose;
@@ -61,7 +61,7 @@ ACTION Act_Background:
 	    Act_Background_Stop;
 		
 	END_IF
-	
+	Act_Background_Log;
 
 		
 	IF EDGENEG(bRun) OR EDGENEG(udiTCPIdent = 0) THEN
@@ -81,8 +81,8 @@ ACTION Act_Background:
 		fbSend(bEn := FALSE);
 		fbClose(bEn := FALSE);
 		
-		fbFileAppend1(bEn := FALSE);
-		iWriteLogStep	:= 0;
+//		fbFileAppend1(bEn := FALSE);
+//		iWriteLogStep	:= 0;
 		
 		bConnected		    := FALSE;
 		bHandshakeDone	    := FALSE;
@@ -124,8 +124,8 @@ ACTION Act_Background:
 		fbCheckAliveRcvPing(bEn := FALSE);
 		fbSequenceTO(bEn := FALSE);
 		
-		fbFileAppend1(bEn := FALSE);
-		iWriteLogStep	:= 0;
+//		fbFileAppend1(bEn := FALSE);
+//		iWriteLogStep	:= 0;
 		
 		bConnected		    := FALSE;
 		bHandshakeDone	    := FALSE;
@@ -164,8 +164,8 @@ ACTION Act_Background:
 		eStatus3	:= Idle;
 		udiStatus3	:= 0;
 		
-		fbFileAppend1(bEn := FALSE);
-		iWriteLogStep	:= 0;
+//		fbFileAppend1(bEn := FALSE);
+//		iWriteLogStep	:= 0;
 	END_IF
 	
 	IF (eStatus4 = Error) AND bRstErr THEN

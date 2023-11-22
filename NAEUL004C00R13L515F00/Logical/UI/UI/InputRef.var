@@ -864,3 +864,7 @@ VAR
 	p_tyBufferDispCycleTmBffr : REFERENCE TO tyDispBffrCycTm;
 	p_bLocalMagPresent : REFERENCE TO BOOL;
 END_VAR
+(*Insert your comment here.*)
+VAR
+	p_eCurrBtnPos : REFERENCE TO eOptBtn;
+END_VAR

@@ -481,4 +481,11 @@ VAR
 	sSetHMIIPAddr : STRING[15];
 	sHMIIPAddr : STRING[15];
 	bUpdtHMIIPAddr : BOOL;
+	sDefaultGWBlkUp : STRING[30];
+END_VAR
+(*Insert your comment here.*)
+VAR
+	usiPosidx : USINT;
+	usidx : USINT;
+	a_tyPtrtoAddr : ARRAY[1..7] OF UDINT;
 END_VAR

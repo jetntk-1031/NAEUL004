@@ -36,4 +36,9 @@ ACTION Act_Initial:
 	fbSetETHConfigMode.Option		:= cfgOPTION_NON_VOLATILE;
 	fbSetETHConfigMode(enable := FALSE);
 	
+	
+	fbSetDefaultGateway.pDevice		:= ADR(p_sDevice);
+	fbSetDefaultGateway.pGateway	:= ADR(p_sSetDefaultGW);
+	fbSetDefaultGateway.Option		:= cfgOPTION_NON_VOLATILE;
+	fbSetDefaultGateway(enable := FALSE);
 END_ACTION

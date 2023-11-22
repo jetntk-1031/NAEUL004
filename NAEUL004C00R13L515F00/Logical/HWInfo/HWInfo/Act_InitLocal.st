@@ -10,5 +10,5 @@ ACTION Act_InitLocal:
 	p_sProgNm ACCESS ADR(sProgNm);
 	p_bNtSettingsLoadDone ACCESS ADR(bNtSettingsLoadDone);
 	p_usiNetworkMod ACCESS ADR(usiNetworkMode);
-	
+	p_sSetDefaultGW ACCESS ADR(sSetDefaultGW);
 END_ACTION

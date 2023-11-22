@@ -71,7 +71,7 @@ ACTION Act_OptPage:
 				Act_OptP0202UpdtDat;
 				Act_OptP0202IOMonitor;
 				Act_OptP0202ChgPage;
-				Act_OptP0202AIVDat;
+				Act_OptP0202_P0003AIVDat;
 				Act_OptP0202ChgParam;
 				Act_OptP0200ToP0204_P0003AccDat;
 				Act_OptP0200ToP0204BypsInitConv;
@@ -84,7 +84,7 @@ ACTION Act_OptPage:
 				Act_OptP0203UpdtDat;
 				Act_OptP0203IOMonitor;
 				Act_OptP0203ChgPage;
-				Act_OptP0203AIVDat;
+				Act_OptP0203_P0003AIVDat;
 				Act_OptP0203ChgParam;
 				Act_OptP0200ToP0204_P0003AccDat;
 				Act_OptP0200ToP0204BypsInitConv;
@@ -97,7 +97,7 @@ ACTION Act_OptPage:
 				Act_OptP0204UpdtDat;
 				Act_OptP0204IOMonitor;
 				Act_OptP0204ChgPage;
-				Act_OptP0204AIVDat;
+				Act_OptP0204_P0003AIVDat;
 				Act_OptP0204ChgParam;
 				Act_OptP0200ToP0204_P0003AccDat;
 				Act_OptP0200ToP0204BypsInitConv;
@@ -175,6 +175,9 @@ ACTION Act_OptPage:
 					Act_OptP0003UpdtStat;
 					Act_OptP0202ToP0204_P0003UnloadMag;
 					Act_OptP0200ToP0204_P0003AccDat;
+					Act_OptP0202_P0003AIVDat;
+					Act_OptP0203_P0003AIVDat;
+					Act_OptP0204_P0003AIVDat;
 				END_IF
 				
 				Act_OptP0002ManualCtrl;

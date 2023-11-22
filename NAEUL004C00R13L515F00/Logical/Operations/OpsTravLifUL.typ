@@ -77,7 +77,8 @@ TYPE
 		TravULStepTranInBrdStuckErr,
 		TravULStepClrSensorErr,
 		TravLifULStepMagWidthErr,
-		TravULStepBrdLostInMiddle
+		TravULStepBrdLostInMiddle,
+		TravULStepClrSensorErrBefTrav
 		);
 	eTravLifULPos : 
 		(

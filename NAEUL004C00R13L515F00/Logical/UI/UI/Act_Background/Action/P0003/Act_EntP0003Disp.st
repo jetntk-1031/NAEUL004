@@ -24,89 +24,50 @@ ACTION Act_EntP0003Disp:
 	
 	//Communication
 	tyP0200OpsGen.tyUSCommB.tyLyr.uiRtStat.0 := NOT(p_tyNtParamCurr.bProjLaneBPrep);
+	//hide corresponding button
+	tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.uiRtStat.0 := p_tyMcParamCurr.eMagExMode = McSetMagXcAutoMode AND p_tyMcParamCurr.eAGVComProtocol <> McSetAGVCommDisabled OR p_tyNtParamCurr.bProjLifterMagPlatform;
+	tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag2.uiRtStat.0 := p_tyMcParamCurr.eMagExMode = McSetMagXcAutoMode AND p_tyMcParamCurr.eAGVComProtocol <> McSetAGVCommDisabled OR p_tyNtParamCurr.bProjLifterMagPlatform;
+	tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag3.uiRtStat.0 := p_tyMcParamCurr.eMagExMode = McSetMagXcAutoMode AND p_tyMcParamCurr.eAGVComProtocol <> McSetAGVCommDisabled OR p_tyNtParamCurr.bProjLifterMagPlatform;
+	
 	
 	//Occupied 		
-	IF p_tyNtParamCurr.tyDOSettings.diBuzzer > 0 THEN
-		
-	   // Start with Pos 2 as Pos 1 is occupied with buzzer.
-	   // For Pos 2 		
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eMagUnload THEN
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eRlsNewMagazine THEN
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eMnlUnload THEN
-//			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
+	usiPosidx := 0 ;
+	FOR usidx:= 1 TO SIZEOF(p_tyMcParamCurr.tyOptBtnPos)/SIZEOF(p_tyMcParamCurr.tyOptBtnPos.ePos1) DO 
+		IF NOT(p_tyNtParamCurr.tyDOSettings.diBuzzer > 0 AND usidx = 1)THEN
+			
+			p_eCurrBtnPos ACCESS (ADR(p_tyMcParamCurr.tyOptBtnPos) + (usiPosidx)*SIZEOF(p_tyMcParamCurr.tyOptBtnPos.ePos1));
+			
+			IF p_eCurrBtnPos = eNA THEN
+				a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
+			ELSIF p_eCurrBtnPos = eMagUnload THEN
+				a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
+			ELSIF p_eCurrBtnPos= eRlsNewMagazine1 THEN
+				a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1);
+			ELSIF p_eCurrBtnPos= eRlsNewMagazine2 THEN
+				a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag2);
+			ELSIF p_eCurrBtnPos = eRlsNewMagazine3 THEN
+				a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag3);
+			END_IF
+			usiPosidx := usiPosidx +1;
 		ELSE
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-		//For Pos 3
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eMagUnload THEN
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eRlsNewMagazine THEN
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eMnlUnload THEN
-//			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSE
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-		//For Pos 4
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eMagUnload THEN
-			p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eRlsNewMagazine THEN
-			p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eMnlUnload THEN
-//			p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSE
-			p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-	ELSE
-		// Without Buzzer
-		// For Pos 1 		
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eMagUnload THEN
-			p_tyP0003Btn1 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eRlsNewMagazine THEN
-			p_tyP0003Btn1 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos1 = eMnlUnload THEN
-//			p_tyP0003Btn1 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSE
-			p_tyP0003Btn1 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-		//For Pos 2
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eMagUnload THEN
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eRlsNewMagazine THEN
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos2 = eMnlUnload THEN
-//			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSE
-			p_tyP0003Btn2 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-		//For Pos 3
-		IF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eMagUnload THEN
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eRlsNewMagazine THEN
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag);
-//		ELSIF p_tyMcParamCurr.tyOptBtnPos.ePos3 = eMnlUnload THEN
-//			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnMnlUnload);
-		ELSE
-			p_tyP0003Btn3 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-		END_IF
-		
-		p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
-
-	END_IF
+			a_tyPtrtoAddr[usidx] :=   ADR(tyP0003MMenu.tyMMenuBtn.tyBtnHide);
+		END_IF 
+	END_FOR 
+	p_tyP0003Btn1 ACCESS a_tyPtrtoAddr[1];	
+	p_tyP0003Btn2 ACCESS a_tyPtrtoAddr[2];
+	p_tyP0003Btn3 ACCESS a_tyPtrtoAddr[3];
+	p_tyP0003Btn4 ACCESS a_tyPtrtoAddr[4];
+	p_tyP0003Btn5 ACCESS a_tyPtrtoAddr[5];
+	p_tyP0003Btn6 ACCESS a_tyPtrtoAddr[6];
+	p_tyP0003Btn7 ACCESS a_tyPtrtoAddr[7];
+	
 	
 	
 	//Not Used 
 //	p_tyP0003Btn4 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn4);// If not used, hide it in the data type 
-	p_tyP0003Btn5 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn5);// If not used, hide it in the data type 
-	p_tyP0003Btn6 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn6);// If not used, hide it in the data type 
-    p_tyP0003Btn7 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn7);// If not used, hide it in the data type 
+//	p_tyP0003Btn5 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn5);// If not used, hide it in the data type 
+//	p_tyP0003Btn6 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn6);// If not used, hide it in the data type 
+//    p_tyP0003Btn7 ACCESS ADR(tyP0003MMenu.tyMMenuBtn.tyBtn7);// If not used, hide it in the data type 
 	
 	
 

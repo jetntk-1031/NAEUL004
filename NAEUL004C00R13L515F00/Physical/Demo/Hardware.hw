@@ -52,7 +52,7 @@
       <Parameter ID="p100d_parametervalue" Value="3" />
     </Connector>
   </Module>
-  <Module Name="X20CP0484" Type="X20CP0484" Version="1.2.1.0">
+  <Module Name="X20CP0483" Type="X20CP0483" Version="1.2.1.0">
     <Connection Connector="SL" TargetModule="X20BB57" TargetConnector="SL1" />
     <Connector Name="IF2">
       <Parameter ID="ActivateDevice" Value="1" />

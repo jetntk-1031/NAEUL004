@@ -8,7 +8,7 @@ ACTION Act_Action:
 	END_IF
 	
 	//Set p_eAct
-	IF eStatus = Idle OR eStatus = Busy OR eStatus = Done THEN
+	IF eStatus = Idle (*OR eStatus = Busy*) OR eStatus = Done THEN
 		eStat	:= p_eAct;
 	END_IF
 	

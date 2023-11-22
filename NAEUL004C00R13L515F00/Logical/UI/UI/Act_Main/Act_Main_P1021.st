@@ -376,13 +376,18 @@ ACTION Act_Main_P1021:
 	tyP1021McSetGen.tyGen.tyDrpDnPos3.usiValueMinIdx			:= DINT_TO_USINT (p_tyNtParamCurr.tyUIBtnPosLmt.diMin);
 	tyP1021McSetGen.tyGen.tyDrpDnPos3.usiValueMaxIdx			:= DINT_TO_USINT (p_tyNtParamCurr.tyUIBtnPosLmt.diMax);
 	
+//	tyP1021McSetGen.tyGen.tyDrpDnPos4.usiValueMinIdx			:= DINT_TO_USINT (p_tyNtParamCurr.tyUIBtnPosLmt.diMin);
+//	tyP1021McSetGen.tyGen.tyDrpDnPos4.usiValueMaxIdx			:= DINT_TO_USINT (p_tyNtParamCurr.tyUIBtnPosLmt.diMax);
 	
-	tyP1021McSetGen.tyGen.tyDrpDnPos1.uiRtStat.0			:= TRUE; //hide for only option
+	
+	tyP1021McSetGen.tyGen.tyDrpDnPos1.uiRtStat.0			:= TRUE; //buzzer no required
 	tyP1021McSetGen.tyGen.tyDrpDnPos2.uiRtStat.0			:= TRUE;
 	tyP1021McSetGen.tyGen.tyDrpDnPos3.uiRtStat.0			:= TRUE;
-	
+//	tyP1021McSetGen.tyGen.tyDrpDnPos4.uiRtStat.0			:= FALSE;
 	
 	tyP1021McSetGen.tyGen.tyDrpDnPos1.usiValueIdx			:= DINT_TO_USINT (p_tyMcParamCurr.tyOptBtnPos.ePos1);
 	tyP1021McSetGen.tyGen.tyDrpDnPos2.usiValueIdx			:= DINT_TO_USINT (p_tyMcParamCurr.tyOptBtnPos.ePos2);
 	tyP1021McSetGen.tyGen.tyDrpDnPos3.usiValueIdx			:= DINT_TO_USINT (p_tyMcParamCurr.tyOptBtnPos.ePos3);
+	
+	tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue			:= p_tyMcParamCurr.sDefaultGateWay;
 END_ACTION

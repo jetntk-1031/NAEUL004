@@ -1,5 +1,8 @@
-dhwjakdhkajw
-2023-11-16 
+21/11/2023
+updated DefaultGate
+Potential FileWrite IO
+Added TravULStepClrSensorErrBefTrav, check clear and inlet sensor before traverse
+
 
 2023-09-25, 11-1 (R13)
 CanOpen, Lifter and Traverser addd Interrupt sensor for inlet and clear sensor 

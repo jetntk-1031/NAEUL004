@@ -67,7 +67,9 @@ ACTION Act_OpsRun:
 				END_IF
 					
 			TravLifULStepTravLifMov:
-				IF NOT(p_bConvRgtSen OR  p_bConvMidSen) AND (eTravLifPosGo = TravLifULPosDS1 OR eTravLifPosGo = TravLifULPosDS2 OR eTravLifPosGo = TravLifULPosDS3)THEN 
+				IF p_bConvLftSen OR  p_bConvClrSen THEN
+					eGotoOpsStep	:= TravULStepClrSensorErrBefTrav;
+				ELSIF NOT(p_bConvRgtSen OR  p_bConvMidSen) AND (eTravLifPosGo = TravLifULPosDS1 OR eTravLifPosGo = TravLifULPosDS2 OR eTravLifPosGo = TravLifULPosDS3)THEN 
 					eGotoOpsStep	:= TravULStepBrdLostInMiddle; //Added to check if Brd Lost before Traversing
 				ELSE
 					eOpsStep	:= eGotoOpsStep;
@@ -2201,6 +2203,11 @@ ACTION Act_OpsRun:
 					sStepTxt	:= 'Board Stuck in Middle of the Conveyor ';
 					eStatus		:= Error;
 					udiStatus	:= 10008;
+				
+				TravULStepClrSensorErrBefTrav:
+					sStepTxt	:= 'Anti Crash sensor activated before Traversing';
+					eStatus		:= Error;
+					udiStatus	:= 10012;
 			END_CASE
 			
 		END_IF

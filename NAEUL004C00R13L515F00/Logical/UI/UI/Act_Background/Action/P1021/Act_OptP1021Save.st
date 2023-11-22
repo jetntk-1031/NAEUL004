@@ -55,7 +55,7 @@ ACTION Act_OptP1021Save:
 		OR tyP1021McSetGen.tyGen.tyBtnIgnoreBottomClearance.bRtCompl OR tyP1021McSetGen.tyGen.tyBtnIgnoreThickness.bRtCompl
 		OR tyP1021McSetGen.tyGen.tyBtnDMCScannerEn.bRtCompl OR tyP1021McSetGen.tyGen.tyNumDMCScanWriteTO.bRtCompl
 		OR tyP1021McSetGen.tyGen.tyDrpDnPos1.bRtCompl OR tyP1021McSetGen.tyGen.tyDrpDnPos2.bRtCompl		
-		OR tyP1021McSetGen.tyGen.tyDrpDnPos3.bRtCompl			
+		OR tyP1021McSetGen.tyGen.tyDrpDnPos3.bRtCompl OR tyP1021McSetGen.tyGen.tyStringDefaultGWIP.bRtCompl			
 		THEN
 		
 		
@@ -136,7 +136,7 @@ ACTION Act_OptP1021Save:
 		tyP1021McSetGen.tyGen.tyBtnIgnoreTopClearance.bRtCompl := FALSE;
 		tyP1021McSetGen.tyGen.tyBtnIgnoreBottomClearance.bRtCompl := FALSE;
 		tyP1021McSetGen.tyGen.tyBtnIgnoreThickness.bRtCompl := FALSE;
-		
+		tyP1021McSetGen.tyGen.tyStringDefaultGWIP.bRtCompl := FALSE;
 		//Added Main Menu
 		tyP1021McSetGen.tyGen.tyDrpDnPos1.bRtCompl				:= FALSE;
 		tyP1021McSetGen.tyGen.tyDrpDnPos2.bRtCompl				:= FALSE;
@@ -239,7 +239,12 @@ ACTION Act_OptP1021Save:
 			tyMcParamWr.bIgnoreBtmClearance				:= 	tyP1021McSetGen.tyGen.tyBtnIgnoreBottomClearance.bRtCompl;
 			tyMcParamWr.bIgnoreThickness				:= 	tyP1021McSetGen.tyGen.tyBtnIgnoreThickness.bRtCompl;
 		
-		
+			IF fIPValid(tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue,ADR(a_iIPPart1)) THEN
+				tyMcParamWr.sDefaultGateWay := tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue;
+			ELSE
+				tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue := '0.0.0.0';
+				tyMcParamWr.sDefaultGateWay := '0.0.0.0';
+			END_IF
 		
 		
 		
@@ -254,7 +259,8 @@ ACTION Act_OptP1021Save:
 		
 			IF p_eMcParamStat = McParamActWrite AND p_eMcParamStatus = Done THEN
 				eMcParamAct	:= McParamActIdle;
-			
+				eHWInfoAct := HWInfoActSetDefaultGateway;
+				
 				usiNetworkModeOld := tyP1021McSetGen.tyGen.tyDrpDnNetworkMod.usiValueIdx;
 				//Screen Saver Time
 				tyProperty.tyVisu.uiSSaverTm	:= p_tyMcParamCurr.uiSSaverTmInSec;
@@ -322,9 +328,10 @@ ACTION Act_OptP1021Save:
 			//Update Restore Param
 			tyP1021McSetGen.tyGenBkUp.tyStringIPAddr.sValue	 	:= tyP1021McSetGen.tyGen.tyStringIPAddr.sValue;
 			tyP1021McSetGen.tyGenBkUp.tyStringSubnetMask.sValue	:= tyP1021McSetGen.tyGen.tyStringSubnetMask.sValue;
-			
+			sDefaultGWBlkUp := '0.0.0.0';
 			//ADD
 			tyP1021McSetGen.tyGenBkUp.tyStringHMIIPAddr.sValue	:= tyP1021McSetGen.tyGen.tyStringHMIIPAddr.sValue;
+			
 		ELSIF p_eMcParamStatus = Error THEN
 			p_tyC0008MsgBox ACCESS ADR(tyP1021McSetGen.tyMsgBoxSaveErr);
 			
@@ -345,6 +352,23 @@ ACTION Act_OptP1021Save:
 
 			END_IF
 		END_IF
+	END_IF
+	
+	IF p_eHWInfoStat = HWInfoActSetDefaultGateway AND p_eHWInfoStatus = Done THEN
+		eHWInfoAct	:= HWInfoActIdle;
+		sDefaultGWBlkUp := tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue;
+	ELSIF p_eHWInfoStat = HWInfoActSetDefaultGateway AND p_eHWInfoStatus = Error AND NOT(tyP1021McSetGen.tyMsgBoxSetDefaultGWErr.tyBtnNo.bValue) THEN
+		p_tyC0008MsgBox ACCESS ADR(tyP1021McSetGen.tyMsgBoxSetDefaultGWErr);
+		tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sValue := sDefaultGWBlkUp;
+	ELSIF p_eHWInfoStatus = Idle THEN
+		tyP1021McSetGen.tyMsgBoxSetDefaultGWErr.tyBtnNo.bValue := FALSE;
+	END_IF
+	
+	IF tyP1021McSetGen.tyMsgBoxSetDefaultGWErr.tyBtnNo.bRtCompl = TRUE THEN
+		tyP1021McSetGen.tyMsgBoxSetDefaultGWErr.tyBtnNo.bRtCompl	:= FALSE;
+		tyCommon.tyMain.tyBtnReset.bRtCompl := TRUE;
+		p_tyC0008MsgBox ACCESS ADR(tyP1021McSetGen.tyMsgBoxHide);
+		tyCommon.tySet.tyBtnSave.bRtCompl := TRUE;
 	END_IF
 		
 END_ACTION

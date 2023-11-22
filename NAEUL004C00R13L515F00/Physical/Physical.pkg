@@ -18,5 +18,6 @@
     <Object Type="Configuration" Description="Reference Job: 2021-0061C01">3Mag_UL_MagAW_PneuPshr_XSafety</Object>
     <Object Type="Configuration" Description="Reference Job: 2021-0694L01">3Mag_UL_MagPlat</Object>
     <Object Type="Configuration" Description="Reference Job: 2021-0694L01">Demo</Object>
+    <Object Type="Configuration" Description="Reference Job: 2023-0259B01">3Mag_UL_SOT_MPuller3</Object>
   </Objects>
 </Physical>

@@ -13,7 +13,7 @@ END_VAR
 (*Local Alarm*)
 VAR
 	tyAlmData : tyAlmDat;
-	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Get IP Address Error',sRcyText:='Failed To Obtain The IP Address. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Subnet Mask Error',sRcyText:='Failed To Obtain The Subnet Mask. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Mac Address Error',sRcyText:='Failed To Obtain The Mac Address. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set IP Address Error',sRcyText:='Invalid IP Address Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set Subnet Mask Error',sRcyText:='Invalid Subnet Mask Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Network Configuration Mode Error',sRcyText:='Failed To Obtain The Network Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set Network Configuration Mode Error',sRcyText:='Invalid Network Configuration . Please Contact Nutek For A Possible Solution.'),93((0))];
+	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Get IP Address Error',sRcyText:='Failed To Obtain The IP Address. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Subnet Mask Error',sRcyText:='Failed To Obtain The Subnet Mask. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Mac Address Error',sRcyText:='Failed To Obtain The Mac Address. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set IP Address Error',sRcyText:='Invalid IP Address Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set Subnet Mask Error',sRcyText:='Invalid Subnet Mask Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Get Network Configuration Mode Error',sRcyText:='Failed To Obtain The Network Configuration. Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set Network Configuration Mode Error',sRcyText:='Invalid Network Configuration . Please Contact Nutek For A Possible Solution.'),(sAlmText:='Set Default Gateway IP Error',sRcyText:='Invalid IP Address Configuration. Please Contact Nutek For A Possible Solution.'),92((0))];
 END_VAR
 (**)
 (*Local Output*)
@@ -33,6 +33,7 @@ VAR
 	sProgNm : STRING[15] := 'HWInfo';
 	bNtSettingsLoadDone : BOOL := TRUE;
 	usiNetworkMode : USINT;
+	sSetDefaultGW : STRING[15];
 END_VAR
 (**)
 (*Local*)
@@ -48,6 +49,7 @@ VAR
 	fbSetSubnetMask : CfgSetSubnetMask;
 	fbSetETHConfigMode : CfgSetEthConfigMode;
 	fbGetETHConfigMode : CfgGetEthConfigMode;
+	fbSetDefaultGateway : CfgSetDefaultGateway;
 	udiModuleNum : UDINT := 5651;
 END_VAR
 (**)

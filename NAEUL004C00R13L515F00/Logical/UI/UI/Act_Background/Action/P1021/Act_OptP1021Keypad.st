@@ -91,6 +91,8 @@ ACTION Act_OptP1021Keypad:
 	ELSIF fUIOutRtStatTPIsOpen(ADR(tyP1021McSetGen.tyGen.tyNumMag3WidthChkDetDist.uiRtStat)) = TRUE THEN
 		tyProperty.tyKeypad.tyStringTitle.sKeypadTitle	:= tyP1021McSetGen.tyGen.tyNumMag3WidthChkDetDist.sKeypadTitle;
 		
+	ELSIF fUIOutRtStatTPIsOpen(ADR(tyP1021McSetGen.tyGen.tyStringDefaultGWIP.uiRtStat)) = TRUE THEN
+		tyProperty.tyKeypad.tyStringTitle.sKeypadTitle	:= tyP1021McSetGen.tyGen.tyStringDefaultGWIP.sKeypadTitle;
 	ELSE
 		tyProperty.tyKeypad.tyStringTitle.sKeypadTitle	:= '';
 		
