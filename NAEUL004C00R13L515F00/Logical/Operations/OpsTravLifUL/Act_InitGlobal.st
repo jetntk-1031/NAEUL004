@@ -253,5 +253,6 @@ ACTION Act_InitGlobal:
 	p_bMcParamDMCScannerEn ACCESS p_McParamDMCScannerEn;
 	p_diMcParamDMCScanResponseTO ACCESS p_McParamDMCScanWriteTO;
 	(* Always Change If Project Change *)
-	
+	//added
+	p_iLifterSltMoved ACCESS p_LifterBtmMovedSlt;
 END_ACTION

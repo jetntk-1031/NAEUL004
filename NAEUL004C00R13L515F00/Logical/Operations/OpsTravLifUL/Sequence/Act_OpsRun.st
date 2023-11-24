@@ -61,15 +61,21 @@ ACTION Act_OpsRun:
 						eOpsStep	:= eGotoOpsStep;
 					END_IF
 				ELSE 
-					IF p_bDIOutShutterOpenRS THEN
+					IF p_bDIOutShutterOpenRS THEN //check if board lost
 						eOpsStep	:= eGotoOpsStep;
 					END_IF	
 				END_IF
-					
+			
 			TravLifULStepTravLifMov:
 				IF p_bConvLftSen OR  p_bConvClrSen THEN
 					eGotoOpsStep	:= TravULStepClrSensorErrBefTrav;
 				ELSIF NOT(p_bConvRgtSen OR  p_bConvMidSen) AND (eTravLifPosGo = TravLifULPosDS1 OR eTravLifPosGo = TravLifULPosDS2 OR eTravLifPosGo = TravLifULPosDS3)THEN 
+					eGotoOpsStep	:= TravULStepBrdLostInMiddle; //Added to check if Brd Lost before Traversing
+				ELSE
+					eOpsStep	:= eGotoOpsStep;
+				END_IF
+			TravLifULStepDSSigRechk: //check after traverse
+				IF  NOT(p_bConvRgtSen OR  p_bConvMidSen) THEN 
 					eGotoOpsStep	:= TravULStepBrdLostInMiddle; //Added to check if Brd Lost before Traversing
 				ELSE
 					eOpsStep	:= eGotoOpsStep;
@@ -697,7 +703,7 @@ ACTION Act_OpsRun:
 								END_IF
 								eGotoOpsStep	:= TravLifULStepDSSigRechk;
 							ELSE
-								IF  (NOT(p_bLinkProjLifterMagPlatform) AND  p_bLocalDSRdy AND p_bDSAllow)OR p_bLinkProjLifterMagPlatform THEN
+								IF  p_bLocalDSRdy AND p_bDSAllow THEN// (NOT(p_bLinkProjLifterMagPlatform) AND  p_bLocalDSRdy AND p_bDSAllow)OR p_bLinkProjLifterMagPlatform THEN
 									eOutletPneuAct	:= PneuActRet;
 								END_IF
 								eGotoOpsStep	:= TravLifULStepDSSigRechk;
@@ -727,7 +733,7 @@ ACTION Act_OpsRun:
 									eGotoOpsStep	:= TravLifULStepDSSigRechk;
 									bTravLifInDSPos := TRUE;
 							   ELSE
-									IF  (NOT(p_bLinkProjLifterMagPlatform) AND  p_bLocalDSRdy AND p_bDSAllow)OR p_bLinkProjLifterMagPlatform THEN
+									IF p_bLocalDSRdy AND p_bDSAllow THEN // (NOT(p_bLinkProjLifterMagPlatform) AND  p_bLocalDSRdy AND p_bDSAllow)OR p_bLinkProjLifterMagPlatform THEN
 										eOutletPneuAct	:= PneuActRet;
 									END_IF
 									eGotoOpsStep	:= TravLifULStepDSSigRechk;
@@ -1423,10 +1429,16 @@ ACTION Act_OpsRun:
 				TravLifULStepDSSigWait:
 					sStepTxt	:= 'Waiting For Downstream Signal';
 					
-					a_bPosAllwSigOn[1]	:= bLocalDSRdy1;
-					a_bPosAllwSigOn[2]	:= bLocalDSRdy2;
-					a_bPosAllwSigOn[3]	:= bLocalDSRdy3;
-					
+					//added 23/11/2023
+					IF p_bLinkProjLifterMagPlatform = FALSE THEN
+						a_bPosAllwSigOn[1]	:= bLocalDSRdy1;
+						a_bPosAllwSigOn[2]	:= bLocalDSRdy2;
+						a_bPosAllwSigOn[3]	:= bLocalDSRdy3;
+					ELSE
+						a_bPosAllwSigOn[1]	:= p_iLifterSltMoved =1 OR bLocalDSRdy1;
+						a_bPosAllwSigOn[2]	:= p_iLifterSltMoved =2 OR bLocalDSRdy2;
+						a_bPosAllwSigOn[3]	:= p_iLifterSltMoved =3 OR bLocalDSRdy3;		
+					END_IF
 					//a_bPosAllwSigOn[1]	:= p_bMagTransferBrd1;
 					//a_bPosAllwSigOn[2]	:= p_bMagTransferBrd2;
 					//a_bPosAllwSigOn[3]	:= p_bMagTransferBrd3;

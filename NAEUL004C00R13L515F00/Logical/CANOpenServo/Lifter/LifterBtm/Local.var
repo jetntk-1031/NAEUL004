@@ -143,4 +143,5 @@ VAR
 	fbSDOWrite : fbCANSDOWriteArrayParam;
 	bOutletShutterCloseRS : BOOL := FALSE;
 	udiModuleNum : UDINT := 1201;
+	iLifterMovedSlot : INT;
 END_VAR

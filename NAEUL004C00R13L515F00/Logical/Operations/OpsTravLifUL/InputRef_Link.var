@@ -65,6 +65,7 @@ END_VAR
 VAR
 	p_bPshrConvPshrRetSlwSen : REFERENCE TO BOOL;
 	p_bMcParamDMCScannerEn : REFERENCE TO BOOL;
+	p_iLifterSltMoved : REFERENCE TO INT;
 	p_diMcParamDMCScanResponseTO : REFERENCE TO DINT;
 END_VAR
 (*opcon*)

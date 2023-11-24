@@ -46,4 +46,5 @@ VAR
 	p_LifterBtmJogging : UDINT;
 	p_LifterBtmUpSen : UDINT;
 	p_LifterBtmDownSen : UDINT;
+	p_LifterBtmMovedSlt : UDINT;
 END_VAR

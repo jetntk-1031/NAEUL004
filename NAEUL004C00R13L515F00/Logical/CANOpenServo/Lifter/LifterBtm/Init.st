@@ -45,7 +45,7 @@ PROGRAM _INIT
 	p_LifterBtmJogging		:= ADR(bJogging);
 	p_LifterBtmUpSen		:= ADR(bUpSen);
 	p_LifterBtmDownSen		:= ADR(bDownSen);
-	
+	p_LifterBtmMovedSlt		:= ADR(iLifterMovedSlot);
 	(* Always Change If Project Change *)
 	
 END_PROGRAM

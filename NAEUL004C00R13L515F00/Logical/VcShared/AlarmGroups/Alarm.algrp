@@ -26756,7 +26756,7 @@
       <Text ID="16864" Value=" {TextSnippet_9} | Saftey Sensor Is Deactivated To Clamp"/>
       <Text ID="16892" Value=" {TextSnippet_54} | No Barcode Detected"/>
       <Text ID="16893" Value=" {TextSnippet_54} | Return Code Feedback Time Out"/>
-      <Text ID="16894" Value=" {TextSnippet_54} | Board Lost Before Traversing"/>
+      <Text ID="16894" Value=" {TextSnippet_54} | Board Lost During Traversing"/>
       <Text ID="16905" Value=""/>
       <Text ID="16912" Value=" {TextSnippet_58} | Invalid Ident While Creating Server"/>
       <Text ID="16913" Value=" {TextSnippet_58} | Setting Keep Alive Interval Time Error While Creating Server"/>

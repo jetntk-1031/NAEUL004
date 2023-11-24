@@ -2017,9 +2017,14 @@ ELSE
 			END_IF
 			
 		
-	END_CASE
-END_IF			
-
+		END_CASE
+		
 	
+	END_IF			
+
+	//added
+	iLifterMovedSlot := BOOL_TO_USINT(eStat = LifterActGoASltPos)*1+ 
+						BOOL_TO_USINT(eStat = LifterActGoBSltPos)*2+
+						BOOL_TO_USINT(eStat = LifterActGoCSltPos)*3;
 	
 END_ACTION

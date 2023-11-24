@@ -295,6 +295,8 @@ ACTION Act_OpsRun:
 					END_IF	
 					
 					IF p_bDIOutShutterCloseRS = TRUE THEN
+						
+						
 						IF eMagNxtLoad = MagNxtLoadMag1 THEN
 							eLifterAct	:= LifterActGoASltPos;
 							

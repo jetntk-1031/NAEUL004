@@ -1,3 +1,9 @@
+23/11/2023
+- Traverses need to react as soon as Lifter moving in Magazine Platform model
+- Pneu2SenOutShutter , Act_LinkAction comment, lifter moving allow open or close shutter
+- Lifter, iLifterMovedSlot
+- TravLifULStepTravLifMov, p_bLocalDSRdy AND p_bDSAllow 
+
 21/11/2023
 updated DefaultGate
 Potential FileWrite IO
@@ -5,6 +11,7 @@ Added TravULStepClrSensorErrBefTrav, check clear and inlet sensor before travers
 
 
 2023-09-25, 11-1 (R13)
+MagRcp - update reset MagRcp load single
 CanOpen, Lifter and Traverser addd Interrupt sensor for inlet and clear sensor 
 DSSMEMA act-link , sendcompl make sure clr off
 OpsTravLif - ExitBrd NOT(p_bConvClrSen OR p_bConvRgtSen)
