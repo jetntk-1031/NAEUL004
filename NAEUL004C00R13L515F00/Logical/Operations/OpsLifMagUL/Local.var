@@ -39,6 +39,7 @@ END_VAR
 VAR
 	eMagNxtLoad : eLifMagULMagNxtLoad;
 	bUnloading : BOOL;
+	bLifterMoving : BOOL;
 END_VAR
 (**)
 (*Local Input*)

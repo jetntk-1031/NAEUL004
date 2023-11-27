@@ -517,6 +517,7 @@ ACTION Act_OpsRun:
 	
 	//Step
 	bUnloading	:= eOpsStep = LifMagULStepUnload;
+	bLifterMoving := eOpsStep = LifMagULStepLifMov;
 	
 	//*************** second sequence  Lift Conv 1 and lifter*************************************************************
 	IF p_bNtParamProjLifter2Prep AND p_bMagConvLanePrep THEN

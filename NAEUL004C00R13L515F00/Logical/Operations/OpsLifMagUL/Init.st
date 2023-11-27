@@ -25,6 +25,7 @@ PROGRAM _INIT
 	
 	p_OpsLifMagULMagNxtLoad	:= ADR(eMagNxtLoad);
 	p_OpsLifMagULUnloading	:= ADR(bUnloading);
+	p_OpsLifMagULLiftMoving	:= ADR(bLifterMoving);
 	
 	p_OpsLifMagULLifter2Act		:= ADR(eLifter2Act);
 	p_OpsLifMagULLifterConvAct		:= ADR(eLifterConvAct);

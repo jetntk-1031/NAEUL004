@@ -29,6 +29,7 @@ END_VAR
 VAR
 	p_OpsLifMagULMagNxtLoad : UDINT;
 	p_OpsLifMagULUnloading : UDINT;
+	p_OpsLifMagULLiftMoving : UDINT;
 	p_OpsLifMagULLifter2Act : UDINT;
 	p_OpsLifMagULLifterConvAct : UDINT;
 	p_OpsLifMagULLifterConv2Act : UDINT;

@@ -569,6 +569,7 @@ ACTION Act_InitGlobal:
 	p_sOpsLifMagULStepTxt ACCESS p_OpsLifMagULStepTxt;
 	p_sOpsLifMagULStepTxt1 ACCESS p_OpsLifMagULStepTxt1;
 	p_bOpsLifMagULUnloading ACCESS p_OpsLifMagULUnloading;
+	p_bOpsLifMagULLifMov ACCESS p_OpsLifMagULLiftMoving;
 	p_bOpsLifMagULStepIdle2 ACCESS p_OpsLifMagULStepIdle2;
 	
 	p_sOpsInMagConvStepTxt ACCESS p_OpsInMagConvStepTxt;

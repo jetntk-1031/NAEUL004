@@ -74,7 +74,7 @@ TYPE
 		eUSCommB : eMcSetCommMod := McSetCommModSMEMA;
 		bAutoLogoutEn : BOOL := FALSE;
 		diAutoLogoutTmInSec : DINT := 60000;
-		sIPAddr : STRING[15] := '192.168.0.18';
+		sIPAddr : STRING[15] := '192.168.0.10';
 		sSubnetMask : STRING[15] := '255.255.255.0';
 		eNetworkMod : eNetworkConfigMod := SetIPManually;
 		tyUSCommBSMEMA : tySMEMAParam := (eSelection:=SMEMASelIPC9851,bStatSigSetGd:=FALSE);

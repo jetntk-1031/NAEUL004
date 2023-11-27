@@ -834,6 +834,7 @@ VAR
 	p_sOpsLifMagULStepTxt : REFERENCE TO STRING[80];
 	p_sOpsLifMagULStepTxt1 : REFERENCE TO STRING[80];
 	p_bOpsLifMagULUnloading : REFERENCE TO BOOL;
+	p_bOpsLifMagULLifMov : REFERENCE TO BOOL;
 	p_bOpsLifMagULStepIdle2 : REFERENCE TO BOOL;
 END_VAR
 (**)
