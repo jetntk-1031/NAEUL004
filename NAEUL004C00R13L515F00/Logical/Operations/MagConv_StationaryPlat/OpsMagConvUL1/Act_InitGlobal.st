@@ -204,5 +204,5 @@ ACTION Act_InitGlobal:
 	//Manual Flush when different Horizontal Com Mod
 	p_usiUIHcomModchanged ACCESS p_UIHcomModchanged;
 	(* Always Change If Project Change *)
-	
+	p_bNtParamAutoRcpF1ArbitraryType ACCESS p_NtParamAutoRcpF1ArbitraryType;
 END_ACTION

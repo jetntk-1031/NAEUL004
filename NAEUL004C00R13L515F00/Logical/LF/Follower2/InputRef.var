@@ -26,6 +26,7 @@ VAR
 	p_bWidth2Prep : REFERENCE TO BOOL;
 	p_bCustomizedWidthPrep : REFERENCE TO BOOL;
 	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpF1ArbitraryType : REFERENCE TO BOOL;
 	p_bUSWidthChkPrep : REFERENCE TO BOOL;
 	p_bUSWidthChkEn : REFERENCE TO BOOL;
 	p_bUSWidthChkSen : REFERENCE TO BOOL;

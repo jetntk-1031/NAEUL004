@@ -66,4 +66,14 @@ ACTION Act_Link:
 //	ELSIF p_bNewIncomingBoard THEN
 //		fbUSBlkTm(IN := FALSE);
 //	END_IF
+	
+	//IF AutoRcp Prep, Link 
+	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) AND p_eNtParamAutoRcpPrecededBy = PrecededBySelf   THEN
+		p_sRecipeNm	ACCESS p_AutoRcpCurrRcpProdID;
+		p_diWidthInUM ACCESS p_AutoRcpCurrRcpWidth;		
+	ELSE
+		p_sRecipeNm	ACCESS p_ProdRcpCurrRcp0Nm;
+		p_diWidthInUM ACCESS p_ProdRcpCurrRcp0Width;
+	END_IF
+	
 END_ACTION

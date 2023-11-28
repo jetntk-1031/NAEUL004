@@ -72,7 +72,7 @@ ACTION Act_Link:
 	
 	
 	IF bAutoRcpEn THEN 
-		p_bUSAllow := NOT(p_bMagPropDiffBlk) ;
+		p_bUSAllow := NOT(p_bMagPropDiffBlk) AND (NOT(p_bNtParamAutoRcpF1ArbitraryType) OR p_sProdRcpCurrRcp1Name = p_sProdRcpCurrRcp2Name);
 
 		p_bAllwChgWidth := p_bChgMagWidth;
 		p_bAllwChgSlot	:= p_bChgMagSlot;

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Hermes_Logo_40x40" ClsId="0x306" Version="1" TargetIndex="461" Type="GFX" RefString="Source[local].Bitmap[Icon_Hermes_Logo_40x40]">
+        <UInt16 Name="Width">40</UInt16>
+        <UInt16 Name="Height">40</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVFhH7dW9SsNQGMbxjIK7iEMHg5uLTta66gUU1+IVCIUOdZPeQJ3F1bq4eA1FHHXrKNZBcKq4uBn7D33KqyZRyckHkhceThKbk1/fk1O9qqqqqqqqSl6rF1tB7Wzj3UWYi2xe7jkJc3lMvFBbDFxEX/b+dRykze3o7jNw2szUETBwUCD/N1DLaq+VCrh8uBZiGHV/6YBMoOj8r8DJyyQYPz7MwznlHKgwHzvwN2VR3DMYnIfhWmZApXPTCx8SVyBAgSP9k/4buOH1MDzPHEiYOw4KRBgBGVW5AAnzMwK1S2+XExhYW7kBFYAqQODoGjC9i+oox/wdW6ZA/p9GLbEAALtH3XknGQlQrmcKTNokLLUQrYNWOOqakOAzATKffdm/Fp0CQwQkAqqrHDOfEyBz6JzjmeVbaTMAAgKKbqmLhHO+hJNNIpjuTwLqHVPH1CUtKVjb+dTAqHvigODoWGOnERDhSFylBkYlCggOEDCeQ/foWBKOygWojSCc7d5PlTnQ4hThkna5ag70r7afXGfldP0ZjDYEOEau/yXMNf3ibqvXO27rt0xA0txv9uu79aXZx/IvHm5xNuB836/PPpp/CdfptEelxIGwywmMTgIuFEepc+qeBRaOo3vAtIyMwgEvdFNQAgoDUODCcZRFKaXBqYQkLLNbnOd9AHYCQKLlqK1XAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

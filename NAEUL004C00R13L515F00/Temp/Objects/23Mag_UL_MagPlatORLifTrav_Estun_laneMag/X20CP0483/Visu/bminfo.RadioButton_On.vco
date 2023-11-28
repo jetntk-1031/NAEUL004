@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="RadioButton_On" ClsId="0x306" Version="1" TargetIndex="485" Type="GFX" RefString="Source[local].Bitmap[RadioButton_On]">
+        <UInt16 Name="Width">32</UInt16>
+        <UInt16 Name="Height">32</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANnSURBVFhH7daxS5VRGAZwlyBoanLqf4hck/4AIZC2xrZ0KgJn/4DcFAdBLRUEBc3SIVA0Qc0GveLgJOIVjXKIaqyv+/s4bxzk3psaNIQvfNyP95zvfZ/zPM8557ZcxVVcNlpbW290dnbe6e3tfTY0NPRmcnJyf3p6+ovHu5wxc8xNn/19tLW1XVO0r6/vuUazs7OFZ2Zm5kf+RN4cc33j21TmcjE8PHx9bGzs4fLy8vvFxcVifn7+59TU1KeRkZG3mlixx7ucsQAzMTFR6e7ufnBpNjRfXV19XKlUPm9tbRUbGxsfa8VfdHV13VU0X513OWMDAwNjZAECoJ6enkcXBqH59vb2w8PD6un+/n5RA7Hz6vWrJx0dHTfTlIahGVYwECAwcSE5lpaWbler1crp6Wnht8bE/TRUhmLAtLe33/J4P9tA0wDhlyfSUPOw+vX19X4rx8DBwcHTNFRGf3//Lb4gx8LCwnJthe/Qjmpg0rQyMBFy8Mm5pKAjvXd3d3/u7OyMA5SGSmbkjPHFh83NYmVlpWDQubm574DkK9VQjjHtjnOxMDg4+HRtba003fj4+L2ULld+fHz88uTkpMDO3t5eAQgQ5scu0TBnwoL4AAsYSenGYTspht4wXZjy6OjoK18AUfNGCSTYAAIbNRDfyBGewIKaADis5JpGHDajo6MDUQSQ8IXGACSD/mYjl8S3AV4N+ocMck2DaUzO6UK/w8hqNdM0QNSTBHu5DGqpqXZKNY56ABRTVHErDRAYqCcJsECnzy8GAE0moy2XAK3opTUQGgWIs5KQKyQQvmXQc0nAKDzAOLFvAWEsBmNQILBRTxJGZdjYvoBgz3dqyjUNdAFg69hCKV3KYItZiWLYqCeJrZrTbyvb0kDb4indOBwWIYOG+ellTM6hEyBySRxSDqs0vdy+cXABkS+oYWhIfywwTW5GgQlyAOIYRm8N7AvHc75y4RgnSfgiP1WbhpXmF4mLJQ2VwRO0BcbjPQwb4QKrSfL7QsuZ+WMopmkcoUBgIpejUQDj6naFW7kLLTfluUMzVAcIcqCdjsbyFXuXM0YOejOoPzP+1Fy4eYSi+b3OmADZTnyCFY93OWOxSxxGfHHp5hFWxxOaxD0RYPIn8uaY65uzvvirwIaiVvxP/5ZfxX8WLS2/AD6pMpqtHwHJAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

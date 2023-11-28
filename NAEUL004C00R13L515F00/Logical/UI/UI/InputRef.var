@@ -850,6 +850,7 @@ VAR
 	p_eNtParamCustomerReq : REFERENCE TO eCustomer;
 	p_tyNtParamPPTorqParam : REFERENCE TO PPTorqParam;
 	p_bMcParamAutoRcpDisable : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpF1ArbitraryType : REFERENCE TO BOOL;
 	pa_tyAutoRcpBrdProps : REFERENCE TO ARRAY[1..4] OF tyBoardProperty;
 	p_iOpsMagConvUL1MESAcptCond : REFERENCE TO INT;
 	p_iOpsMagConvUL2MESAcptCond : REFERENCE TO INT;

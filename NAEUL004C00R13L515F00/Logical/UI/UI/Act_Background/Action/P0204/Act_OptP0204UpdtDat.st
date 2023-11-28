@@ -34,7 +34,7 @@ ACTION Act_OptP0204UpdtDat:
 	
 	//Program Info
 	
-	IF p_bMcParamAutoRcpDisable THEN
+	IF p_bMcParamAutoRcpDisable OR p_bNtParamAutoRcpF1ArbitraryType  THEN
 		tyP0204OpsMag3.tyOps.tyTxtMod.usiValueIdx	:= p_tyProdRcpCurrRcp2.usiMcMod;
 		tyP0204OpsMag3.tyOps.tyNumMinSltRange.diValue	:= p_tyProdRcpCurrRcp2.diMinSltValue;
 		tyP0204OpsMag3.tyOps.tyNumMaxSltRange.diValue	:= p_tyProdRcpCurrRcp2.diMaxSltValue;

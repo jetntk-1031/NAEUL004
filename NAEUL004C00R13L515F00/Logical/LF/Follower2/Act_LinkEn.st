@@ -3,5 +3,7 @@ ACTION Act_LinkEn:
 	
 	//Link bPrep, bEn & bDis
 	p_bDis	:= (p_bLinkStartupRun = TRUE);
-	p_bPrep := NOT(p_bCustomizedWidthPrep) OR p_bMcParamAutoRcpDis; 
+	
+	
+	p_bPrep := NOT(p_bCustomizedWidthPrep AND NOT(p_bNtParamAutoRcpF1ArbitraryType)) OR p_bMcParamAutoRcpDis; 
 END_ACTION

@@ -787,7 +787,7 @@ ACTION Act_OpsRun:
 						eUSSMEMAAct		:= SMEMAActIdle;
 						eGotoOpsStep	:= MagConvULStepMagExitMnl;
 					
-					ELSIF  (p_bAllwChgWidth AND NOT(p_bMcParamAutoRcpDis) )  OR p_bUSAllow = FALSE  THEN//IF needed to insert back to Previous Magazine
+					ELSIF  ((p_bAllwChgWidth OR p_bAllwChgSlot) AND NOT(p_bMcParamAutoRcpDis) )  OR p_bUSAllow = FALSE  THEN//IF needed to insert back to Previous Magazine
 						bMagBffrAvl		:= FALSE;
 						eUSSMEMAAct		:= SMEMAActIdle;
 						eGotoOpsStep	:= MagConvULStepMagCmp;

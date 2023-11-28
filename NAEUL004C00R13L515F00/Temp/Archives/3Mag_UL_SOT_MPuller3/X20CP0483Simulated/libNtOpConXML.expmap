@@ -1,0 +1,17 @@
+{
+  global:
+    fOpConFormPartReceive;
+    fOpConFormPartProcessed;
+    fOpConFormPLCError;
+    fOpConFormPartMissing;
+    fOpConFormPLCJam;
+    fOpConFormPLCGrab;
+    fOpConAddOneMsgSend;
+    fOpConRmvOneMsgSend;
+    fbOpConParseXMLTable;
+    fOpConParseEventReceive;
+    fOpConParsePartReceive;
+    fOpConParsePlcGrabReceive;
+  local:
+    *;
+ };

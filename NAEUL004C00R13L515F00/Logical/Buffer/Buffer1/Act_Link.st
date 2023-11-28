@@ -1,6 +1,6 @@
 (** 2019-03-29 **)
 ACTION Act_Link:
-	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN
+	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) AND NOT(p_bNtParamAutoRcpF1ArbitraryType) THEN
 		p_diMinSlt ACCESS p_diAutoRcpMag1MinSlt;
 		p_diMaxSlt ACCESS p_diAutoRcpMag1MaxSlt;
 		p_diPitch ACCESS p_diAutoRcpMag1Pitch;		

@@ -48,6 +48,8 @@ VAR
 	p_bInternalUse : REFERENCE TO BOOL;
 	p_tyInternalReqProdRcp : REFERENCE TO tyProdRcpParam;
 	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
+	p_bNtParamProjMagAWPrep : REFERENCE TO BOOL;
+	p_bNtParamF1ArbitraryType : REFERENCE TO BOOL;
 	p_bProdRcp0ToptoBtm : REFERENCE TO BOOL;
 	p_bHermesBrdAvlDataNewBrdAvl1stZ : REFERENCE TO BOOL;
 	pa_tyLinkXMLTableDataBrdAvl1 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;

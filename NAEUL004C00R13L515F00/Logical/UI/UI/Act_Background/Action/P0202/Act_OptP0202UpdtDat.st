@@ -33,7 +33,7 @@ ACTION Act_OptP0202UpdtDat:
 	END_IF
 	
 	//Program Info
-	IF p_bMcParamAutoRcpDisable THEN
+	IF p_bMcParamAutoRcpDisable OR p_bNtParamAutoRcpF1ArbitraryType  THEN
 		tyP0202OpsMag1.tyOps.tyTxtMod.usiValueIdx		:= p_tyProdRcpCurrRcp2.usiMcMod; 		//Mode
 		tyP0202OpsMag1.tyOps.tyNumMinSltRange.diValue	:= p_tyProdRcpCurrRcp2.diMinSltValue;
 		tyP0202OpsMag1.tyOps.tyNumMaxSltRange.diValue	:= p_tyProdRcpCurrRcp2.diMaxSltValue;

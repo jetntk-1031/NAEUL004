@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Slider_Bar" ClsId="0x306" Version="1" TargetIndex="486" Type="GFX" RefString="Source[local].Bitmap[Slider_Bar]">
+        <UInt16 Name="Width">20</UInt16>
+        <UInt16 Name="Height">400</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAABQAAAGQCAYAAACu30B3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFlSURBVHhe7d3rbcIwGEBRBmQodmAT5uhQtaVEpYhnj/vvWjoSSb5ckizgw6N1Pp+Pw2m4DF+b+XueO25jr9cc3m7cI4/MmefhMTD//d7Nz5y223+veeFm8BO/o+PEfM17g5/4ef1x8M43e+Wyx1Y83e6o3+7WadXr7i4zeO/CnxV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUFX0BV0BV1BV9AVdAVdQVfQFXQFXUH3L8Hl2yUv39B57ZbT2z7W6zbFnmscrN22e65xYt3G4vuaF24G33E/tq8xsG5z9us1h4f5xNfx+XueexA6HL4Bty4HH+E8d9AAAAAASUVORK5CYII=</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

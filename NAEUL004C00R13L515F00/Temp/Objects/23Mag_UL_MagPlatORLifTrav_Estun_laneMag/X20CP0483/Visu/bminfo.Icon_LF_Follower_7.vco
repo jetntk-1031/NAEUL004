@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_LF_Follower_7" ClsId="0x306" Version="1" TargetIndex="316" Type="GFX" RefString="Source[local].Bitmap[Icon_LF_Follower_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANUSURBVEhLtZU/aFNxEMezuUgX3RxEUbAgOkoGO6hYzaAgFnRwkypIQCvqUjuLqbSDIFKHIqTRqRUNdHHyb02GDIJDLURrO3RQES1Va5/9PN73ebm+NAm1B19efvfuvt+7+12SVCt2urtnc7o71yFE7vU1hK4/eff26YcfARh8NvvzWK6Yi16vjx3JZjecHZ64L1Ehk59aYApR2NoMooO9Dy/RjcaJ79DAizJdWiBsY5SX2Zdpx9e0kezHebLvXhfv6BghD6aBkM9raQeSxgmhyL2oLSopr+lrYJyXi9XAAgERIJ4eLIc+iYZFLZ9Xy2toHVcK4xCvgBkb90iBCHKWsM8hpmlhAknwJPZrI2GR8jzaN7roczSRhkblkAA6REAiEGtTfceceU9xyiFWXMTUNYRYEBaCcfsEyPZmC7M8ea/POqsoGUWw2fARE7lrDRECvnz7HgA2Mul+IKMzxfGZArwohRTv9gdvxoYWH5dGa76SNUa3N0deLREgiHRXV+6a7Qwi4eqjc0u7z+d/+RhEJTw9MT7P0+5IbAgjZAEhgAiQSCGICene/cGWzI04BuBHSOISzt++NRzJ/TNGCqnEBEbIAgnbjvePIWZBHhxaTES+vi8HC3OTMTgnCmOMyYr7e2Mq+OmKLtUpOeQSU08YTFVKAyFRkpHIEvBEGDHAHSKAnzjOiCqHd0yDXEbbsjDGyCBl2QCkdIdYFBJOhxhiOfOOGCbC0iWNerJS6QyT6xkkEhX86NWxhNU1sQiXzpz6A1QAUyAODvyFndtPcK4xRpa04RqzlowOVQw+hIm9czjzEvJPPReD150HfiPKmInlLP8KcZF6SNheAwWpa+WN7Gmfh1zgjEiSn7zYqMyL6n6TrgFB3rGExF7YuiPsSOMG+OwZUXt1sUECIUCMrjRifw2IkcNE+K2nGH44IKcAi1VFZQhpvJiE7SQENnb641xVv+GA7zMizze1BQJn7rzhhnujey/KnVtBwDZ70Rrx5SJtUw2Nru018JmNtaJ0BPlM28YAIMYd2zMjb7lrb37EVhQgyp1bccDXLqJo3ZiAF6YbkVMEY8evhcNP12sSxhBnbIxcgBQR/pGqM58fCPjZbp7kRRT/xyBkcQCfLXgvfyqVSv0FokcHZGy/pwEAAAAASUVORK5CYII=</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

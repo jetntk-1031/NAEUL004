@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_LF_Edit_7" ClsId="0x306" Version="1" TargetIndex="302" Type="GFX" RefString="Source[local].Bitmap[Icon_LF_Edit_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMiSURBVEhLtZVPSFRRFIdn2bpFG6GQWbhoUVkUImSLEQohCgIZMGgzkRC10I1hjBGEGZRahBBUllYKBYK7lBbBQNkiiDZSUJuwaBVFqdVrvsv94fHOvzdjc+DHm3ffOec759z73iSqsfauri0Xxq7tQ8kdrdv9cn0NWP/s2zfzH39E6FLuy3L61vPz/nF9bFtb26bj9xbuCyodmny/zBS828aMRKmBmR66oUuttY/kFujSCrD1UVzV20Bn4Tg7+u8e4xkdAwpFDNAwbndn9oBLGseKjZOEJKeLEGqLKhYXexsYZ8/sh8gKgBIAbxl+5dYEpSjuy8VVtP19U7dJHMqOjX2kQIDcc00Nzv0MY/CJ33HekYAwCQV5lwIwMcXAmkhFI5ED50WHrZnR0wgIiXVSQzD3PKc4xeCrXPiUNEAcEA4ECZRURvKd3eNLXPecfTS/t2/mFwDdh68Pr9SdZ+9WyIePX15vVIXD4uevEeJE2o5kFERn8jt19cYfCgih+MkHUYDGDiu5dfNNF0O3Fydf/sZBAkDSpqOXB9wofWdTi+OR9ORx9jtTCH2II58VxQDNTTRne080fgPuwICsmk5O/EUkIggByTxNR1JqKBmxJh+urpB8HHArnr9+0DA9Npz+RMFXzrWcce0rwIpxMG6J4F2ZbgdE/CaOEcqnVC6AnR3JVbqla2KccVAUwDXcN6bCurqyv8PDQwGsWyhAwHTt3daMajkE7gDkwcAQe0giEuLHPVDF8Ixp2Bh8yUV3o9nmFcBA8SeuwAggiQ4FSRsODq4yEe/ipgNYhXCPD742TlB1WhKK0Q2B16dfRIjfjMuOPgSraxvHAYoNxRoPD80d6X0YWQFWIDB86FDFsAZY/rzfFqr/67KmpKEEplN1BUxdK46TLijXWFCMLkIo4+cZV41fV4A840Dha6HuXa3GSEJCBIyuNGK7BQgYz5gIY7VQTaMqE8zfrtvbUBZa8IH4H0b3IZQ1QHWDYnTNqwQMsSUcHr06dYGWMqD66Ne0p7UYf218h6s+vRsxXjv9oesgVpIPrd1Iwkl28DLCRyosIJH4By5s5jsFmpZqAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

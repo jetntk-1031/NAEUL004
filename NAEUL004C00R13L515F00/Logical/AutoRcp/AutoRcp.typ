@@ -54,6 +54,7 @@ TYPE
 		diPitch : DINT;
 		diMinSlt : DINT;
 		diMaxSlt : DINT;
+		sTrailingBarcode : STRING[254]; (*0259E01, use trailing 10 character to compare Magazine*)
 	END_STRUCT;
 END_TYPE
 

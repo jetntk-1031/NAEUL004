@@ -144,7 +144,7 @@ ACTION PrecededBySelfBackground1:
 						END_IF	
 					ELSE //if rcp same mean changewidth allow change until width is same
 						a_bMagChangOverBlk[ii] := FALSE;
-						a_bAllwChangeWidth[ii] := (a_bMagAWWidthDiff[ii] OR a_bForceChgWidthIfSameRcp[ii]) AND a_tyBffrStat[ii].bBffrMty;
+						a_bAllwChangeWidth[ii] := (a_bMagAWWidthDiff[ii] OR a_bForceChgWidthIfSameRcp[ii]) AND a_tyBffrStat[ii].bBffrMty AND p_bNtParamProjMagAWPrep;
 						
 					END_IF
 	

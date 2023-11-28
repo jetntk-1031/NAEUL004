@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BuildReasons>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\visu\visu.mak">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\opcuamap\opcuamap.uar.gz">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\physical\3mag_ul_sot_mpuller3\x20cp0483\cpu.sw" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\init.st.c">
+    <BuildReason>Target "init.st.c" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\init.st.o">
+    <BuildReason>Target "init.st.o" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\cyclic.st.c">
+    <BuildReason>Target "cyclic.st.c" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\cyclic.st.o">
+    <BuildReason>Target "cyclic.st.o" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\_bur_pvdef.st.c">
+    <BuildReason>Target "_bur_pvdef.st.c" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\_bur_pvdef.st.o">
+    <BuildReason>Target "_bur_pvdef.st.o" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\visu.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\a.out">
+    <BuildReason>Target "a.out" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop\tcptop.ox">
+    <BuildReason>Target "tcptop.ox" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcptop.br">
+    <BuildReason>Target "tcptop.br" does not exist</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcpbtm.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\agv.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\agv1.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\agv2.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\agv3.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\simu.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\autorcp.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\machine.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\ussot1.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\dssot1.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\ussot2.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\dssot2.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\ussot3.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\dssot3.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\simu1.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\simu2.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\iomap.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\physical\3mag_ul_sot_mpuller3\x20cp0483\cpu.sw" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="#cpu_tp.mak">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\binaries\3mag_ul_sot_mpuller3\x20cp0483\transfer.lst">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_sot_mpuller3\x20cp0483\tcpbtm.br" differs.
+</BuildReason>
+  </Rule>
+</BuildReasons>

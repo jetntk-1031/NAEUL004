@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_LED_Green_40" ClsId="0x306" Version="1" TargetIndex="159" Type="GFX" RefString="Source[local].Bitmap[Icon_LED_Green_40]">
+        <UInt16 Name="Width">40</UInt16>
+        <UInt16 Name="Height">40</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANpSURBVFhHvZcxctUwFEU9k0mZyR6oWAY7oGbo6bMANkBLQUvLCtgB9BlmqChgDwxDBTqyr3V5/0m2f37QmSRgSe8dP0n+/tPZ7X56Mn2ZXlx9vXp7/e368833m9/+wzX6GFPH/pdWEpEUgdtft3+eFd4U7gs/A58K9DGGscypwo8lS3ASPS38KLhMhP4INyHZKnqxVu6Yu0fMJSIuAwhFqCogSswHV1NVI6jLgMsIlxGSgo/G+8KDqskmJwCJLyUlPiwgycqQa0m7rzFBey3DZYRLgQsJF4N3C4cktaxbQuBC4DJOT4xTLpDcXu6yabXnXEQ0lRmXiEhqS+y1Qe763Ow1ThYBekLgEhkjMcjk7hZeFurpzpqf2L0y4ELiqBi8KiCY78flWeeJt3AhkFQUg5EcYpIDPcwXs6WVdeeiCwiXiLgUuBS4GGzJPS8geHJgqB4TPbnjEhEXEi4FEgOXk5jLSbDtxeXkjkQ8+QiXEkflJFiXuX4UluXlgic6igs5PblsWV1uFeSRw1rT4YGPkklGsaNy/NTTzC8Ge/CHgowkHIQiUU4gWPchgtyV7jjDk2doDH9VJeGCEMWEy8EqyC8mtoW4q4m2aHr5ckJPdK/kKsh/mODBHQmM8PGRvZJNbWZdYl1gEIE8uONCTtbXZs30JJvejFzgRBAYxEQF9CTCRbbweYrpgqMqVkEeM7rgA4HJBNoj6nsSvA80J5P0nCCf+pjRgxp8kO5OgVzSE7tUho/V/CgInls+87vh8lGXCSqIy4ESukj7XJnxPo33GKMqroL1o6401toH6K4UIKueC7hYRGM0T3FGglD339pKKb3TBQkkQSVRUkn4i4Wjfo3XfAlCT/Lk+4lXUXIguZ6gZNrL2Yyu9wShJ8iWW7Ra00sDjASVLJOLL7nqj5KK1xM8qZ6aqpgJ6u6VSIIuJjn/dyYImSD8u/diK6fGBQmQCZKwJ+jQFyUVZ65hkyQnuedHy6BpqSWoQAoswUwu+zYYBSWpuBIcLm1sDOSOoqASZIKSE7q+V3C3nJokFWiPoH/h1/UtwbPk1JhI6Qn4GIKHlrXbysHhZBFQCXqCjq5ngsSqp1UfZZdoqmZPEKIcRMHLVG3UymNAFY2CGYxZK7b1CLloY3lKQqrBexsC/sO1Wimkzl7KafoL9iich+pgnYsAAAAASUVORK5CYII=</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

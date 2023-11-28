@@ -22,5 +22,5 @@ ACTION Act_InitGlobal:
 	p_bNtParamAutoRcpPrep ACCESS p_NtParamAutoRcpPrep;
 	p_bMcParamAutoRcpDis  ACCESS p_McParamAutoRcpDisable;
 	(* Always Change If Project Change *)
-	
+	p_eNtParamAutoRcpPrecededBy ACCESS p_NtParamAutoRcpPrecededBy; 
 END_ACTION

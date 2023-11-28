@@ -721,4 +721,6 @@ PROGRAM _INIT
 
 	//HMI Mac Address
 	p_NtParamHWInfoHMIMacAddress		:= ADR(tyNtParamCurr.sHWInfoHMIMacAddress);
+
+	p_NtParamAutoRcpF1ArbitraryType		:= ADR(tyNtParamCurr.bAutoRcpF1ArbitratryType);
 END_PROGRAM

@@ -31,6 +31,7 @@ ACTION Act_InitGlobal:
 	
 	p_bCustomizedWidthPrep ACCESS p_NtParamAutoRcpPrep;
 	p_bMcParamAutoRcpDis  ACCESS p_McParamAutoRcpDisable;
+	p_bNtParamAutoRcpF1ArbitraryType ACCESS p_NtParamAutoRcpF1ArbitraryType;
 //	p_bPrep ACCESS ;
 	(* Always Change If Project Change *)
 	

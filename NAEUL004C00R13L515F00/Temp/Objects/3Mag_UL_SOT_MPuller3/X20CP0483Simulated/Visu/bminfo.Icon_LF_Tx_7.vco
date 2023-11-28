@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_LF_Tx_7" ClsId="0x306" Version="1" TargetIndex="318" Type="GFX" RefString="Source[local].Bitmap[Icon_LF_Tx_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN3SURBVEhLtdXPS2dlFMdxd/MHtGs1i6BxFTSQ5GoiIatNgS2EYlaCCUkUQlHSSvpBpqCbWehimlEGMkhcZTEM1kLkG1EIwjhYw4wRVFQWJKG37+vOPfL0zP2OX0c88OHe+zznnPdzzvPcezuOYk++9MYD3QPjT1DXcy93VsMna2CjS+vfL2/9VdCHK9u7z7y7NFJNn4z19r5yqn929WJAaX3r592nL2/+owuV2/FMIpVQtNNYz8TKN6pMBawTreLaNsF5O/venukzp2KgXLoBlMfFgtqyvJ0kYSTPoemi6uLa3gbtfH3phyIVQCRI4QG1KM/3ijvUrPzxybUiV7pn9tACAT1LDpLH8GkbzFFAnqR7aHa6cqkFnxv7YjePiY4cahJJQg7Go+cnRghE4qg6B3s2b3ERwzdy8WlpQNrsQHS9duVaHhAwV/OdQ3P/AsRzuhXMuJMtn/tq+P8GwsEH4fedv8sTCZLDVTQ4ebXgQ31vzhcWkEMfG/54Ua7Q/Mr1/dq2q3bik0b57hFHrUurIgk/bSwUocnPXy0eGbz0U+4zOt2cn3rrz68/m90judMzcmDAQKlAy2qabZRMIMjAcn8R6vngoeLhFz76wzzx7R+Z+hU0wDfXFgvXWrCWShqwA2izhQ5QSPCZ54dLILkXJ0ccTMCApVq4MDZewnLTroC75vumK+V4sypVkntjcXiAQXa2Vvd2f7lRhDy3BDOBDoErMBjFoozz86y1EWNON8TWgWnj28ZYvH61Fi19Z+arfYciTi5Y5XIAjkSeH3zqvdJXm1uBy+BWJklAyX3sd+VS+mhzgFWt9Xyd9rpWb27+eLYMbmWnn33/SytPBRxtBuOjwlhMtDv8o2qvpYXcbix+x++epoWSplJNgFUa3QCLqmMxZJ/B+fgYecUivqWpAigFx/66BpS0FtCcQxj+PiDgrqomX7z8TbnLJJGQwFQVLU63gCwyqtYtY4CUnhUCd3DDv9ZMpu0JcNoJAjbv8GhpHZCMkXnbdWjrU1N9DlaBV8VPA1jFKgtQyJg5XzuKBbdlqi4/Kk1Yqea9SuNvBSxhwFMZo5gXW6W9P7u1/dtcgLUxKiLAqJZAtZ3v+sb2i1WKo5sOxD+8TmBAUXHqa8FVmqMbsP2tgxuLSnUi9XF/rIrDnFB7TRKSBdlzf64YC587J7qj4z9S3SY4na+3egAAAABJRU5ErkJggg==</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>
