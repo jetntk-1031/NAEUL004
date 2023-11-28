@@ -93,4 +93,10 @@ ACTION Act_InitGlobal:
 	p_tyInternalReqProdRcp ACCESS p_Follower1UpdtProdRcp;	//Follower 2 Assign With Follower 1 Recipe
 	p_eNtParamAutoRcpPrecededBy ACCESS p_NtParamAutoRcpPrecededBy;
 	
+	//Mag AW Prep
+	p_bNtParamProjMagAWPrep ACCESS p_NtParamProjMagAWPrep;
+	
+	
+	//Adding Arbitrary type for Flushing Magazine
+	p_bNtParamF1ArbitraryType ACCESS p_NtParamAutoRcpF1ArbitraryType;
 END_ACTION

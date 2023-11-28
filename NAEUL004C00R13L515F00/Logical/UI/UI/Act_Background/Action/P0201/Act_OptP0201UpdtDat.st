@@ -25,29 +25,20 @@ ACTION Act_OptP0201UpdtDat:
 	tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtSpd.diValue	:= p_tyProdRcpCurrRcp1.diMtrPshrExtSpd;
 	tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtTorq.diValue	:= p_tyProdRcpCurrRcp1.diMtrPshrExtTorq;
 	tyP0201OpsTravLifter.tyOps.tyNumPshrOffset.diValue		:= p_tyProdRcpCurrRcp1.diPshrOffset;
-	IF p_bMcParamAutoRcpDisable THEN
+	IF p_bMcParamAutoRcpDisable OR p_tyNtParamCurr.eAutoRcpPrecededBy =  PrecededByF1 THEN
 		tyP0201OpsTravLifter.tyOps.tyTxtMod.usiValueIdx			:= p_tyProdRcpCurrRcp1.usiMcMod;
 		tyP0201OpsTravLifter.tyOps.tyStringProdNm.sValue		:= p_tyProdRcpCurrRcp1.sRcpNm;
 		tyP0201OpsTravLifter.tyOps.tyBtnToptoBtm.bValue			:= p_tyProdRcpCurrRcp1.bTopToBtm;
 		tyP0201OpsTravLifter.tyOps.tyNumMinSltRange.diValue		:= p_tyProdRcpCurrRcp1.diMinSltValue;
 		tyP0201OpsTravLifter.tyOps.tyNumMaxSltRange.diValue		:= p_tyProdRcpCurrRcp1.diMaxSltValue;
 		tyP0201OpsTravLifter.tyOps.tyNumPitch.diValue			:= p_tyProdRcpCurrRcp1.diPitch;
-	ELSE  //FALSE AutoRcp Mode
-		IF p_tyNtParamCurr.eAutoRcpPrecededBy =  PrecededByF1 THEN 
-			tyP0201OpsTravLifter.tyOps.tyNumMinSltRange.diValue		:= p_tyProdRcpCurrRcp1.diMinSltValue;
-			tyP0201OpsTravLifter.tyOps.tyNumMaxSltRange.diValue		:= p_tyProdRcpCurrRcp1.diMaxSltValue;
-			tyP0201OpsTravLifter.tyOps.tyNumPitch.diValue			:= p_tyProdRcpCurrRcp1.diPitch;
-			tyP0201OpsTravLifter.tyOps.tyStringProdNm.sValue		:= p_tyProdRcpCurrRcp1.sRcpNm;
-			tyP0201OpsTravLifter.tyOps.tyTxtMod.usiValueIdx			:= p_tyProdRcpCurrRcp1.usiMcMod;
-			tyP0201OpsTravLifter.tyOps.tyBtnToptoBtm.bValue			:= p_tyProdRcpCurrRcp1.bTopToBtm;
-		ELSIF p_tyNtParamCurr.eAutoRcpPrecededBy =  PrecededBySelf THEN
-			tyP0201OpsTravLifter.tyOps.tyStringProdNm.sValue		:= pa_tyAutoRcpBrdProps[1].sProductTypeId;
-			tyP0201OpsTravLifter.tyOps.tyTxtMod.usiValueIdx			:= p_tyProdRcpCurrRcp0.usiMcMod;
-			tyP0201OpsTravLifter.tyOps.tyBtnToptoBtm.bValue			:= p_tyProdRcpCurrRcp0.bTopToBtm;
-			tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtSpd.diValue	:= p_tyProdRcpCurrRcp0.diMtrPshrExtSpd;
-			tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtTorq.diValue	:= p_tyProdRcpCurrRcp0.diMtrPshrExtTorq;
-			tyP0201OpsTravLifter.tyOps.tyNumPshrOffset.diValue		:= p_tyProdRcpCurrRcp0.diPshrOffset;
-		END_IF
+	ELSE  //FALSE AutoRcp Mode and eAutoRcpPrecededBy = self
+		tyP0201OpsTravLifter.tyOps.tyStringProdNm.sValue		:= pa_tyAutoRcpBrdProps[1].sProductTypeId;
+		tyP0201OpsTravLifter.tyOps.tyTxtMod.usiValueIdx			:= p_tyProdRcpCurrRcp0.usiMcMod;
+		tyP0201OpsTravLifter.tyOps.tyBtnToptoBtm.bValue			:= p_tyProdRcpCurrRcp0.bTopToBtm;
+		tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtSpd.diValue	:= p_tyProdRcpCurrRcp0.diMtrPshrExtSpd;
+		tyP0201OpsTravLifter.tyOps.tyNumMtrPshrExtTorq.diValue	:= p_tyProdRcpCurrRcp0.diMtrPshrExtTorq;
+		tyP0201OpsTravLifter.tyOps.tyNumPshrOffset.diValue		:= p_tyProdRcpCurrRcp0.diPshrOffset;
 	END_IF
 
 	

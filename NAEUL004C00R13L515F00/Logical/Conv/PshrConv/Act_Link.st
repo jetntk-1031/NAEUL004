@@ -1,7 +1,7 @@
 (** 2019-03-29 **)
 ACTION Act_Link:
 	
-	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN //AutoRcp Ignored Follower
+	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) AND p_eNtParamAutoRcpPrecededBy  = PrecededBySelf THEN //AutoRcp Ignored Follower
 		p_usiLinkMcParamProdSelMcMod ACCESS p_ProdRcpCurrRcp0McMod;
 	ELSE
 		p_usiLinkMcParamProdSelMcMod ACCESS p_ProdRcpCurrRcp1McMod;	

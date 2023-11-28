@@ -1,0 +1,16 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+$(AS_PROJECT_PATH)/Logical/Simulation/Simu1/Local.var
+$(AS_PROJECT_PATH)/Logical/Simulation/Simu1/InputRef.var
+$(AS_PROJECT_PATH)/Logical/NtLibraries/NtGeneral/Types.typ
+$(AS_PROJECT_PATH)/Logical/Pneu/Pneu.typ
+$(AS_PROJECT_PATH)/Logical/Simulation/Simu1.var
+$(AS_PROJECT_PATH)/Logical/Simulation/Simu.var
+$(AS_PROJECT_PATH)/Logical/Startup/Startup.var
+$(AS_PROJECT_PATH)/Logical/Simulation/Simu1.typ
+$(AS_PROJECT_PATH)/Logical/MtrPshr/MtrPshr.typ
+$(AS_PROJECT_PATH)/Logical/Pneu/Pneu2SenOutShutter.var
+$(AS_PROJECT_PATH)/Logical/Pneu/Pneu2SenOutShutter3.var
+$(AS_PROJECT_PATH)/Logical/Pneu/Pneu2SenOutShutter2.var
+$(AS_PROJECT_PATH)/Logical/Pneu/Pneu2SenInShutter.var
+$(AS_PROJECT_PATH)/Logical/Alarm/Alarm.var
+$(AS_PROJECT_PATH)/Logical/RstErr/RstErr.var

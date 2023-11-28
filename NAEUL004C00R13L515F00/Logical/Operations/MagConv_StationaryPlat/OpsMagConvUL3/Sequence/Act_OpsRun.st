@@ -787,7 +787,7 @@ ACTION Act_OpsRun:
 						eUSSMEMAAct		:= SMEMAActIdle;
 						eGotoOpsStep	:= MagConvULStepMagExitMnl;
 						
-					ELSIF  (p_bAllwChgWidth AND NOT(p_bMcParamAutoRcpDis) ) OR p_bUSAllow = FALSE THEN
+					ELSIF  ((p_bAllwChgWidth OR p_bAllwChgSlot) AND NOT(p_bMcParamAutoRcpDis) ) OR p_bUSAllow = FALSE THEN
 						bMagBffrAvl		:= FALSE;
 						eUSSMEMAAct		:= SMEMAActIdle;
 						eGotoOpsStep	:= MagConvULStepMagCmp;

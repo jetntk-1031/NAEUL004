@@ -35,4 +35,5 @@ END_VAR
 VAR
 	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
 	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
+	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
 END_VAR

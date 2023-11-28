@@ -70,7 +70,7 @@ ACTION Act_Link:
 //	END_IF
 	
 	//IF AutoRcp Prep, Link 
-	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN
+	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) AND p_eNtParamAutoRcpPrecededBy = PrecededBySelf   THEN
 		p_sRecipeNm	ACCESS p_AutoRcpCurrRcpProdID;
 		p_diWidthInUM ACCESS p_AutoRcpCurrRcpWidth;		
 	ELSE

@@ -610,6 +610,7 @@ TYPE
 		bGermanPrep : BOOL := FALSE;
 		sHWInfoHMIMacAddress : STRING[27] := '00 - 60 - 65 - 82 - 0C - D7';
 		tyUIBtnPosLmt : tyUILmt := (diMax:=1,diMin:=1);
+		bAutoRcpF1ArbitratryType : BOOL := TRUE;
 	END_STRUCT;
 END_TYPE
 

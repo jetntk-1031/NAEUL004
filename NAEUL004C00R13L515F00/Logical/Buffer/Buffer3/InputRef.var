@@ -44,5 +44,7 @@ VAR
 	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
 	p_bOpsMagConvULRlsMagAllw : REFERENCE TO BOOL;
 	p_eNtParamCustomerReq : REFERENCE TO eCustomer;
+	p_tyResponseFromMES1 : REFERENCE TO tyStatPlatformFromMES;
+	p_bNtParamAutoRcpF1ArbitraryType : REFERENCE TO BOOL;
 	p_tyResponseFromMES : REFERENCE TO tyStatPlatformFromMES;
 END_VAR

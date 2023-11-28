@@ -41,6 +41,8 @@ ACTION Act_InitGlobal:
 	p_bOpsMagConvULRlsMagAllw ACCESS p_OpsMagConvUL2RlsMagAllw;
 	p_eNtParamCustomerReq ACCESS p_NtParamCustomerReq;
 	p_tyResponseFromMES ACCESS p_TagFromMesMagConv2; //Siemens Req
+	
+	p_bNtParamAutoRcpF1ArbitraryType ACCESS p_NtParamAutoRcpF1ArbitraryType;
 	(* Always Change If Project Change *)
 	
 END_ACTION

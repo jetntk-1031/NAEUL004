@@ -850,4 +850,5 @@ VAR
 	p_NtParamProjChinesePrep : UDINT;
 	p_NtParamProjGermanPrep : UDINT;
 	p_NtParamHWInfoHMIMacAddress : UDINT;
+	p_NtParamAutoRcpF1ArbitraryType : UDINT;
 END_VAR

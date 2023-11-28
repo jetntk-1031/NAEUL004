@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="RadioButton_Off" ClsId="0x306" Version="1" TargetIndex="484" Type="GFX" RefString="Source[local].Bitmap[RadioButton_Off]">
+        <UInt16 Name="Width">32</UInt16>
+        <UInt16 Name="Height">32</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALoSURBVFhH7Za/ixpREMcX0lyahPQ2Cf4FSS33HxxI2PSWYpNck9LGMrEUK7XRU9BDj4AETSfaCIa1ixwi2F0MpEuTmP08ZuCxZNd1c1zlF4Z9+2Z2Zt78euuccEJSpFKpx9ls9mWxWHxbq9U+t9vt216v9xNizR48ZJCVz/4frus+Qmm5XP7Y6XQ2g8FgD/X7/d826T4yyPIN34qaZKjX62c+uePx+OtoNNpD3W73jtNipFQqvYdYswdPnWm1Wl6hUHidOBoYn0wm+fl8/mu5XP6ZzWbf/VBf53K583Q6/cQ+HWv24FWr1SvSghM4RFqOdgKFq9XqzXa7/bFer/eLxeLbzaebd/l8/pmIhAJHMEoE1AkicVQ6Go3GK9+4t9vt9jz9SFwIywBlnArS0wcNYFSd4ElNCCsahH46nX7g5ERgs9lcCstA6uIMg0q8E52gI0RC00GdxEoFpyfk5N3zvCu/8J4Ky2EdPKkCXqVSeZHJZJ6rDA5RExQm3RErCv4HlxQeRddsNs9l25w8zLgCGXVCthwKkzogCkREtsNBpdNuw+HwixYdig0zBogE39lRoEVxgKcRigJTTYTLquRYByAM844O8k8a0G2EokDRIMyAkS2jRJYHgawWpWw56EInumUrHPfhAJTYAcKEMGFTw8dOMjsC6CCd1FWsFNgFY+cxbh0gSw2o8zhCQYsD10YoCrQKDtA6tJBsm2pWpVHAUVuOVqalaW1aXLbDwbBgaJAGhogdBSUj6CP4rh0gr+adYcZQY7gx5IQVDvJN/okCRWMPj385ocAYQ8jmMcb1QmO8x25nomBfJFwswjLAiF5E9lrYBlxg9oUW6/QKlGFURyhOEAlNRxQoOq5uQq4XGld70MGD4FQYVSdIBzVx6IeESteig/ipiR36IHDCvtcpTByiRakTBgzEmj14tBvEb5xv2E1sXMHpqAmMPPhPqQ2igVLSwmmZaqQFYs0ePGSQlc9OOCEAx/kLk+3nRESUi08AAAAASUVORK5CYII=</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

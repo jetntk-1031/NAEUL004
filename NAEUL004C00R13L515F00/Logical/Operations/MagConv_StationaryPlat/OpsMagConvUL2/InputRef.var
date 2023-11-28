@@ -53,6 +53,7 @@ VAR
 	p_bOpsMagConvUL1MagExitedWait : REFERENCE TO BOOL;
 	p_bOpsMagConvUL3MagExitedWait : REFERENCE TO BOOL;
 	p_usiUIHcomModchanged : REFERENCE TO USINT;
+	p_bNtParamAutoRcpF1ArbitraryType : REFERENCE TO BOOL;
 END_VAR
 (**)
 VAR
