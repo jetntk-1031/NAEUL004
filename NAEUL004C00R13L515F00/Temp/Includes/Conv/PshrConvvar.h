@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_93_
-#define _BUR_1701136544_93_
+#ifndef _BUR_1701225409_93_
+#define _BUR_1701225409_93_
 
 #include <bur/plctypes.h>
 
@@ -59,5 +59,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Conv/PshrConv.var\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_93_ */
+#endif /* _BUR_1701225409_93_ */
 

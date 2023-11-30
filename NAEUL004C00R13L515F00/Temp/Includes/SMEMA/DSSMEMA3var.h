@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_52_
-#define _BUR_1701136544_52_
+#ifndef _BUR_1701225409_52_
+#define _BUR_1701225409_52_
 
 #include <bur/plctypes.h>
 
@@ -43,5 +43,5 @@ __asm__(".ascii \"iecfile \\\"Logical/SMEMA/DSSMEMA3.var\\\" scope \\\"global\\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_52_ */
+#endif /* _BUR_1701225409_52_ */
 

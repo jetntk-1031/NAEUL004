@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_230_
-#define _BUR_1701136545_230_
+#ifndef _BUR_1701225410_230_
+#define _BUR_1701225410_230_
 
 #include <bur/plctypes.h>
 
@@ -57,5 +57,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtOvenInfo/NtOvenInfo.fun\\\" 
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_230_ */
+#endif /* _BUR_1701225410_230_ */
 

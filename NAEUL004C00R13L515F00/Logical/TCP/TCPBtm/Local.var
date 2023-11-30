@@ -72,5 +72,6 @@ VAR
 	sEndCode : STRING[2];
 	iEndCodePos : INT;
 	bRstConnection : BOOL;
+	usiScanCntr : USINT;
 	bTest : BOOL;
 END_VAR

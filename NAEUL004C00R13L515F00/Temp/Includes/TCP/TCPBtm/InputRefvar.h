@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701139783_2_
-#define _BUR_1701139783_2_
+#ifndef _BUR_1701166790_5_
+#define _BUR_1701166790_5_
 
 #include <bur/plctypes.h>
 
@@ -13,6 +13,7 @@
 
 
 /* Variables */
+_BUR_LOCAL unsigned char *p_usiTravLifScanCntr;
 _BUR_LOCAL plcbit *p_bNtSettingsLoadDone;
 _BUR_LOCAL plcstring (*p_sProgNm)[16];
 _BUR_LOCAL signed long *p_diEndCode2;
@@ -49,5 +50,5 @@ __asm__(".ascii \"iecfile \\\"Logical/TCP/TCPBtm/InputRef.var\\\" scope \\\"loca
 __asm__(".previous");
 
 
-#endif /* _BUR_1701139783_2_ */
+#endif /* _BUR_1701166790_5_ */
 

@@ -10,8 +10,10 @@ ACTION PrecededByF1Link:
 	
 	IF p_bNtParamF1ArbitraryType THEN
 		p_bZ1AccNewRcpCondition := (p_bLinkOpsRun = TRUE) AND (p_bLinkOpsTravLifULInitDone = TRUE) AND (p_bLinkPshrConvHvBrd = TRUE);
-	
-		//tyCurrReqRcp.sBottomBarcode := p_sScannerBarcode;
+		
+		IF p_sTCPBtmFullMsgRd <> '' THEN
+			tyCurrReqRcp.sBottomBarcode := p_sTCPBtmFullMsgRd;
+		END_IF	
 	END_IF
 	
 END_ACTION

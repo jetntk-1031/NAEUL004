@@ -277,22 +277,34 @@ ACTION Act_Main:
 						fbSnd.udiTCPIdent	:= udiTCPIdent;
 						fbSnd.udiSndSize	:= LEN(p_sMsgWr);
 						fbSnd.p_BffrDest	:= ADR(p_sMsgWr);
+						
 						fbSnd(bEn := TRUE);
 					
 						IF fbSnd.udiStatus = 0 THEN
+							fbSnd(bEn := FALSE);
 							usiStep	:= 2;
 						ELSIF fbSnd.udiStatus < 65534 THEN
-							eStatus	:= Error;
 							
-							IF fbSnd.udiStatus = 2320 THEN
-								udiStatus	:= 10038;	//TCP Retry Send Data Error While Full Write & Read Until Valid
-							ELSIF fbSnd.udiStatus = 2300 THEN
-								udiStatus	:= 10039;	//Invalid Ident While Full Write & Read Until Valid
-							ELSIF fbSnd.udiStatus = 2321 THEN
-								udiStatus	:= 10040;	//Opposite Closed Connection While Full Write & Read Until Valid
-							ELSIF fbSnd.udiStatus = 2322 THEN
-								udiStatus	:= 10041;	//TCP Send Data Error While Full Write & Read Until Valid
+							fbClose.udiTCPIdent	:= udiTCPIdent;
+							fbClose(bEn := TRUE);
+						
+							IF fbClose.udiStatus = 0 THEN
+								fbSnd(bEn := FALSE);
+							
+								eStatus	:= Error;
+
+								IF fbSnd.udiStatus = 2320 THEN
+									udiStatus	:= 10038;	//TCP Retry Send Data Error While Full Write & Read Until Valid
+								ELSIF fbSnd.udiStatus = 2300 THEN
+									udiStatus	:= 10039;	//Invalid Ident While Full Write & Read Until Valid
+								ELSIF fbSnd.udiStatus = 2321 THEN
+									udiStatus	:= 10040;	//Opposite Closed Connection While Full Write & Read Until Valid
+								ELSIF fbSnd.udiStatus = 2322 THEN
+									udiStatus	:= 10041;	//TCP Send Data Error While Full Write & Read Until Valid
+								END_IF
 							END_IF
+							
+						
 						END_IF
 					
 					2:
@@ -300,6 +312,7 @@ ACTION Act_Main:
 						fbRcv(bEn := TRUE);
 					
 						IF fbRcv.udiStatus = 0 THEN
+							fbRcv(bEn := FALSE);
 							bMsgRdValid	:= TRUE;
 							uiMsgRdLen	:= UDINT_TO_UINT(fbRcv.udiDataSizeRcv);
 							
@@ -378,13 +391,19 @@ ACTION Act_Main:
 							ELSIF iEndCodePos <> 0 THEN
 								sMsgRd	:= MID(sFullMsgRd , iEndCodePos - iStartCodePos - iStartCodeLen , iStartCodePos + iStartCodeLen);
 							END_IF
-						
-							usiStep	:= 3;
+							
+							IF  p_usiTravLifScanCntr = usiScanCntr THEN //number of scan
+								usiStep	:= 3;
+							ELSE
+								usiScanCntr := usiScanCntr +1;
+								eStatus := Done;
+							END_IF
+							
 						ELSIF fbRcv.udiStatus = 2317 THEN
 							fbRcv(bEn := FALSE);
 						ELSIF fbRcv.udiStatus < 65534 THEN
 							eStatus	:= Error;
-							
+				
 							IF fbRcv.udiStatus = 2316 THEN
 								udiStatus	:= 10042;	//Data Receive Length Is Zero Due To Opposite Closed Connection While TCP Receiving Data While Full Write & Read Until Valid
 							ELSIF fbRcv.udiStatus = 2300 THEN
@@ -402,6 +421,7 @@ ACTION Act_Main:
 						fbClose(bEn := TRUE);
 						
 						IF fbClose.udiStatus = 0 THEN
+							udiTCPIdent := 0; 
 							eStatus	:= Done;
 						ELSIF fbClose.udiStatus < 65534 THEN
 							eStatus	:= Error;

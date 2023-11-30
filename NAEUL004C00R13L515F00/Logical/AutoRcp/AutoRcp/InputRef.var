@@ -50,6 +50,8 @@ VAR
 	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
 	p_bNtParamProjMagAWPrep : REFERENCE TO BOOL;
 	p_bNtParamF1ArbitraryType : REFERENCE TO BOOL;
+	p_sTCPTopFullMsgRd : REFERENCE TO STRING[80];
+	p_sTCPBtmFullMsgRd : REFERENCE TO STRING[80];
 	p_bProdRcp0ToptoBtm : REFERENCE TO BOOL;
 	p_bHermesBrdAvlDataNewBrdAvl1stZ : REFERENCE TO BOOL;
 	pa_tyLinkXMLTableDataBrdAvl1 : REFERENCE TO ARRAY[0..200] OF tyXMLTableDat;

@@ -1,0 +1,17 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+$(AS_PROJECT_PATH)/Logical/NtLibraries/NtTCP/NtTCP.fun
+$(AS_PROJECT_PATH)/Logical/NtLibraries/NtTCP/Types.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/AsTCP/AsTCP.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/asstring/asstring.fun
+$(AS_PROJECT_PATH)/Logical/TCP/TCPBtm/Local.var
+$(AS_PROJECT_PATH)/Logical/TCP/TCPBtm/InputRef.var
+$(AS_PROJECT_PATH)/Logical/TCP/TCP.typ
+$(AS_PROJECT_PATH)/Logical/TCP/TCPBtm.var
+$(AS_PROJECT_PATH)/Logical/Startup/Startup.var
+$(AS_PROJECT_PATH)/Logical/NtLibraries/NtGeneral/Types.typ
+$(AS_PROJECT_PATH)/Logical/HWInfo/HWInfo.var
+$(AS_PROJECT_PATH)/Logical/Operations/OpsTravLifUL.var
+$(AS_PROJECT_PATH)/Logical/RstErr/RstErr.var
+$(AS_PROJECT_PATH)/Logical/McParam/McParam.var
+$(AS_PROJECT_PATH)/Logical/Operations/Ops.var
+$(AS_PROJECT_PATH)/Logical/NtParam/NtParam.var

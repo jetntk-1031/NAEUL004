@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136546_465_
-#define _BUR_1701136546_465_
+#ifndef _BUR_1701225411_462_
+#define _BUR_1701225411_462_
 
 #include <bur/plctypes.h>
 
@@ -56,6 +56,8 @@ _BUR_LOCAL signed short *p_iLinkXMLTableDataBrdAvlTtlIdx1;
 _BUR_LOCAL struct tyXMLTableDat (*pa_tyLinkXMLTableDataBrdAvl1)[201];
 _BUR_LOCAL plcbit *p_bHermesBrdAvlDataNewBrdAvl1stZ;
 _BUR_LOCAL plcbit *p_bProdRcp0ToptoBtm;
+_BUR_LOCAL plcstring (*p_sTCPBtmFullMsgRd)[81];
+_BUR_LOCAL plcstring (*p_sTCPTopFullMsgRd)[81];
 _BUR_LOCAL plcbit *p_bNtParamF1ArbitraryType;
 _BUR_LOCAL plcbit *p_bNtParamProjMagAWPrep;
 _BUR_LOCAL enum eAutoRcpPreceded *p_eNtParamAutoRcpPrecededBy;
@@ -111,5 +113,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AutoRcp/AutoRcp/InputRef.var\\\" scope \\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136546_465_ */
+#endif /* _BUR_1701225411_462_ */
 

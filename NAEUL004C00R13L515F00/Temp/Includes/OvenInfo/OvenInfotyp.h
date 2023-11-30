@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_35_
-#define _BUR_1701136544_35_
+#ifndef _BUR_1701225409_35_
+#define _BUR_1701225409_35_
 
 #include <bur/plctypes.h>
 
@@ -29,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/OvenInfo/OvenInfo.typ\\\" scope \\\"global
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_35_ */
+#endif /* _BUR_1701225409_35_ */
 

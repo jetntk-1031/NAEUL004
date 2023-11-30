@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_294_
-#define _BUR_1701136545_294_
+#ifndef _BUR_1701225410_294_
+#define _BUR_1701225410_294_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/Pneu2SenSelClamp3/InputRef_Link.var\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_294_ */
+#endif /* _BUR_1701225410_294_ */
 

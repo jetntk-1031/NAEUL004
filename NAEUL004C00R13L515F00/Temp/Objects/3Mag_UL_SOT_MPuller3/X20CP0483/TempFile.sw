@@ -108,6 +108,8 @@
     <Task Name="OpsMagCon1" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon2" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsLifMagU" Source="Operations.OpsLifMagUL.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="TCPTop" Source="TCP.TCPTop.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="TCPBtm" Source="TCP.TCPBtm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV" Source="AGVCom.AGV.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV1" Source="AGVCom.AGV1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV2" Source="AGVCom.AGV2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -176,7 +178,7 @@
     <BinaryObject Name="vccdt" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="vccalarm" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arsvcreg" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="vcpfgen" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vcpfar00" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="acp10cfg" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Acp10map" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="arconfig" Source="" Memory="SystemROM" Language="Binary" />
@@ -188,7 +190,7 @@
     <BinaryObject Name="sysconf" Source="" Memory="SystemROM" Language="Binary" />
     <BinaryObject Name="User" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="Config" Source="" Memory="UserROM" Language="Binary" />
-    <BinaryObject Name="vcpfar00" Source="" Memory="UserROM" Language="Binary" />
+    <BinaryObject Name="vcpfgen" Source="" Memory="UserROM" Language="Binary" />
     <BinaryObject Name="OpcUaMap" Source="" Memory="UserROM" Language="Binary" />
   </Binaries>
   <Libraries>

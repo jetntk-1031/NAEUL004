@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136546_458_
-#define _BUR_1701136546_458_
+#ifndef _BUR_1701225411_455_
+#define _BUR_1701225411_455_
 
 #include <bur/plctypes.h>
 
@@ -29,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/SOT/DSSOT3/InputRef_Link.var\\\" scope \\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136546_458_ */
+#endif /* _BUR_1701225411_455_ */
 

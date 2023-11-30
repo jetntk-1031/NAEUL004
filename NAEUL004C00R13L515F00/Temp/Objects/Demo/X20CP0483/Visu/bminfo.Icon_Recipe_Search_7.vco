@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Recipe_Search_7" ClsId="0x306" Version="1" TargetIndex="204" Type="GFX" RefString="Source[local].Bitmap[Icon_Recipe_Search_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK7SURBVEhLrZS/axRBGIb3D7GQOy0OclY2/oA0FiYWItiJQSE2aSxtY2PAwsbygoJNtBGxDaQwdnJFEExjlYDVFZYWR1afdZ/123FWw90NvOzO7DfvM+83lxSM16+2lxatyvhfg6KDDy9KNZ1OF6LavnsA/rz3rFRHR8fleDyu9HL3e0uud+nwy+HJZDIBfFzbd48IThOvj8pGgjH3qd6/e9vMZwZ/+vqjlZK5wpiO+FQf9/er59xgU/IeO6Bq80YAXV9I4u3RqKSNiHeS0WaewJSt5tvMYI1QCkBpqwEtpNUYmAwjWmgbc++I2mR9fjBmqUyKFgZmM0DbWRu1FACV7MxcYBObmjnyIOk7MOp4Mp8ZnEvMWkjTekcm9iC/3ue7Y8Sf0dOtren9tbtN0lxiRA21/EXU9t0jB9YIg0cPN8orly6X53u9ag4IME/lAamhlj1vdnY2a0R+5FqNEakxI4WGpLGlylZT5wFNfn15+QyqUe2RggFyYjffWFktlWmEsOY1OFesU8szmz6C/Y8VzZRg0/Mdse6aNQowfoT5C54DsyEapALINXgVuRrEQagR3mq7YD5SFFtJEtNE8d1DdoFZp3MR3EotmCI+UmSrBefg1qXriv0Ryg+QengNOMJoj4rgFN4Fjvcc/exAkxqw6VYunK0KaDdK4XxDmEaw1yPA+ujnvgf31r5Vdz0cDp9YhDau9srnN5caOGt8ZxMg2gcAMMKQNaS5Xqkf+1kbDAarRb9/7iAWPb7Wb8ScdcGeHnFnnJyDkwLZIb30A4z0g1nEwlgUi6kBwElR+t+IuYeIftHHMAZpEgvdXb9YyWILq/b8Z1AjOOeH+FYltpgTWqQEU5imzA1qYpDUz+41IWxRbA8bmd+5fWvvNFBHCo9+rMGqS38P7wgQPxSeufs8zWAPe/XS749XUfwE0KxKZOvWhx0AAAAASUVORK5CYII=</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

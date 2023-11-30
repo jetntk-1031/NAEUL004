@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_219_
-#define _BUR_1701136545_219_
+#ifndef _BUR_1701225410_219_
+#define _BUR_1701225410_219_
 
 #include <bur/plctypes.h>
 
@@ -29,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/McParam/McParam/InputRef_Link.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_219_ */
+#endif /* _BUR_1701225410_219_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_169_
-#define _BUR_1701136544_169_
+#ifndef _BUR_1701225409_169_
+#define _BUR_1701225409_169_
 
 #include <bur/plctypes.h>
 
@@ -49,5 +49,5 @@ __asm__(".ascii \"iecfile \\\"Logical/TCP/TCP.var\\\" scope \\\"global\\\"\\n\""
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_169_ */
+#endif /* _BUR_1701225409_169_ */
 

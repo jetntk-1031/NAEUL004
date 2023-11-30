@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136546_407_
-#define _BUR_1701136546_407_
+#ifndef _BUR_1701225411_407_
+#define _BUR_1701225411_407_
 
 #include <bur/plctypes.h>
 
@@ -13,12 +13,15 @@
 
 
 /* Variables */
+_BUR_LOCAL unsigned char usiScanCntr;
 _BUR_LOCAL plcbit bPCBExitMag3;
 _BUR_LOCAL plcbit bPCBExitMag2;
 _BUR_LOCAL plcbit bPCBExitMag1;
 _BUR_LOCAL plcbit bStartScanSig;
 _BUR_LOCAL struct TON fbScanTimOut;
+_BUR_LOCAL plcbit bTCPScannerEn;
 _BUR_LOCAL plcbit bSignalTrigMagOutEn;
+_BUR_LOCAL plcbit bTCPScanner;
 _BUR_LOCAL plcbit bScannerEn;
 _BUR_LOCAL struct TON fbInletStopperOffTim;
 _BUR_LOCAL plcbit bAllwExitMag3;
@@ -347,5 +350,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136546_407_ */
+#endif /* _BUR_1701225411_407_ */
 

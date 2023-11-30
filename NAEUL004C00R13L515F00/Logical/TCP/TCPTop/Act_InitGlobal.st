@@ -16,7 +16,7 @@ ACTION Act_InitGlobal:
 	p_bRun ACCESS p_OpsRun;
 
 	p_bNtSettingsLoadDone ACCESS p_StartupNtSettingsLoadDone;
-	
+	p_usiTravLifScanCntr ACCESS p_OpsTravLifScanCntr;
 	(* Always Change If Project Change *)
 	
 END_ACTION

@@ -77,4 +77,5 @@ VAR
 	p_OpsTravLifMag3TransOut : UDINT;
 	p_OpsTravLifOpsStep : UDINT;
 	p_OpsTravLifGotoOpsStep : UDINT;
+	p_OpsTravLifScanCntr : UDINT;
 END_VAR

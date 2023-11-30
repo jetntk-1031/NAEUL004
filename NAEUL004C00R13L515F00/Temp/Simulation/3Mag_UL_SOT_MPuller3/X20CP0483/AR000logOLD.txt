@@ -1,21 +1,21 @@
-Tue Nov 28 10:36:40 2023
+Wed Nov 29 10:50:48 2023
 COPYRIGHT (C) B&R Industrial Automation GmbH
 
-Tue Nov 28 10:36:40 2023
+Wed Nov 29 10:50:48 2023
 No ARsim registration found!
 
-Tue Nov 28 10:36:40 2023
-InstanceName: 01da21a3b7bfd800
+Wed Nov 29 10:50:48 2023
+InstanceName: 01da226edb3b8970
 
-Tue Nov 28 10:36:40 2023
+Wed Nov 29 10:50:48 2023
 WorkingDirectory: C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Simulation\3Mag_UL_SOT_MPuller3\X20CP0483\
 
-Tue Nov 28 10:36:40 2023
+Wed Nov 29 10:50:48 2023
 COMMAND_COLDSTART
 
-Tue Nov 28 10:36:43 2023
+Wed Nov 29 10:50:50 2023
 Version: B4.82
 
-Tue Nov 28 10:41:27 2023
+Wed Nov 29 10:52:37 2023
 COMMAND_TERMINATE
 

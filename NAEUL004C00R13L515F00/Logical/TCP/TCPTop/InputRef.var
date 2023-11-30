@@ -27,4 +27,5 @@ VAR
 	p_diEndCode2 : REFERENCE TO DINT;
 	p_sProgNm : REFERENCE TO STRING[15];
 	p_bNtSettingsLoadDone : REFERENCE TO BOOL;
+	p_usiTravLifScanCntr : REFERENCE TO USINT;
 END_VAR

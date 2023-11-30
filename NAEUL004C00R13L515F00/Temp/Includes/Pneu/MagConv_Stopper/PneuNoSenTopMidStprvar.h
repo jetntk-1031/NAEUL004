@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_72_
-#define _BUR_1701136544_72_
+#ifndef _BUR_1701225409_72_
+#define _BUR_1701225409_72_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/MagConv_Stopper/PneuNoSenTopMidStpr.v
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_72_ */
+#endif /* _BUR_1701225409_72_ */
 

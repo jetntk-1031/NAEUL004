@@ -1,0 +1,25 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=TCPBtm 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=21 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                                   fbRcv                                 fbTCPRcv    0 "                                                               *"    0   24    1    0    1    1         
+                                     bEn                                     BOOL    0 "                                                           FALSE"    1    1    1    2    0    0         
+                             udiTCPIdent                                    UDINT    0 "                                                               0"    1    7    1   10    0    0         
+                             udiBffrSize                                    UDINT    0 "                                                              81"    1    7    1   10    0    0         
+                              p_BffrDest                                    UDINT    0 "                                                       208907392"    1    7    1   10    0    0         
+                          udiDataSizeRcv                                    UDINT    0 "                                                               0"    1    7    1   10    0    0         
+                               udiStatus                                    UDINT    0 "                                                           65534"    1    7    1   10    0    0         
+                              tyInternal                         tyTCPRcvInternal    0 "                                                               *"    1   24    1    0    0    1         
+                                fbTCPRcv                                  TcpRecv    0 "                                                               *"    2   24    1    0    0    1         
+                                  enable                                     BOOL    0 "                                                           FALSE"    3    1    1    2    0    0         
+                                   ident                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                   pData                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                 datamax                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                   flags                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                  status                                     UINT    0 "                                                               0"    3    6    1   10    0    0         
+                                 recvlen                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                 i_state                                     UINT    0 "                                                               0"    3    6    1   10    0    0         
+                                i_result                                     UINT    0 "                                                               0"    3    6    1   10    0    0         
+                                   i_tmp                                    UDINT    0 "                                                               0"    3    7    1   10    0    0         
+                                  p_eAct                                     DINT    0 "                                                               0"    0    4    1   10    2    0 e,0,TCPA
+
+                              sFullMsgRd                               STRING[80]    0 "                                                              ''"    0    9   81    1    1    0         

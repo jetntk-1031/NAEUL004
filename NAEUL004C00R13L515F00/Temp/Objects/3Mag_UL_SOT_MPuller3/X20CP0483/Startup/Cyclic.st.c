@@ -798,7 +798,8 @@ if((((signed long)((*(p_eNtParamAutoRcpPrecededBy)))==(signed long)0))){
 }
 }else if((((signed long)((*(p_eAutoRcpStatus)))==(signed long)3))){
 (eAutoRcpAct=0);
-if((((signed long)((*(p_eNtParamAutoRcpPrecededBy)))==(signed long)0))){
+
+if(((((signed long)((*(p_eNtParamAutoRcpPrecededBy)))==(signed long)0))|((((signed long)((*(p_eNtParamAutoRcpPrecededBy)))==(signed long)1))&((*(p_tyNtParamCurr)).bAutoRcpF1ArbitratryType)))){
 (usiStep=2);
 }else if((((signed long)((*(p_eNtParamAutoRcpPrecededBy)))==(signed long)1))){
 (usiStep=0);

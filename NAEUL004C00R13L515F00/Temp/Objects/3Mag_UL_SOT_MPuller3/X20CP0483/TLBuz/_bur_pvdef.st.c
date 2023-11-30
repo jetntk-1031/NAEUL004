@@ -3,7 +3,7 @@
 #define _DEFAULT_INCLUDE
 #include <bur\plctypes.h>
 #include "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Temp/Objects/3Mag_UL_SOT_MPuller3/X20CP0483/TLBuz/_bur_pvdefst.h"
-#line 9 "C:/BrAutomation/AS48/AS/GnuInst/V4.1.2/arm-elf/include/bur/_bur_pvdef.nodebug"
+#line 9 "C:/BrAutomation/AS48/AS/GnuInst/V4.1.2/i386-elf/include/bur/_bur_pvdef.nodebug"
 void __AS__ImplInitInit_st(void);
 void __AS__ImplInitCyclic_st(void);
 void _INIT __BUR__ENTRY_INIT_BRELF_FUNCT__(void){__AS__ImplInitInit_st();
@@ -311,5 +311,5 @@ __asm__(".ascii \"iecfile \\\"Logical/TLBuz/TLBuz/InputRef_Link.var\\\" scope \\
 __asm__(".ascii \"iecfile \\\"Logical/TLBuz/TLBuz/InputRef.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/TLBuz/TLBuz/Local.var\\\" scope \\\"local\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Temp/Objects/3Mag_UL_SOT_MPuller3/X20CP0483/TLBuz/_bur_pvdef.st.var\\\" scope \\\"local\\\"\\n\"");
-__asm__(".ascii \"plcreplace \\\"C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Temp/Objects/3Mag_UL_SOT_MPuller3/X20CP0483/TLBuz/_bur_pvdef.st.c\\\" \\\"C:/BrAutomation/AS48/AS/GnuInst/V4.1.2/arm-elf/include/bur/_bur_pvdef.st\\\"\\n\"");
+__asm__(".ascii \"plcreplace \\\"C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Temp/Objects/3Mag_UL_SOT_MPuller3/X20CP0483/TLBuz/_bur_pvdef.st.c\\\" \\\"C:/BrAutomation/AS48/AS/GnuInst/V4.1.2/i386-elf/include/bur/_bur_pvdef.st\\\"\\n\"");
 __asm__(".previous");

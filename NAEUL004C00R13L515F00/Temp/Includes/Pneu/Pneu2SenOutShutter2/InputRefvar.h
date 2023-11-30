@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_316_
-#define _BUR_1701136545_316_
+#ifndef _BUR_1701225410_316_
+#define _BUR_1701225410_316_
 
 #include <bur/plctypes.h>
 
@@ -46,5 +46,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/Pneu2SenOutShutter2/InputRef.var\\\" 
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_316_ */
+#endif /* _BUR_1701225410_316_ */
 

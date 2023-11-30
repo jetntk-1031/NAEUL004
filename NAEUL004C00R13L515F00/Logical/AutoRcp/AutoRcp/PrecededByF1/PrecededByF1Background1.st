@@ -16,7 +16,7 @@ ACTION PrecededByF1Background1:
 				usiChg2 := usiChg2 +1;
 			END_IF 
 		END_IF
-		tyCurrReqMagRcp.sTrailingBarcode := tyCurrZ1Rcp.sBottomBarcode;
+		tyCurrReqMagRcp.sTrailingBarcode := RIGHT(tyCurrZ1Rcp.sBottomBarcode,10);//length of comparision
 	END_IF
 	
 	

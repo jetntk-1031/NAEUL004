@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_28_
-#define _BUR_1701136544_28_
+#ifndef _BUR_1701225409_28_
+#define _BUR_1701225409_28_
 
 #include <bur/plctypes.h>
 
@@ -59,5 +59,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MagRcp/MagRcp.var\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_28_ */
+#endif /* _BUR_1701225409_28_ */
 

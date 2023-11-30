@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_26_
-#define _BUR_1701136544_26_
+#ifndef _BUR_1701225409_26_
+#define _BUR_1701225409_26_
 
 #include <bur/plctypes.h>
 
@@ -32,5 +32,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MpProdRcp/MpProdRcp.var\\\" scope \\\"glob
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_26_ */
+#endif /* _BUR_1701225409_26_ */
 

@@ -3928,12 +3928,22 @@ static void __AS__Action__Act_OpsScanner(void){
 
 
 (bSignalTrigMagOutEn=(((((signed long)((*(p_tyNtParamDOSettings)).diMag1ExitPCB)!=(signed long)0))|(((signed long)((*(p_tyNtParamDOSettings)).diMag2ExitPCB)!=(signed long)0))|(((signed long)((*(p_tyNtParamDOSettings)).diMag3ExitPCB)!=(signed long)0)))&((*(p_bMcParamDMCScannerEn)))));
-if((bScannerEn|bSignalTrigMagOutEn)){
+(bTCPScanner=(((*(p_bTopScannerEn)))|((*(p_bBtmScannerEn)))));
+if((bScannerEn|bSignalTrigMagOutEn|bTCPScanner)){
 switch(eOpsStep){
 case 30:{
 (bStartScanSig=1);
 (fbScanTimOut.IN=1);;(fbScanTimOut.PT=(plctime)((*(p_diMcParamDMCScanResponseTO))));;TON(&fbScanTimOut);
-if(((*(p_bDIPCBScanComplSig)))){
+(eTCPBtmAct=(2*(unsigned char)(((*(p_bBtmScannerEn)))&1)));
+(eTCPTopAct=(2*(unsigned char)(((*(p_bTopScannerEn)))&1)));
+
+
+
+
+
+if(((((*(p_bDIPCBScanComplSig)))|(bScannerEn^1))&((((*(p_bBtmScannerEn))^1))|((((signed long)((*(p_eTCPBtmStatus)))==(signed long)1))&(((signed long)((*(p_eTCPBtmStat)))==(signed long)2))))&((((*(p_bTopScannerEn))^1))|((((signed long)((*(p_eTCPTopStatus)))==(signed long)1))&(((signed long)((*(p_eTCPTopStat)))==(signed long)2)))))){
+(eTCPBtmAct=(0*(unsigned char)(((*(p_bBtmScannerEn)))&1)));
+(eTCPTopAct=(0*(unsigned char)(((*(p_bTopScannerEn)))&1)));
 (bStartScanSig=0);
 (eGotoOpsStep=22);
 (fbScanTimOut.IN=0);;TON(&fbScanTimOut);

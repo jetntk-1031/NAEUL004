@@ -83,6 +83,7 @@ static void __AS__Action__Act_InitGlobal(void){
 
 (p_bNtParamAutoRcpPrep=p_NtParamAutoRcpPrep);
 (p_bMcParamAutoRcpDis=p_McParamAutoRcpDisable);
+(p_eNtParamAutoRcpPrecededBy=p_NtParamAutoRcpPrecededBy);
 
 
 }}

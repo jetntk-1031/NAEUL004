@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_2_
-#define _BUR_1701136544_2_
+#ifndef _BUR_1701225409_2_
+#define _BUR_1701225409_2_
 
 #include <bur/plctypes.h>
 
@@ -22,12 +22,12 @@ _GLOBAL struct MpComIdentType gRecipeXml;
 __asm__(".section \".plc\"");
 
 /* Used IEC files */
-__asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/3Mag_UL_SOT_MPuller3/GlobalComponents/MpComponents.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/Demo/GlobalComponents/MpComponents.var\\\" scope \\\"global\\\"\\n\"");
 
 /* Exported library functions and function blocks */
 
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_2_ */
+#endif /* _BUR_1701225409_2_ */
 

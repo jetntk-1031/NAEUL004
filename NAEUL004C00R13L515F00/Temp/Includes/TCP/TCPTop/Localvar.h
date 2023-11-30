@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701140017_3_
-#define _BUR_1701140017_3_
+#ifndef _BUR_1701166790_4_
+#define _BUR_1701166790_4_
 
 #include <bur/plctypes.h>
 
@@ -13,6 +13,7 @@
 
 
 /* Variables */
+_BUR_LOCAL unsigned char usiScanCntr;
 _BUR_LOCAL plcbit bRstConnection;
 _BUR_LOCAL signed short iEndCodePos;
 _BUR_LOCAL plcstring sEndCode[3];
@@ -88,5 +89,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtTCP/NtTCP.fun\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1701140017_3_ */
+#endif /* _BUR_1701166790_4_ */
 

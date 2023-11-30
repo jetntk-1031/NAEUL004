@@ -91,6 +91,9 @@ PROGRAM _INIT
 	//check eops 
 	p_OpsTravLifOpsStep := ADR(eOpsStep);
 	p_OpsTravLifGotoOpsStep := ADR(eGotoOpsStep);
+	
+	//scanner
+	p_OpsTravLifScanCntr := ADR(usiScanCntr);
 	(* Always Change If Project Change *)
 	
 END_PROGRAM

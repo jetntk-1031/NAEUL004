@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136546_430_
-#define _BUR_1701136546_430_
+#ifndef _BUR_1701225411_430_
+#define _BUR_1701225411_430_
 
 #include <bur/plctypes.h>
 
@@ -51,5 +51,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AGVCom/AGV3/InputRef.var\\\" scope \\\"loc
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136546_430_ */
+#endif /* _BUR_1701225411_430_ */
 

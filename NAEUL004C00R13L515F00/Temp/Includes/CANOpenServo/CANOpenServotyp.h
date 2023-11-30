@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_94_
-#define _BUR_1701136544_94_
+#ifndef _BUR_1701225409_94_
+#define _BUR_1701225409_94_
 
 #include <bur/plctypes.h>
 
@@ -28,5 +28,5 @@ __asm__(".ascii \"iecfile \\\"Logical/CANOpenServo/CANOpenServo.typ\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_94_ */
+#endif /* _BUR_1701225409_94_ */
 

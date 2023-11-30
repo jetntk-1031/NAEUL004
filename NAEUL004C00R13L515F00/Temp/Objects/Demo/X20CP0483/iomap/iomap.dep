@@ -1,0 +1,6 @@
+$(AS_PROJECT_PATH)/logical/canopenservo/aw/awopen/local.var
+$(AS_PROJECT_PATH)/logical/ntlibraries/ntmotion/types.typ
+$(AS_PROJECT_PATH)/logical/canopenservo/lifter/lifterbtm/local.var
+$(AS_PROJECT_PATH)/logical/canopenservo/aw/awpushorpuller/local.var
+$(AS_PROJECT_PATH)/logical/canopenservo/trav/trav/local.var
+$(AS_PROJECT_PATH)/logical/canopenservo/pullerpusher/pullerpusher/local.var

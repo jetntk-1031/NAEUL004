@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_88_
-#define _BUR_1701136544_88_
+#ifndef _BUR_1701225409_88_
+#define _BUR_1701225409_88_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MagConv_TopBtm/LifterMagConv.var\\\" scope
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_88_ */
+#endif /* _BUR_1701225409_88_ */
 

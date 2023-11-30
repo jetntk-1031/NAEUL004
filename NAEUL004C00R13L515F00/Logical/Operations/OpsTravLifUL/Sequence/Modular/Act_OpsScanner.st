@@ -6,12 +6,22 @@ ACTION Act_OpsScanner:
 	bSignalTrigMagOutEn := (p_tyNtParamDOSettings.diMag1ExitPCB <> 0 OR
 	p_tyNtParamDOSettings.diMag2ExitPCB <> 0 OR
 	p_tyNtParamDOSettings.diMag3ExitPCB <> 0 ) AND p_bMcParamDMCScannerEn;
-	IF bScannerEn OR bSignalTrigMagOutEn THEN
+	bTCPScanner :=  (p_bTopScannerEn OR p_bBtmScannerEn);
+	IF bScannerEn OR bSignalTrigMagOutEn OR bTCPScanner THEN
 		CASE  eOpsStep OF
 			TravLifULStepScanStdBy:
 				bStartScanSig := TRUE;
 				fbScanTimOut(IN:= TRUE,PT :=  DINT_TO_TIME(p_diMcParamDMCScanResponseTO));
-				IF p_bDIPCBScanComplSig THEN
+				eTCPBtmAct   := TCPActFullWriteReadUntilValid*BOOL_TO_USINT(p_bBtmScannerEn);
+				eTCPTopAct	 := TCPActFullWriteReadUntilValid*BOOL_TO_USINT(p_bTopScannerEn);
+				IF (p_bDIPCBScanComplSig OR NOT(bScannerEn))
+					AND  
+					(NOT(p_bBtmScannerEn) OR  (p_eTCPBtmStatus = Done AND p_eTCPBtmStat = TCPActFullWriteReadUntilValid )) 
+					AND
+					(NOT(p_bTopScannerEn) OR  (p_eTCPTopStatus = Done AND p_eTCPTopStat = TCPActFullWriteReadUntilValid ))
+					THEN // 
+					eTCPBtmAct := TCPActIdle_0*BOOL_TO_USINT(p_bBtmScannerEn);
+					eTCPTopAct	 := TCPActIdle_0*BOOL_TO_USINT(p_bTopScannerEn);
 					bStartScanSig := FALSE;
 					eGotoOpsStep := TravLifULStepDSSigWait;
 					fbScanTimOut(IN:= FALSE);

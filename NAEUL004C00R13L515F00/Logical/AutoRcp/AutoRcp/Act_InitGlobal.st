@@ -99,4 +99,7 @@ ACTION Act_InitGlobal:
 	
 	//Adding Arbitrary type for Flushing Magazine
 	p_bNtParamF1ArbitraryType ACCESS p_NtParamAutoRcpF1ArbitraryType;
+	
+	p_sTCPBtmFullMsgRd ACCESS p_TCPBtmFullMsgRd;
+	p_sTCPTopFullMsgRd ACCESS p_TCPTopFullMsgRd;
 END_ACTION

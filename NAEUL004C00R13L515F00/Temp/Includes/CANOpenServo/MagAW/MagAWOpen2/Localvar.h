@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_353_
-#define _BUR_1701136545_353_
+#ifndef _BUR_1701225410_353_
+#define _BUR_1701225410_353_
 
 #include <bur/plctypes.h>
 
@@ -136,5 +136,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtMotion/NtMotion.fun\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_353_ */
+#endif /* _BUR_1701225410_353_ */
 

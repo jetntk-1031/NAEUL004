@@ -5,7 +5,7 @@
 			<Folder Name="OPCUA" ProjectDependent="1">
 				<Folder Name="NodeSet" ProjectDependent="1" IsGroup="1">
 					<Folder Name="Generated" ProjectDependent="1" IsGroup="1">
-						<File Name="OpcUaMap.uar.gz" Size="14306" HashValue="4AA840C1B33A24B5BA0B33DFBB7BEF1A" ProjectDependent="1"/>
+						<File Name="OpcUaMap.uar.gz" Size="14306" HashValue="6BF0E90D6421B341D180728BF2D715EB" ProjectDependent="1"/>
 					</Folder>
 					<Folder Name="Vendor" ProjectDependent="1" IsGroup="1">
 						<File Name="plc.aprol.uanodeset" Size="6712" HashValue="08ADF5B15D3AF0566E164F0E4D4FB418" ProjectDependent="1"/>

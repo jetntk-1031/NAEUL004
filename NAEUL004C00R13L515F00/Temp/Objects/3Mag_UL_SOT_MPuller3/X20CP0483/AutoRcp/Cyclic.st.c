@@ -142,6 +142,9 @@ static void __AS__Action__Act_InitGlobal(void){
 
 
 (p_bNtParamF1ArbitraryType=p_NtParamAutoRcpF1ArbitraryType);
+
+(p_sTCPBtmFullMsgRd=p_TCPBtmFullMsgRd);
+(p_sTCPTopFullMsgRd=p_TCPTopFullMsgRd);
 }}
 #line 39 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/AutoRcp/AutoRcp/Cyclic.nodebug"
 #line 2 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/AutoRcp/AutoRcp/Act_LinkAction.st"
@@ -1046,10 +1049,12 @@ static void __AS__Action__PrecededByF1Link(void){
 if(((*(p_bNtParamF1ArbitraryType)))){
 ((*(p_bZ1AccNewRcpCondition))=((((unsigned long)(unsigned char)((*(p_bLinkOpsRun)))==(unsigned long)(unsigned char)1))&(((unsigned long)(unsigned char)((*(p_bLinkOpsTravLifULInitDone)))==(unsigned long)(unsigned char)1))&(((unsigned long)(unsigned char)((*(p_bLinkPshrConvHvBrd)))==(unsigned long)(unsigned char)1))));
 
-
+if(((__AS__STRING_CMP(((*(p_sTCPBtmFullMsgRd))),"")!=0))){
+{int zzIndex; plcstring* zzLValue=(plcstring*)tyCurrReqRcp.sBottomBarcode; plcstring* zzRValue=(plcstring*)((*(p_sTCPBtmFullMsgRd))); for(zzIndex=0; zzIndex<80l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+}
 }
 
-}imp17_else0_0:imp17_end0_0:;}
+}imp17_else1_0:imp17_end1_0:imp17_else0_0:imp17_end0_0:;}
 #line 39 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/AutoRcp/AutoRcp/Cyclic.nodebug"
 #line 2 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/AutoRcp/AutoRcp/PrecededByF1/PrecededByF1Background1.st"
 static void __AS__Action__PrecededByF1Background1(void){
@@ -1069,7 +1074,7 @@ if(((*(p_bZ1AccNewRcpCondition)))){
 (usiChg2=(usiChg2+1));
 }
 }
-{int zzIndex; plcstring* zzLValue=(plcstring*)tyCurrReqMagRcp.sTrailingBarcode; plcstring* zzRValue=(plcstring*)tyCurrZ1Rcp.sBottomBarcode; for(zzIndex=0; zzIndex<254l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
+{int zzIndex; plcstring* zzLValue=(plcstring*)tyCurrReqMagRcp.sTrailingBarcode; plcstring* zzRValue=(plcstring*)RIGHT(tyCurrZ1Rcp.sBottomBarcode,10); for(zzIndex=0; zzIndex<254l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 }
 
 

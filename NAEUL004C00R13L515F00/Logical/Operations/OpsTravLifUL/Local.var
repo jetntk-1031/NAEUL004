@@ -312,10 +312,13 @@ END_VAR
 (*Bosch Scanner*)
 VAR
 	bScannerEn : BOOL;
+	bTCPScanner : BOOL;
 	bSignalTrigMagOutEn : BOOL;
+	bTCPScannerEn : BOOL;
 	fbScanTimOut : TON := (PT:=T#10s);
 	bStartScanSig : BOOL;
 	bPCBExitMag1 : BOOL;
 	bPCBExitMag2 : BOOL;
 	bPCBExitMag3 : BOOL;
+	usiScanCntr : USINT;
 END_VAR

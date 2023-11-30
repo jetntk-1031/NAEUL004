@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_321_
-#define _BUR_1701136545_321_
+#ifndef _BUR_1701225410_321_
+#define _BUR_1701225410_321_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/PneuNoSenInletStopper/InputRef_Link.v
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_321_ */
+#endif /* _BUR_1701225410_321_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136544_131_
-#define _BUR_1701136544_131_
+#ifndef _BUR_1701225409_131_
+#define _BUR_1701225409_131_
 
 #include <bur/plctypes.h>
 
@@ -13,6 +13,7 @@
 
 
 /* Variables */
+_GLOBAL unsigned long p_OpsTravLifScanCntr;
 _GLOBAL unsigned long p_OpsTravLifGotoOpsStep;
 _GLOBAL unsigned long p_OpsTravLifOpsStep;
 _GLOBAL unsigned long p_OpsTravLifMag3TransOut;
@@ -91,5 +92,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/OpsTravLifUL.var\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136544_131_ */
+#endif /* _BUR_1701225409_131_ */
 

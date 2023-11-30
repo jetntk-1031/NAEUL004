@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136546_435_
-#define _BUR_1701136546_435_
+#ifndef _BUR_1701225411_435_
+#define _BUR_1701225411_435_
 
 #include <bur/plctypes.h>
 
@@ -19,5 +19,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Simulation/Simu1/InputRef_Link.var\\\" sco
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136546_435_ */
+#endif /* _BUR_1701225411_435_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1701136545_201_
-#define _BUR_1701136545_201_
+#ifndef _BUR_1701225410_201_
+#define _BUR_1701225410_201_
 
 #include <bur/plctypes.h>
 
@@ -57,5 +57,5 @@ __asm__(".ascii \"iecfile \\\"Logical/TLBuz/TLBuz/InputRef_Link.var\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1701136545_201_ */
+#endif /* _BUR_1701225410_201_ */
 
