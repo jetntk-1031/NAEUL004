@@ -22,7 +22,8 @@ ACTION Act_Main_AutoRcp:
 	
 			IF (p_eAutoRcpStatus = Done) AND (p_eAutoRcpStat = AutoRcpActReadRetain) THEN
 				eAutoRcpAct		:= AutoRcpActIdle;
-				IF  p_eNtParamAutoRcpPrecededBy  = PrecededBySelf THEN
+				IF  p_eNtParamAutoRcpPrecededBy  = PrecededBySelf OR 
+					(p_eNtParamAutoRcpPrecededBy = PrecededByF1 AND p_tyNtParamCurr.bAutoRcpF1ArbitratryType) THEN
 					usiStep			:= 2;
 				ELSIF p_eNtParamAutoRcpPrecededBy  = PrecededByF1 THEN 
 					usiStep			:= 0;

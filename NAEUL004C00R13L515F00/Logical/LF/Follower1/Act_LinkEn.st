@@ -3,7 +3,7 @@ ACTION Act_LinkEn:
 	
 	//Link bPrep, bEn & bDis
 	p_bDis	:= (p_bLinkStartupRun = TRUE);
-	IF p_bCustomizedWidthPrep AND NOT(p_bMcParamAutoRcpDis) THEN 
+	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN 
 		CASE p_eNtParamAutoRcpPrecededBy OF 
 			PrecededBySelf:
 				p_bPrep := FALSE;

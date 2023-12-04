@@ -19,7 +19,6 @@ ACTION PrecededByF1Background1:
 		tyCurrReqMagRcp.sTrailingBarcode := RIGHT(tyCurrZ1Rcp.sBottomBarcode,10);//length of comparision
 	END_IF
 	
-	
 	//Follower 2
 	FOR ii:= 1 TO SIZEOF(a_bBufferMagPresent)/SIZEOF(a_bBufferMagPresent[1]) DO
 		IF p_bZ2AccNewRcpCondition THEN	 //in Ops

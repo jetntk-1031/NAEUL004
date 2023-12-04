@@ -23,7 +23,7 @@ ACTION Act_InitGlobal:
 	p_bNtSettingsLoadDone ACCESS p_StartupNtSettingsLoadDone;
 	p_bWidth2Prep ACCESS p_NtParamLFWidth2Prep;
 	
-	p_bCustomizedWidthPrep ACCESS p_NtParamAutoRcpPrep;
+	p_bNtParamAutoRcpPrep ACCESS p_NtParamAutoRcpPrep;
 	p_bMcParamAutoRcpDis  ACCESS p_McParamAutoRcpDisable;
 	p_eNtParamAutoRcpPrecededBy ACCESS p_NtParamAutoRcpPrecededBy;
 	(* Always Change If Project Change *)

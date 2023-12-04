@@ -1,9 +1,0 @@
-#ifndef _OPERATIONS_OPSTRAVLIFUL_DEFAULT_647753714
-#define _OPERATIONS_OPSTRAVLIFUL_DEFAULT_647753714
-#include "../AsDefault.h"
-#include <bur/plctypes.h>
-#include <bur/plc.h>
-#include <inputref_linkVAR.h>
-#include <inputrefVAR.h>
-#include <localVAR.h>
-#endif

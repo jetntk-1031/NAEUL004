@@ -24,7 +24,7 @@ VAR
 	p_sMagRcpNm : REFERENCE TO STRING[30];
 	p_diWidthLimit : REFERENCE TO DINT;
 	p_bWidth2Prep : REFERENCE TO BOOL;
-	p_bCustomizedWidthPrep : REFERENCE TO BOOL;
+	p_bNtParamAutoRcpPrep : REFERENCE TO BOOL;
 	p_bMcParamAutoRcpDis : REFERENCE TO BOOL;
 	p_eNtParamAutoRcpPrecededBy : REFERENCE TO eAutoRcpPreceded;
 	p_bUSWidthChkPrep : REFERENCE TO BOOL;
