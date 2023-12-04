@@ -36,7 +36,8 @@ ACTION Act_OptC0005AutoCtrl:
 		
 		IF tyCommon.tyMain.tyBtnStart.bValue = TRUE OR tyP0003MMenu.tyMMenuBtn.tyBtnAuto.bValue = TRUE  THEN
 			
-			IF eCurrPage <> UIP0200OpsGen AND eCurrPage <> UIP0201OpsTravLifter AND eCurrPage <> UIP0202OpsMag1 AND eCurrPage <> UIP0203OpsMag2 AND eCurrPage <> UIP0204OpsMag3 THEN
+			IF eCurrPage <> UIP0200OpsGen AND eCurrPage <> UIP0201OpsTravLifter AND eCurrPage <> UIP0202OpsMag1 AND eCurrPage <> UIP0203OpsMag2 AND eCurrPage <> UIP0204OpsMag3 
+				AND NOT tyP0003MMenu.tyMMenuBtn.tyBtnAuto.bValue THEN
 				
 				IF bChgPage = FALSE THEN
 					bChgPage	:= TRUE;

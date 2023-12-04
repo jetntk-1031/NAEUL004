@@ -79,7 +79,7 @@ ACTION Act_Main:
 				END_IF
 				
 				//Motor Speed
-				IF p_bExtSlowSen = TRUE THEN
+				IF p_bExtSlowSen = TRUE OR p_bTorqueSig = TRUE THEN
 					bMtrSpdSlw	:= TRUE;
 				END_IF
 				
