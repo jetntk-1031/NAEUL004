@@ -17,8 +17,10 @@ ACTION Act_OptP0202_P0003AIVDat:
 			bNewMag1	:= FALSE;
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk	:= FALSE;
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtCompl	:= FALSE;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk    := FALSE;
 			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtCompl := FALSE;
-			tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue		:= FALSE;
+			tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue			:= FALSE;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue	:= FALSE;
 		END_IF
 				
 		IF tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtCompl = TRUE OR tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtCompl THEN
@@ -30,44 +32,60 @@ ACTION Act_OptP0202_P0003AIVDat:
 				
 	
 		IF bNewMag1 = TRUE THEN
-			tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 1;		
+			tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 1;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 1;
 			IF p_tyDI.bMag1FixedUnclampRS = FALSE THEN
 				bNewMag1	:= FALSE;
 				tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue	:= FALSE;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue := FALSE;
 				tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk	:= FALSE;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk:= FALSE;
 				tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 0;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 0;
 			END_IF
 						
 		ELSIF bRlsMag1 = TRUE THEN
 			tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 1;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 1;
 			IF p_tyNtParamCurr.eCustomerReq = Siemens THEN
 				IF p_bOpsMagConvUL1EjectMESStep THEN //(p_bOpsMagConvUL1EjectMESStep AND p_bOpsMagConvUL1EjectMagNotAllw) 
 					//OR THEN //FOR MES
 					bRlsMag1	:= FALSE;		
 					tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue	:= FALSE;
+					tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue := FALSE;
 					tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk	:= FALSE;
+					tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk:= FALSE;
 					tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 0;
+					tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 0;
 				END_IF
 			ELSIF p_tyDI.bMag1FixedUnclampRS = TRUE AND p_tyDI.bMagPresentSen1 = FALSE  THEN //for Siemen testing
 				bRlsMag1	:= FALSE;		
 				tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue	:= FALSE;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue := FALSE;
 				tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk	:= FALSE;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk:= FALSE;
 				tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 0;
+				tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 0;
 			END_IF
 		
 		ELSIF p_bAlarmErr THEN
 			bNewMag1	:= FALSE;
 			bRlsMag1	:= FALSE;
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue	:= FALSE;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue := FALSE;
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk	:= FALSE;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk:= FALSE;
 			tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx	:= 0;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := 0;
 		END_IF
 	
 		
 		IF p_tyDI.bMagPresentSen1 AND p_tyDI.bMagConvEntSen1 = FALSE THEN
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.usiTxtIdx	:= 1;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiTxtIdx := 31;
 		ELSE
 			tyP0202OpsMag1.tyOps.tyBtnChgMag.usiTxtIdx	:= 0;
+			tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiTxtIdx := 6;
 		END_IF
 		
 
@@ -77,16 +95,14 @@ ACTION Act_OptP0202_P0003AIVDat:
 			OR p_bBufferMagRemoved1
 			THEN //AND p_tyDI.bOutShutterCloseRS
 			fUIInRtStatHide(ADR(tyP0202OpsMag1.tyOps.tyBtnChgMag.uiMaskRtStat));
+			fUIInRtStatHide(ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.uiMaskRtStat));
 		ELSE	
 			fUIInRtStatOff(ADR(tyP0202OpsMag1.tyOps.tyBtnChgMag.uiMaskRtStat));
+			fUIInRtStatOff(ADR(tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.uiMaskRtStat));
 		END_IF	
 		
 		
-		tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bValue :=  tyP0202OpsMag1.tyOps.tyBtnChgMag.bValue;
-		tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.bRtLk :=  tyP0202OpsMag1.tyOps.tyBtnChgMag.bRtLk;
-		tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiTxtIdx := tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMagBk1.usiTxtIdx + tyP0202OpsMag1.tyOps.tyBtnChgMag.usiTxtIdx;
-		tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.usiBitmapIdx := tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMagBk1.usiBitmapIdx + 	tyP0202OpsMag1.tyOps.tyBitmapChgMag.usiValueIdx;	
-		tyP0003MMenu.tyMMenuBtn.tyBtnRlsNewMag1.uiMaskRtStat := tyP0202OpsMag1.tyOps.tyBtnChgMag.uiMaskRtStat ;
+
 	END_IF
 	
 END_ACTION

@@ -4,8 +4,8 @@
   <Files>
     <File Description="Change By Project">Init.st</File>
     <File Description="Change By Project">Act_InitGlobal.st</File>
-    <File Description="Change By Project" Private="true">InputRef_Link.var</File>
     <File Description="Change By Project">Act_Link.st</File>
+    <File Description="Change By Project" Private="true">InputRef_Link.var</File>
     <File Description="Do Not Change!!!">Cyclic.st</File>
     <File Description="Do Not Change!!!">Act_RstErr.st</File>
     <File Description="Do Not Change!!!">Act_InitLocal.st</File>
