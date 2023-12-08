@@ -77,5 +77,8 @@ VAR
 	fbMtrBrkOffDlyTm : TON;
 	fbMtrPshrExtChk : fbPneuExtRetSenExtChk;
 	fbMtrPshrRetChk : fbPneuExtRetSenRetChk;
+	fbTorqueSigDlyFltr : fbSenFltr;
+	tTorqueDlyOn : TIME;
+	tTorqueDlyOff : TIME := T#100ms;
 	udiModuleNum : UDINT := 2201;
 END_VAR

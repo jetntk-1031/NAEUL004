@@ -69,9 +69,9 @@ ACTION Act_Main:
 				
 				//Motor Torque
 				IF (p_bRetSen OR p_bRetSlowSen) THEN// OR  NOT(bMtrSpdSlw) THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16383) / 100); //5V at 16383 for maximum Torque
+					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16384) / 100); //5V at 16383 for maximum Torque
 				ELSE //IF bMtrSpdSlw THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diExtTorque) * 16383) / 100);
+					iAnalogTorque	:= ((DINT_TO_INT(p_diExtTorque) * 16384) / 100);
 				END_IF
 				
 				IF iAnalogTorque < 1500 THEN
@@ -83,7 +83,7 @@ ACTION Act_Main:
 					bMtrSpdSlw	:= TRUE;
 				END_IF
 				
-				IF bMtrSpdSlw = TRUE THEN
+				IF bMtrSpdSlw = TRUE OR p_bTorqueSig THEN
 					diMtrSpd	:= p_diExtSlowSpd;
 				ELSE
 					diMtrSpd	:= p_diExtNomSpd;
@@ -132,6 +132,14 @@ ACTION Act_Main:
 					bCW		:= TRUE;
 				ELSE
 					bCCW	:= TRUE;
+				END_IF
+				
+				fbTorqueSigDlyFltr(bSigIn:= p_bTorqueSig, tSigOnFltrTm:= tTorqueDlyOn,tSigOffFltrTm:= tTorqueDlyOff);
+				IF fbTorqueSigDlyFltr.bSigOut THEN
+					bCW		:= FALSE;
+					bCCW	:= FALSE;
+					bSigOn		:= TRUE;
+					bBrake		:= FALSE;
 				END_IF
 				
 				//Checking Extend
@@ -198,9 +206,9 @@ ACTION Act_Main:
 				
 				//Motor Torque
 				IF (p_bExtSen OR p_bExtSlowSen) THEN //OR NOT(bMtrSpdSlw) THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16383) / 100); //32767 ==10V ,10000 == 3v
+					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16384) / 100); //32767 ==10V ,10000 == 3v
 				ELSE // bMtrSpdSlw THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diRetTorque) * 16383) / 100);
+					iAnalogTorque	:= ((DINT_TO_INT(p_diRetTorque) * 16384) / 100);
 				END_IF
 				
 				IF iAnalogTorque < 1500 THEN

@@ -10,8 +10,12 @@ ACTION Act_OptP0933PusherConvFB:
 
 	//Pusher Torque & Force Real Time Changing
 	//diMnlMtrPshrExtTorq := diConstant1 + (((tyP0933PushConv.tyFB.tyNumExtTorqPercent.diValue -10)/10)*diConstant2/100); //10~30N 
-	diMnlMtrPshrExtTorq := p_tyNtParamPPTorqParam.usiStartTorque + (((tyP0933PushConv.tyFB.tyNumExtTorqPercent.diValue -10)/10)*p_tyNtParamPPTorqParam.uiRatio/100); //10~30N 
-	
+//	diMnlMtrPshrExtTorq := p_tyNtParamPPTorqParam.usiStartTorque + (((tyP0933PushConv.tyFB.tyNumExtTorqPercent.diValue -10)/10)*p_tyNtParamPPTorqParam.uiRatio/100); //10~30N 
+	IF p_tyNtParamCurr.bProjServoPullerPusherPrep THEN
+		diMnlMtrPshrExtTorq := p_tyNtParamPPTorqParam.usiStartTorque + (((tyP0933PushConv.tyFB.tyNumExtTorqPercent.diValue -10)/10)*p_tyNtParamPPTorqParam.uiRatio/100); //10~30N 
+	ELSE
+		diMnlMtrPshrExtTorq := tyP0933PushConv.tyFB.tyNumExtTorqPercent.diValue;
+	END_IF
 	//Conveyor
 	IF tyP0933PushConv.tyFB.tyBtnStop.bRtCompl = TRUE THEN
 		diMnlPPJogSpd	:= 0;
