@@ -135,23 +135,10 @@ ACTION Act_Link:
 		
 	END_CASE
 	
-	IF p_bLinkProjMagConvLane1Prep AND p_bLinkProjMagConvLane2Prep THEN
-		p_bMag1FixedClampCtrl ACCESS p_LifterMagConvClprClampCtrl; //share lifter mag clmp -act_link
-		p_bMag2FixedClampCtrl ACCESS p_LifterMagConv2ClprClampCtrl;
-		
-		p_bMag1ConvMtrIn ACCESS p_LifterMagConvMtrDirOrRToL; //share lifter mag conv -act_link
-		p_bMag1ConvMtrOut ACCESS p_LifterMagConvMtrSigOnOrLToR;
-		p_bMag2ConvMtrIn ACCESS p_LifterMagConv2MtrDirOrRToL;
-		p_bMag2ConvMtrOut ACCESS p_LifterMagConv2MtrSigOnOrLToR;
-	ELSE
-		p_bMag1FixedClampCtrl ACCESS p_MagConv2Clp1FixClprClampCtrl; //share lifter mag clmp -act_link
-		p_bMag2FixedClampCtrl ACCESS p_MagConv2Clp2FixClprClampCtrl;
-		
-		p_bMag1ConvMtrIn ACCESS p_MagConv2Clp1MtrSigOnOrLToR; //share lifter mag conv -act_link
-		p_bMag1ConvMtrOut ACCESS p_MagConv2Clp1MtrDirOrRToL;
-		p_bMag2ConvMtrIn ACCESS p_MagConv2Clp2MtrSigOnOrLToR;
-		p_bMag2ConvMtrOut ACCESS p_MagConv2Clp2MtrDirOrRToL;
-	END_IF
+
+
+	
+
 	
 	IF p_bManual THEN
 		p_bBypCurtainSen ACCESS p_UIMnlBypCurtainSen;

@@ -2,28 +2,12 @@
 (**)
 (*Local Action, State & Status*)
 VAR
-	eStatus1 : eFBStatus := Idle;
-	eStatus2 : eFBStatus := Idle;
-	eStatus3 : eFBStatus := Idle;
-	eStatus4 : eFBStatus := Idle;
-	eStatus5 : eFBStatus := Idle;
-	eStatus6 : eFBStatus := Idle;
 	udiStatus1 : UDINT := 0;
 	udiStatus2 : UDINT := 0;
 	udiStatus3 : UDINT := 0;
 	udiStatus4 : UDINT := 0;
 	udiStatus5 : UDINT := 0;
 	udiStatus6 : UDINT := 0;
-END_VAR
-(**)
-(*Local Alarm*)
-VAR
-	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Emergency Stop Button Pressed',sRcyText:='Release The Emergency Stop Button And Reset The Error To Resume Operation.'),(sAlmText:='Door / Cover Opened',sRcyText:='Close The Door / Cover Tightly And Resume Operation.'),(sAlmText:='Lifter Timing Belt Broken',sRcyText:='Replace New Lifter Timing Belt.'),(sAlmText:='Lifter Reached Safety Limit Switch',sRcyText:='Move Lifter Upward And Make Sure There Is No Obstable Interrupting Lifter.'),(sAlmText:='Safety Relay Signal Off',sRcyText:='Please Check The Safety Relay Signal'),(sAlmText:='Motor Overload Signal Activated.',sRcyText:='Please Check The Motor Conveyor.'),(sAlmText:='Safety Curtain Sensor Activated',sRcyText:='Please Clear The Area Of Safety Curtain Sensor And Resume Operation.'),93((0))];
-END_VAR
-(**)
-(*Local Output*)
-VAR
-	tyDInput : tyDigitalInput;
 END_VAR
 (**)
 (*Local Input*)
@@ -97,42 +81,6 @@ VAR
 	fbOutMagConv2EntSigFltr : fbSenFltr;
 	fbOutMagConv2ExtSigFltr : fbSenFltr;
 	fbOutMagConv2MidSigFltr : fbSenFltr;
-END_VAR
-(*MagConv On/Off Tm*)
-VAR
-	diInMagConvEntSenOnTm : DINT := 1000;
-	diInMagConvEntSenOffTm : DINT := 1000;
-	diInMagConvExtSenOnTm : DINT := 1000;
-	diInMagConvExtSenOffTm : DINT := 1000;
-	diInMagConvMidSenOnTm : DINT := 1000;
-	diInMagConvMidSenOffTm : DINT := 1000;
-END_VAR
-(**)
-VAR
-	diOutMagConvEntSenOnTm : DINT := 1000;
-	diOutMagConvEntSenOffTm : DINT := 1000;
-	diOutMagConvExtSenOnTm : DINT := 1000;
-	diOutMagConvExtSenOffTm : DINT := 1000;
-	diOutMagConvMidSenOnTm : DINT := 1000;
-	diOutMagConvMidSenOffTm : DINT := 1000;
-END_VAR
-(**)
-VAR
-	diInMagConv2EntSenOnTm : DINT := 1000;
-	diInMagConv2EntSenOffTm : DINT := 1000;
-	diInMagConv2ExtSenOnTm : DINT := 1000;
-	diInMagConv2ExtSenOffTm : DINT := 1000;
-	diInMagConv2MidSenOnTm : DINT := 1000;
-	diInMagConv2MidSenOffTm : DINT := 1000;
-END_VAR
-(**)
-VAR
-	diOutMagConv2EntSenOnTm : DINT := 1000;
-	diOutMagConv2EntSenOffTm : DINT := 1000;
-	diOutMagConv2ExtSenOnTm : DINT := 1000;
-	diOutMagConv2ExtSenOffTm : DINT := 1000;
-	diOutMagConv2MidSenOnTm : DINT := 1000;
-	diOutMagConv2MidSenOffTm : DINT := 1000;
 	fbCurtainSafetyRstTm : TON := (PT:=T#200ms);
 	eMidSenNcNoType : eMidSenParam;
 	udiModuleNum : UDINT := 5751;

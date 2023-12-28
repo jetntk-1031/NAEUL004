@@ -1,20 +1,5 @@
 (*2019-03-25*)
-(**)
-(*Action & State & Status*)
 VAR
-	p_TLBuzStat : UDINT;
-	p_TLBuzStatus : UDINT;
-	p_TLBuzStatTxt : UDINT;
+	g_tyTLBuz : tyTLBuzOut1;
 END_VAR
 (**)
-(*Alarm*)
-(**)
-(*Output*)
-VAR
-	p_TLBuzBlue : UDINT;
-	p_TLBuzRed : UDINT;
-	p_TLBuzAmber : UDINT;
-	p_TLBuzWhite : UDINT;
-	p_TLBuzGreen : UDINT;
-	p_TLBuzBeep : UDINT;
-END_VAR

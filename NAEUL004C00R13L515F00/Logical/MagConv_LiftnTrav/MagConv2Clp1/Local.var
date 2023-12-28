@@ -84,3 +84,12 @@ VAR
 	fbRmtClpExtChkTm : TON := (PT:=T#3s);
 	udiModuleNum : UDINT := 1901;
 END_VAR
+(**)
+VAR
+	bMag1FixedClampCtrl : BOOL;
+	bMag2FixedClampCtrl : BOOL;
+	bMag1ConvMtrIn : BOOL;
+	bMag1ConvMtrOut : BOOL;
+	bMag2ConvMtrIn : BOOL;
+	bMag2ConvMtrOut : BOOL;
+END_VAR

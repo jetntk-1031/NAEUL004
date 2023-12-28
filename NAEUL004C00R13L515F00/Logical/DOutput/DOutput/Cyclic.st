@@ -1,5 +1,7 @@
 (** 2019-03-29 **)
 PROGRAM _CYCLIC
+	Act_Background;
+	
 	
 	IF bInitDone = FALSE THEN
 		bInitDone	:= TRUE;
