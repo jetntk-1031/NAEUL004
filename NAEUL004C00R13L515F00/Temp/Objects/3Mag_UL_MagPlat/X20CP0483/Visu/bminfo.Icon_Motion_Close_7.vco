@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Motion_Close_7" ClsId="0x306" Version="1" TargetIndex="371" Type="GFX" RefString="Source[local].Bitmap[Icon_Motion_Close_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMpSURBVEhLtZYxaxRRFEb3L/gfRBALG4uovY1gYRFNarEQRLAyYIgpQjCyQUkjCCIKYcFIWIyKkEINUTDLCokIQcSkMlW23SYZPZM5w91h1t1E8+BjZ+68951773szbKXfcX741pFGozEQRSx7fHjj7vTDU5sbm7utVitRs7Xnk9njwxtT1ZlhYO12O1cZ+MBdYGGz2XyPNKHa+svXc0Uwc3jGPMSctbW1n8RSs36HUFvJNWa0GJBxZcx5xpnfN7wIPah+bW2l6rtywE9nH2+7UJNoSCUrK58TxLVzo4ijfbWcicA1Fbi+vp5LY65XV1dTOd/4h6WlXQ5jZtt7eEA0RxqXyWTsgMm8XazvnLw4ejaz7T2oGBMNMfEaYwyj4nPWce9W9HzHqdIvEdVqhDDSHNDHjYnkx/Z8Kq7ZFtoqWLGGg0q7u37hqJKDIESQYKFjr46nsKKIAyMBFH1UafVkxQIzVRE8fu9KUv10LKl/v9QhYoBtfdHDhLqCXRQXAuQ+gsskuFitfl3BtDqClWBMAAMoCvD1+0dTsHMjFHUFs/Hjk9UXiMPigmiAMYAimBhJxa2Ka/Tt+iEBznsX91sj7wEAiiIWuyWYNbwhxdNMAh2xExdu3jh3baZ9Zmh0uaxqzBHPgCFfJeawLW6N8+OXC9jg7bk30/PfkhhPwVenFnYQCWDKYoyFWjkgYf7GrxZzWG91dBLf2ruvCYKVYffAI4+Wk4nal4TfoZFnaRIPnizklUdQNwm21VSJn1Cuc/Dpy3eqtJg2oAhHwjWOkLJ75rLGQvRFxGBx4CoDg2O7BIpg285zEiBjzTFGVuKWcO2W4SHcBPTGNwWXZYYACucXGBDuNWcOXUN2KcIjWDjrU3CEOpFFGpgAv1TFGq6ZQ5x9o4UmKFxw9CfWAXZCBAvHiINCtbSaewWQ04uoGj8TK4PnYBYyqZiZcIC8ErwefPo4rYgDQqUdH4Q/g7l4UnkZ2GTTrwmZEvSwcM0i4kVjqyvG4+AZSQkXTBJ45v9OmBShVpk+/Idh9VbOb/4eMwSb0d+q2e+I1dPmDrD7x28W+u+D6oHudbJS+Q2oY0TJI2d/MgAAAABJRU5ErkJggg==</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

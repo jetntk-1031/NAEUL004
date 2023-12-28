@@ -10,7 +10,7 @@ ACTION Act_Main_P1022:
 	tyP1022McSetVComm.tyVComSel.tyBtnLCSLiveDat.uiRtStat.0		:= NOT p_tyNtParamCurr.bLCSLiveDatPrep;
 	
 	tyP1022McSetVComm.tyLF.tyBtnLeaderMc.uiRtStat.0			:= NOT p_tyNtParamCurr.bLFUsrSetPrep;
-	//tyP1022McSetVComm.tyLF.tyBtnSectionLdr.uiRtStat.0		:= NOT p_tyNtParamCurr.bLFUsrSetPrep;
+	tyP1022McSetVComm.tyLF.tyBtnSectionLdr.uiRtStat.0		:= NOT (p_tyNtParamCurr.bLFUsrSetPrep OR p_tyNtParamCurr.bLCSLFPrep);
 	tyP1022McSetVComm.tyLF.tyBtnUSWidthChkEn.uiRtStat.0		:= NOT p_tyNtParamCurr.bUSWidthChkPrep;
 	tyP1022McSetVComm.tyLF.tyBtnDBAOnWOAlign.uiRtStat.0		:= NOT p_tyNtParamCurr.bDSWidthChkPrep;
 

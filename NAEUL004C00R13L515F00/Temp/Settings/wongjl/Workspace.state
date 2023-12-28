@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.8.4.50 SP?>
+<State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State">
+  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UI\UI\Act_Background\Action\P0200\Act_EntP0200Disp.st" CaretLine="206" CaretColumn="11" FirstVisibleLine="133">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UI\UI\Act_Background\Action\P0003\Act_EntP0003Disp.st" CaretLine="31" CaretColumn="2" FirstVisibleLine="25">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UI\UI\Act_Main\Act_Main_P0200.st" CaretLine="11" CaretColumn="3" FirstVisibleLine="1">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UI\UI\Act_Background\Action\P0200\Act_OptP0200UpdtDat.st" CaretLine="92" CaretColumn="14" FirstVisibleLine="67">
+    <Bookmarks />
+  </TextEdit>
+  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UI\UI\Act_Main\Act_Main_P0003.st" CaretLine="15" CaretColumn="11" FirstVisibleLine="2">
+    <Bookmarks />
+  </TextEdit>
+</State>

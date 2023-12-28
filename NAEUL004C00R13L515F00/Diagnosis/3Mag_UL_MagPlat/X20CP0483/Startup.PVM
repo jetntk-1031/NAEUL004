@@ -1,0 +1,9 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=Startup 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=2 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                                   eStat                                     DINT    0 "                                                               0"    0    4    1   10    1    0 e,0,Star
+
+                                 eStatus                                     DINT    0 "                                                               0"    0    4    1   10    1    0 e,0,Idle
+
+                                  p_eAct                                     DINT    0 "                                                               0"    0    4    1   10    2    0 e,0,Star
+

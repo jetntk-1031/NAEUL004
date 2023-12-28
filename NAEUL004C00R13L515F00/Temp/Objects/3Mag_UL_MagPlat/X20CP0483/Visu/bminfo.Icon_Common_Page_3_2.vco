@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Common_Page_3_2" ClsId="0x306" Version="1" TargetIndex="491" Type="GFX" RefString="Source[local].Bitmap[Icon_Common_Page_3_2]">
+        <UInt16 Name="Width">90</UInt16>
+        <UInt16 Name="Height">12</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAFoAAAAMCAYAAADif6roAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACsSURBVFhH7dVdCsQgDARg738UT+VNLIHJizQmkQHtz/e0bMchhi5bnqLW2ltrXcln+Q6PfwyyUMvnF856A2dLVtKNeBhrvq3GS6jsZSJLVtlexnzb3V1CyTPEXLOeEas307MdZjYh5kI8DMdciJsQOx/mNSHmQjwMx1yImxA7H+unOesZsXozPdux/mwkG5XtZcx3hPEyq5eQM57VXsZ8rzJb9ueXw/bsN7CUC0n3lS+Kg99XAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

@@ -295,9 +295,8 @@ ACTION Act_OptP0202ToP0204_P0003UnloadMag:
 	//Mask
 	IF p_tyNtParamCurr.bProjLifterMagPlatform THEN
 		IF p_bOpsStatusStop 
-			OR ((p_bOpsTravLifMov OR p_bOpsLifMagULLifMov) AND p_bPshrConvHvBrd)
-			OR p_bOutShutterRetracted
-			THEN
+			OR (p_bOpsTravLifMov AND p_bPshrConvHvBrd AND NOT(p_bOutShutterRetracted))
+			THEN //p_bOpsLifMagULLifMov
 			
 			fUIInRtStatOff(ADR(tyP0202OpsMag1.tyOps.tyBtnUnloadMag.uiMaskRtStat));
 			fUIInRtStatOff(ADR(tyP0203OpsMag2.tyOps.tyBtnUnloadMag.uiMaskRtStat));

@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Object Name="BitmapGroup" ClsId="0x0" Version="0" TargetIndex="2" Type="REF" RefString="Source[local].BitmapGroup[MainMenu]" />
+  <Folder Name="Language">
+    <Folder Name="en" TargetIndex="0">
+      <Folder Name="BitmapGroups">
+        <Folder Name="POBJ">
+          <Object Name="MainMenu" ClsId="0x308" Version="1" TargetIndex="2" Type="BMPG" RefString="Source[local].BitmapGroup[MainMenu_en]">
+            <UInt32 Name="Count">12</UInt32>
+            <Group Name="Auto_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Auto_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">0</UInt16>
+            </Group>
+            <Group Name="Stop_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Stop_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">1</UInt16>
+            </Group>
+            <Group Name="Reset_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Reset_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">2</UInt16>
+            </Group>
+            <Group Name="">
+              <Reference Name="Bitmap" Type="GFX">None</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">3</UInt16>
+            </Group>
+            <Group Name="Buzzer_Standby_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Standby_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">4</UInt16>
+            </Group>
+            <Group Name="Buzzer_On_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_On_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">5</UInt16>
+            </Group>
+            <Group Name="Buzzer_Off_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Off_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">6</UInt16>
+            </Group>
+            <Group Name="Sliver_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Sliver_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">20</UInt16>
+            </Group>
+            <Group Name="Green_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Green_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">21</UInt16>
+            </Group>
+            <Group Name="Red_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Red_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">22</UInt16>
+            </Group>
+            <Group Name="Amber_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Amber_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">23</UInt16>
+            </Group>
+            <Group Name="Yellow_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Yellow_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">24</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+    </Folder>
+    <Folder Name="de" TargetIndex="1">
+      <Folder Name="BitmapGroups">
+        <Folder Name="POBJ">
+          <Object Name="MainMenu" ClsId="0x308" Version="1" TargetIndex="2" Type="BMPG" RefString="Source[local].BitmapGroup[MainMenu_de]">
+            <UInt32 Name="Count">12</UInt32>
+            <Group Name="Auto_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Auto_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">0</UInt16>
+            </Group>
+            <Group Name="Stop_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Stop_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">1</UInt16>
+            </Group>
+            <Group Name="Reset_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Reset_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">2</UInt16>
+            </Group>
+            <Group Name="">
+              <Reference Name="Bitmap" Type="GFX">None</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">3</UInt16>
+            </Group>
+            <Group Name="Buzzer_Standby_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Standby_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">4</UInt16>
+            </Group>
+            <Group Name="Buzzer_On_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_On_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">5</UInt16>
+            </Group>
+            <Group Name="Buzzer_Off_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Off_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">6</UInt16>
+            </Group>
+            <Group Name="Sliver_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Sliver_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">20</UInt16>
+            </Group>
+            <Group Name="Green_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Green_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">21</UInt16>
+            </Group>
+            <Group Name="Red_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Red_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">22</UInt16>
+            </Group>
+            <Group Name="Amber_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Amber_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">23</UInt16>
+            </Group>
+            <Group Name="Yellow_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Yellow_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">24</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+    </Folder>
+    <Folder Name="zh" TargetIndex="2">
+      <Folder Name="BitmapGroups">
+        <Folder Name="POBJ">
+          <Object Name="MainMenu" ClsId="0x308" Version="1" TargetIndex="2" Type="BMPG" RefString="Source[local].BitmapGroup[MainMenu_zh]">
+            <UInt32 Name="Count">12</UInt32>
+            <Group Name="Auto_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Auto_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">0</UInt16>
+            </Group>
+            <Group Name="Stop_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Stop_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">1</UInt16>
+            </Group>
+            <Group Name="Reset_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Reset_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">2</UInt16>
+            </Group>
+            <Group Name="">
+              <Reference Name="Bitmap" Type="GFX">None</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">3</UInt16>
+            </Group>
+            <Group Name="Buzzer_Standby_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Standby_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">4</UInt16>
+            </Group>
+            <Group Name="Buzzer_On_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_On_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">5</UInt16>
+            </Group>
+            <Group Name="Buzzer_Off_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Off_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">6</UInt16>
+            </Group>
+            <Group Name="Sliver_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Sliver_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">20</UInt16>
+            </Group>
+            <Group Name="Green_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Green_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">21</UInt16>
+            </Group>
+            <Group Name="Red_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Red_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">22</UInt16>
+            </Group>
+            <Group Name="Amber_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Amber_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">23</UInt16>
+            </Group>
+            <Group Name="Yellow_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Yellow_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">24</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+    </Folder>
+    <Folder Name="pt" TargetIndex="3">
+      <Folder Name="BitmapGroups">
+        <Folder Name="POBJ">
+          <Object Name="MainMenu" ClsId="0x308" Version="1" TargetIndex="2" Type="BMPG" RefString="Source[local].BitmapGroup[MainMenu_pt]">
+            <UInt32 Name="Count">12</UInt32>
+            <Group Name="Auto_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Auto_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">0</UInt16>
+            </Group>
+            <Group Name="Stop_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Stop_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">1</UInt16>
+            </Group>
+            <Group Name="Reset_Main_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Reset_Main_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">2</UInt16>
+            </Group>
+            <Group Name="">
+              <Reference Name="Bitmap" Type="GFX">None</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">3</UInt16>
+            </Group>
+            <Group Name="Buzzer_Standby_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Standby_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">4</UInt16>
+            </Group>
+            <Group Name="Buzzer_On_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_On_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">5</UInt16>
+            </Group>
+            <Group Name="Buzzer_Off_7">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Buzzer_Off_7]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">6</UInt16>
+            </Group>
+            <Group Name="Sliver_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Sliver_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">20</UInt16>
+            </Group>
+            <Group Name="Green_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Green_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">21</UInt16>
+            </Group>
+            <Group Name="Red_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Red_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">22</UInt16>
+            </Group>
+            <Group Name="Amber_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Amber_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">23</UInt16>
+            </Group>
+            <Group Name="Yellow_Base_100x82">
+              <Reference Name="Bitmap" Type="GFX">Source[local].Bitmap[Yellow_Base_100x82]</Reference>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt16 Name="Value">24</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+    </Folder>
+  </Folder>
+</Intermediate>

@@ -40,22 +40,32 @@
         <TextLayer LanguageId="en">
           <Text ID="1010397" Value="US"/>
           <Text ID="1018326" Value="US"/>
+          <Text ID="1073892" Value="US"/>
+          <Text ID="1073897" Value="US"/>
         </TextLayer>
         <TextLayer LanguageId="de">
           <Text ID="1010397" Value=""/>
           <Text ID="1018326" Value=""/>
+          <Text ID="1073892" Value=""/>
+          <Text ID="1073897" Value=""/>
         </TextLayer>
         <TextLayer LanguageId="zh">
           <Text ID="1010397" Value=""/>
           <Text ID="1018326" Value=""/>
+          <Text ID="1073892" Value=""/>
+          <Text ID="1073897" Value=""/>
         </TextLayer>
         <TextLayer LanguageId="pt">
           <Text ID="1010397" Value=""/>
           <Text ID="1018326" Value=""/>
+          <Text ID="1073892" Value=""/>
+          <Text ID="1073897" Value=""/>
         </TextLayer>
         <IndexMap>
           <Index ID="1010397" Value="65"/>
           <Index ID="1018326" Value="28"/>
+          <Index ID="1073892" Value="27"/>
+          <Index ID="1073897" Value="32"/>
         </IndexMap>
       </TextGroup>
       <Controls>
@@ -505,7 +515,7 @@
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyBitmapUSAComm.usiValueIdx]"/>
           <Property Name="Left" Value="98"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyBitmapUSAComm.uiRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
           <Property Name="Top" Value="315"/>
           <Property Name="Width" Value="30"/>
@@ -519,7 +529,7 @@
           <Property Name="IndexDatapoint" Value="None"/>
           <Property Name="Left" Value="98"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyBitmapUSAComm.uiMaskRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm.uiMaskRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
           <Property Name="Top" Value="315"/>
           <Property Name="Width" Value="30"/>
@@ -532,7 +542,7 @@
           <Property Name="Left" Value="93"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyTxtLane.uiRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
           <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
           <Property Name="TextIndexOffset" Value="65"/>
@@ -544,11 +554,11 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="20"/>
-          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyTxtLane.usiValueIdx]"/>
+          <Property Name="IndexDatapoint" Value="None"/>
           <Property Name="Left" Value="67"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyTxtLane.uiRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T2030_SMEMAText]"/>
           <Property Name="TextIndexOffset" Value="58"/>
@@ -610,7 +620,7 @@
           <Property Name="IndexDatapoint" Value="None"/>
           <Property Name="Left" Value="98"/>
           <Property Name="SimulationValue" Value="0"/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsUSCommB.tyBitmapUSBComm.uiMaskRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm.uiMaskRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
           <Property Name="Top" Value="163"/>
           <Property Name="Width" Value="30"/>
@@ -624,7 +634,7 @@
           <Property Name="Left" Value="67"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBOut.uiRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T2030_SMEMAText]"/>
           <Property Name="TextIndexOffset" Value="59"/>
@@ -640,10 +650,193 @@
           <Property Name="Left" Value="93"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
-          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBOut.uiRtStat]"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
           <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
           <Property Name="TextIndexOffset" Value="28"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="50"/>
+          <Property Name="Width" Value="34"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_USCommOut2">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[SMEMA]"/>
+          <Property Name="BitmapIndex" Value="10"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSOut1.usiValueIdx]"/>
+          <Property Name="Left" Value="717"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSOut1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="280"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_USCommIn2">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[SMEMA]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSIn1.usiValueIdx]"/>
+          <Property Name="Left" Value="717"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSIn1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="233"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_Comm1">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Operation]"/>
+          <Property Name="BitmapIndex" Value="22"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="23"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm1.usiValueIdx]"/>
+          <Property Name="Left" Value="712"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="315"/>
+          <Property Name="Width" Value="30"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Mask_BitmapComm2">
+          <Property Name="Bitmap" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="23"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="712"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm1.uiMaskRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+          <Property Name="Top" Value="315"/>
+          <Property Name="Width" Value="30"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_US2">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="707"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="27"/>
+          <Property Name="TextSource" Value="SingleText"/>
+          <Property Name="Top" Value="209"/>
+          <Property Name="Width" Value="34"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_A1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0200OpsGen.tyTxtLane.usiValueIdx]"/>
+          <Property Name="Left" Value="740"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSAComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[T2030_SMEMAText]"/>
+          <Property Name="TextIndexOffset" Value="58"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="260"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_USCommOut3">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[SMEMA]"/>
+          <Property Name="BitmapIndex" Value="10"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBOut1.usiValueIdx]"/>
+          <Property Name="Left" Value="712"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBOut1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="127"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_USCommIn3">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[SMEMA]"/>
+          <Property Name="BitmapIndex" Value="0"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="25"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBIn1.usiValueIdx]"/>
+          <Property Name="Left" Value="712"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBIn1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="72"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Bitmap_CommB1">
+          <Property Name="BitmapGroup" Value="Source[local].BitmapGroup[Operation]"/>
+          <Property Name="BitmapIndex" Value="22"/>
+          <Property Name="BitmapSource" Value="MultipleBitmaps"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="23"/>
+          <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm1.usiValueIdx]"/>
+          <Property Name="Left" Value="707"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Transparent]"/>
+          <Property Name="Top" Value="163"/>
+          <Property Name="Width" Value="30"/>
+        </Control>
+        <Control ClassId="0x00001005" Name="Mask_BitmapComm3">
+          <Property Name="Bitmap" Value="None"/>
+          <Property Name="BitmapSource" Value="SingleBitmap"/>
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Height" Value="23"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="707"/>
+          <Property Name="SimulationValue" Value="0"/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm1.uiMaskRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
+          <Property Name="Top" Value="163"/>
+          <Property Name="Width" Value="30"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_DSA1">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="Font" Value="Source[local].Font[SubHeaderFont]"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="IndexDatapoint" Value="None"/>
+          <Property Name="Left" Value="740"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
+          <Property Name="TextGroup" Value="Source[global].TextGroup[T2030_SMEMAText]"/>
+          <Property Name="TextIndexOffset" Value="59"/>
+          <Property Name="TextSource" Value="MultipleTexts"/>
+          <Property Name="Top" Value="105"/>
+          <Property Name="Width" Value="20"/>
+        </Control>
+        <Control ClassId="0x00001004" Name="Text_US3">
+          <Property Name="ControlID" Value="0"/>
+          <Property Name="Description" Value=""/>
+          <Property Name="FillStyle" Value="Transparent"/>
+          <Property Name="Height" Value="20"/>
+          <Property Name="Left" Value="702"/>
+          <Property Name="SimulationIndex" Value="0"/>
+          <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0003Gen.tyBitmapUSBComm1.uiRtStat]"/>
+          <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Header]"/>
+          <Property Name="TextGroup" Value="Source[embedded].TextGroup"/>
+          <Property Name="TextIndexOffset" Value="32"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="50"/>
           <Property Name="Width" Value="34"/>

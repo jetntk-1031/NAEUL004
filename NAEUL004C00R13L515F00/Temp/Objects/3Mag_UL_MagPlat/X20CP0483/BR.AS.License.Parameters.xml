@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Parameters>
+  <Connection>
+    <DeviceParameters>/IF=tcpip /LOPO=11159 /SA=1</DeviceParameters>
+    <ConnectionParameters>/COMT=2500 /AM=* /DAIP=192.168.0.10 /REPO=11159 /ANSL=1</ConnectionParameters>
+  </Connection>
+  <AsProject>
+    <ApjFullFileName>C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\NAEUL004C00R13L518F00.apj</ApjFullFileName>
+    <ProjectName>NAEUL004C00R13L518F00</ProjectName>
+    <ActiveConfigurationName>3Mag_UL_MagPlat</ActiveConfigurationName>
+    <LicenseDataFolder>C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\3Mag_UL_MagPlat\X20CP0483</LicenseDataFolder>
+  </AsProject>
+  <General>
+    <DeleteParameterFile>false</DeleteParameterFile>
+  </General>
+</Parameters>

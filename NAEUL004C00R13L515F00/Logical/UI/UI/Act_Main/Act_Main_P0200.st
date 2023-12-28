@@ -1,5 +1,67 @@
 (** 2018-12-21 **)
 ACTION Act_Main_P0200:
+		//Conveyor Direction - SMEMA Arrow Indicator
+	IF p_tyNtParamCurr.bUIConvDirRL THEN
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSIn.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSOut.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyTxtLane.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyHotspotUSAVSMEMA.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm.uiMaskRtStat));
+		
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSIn.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSOut.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyTxtLane.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyHotspotUSBVSMEMA.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm.uiMaskRtStat));
+
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSIn1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSOut1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyTxtLane1.uiRtStat));
+		//	fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyHotspotUSAVSMEMA1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm1.uiMaskRtStat));
+		
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSIn1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSOut1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyTxtLane1.uiRtStat));
+		//	fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyHotspotUSBVSMEMA1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm1.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm1.uiMaskRtStat));
+	
+	ELSE
+
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSIn.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSOut.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyTxtLane.uiRtStat));
+		//		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyHotspotUSAVSMEMA.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm.uiMaskRtStat));
+		
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSIn.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSOut.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyTxtLane.uiRtStat));
+		//	fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyHotspotUSBVSMEMA.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm.uiRtStat));
+		fUIInRtStatOff(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm.uiMaskRtStat));
+
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSIn1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSOut1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyTxtLane1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyHotspotUSAVSMEMA1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyOps.tyBitmapUSAComm1.uiMaskRtStat));
+		
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSIn1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSOut1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyTxtLane1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyHotspotUSBVSMEMA1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm1.uiRtStat));
+		fUIInRtStatHide(ADR(tyP0200OpsGen.tyUSCommB.tyBitmapUSBComm1.uiMaskRtStat));
+	
+	END_IF
+	
 	
 	//Display L to R
 	tyP0200OpsGen.tyOps.tyHotspotOpsMagInfo.uiRtStat.0	:= p_tyNtParamCurr.bUIConvDirRL = TRUE;
