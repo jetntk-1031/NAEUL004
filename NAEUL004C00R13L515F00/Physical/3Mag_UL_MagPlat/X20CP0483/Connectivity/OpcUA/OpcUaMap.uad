@@ -115,6 +115,10 @@
           <Variable Name="bMngRcpEn" />
           <Variable Name="bLiveData" />
           <Variable Name="bLFEn" />
+          <Variable Name="bSectionLeaderEn" />
+          <Variable Name="sMcAlmMsg" />
+          <Variable Name="bBlkUS" />
+          <Variable Name="bBlkDS" />
         </Variable>
       </Task>
     </Module>

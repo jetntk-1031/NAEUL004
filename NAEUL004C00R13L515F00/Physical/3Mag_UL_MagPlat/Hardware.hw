@@ -175,6 +175,11 @@
     <Parameter ID="FtpUserPassword3" Value="W4lkF6NjcyaB1sRdLwIoSAlqHoAE4GimWQdq7pKTzbA=" Description="LCS" />
     <Parameter ID="FtpUserSalt3" Value="f3H7b7h0" />
     <Parameter ID="FTPMSpath3" Value="User\LCS" />
+    <Group ID="FtpUser4" />
+    <Parameter ID="FtpUsername4" Value="user" />
+    <Parameter ID="FtpUserPassword4" Value="aIGm/evksyHJRue4841xDUns9BsVPAD8aaNpA7aBGks=" Description="user" />
+    <Parameter ID="FtpUserSalt4" Value="o5eEPKTD" />
+    <Parameter ID="FTPMSpath4" Value="User\ProductRecipeXml" />
     <Parameter ID="ActivateOpcUa" Value="1" />
     <Parameter ID="OpcUa_ConversationSecurityPolicy_EnableBasic256Rsa256" Value="0" />
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />

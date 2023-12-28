@@ -1,8 +1,0 @@
-$(AS_PROJECT_PATH)/Logical/NtLibraries/NtOpConXML/NtOpConXML.fun
-$(AS_PROJECT_PATH)/Logical/NtLibraries/NtOpConXML/Types.typ
-$(AS_PROJECT_PATH)/Logical/NtLibraries/NtMessage/Types.typ
-$(AS_PROJECT_PATH)/Logical/Libraries/astime/astime.typ
-$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
-$(AS_PROJECT_PATH)/Logical/NtLibraries/NtGeneral/NtGeneral.fun
-$(AS_PROJECT_PATH)/Logical/NtLibraries/NtHermes/NtHermes.fun
-$(AS_PROJECT_PATH)/Logical/Libraries/asstring/asstring.fun
