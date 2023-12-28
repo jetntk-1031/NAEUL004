@@ -1,7 +1,122 @@
 (** 2019-07-03 **)
 ACTION Act_Main:
+
 	
-	IF eStatOld <> eStat THEN
+	fbMagPresentTm(IN := tylocalBuffer.In.bMagPresentSensor);
+	
+	//Update Retain
+	IF bUpdateSensor = TRUE THEN
+		tylocalBuffer.Out.bMagPresent	:= fbMagPresentTm.Q;
+	END_IF
+	
+	//Display Buffer
+	IF bUpdtDisplay = TRUE THEN
+		fDispBffrDescending(ADR(tylocalBuffer.In.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
+	END_IF
+	
+	//Cooling Fan Control
+	IF tylocalBuffer.In.bManual = TRUE THEN
+		;
+		
+	ELSIF bCoolFanRun = TRUE AND tylocalBuffer.In.bPrepCoolFan = TRUE AND bCoolFanTm = TRUE THEN //Cooling Fan Control By Cooling Time
+		
+		fbCoolFanOffChkTm(IN := TRUE);
+		
+		IF fbCoolFanOffChkTm.Q = TRUE THEN
+			IF fBffrChkCoolBrdAny(tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tyBuffer) = 0 THEN
+				fbCoolFanOffDlyTm.IN	:= TRUE;
+			ELSE
+				fbCoolFanOffDlyTm.IN	:= FALSE;
+				tylocalBuffer.Out.bCoolFanCtrl			:= TRUE;
+			END_IF
+			
+			fbCoolFanOffChkTm(IN := FALSE);
+		END_IF
+		
+		fbCoolFanOffDlyTm;
+		
+		IF fbCoolFanOffDlyTm.Q = TRUE THEN
+			tylocalBuffer.Out.bCoolFanCtrl	:= FALSE;
+		END_IF
+		
+	ELSIF bCoolFanRun = TRUE AND tylocalBuffer.In.bPrepCoolFan = TRUE AND bCoolFanTm = FALSE THEN	//Cooling Fan Control By Buffer Empty
+		fbCoolFanOffDlyTm(IN := tylocalBuffer.In.tyBufferStat.bBffrMty);
+		
+		IF tylocalBuffer.In.tyBufferStat.bBffrMty = FALSE THEN
+			tylocalBuffer.Out.bCoolFanCtrl	:= TRUE;
+		END_IF
+		
+		IF fbCoolFanOffDlyTm.Q = TRUE THEN
+			tylocalBuffer.Out.bCoolFanCtrl	:= FALSE;
+		END_IF
+		
+	ELSE
+		
+		tylocalBuffer.Out.bCoolFanCtrl	:= FALSE;
+		
+	END_IF
+	
+	//Set Buffer By Magazine Present
+	IF bBffrSetFull = TRUE THEN
+		IF tylocalBuffer.In.bMagPresentSensor = TRUE AND fbMagAbsentTm.Q = TRUE THEN
+			bSetFull		:= TRUE;
+			tylocalBuffer.Out.dtMagPresentTm	:= tylocalBuffer.In.dtCurrDT;
+		END_IF
+		
+		IF bSetFull = TRUE  THEN
+			tylocalBuffer.In.eAct	:= BufferActSetFull;
+			
+			IF eStatus = Done AND eStat = BufferActSetFull THEN
+				tylocalBuffer.In.eAct		:= BufferActIdle;
+				bSetFull	:= FALSE;
+			ELSIF eStatus = Error THEN
+				bSetFull	:= FALSE;
+			END_IF
+		END_IF
+		
+		fbMagAbsentTm(IN := NOT tylocalBuffer.In.bMagPresentSensor);
+		
+	ELSIF bBffrSetMty = TRUE THEN
+		IF tylocalBuffer.In.bMagPresentSensor = TRUE AND fbMagAbsentTm.Q = TRUE THEN
+			bSetMty			:= TRUE;
+			tylocalBuffer.Out.dtMagPresentTm	:= tylocalBuffer.In.dtCurrDT;
+		END_IF
+		
+		IF bSetMty = TRUE  THEN
+			tylocalBuffer.In.eAct	:= BufferActSetMty;
+			
+			IF eStatus = Done AND eStat = BufferActSetMty THEN
+				tylocalBuffer.In.eAct	:= BufferActIdle;
+				bSetMty	:= FALSE;
+			ELSIF eStatus = Error THEN
+				bSetMty	:= FALSE;
+			END_IF
+		END_IF
+		
+		fbMagAbsentTm(IN := NOT tylocalBuffer.In.bMagPresentSensor);
+		
+	END_IF
+	//background--end//
+	
+	
+	//Check Parameter Different
+	tylocalBuffer.Out.bParamDiff	:= (tyBffrParameter.bAscending <> tylocalBuffer.In.bAscending)
+	OR (tyBffrParameter.diMinSlt <> tylocalBuffer.In.diMinSlt)
+	OR (tyBffrParameter.diMaxSlt <> tylocalBuffer.In.diMaxSlt)
+	OR (tyBffrParameter.diPitch <> tylocalBuffer.In.diPitch)
+	OR (tyBffrParameter.diSltCap <> tylocalBuffer.In.diSltCap)
+	OR (tylocalBuffer.Out.bFIFOOld <> tylocalBuffer.In.bFIFO);
+	
+	//Update MagRemoved
+	tylocalBuffer.Out.bMagRemoved	:= fbMagAbsentTm.Q;	
+	
+
+	//Action
+	IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy OR tylocalBuffer.Out.eStatus = Done THEN
+		tylocalBuffer.Out.eStat	:= tylocalBuffer.In.eAct;
+	END_IF
+	
+	IF eStatOld <> tylocalBuffer.Out.eStat THEN
 		fbDirCreate1(bEn := FALSE);
 		fbDirCreate2(bEn := FALSE);
 		fbFileRead1(bEn := FALSE);
@@ -13,23 +128,24 @@ ACTION Act_Main:
 		bLastProductUnload		:= FALSE;
 		bLastProductLeftInBffr	:= FALSE;
 			
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalBuffer.Out.sStatTxt	:= a_sStatText[tylocalBuffer.Out.eStat];
 		
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalBuffer.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalBuffer.Out.eStatus		:= Busy;
 	END_IF
 	
+
 	//Main
-	CASE eStat OF
+	CASE tylocalBuffer.Out.eStat OF
 		
 		BufferActIdle:
-			eStatus	:= Idle;
+			tylocalBuffer.Out.eStatus	:= Idle;
 		
 		BufferActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:			
@@ -37,7 +153,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalBuffer.Out.eStatus		:= Error;
 							
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Create User Directory Error
@@ -49,9 +165,9 @@ ACTION Act_Main:
 					1:			
 						fbDirCreate2(bEn := TRUE);
 						IF fbDirCreate2.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalBuffer.Out.eStatus		:= Error;
 							
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Create Retain Directory Error
@@ -65,22 +181,22 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActGetRetainBffr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				fbFileRead1(bEn := TRUE);
 				IF fbFileRead1.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalBuffer.Out.eStatus	:= Done;
 					
-					tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-					tyBffrParameter.diSltCap		:= p_diSltCap;
+					tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+					tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-					fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-					fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+					fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+					fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 				ELSIF fbFileRead1.udiStatus < 65534 THEN
-					eStatus	:= Error;
+					tylocalBuffer.Out.eStatus	:= Error;
 				
 					IF fbFileRead1.udiStatus = 1900 THEN
 						udiStatus	:= 10002;	//File Open Error While Reading Retain File
@@ -89,7 +205,7 @@ ACTION Act_Main:
 					ELSIF fbFileRead1.udiStatus = 1904 THEN
 						udiStatus	:= 10004;	//File Close Error While Reading Retain File
 					ELSIF fbFileRead1.udiStatus = 1915 THEN
-						eStatus			:= Done;
+						tylocalBuffer.Out.eStatus			:= Done;
 						bFileNotFound	:= TRUE;
 					ELSE
 						udiStatus	:= fbFileRead1.udiStatus;
@@ -99,31 +215,31 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActSetFull:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						tyBffrParameter.bAscending		:= p_bAscending;
-						tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-						tyBffrParameter.diMaxSlt		:= p_diMaxSlt;
-						tyBffrParameter.diMinSlt		:= p_diMinSlt;
-						tyBffrParameter.diPitch			:= p_diPitch;
-						tyBffrParameter.diSltCap		:= p_diSltCap;
-						tyBffrParameter.a_bSkip			:= pa_bSkip;
-						bFIFOOld						:= p_bFIFO;
+						tyBffrParameter.bAscending		:= tylocalBuffer.In.bAscending;
+						tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+						tyBffrParameter.diMaxSlt		:= tylocalBuffer.In.diMaxSlt;
+						tyBffrParameter.diMinSlt		:= tylocalBuffer.In.diMinSlt;
+						tyBffrParameter.diPitch			:= tylocalBuffer.In.diPitch;
+						tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
+						tyBffrParameter.a_bSkip			:= tylocalBuffer.In.a_bSkip;
+						tylocalBuffer.Out.bFIFOOld		:= tylocalBuffer.In.bFIFO;
 		
-						udiStatus	:= fBffrSetFull(ADR(p_tyBuffer) , tyBffrParameter , p_dtCurrDT , p_sBffrNm , p_sProdNm);
+						udiStatus	:= fBffrSetFull(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , tyBffrParameter , tylocalBuffer.In.dtCurrDT , tylocalBuffer.In.sBffrNm , tylocalBuffer.In.sProdNm);
 				
 						IF udiStatus = 0 THEN
 							usiStep	:= 1;
 					
-							fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-							fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+							fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+							fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 						ELSE
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 						END_IF
 				
@@ -131,9 +247,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10005;	//File Open Error While Setting Full Buffer
@@ -155,31 +271,31 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActSetMty:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						tyBffrParameter.bAscending		:= p_bAscending;
-						tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-						tyBffrParameter.diMaxSlt		:= p_diMaxSlt;
-						tyBffrParameter.diMinSlt		:= p_diMinSlt;
-						tyBffrParameter.diPitch			:= p_diPitch;
-						tyBffrParameter.diSltCap		:= p_diSltCap;
-						tyBffrParameter.a_bSkip			:= pa_bSkip;
-						bFIFOOld						:= p_bFIFO;
+						tyBffrParameter.bAscending		:= tylocalBuffer.In.bAscending;
+						tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+						tyBffrParameter.diMaxSlt		:= tylocalBuffer.In.diMaxSlt;
+						tyBffrParameter.diMinSlt		:= tylocalBuffer.In.diMinSlt;
+						tyBffrParameter.diPitch			:= tylocalBuffer.In.diPitch;
+						tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
+						tyBffrParameter.a_bSkip			:= tylocalBuffer.In.a_bSkip;
+						tylocalBuffer.Out.bFIFOOld						:= tylocalBuffer.In.bFIFO;
 		
-						udiStatus	:= fBffrSetMty(ADR(p_tyBuffer) , tyBffrParameter , p_sBffrNm);
+						udiStatus	:= fBffrSetMty(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , tyBffrParameter , tylocalBuffer.In.sBffrNm);
 				
 						IF udiStatus = 0 THEN
 							usiStep	:= 1;
 					
-							fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-							fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+							fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+							fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 						ELSE
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 						END_IF
 				
@@ -187,9 +303,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10009;	//File Open Error While Setting Empty Buffer
@@ -211,27 +327,27 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActLoad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						udiStatus	:= fBffrLoad(ADR(p_tyBuffer) , ADR(bNewProduct) , diCurrSlt , p_dtCurrDT , p_bGdBrdIn , p_sProdNm , p_sBarcode1 , p_sBarcode2);
+						udiStatus	:= fBffrLoad(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bNewProduct) , tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.dtCurrDT , tylocalBuffer.In.bGdBrdIn , tylocalBuffer.In.sProdNm , tylocalBuffer.In.sBarcode1 , tylocalBuffer.In.sBarcode2);
 				
 						IF udiStatus = 0 THEN
 							usiStep	:= 1;
 					
-							tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-							tyBffrParameter.diSltCap		:= p_diSltCap;
+							tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+							tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-							fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-							fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+							fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+							fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 						ELSE
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 							
 							IF udiStatus = 1010 THEN
 								udiStatus	:= 10076;	//Loading Slot Is Not For Board
@@ -257,9 +373,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10013;	//File Open Error While Loading Info To Buffer
@@ -281,38 +397,38 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActLoadSltChk:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						IF p_bNxtLoadSeq = TRUE AND p_bGdBrdIn = TRUE THEN
-							diExpectedSlt	:= fBffrNxtLoadSeqGd(p_bAscending , p_tyBuffer);
-						ELSIF p_bNxtLoadSeq = TRUE AND p_bGdBrdIn = FALSE THEN
-							diExpectedSlt	:= fBffrNxtLoadSeqBad(p_bAscending , p_tyBuffer);
-						ELSIF p_bNxtLoadSeq = FALSE AND p_bGdBrdIn = TRUE THEN
-							diExpectedSlt	:= fBffrNxtLoadNearbyGd(diCurrSlt , p_tyBuffer);
+						IF tylocalBuffer.In.bNxtLoadSeq = TRUE AND tylocalBuffer.In.bGdBrdIn = TRUE THEN
+							diExpectedSlt	:= fBffrNxtLoadSeqGd(tylocalBuffer.In.bAscending , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+						ELSIF tylocalBuffer.In.bNxtLoadSeq = TRUE AND tylocalBuffer.In.bGdBrdIn = FALSE THEN
+							diExpectedSlt	:= fBffrNxtLoadSeqBad(tylocalBuffer.In.bAscending , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+						ELSIF tylocalBuffer.In.bNxtLoadSeq = FALSE AND tylocalBuffer.In.bGdBrdIn = TRUE THEN
+							diExpectedSlt	:= fBffrNxtLoadNearbyGd(tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 						ELSE
-							diExpectedSlt	:= fBffrNxtLoadNearbyBad(diCurrSlt , p_tyBuffer);
+							diExpectedSlt	:= fBffrNxtLoadNearbyBad(tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 						END_IF
 				
-						IF diCurrSlt = diExpectedSlt THEN
-							udiStatus	:= fBffrLoad(ADR(p_tyBuffer) , ADR(bNewProduct) , diCurrSlt , p_dtCurrDT , p_bGdBrdIn , p_sProdNm , p_sBarcode1 , p_sBarcode2);
+						IF tyLocalBuffer.Out.diCurrSlt = diExpectedSlt THEN
+							udiStatus	:= fBffrLoad(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bNewProduct) , tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.dtCurrDT , tylocalBuffer.In.bGdBrdIn , tylocalBuffer.In.sProdNm , tylocalBuffer.In.sBarcode1 , tylocalBuffer.In.sBarcode2);
 					
 							IF udiStatus = 0 THEN
 								usiStep	:= 1;
 						
-								tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-								tyBffrParameter.diSltCap		:= p_diSltCap;
+								tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+								tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-								fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-								fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+								fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+								fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 							ELSE
-								eStatus	:= Error;
+								tylocalBuffer.Out.eStatus	:= Error;
 						
 								IF udiStatus = 1010 THEN
 									udiStatus	:= 10084;	//Loading Slot Is Not For Board
@@ -336,7 +452,7 @@ ACTION Act_Main:
 					
 						ELSE
 							udiStatus	:= 10017;	//Wrong Slot Number To Load
-							eStatus		:= Error;
+							tylocalBuffer.Out.eStatus		:= Error;
 					
 						END_IF
 				
@@ -344,9 +460,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10018;	//File Open Error While Loading Info To Buffer With Slot Check
@@ -368,31 +484,31 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActUnload:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						udiStatus	:= fBffrUnload(ADR(tyBoardUnloadStat) , ADR(p_tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , diCurrSlt);
+						udiStatus	:= fBffrUnload(ADR(tylocalBuffer.Out.tyBoardUnloadStat) , ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , tyLocalBuffer.Out.diCurrSlt);
 					
-						IF p_sCurrRcpNm = tyBoardUnloadStat.sProdNm THEN
+						IF tylocalBuffer.In.sCurrRcpNm = tylocalBuffer.Out.tyBoardUnloadStat.sProdNm THEN
 							bLastProductUnload	:= FALSE;
 						END_IF
 						
 						IF udiStatus = 0 THEN
 							usiStep	:= 1;
 						
-							tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-							tyBffrParameter.diSltCap		:= p_diSltCap;
+							tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+							tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-							fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-							fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+							fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+							fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 						ELSE
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 						
 							IF udiStatus = 1000 THEN
 								udiStatus	:= 10048;	//Unloading Slot Is Skipped While Unloading Buffer
@@ -416,9 +532,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10022;	//File Open Error While Unloading Info From Buffer
@@ -440,42 +556,42 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActUnloadSltChk:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						IF p_bFIFO = TRUE AND p_bGdBrdReq = TRUE THEN
-							diExpectedSlt	:= fBffrNxtUnloadFIFOGd(p_tyBuffer , '');
-						ELSIF p_bFIFO = TRUE AND p_bGdBrdReq = FALSE THEN
-							diExpectedSlt	:= fBffrNxtUnloadFIFOBad(p_tyBuffer , '');
-						ELSIF p_bFIFO = FALSE AND p_bGdBrdReq = TRUE THEN
-							diExpectedSlt	:= fBffrNxtUnloadLIFOGd(p_tyBuffer , '');
+						IF tylocalBuffer.In.bFIFO = TRUE AND tylocalBuffer.In.bGdBrdReq = TRUE THEN
+							diExpectedSlt	:= fBffrNxtUnloadFIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
+						ELSIF tylocalBuffer.In.bFIFO = TRUE AND tylocalBuffer.In.bGdBrdReq = FALSE THEN
+							diExpectedSlt	:= fBffrNxtUnloadFIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
+						ELSIF tylocalBuffer.In.bFIFO = FALSE AND tylocalBuffer.In.bGdBrdReq = TRUE THEN
+							diExpectedSlt	:= fBffrNxtUnloadLIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 						ELSE
-							diExpectedSlt	:= fBffrNxtUnloadLIFOBad(p_tyBuffer , '');
+							diExpectedSlt	:= fBffrNxtUnloadLIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 						END_IF
 				
-						IF diCurrSlt = diExpectedSlt THEN
-							udiStatus	:= fBffrUnload(ADR(tyBoardUnloadStat) , ADR(p_tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , diCurrSlt);
+						IF tyLocalBuffer.Out.diCurrSlt = diExpectedSlt THEN
+							udiStatus	:= fBffrUnload(ADR(tylocalBuffer.Out.tyBoardUnloadStat) , ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , tyLocalBuffer.Out.diCurrSlt);
 					
-							IF p_sCurrRcpNm = tyBoardUnloadStat.sProdNm THEN
+							IF tylocalBuffer.In.sCurrRcpNm = tylocalBuffer.Out.tyBoardUnloadStat.sProdNm THEN
 								bLastProductUnload	:= FALSE;
 							END_IF
 						
 							IF udiStatus = 0 THEN
 								usiStep	:= 1;
 						
-								tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-								tyBffrParameter.diSltCap		:= p_diSltCap;
+								tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+								tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-								fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-								fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+								fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+								fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 							ELSE
-								eStatus	:= Error;
+								tylocalBuffer.Out.eStatus	:= Error;
 						
 								IF udiStatus = 1000 THEN
 									udiStatus	:= 10055;	//Unloading Slot Is Skipped While Unloading Buffer With Slot Check
@@ -497,7 +613,7 @@ ACTION Act_Main:
 					
 						ELSE
 							udiStatus	:= 10026;	//Wrong Slot Number To Unload
-							eStatus		:= Error;
+							tylocalBuffer.Out.eStatus		:= Error;
 					
 						END_IF
 				
@@ -505,9 +621,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10027;	//File Open Error While Unloading Info From Buffer With Slot Check
@@ -529,34 +645,34 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActUnloadCoolChk:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(diCurrSlt, p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+						tylocalBuffer.Out.bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(tyLocalBuffer.Out.diCurrSlt, tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				
-						IF bCoolNotRdy = FALSE THEN
-							udiStatus	:= fBffrUnload(ADR(tyBoardUnloadStat) , ADR(p_tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , diCurrSlt);
+						IF tylocalBuffer.Out.bCoolNotRdy = FALSE THEN
+							udiStatus	:= fBffrUnload(ADR(tylocalBuffer.Out.tyBoardUnloadStat) , ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , tyLocalBuffer.Out.diCurrSlt);
 					
-							IF p_sCurrRcpNm = tyBoardUnloadStat.sProdNm THEN
+							IF tylocalBuffer.In.sCurrRcpNm = tylocalBuffer.Out.tyBoardUnloadStat.sProdNm THEN
 								bLastProductUnload	:= FALSE;
 							END_IF
 						
 							IF udiStatus = 0 THEN
 								usiStep	:= 1;
 						
-								tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-								tyBffrParameter.diSltCap		:= p_diSltCap;
+								tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+								tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-								fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-								fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+								fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+								fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 							ELSE
-								eStatus	:= Error;
+								tylocalBuffer.Out.eStatus	:= Error;
 						
 								IF udiStatus = 1000 THEN
 									udiStatus	:= 10062;	//Unloading Slot Is Skipped While Unloading Buffer With Cool Check
@@ -577,7 +693,7 @@ ACTION Act_Main:
 							END_IF
 					
 						ELSE
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 					
 						END_IF
 				
@@ -585,9 +701,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10031;	//File Open Error While Unloading Info From Buffer With Cooling Time Check
@@ -609,45 +725,45 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActUnloadSltChkCoolChk:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalBuffer.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	
-						diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+						tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 				
-						IF p_bFIFO = TRUE AND p_bGdBrdReq = TRUE THEN
-							diExpectedSlt	:= fBffrNxtUnloadFIFOGd(p_tyBuffer , '');
-						ELSIF p_bFIFO = TRUE AND p_bGdBrdReq = FALSE THEN
-							diExpectedSlt	:= fBffrNxtUnloadFIFOBad(p_tyBuffer , '');
-						ELSIF p_bFIFO = FALSE AND p_bGdBrdReq = TRUE THEN
-							diExpectedSlt	:= fBffrNxtUnloadLIFOGd(p_tyBuffer , '');
+						IF tylocalBuffer.In.bFIFO = TRUE AND tylocalBuffer.In.bGdBrdReq = TRUE THEN
+							diExpectedSlt	:= fBffrNxtUnloadFIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
+						ELSIF tylocalBuffer.In.bFIFO = TRUE AND tylocalBuffer.In.bGdBrdReq = FALSE THEN
+							diExpectedSlt	:= fBffrNxtUnloadFIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
+						ELSIF tylocalBuffer.In.bFIFO = FALSE AND tylocalBuffer.In.bGdBrdReq = TRUE THEN
+							diExpectedSlt	:= fBffrNxtUnloadLIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 						ELSE
-							diExpectedSlt	:= fBffrNxtUnloadLIFOBad(p_tyBuffer , '');
+							diExpectedSlt	:= fBffrNxtUnloadLIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 						END_IF
 				
-						IF diCurrSlt = diExpectedSlt THEN
-							bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(diCurrSlt, p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+						IF tyLocalBuffer.Out.diCurrSlt = diExpectedSlt THEN
+							tylocalBuffer.Out.bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(tyLocalBuffer.Out.diCurrSlt, tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 					
-							IF bCoolNotRdy = FALSE THEN
-								udiStatus	:= fBffrUnload(ADR(tyBoardUnloadStat) , ADR(p_tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , diCurrSlt);
+							IF tylocalBuffer.Out.bCoolNotRdy = FALSE THEN
+								udiStatus	:= fBffrUnload(ADR(tylocalBuffer.Out.tyBoardUnloadStat) , ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , ADR(bLastProductUnload) , ADR(bLastProductLeftInBffr) , tyLocalBuffer.Out.diCurrSlt);
 						
-								IF p_sCurrRcpNm = tyBoardUnloadStat.sProdNm THEN
+								IF tylocalBuffer.In.sCurrRcpNm = tylocalBuffer.Out.tyBoardUnloadStat.sProdNm THEN
 									bLastProductUnload	:= FALSE;
 								END_IF
 						
 								IF udiStatus = 0 THEN
 									usiStep	:= 1;
 							
-									tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-									tyBffrParameter.diSltCap		:= p_diSltCap;
+									tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+									tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-									fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-									fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+									fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+									fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
 								ELSE
-									eStatus	:= Error;
+									tylocalBuffer.Out.eStatus	:= Error;
 							
 									IF udiStatus = 1000 THEN
 										udiStatus	:= 10069;	//Unloading Slot Is Skipped While Unloading Buffer With Cool & Slot Check
@@ -668,13 +784,13 @@ ACTION Act_Main:
 								END_IF
 						
 							ELSE
-								eStatus	:= Done;
+								tylocalBuffer.Out.eStatus	:= Done;
 						
 							END_IF
 					
 						ELSE
 							udiStatus	:= 10035;	//Wrong Slot Number To Unload With Cooling Time Check
-							eStatus		:= Error;
+							tylocalBuffer.Out.eStatus		:= Error;
 					
 						END_IF
 				
@@ -682,9 +798,9 @@ ACTION Act_Main:
 						fbFileWrite1(bEn := TRUE);
 				
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalBuffer.Out.eStatus	:= Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalBuffer.Out.eStatus	:= Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10036;	//File Open Error While Unloading Info From Buffer With Slot Check And Cooling Time Check
@@ -706,214 +822,214 @@ ACTION Act_Main:
 			END_IF
 		
 		BufferActNxtLoad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+				tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 		
-				IF p_bNxtLoadSeq = TRUE THEN
-					diNxtLoadSlt	:= fBffrNxtLoadSeqAny(p_bAscending , p_tyBuffer);
+				IF tylocalBuffer.In.bNxtLoadSeq = TRUE THEN
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadSeqAny(tylocalBuffer.In.bAscending , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				ELSE
-					diNxtLoadSlt	:= fBffrNxtLoadNearbyAny(diCurrSlt , p_tyBuffer);
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadNearbyAny(tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActNxtLoadGd:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+				tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 		
-				IF p_bNxtLoadSeq = TRUE THEN
-					diNxtLoadSlt	:= fBffrNxtLoadSeqGd(p_bAscending , p_tyBuffer);
+				IF tylocalBuffer.In.bNxtLoadSeq = TRUE THEN
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadSeqGd(tylocalBuffer.In.bAscending , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				ELSE
-					diNxtLoadSlt	:= fBffrNxtLoadNearbyGd(diCurrSlt , p_tyBuffer);
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadNearbyGd(tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActNxtLoadBad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+				tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 		
-				IF p_bNxtLoadSeq = TRUE THEN
-					diNxtLoadSlt	:= fBffrNxtLoadSeqBad(p_bAscending , p_tyBuffer);
+				IF tylocalBuffer.In.bNxtLoadSeq = TRUE THEN
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadSeqBad(tylocalBuffer.In.bAscending , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				ELSE
-					diNxtLoadSlt	:= fBffrNxtLoadNearbyBad(diCurrSlt , p_tyBuffer);
+					tylocalBuffer.Out.diNxtLoadSlt	:= fBffrNxtLoadNearbyBad(tyLocalBuffer.Out.diCurrSlt , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActNxtUnload:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				IF p_bFIFO = TRUE THEN
-					diNxtUnloadSlt	:= fBffrNxtUnloadFIFOAny(p_tyBuffer , '');
+				IF tylocalBuffer.In.bFIFO = TRUE THEN
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadFIFOAny(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				ELSE
-					diNxtUnloadSlt	:= fBffrNxtUnloadLIFOAny(p_tyBuffer , '');
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadLIFOAny(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActNxtUnloadGd:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				IF p_bFIFO = TRUE THEN
-					diNxtUnloadSlt	:= fBffrNxtUnloadFIFOGd(p_tyBuffer , '');
+				IF tylocalBuffer.In.bFIFO = TRUE THEN
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadFIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				ELSE
-					diNxtUnloadSlt	:= fBffrNxtUnloadLIFOGd(p_tyBuffer , '');
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadLIFOGd(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActNxtUnloadBad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				IF p_bFIFO = TRUE THEN
-					diNxtUnloadSlt	:= fBffrNxtUnloadFIFOBad(p_tyBuffer , '');
+				IF tylocalBuffer.In.bFIFO = TRUE THEN
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadFIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				ELSE
-					diNxtUnloadSlt	:= fBffrNxtUnloadLIFOBad(p_tyBuffer , '');
+					tylocalBuffer.Out.diNxtUnloadSlt	:= fBffrNxtUnloadLIFOBad(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , '');
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActChkCoolTm:		
-			diCurrSlt	:= fLifterPosInUMToSltBtmMin(p_diLifterCurrPosInUM , p_diSltToSltInUM , p_diLifterBtmPosInUM);
+			tyLocalBuffer.Out.diCurrSlt	:= fLifterPosInUMToSltBtmMin(tylocalBuffer.In.diLifterCurrPosInUM , tylocalBuffer.In.diSltToSltInUM , tylocalBuffer.In.diLifterBtmPosInUM);
 		
-			bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(diCurrSlt, p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+			tylocalBuffer.Out.bCoolNotRdy	:= NOT fBffrChkCoolTmRdy(tyLocalBuffer.Out.diCurrSlt, tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 			
-			eStatus	:= Done;
+			tylocalBuffer.Out.eStatus	:= Done;
 		
 		BufferActChkCoolBrdAny:		
-			diCoolBrdAny	:= fBffrChkCoolBrdAny(p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+			tylocalBuffer.Out.diCoolBrdAny	:= fBffrChkCoolBrdAny(tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 			
-			eStatus	:= Done;
+			tylocalBuffer.Out.eStatus	:= Done;
 		
 		BufferActChkCoolBrdGd:		
-			diCoolBrdGd		:= fBffrChkCoolBrdGd(p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+			tylocalBuffer.Out.diCoolBrdGd		:= fBffrChkCoolBrdGd(tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 			
-			eStatus	:= Done;
+			tylocalBuffer.Out.eStatus	:= Done;
 		
 		BufferActChkCoolBrdBad:		
-			diCoolBrdBad	:= fBffrChkCoolBrdBad(p_dtCurrDT, DINT_TO_TIME(p_diCoolTm), p_tyBuffer);
+			tylocalBuffer.Out.diCoolBrdBad	:= fBffrChkCoolBrdBad(tylocalBuffer.In.dtCurrDT, DINT_TO_TIME(tylocalBuffer.In.diCoolTm), tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
 			
-			eStatus	:= Done;
+			tylocalBuffer.Out.eStatus	:= Done;
 		
 		BufferActRstBffr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				tyBffrParameter.diBffrTtlSlt	:= p_diBffrTtlSlt;
-				tyBffrParameter.diSltCap		:= p_diSltCap;
+				tyBffrParameter.diBffrTtlSlt	:= tylocalBuffer.In.diBffrTtlSlt;
+				tyBffrParameter.diSltCap		:= tylocalBuffer.In.diSltCap;
 		
-				memset(ADR(p_tyBuffer) , 0 , SIZEOF(p_tyBuffer));
-				fBffrStat(ADR(p_tyBufferStat) , p_tyBuffer);
-				fDispBffrDescending(ADR(p_tyDispBuffer) , tyBffrParameter , p_tyBuffer , p_dtCurrDT , DINT_TO_TIME(p_diCoolTm) , 0 , 1 , 2);
+				memset(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer) , 0 , SIZEOF(tylocalBuffer.In.tylocalBuffer.Out.tyBuffer));
+				fBffrStat(ADR(tylocalBuffer.In.tylocalBuffer.Out.tylocalBuffer.Out.tyBufferStat) , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer);
+				fDispBffrDescending(ADR(tylocalBuffer.In.tylocalBuffer.Out.tyDispBuffer) , tyBffrParameter , tylocalBuffer.In.tylocalBuffer.Out.tyBuffer , tylocalBuffer.In.dtCurrDT , DINT_TO_TIME(tylocalBuffer.In.diCoolTm) , 0 , 1 , 2);
 					
-				eStatus	:= Done;
+				tylocalBuffer.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		BufferActSetCoolFan:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				bCoolFanCtrl	:= TRUE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.bCoolFanCtrl	:= TRUE;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActRstCoolFan:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
-				bCoolFanCtrl	:= FALSE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.bCoolFanCtrl	:= FALSE;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStartBffrSetFull:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bBffrSetFull	:= TRUE;
 				bBffrSetMty		:= FALSE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStartBffrSetMty:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bBffrSetFull	:= FALSE;
 				bBffrSetMty		:= TRUE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStopBffrSet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bBffrSetFull	:= FALSE;
 				bBffrSetMty		:= FALSE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStartUpdtSen:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bUpdateSensor	:= TRUE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStopUpdtSen:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bUpdateSensor	:= FALSE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStartUpdtDisplay:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bUpdtDisplay	:= TRUE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		BufferActBGStopUpdtDisplay:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bUpdtDisplay	:= FALSE;
-				eStatus			:= Done;
+				tylocalBuffer.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		
 		BufferActBGStartCoolFan:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bCoolFanRun	:= TRUE;
-				eStatus		:= Done;
+				tylocalBuffer.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		BufferActBGStopCoolFan:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalBuffer.Out.eStatus = Idle OR tylocalBuffer.Out.eStatus = Busy THEN
 		
 				bCoolFanRun	:= FALSE;
-				eStatus		:= Done;
+				tylocalBuffer.Out.eStatus		:= Done;
 				
 			END_IF
 		

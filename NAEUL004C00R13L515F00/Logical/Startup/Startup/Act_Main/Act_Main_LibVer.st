@@ -13,7 +13,7 @@ ACTION Act_Main_LibVer:
 			ELSIF p_eLibVerStatus = Error THEN
 				
 				eLibVerAct		:= LibVerActIdle;
-				eStartupStep1	:= StartupStepRecipe;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepRecipe;
 				
 			END_IF
 			
@@ -24,13 +24,13 @@ ACTION Act_Main_LibVer:
 				
 				eLibVerAct		:= LibVerActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepRecipe;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepRecipe;
 				
 			ELSIF p_eLibVerStatus = Error THEN
 				
 				eLibVerAct		:= LibVerActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepRecipe;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepRecipe;
 				
 			END_IF
 			

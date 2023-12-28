@@ -1,14 +1,91 @@
-(** 2019-03-22 **)
+
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+	fbSMEMA_Std.tRstDlyTm 		:= tylocalUSSMEMA.In.tRstDlyTm;
+	fbSMEMA_9851.tRstDlyTm  	:= tylocalUSSMEMA.In.tRstDlyTm;
+	fbSigInChk.tSigInChkTm		:= tylocalUSSMEMA.In.tSigInChkTm;
+	
+	//Timer Running
+	fbTimeTrig(CLK := tylocalUSSMEMA.In.bTimerEnSenEdge);
+	
+	IF tylocalUSSMEMA.Out.eStat = SMEMAActRun AND (tylocalUSSMEMA.In.bTimerEnSenEdge OR tylocalUSSMEMA.In.bTimerEnSen) THEN
+		IF fbTimeTrig.Q = TRUE OR tylocalUSSMEMA.In.bTimerEnSen THEN
+			fbTimerDlyTm.IN	:= TRUE;
+		END_IF
+	ELSE
+		fbTimerDlyTm.IN	:= FALSE;
+	END_IF
+	
+	IF tylocalUSSMEMA.Out.bConvStart = FALSE AND tylocalUSSMEMA.Out.bConvStop = FALSE THEN
+		fbTimerDlyTm;
+
+		IF fbTimerDlyTm.Q = TRUE AND tylocalUSSMEMA.Out.eStat = SMEMAActRun THEN
+			tylocalUSSMEMA.Out.bTimer		:= TRUE;
+			tylocalUSSMEMA.Out.bVirtual		:= FALSE;
+		ELSIF tylocalUSSMEMA.In.bVirtualEn = TRUE THEN
+			tylocalUSSMEMA.Out.bTimer		:= FALSE;
+			tylocalUSSMEMA.Out.bVirtual		:= TRUE;
+		ELSE
+			tylocalUSSMEMA.Out.bTimer		:= FALSE;
+			tylocalUSSMEMA.Out.bVirtual		:= FALSE;
+		END_IF
+	ELSE
+		fbTimerDlyTm(IN := FALSE);
+	END_IF
+	
+	IF tylocalUSSMEMA.Out.bTimer = TRUE THEN
+		
+		fbSigInChk.bNomSig			:= tylocalUSSMEMA.Out.bConvStart = FALSE AND tylocalUSSMEMA.Out.bConvStop = FALSE;
+		fbSigInChk.bStatSig			:= FALSE;
+		fbSigInChk.bStatSigSetGd	:= FALSE;
+	
+	ELSIF tylocalUSSMEMA.Out.bVirtual = TRUE THEN
+		
+		fbSigInChk.bNomSig	:= tylocalUSSMEMA.In.bUBAVirtual;
+	
+		IF tylocalUSSMEMA.In.tyParam.eSelection = SMEMASelIPC9851Ext THEN
+			fbSigInChk.bStatSig			:= tylocalUSSMEMA.In.bUBAStatVirtual;
+			fbSigInChk.bStatSigSetGd	:= tylocalUSSMEMA.In.tyParam.bStatSigSetGd;
+		ELSE
+			fbSigInChk.bStatSig			:= FALSE;
+			fbSigInChk.bStatSigSetGd	:= FALSE;
+		END_IF
+	
+	ELSE
+		
+		fbSigInChk.bNomSig	:= tylocalUSSMEMA.In.bUBA;
+	
+		IF tylocalUSSMEMA.In.tyParam.eSelection = SMEMASelIPC9851Ext THEN
+			fbSigInChk.bStatSig			:= tylocalUSSMEMA.In.bUBAStat;
+			fbSigInChk.bStatSigSetGd	:= tylocalUSSMEMA.In.tyParam.bStatSigSetGd;
+		ELSE
+			fbSigInChk.bStatSig			:= FALSE;
+			fbSigInChk.bStatSigSetGd	:= FALSE;
+		END_IF
+	
+	END_IF
+	
+	fbSigInChk;
+	
+	tylocalUSSMEMA.Out.bUSRdy		    := fbSigInChk.bSigInValid;
+	tylocalUSSMEMA.Out.bUSGdBrdRdy   	:= fbSigInChk.bGdBrd;
+	
+	
+	//Set p_eAct
+	IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy OR tylocalUSSMEMA.Out.eStatus = Done THEN
+		tylocalUSSMEMA.Out.eStatus	:= tylocalUSSMEMA.In.eAct;
+	END_IF
+
+	//Transition State
+	IF eStatOld <> tylocalUSSMEMA.Out.eStat THEN
+		
 		fbSMEMA_Std(bEn := FALSE);
 		fbSMEMA_9851(bEn := FALSE);
 			
-		bTransporting	:= FALSE;
-		bConvStart		:= FALSE;
-		bConvStop		:= FALSE;
-		bDSRdy			:= FALSE;
+		tylocalUSSMEMA.Out.bTransporting	:= FALSE;
+		tylocalUSSMEMA.Out.bConvStart		:= FALSE;
+		tylocalUSSMEMA.Out.bConvStop		:= FALSE;
+		tylocalUSSMEMA.Out.bDSRdy			:= FALSE;
 			
 		IF eStatOld <> SMEMAActIdle
 			AND eStatOld <> SMEMAActSetSig
@@ -18,72 +95,73 @@ ACTION Act_Main:
 			AND eStatOld <> SMEMAActSetAllSig
 			AND eStatOld <> SMEMAActRstAllSig THEN
 			
-			bUSB	:= FALSE;
+			tylocalUSSMEMA.Out.bUSB	:= FALSE;
 			
 		END_IF
 			
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalUSSMEMA.Out.sStatTxt	:= a_sStatText[tylocalUSSMEMA.Out.eStat];
 				
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalUSSMEMA.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalUSSMEMA.Out.eStatus		:= Busy;
 	END_IF
 	
+	//Inlet Sensor & Outlet Sensor
+	IF tylocalUSSMEMA.In.bDirLToR THEN
+		bInletSen 	:= tylocalUSSMEMA.In.bLeftSen;
+		bOutletSen  := tylocalUSSMEMA.In.bRightSen;
+	ELSE
+		bInletSen   := tylocalUSSMEMA.In.bRightSen;
+		bOutletSen  := tylocalUSSMEMA.In.bLeftSen;
+	END_IF
+	
+	
 	//Main
-	CASE eStat OF
+	CASE tylocalUSSMEMA.Out.eStat OF
 		
 		SMEMAActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bUSB	:= FALSE;
+			
+			IF EDGENEG(g_tyUIOut.bManualMod) THEN
+				tylocalUSSMEMA.Out.bUSB	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalUSSMEMA.Out.eStatus	:= Idle;
 		
 		SMEMAActRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalUSSMEMA.Out.eStatus	:= Busy;
 		
-				IF p_tyParam.eSelection <> SMEMASelStandard THEN
+				IF tylocalUSSMEMA.In.tyParam.eSelection <> SMEMASelStandard THEN
 					
 					fbSMEMA_9851.bUSRdy			:= fbSigInChk.bSigInValid;
-					fbSMEMA_9851.bRdyRcv		:= p_bRdyRcv;
-					fbSMEMA_9851.bComplSigOn	:= p_bComplSigOn;
+					fbSMEMA_9851.bRdyRcv		:= tylocalUSSMEMA.In.bRdyRcv;
+					fbSMEMA_9851.bComplSigOn	:= tylocalUSSMEMA.In.bComplSigOn;
+					fbSMEMA_9851.bInletSen		:= bInletSen;
+					fbSMEMA_9851.bOutletSen		:= bOutletSen;
 					
-					IF p_bDirLToR = TRUE THEN
-						
-						fbSMEMA_9851.bInletSen		:= p_bLeftSen;
-						fbSMEMA_9851.bOutletSen		:= p_bRightSen;
-						
-					ELSE
-						
-						fbSMEMA_9851.bInletSen		:= p_bRightSen;
-						fbSMEMA_9851.bOutletSen		:= p_bLeftSen;
-						
-					END_IF
-					
-					fbSMEMA_9851.tTimeOut	:= DINT_TO_TIME(p_diTransferInTO);
+					fbSMEMA_9851.tTimeOut		:= DINT_TO_TIME(tylocalUSSMEMA.In.diTransferInTO);
 					fbSMEMA_9851(bEn := TRUE);
 					
-					bTransporting	:= fbSMEMA_9851.bTransporting;
-					bConvStart		:= fbSMEMA_9851.bConvStart;
-					bConvStop		:= fbSMEMA_9851.bConvStop;
-					bUSB			:= fbSMEMA_9851.bSigToUS AND (bTimer = FALSE) AND (bVirtual = FALSE);
-					bDSRdy			:= fbSMEMA_9851.bSigToUS;
+					tylocalUSSMEMA.Out.bTransporting	:= fbSMEMA_9851.bTransporting;
+					tylocalUSSMEMA.Out.bConvStart		:= fbSMEMA_9851.bConvStart;
+					tylocalUSSMEMA.Out.bConvStop		:= fbSMEMA_9851.bConvStop;
+					tylocalUSSMEMA.Out.bUSB				:= fbSMEMA_9851.bSigToUS AND (tylocalUSSMEMA.Out.bTimer = FALSE) AND (tylocalUSSMEMA.Out.bVirtual = FALSE);
+					tylocalUSSMEMA.Out.bDSRdy			:= fbSMEMA_9851.bSigToUS;
 					
 					IF fbSMEMA_9851.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalUSSMEMA.Out.eStatus	:= Done;
 					ELSIF fbSMEMA_9851.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalUSSMEMA.Out.eStatus		:= Error;
 						
 						IF fbSMEMA_9851.udiStatus = 1200 THEN
-							udiStatus	:= 10000;	//SMEMA 9851 Transport Time Out While Transporting
+							udiStatus	:= 2701;	//SMEMA 9851 Transport Time Out While Transporting
 						ELSIF fbSMEMA_9851.udiStatus = 1201 THEN
-							udiStatus	:= 10001;	//SMEMA 9851 Transport Time Out After Opposite Machine Transport Finished
+							udiStatus	:= 2702;	//SMEMA 9851 Transport Time Out After Opposite Machine Transport Finished
 						ELSIF fbSMEMA_9851.udiStatus = 1202 THEN
-							udiStatus	:= 10002;	//SMEMA 9851 Transport Time Out After Current Machine Transport Finished
+							udiStatus	:= 2703;	//SMEMA 9851 Transport Time Out After Current Machine Transport Finished
 						ELSIF fbSMEMA_9851.udiStatus = 1203 THEN
-							udiStatus	:= 10003;	//SMEMA 9851 Transport Time Out After Both Machine Transport Finished And Waiting Outlet Sensor
+							udiStatus	:= 2704;	//SMEMA 9851 Transport Time Out After Both Machine Transport Finished And Waiting Outlet Sensor
 						ELSE
 							udiStatus	:= fbSMEMA_9851.udiStatus;
 						END_IF
@@ -92,43 +170,32 @@ ACTION Act_Main:
 				ELSE
 					
 					fbSMEMA_Std.bUSRdy		:= fbSigInChk.bSigInValid;
-					fbSMEMA_Std.bRdyRcv		:= p_bRdyRcv;
-					fbSMEMA_Std.bComplSigOn	:= p_bComplSigOn;
-					
-					IF p_bDirLToR = TRUE THEN
-						
-						fbSMEMA_Std.bInletSen	:= p_bLeftSen;
-						fbSMEMA_Std.bOutletSen	:= p_bRightSen;
-						
-					ELSE
-						
-						fbSMEMA_Std.bInletSen	:= p_bRightSen;
-						fbSMEMA_Std.bOutletSen	:= p_bLeftSen;
-						
-					END_IF
-					
-					fbSMEMA_Std.tTimeOut	:= DINT_TO_TIME(p_diTransferInTO);
+					fbSMEMA_Std.bRdyRcv		:= tylocalUSSMEMA.In.bRdyRcv;
+					fbSMEMA_Std.bComplSigOn	:= tylocalUSSMEMA.In.bComplSigOn;	
+					fbSMEMA_Std.bInletSen	:= bInletSen;
+					fbSMEMA_Std.bOutletSen	:= bOutletSen;
+					fbSMEMA_Std.tTimeOut	:= DINT_TO_TIME(tylocalUSSMEMA.In.diTransferInTO);
 					fbSMEMA_Std(bEn := TRUE);
 					
-					bTransporting	:= fbSMEMA_Std.bTransporting;
-					bConvStart		:= fbSMEMA_Std.bConvStart;
-					bConvStop		:= fbSMEMA_Std.bConvStop;
-					bUSB			:= fbSMEMA_Std.bSigToUS AND (bTimer = FALSE) AND (bVirtual = FALSE);
-					bDSRdy			:= fbSMEMA_Std.bSigToUS;
+					tylocalUSSMEMA.Out.bTransporting	:= fbSMEMA_Std.bTransporting;
+					tylocalUSSMEMA.Out.bConvStart		:= fbSMEMA_Std.bConvStart;
+					tylocalUSSMEMA.Out.bConvStop		:= fbSMEMA_Std.bConvStop;
+					tylocalUSSMEMA.Out.bUSB				:= fbSMEMA_Std.bSigToUS AND (tylocalUSSMEMA.Out.bTimer = FALSE) AND (tylocalUSSMEMA.Out.bVirtual = FALSE);
+					tylocalUSSMEMA.Out.bDSRdy			:= fbSMEMA_Std.bSigToUS;
 					
 					IF fbSMEMA_Std.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalUSSMEMA.Out.eStatus	:= Done;
 					ELSIF fbSMEMA_Std.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalUSSMEMA.Out.eStatus		:= Error;
 						
 						IF fbSMEMA_Std.udiStatus = 1200 THEN
-							udiStatus	:= 10004;	//Standard SMEMA Transport Time Out While Transporting
+							udiStatus	:= 2705;	//Standard SMEMA Transport Time Out While Transporting
 						ELSIF fbSMEMA_Std.udiStatus = 1201 THEN
-							udiStatus	:= 10005;	//Standard SMEMA Transport Time Out After Opposite Machine Transport Finished
+							udiStatus	:= 2706;	//Standard SMEMA Transport Time Out After Opposite Machine Transport Finished
 						ELSIF fbSMEMA_Std.udiStatus = 1202 THEN
-							udiStatus	:= 10006;	//Standard SMEMA Transport Time Out After Current Machine Transport Finished
+							udiStatus	:= 2707;	//Standard SMEMA Transport Time Out After Current Machine Transport Finished
 						ELSIF fbSMEMA_Std.udiStatus = 1203 THEN
-							udiStatus	:= 10007;	//Standard SMEMA Transport Time Out After Both Machine Transport Finished And Waiting Outlet Sensor
+							udiStatus	:= 2708;	//Standard SMEMA Transport Time Out After Both Machine Transport Finished And Waiting Outlet Sensor
 						ELSE
 							udiStatus	:= fbSMEMA_Std.udiStatus;
 						END_IF
@@ -139,90 +206,90 @@ ACTION Act_Main:
 			END_IF
 		
 		SMEMAActSetSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bUSB	:= TRUE;
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.bUSB		:= TRUE;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		
 		SMEMAActSetStatSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 			
 		SMEMAActRstSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bUSB	:= FALSE;
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.bUSB	:= FALSE;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		
 		SMEMAActRstStatSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 			
 		SMEMAActSetAllSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bUSB	:= TRUE;
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.bUSB	:= TRUE;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		
 		SMEMAActRstAllSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalUSSMEMA.Out.eStatus = Idle OR tylocalUSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_Std(bEn := FALSE);
 				fbSMEMA_9851(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalUSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bUSB	:= FALSE;
-				eStatus	:= Done;
+				tylocalUSSMEMA.Out.bUSB	:= FALSE;
+				tylocalUSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		

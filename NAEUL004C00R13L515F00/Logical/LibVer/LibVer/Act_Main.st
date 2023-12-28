@@ -1,11 +1,21 @@
 (** 2020-08-17 **)
 ACTION Act_Main:
+
 	
+	//Reset Done
+	IF tylocalLibVer.Out.eStatus = Done AND tylocalLibVer.In.eAct = LibVerActIdle THEN
+		tylocalLibVer.Out.eStat	:= LibVerActIdle;
+	END_IF
+	
+	//Set p_eAct
+	IF tylocalLibVer.Out.eStatus = Idle THEN
+		tylocalLibVer.Out.eStat	:= p_eAct;
+	END_IF
 	//Main
-	CASE eStat OF
+	CASE tylocalLibVer.Out.eStat OF
 		
 		LibVerActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalLibVer.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbDirCreate1(bEn := FALSE);
 				fbDirCreate2(bEn := FALSE);
@@ -16,18 +26,18 @@ ACTION Act_Main:
 				usiStep	:= 0;
 				memset(ADR(a_bVerMismatch), 0, SIZEOF(a_bVerMismatch));
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalLibVer.Out.sStatTxt	:= a_sStatText[tylocalLibVer.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalLibVer.Out.eStatus	:= Idle;
 		
 		LibVerActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLibVer.Out.eStatus = Idle OR tylocalLibVer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalLibVer.Out.eStatus	:= Busy;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalLibVer.Out.sStatTxt	:= a_sStatText[tylocalLibVer.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -35,7 +45,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalLibVer.Out.eStatus		:= Error;
 					
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Creating Private Directory Error
@@ -47,9 +57,9 @@ ACTION Act_Main:
 					1:
 						fbDirCreate2(bEn := TRUE);
 						IF fbDirCreate2.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalLibVer.Out.eStatus	:= Done;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalLibVer.Out.eStatus		:= Error;
 					
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Creating User Management Directory Error
@@ -63,18 +73,18 @@ ACTION Act_Main:
 			END_IF
 		
 		LibVerActWrite:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLibVer.Out.eStatus = Idle OR tylocalLibVer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalLibVer.Out.eStatus	:= Busy;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalLibVer.Out.sStatTxt	:= a_sStatText[tylocalLibVer.Out.eStat];
 		
 				fbFileWrite1(bEn := TRUE);
 				
 				IF fbFileWrite1.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalLibVer.Out.eStatus	:= Done;
 				ELSIF fbFileWrite1.udiStatus < 65534 THEN
-					eStatus			:= Error;
+					tylocalLibVer.Out.eStatus			:= Error;
 					
 					IF fbFileWrite1.udiStatus = 1900 THEN
 						udiStatus	:= 10002;	//File Open Error While Writing
@@ -94,17 +104,17 @@ ACTION Act_Main:
 			END_IF
 		
 		LibVerActRead:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLibVer.Out.eStatus = Idle OR tylocalLibVer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalLibVer.Out.eStatus	:= Busy;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalLibVer.Out.sStatTxt	:= a_sStatText[tylocalLibVer.Out.eStat];
 		
 				fbFileRead1(bEn := TRUE);
 				IF fbFileRead1.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalLibVer.Out.eStatus	:= Done;
 				ELSIF fbFileRead1.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalLibVer.Out.eStatus		:= Error;
 				
 					IF fbFileRead1.udiStatus = 1900 THEN
 						udiStatus	:= 10006;	//File Open Error While Reading
@@ -122,11 +132,11 @@ ACTION Act_Main:
 			END_IF
 		
 		LibVerActReadChk:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLibVer.Out.eStatus = Idle OR tylocalLibVer.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalLibVer.Out.eStatus	:= Busy;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalLibVer.Out.sStatTxt	:= a_sStatText[tylocalLibVer.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -134,7 +144,7 @@ ACTION Act_Main:
 						IF fbFileRead1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbFileRead1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalLibVer.Out.eStatus		:= Error;
 				
 							IF fbFileRead1.udiStatus = 1900 THEN
 								udiStatus	:= 10009;	//File Open Error While Checking
@@ -156,7 +166,7 @@ ACTION Act_Main:
 						IF fbChkLibVerFile.udiStatus = 0 THEN
 							usiStep	:= 2;
 						ELSIF fbChkLibVerFile.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalLibVer.Out.eStatus		:= Error;
 				
 							IF fbChkLibVerFile.udiStatus = 1001 THEN
 								udiStatus	:= 10016;	//Libraries Version File Corrupted
@@ -169,9 +179,9 @@ ACTION Act_Main:
 						
 						fbChkLibVer(bEn := TRUE);
 						IF fbChkLibVer.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalLibVer.Out.eStatus	:= Done;
 						ELSIF fbChkLibVer.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalLibVer.Out.eStatus		:= Error;
 				
 							IF fbChkLibVer.udiStatus = 1002 THEN
 								udiStatus	:= 10012;	//Libraries Version Mismatch

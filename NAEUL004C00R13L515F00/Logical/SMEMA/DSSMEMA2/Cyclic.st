@@ -1,38 +1,27 @@
 (** 2019-03-29 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-			
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+	IF bInitialDone = FALSE THEN
+		IF g_tyStartUp.bNtSettingsLoadDone = TRUE THEN
 			bInitialDone	:= TRUE;
-			
 			Act_Initial;
 		END_IF
 		
 	ELSE
 		
-		Act_RstErr;
-		Act_LinkAction;
-		Act_Action;
-		Act_LinkEn;
+		Act_InputConfig;
 		
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
-			Act_Link;
-			Act_Background;
+		IF (tylocalDSSMEMA.In.bPrep = TRUE) AND (tylocalDSSMEMA.In.bEn = TRUE) AND (tylocalDSSMEMA.In.bDis = FALSE) THEN
 			Act_Main;
 		ELSE
-			IF eStat <> SMEMAActIdle THEN
-				eStatus	:= Done;
+			IF tylocalDSSMEMA.Out.eStat <> SMEMAActIdle THEN
+				tylocalDSSMEMA.Out.eStatus	:= Done;
 			ELSE
-				eStatus	:= Idle;
+				tylocalDSSMEMA.Out.eStatus	:= Idle;
 			END_IF
 		END_IF
 		
+		Act_OutputConfig;
 		Act_Alarm;
 		
 	END_IF

@@ -1,11 +1,16 @@
-(** 2019-04-28 **)
+
 ACTION Act_Main:
 	
+	//Set p_eAct
+	IF tylocalMpProdRcp.Out.eStatus = Idle THEN
+		tylocalMpProdRcp.Out.eStat	:= tylocalMpProdRcp.In.eAct;
+	END_IF
+	
 	//Main
-	CASE eStat OF
+	CASE tylocalMpProdRcp.Out.eStat OF
 		
 		MpProdRcpActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalMpProdRcp.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbDirCreate1(bEn := FALSE);
 				fbDirCreate2(bEn := FALSE);
@@ -13,18 +18,18 @@ ACTION Act_Main:
 				fbMpRecipeXml(Enable := FALSE);
 				usiStep			:= 0;
 						
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalMpProdRcp.Out.eStatus	:= Idle;
 		
 		MpProdRcpActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMpProdRcp.Out.eStatus = Idle OR tylocalMpProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMpProdRcp.Out.eStatus	:= Busy;
 						
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -32,7 +37,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Create User Directory Error
@@ -44,9 +49,9 @@ ACTION Act_Main:
 					1:
 						fbDirCreate2(bEn := TRUE);
 						IF fbDirCreate2.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalMpProdRcp.Out.eStatus	:= Done;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Create Product Recipe Directory Error
@@ -60,11 +65,11 @@ ACTION Act_Main:
 			END_IF
 		
 		MpProdRcpActLoad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMpProdRcp.Out.eStatus = Idle OR tylocalMpProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMpProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -73,7 +78,7 @@ ACTION Act_Main:
 						IF (fbMpRecipeRegPar.Active = TRUE) AND (fbMpRecipeRegPar.StatusID = 0) THEN
 							usiStep	:= 1;
 						ELSIF fbMpRecipeRegPar.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							udiStatus	:= 10002;	//MpRecipeRegPar Error While Loading
 						END_IF
 					
@@ -83,10 +88,10 @@ ACTION Act_Main:
 						fbMpRecipeXml(Enable := TRUE);
 					
 						IF (fbMpRecipeXml.Active = TRUE) AND (fbMpRecipeXml.CommandDone = TRUE) AND (fbMpRecipeXml.StatusID = 0) THEN
-							eStatus	:= Done;
+							tylocalMpProdRcp.Out.eStatus	:= Done;
 							pa_tyMpProdRcp	:= a_tyMpProdRcp1;
 						ELSIF fbMpRecipeXml.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							udiStatus	:= 10003;	//MpRecipeXml Error While Loading
 						END_IF
 						
@@ -95,11 +100,11 @@ ACTION Act_Main:
 			END_IF
 			
 		MpProdRcpActSave:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMpProdRcp.Out.eStatus = Idle OR tylocalMpProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMpProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -109,7 +114,7 @@ ACTION Act_Main:
 						IF (fbMpRecipeRegPar.Active = TRUE) AND (fbMpRecipeRegPar.StatusID = 0) THEN
 							usiStep	:= 1;
 						ELSIF fbMpRecipeRegPar.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							udiStatus	:= 10004;	//MpRecipeRegPar Error While Saving
 						END_IF
 					
@@ -119,9 +124,9 @@ ACTION Act_Main:
 						fbMpRecipeXml(Enable := TRUE);
 					
 						IF (fbMpRecipeXml.Active = TRUE) AND (fbMpRecipeXml.CommandDone = TRUE) AND (fbMpRecipeXml.StatusID = 0) THEN
-							eStatus	:= Done;
+							tylocalMpProdRcp.Out.eStatus	:= Done;
 						ELSIF fbMpRecipeXml.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalMpProdRcp.Out.eStatus		:= Error;
 							udiStatus	:= 10005;	//MpRecipeXml Error While Saving
 						END_IF
 						

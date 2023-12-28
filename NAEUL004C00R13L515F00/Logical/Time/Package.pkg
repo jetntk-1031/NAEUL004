@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="File" Description="Do Not Change!!!">Time.typ</Object>
     <Object Type="File" Description="Change By Project">Time.var</Object>
-    <Object Type="Program" Language="IEC" Description="1.00.0 - (2018-12-07)">Time</Object>
+    <Object Type="Program" Language="IEC" Description="1.00.0 - ">Time</Object>
   </Objects>
 </Package>

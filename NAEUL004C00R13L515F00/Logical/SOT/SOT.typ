@@ -10,4 +10,10 @@ TYPE
 		SOTActSetSig,
 		SOTActRstSig
 		);
+	tySOTstatus : 	STRUCT 
+		tyBtnInPos : BOOL;
+		tyBtnError : BOOL;
+		tyBtnRdy : BOOL;
+		tyBtnAvail : BOOL;
+	END_STRUCT;
 END_TYPE

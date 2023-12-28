@@ -1,36 +1,36 @@
 (** 2019-03-25 **)
 ACTION Act_Alarm: 
-	
+	IF tylocalBuffer.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalBuffer.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	//Reset Error
+	IF (tylocalBuffer.Out.eStatus = Error) AND bRstErr THEN
+		tylocalBuffer.In.eAct	:= BufferActIdle;
+		tylocalBuffer.Out.eStat	:= BufferActIdle;
+	END_IF
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalBuffer.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sBufferProgNm		:= p_sProgNm;
+		tylocalBuffer.Out.tyAlmData.sProgNm		:= tylocalBuffer.In.sProgNm;
+		tylocalBuffer.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalBuffer.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalBuffer.Out.tyAlmData.udiRunTime	:= tylocalBuffer.Out.tyAlmData.udiRunTime + 1;
+		tylocalBuffer.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalBuffer.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_sBufferProgNm			:= tylocalBuffer.In.sProgNm;
+
+		tylocalBuffer.Out.sStatTxt	:= tylocalBuffer.Out.tyAlmData.sAlmMsg;
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
+	ELSIF bRstErr AND (tylocalBuffer.Out.tyAlmData.udiCode <> 0) THEN
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
-		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
-		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalBuffer.Out.tyAlmData.udiCode	:= 0;
+		tylocalBuffer.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+
+		tylocalBuffer.Out.tyAlmData.bAlm			:= FALSE;
+		tylocalBuffer.Out.sStatTxt	:= a_sStatText[tylocalBuffer.Out.eStat];
 		
 	END_IF
 	

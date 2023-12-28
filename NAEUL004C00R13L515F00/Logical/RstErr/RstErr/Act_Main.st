@@ -1,81 +1,96 @@
-(** 2019-01-18 **)
+
 ACTION Act_Main:
 	
+	IF EDGENEG(tylocalRstErr.In.bManual) THEN
+		tylocalRstErr.In.eAct	:= RstErrActIdle;
+	END_IF
+	
+	//Reset Done
+	IF tylocalRstErr.Out.eStatus = Done AND tylocalRstErr.In.eAct = RstErrActIdle THEN
+		tylocalRstErr.Out.eStat	:= RstErrActIdle;
+	END_IF
+	
+	//Set p_eAct
+	IF tylocalRstErr.Out.eStatus = Idle THEN
+		tylocalRstErr.Out.eStat	:= tylocalRstErr.In.eAct;
+	END_IF
+	
+		
 	//Main
-	CASE eStat OF
+	CASE tylocalRstErr.Out.eStat OF
 		
 		RstErrActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalRstErr.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbSafetyRlyRstTm(IN := FALSE);
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalRstErr.Out.sStatTxt	:= a_sStatText[tylocalRstErr.Out.eStat];
 		
-				IF p_bManual = FALSE THEN
-					bSafetyRlyRst	:= FALSE;
+				IF tylocalRstErr.In.bManual = FALSE THEN
+					tylocalRstErr.Out.bSafetyRlyRst	:= FALSE;
 				END_IF
 				
 			END_IF
 			
-			IF EDGENEG(p_bManual) THEN
-				bSafetyRlyRst	:= FALSE;
+			IF EDGENEG(tylocalRstErr.In.bManual) THEN
+				tylocalRstErr.Out.bSafetyRlyRst	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalRstErr.Out.eStatus	:= Idle;
 		
 		RstErrActRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalRstErr.Out.eStatus = Idle OR tylocalRstErr.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalRstErr.Out.eStatus	:= Busy;
 						
-				sStatTxt	:= a_sStatText[eStat];
-				
-				IF bSafetyRlyRst = FALSE THEN
-					udiRstErr	:= udiRstErr + 1;
+				tylocalRstErr.Out.sStatTxt	:= a_sStatText[tylocalRstErr.Out.eStat];
+		
+				IF tylocalRstErr.Out.bSafetyRlyRst=FALSE THEN
+					tylocalRstErr.Out.udiRstErr	:= tylocalRstErr.Out.udiRstErr + 1;
 				END_IF
 				
-				IF p_bSafetyRlySig = FALSE THEN
-					bSafetyRlyRst	:= TRUE;
+				IF tylocalRstErr.In.bSafetyRlySig = FALSE THEN
+					tylocalRstErr.Out.bSafetyRlyRst	:= TRUE;
 				END_IF
 				
-				IF bSafetyRlyRst = TRUE THEN
+				IF tylocalRstErr.Out.bSafetyRlyRst = TRUE THEN
 					fbSafetyRlyRstTm(IN := TRUE, PT := T#500ms);
 					
 					IF fbSafetyRlyRstTm.Q = TRUE THEN
-						bSafetyRlyRst	:= FALSE;
-						eStatus			:= Done;
+						tylocalRstErr.Out.bSafetyRlyRst	:= FALSE;
+						tylocalRstErr.Out.eStatus			:= Done;
 					END_IF
 					
 				ELSE
-					eStatus	:= Done;
+					tylocalRstErr.Out.eStatus	:= Done;
 					
 				END_IF
 				
 			END_IF
 		
 		RstErrActSetSafetyRlyRst:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalRstErr.Out.eStatus = Idle OR tylocalRstErr.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalRstErr.Out.sStatTxt	:= a_sStatText[tylocalRstErr.Out.eStat];
 		
 				//Reset
 				fbSafetyRlyRstTm(IN := FALSE);
 				
-				bSafetyRlyRst	:= TRUE;
-				eStatus			:= Done;
+				tylocalRstErr.Out.bSafetyRlyRst	:= TRUE;
+				tylocalRstErr.Out.eStatus			:= Done;
 				
 			END_IF
 		
 		RstErrActRstSafetyRlyRst:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalRstErr.Out.eStatus = Idle OR tylocalRstErr.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalRstErr.Out.sStatTxt	:= a_sStatText[tylocalRstErr.Out.eStat];
 		
 				//Reset
 				fbSafetyRlyRstTm(IN := FALSE);
 				
-				bSafetyRlyRst	:= FALSE;
-				eStatus			:= Done;
+				tylocalRstErr.Out.bSafetyRlyRst	:= FALSE;
+				tylocalRstErr.Out.eStatus			:= Done;
 				
 			END_IF
 		

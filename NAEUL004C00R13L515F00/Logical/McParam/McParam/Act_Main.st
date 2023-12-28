@@ -1,11 +1,14 @@
 (** 2019-01-10 **)
 ACTION Act_Main:
-	
+	IF tylocalMcParam.Out.tylocalMcParam.Out.eStatus = Idle THEN
+		tylocalMcParam.Out.tylocalMcParam.Out.eStat	:= tylocalMcParam.In.eAct;
+	END_IF
+
 	//Main
-	CASE eStat OF
+	CASE tylocalMcParam.Out.eStat OF
 		
 		McParamActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalMcParam.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbDirCreate1(bEn := FALSE);
 				fbDirCreate2(bEn := FALSE);
@@ -16,18 +19,18 @@ ACTION Act_Main:
 				
 				bFileNotFound	:= FALSE;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMcParam.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalMcParam.Out.eStatus	:= Idle;
 		
 		McParamActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMcParam.Out.eStatus = Idle OR tylocalMcParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMcParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMcParam.Out.eStat];
 		
 				CASE usiStep OF
 					0:			
@@ -35,7 +38,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMcParam.Out.eStatus		:= Error;
 							
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Create User Directory Error
@@ -47,9 +50,9 @@ ACTION Act_Main:
 					1:			
 						fbDirCreate2(bEn := TRUE);
 						IF fbDirCreate2.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalMcParam.Out.eStatus	:= Done;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMcParam.Out.eStatus		:= Error;
 							
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Create Machine Parameter Directory Error
@@ -63,19 +66,19 @@ ACTION Act_Main:
 			END_IF
 		
 		McParamActWrite:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMcParam.Out.eStatus = Idle OR tylocalMcParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMcParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMcParam.Out.eStat];
 		
 				fbFileWrite1(bEn := TRUE);
 				
 				IF fbFileWrite1.udiStatus = 0 THEN
-					tyMcParamCurr	:= p_tyMcParamWr;
-					eStatus			:= Done;
+					tyMcParamCurr	:= tylocalMcParam.In.tyMcParmWr;
+					tylocalMcParam.Out.eStatus			:= Done;
 				ELSIF fbFileWrite1.udiStatus < 65534 THEN
-					eStatus			:= Error;
+					tylocalMcParam.Out.eStatus			:= Error;
 					
 					IF fbFileWrite1.udiStatus = 1900 THEN
 						udiStatus	:= 10002;	//File Open Error While Writing
@@ -95,17 +98,17 @@ ACTION Act_Main:
 			END_IF
 			
 		McParamActRead:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMcParam.Out.eStatus = Idle OR tylocalMcParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMcParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalMcParam.Out.eStat];
 		
 				fbFileRead1(bEn := TRUE);
 				IF fbFileRead1.udiStatus = 0 THEN
-					eStatus			:= Done;
+					tylocalMcParam.Out.eStatus			:= Done;
 				ELSIF fbFileRead1.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalMcParam.Out.eStatus		:= Error;
 				
 					IF fbFileRead1.udiStatus = 1900 THEN
 						udiStatus	:= 10006;	//File Open Error While Reading
@@ -114,7 +117,7 @@ ACTION Act_Main:
 					ELSIF fbFileRead1.udiStatus = 1904 THEN
 						udiStatus	:= 10008;	//File Close Error While Reading
 					ELSIF fbFileRead1.udiStatus = 1915 THEN
-						eStatus			:= Done;
+						tylocalMcParam.Out.eStatus			:= Done;
 						bFileNotFound	:= TRUE;
 					ELSE
 						udiStatus	:= fbFileRead1.udiStatus;

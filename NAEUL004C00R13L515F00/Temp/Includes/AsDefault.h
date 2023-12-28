@@ -1,0 +1,194 @@
+#ifndef _DEFAULT_757602046
+#define _DEFAULT_757602046
+#include <bur/plctypes.h>
+#include <bur/plc.h>
+
+#ifdef __cplusplus 
+extern "C" 
+{
+#endif
+	#include <standard.h>
+	#include <runtime.h>
+	#include <asstring.h>
+	#include <operator.h>
+	#include <visapi.h>
+	#include <MpBase.h>
+	#include <Acp10par.h>
+	#include <NcGlobal.h>
+	#include <AsMath.h>
+	#include <astime.h>
+	#include <AsCANopen.h>
+	#include <FileIO.h>
+	#include <AsIODiag.h>
+	#include <AsMem.h>
+	#include <dvframe.h>
+	#include <AsOpcUac.h>
+	#include <AsARCfg.h>
+	#include <sys_lib.h>
+	#include <AsTCP.h>
+	#include <AsFltGen.h>
+	#include <brsystem.h>
+	#include <MpCom.h>
+	#include <Acp10man.h>
+	#include <AsIecCon.h>
+	#include <MpRecipe.h>
+	#include <NtBuffer.h>
+	#include <NtConv.h>
+	#include <NtLogFile.h>
+	#include <NtMem.h>
+	#include <NtMessage.h>
+	#include <NtOvenInfo.h>
+	#include <NtPneu.h>
+	#include <NtRS232.h>
+	#include <NtSMEMA.h>
+	#include <NtTCP.h>
+	#include <NtTLBuz.h>
+	#include <NtVersion.h>
+	#include <NtSOT.h>
+	#include <NtLF.h>
+	#include <NtMotion.h>
+	#include <NtRecipe.h>
+	#include <NtHermes.h>
+	#include <NtOPCUA.h>
+	#include <NtFileIO.h>
+	#include <NtGeneral.h>
+	#include <NtUI.h>
+	#include <NtOpConXML.h>
+#ifdef __cplusplus
+};
+#endif
+
+#include <mpcomponentsVAR.h>
+#include <softwareversionVAR.h>
+#include <ui/uiTYP.h>
+#include <ui/uiVAR.h>
+#include <startup/startupTYP.h>
+#include <startup/startupVAR.h>
+#include <general/generalTYP.h>
+#include <general/generalVAR.h>
+#include <usrfolder/usrfolderTYP.h>
+#include <usrfolder/usrfolderVAR.h>
+#include <libver/libverTYP.h>
+#include <libver/libverVAR.h>
+#include <time/timeTYP.h>
+#include <time/timeVAR.h>
+#include <hwinfo/hwinfoTYP.h>
+#include <hwinfo/hwinfoVAR.h>
+#include <tlbuz/tlbuzTYP.h>
+#include <tlbuz/tlbuzVAR.h>
+#include <alarm/alarmTYP.h>
+#include <alarm/alarmVAR.h>
+#include <rsterr/rsterrTYP.h>
+#include <rsterr/rsterrVAR.h>
+#include <prodrcp/prodrcpTYP.h>
+#include <prodrcp/prodrcpVAR.h>
+#include <mpprodrcp/mpprodrcpTYP.h>
+#include <mpprodrcp/mpprodrcpVAR.h>
+#include <magrcp/magrcpTYP.h>
+#include <magrcp/magrcpVAR.h>
+#include <mcparam/mcparamTYP.h>
+#include <mcparam/mcparamVAR.h>
+#include <ntparam/ntparamTYP.h>
+#include <ntparam/ntparamVAR.h>
+#include <usrmgmt/usrmgmtTYP.h>
+#include <usrmgmt/usrmgmtVAR.h>
+#include <oveninfo/oveninfoTYP.h>
+#include <oveninfo/oveninfoVAR.h>
+#include <buffer/bufferTYP.h>
+#include <buffer/bufferVAR.h>
+#include <smema/smemaTYP.h>
+#include <smema/ussmemaaVAR.h>
+#include <smema/ussmemabVAR.h>
+#include <smema/ussmema1VAR.h>
+#include <smema/ussmema2VAR.h>
+#include <smema/ussmema3VAR.h>
+#include <smema/dssmema1VAR.h>
+#include <smema/dssmema2VAR.h>
+#include <smema/dssmema3VAR.h>
+#include <pneu/pneuTYP.h>
+#include <pneu/pneuVAR.h>
+#include <magconv_liftntrav/magconv2clpTYP.h>
+#include <magconv_liftntrav/magconv2clpVAR.h>
+#include <conv/convTYP.h>
+#include <conv/pshrconvVAR.h>
+#include <canopenservo/canopenservoTYP.h>
+#include <canopenservo/aw/awTYP.h>
+#include <canopenservo/aw/awopenVAR.h>
+#include <canopenservo/aw/awpushorpullerVAR.h>
+#include <canopenservo/trav/travTYP.h>
+#include <canopenservo/trav/travVAR.h>
+#include <canopenservo/lifter/lifterTYP.h>
+#include <canopenservo/lifter/lifterbtmVAR.h>
+#include <canopenservo/lifter/lifter2VAR.h>
+#include <canopenservo/magaw/magawTYP.h>
+#include <canopenservo/magaw/magawopen1VAR.h>
+#include <canopenservo/magaw/magawopen2VAR.h>
+#include <canopenservo/magaw/magawopen3VAR.h>
+#include <canopenservo/pullerpusher/pullerpusherVAR.h>
+#include <canopenservo/pullerpusher/pullerpusherTYP.h>
+#include <dinput/dinputTYP.h>
+#include <dinput/dinputVAR.h>
+#include <doutput/doutputTYP.h>
+#include <doutput/doutputVAR.h>
+#include <hermes/hermesTYP.h>
+#include <hermes/hermesVAR.h>
+#include <hermes/ushermesaVAR.h>
+#include <hermes/ushermesbVAR.h>
+#include <hermes/rmthermesVAR.h>
+#include <hermes/svyhermesVAR.h>
+#include <lf/lfTYP.h>
+#include <lf/lfleaderVAR.h>
+#include <lf/lffollowerVAR.h>
+#include <lf/follower1VAR.h>
+#include <lf/follower2VAR.h>
+#include <lcs/lcsTYP.h>
+#include <lcs/lcsVAR.h>
+#include <lcs/lcsmngrcpVAR.h>
+#include <lcs/lcslfVAR.h>
+#include <operations/operationsTYP.h>
+#include <operations/opsVAR.h>
+#include <operations/opstravlifulTYP.h>
+#include <operations/opstravlifulVAR.h>
+#include <operations/magconv_stationaryplat/opsmagconvulTYP.h>
+#include <operations/magconv_stationaryplat/opsmagconvul1VAR.h>
+#include <operations/magconv_stationaryplat/opsmagconvul2VAR.h>
+#include <operations/magconv_stationaryplat/opsmagconvul3VAR.h>
+#include <operations/opslifmagulTYP.h>
+#include <operations/opslifmagulVAR.h>
+#include <operations/multimag_inoutmagazineconv/opsinmagconvTYP.h>
+#include <operations/multimag_inoutmagazineconv/opsinmagconvVAR.h>
+#include <operations/multimag_inoutmagazineconv/opsoutmagconvTYP.h>
+#include <operations/multimag_inoutmagazineconv/opsoutmagconvVAR.h>
+#include <operations/multimag_inoutmagazineconv/opsmagconvstprTYP.h>
+#include <operations/multimag_inoutmagazineconv/opsmagconvstprVAR.h>
+#include <operations/multimag_inoutmagazineconv/opsmagconvstpr2VAR.h>
+#include <agvcom/agvTYP.h>
+#include <agvcom/agvVAR.h>
+#include <agvcom/agv1VAR.h>
+#include <agvcom/agv2VAR.h>
+#include <agvcom/agv3VAR.h>
+#include <simulation/simulationTYP.h>
+#include <simulation/simuVAR.h>
+#include <simulation/simu1VAR.h>
+#include <simulation/simu1TYP.h>
+#include <simulation/simu2VAR.h>
+#include <simulation/simu2TYP.h>
+#include <machine/machineVAR.h>
+#include <sot/sotTYP.h>
+#include <sot/ussot1VAR.h>
+#include <sot/dssot1VAR.h>
+#include <sot/ussot2VAR.h>
+#include <sot/dssot2VAR.h>
+#include <sot/ussot3VAR.h>
+#include <sot/dssot3VAR.h>
+#include <mtrpshr/mtrpshrTYP.h>
+#include <mtrpshr/mtrpshrVAR.h>
+#include <tcp/tcpTYP.h>
+#include <tcp/tcpVAR.h>
+#include <tcp/tcptopVAR.h>
+#include <tcp/tcpbtmVAR.h>
+#include <opcon/opconTYP.h>
+#include <opcon/opconVAR.h>
+#include <autorcp/autorcpTYP.h>
+#include <autorcp/autorcpVAR.h>
+#endif

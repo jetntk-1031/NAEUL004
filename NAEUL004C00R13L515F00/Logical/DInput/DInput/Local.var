@@ -18,12 +18,6 @@ END_VAR
 (**)
 (*Local Alarm*)
 VAR
-	tyAlmData1 : tyAlmDat;
-	tyAlmData2 : tyAlmDat;
-	tyAlmData3 : tyAlmDat;
-	tyAlmData4 : tyAlmDat;
-	tyAlmData5 : tyAlmDat;
-	tyAlmData6 : tyAlmDat;
 	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Emergency Stop Button Pressed',sRcyText:='Release The Emergency Stop Button And Reset The Error To Resume Operation.'),(sAlmText:='Door / Cover Opened',sRcyText:='Close The Door / Cover Tightly And Resume Operation.'),(sAlmText:='Lifter Timing Belt Broken',sRcyText:='Replace New Lifter Timing Belt.'),(sAlmText:='Lifter Reached Safety Limit Switch',sRcyText:='Move Lifter Upward And Make Sure There Is No Obstable Interrupting Lifter.'),(sAlmText:='Safety Relay Signal Off',sRcyText:='Please Check The Safety Relay Signal'),(sAlmText:='Motor Overload Signal Activated.',sRcyText:='Please Check The Motor Conveyor.'),(sAlmText:='Safety Curtain Sensor Activated',sRcyText:='Please Clear The Area Of Safety Curtain Sensor And Resume Operation.'),93((0))];
 END_VAR
 (**)

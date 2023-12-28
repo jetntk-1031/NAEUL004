@@ -1,5 +1,0 @@
-(*2019-04-28*)
-(**)
-VAR
-	p_bLinkStartupRun : REFERENCE TO BOOL;
-END_VAR

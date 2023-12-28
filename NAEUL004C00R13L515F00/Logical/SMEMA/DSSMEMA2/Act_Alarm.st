@@ -1,36 +1,39 @@
 (** 2019-03-25 **)
 ACTION Act_Alarm: 
 	
+		
+	IF tylocalDSSMEMA.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalDSSMEMA.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	//Reset Error
+	IF (tylocalDSSMEMA.Out.eStatus = Error) AND bRstErr THEN
+		tylocalDSSMEMA.In.eAct	:= SMEMAActIdle;
+		tylocalDSSMEMA.Out.eStat:= SMEMAActIdle;
+	END_IF
+	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalDSSMEMA.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sDSSMEMAProgNm		:= p_sProgNm;
+		tylocalDSSMEMA.Out.tyAlmData.sProgNm		:= tylocalDSSMEMA.In.sProgNm;
+		tylocalDSSMEMA.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalDSSMEMA.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalDSSMEMA.Out.tyAlmData.udiRunTime		:= tylocalDSSMEMA.Out.tyAlmData.udiRunTime + 1;
+		tylocalDSSMEMA.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalDSSMEMA.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_sDSSMEMAProgNm		:= tylocalDSSMEMA.In.sProgNm;
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+	ELSIF bRstErr AND (tylocalDSSMEMA.Out.tyAlmData.udiCode <> 0) THEN
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+		tylocalDSSMEMA.Out.tyAlmData.udiCode	:= 0;
+		tylocalDSSMEMA.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalDSSMEMA.Out.tyAlmData.bAlm		:= FALSE;
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalDSSMEMA.Out.sStatTxt	:= a_sStatText[tylocalDSSMEMA.Out.eStat];
 		
 	END_IF
 	

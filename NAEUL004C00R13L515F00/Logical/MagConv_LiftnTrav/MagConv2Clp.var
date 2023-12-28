@@ -1,0 +1,5 @@
+VAR
+	g_tyMagConv2Clp1 : tyMagConv2ClpOut1; (*OutletShutter*)
+	g_tyMagConv2Clp2 : tyMagConv2ClpOut1; (*OutletShutter*)
+	g_tyMagConv2Clp3 : tyMagConv2ClpOut1; (*OutletShutter*)
+END_VAR

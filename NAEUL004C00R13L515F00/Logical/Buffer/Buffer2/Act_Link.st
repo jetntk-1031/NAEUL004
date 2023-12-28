@@ -1,44 +1,47 @@
 (** 2019-03-29 **)
 ACTION Act_Link:
-	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN
-		p_diMinSlt ACCESS p_diAutoRcpMag2MinSlt;
-		p_diMaxSlt ACCESS p_diAutoRcpMag2MaxSlt;
-		p_diPitch ACCESS p_diAutoRcpMag2Pitch;		
+	IF g_tyNtParamCurr.bAutoRcpPrep AND NOT(g_tyMcParamCurr.bAutoRcpDisable) THEN
+		tylocalBuffer.In.diMinSlt ACCESS g_tyAutoRcpMag2.diMinSlt;
+		tylocalBuffer.In.diMaxSlt ACCESS g_tyAutoRcpMag2.diMaxSlt;
+		tylocalBuffer.In.diPitch ACCESS g_tyAutoRcpMag2.diPitch;		
 	ELSE 
-		p_diMinSlt ACCESS p_ProdRcpCurrRcp2MinSltValue;
-		p_diMaxSlt ACCESS p_ProdRcpCurrRcp2MaxSltValue;
-		p_diPitch ACCESS p_ProdRcpCurrRcp2Pitch;
+		tylocalBuffer.In.diMinSlt ACCESS p_ProdRcpCurrRcp2MinSltValue;
+		tylocalBuffer.In.diMaxSlt ACCESS p_ProdRcpCurrRcp2MaxSltValue;
+		tylocalBuffer.In.diPitch ACCESS p_ProdRcpCurrRcp2Pitch;
 	END_IF
-	IF p_bLinkProjLifter2Prep THEN
-		p_diLifterCurrPosInUM ACCESS p_Lifter2ActualPos;	
+	IF g_tyNtParamCurr.bProjLifterMagPlatform THEN
+		tylocalBuffer.In.diSltToSltInUM ACCESS p_MagRcpCurrRcpSltToSlt;
 	ELSE
-		p_diLifterCurrPosInUM ACCESS p_LifterBtmActualPos;
+		tylocalBuffer.In.diSltToSltInUM	:= tylocalBuffer.In.diLinkSltToSltDist * -1;
 	END_IF
 	
-	IF p_bLinkProjLifterMagPlatform THEN
-		p_diSltToSltInUM ACCESS p_MagRcpCurrRcpSltToSlt;
+	tylocalBuffer.In.bAscending	:= NOT tylocalBuffer.In.bLinkMcParamProdSelTopToBtm;
+	
+	IF tylocalBuffer.In.bLinkOpsTravLifULExitBrd THEN
+		tylocalBuffer.In.bMagPresentSensor := tylocalBuffer.In.bLinkPresentSen1; //present sensor only
 	ELSE
-		p_diSltToSltInUM	:= p_diLinkSltToSltDist * -1;
+		tylocalBuffer.In.bMagPresentSensor := tylocalBuffer.In.bLinkPresentSen1 OR tylocalBuffer.In.bLinkPresentSen2;
 	END_IF
 	
-	p_bAscending	:= NOT p_bLinkMcParamProdSelTopToBtm;
-	
-	IF p_bLinkOpsTravLifULExitBrd THEN
-		p_bMagPresentSensor := p_bLinkPresentSen1; //present sensor only
-	ELSE
-		p_bMagPresentSensor := p_bLinkPresentSen1 OR p_bLinkPresentSen2;
-	END_IF
 	
 	//For MES Call Full
-	IF p_tyResponseFromMES.bTrigMagFull AND p_bOpsMagConvULRlsMagAllw 
-		AND NOT(tyBufferStat.bBffrFull)  AND p_eNtParamCustomerReq = Siemens THEN 
+	IF tylocalBuffer.In.tyResponseFromMES.bTrigMagFull AND tylocalBuffer.In.bOpsMagConvULRlsMagAllw 
+		AND NOT(tylocalBuffer.Out.tyBufferStat.bBffrFull)  AND tylocalBuffer.In.eNtParamCustomerReq = Siemens THEN 
 		bMESTrigSetFull	:= TRUE;
 	END_IF
 	IF bMESTrigSetFull THEN
-		eAct	:= BufferActSetFull;
-		IF eStat = BufferActSetFull AND eStatus = Done THEN
-			eAct	:= BufferActIdle;
+		tylocalBuffer.In.eAct	:= BufferActSetFull;
+		IF tylocalBuffer.Out.eStat = BufferActSetFull AND tylocalBuffer.Out.eStatus = Done THEN
+			tylocalBuffer.In.eAct	:= BufferActIdle;
 			bMESTrigSetFull := FALSE;
 		END_IF
+	END_IF
+	
+	
+	
+	IF g_tyNtParamCurr.bProjLifter2Prep THEN
+		tylocalBuffer.In.diLifterCurrPosInUM := g_tyLifter2.diActualPos;	
+	ELSE
+		tylocalBuffer.In.diLifterCurrPosInUM := g_tyLifterBtm.diActualPos;
 	END_IF
 END_ACTION

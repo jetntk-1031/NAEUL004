@@ -1,0 +1,7 @@
+#ifndef _MCPARAM_MCPARAM_DEFAULT_2085664942
+#define _MCPARAM_MCPARAM_DEFAULT_2085664942
+#include "../AsDefault.h"
+#include <bur/plctypes.h>
+#include <bur/plc.h>
+#include <localVAR.h>
+#endif

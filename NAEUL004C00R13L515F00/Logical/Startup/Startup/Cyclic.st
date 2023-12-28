@@ -4,20 +4,20 @@ PROGRAM _CYCLIC
 	IF bInitDone = FALSE THEN
 		bInitDone	:= TRUE;
 		
-		Act_InitLocal;
-		Act_InitGlobal;
+//		Act_InitLocal;
+//		Act_InitGlobal;
 		
 	ELSIF bInitialDone = FALSE THEN
 		bInitialDone	:= TRUE;
 		
-		Act_Initial;
+//		Act_Initial;
 		
 	ELSE
 	
-		Act_LinkAction;
-		Act_Action;
-		Act_Link;
+
+		Act_InputConfig;
 		Act_Main;
+		Act_OutputConfig;
 		
 	END_IF
 	

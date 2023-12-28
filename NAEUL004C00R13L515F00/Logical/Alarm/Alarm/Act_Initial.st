@@ -35,4 +35,5 @@ ACTION Act_Initial:
 	fbFileWrite1.udiOption	:= 0;
 	fbFileWrite1(bEn := FALSE);
 	
+	tylocalAlm.Out.bInfo					:= FALSE ;
 END_ACTION

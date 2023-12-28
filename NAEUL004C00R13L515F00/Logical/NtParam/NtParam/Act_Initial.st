@@ -1,8 +1,8 @@
-(** 2020-07-27 **)
+
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 	
 	fbDirCreate1.sDevice	:= 'F';
 	fbDirCreate1.sDirName	:= 'Private';
@@ -17,7 +17,7 @@ ACTION Act_Initial:
 	fbDirCreate3(bEn := FALSE);
 	
 	fbFileRead1.sDevice			:= 'NtParam';
-	fbFileRead1.sFile			:= p_sFileName;
+	fbFileRead1.sFile			:= tylocalNtParam.In.sFileName;
 	fbFileRead1.udiOffset		:= 0;
 	fbFileRead1.p_Dest			:= ADR(tyNtParamCurr);
 	fbFileRead1.udiLen			:= SIZEOF(tyNtParamCurr);
@@ -25,7 +25,7 @@ ACTION Act_Initial:
 	fbFileRead1(bEn := FALSE);
 	
 	fbFileWrite1.sDevice		:= 'NtParam';
-	fbFileWrite1.sFile			:= p_sFileName;
+	fbFileWrite1.sFile			:= tylocalNtParam.In.sFileName;
 	fbFileWrite1.udiOffset		:= 0;
 	fbFileWrite1.p_Src			:= ADR(tyNtParamCurr);
 	fbFileWrite1.udiLen			:= SIZEOF(tyNtParamCurr);
@@ -35,13 +35,13 @@ ACTION Act_Initial:
 	
 	tyMpNtParamMpLink	:= gRecipeXml;
 	
-	fbMpNtParamRegPar.MpLink	:= ADR(p_tyMpNtParamMpLink);
-	fbMpNtParamRegPar.PVName	:= ADR(p_sPVName);
+	fbMpNtParamRegPar.MpLink	:= ADR(tyMpNtParamMpLink);
+	fbMpNtParamRegPar.PVName	:= ADR(tylocalNtParam.In.sPVName);
 	fbMpNtParamRegPar(Enable := FALSE);
 	
-	fbMpNtParamXml.MpLink		:= ADR(p_tyMpNtParamMpLink);
+	fbMpNtParamXml.MpLink		:= ADR(tyMpNtParamMpLink);
 	fbMpNtParamXml.DeviceName	:= ADR('MpNtParam');
-	fbMpNtParamXml.FileName		:= ADR(p_sFileName1);
+	fbMpNtParamXml.FileName		:= ADR(tylocalNtParam.In.sFileName1);
 	fbMpNtParamXml(Enable := FALSE);
 	
 END_ACTION

@@ -1,8 +1,51 @@
-(** 2019-01-02 **)
+
 ACTION Act_Main:
 	
+	IF (eStatus1 = Error) AND bRstErr THEN
+		eStatus1	:= Idle;
+		udiStatus1	:= 0;
+		fbDlyTm(IN := FALSE);
+		fbGetTime1(enable := FALSE);
+		fbGetTimeDT1(enable := FALSE);
+	END_IF
+	
+	IF eStatus1 <> Error THEN
+		
+		fbDlyTm(IN := TRUE);
+		
+		IF fbDlyTm.Q = TRUE THEN
+			
+			fbGetTime1(enable := TRUE);
+			fbGetTimeDT1(enable := TRUE);
+			
+			IF fbGetTime1.status = 0 AND fbGetTimeDT1.status = 0 THEN
+				tylocalTime.Out.dtCurrDT	:= fbGetTime1.DT1;
+				fbGetTime1(enable := FALSE);
+				fbGetTimeDT1(enable := FALSE);
+				fbDlyTm(IN := FALSE);
+			ELSIF fbGetTime1.status > 0 AND fbGetTime1.status < 65534 THEN
+				udiStatus1	:= 5856;	//Get Time Error In Background
+				eStatus1	:= Error;
+			ELSIF fbGetTimeDT1.status > 0 AND fbGetTimeDT1.status < 65534 THEN
+				udiStatus1	:= 5857;	//Get Time Structure Error In Background
+				eStatus1	:= Error;
+			END_IF
+
+		END_IF
+		
+	END_IF
+	
+	//Reset Done
+	IF eStatus = Done AND tylocalTime.In.eAct = TimeActIdle THEN
+		tylocalTime.Out.eStat	:= TimeActIdle;
+	END_IF
+	//Set tylocalTime.In.eAct
+	IF eStatus = Idle THEN
+		tylocalTime.Out.eStat	:= tylocalTime.In.eAct;
+	END_IF
+	
 	//Main
-	CASE eStat OF
+	CASE tylocalTime.Out.eStat OF
 		
 		TimeActIdle:
 			IF eStatus <> Idle THEN	//Reset Data
@@ -13,7 +56,7 @@ ACTION Act_Main:
 				fbGetTimeDT(enable := FALSE);
 				fbGetTimeZone(enable := FALSE);
 				
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
 			END_IF
 			
@@ -24,15 +67,15 @@ ACTION Act_Main:
 				
 				eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
-				fbSetTime.DT1	:= p_dtSetDT;
+				fbSetTime.DT1	:= tylocalTime.In.dtSetDT;
 				fbSetTime(enable := TRUE);
 				
 				IF fbSetTime.status = 0 THEN
 					eStatus	:= Done;
 				ELSIF fbSetTime.status < 65534 THEN
-					udiStatus	:= 10000;	//Set Time Error
+					udiStatus	:= 5851;	//Set Time Error
 					eStatus		:= Error;
 				END_IF
 				
@@ -43,15 +86,15 @@ ACTION Act_Main:
 				
 				eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
-				fbSetTimeZone.timezoneID	:= p_uiSetTimeZone;
+				fbSetTimeZone.timezoneID	:= tylocalTime.In.uiSetTimeZone;
 				fbSetTimeZone(enable := TRUE);
 				
 				IF fbSetTimeZone.status = 0 THEN
 					eStatus	:= Done;
 				ELSIF fbSetTimeZone.status < 65534 THEN
-					udiStatus	:= 10001;	//Set Time Zone Error
+					udiStatus	:= 5852;	//Set Time Zone Error
 					eStatus		:= Error;
 				END_IF
 				
@@ -62,19 +105,19 @@ ACTION Act_Main:
 				
 				eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
 				fbGetTime(enable := TRUE);
 				fbGetTimeDT(enable := TRUE);
 				
 				IF fbGetTime.status = 0 AND fbGetTimeDT.status = 0 THEN
-					dtCurrDT	:= fbGetTime.DT1;
+					tylocalTime.Out.dtCurrDT	:= fbGetTime.DT1;
 					eStatus		:= Done;
 				ELSIF fbGetTime.status > 0 AND fbGetTime.status < 65534 THEN
-					udiStatus	:= 10002;	//Get Time Error
+					udiStatus	:= 5853;	//Get Time Error
 					eStatus		:= Error;
 				ELSIF fbGetTimeDT.status > 0 AND fbGetTimeDT.status < 65534 THEN
-					udiStatus	:= 10003;	//Get Time Structure Error
+					udiStatus	:= 5854;	//Get Time Structure Error
 					eStatus		:= Error;
 				END_IF
 				
@@ -85,20 +128,26 @@ ACTION Act_Main:
 				
 				eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
 				fbGetTimeZone(enable := TRUE);
 				
 				IF fbGetTimeZone.status = 0 THEN
-					uiCurrTimeZone	:= fbGetTimeZone.timezoneID;
+					tylocalTime.Out.uiCurrTimeZone	:= fbGetTimeZone.timezoneID;
 					eStatus			:= Done;
 				ELSIF fbGetTimeZone.status < 65534 THEN
-					udiStatus	:= 10004;	//Get Time Zone Error
+					udiStatus	:= 5855;	//Get Time Zone Error
 					eStatus		:= Error;
 				END_IF
 				
 			END_IF
 		
 	END_CASE
+	
+	IF eStatus = Error OR eStatus1 = Error THEN
+		tylocalTime.Out.eMainStatus	:= Error;
+	ELSE
+		tylocalTime.Out.eMainStatus	:= eStatus;
+	END_IF
 	
 END_ACTION

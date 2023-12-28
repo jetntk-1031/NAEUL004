@@ -3,66 +3,66 @@ ACTION Act_Main_UsrFolder:
 
 	CASE usiStep OF
 		0:
-			eUsrFolderAct	:= UsrFolderActCreateUsrDir;
+			tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActCreateUsrDir;
 	
-			IF (p_eUsrFolderStatus = Done) AND (p_eUsrFolderStat = UsrFolderActCreateUsrDir) THEN
+			IF (g_tyUsrFolder.eStatus = Done) AND (g_tyUsrFolder.eStat = UsrFolderActCreateUsrDir) THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eUsrFolderStatus = Error THEN
+			ELSIF g_tyUsrFolder.eStatus = Error THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
-				eStartupStep1	:= StartupStepParameter;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepParameter;
 				
 			END_IF
 	
 		1:
-			eUsrFolderAct	:= UsrFolderActCreatePrivateDir;
+			tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActCreatePrivateDir;
 	
-			IF (p_eUsrFolderStatus = Done) AND (p_eUsrFolderStat = UsrFolderActCreatePrivateDir) THEN
+			IF (g_tyUsrFolder.eStatus = Done) AND (g_tyUsrFolder.eStat = UsrFolderActCreatePrivateDir) THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eUsrFolderStatus = Error THEN
+			ELSIF g_tyUsrFolder.eStatus = Error THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepParameter;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepParameter;
 				
 			END_IF
 	
 		2:
-			eUsrFolderAct	:= UsrFolderActCreateLogDir;
+			tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActCreateLogDir;
 	
-			IF (p_eUsrFolderStatus = Done) AND (p_eUsrFolderStat = UsrFolderActCreateLogDir) THEN
+			IF (g_tyUsrFolder.eStatus = Done) AND (g_tyUsrFolder.eStat = UsrFolderActCreateLogDir) THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 3;
 				
-			ELSIF p_eUsrFolderStatus = Error THEN
+			ELSIF g_tyUsrFolder.eStatus = Error THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepParameter;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepParameter;
 				
 			END_IF
 	
 		3:
-			eUsrFolderAct	:= UsrFolderActCreateLCSDir;
+			tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActCreateLCSDir;
 	
-			IF (p_eUsrFolderStatus = Done) AND (p_eUsrFolderStat = UsrFolderActCreateLCSDir) THEN
+			IF (g_tyUsrFolder.eStatus = Done) AND (g_tyUsrFolder.eStat = UsrFolderActCreateLCSDir) THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepParameter;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepParameter;
 				
-			ELSIF p_eUsrFolderStatus = Error THEN
+			ELSIF g_tyUsrFolder.eStatus = Error THEN
 				
-				eUsrFolderAct	:= UsrFolderActIdle;
+				tylocalStartup.Out.eUsrFolderAct	:= UsrFolderActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepParameter;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepParameter;
 				
 			END_IF
 	

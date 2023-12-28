@@ -1,14 +1,8 @@
 (** 2019-03-29 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-			
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+	IF bInitialDone = FALSE THEN
+		F g_tyStartUp.bNtSettingsLoadDone = TRUE THEN
 			bInitialDone	:= TRUE;
 			
 			Act_Initial;
@@ -16,12 +10,12 @@ PROGRAM _CYCLIC
 		
 	ELSE
 		
-		Act_RstErr;
-		Act_LinkAction;
-		Act_Action;
-		Act_Link;
+
+		Act_InputConfig;
 		Act_Main;
-		Act_Alarm;
+		Act_OutputConfig;
+		Act_Alarm;	
+			
 		
 	END_IF
 	

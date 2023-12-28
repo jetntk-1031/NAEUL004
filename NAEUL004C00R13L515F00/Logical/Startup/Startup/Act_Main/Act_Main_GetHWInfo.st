@@ -3,74 +3,74 @@ ACTION Act_Main_GetHWInfo:
 
 	CASE usiStep OF
 		0:
-			eHWInfoAct	:= HWInfoActGetIPAddr;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetIPAddr;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetIPAddr) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetIPAddr) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 			
 		1:
-			eHWInfoAct	:= HWInfoActGetMacAddr;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetMacAddr;
 			
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetMacAddr) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetMacAddr) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 		
 		2:
-			eHWInfoAct	:= HWInfoActGetSubnetMask;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetSubnetMask;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetSubnetMask) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetSubnetMask) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 
 				IF DiagCpuIsSimulated() = TRUE THEN
 					usiStep			:= 0;
-					eStartupStep1	:= StartupStepLibVer;
+					tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				ELSE
 					usiStep			:= 3;
 				END_IF								
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 			
 		3:
-			eHWInfoAct	:= HWInfoActGetEthConfigMode;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetEthConfigMode;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetEthConfigMode) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetEthConfigMode) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				
 				bGetConfigDone	:= TRUE;
 				
 				IF (p_tyMcParamCurr.eNetworkMod = UDINT_TO_DINT(p_udiHWInfoEthMode))  THEN
 					IF p_udiHWInfoEthMode = DINT_TO_UDINT(IPFromDHCPServer) THEN
 						usiStep			:= 0;
-						eStartupStep1	:= StartupStepLibVer;
+						tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 					ELSE
 						IF (p_tyMcParamCurr.sIPAddr <> p_sHWInfoIPAddr) OR (p_tyMcParamCurr.sSubnetMask <> p_sHWInfoSubnetMask) THEN
-							IF p_bUITempAddrFillDone AND p_bUIMismatchOverWriteConfig THEN
+							IF g_tyUIOut.bIPTempAddrFillDone AND g_tyUIOut.bIPMismatchOverWriteConfig THEN
 								IF (p_tyMcParamCurr.sIPAddr <> p_sHWInfoIPAddr) THEN
 									usiStep			:= 5;  //mismatch ip
 								ELSE
@@ -79,30 +79,30 @@ ACTION Act_Main_GetHWInfo:
 							END_IF		
 						ELSE
 							usiStep			:= 0;
-							eStartupStep1	:= StartupStepLibVer;
+							tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 						END_IF
 					END_IF
 		
 				ELSE
-					IF p_bUITempAddrFillDone AND p_bUIMismatchOverWriteConfig THEN
+					IF g_tyUIOut.bIPTempAddrFillDone AND g_tyUIOut.bIPMismatchOverWriteConfig THEN
 						usiStep			:= 4;				
 					END_IF							
 				END_IF						
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 			
 		4:
-			eHWInfoAct	:= HWInfoActSetEthConfigMode;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetEthConfigMode;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetEthConfigMode) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetEthConfigMode) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				
 				IF (p_tyMcParamCurr.eNetworkMod = IPFromDHCPServer) THEN
 					usiStep			:= 7;
@@ -111,21 +111,21 @@ ACTION Act_Main_GetHWInfo:
 					usiStep			:= 5;
 				END_IF
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 				
 			
 		5:
-			eHWInfoAct	:= HWInfoActSetIPAddr;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetIPAddr;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetIPAddr) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetIPAddr) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				
 				IF (p_tyMcParamCurr.sSubnetMask <> p_sHWInfoSubnetMask) THEN
 					usiStep			:= 6;
@@ -134,39 +134,39 @@ ACTION Act_Main_GetHWInfo:
 					bMismatchSetConfigDone	:= TRUE;
 				END_IF
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 		
 		6:
-			eHWInfoAct	:= HWInfoActSetSubnetMask;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetSubnetMask;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetSubnetMask) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetSubnetMask) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;	
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;	
 				usiStep			:= 7;
 				
 				bMismatchSetConfigDone	:= TRUE;
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF			
 		
 		7:			
-			IF p_bUIChgConfigDone THEN
-				IF p_bUIOverwriteEthMode THEN
+			IF g_tyUIOut.bIPConfigChgDone THEN
+				IF g_tyUIOut.bOverwriteEthMode THEN
 					usiStep			:= 8; //Overwrite Network Mode
-				ELSIF p_bUIOverwriteIP THEN
+				ELSIF g_tyUIOut.bOverwriteIP THEN
 					usiStep			:= 9; //Overwrite IP
-				ELSIF p_bUIOverwriteSubnet THEN
+				ELSIF g_tyUIOut.bOverwriteSubnet THEN
 					usiStep			:= 10; //Overwrite Subnet
 				ELSE
 					usiStep			:= 12; //Load Machine Setting
@@ -174,63 +174,63 @@ ACTION Act_Main_GetHWInfo:
 			END_IF
 			
 		8:
-			eHWInfoAct	:= HWInfoActSetEthConfigMode;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetEthConfigMode;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetEthConfigMode) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetEthConfigMode) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				
-				IF p_bUIOverwriteIP THEN
+				IF g_tyUIOut.bOverwriteIP THEN
 					usiStep			:= 9;
-				ELSIF p_bUIOverwriteSubnet THEN
+				ELSIF g_tyUIOut.bOverwriteSubnet THEN
 					usiStep			:= 10;
 				ELSE
 					usiStep			:= 11;
 				END_IF
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 		
 		
 		9:
-			eHWInfoAct	:= HWInfoActSetIPAddr;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetIPAddr;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetIPAddr) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetIPAddr) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				
-				IF p_bUIOverwriteSubnet THEN
+				IF g_tyUIOut.bOverwriteSubnet THEN
 					usiStep			:= 10;
 				ELSE
 					usiStep			:= 11;
 				END_IF
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 		
 		10:
-			eHWInfoAct	:= HWInfoActSetSubnetMask;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActSetSubnetMask;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActSetSubnetMask) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActSetSubnetMask) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;	
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;	
 				usiStep			:= 11;
 								
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 		
@@ -248,40 +248,40 @@ ACTION Act_Main_GetHWInfo:
 			
 				eMcParamAct		:= McParamActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 			
 			END_IF
 		
 		12:
-			eHWInfoAct	:= HWInfoActGetIPAddr;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetIPAddr;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetIPAddr) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetIPAddr) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 13;
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 			
 		13:
-			eHWInfoAct	:= HWInfoActGetSubnetMask;
+			tylocalStartup.Out.eHWInfoAct	:= HWInfoActGetSubnetMask;
 	
-			IF (p_eHWInfoStatus = Done) AND (p_eHWInfoStat = HWInfoActGetSubnetMask) THEN
+			IF (g_tyHWInfo.eStatus = Done) AND (g_tyHWInfo.eStat = HWInfoActGetSubnetMask) THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
-			ELSIF p_eHWInfoStatus = Error THEN
+			ELSIF g_tyHWInfo.eStatus = Error THEN
 				
-				eHWInfoAct		:= HWInfoActIdle;
+				tylocalStartup.Out.eHWInfoAct		:= HWInfoActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepLibVer;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepLibVer;
 				
 			END_IF
 					

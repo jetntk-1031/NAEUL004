@@ -1,8 +1,8 @@
-(** 2019-01-03 **)
+
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 	
 	fbSetTime(enable := FALSE);
 	
@@ -13,10 +13,10 @@ ACTION Act_Initial:
 	
 	fbGetTime1(enable := FALSE);
 	
-	fbGetTimeDT.pDTStructure	:= ADR(tyCurrDTStruct);
+	fbGetTimeDT.pDTStructure	:= ADR(tylocalTime.Out.tyCurrDTStruct);
 	fbGetTimeDT(enable := FALSE);
 	
-	fbGetTimeDT1.pDTStructure	:= ADR(tyCurrDTStruct);
+	fbGetTimeDT1.pDTStructure	:= ADR(tylocalTime.Out.tyCurrDTStruct);
 	fbGetTimeDT1(enable := FALSE);
 	
 	fbGetTimeZone(enable := FALSE);

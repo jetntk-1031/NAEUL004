@@ -1,36 +1,37 @@
 (** 2019-03-25 **)
 ACTION Act_Alarm: 
+	//Reset Error
+	IF (tylocalPshrConv.Out.eStatus = Error) AND bRstErr THEN
+		tylocalPshrConv.In.eAct	:= MagConv2ClpActIdle;
+		tylocalPshrConv.Out.eStat	:= MagConv2ClpActIdle;
+	END_IF
 	
+	IF tylocalPshrConv.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalPshrConv.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
 	//Error
 	IF EDGEPOS(eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
+		
+		tylocalPshrConv.Out.tyAlmData.sProgNm		:= tylocalPshrConv.In.sProgNm;
+		tylocalPshrConv.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalPshrConv.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalPshrConv.Out.tyAlmData.udiRunTime	:= tylocalPshrConv.Out.tyAlmData.udiRunTime + 1;
+		tylocalPshrConv.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalPshrConv.Out.tyAlmData.udiModuleNum  := udiModuleNum;
 		g_sConvProgNm		    := p_sProgNm;
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10199 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
-		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalPshrConv.Out.sStatTxt	:= tylocalPshrConv.Out.tyAlmData.sAlmMsg;
 		
 	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalPshrConv.Out.tyAlmData.udiCode	:= 0;
+		tylocalPshrConv.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalPshrConv.Out.tyAlmData.bAlm			:= FALSE;
+		tylocalPshrConv.Out.sStatTxt	:= a_sStatText[tylocalPshrConv.Out.eStat];
 		
 	END_IF
 	

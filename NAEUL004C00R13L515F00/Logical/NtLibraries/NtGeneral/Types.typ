@@ -21,9 +21,6 @@ TYPE
 	tyAlmDat : 	STRUCT 
 		udiCode : UDINT; (*Alarm Code*)
 		eSeverity : eAlmSeverity; (*Alarm Severity*)
-		sProgNm : STRING[15]; (*Program Title Name*)
-		sAlmMsg : STRING[200]; (*Alarm Message*)
-		sRcyMsg : STRING[200]; (*Recovery Message*)
 		udiRunTime : UDINT; (*Run Time*)
 		udiModuleNum : UDINT;
 		bAlm : BOOL;

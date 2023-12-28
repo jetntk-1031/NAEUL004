@@ -1,11 +1,16 @@
-(** 2020-06-08 **)
+
 ACTION Act_Main:
 	
+	//Set p_eAct
+	IF tylocalProdRcp.Out.eStatus = Idle THEN
+		tylocalProdRcp.Out.eStat	:= p_eAct;
+	END_IF
+	
 	//Main
-	CASE eStat OF
+	CASE tylocalProdRcp.Out.eStat OF
 		
 		ProdRcpActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalProdRcp.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbDirCreate1(bEn := FALSE);
 				fbDirCreate2(bEn := FALSE);
@@ -26,18 +31,18 @@ ACTION Act_Main:
 				
 				memset(ADR(tyTempRecipe), 0 , SIZEOF(tyTempRecipe));
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalProdRcp.Out.eStatus	:= Idle;
 		
 		ProdRcpActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -45,7 +50,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalProdRcp.Out.eStatus		:= Error;
 							
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Create User Directory Error
@@ -57,9 +62,9 @@ ACTION Act_Main:
 					1:
 						fbDirCreate2(bEn := TRUE);
 						IF fbDirCreate2.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalProdRcp.Out.eStatus	:= Done;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalProdRcp.Out.eStatus		:= Error;
 							
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Create Product Recipe Directory Error
@@ -73,11 +78,11 @@ ACTION Act_Main:
 			END_IF
 		
 		ProdRcpActAddEdit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:	//Edit Recipe
@@ -85,11 +90,11 @@ ACTION Act_Main:
 						
 						IF udiAddStatus = 1600 THEN	//Recipe Name Empty
 							bNmEmpty	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 1601 THEN	//Recipe Full
 							bListFull	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 0 THEN	//OK
 							usiStep	:= 1;
@@ -100,13 +105,12 @@ ACTION Act_Main:
 						fbFileWriteList(bEn := TRUE);
 						
 						IF fbFileWriteList.udiStatus = 0 THEN
-							a_tyCurrList	:= a_tyListTemp;
-											
-							eStatus := Done;
-
+							a_tyCurrList						:= a_tyListTemp;
+							tylocalProdRcp.Out.eStatus			:= Done;
+							
 						ELSIF fbFileWriteList.udiStatus < 65534 THEN
 							a_tyListTemp	:= a_tyCurrList;
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileWriteList.udiStatus = 1900 THEN
 								udiStatus	:= 10002;	//File Open Error While Adding & Editing
@@ -128,11 +132,11 @@ ACTION Act_Main:
 			END_IF
 			
 		ProdRcpActDel:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:	//Edit User
@@ -140,11 +144,11 @@ ACTION Act_Main:
 						
 						IF udiAddStatus = 1600 THEN	//Recipe Name Empty
 							bNmEmpty	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 1603 THEN	//Recipe Not Exist
 							bNmNotExist	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 0 THEN	//OK
 							usiStep	:= 1;
@@ -156,11 +160,12 @@ ACTION Act_Main:
 						
 						IF fbFileWriteList.udiStatus = 0 THEN
 							a_tyCurrList	:= a_tyListTemp;
-							eStatus := Done;
+							tylocalProdRcp.Out.eStatus			:= Done;
 							
+														
 						ELSIF fbFileWriteList.udiStatus < 65534 THEN
 							a_tyListTemp	:= a_tyCurrList;
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileWriteList.udiStatus = 1900 THEN
 								udiStatus	:= 10006;	//File Open Error While Deleting
@@ -184,9 +189,9 @@ ACTION Act_Main:
 			END_IF
 		
 		ProdRcpActGetInfo:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				IF p_tyInfoIn.sRcpNm = '' THEN
 					bNmEmpty	:= TRUE;
@@ -195,25 +200,26 @@ ACTION Act_Main:
 					bNmNotExist	:= (fRecipeGetInfo(p_tyInfoIn.sRcpNm , ADR(tyInfoOut) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) , SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax)) = 0;
 				END_IF
 				
-				eStatus	:= Done;
+				tylocalProdRcp.Out.eStatus	:= Done;
 				
 			END_IF
 		
 		ProdRcpActGetList:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 					
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 							
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 			
 				fbFileReadList(bEn := TRUE);
 			
 				IF fbFileReadList.udiStatus = 0 THEN
 					a_tyListTemp	:= a_tyCurrList;
-					eStatus			:= Done;			
-
+					tylocalProdRcp.Out.eStatus			:= Done;			
+					
+	
 				ELSIF fbFileReadList.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalProdRcp.Out.eStatus		:= Error;
 			
 					IF fbFileReadList.udiStatus = 1900 THEN
 						udiStatus	:= 10010;	//File Open Error While Getting List
@@ -222,7 +228,7 @@ ACTION Act_Main:
 					ELSIF fbFileReadList.udiStatus = 1904 THEN
 						udiStatus	:= 10012;	//File Close Error While Getting List
 					ELSIF fbFileReadList.udiStatus = 1915 THEN
-						eStatus			:= Done;
+						tylocalProdRcp.Out.eStatus			:= Done;
 						bFileNotFound	:= TRUE;
 					ELSE
 						udiStatus	:= fbFileReadList.udiStatus;
@@ -234,34 +240,37 @@ ACTION Act_Main:
 		
 		ProdRcpActFilter:
 			
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus := Busy;
+				tylocalProdRcp.Out.eStatus := Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 				
 				CASE usiStep OF
 					0:
-						fRecipeFilter(p_sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 0, 499, iFilterCtr);
+						fRecipeFilter(tylocalProdRcp.In.sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,
+						SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 0, 499, iFilterCtr);
 						usiStep := 1;
 					1:
-						fRecipeFilter(p_sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 500, 999, iFilterCtr);
+						fRecipeFilter(tylocalProdRcp.In.sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,
+						SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 500, 999, iFilterCtr);
 						usiStep := 2;
 					2:
-						fRecipeFilter(p_sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 1000, 1499, iFilterCtr);
+						fRecipeFilter(tylocalProdRcp.In.sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,
+						SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 1000, 1499, iFilterCtr);
 						usiStep := 3;
 					3:
-						fRecipeFilter(p_sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 1500, 1999, iFilterCtr);
-						eStatus := Done;
+						fRecipeFilter(tylocalProdRcp.In.sSearch , ADR(a_tyFilterList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) ,
+						SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax, 1500, 1999, iFilterCtr);
+						tylocalProdRcp.Out.eStatus := Done;
 	
 				END_CASE
 							
-			END_IF;
-		
+			END_IF
 		ProdRcpActLoadRcp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:	//Get Current Recipe
@@ -269,12 +278,12 @@ ACTION Act_Main:
 							bNmEmpty	:= TRUE;
 							bNmNotExist	:= TRUE;
 							
-							eStatus	:= Done;
+							tylocalProdRcp.Out.eStatus	:= Done;
 						ELSE
 							bNmNotExist	:= (fRecipeGetInfo(p_tyInfoIn.sRcpNm , ADR(a_tyCurrRcp[0]) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) , SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax)) = 0;
 							
 							IF bNmNotExist = TRUE THEN
-								eStatus	:= Done;
+								tylocalProdRcp.Out.eStatus	:= Done;
 							ELSE
 								usiStep	:= 1;
 							END_IF
@@ -285,9 +294,9 @@ ACTION Act_Main:
 						fbFileLoadSingle(bEn := TRUE);
 						
 						IF fbFileLoadSingle.udiStatus = 0 THEN
-							eStatus			:= Done;
+							tylocalProdRcp.Out.eStatus			:= Done;
 						ELSIF fbFileLoadSingle.udiStatus < 65534 THEN
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileLoadSingle.udiStatus = 1900 THEN
 								udiStatus	:= 10025;	//File Open Error While Loading Current Recipe
@@ -309,11 +318,11 @@ ACTION Act_Main:
 			END_IF
 		
 		ProdRcpActAdd:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:	//Edit Recipe
@@ -321,15 +330,15 @@ ACTION Act_Main:
 						
 						IF udiAddStatus = 1600 THEN	//Recipe Name Empty
 							bNmEmpty	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 1601 THEN	//Recipe Full
 							bListFull	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 1602 THEN	//Recipe Name Exist
 							bNmExist	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 0 THEN	//OK
 							usiStep	:= 1;
@@ -341,11 +350,12 @@ ACTION Act_Main:
 						
 						IF fbFileWriteList.udiStatus = 0 THEN
 							a_tyCurrList	:= a_tyListTemp;
-							eStatus			:= Done;
-											
+							tylocalProdRcp.Out.eStatus			:= Done;
+							
+							
 						ELSIF fbFileWriteList.udiStatus < 65534 THEN
 							a_tyListTemp	:= a_tyCurrList;
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileWriteList.udiStatus = 1900 THEN
 								udiStatus	:= 10015;	//File Open Error While Adding
@@ -366,11 +376,11 @@ ACTION Act_Main:
 			END_IF
 			
 		ProdRcpActEdit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					0:	//Edit Recipe
@@ -378,11 +388,11 @@ ACTION Act_Main:
 						
 						IF udiAddStatus = 1600 THEN	//Recipe Name Empty
 							bNmEmpty	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 1603 THEN	//Recipe Not Exist
 							bNmNotExist	:= TRUE;
-							eStatus		:= Done;
+							tylocalProdRcp.Out.eStatus		:= Done;
 							
 						ELSIF udiAddStatus = 0 THEN	//OK
 							usiStep	:= 1;
@@ -394,11 +404,11 @@ ACTION Act_Main:
 						
 						IF fbFileWriteList.udiStatus = 0 THEN
 							a_tyCurrList	:= a_tyListTemp;
-							eStatus			:= Done;
+							tylocalProdRcp.Out.eStatus			:= Done;
 							
 						ELSIF fbFileWriteList.udiStatus < 65534 THEN
 							a_tyListTemp	:= a_tyCurrList;
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileWriteList.udiStatus = 1900 THEN
 								udiStatus	:= 10020;	//File Open Error While Adding & Editing
@@ -420,18 +430,18 @@ ACTION Act_Main:
 			END_IF
 			
 		ProdRcpActReadCurrRcp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				fbFileReadSingle(bEn := TRUE);
 				IF fbFileReadSingle.udiStatus = 0 THEN
-					eStatus			:= Done;
+					tylocalProdRcp.Out.eStatus			:= Done;
 				
 				ELSIF fbFileReadSingle.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalProdRcp.Out.eStatus		:= Error;
 				
 					IF fbFileReadSingle.udiStatus = 1900 THEN
 						udiStatus	:= 10030;	//File Open Error While Reading Current Recipe
@@ -440,7 +450,7 @@ ACTION Act_Main:
 					ELSIF fbFileReadSingle.udiStatus = 1904 THEN
 						udiStatus	:= 10032;	//File Close Error While Reading Current Recipe
 					ELSIF fbFileReadSingle.udiStatus = 1915 THEN
-						eStatus			:= Done;
+						tylocalProdRcp.Out.eStatus			:= Done;
 						bFileNotFound	:= TRUE;
 					ELSE
 						udiStatus	:= fbFileReadSingle.udiStatus;
@@ -450,17 +460,17 @@ ACTION Act_Main:
 			END_IF
 		
 		ProdRcpActWriteCurrRcpParam:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				fbFileWriteSingle(bEn := TRUE);
 						
 				IF fbFileWriteSingle.udiStatus = 0 THEN
 					a_tyCurrRcp[0]	:= p_tyCurrRcpWr;
-					eStatus			:= Done;
+					tylocalProdRcp.Out.eStatus			:= Done;
 				ELSIF fbFileWriteSingle.udiStatus < 65534 THEN
-					eStatus			:= Error;
+					tylocalProdRcp.Out.eStatus			:= Error;
 					
 					IF fbFileWriteSingle.udiStatus = 1900 THEN
 						udiStatus	:= 10033;	//File Open Error While Writing Current Recipe Parameter
@@ -480,24 +490,24 @@ ACTION Act_Main:
 			END_IF
 		
 		ProdRcpActSaveList:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalProdRcp.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];		
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];		
 				
 				CASE usiStep OF 
-					
+				
 					0:
 						a_tyListTemp	:= a_tyCurrList;
-
+						
 						fbFileWriteList(bEn := TRUE);
-										
+					
 						IF fbFileWriteList.udiStatus = 0 THEN
-							eStatus			:= Done;
-							
+							tylocalProdRcp.Out.eStatus			:= Done;
+												
 						ELSIF fbFileWriteList.udiStatus < 65534 THEN
-							eStatus			:= Error;
+							tylocalProdRcp.Out.eStatus			:= Error;
 					
 							IF fbFileWriteList.udiStatus = 1900 THEN
 								udiStatus	:= 10038;	//File Open Error While Saving List
@@ -520,16 +530,16 @@ ACTION Act_Main:
 		
 		
 		ProdRcpActSort:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 				CASE usiStep OF
 					
 					0:
 						
 						FOR udi := 1 TO c_udiProdRcpMax DO
-							IF p_sSearch <> '' THEN
+							IF tylocalProdRcp.In.sSearch <> '' THEN
 								IF a_tyFilterList[udi].sRcpNm = '' THEN
 									usiStep := 1;
 									EXIT;
@@ -555,7 +565,7 @@ ACTION Act_Main:
 						END_FOR
 						
 					1:
-						IF p_sSearch <> '' THEN
+						IF tylocalProdRcp.In.sSearch <> '' THEN
 							memcpy(ADR(a_tySortList),ADR(a_tyFilterList), SIZEOF(a_tyFilterList));
 						ELSE
 							memcpy(ADR(a_tySortList),ADR(a_tyCurrList), SIZEOF(a_tyCurrList));
@@ -595,23 +605,24 @@ ACTION Act_Main:
 						END_IF			
 								
 					3:
-						eStatus	:= Done;
+						tylocalProdRcp.Out.eStatus	:= Done;
 						
 				END_CASE
 				
 			END_IF
 			
 		ProdRcpActEndCharFilter:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalProdRcp.Out.eStatus = Idle OR tylocalProdRcp.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
-				fRecipeLastCharFilter(p_sScan , ADR(a_tyScanList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) , SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax);
+				fRecipeLastCharFilter(tylocalProdRcp.In.sScan , ADR(a_tyScanList) , ADR(a_tyCurrList) , SIZEOF(a_tyCurrList[1]) , ADR(a_tyCurrList[1].sRcpNm) , SIZEOF(a_tyCurrList[1].sRcpNm) , p_udiMax);
 				
-				eStatus	:= Done;
+				tylocalProdRcp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 	END_CASE
+	
 		
 END_ACTION

@@ -1,8 +1,8 @@
-(** 2019-01-03 **)
+
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	tylocalRstErr.Out.sStatTxt	:= a_sStatText[tylocalRstErr.Out.eStat];
 	
 	fbSafetyRlyRstTm(IN := FALSE);
 	

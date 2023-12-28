@@ -3,111 +3,111 @@ ACTION Act_Main_Recipe:
 	
 	CASE usiStep OF
 		0:
-			eProdRcpAct	:= ProdRcpActCreateDir;
+			tylocalStartup.Out.eProdRcpAct	:= ProdRcpActCreateDir;
 	
-			IF (p_eProdRcpStatus = Done) AND (p_eProdRcpStat = ProdRcpActCreateDir) THEN
+			IF (g_tyProdRcp.eStatus = Done) AND (g_tyProdRcp.eStat = ProdRcpActCreateDir) THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eProdRcpStatus = Error THEN
+			ELSIF g_tyProdRcp.eStatus = Error THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 			
 		1:
-			eProdRcpAct	:= ProdRcpActGetList;
+			tylocalStartup.Out.eProdRcpAct	:= ProdRcpActGetList;
 	
-			IF (p_eProdRcpStatus = Done) AND (p_eProdRcpStat = ProdRcpActGetList) THEN
+			IF (g_tyProdRcp.eStatus = Done) AND (g_tyProdRcp.eStat = ProdRcpActGetList) THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eProdRcpStatus = Error THEN
+			ELSIF g_tyProdRcp.eStatus = Error THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 		
 		2:
-			eProdRcpAct	:= ProdRcpActReadCurrRcp;
+			tylocalStartup.Out.eProdRcpAct	:= ProdRcpActReadCurrRcp;
 	
-			IF (p_eProdRcpStatus = Done) AND (p_eProdRcpStat = ProdRcpActReadCurrRcp) THEN
+			IF (g_tyProdRcp.eStatus = Done) AND (g_tyProdRcp.eStat = ProdRcpActReadCurrRcp) THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 10;
 				
-			ELSIF p_eProdRcpStatus = Error THEN
+			ELSIF g_tyMpProdRcp.eStatus = Error THEN
 				
-				eProdRcpAct		:= ProdRcpActIdle;
+				tylocalStartup.Out.eProdRcpAct		:= ProdRcpActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 		
 		10:
-			eMpProdRcpAct	:= MpProdRcpActCreateDir;
+			tylocalStartup.Out.eMpProdRcpAct	:= MpProdRcpActCreateDir;
 	
-			IF (p_eMpProdRcpStatus = Done) AND (p_eMpProdRcpStat = MpProdRcpActCreateDir) THEN
+			IF (g_tyMpProdRcp.eStatus = Done) AND (g_tyMpProdRcp.eStat = MpProdRcpActCreateDir) THEN
 				
-				eMpProdRcpAct	:= MpProdRcpActIdle;
+				tylocalStartup.Out.eMpProdRcpAct	:= MpProdRcpActIdle;
 				usiStep			:= 20;
 				
-			ELSIF p_eProdRcpStatus = Error THEN
+			ELSIF g_tyMpProdRcp.eStatus = Error THEN
 				
-				eMpProdRcpAct	:= MpProdRcpActIdle;
+				tylocalStartup.Out.eMpProdRcpAct	:= MpProdRcpActIdle;
 				usiStep			:= 20;
 				
 			END_IF
 			
 		20:
-			eMagRcpAct	:= MagRcpActCreateDir;
+			tylocalStartup.Out.eMagRcpAct	:= MagRcpActCreateDir;
 	
-			IF (p_eMagRcpStatus = Done) AND (p_eMagRcpStat = MagRcpActCreateDir) THEN
+			IF (g_tyMagRcp.eStatus = Done) AND (g_tyMagRcp.eStat = MagRcpActCreateDir) THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 21;
 				
-			ELSIF p_eMagRcpStatus = Error THEN
+			ELSIF g_tyMagRcp.eStatus = Error THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepAutoRcp; //StartupStepUsrMgmt;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepAutoRcp; //StartupStepUsrMgmt;
 				
 			END_IF
 			
 		21:
-			eMagRcpAct	:= MagRcpActGetList;
+			tylocalStartup.Out.eMagRcpAct	:= MagRcpActGetList;
 			
-			IF (p_eMagRcpStatus = Done) AND (p_eMagRcpStat = MagRcpActGetList) THEN
+			IF (g_tyMagRcp.eStatus = Done) AND (g_tyMagRcp.eStat = MagRcpActGetList) THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 22;
 				
-			ELSIF p_eMagRcpStatus = Error THEN
+			ELSIF g_tyMagRcp.eStatus = Error THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepAutoRcp;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepAutoRcp;
 				
 			END_IF
 			
 		22:
-			eMagRcpAct	:= MagRcpActReadCurrRcp;
+			tylocalStartup.Out.eMagRcpAct	:= MagRcpActReadCurrRcp;
 			
-			IF (p_eMagRcpStatus = Done) AND (p_eMagRcpStat = MagRcpActReadCurrRcp) THEN
+			IF (g_tyMagRcp.eStatus = Done) AND (g_tyMagRcp.eStat = MagRcpActReadCurrRcp) THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepAutoRcp;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepAutoRcp;
 				
-			ELSIF p_eMagRcpStatus = Error THEN
+			ELSIF g_tyMagRcp.eStatus = Error THEN
 				
-				eMagRcpAct		:= MagRcpActIdle;
+				tylocalStartup.Out.eMagRcpAct		:= MagRcpActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepAutoRcp;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepAutoRcp;
 				
 			END_IF
 			

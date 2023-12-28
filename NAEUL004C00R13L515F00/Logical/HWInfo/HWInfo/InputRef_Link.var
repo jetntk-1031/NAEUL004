@@ -1,6 +1,0 @@
-(*2019-03-25*)
-(**)
-VAR
-	p_bLinkStartupRun : REFERENCE TO BOOL;
-	p_sHMIMacAdd : REFERENCE TO STRING[27];
-END_VAR

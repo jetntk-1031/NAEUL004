@@ -1,88 +1,86 @@
 (** 2019-03-29 **)
 ACTION Act_Link:
 	
-	IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN //AutoRcp Ignored Follower
-		p_usiLinkMcParamProdSelMcMod ACCESS p_ProdRcpCurrRcp0McMod;
+	IF tylocalPshrConv.In.bNtParamAutoRcpPrep AND NOT(tylocalPshrConv.In.bMcParamAutoRcpDis) THEN //AutoRcp Ignored Follower
+		tylocalPshrConv.In.usiLinkMcParamProdSelMcMod ACCESS tylocalPshrConv.In.ProdRcpCurrRcp0McMod;
 	ELSE
-		p_usiLinkMcParamProdSelMcMod ACCESS p_ProdRcpCurrRcp1McMod;	
+		tylocalPshrConv.In.usiLinkMcParamProdSelMcMod ACCESS tylocalPshrConv.In.ProdRcpCurrRcp1McMod;	
 	END_IF
 	
 	
-	IF p_bLinkDISafetyRlySig = FALSE OR eStatus = Error  THEN
-		bPshrExtCtrl		:= FALSE;
-		bPshrRetCtrl		:= FALSE;
-		bPshrExtended		:= FALSE;
-		bPshrRetracted		:= FALSE;
+	IF tylocalPshrConv.In.bLinkDISafetyRlySig = FALSE OR tylocalPshrConv.Out.eStatus = Error  THEN
+		tylocalPshrConv.Out.bPshrExtCtrl		:= FALSE;
+		tylocalPshrConv.Out.bPshrRetCtrl		:= FALSE;
+		tylocalPshrConv.Out.bPshrExtended		:= FALSE;
+		tylocalPshrConv.Out.bPshrRetracted		:= FALSE;
 		
-		bPullerExtCtrl		:= FALSE;
-		bPullerRetCtrl		:= FALSE;
-		bPullerExtended		:= FALSE;
-		bPullerRetracted	:= FALSE;
+		tylocalPshrConv.Out.bPullerExtCtrl		:= FALSE;
+		tylocalPshrConv.Out.bPullerRetCtrl		:= FALSE;
+		tylocalPshrConv.Out.bPullerExtended		:= FALSE;
+		tylocalPshrConv.Out.bPullerRetracted	:= FALSE;
 		
-		bRotRemoteCtrl		:= FALSE;
-		bRotAtRemote		:= FALSE;
-		bRotAtHome			:= FALSE;
+		tylocalPshrConv.Out.bRotRemoteCtrl		:= FALSE;
+		tylocalPshrConv.Out.bRotAtRemote		:= FALSE;
+		tylocalPshrConv.Out.bRotAtHome			:= FALSE;
 		
-		bRejectUpCtrl		:= FALSE;
-		bRejectDownCtrl		:= FALSE;
-		bRejectAtUp			:= FALSE;
-		bRejectAtDown		:= FALSE;
+		tylocalPshrConv.Out.bRejectUpCtrl		:= FALSE;
+		tylocalPshrConv.Out.bRejectDownCtrl		:= FALSE;
+		tylocalPshrConv.Out.bRejectAtUp			:= FALSE;
+		tylocalPshrConv.Out.bRejectAtDown		:= FALSE;
 	END_IF
 	
 	//Bypass Intializing Conveyor
-	IF p_bLinkUIBypsInitConv THEN
-		p_diInitTm ACCESS ADR(diInitTm);
+	IF tylocalPshrConv.In.bLinkUIBypsInitConv THEN
+		tylocalPshrConv.In.diInitTm ACCESS ADR(diInitTm);
 	ELSE
-		p_diInitTm ACCESS p_McParamConvInitTm;
+		tylocalPshrConv.In.diInitTm ACCESS tylocalPshrConv.In.McParamConvInitTm;
 	END_IF
 	
-	fbRightSenTm(IN:= bMtrSigOnOrLToR AND p_bRightSen = FALSE, PT:= DINT_TO_TIME(p_diInitTm - 1000));
+	fbRightSenTm(IN:= tylocalPshrConv.Out.bMtrSigOnOrLToR AND tylocalPshrConv.In.bRightSen = FALSE, PT:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm - 1000));
 	//Sensor
-	IF p_bSelfTest = FALSE THEN
-		p_bRightSen	:= p_bLinkDIRgtSen OR p_bLinkDIClrSen; //previously this part block for safety
-		fbBoardOffTm(IN:= p_bLeftSen = FALSE AND p_bRightSen = FALSE AND bMtrDirOrRToL = FALSE AND bMtrSigOnOrLToR = FALSE);
+	IF tylocalPshrConv.In.bSelfTest = FALSE THEN
+		tylocalPshrConv.In.bRightSen	:= tylocalPshrConv.In.bLinkDIRgtSen OR tylocalPshrConv.In.bLinkDIClrSen; //previously this part block for safety
+		fbBoardOffTm(IN:= tylocalPshrConv.In.bLeftSen = FALSE AND tylocalPshrConv.In.bRightSen = FALSE AND tylocalPshrConv.Out.bMtrDirOrRToL = FALSE AND tylocalPshrConv.Out.bMtrSigOnOrLToR = FALSE);
 		IF EDGEPOS(fbBoardOffTm.Q) THEN
-			bHvBrd := FALSE;
+			tylocalPshrConv.Out.bHvBrd := FALSE;
 		END_IF
 	ELSE
 		IF fbRightSenTm.Q THEN
-			p_bRightSen := TRUE;
-		ELSIF p_bPshrExtSen THEN
-			p_bRightSen := FALSE;
+			tylocalPshrConv.In.bRightSen := TRUE;
+		ELSIF tylocalPshrConv.In.bPshrExtSen THEN
+			tylocalPshrConv.In.bRightSen := FALSE;
 		END_IF
 	END_IF
 	
-	p_bPshrRetSen := p_bLinkPshrRetSen; // OR p_bLinkPshrRetSlwSen;
+	tylocalPshrConv.In.bPshrRetSen := tylocalPshrConv.In.bLinkPshrRetSen; // OR tylocalPshrConv.In.bLinkPshrRetSlwSen;
 	
 	//Good Board Init
-	CASE p_usiLinkMcParamProdSelMcMod OF
+	CASE tylocalPshrConv.In.usiLinkMcParamProdSelMcMod OF
 		ULModUnloadFrontLnA, ULModUnloadRearLnB, ULModUnloadDualLnAB:
-			bGdBrdInit	:= TRUE;
+			tylocalPshrConv.Out.bGdBrdInit	:= TRUE;
 		ULModRejFrontLnA, ULModRejFrontLnARev, ULModRejRearLnB, ULModRejRearLnBRev, ULModRejDualLnA, ULModRejDualLnB:
-			bGdBrdInit	:= FALSE;
+			tylocalPshrConv.Out.bGdBrdInit	:= FALSE;
 	END_CASE
 	
 	//Good Board Enter
-	IF p_eLinkOpsTravLifPosGo = TravLifULPosUS1 THEN
+	IF tylocalPshrConv.In.eLinkOpsTravLifPosGo = TravLifULPosUS1 THEN
 		
-		IF p_eLinkMcParamUSCommAMod = McSetCommModSMEMA THEN
-			p_bGdBrdEnt ACCESS p_USSMEMAAUSGdBrdRdy;
-		ELSIF p_eLinkMcParamUSCommAMod = McSetCommModHermes THEN
-			p_bGdBrdEnt ACCESS p_USHermesAUSGdRdy;
+		IF tylocalPshrConv.In.eLinkMcParamUSCommAMod = McSetCommModSMEMA THEN
+			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USSMEMAAUSGdBrdRdy;
+		ELSIF tylocalPshrConv.In.eLinkMcParamUSCommAMod = McSetCommModHermes THEN
+			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USHermesAUSGdRdy;
 		END_IF
 		
-	ELSIF p_eLinkOpsTravLifPosGo = TravLifULPosUS2 THEN
+	ELSIF tylocalPshrConv.In.eLinkOpsTravLifPosGo = TravLifULPosUS2 THEN
 		
-		IF p_eLinkMcParamUSCommBMod = McSetCommModSMEMA THEN
-			p_bGdBrdEnt ACCESS p_USSMEMABUSGdBrdRdy;
-		ELSIF p_eLinkMcParamUSCommBMod = McSetCommModHermes THEN
-			p_bGdBrdEnt ACCESS p_USHermesBUSGdRdy;
+		IF tylocalPshrConv.In.eLinkMcParamUSCommBMod = McSetCommModSMEMA THEN
+			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USSMEMABUSGdBrdRdy;
+		ELSIF tylocalPshrConv.In.eLinkMcParamUSCommBMod = McSetCommModHermes THEN
+			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USHermesBUSGdRdy;
 		END_IF
 		
 	END_IF
 	
-//	IF p_eAct = ConvActInitPshr AND eStatus = Done THEN
-//		p_eAct	:= ConvActIdle;
-//	END_IF
+
 	
 END_ACTION

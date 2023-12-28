@@ -19,33 +19,21 @@ ACTION Act_Link:
 
 	//new for Hermes 1.3
 		//Changed
-	IF p_bRmtHermesWriteConfig OR p_bSvyHermesWriteConfig THEN 
-		p_tyMcParamWr.sMcNm := p_tyHermesConfigurationWr.tySvyParam.sMachineId;
+	IF g_tyRmtHermes.bWriteConfig OR g_tySvyHermes.bWriteConfig THEN 
+		tylocalMcParam.In.tyMcParmWr.sMcNm := g_tySvyHermes.tyHermesConfigurationWr.tySvyParam.sMachineId;//p_tyHermesConfigurationWr.tySvyParam.sMachineId;
 	END_IF
 	
-//	//Control AutoRcp 
-//	IF NOT(p_bNtParamAutoRcpPrep) THEN
-//		tyMcParamCurr.bAutoRcpDisable := TRUE;
-//	ELSE
-//		IF tyMcParamCurr.eUSCommA <> McSetCommModHermes AND ( NOT(p_bNtParamProjLaneBPrep) OR (p_bNtParamProjLaneBPrep AND tyMcParamCurr.eUSCommB <> McSetCommModHermes)) THEN
-//			tyMcParamCurr.bAutoRcpDisable := TRUE;
-//		ELSE
-////			IF EDGEPOS(tyMcParamCurr.eUSCommA = McSetCommModHermes AND ( NOT(p_bNtParamProjLaneBPrep) OR (p_bNtParamProjLaneBPrep AND tyMcParamCurr.eUSCommB = McSetCommModHermes))) THEN
-//				tyMcParamCurr.bAutoRcpDisable := FALSE;
-////			END_IF	
-//		END_IF	
-//	END_IF
-	
+
 	
 	
 	//Control AutoRcp 
-	IF NOT(p_bNtParamAutoRcpPrep) THEN
+	IF NOT(g_tyNtParamCurr.bAutoRcpPrep) THEN
 		tyMcParamCurr.bAutoRcpDisable := TRUE;
 	ELSE
 		//auto rcp prep 
-		CASE p_eNtParamAutoRcpPrecededBy OF
+		CASE g_tyNtParamCurr.eAutoRcpPrecededBy OF
 			PrecededBySelf: 
-				IF tyMcParamCurr.eUSCommA <> McSetCommModHermes AND ( NOT(p_bNtParamProjLaneBPrep) OR (p_bNtParamProjLaneBPrep AND tyMcParamCurr.eUSCommB <> McSetCommModHermes)) THEN
+				IF tyMcParamCurr.eUSCommA <> McSetCommModHermes AND ( NOT(g_tyNtParamCurr.bProjLaneBPrep) OR (g_tyNtParamCurr.bProjLaneBPrep AND tyMcParamCurr.eUSCommB <> McSetCommModHermes)) THEN
 					tyMcParamCurr.bAutoRcpDisable := TRUE;
 				ELSE
 					tyMcParamCurr.bAutoRcpDisable := FALSE;
@@ -60,14 +48,14 @@ ACTION Act_Link:
 	
 	
 	//Disable MES on SMEMA mode
-	IF p_eNtParamCustomerReq = Siemens AND tyMcParamCurr.eUSCommA <> McSetCommModHermes  AND ( NOT(p_bNtParamProjLaneBPrep) OR (p_bNtParamProjLaneBPrep AND tyMcParamCurr.eUSCommB <> McSetCommModHermes)) THEN 
+	IF g_tyNtParamCurr.eCustomerReq = Siemens AND tyMcParamCurr.eUSCommA <> McSetCommModHermes  AND ( NOT(g_tyNtParamCurr.bProjLaneBPrep) OR (g_tyNtParamCurr.bProjLaneBPrep AND tyMcParamCurr.eUSCommB <> McSetCommModHermes)) THEN 
 		tyMcParamCurr.bMESEn := TRUE;
 		tyMcParamCurr.bHermesSvyEn := FALSE;
 	END_IF
 
 	
 	
-	IF p_bLinkStartupRun = FALSE THEN
+	IF g_tyStartUp.bRun = FALSE THEN
 		
 		CASE usiChkIpAddrStep OF
 		
@@ -118,7 +106,7 @@ ACTION Act_Link:
 				IF fbReadList.udiStatus = 0 THEN
 					fbReadList(bEn := FALSE);
 				
-					IF p_sHWInfoIPAddr <> sVNCIPAddr OR p_bUIUpdtHMIIPAddr  THEN
+					IF g_tyHWInfo.sIPAddr <> sVNCIPAddr OR g_tyUIOut.bUpdtHMIIPAddr  THEN
 					
 						usiChkIpAddrStep := 3;
 					END_IF	
@@ -153,10 +141,10 @@ ACTION Act_Link:
 			
 				fbWriteList.a_dwNodeHdlList := tyWriteHdls.a_dwHdls;
 			
-				sVNCIPAddr	:= p_sHWInfoIPAddr;
+				sVNCIPAddr	:= g_tyHWInfo.sIPAddr;
 			
-				IF LEN(p_sUISetHMIIPAddr) > 0 THEN
-					sHMIIPAddr	:= p_sUISetHMIIPAddr;
+				IF LEN(g_tyUIOut.sSetHMIIPAddr) > 0 THEN
+					sHMIIPAddr	:= g_tyUIOut.sSetHMIIPAddr;
 				ELSE
 					sHMIIPAddr	:= tyMcParamCurr.sHMIIPAddr;
 				END_IF
@@ -273,8 +261,8 @@ ACTION Act_Link:
 			
 				IF LEN(sHMIIPAddr) > 0 THEN
 					tyMcParamCurr.sHMIIPAddr := sHMIIPAddr;
-				ELSIF LEN(p_sUISetHMIIPAddr) > 0 THEN
-					tyMcParamCurr.sHMIIPAddr := p_sUISetHMIIPAddr;
+				ELSIF LEN(g_tyUIOut.sSetHMIIPAddr) > 0 THEN
+					tyMcParamCurr.sHMIIPAddr := g_tyUIOut.sSetHMIIPAddr;
 				END_IF
 						
 			ELSE

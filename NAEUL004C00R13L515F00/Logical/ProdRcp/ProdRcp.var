@@ -1,15 +1,10 @@
-(*2020-06-08*)
 (**)
 (*Constant*)
 VAR CONSTANT
 	c_udiProdRcpMax : UDINT := 2000;
 END_VAR
-(**)
-(*Action & State & Status*)
 VAR
-	p_ProdRcpStat : UDINT;
-	p_ProdRcpStatus : UDINT;
-	p_ProdRcpStatTxt : UDINT;
+	g_tyProdRcp : tyProdRcpOut1;
 END_VAR
 (**)
 (*Alarm*)

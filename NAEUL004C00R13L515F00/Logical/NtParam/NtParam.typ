@@ -1,17 +1,15 @@
 (*2020-07-28*)
-(**)
 
 TYPE
-	tyUILmt : 	STRUCT 
-		diMax : DINT;
-		diMin : DINT;
-	END_STRUCT;
-END_TYPE
-
-(**)
-(*Data*)
-
-TYPE
+	eNtParamAction : 
+		(
+		NtParamActIdle,
+		NtParamActCreateDir,
+		NtParamActRead,
+		NtParamActWrite,
+		NtParamActLoad,
+		NtParamActSave
+		);
 	tyNtParam : 	STRUCT 
 		tyDISettings : tyDigitalInputSettings := (diSafetyRlySig:=1,diEStopSig:=2,diCoverSWSig:=3,diUBAA:=4,diUBAB:=5,diUBAAStat:=6,diUBABStat:=7,diPusherExtRS:=12,diPusherRetRS:=13,diConvLftSen:=27,diConvMidSen:=28,diConvRgtSen:=29,diConvClrSen:=30,diOvenInfeedSigA:=0,diOvenInfeedSigB:=0,diLifterTimingBeltSen:=10,diLifterSafetyLmtSW1:=11,diLifterSafetyLmtSW2:=0,diMag1FixedClampRS:=0,diMag1FixedUnclampRS:=0,diMag1RemoteClampRS:=0,diMag1RemoteUnclampRS:=0,diMag2FixedClampRS:=0,diMag2FixedUnclampRS:=0,diMag2RemoteClampRS:=0,diMag2RemoteUnclampRS:=0,diMag3FixedClampRS:=0,diMag3FixedUnclampRS:=0,diMag3RemoteClampRS:=0,diMag3RemoteUnclampRS:=0,diInShutterOpenRS:=14,diInShutterCloseRS:=15,diOutShutterOpenRS:=16,diOutShutterCloseRS:=17,diMagPresentSen1:=8,diMagPresentSen2:=9,diMagPresentSen3:=0,diMagConvEntSen1:=0,diMagConvEntSen2:=0,diMagConvEntSen3:=0,diMag1AIVInPosSen1:=0,diMag1AIVInPosSen2:=0,diMag2AIVInPosSen1:=0,diMag2AIVInPosSen2:=0,diMag3AIVInPosSen1:=0,diMag3AIVInPosSen2:=0,diMag1OrientChkSen1:=0,diMag1OrientChkSen2:=0,diMag2OrientChkSen1:=0,diMag2OrientChkSen2:=0,diMag3OrientChkSen1:=0,diMag3OrientChkSen2:=0,diUSWidthChkSen:=0,diConvLineAInletSen:=0,diConvLineBInletSen:=0,diMagConvHeightSen1:=0,diMagConvHeightSen2:=0,diMagConvHeightSen3:=0,diMagConvSmallMagSen1:=0,diMagConvSmallMagSen2:=0,diMagConvSmallMagSen3:=0,diMagConvLargeMagSen1:=0,diMagConvLargeMagSen2:=0,diMagConvLargeMagSen3:=0,diMagConvCAB717MagSen1:=0,diMagConvCAB717MagSen2:=0,diMagConvCAB717MagSen3:=0,diMag1SelUnClampRS:=0,diMag2SelUnClampRS:=0,diMag3SelUnClampRS:=0,diMag1WallEngageRS:=0,diMag1WallDisengageRS:=0,diMag2WallEngageRS:=0,diMag2WallDisengageRS:=0,diMag3WallEngageRS:=0,diMag3WallDisengageRS:=0,diMag1SafetyBarExtRS:=0,diMag1SafetyBarRetRS:=0,diMag2SafetyBarExtRS:=0,diMag2SafetyBarRetRS:=0,diMag3SafetyBarExtRS:=0,diMag3SafetyBarRetRS:=0,diSOT1Receive:=0,diSOT1AIVError:=0,diSOT1AIVSizeLarge:=0,diSOT1AIVReady:=0,diSOT1AIVAvailable:=0,diSOT2Receive:=0,diSOT2AIVError:=0,diSOT2AIVSizeLarge:=0,diSOT2AIVReady:=0,diSOT2AIVAvailable:=0,diSOT3Receive:=0,diSOT3AIVError:=0,diSOT3AIVSizeLarge:=0,diSOT3AIVReady:=0,diSOT3AIVAvailable:=0,diSOT4Receive:=0,diSOT4AIVError:=0,diSOT4AIVSizeLarge:=0,diSOT4AIVReady:=0,diSOT4AIVAvailable:=0,diFleetManagerReady:=0,diPusherExtSlwSen:=0,diPusherRetSlwSen:=0,diMtrPshrTorqueSig:=0,diMtrPshrAlmSig:=0,diMagWidthChkSen:=0,diPshrAntiJam:=0,diInMagConvEntSen:=0,diInMagConvExtSen:=0,diInMagConvMidSen:=0,diOutMagConvEntSen:=0,diOutMagConvExtSen:=0,diOutMagConvMidSen:=0,diInMagConv2EntSen:=0,diInMagConv2ExtSen:=0,diInMagConv2MidSen:=0,diOutMagConv2EntSen:=0,diOutMagConv2ExtSen:=0,diOutMagConv2MidSen:=0,diLifterLmtSW:=0,diLifter2LmtSW:=0,diMtrOverloadSig:=0,diOutShutterOpenRS2:=0,diOutShutterCloseRS2:=0,diOutShutterOpenRS3:=0,diOutShutterCloseRS3:=0,diMag1FixedClampSen:=0,diMag2FixedClampSen:=0,diMag3FixedClampSen:=0,diCurtainSenPB:=0,diCurtainSen:=0,diCurtainSafetySig:=0,diHighMagDetSen1:=0,diHighMagDetSen2:=0,diHighMagDetSen3:=0,diInletStopperASen:=0,diScanComplSig:=0,diPCBScanSen:=0,diSPARE17:=0,diSPARE18:=0,diSPARE19:=0,diSPARE20:=0);
 		tyDOSettings : tyDigitalOutputSettings := (diSafetyRlyRst:=1,diTLRed:=4,diTLAmber:=3,diTLGreen:=2,diBuzzer:=5,diUSBA:=8,diUSBB:=9,diOvenInfoSigA:=7,diOvenInfoSigB:=10,diPusherExtCtrl:=11,diStopperUnblkCtrlA:=0,diStopperUnblkCtrlB:=0,diMag1FixedClampCtrl:=0,diMag1RemoteClampCtrl:=0,diMag2FixedClampCtrl:=0,diMag2RemoteClampCtrl:=0,diMag3FixedClampCtrl:=0,diMag3RemoteClampCtrl:=0,diInShutterOpenCtrl:=15,diInShutterCloseCtrl:=16,diOutShutterOpenCtrl:=17,diOutShutterCloseCtrl:=18,diMag1ConvMtrIn:=0,diMag1ConvMtrOut:=0,diMag2ConvMtrIn:=0,diMag2ConvMtrOut:=0,diMag3ConvMtrIn:=0,diMag3ConvMtrOut:=0,diMag1SelClampCtrl:=0,diMag2SelClampCtrl:=0,diMag3SelClampCtrl:=0,diPushConvMtrOn:=12,diMag1WallEngageCtrl:=0,diMag2WallEngageCtrl:=0,diMag3WallEngageCtrl:=0,diMag1SafetyBarRetCtrl:=0,diMag2SafetyBarRetCtrl:=0,diMag3SafetyBarRetCtrl:=0,diSOT1MagError:=0,diSOT1MagSizeLarge:=0,diSOT1MagReady:=0,diSOT1MagAvailable:=0,diSOT2MagError:=0,diSOT2MagSizeLarge:=0,diSOT2MagReady:=0,diSOT2MagAvailable:=0,diSOT3MagError:=0,diSOT3MagSizeLarge:=0,diSOT3MagReady:=0,diSOT3MagAvailable:=0,diSOT4MagError:=0,diSOT4MagSizeLarge:=0,diSOT4MagReady:=0,diSOT4MagAvailable:=0,diMagAWOpenLimByp1:=0,diMagAWOpenLimByp2:=0,diMagAWOpenLimByp3:=0,diMagAWOpenLimByp4:=0,diMagAWSmallLimSen1:=0,diMagAWSmallLimSen2:=0,diMagAWSmallLimSen3:=0,diMagAWSmallLimSen4:=0,diMag1ReqToBring:=0,diMag1ReqToGet:=0,diMag2ReqToBring:=0,diMag2ReqToGet:=0,diMag3ReqToBring:=0,diMag3ReqToGet:=0,diMag4ReqToBring:=0,diMag4ReqToGet:=0,diMtrPshrExt:=0,diMtrPshrRet:=0,diMtrPshrOn:=0,diMtrPshrBrakeRls:=0,diMtrPshrSpdBinBit0:=0,diMtrPshrSpdBinBit1:=0,diMtrPshrSpdBinBit2:=0,diMtrPshrAlmRst:=0,diInMagConvMtrOn:=0,diOutMagConvMtrOn:=0,diInMagConv2MtrOn:=0,diOutMagConv2MtrOn:=0,diEntTopStprUnblkCtrl:=0,diMidTopStprUnblkCtrl:=0,diExtTopStprUnblkCtrl:=0,diMidBtmStprUnblkCtrl:=0,diExtBtmStprUnblkCtrl:=0,diEntTopStprUnblkCtrl2:=0,diMidTopStprUnblkCtrl2:=0,diExtTopStprUnblkCtrl2:=0,diMidBtmStprUnblkCtrl2:=0,diExtBtmStprUnblkCtrl2:=0,diMtrPwrRly:=0,diMag1FixedClampOpenCtrl:=0,diMag1RemoteClampOpenCtrl:=0,diMag2FixedClampOpenCtrl:=0,diMag2RemoteClampOpenCtrl:=0,diMag3FixedClampOpenCtrl:=0,diMag3RemoteClampOpenCtrl:=0,diOutShutterOpenCtrl2:=0,diOutShutterCloseCtrl2:=0,diOutShutterOpenCtrl3:=0,diOutShutterCloseCtrl3:=0,diBypCurtainSen:=0,diRstCurtainSen:=0,diBypCurtainPBLED:=6,diInletStopperRetCtrl:=0,diInletStopperExtCtrl:=0,diScanTrigSig:=0,diMag1ExitPCB:=0,diMag2ExitPCB:=0,diMag3ExitPCB:=0,diMag1SelUnClampCtrl:=0);
@@ -89,60 +87,7 @@ TYPE
 		sTimeProgNm : STRING[15] := 'Time';
 		sHWInfoProgNm : STRING[15] := 'HWInfo';
 		sHWInfoDevice : STRING[3] := 'IF2';
-		tTLChgRcpBlinkTm : TIME := T#500ms;
-		tTLErrBlinkTm : TIME := T#500ms;
-		tBuzErrOnTm : TIME := T#500ms;
-		tBuzErrRestTm : TIME := T#500ms;
-		usiBuzErrOnCntr : USINT := 3;
-		bBuzErrStopSeqEn : BOOL := FALSE;
-		usiBuzErrStopSeqCntr : USINT := 3;
-		tTLWarnBlinkTm : TIME := T#500ms;
-		tBuzWarnOnTm : TIME := T#500ms;
-		tBuzWarnRestTm : TIME := T#5s;
-		usiBuzWarnOnCntr : USINT := 3;
-		bBuzWarnStopSeqEn : BOOL := FALSE;
-		usiBuzWarnStopSeqCntr : USINT := 3;
-		tTLWarn1BlinkTm : TIME := T#500ms;
-		tBuzWarn1OnTm : TIME := T#500ms;
-		tBuzWarn1RestTm : TIME := T#5s;
-		usiBuzWarn1OnCntr : USINT := 3;
-		bBuzWarn1StopSeqEn : BOOL := FALSE;
-		usiBuzWarn1StopSeqCntr : USINT := 3;
-		tTLWarn2BlinkTm : TIME := T#500ms;
-		tBuzWarn2OnTm : TIME := T#500ms;
-		tBuzWarn2RestTm : TIME := T#5s;
-		usiBuzWarn2OnCntr : USINT := 3;
-		bBuzWarn2StopSeqEn : BOOL := FALSE;
-		usiBuzWarn2StopSeqCntr : USINT := 3;
-		tTLWarn3BlinkTm : TIME := T#500ms;
-		tBuzWarn3OnTm : TIME := T#500ms;
-		tBuzWarn3RestTm : TIME := T#5s;
-		usiBuzWarn3OnCntr : USINT := 3;
-		bBuzWarn3StopSeqEn : BOOL := FALSE;
-		usiBuzWarn3StopSeqCntr : USINT := 3;
-		tTLWarn4BlinkTm : TIME := T#500ms;
-		tBuzWarn4OnTm : TIME := T#500ms;
-		tBuzWarn4RestTm : TIME := T#5s;
-		usiBuzWarn4OnCntr : USINT := 3;
-		bBuzWarn4StopSeqEn : BOOL := FALSE;
-		usiBuzWarn4StopSeqCntr : USINT := 3;
-		tTLWarn5BlinkTm : TIME := T#500ms;
-		tBuzWarn5OnTm : TIME := T#500ms;
-		tBuzWarn5RestTm : TIME := T#5s;
-		usiBuzWarn5OnCntr : USINT := 3;
-		bBuzWarn5StopSeqEn : BOOL := FALSE;
-		usiBuzWarn5StopSeqCntr : USINT := 3;
-		tBuzAlertOnTm : TIME := T#500ms;
-		tBuzAlertRestTm : TIME := T#5s;
-		usiBuzAlertOnCntr : USINT := 3;
-		bBuzAlertStopSeqEn : BOOL := FALSE;
-		usiBuzAlertStopSeqCntr : USINT := 3;
-		tTLBlueBlinkTm : TIME := T#500ms;
-		tTLAmberBlinkTm : TIME := T#500ms;
-		tTLWhiteBlinkTm : TIME := T#500ms;
-		tTLRedBlinkTm : TIME := T#500ms;
-		tTLGreenBlinkTm : TIME := T#500ms;
-		eTLBuzMode : eTLBuzMod := TLBuzModNutek;
+		tyTLBuz : tyTLBuzIn1;
 		sAlmProgNm : STRING[15] := 'Alarm';
 		udiAlmFileKeepDay : UDINT := 30;
 		sProdRcpProgNm : STRING[15] := 'ProdRcp';
@@ -611,6 +556,30 @@ TYPE
 		sHWInfoHMIMacAddress : STRING[27] := '00 - 60 - 65 - 82 - 0C - D7';
 		tyUIBtnPosLmt : tyUILmt := (diMax:=1,diMin:=1);
 	END_STRUCT;
+	tyNtParamIn1 : 	STRUCT 
+		eAct : eNtParamAction;
+		udiRstErr : UDINT;
+		sFileName : STRING[80] := 'NutekParameter.dat';
+		sProgNm : STRING[80] := 'NtParam';
+		tyMpNtParamMpLink : MpComIdentType;
+		sFileName1 : STRING[80] := 'NutekParameter.xml';
+		sPVName : STRING[80] := 'NtParam:tyMpNtParamCurr1';
+	END_STRUCT;
+	tyNtParamOut1 : 	STRUCT 
+		eStat : eNtParamAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+		bFileNotFound : BOOL;
+	END_STRUCT;
+	tyUILmt : 	STRUCT 
+		diMax : DINT;
+		diMin : DINT;
+	END_STRUCT;
+	tyNtParamGen : 	STRUCT 
+		In : tyNtParamIn1;
+		Out : tyNtParamOut1;
+	END_STRUCT;
 END_TYPE
 
 (**)
@@ -660,16 +629,3 @@ TYPE
 END_TYPE
 
 (**)
-(*Action*)
-
-TYPE
-	eNtParamAction : 
-		(
-		NtParamActIdle,
-		NtParamActCreateDir,
-		NtParamActRead,
-		NtParamActWrite,
-		NtParamActLoad,
-		NtParamActSave
-		);
-END_TYPE

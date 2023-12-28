@@ -301,4 +301,18 @@ TYPE
 		tyBtnRdy : BOOL;
 		tyBtnAvail : BOOL;
 	END_STRUCT;
+	tyDigitalInputOut : 	STRUCT 
+		tyAlmData1 : tyAlmDat;
+		tyAlmData2 : tyAlmDat;
+		tyAlmData3 : tyAlmDat;
+		tyAlmData4 : tyAlmDat;
+		tyAlmData5 : tyAlmDat;
+		tyAlmData6 : tyAlmDat;
+		eStatus1 : eFBStatus;
+		eStatus2 : eFBStatus;
+		eStatus3 : eFBStatus;
+		eStatus4 : eFBStatus;
+		eStatus5 : eFBStatus;
+		eStatus6 : eFBStatus;
+	END_STRUCT;
 END_TYPE

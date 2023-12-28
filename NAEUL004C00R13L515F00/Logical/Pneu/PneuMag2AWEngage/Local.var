@@ -1,0 +1,22 @@
+(**)
+VAR
+	tylocalPneu : tyPneu;
+END_VAR
+(**)
+VAR
+	eAct : ePneuAction;
+	udiStatus : UDINT := 0;
+	bRstErr : BOOL;
+	udiRstErrOld : UDINT;
+	bInitialDone : BOOL;
+	fbPneuNoSenExt : fbPneuNoSenExtChk;
+	fbPneuNoSenRet : fbPneuNoSenRetChk;
+	fbPneu2SenExt : fbPneuExtRetSenExtChk;
+	fbPneu2SenRet : fbPneuExtRetSenRetChk;
+	eStatOld : ePneuAction := PneuActIdle;
+	bExtSen : BOOL;
+	bRetSen : BOOL;
+	bExtSafetySen : BOOL;
+	bRetSafetySen : BOOL;
+	udiModuleNum : UDINT := 2551;
+END_VAR

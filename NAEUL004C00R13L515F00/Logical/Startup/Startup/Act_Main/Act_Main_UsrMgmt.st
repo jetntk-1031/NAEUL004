@@ -3,50 +3,50 @@ ACTION Act_Main_UsrMgmt:
 
 	CASE usiStep OF
 		0:
-			eUsrMgmtAct	:= UsrMgmtActCreateDir;
+			tylocalStartup.Out.eUsrMgmtAct	:= UsrMgmtActCreateDir;
 	
-			IF (p_eUsrMgmtStatus = Done) AND (p_eUsrMgmtStat = UsrMgmtActCreateDir) THEN
+			IF (g_tyUsrMgmt.eStatus = Done) AND (g_tyUsrMgmt.eStat = UsrMgmtActCreateDir) THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eUsrMgmtStatus = Error THEN
+			ELSIF g_tyUsrMgmt.eStatus = Error THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
-				eStartupStep1	:= StartupStepBffr;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepBffr;
 				
 			END_IF
 			
 		1:
-			eUsrMgmtAct	:= UsrMgmtActReadData;
+			tylocalStartup.Out.eUsrMgmtAct	:= UsrMgmtActReadData;
 	
-			IF (p_eUsrMgmtStatus = Done) AND (p_eUsrMgmtStat = UsrMgmtActReadData) THEN
+			IF (g_tyUsrMgmt.eStatus = Done) AND (g_tyUsrMgmt.eStat = UsrMgmtActReadData) THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eUsrMgmtStatus = Error THEN
+			ELSIF g_tyUsrMgmt.eStatus = Error THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepBffr;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepBffr;
 				
 			END_IF
 			
 		2:
-			eUsrMgmtAct	:= UsrMgmtActLogout;
+			tylocalStartup.Out.eUsrMgmtAct	:= UsrMgmtActLogout;
 	
-			IF (p_eUsrMgmtStatus = Done) AND (p_eUsrMgmtStat = UsrMgmtActLogout) THEN
+			IF (g_tyUsrMgmt.eStatus = Done) AND (g_tyUsrMgmt.eStat = UsrMgmtActLogout) THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepBffr;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepBffr;
 				
-			ELSIF p_eUsrMgmtStatus = Error THEN
+			ELSIF g_tyUsrMgmt.eStatus = Error THEN
 				
-				eUsrMgmtAct		:= UsrMgmtActIdle;
+				tylocalStartup.Out.eUsrMgmtAct		:= UsrMgmtActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepBffr;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepBffr;
 				
 			END_IF
 			

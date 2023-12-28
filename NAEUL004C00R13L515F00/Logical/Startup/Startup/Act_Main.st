@@ -1,32 +1,40 @@
 (** 2019-03-28 **)
 ACTION Act_Main:
+		//Reset Done
+	IF tylocalStartup.Out.eStatus = Done AND tylocalStartup.In.eAct = StartupActIdle THEN
+		tylocalStartup.Out.eStat	:= StartupActIdle;
+	END_IF
 	
+	//Set p_eAct
+	IF tylocalStartup.Out.eStatus = Idle THEN
+		tylocalStartup.Out.eStat	:= tylocalStartup.In.eAct;
+	END_IF
 	//Main
-	CASE eStat OF
+	CASE tylocalStartup.Out.eStat OF
 		
 		StartupActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalStartup.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
-				eStartupStep1	:= StartupStepUsrFolder;
-				bRun			:= FALSE;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepUsrFolder;
+				tylocalStartup.Out.bRun			:= FALSE;
 				usiStep			:= 0;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalStartup.Out.sStatTxt	:= a_sStatText[tylocalStartup.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalStartup.Out.eStatus	:= Idle;
 		
 		StartupActRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalStartup.Out.eStatus = Idle OR tylocalStartup.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalStartup.Out.eStatus	:= Busy;
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalStartup.Out.sStatTxt	:= a_sStatText[tylocalStartup.Out.eStat];
 		
-				bRun	:= TRUE;
+				tylocalStartup.Out.bRun	:= TRUE;
 				
-				CASE eStartupStep1 OF
+				CASE tylocalStartup.Out.eStartupStep1 OF
 					
 					StartupStepUsrFolder:
 						Act_Main_UsrFolder;
@@ -44,10 +52,11 @@ ACTION Act_Main:
 						Act_Main_Recipe;
 						
 					StartupStepAutoRcp:	
-						IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN
+						IF g_tyNtParamCurr.bAutoRcpPrep AND NOT(g_tyMcParamCurr.bAutoRcpDisable) THEN
 							Act_Main_AutoRcp;
+							
 						ELSE
-							eStartupStep1:= StartupStepUsrMgmt;
+							tylocalStartup.Out.eStartupStep1:= StartupStepUsrMgmt;
 						END_IF	
 					StartupStepUsrMgmt:
 						Act_Main_UsrMgmt;
@@ -65,7 +74,7 @@ ACTION Act_Main:
 						IF DiagCpuIsSimulated() = FALSE THEN
 							Act_Main_SDOWrite;
 						ELSE
-							eStartupStep1	:= StartupStepSetupUI;
+							tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;
 						END_IF
 						
 					StartupStepSetupUI:
@@ -76,7 +85,7 @@ ACTION Act_Main:
 					
 				END_CASE
 				
-				sStepTxt	:= a_sStepText[eStartupStep1];
+				tylocalStartup.Out.sStepTxt	:= a_sStepText[tylocalStartup.Out.eStartupStep1];
 				
 			END_IF
 		

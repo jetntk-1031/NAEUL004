@@ -2,6 +2,7 @@
 (**)
 (*Local Action, State & Status*)
 VAR
+	tylocalMcParam : tyMcParamGen;
 	eAct : eMcParamAction := McParamActIdle;
 	eStat : eMcParamAction := McParamActIdle;
 	eStatus : eFBStatus := Idle;

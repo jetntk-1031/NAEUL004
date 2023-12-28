@@ -10,12 +10,6 @@ TYPE
 		McParamActRead,
 		McParamActWrite
 		);
-END_TYPE
-
-(**)
-(*Data*)
-
-TYPE
 	tyMcParam : 	STRUCT 
 		a_bLFOnline : ARRAY[1..c_diLFClntNum]OF BOOL;
 		a_sLFIPAddr : ARRAY[1..c_diLFClntNum]OF STRING[15];
@@ -151,6 +145,23 @@ TYPE
 		tyOptBtnPos : tyBtnPos := (ePos1:=eMagUnload,ePos2:=eNA,ePos3:=eNA);
 		sHMIIPAddr : STRING[15] := '192.168.0.11';
 		sDefaultGateWay : STRING[15] := '0.0.0.0';
+	END_STRUCT;
+	tyMcParamGen : 	STRUCT 
+		In : tyMcParamIn1;
+		Out : tyMcParamOut1;
+	END_STRUCT;
+	tyMcParamIn1 : 	STRUCT 
+		eAct : eMcParamAction;
+		udiRstErr : UDINT;
+		tyMcParmWr : tyMcParam;
+		sProgNm : STRING[15];
+	END_STRUCT;
+	tyMcParamOut1 : 	STRUCT 
+		eStat : eMcParamAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+		bFileNotFound : BOOL;
 	END_STRUCT;
 END_TYPE
 

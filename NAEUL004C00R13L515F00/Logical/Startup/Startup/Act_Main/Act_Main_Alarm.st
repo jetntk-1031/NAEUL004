@@ -3,67 +3,67 @@ ACTION Act_Main_Alarm:
 
 	CASE usiStep OF
 		0:
-			eAlarmAct	:= AlarmActCreateDir;
+			tylocalStartup.Out.eAlarmAct	:= AlarmActCreateDir;
 	
-			IF (p_eAlarmStatus = Done) AND (p_eAlarmStat = AlarmActCreateDir) THEN
+			IF (g_tyAlm.eStatus = Done) AND (g_tyAlm.eStat = AlarmActCreateDir) THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eAlarmStatus = Error THEN
+			ELSIF g_tyAlm.eStatus = Error THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepHermes;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepHermes;
 				
 			END_IF
 			
 		1:
-			eAlarmAct	:= AlarmActDeleteOldLog;
+			tylocalStartup.Out.eAlarmAct	:= AlarmActDeleteOldLog;
 	
-			IF (p_eAlarmStatus = Done) AND (p_eAlarmStat = AlarmActDeleteOldLog) THEN
+			IF (g_tyAlm.eStatus = Done) AND (g_tyAlm.eStat = AlarmActDeleteOldLog) THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eAlarmStatus = Error THEN
+			ELSIF g_tyAlm.eStatus = Error THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepHermes;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepHermes;
 				
 			END_IF
 		
 		2:
-			eAlarmAct	:= AlarmActReadHistory;
+			tylocalStartup.Out.eAlarmAct	:= AlarmActReadHistory;
 			
-			IF (p_eAlarmStatus = Done) AND (p_eAlarmStat = AlarmActReadHistory) THEN
+			IF (g_tyAlm.eStatus = Done) AND (g_tyAlm.eStat = AlarmActReadHistory) THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 3;
 				
-			ELSIF p_eAlarmStatus = Error THEN
+			ELSIF g_tyAlm.eStatus = Error THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepHermes;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepHermes;
 				
 			END_IF
 			
 		3:
-			eAlarmAct	:= AlarmActBGStartLog;
+			tylocalStartup.Out.eAlarmAct	:= AlarmActBGStartLog;
 			
-			IF (p_eAlarmStatus = Done) AND (p_eAlarmStat = AlarmActBGStartLog) THEN
+			IF (g_tyAlm.eStatus = Done) AND (g_tyAlm.eStat = AlarmActBGStartLog) THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepHermes;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepHermes;
 				
-			ELSIF p_eAlarmStatus = Error THEN
+			ELSIF g_tyAlm.eStatus = Error THEN
 				
-				eAlarmAct		:= AlarmActIdle;
+				tylocalStartup.Out.eAlarmAct		:= AlarmActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepHermes;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepHermes;
 				
 			END_IF
 			

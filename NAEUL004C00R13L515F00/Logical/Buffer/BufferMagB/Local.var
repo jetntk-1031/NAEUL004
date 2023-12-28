@@ -3,26 +3,8 @@
 (*Local Action, State & Status*)
 (**)
 (*Local Alarm*)
-(**)
-(*Local Output*)
 VAR
-	diBffrMtySlt : DINT;
-END_VAR
-(**)
-(*Local Input*)
-VAR
-	bPrep : BOOL := TRUE;
-	bEn : BOOL := TRUE;
-	bDis : BOOL := FALSE;
-	eNtParamMag : eULMag;
-	usiMcParamProdSelMcMod : USINT;
-	bOpsStatusRun : BOOL;
-	bBufferMagPresent1 : BOOL;
-	bBufferMagPresent2 : BOOL;
-	bBufferMagPresent3 : BOOL;
-	tyBufferStat1 : tyBffrStat;
-	tyBufferStat2 : tyBffrStat;
-	tyBufferStat3 : tyBffrStat;
+	tylocalBufferMag : tyBufferMag;
 END_VAR
 (**)
 (*Local*)

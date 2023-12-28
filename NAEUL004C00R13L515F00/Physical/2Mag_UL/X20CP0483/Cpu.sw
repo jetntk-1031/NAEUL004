@@ -18,11 +18,9 @@
     <Task Name="General" Source="General.General.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="UsrFolder" Source="UsrFolder.UsrFolder.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="LibVer" Source="LibVer.LibVer.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Time" Source="Time.Time.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="HWInfo" Source="HWInfo.HWInfo.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TLBuz" Source="TLBuz.TLBuz.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Alarm" Source="Alarm.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="RstErr" Source="RstErr.RstErr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="ProdRcp" Source="ProdRcp.ProdRcp.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MpProdRcp" Source="MpProdRcp.MpProdRcp.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MagRcp" Source="MagRcp.MagRcp.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -44,14 +42,12 @@
     <Task Name="DSSMEMA1" Source="SMEMA.DSSMEMA1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSMEMA2" Source="SMEMA.DSSMEMA2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSMEMA3" Source="SMEMA.DSSMEMA3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenIn" Source="Pneu.Pneu2SenInShutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenOu" Source="Pneu.Pneu2SenOutShutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSenS" Source="Pneu.PneuNoSenStopperA.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen1" Source="Pneu.PneuNoSenStopperB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenSe" Source="Pneu.Pneu2SenSelClamp1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenS1" Source="Pneu.Pneu2SenSelClamp2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenS2" Source="Pneu.Pneu2SenSelClamp3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen4" Source="Pneu.PneuNoSenStopperC.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenIn" Source="Pneu.PneuInShutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenOu" Source="Pneu.PneuOutShutter.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PneuNoSenS" Source="Pneu.PneuStopperA.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PneuNoSen1" Source="Pneu.PneuStopperB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenSe" Source="Pneu.PneuSelClamp1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="PneuNoSen4" Source="Pneu.PneuStopperC.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="LFLeader" Source="LF.LFLeader.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="LFFollower" Source="LF.LFFollower.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Follower1" Source="LF.Follower1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -69,24 +65,8 @@
     <Task Name="OpsOutMagC" Source="Operations.MultiMag_InOutMagazineConv.OpsOutMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon6" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon7" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSenT" Source="Pneu.MagConv_Stopper.PneuNoSenTopEntStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen5" Source="Pneu.MagConv_Stopper.PneuNoSenTopMidStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen6" Source="Pneu.MagConv_Stopper.PneuNoSenTopExtStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSenB" Source="Pneu.MagConv_Stopper.PneuNoSenBtmMidStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen7" Source="Pneu.MagConv_Stopper.PneuNoSenBtmExtStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen8" Source="Pneu.MagConv_Stopper.PneuNoSenTopEntStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSen9" Source="Pneu.MagConv_Stopper.PneuNoSenTopMidStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSe10" Source="Pneu.MagConv_Stopper.PneuNoSenTopExtStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSe11" Source="Pneu.MagConv_Stopper.PneuNoSenBtmMidStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PneuNoSe12" Source="Pneu.MagConv_Stopper.PneuNoSenBtmExtStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenO2" Source="Pneu.Pneu2SenOutShutter2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenO3" Source="Pneu.Pneu2SenOutShutter3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="InMagConv" Source="MagConv_TopBtm.InMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OutMagConv" Source="MagConv_TopBtm.OutMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="LifterMagC" Source="MagConv_TopBtm.LifterMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="InMagConv2" Source="MagConv_TopBtm.InMagConv2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OutMagCon1" Source="MagConv_TopBtm.OutMagConv2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="LifterMag1" Source="MagConv_TopBtm.LifterMagConv2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenO2" Source="Pneu.PneuOutShutter2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenO3" Source="Pneu.PneuOutShutter3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AWOpen" Source="CANOpenServo.AW.AWOpen.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Trav" Source="CANOpenServo.Trav.Trav.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="LifterBtm" Source="CANOpenServo.Lifter.LifterBtm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -102,12 +82,8 @@
     <Task Name="AGV2" Source="AGVCom.AGV2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV3" Source="AGVCom.AGV3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Machine" Source="Machine.Machine.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenMa" Source="Pneu.Pneu2SenMag1SafetyBar.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenM1" Source="Pneu.Pneu2SenMag2SafetyBar.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenM2" Source="Pneu.Pneu2SenMag3SafetyBar.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenM3" Source="Pneu.Pneu2SenMag1AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenM4" Source="Pneu.Pneu2SenMag2AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="Pneu2SenM5" Source="Pneu.Pneu2SenMag3AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenMa" Source="Pneu.PneuMag1SafetyBar.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Pneu2SenM3" Source="Pneu.PneuMag1AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT3" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -126,6 +102,7 @@
     <Task Name="USHermesB" Source="Hermes.USHermesB.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="RmtHermes" Source="Hermes.RmtHermes.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="SvyHermes" Source="Hermes.SvyHermes.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="RstErr" Source="RstErr.RstErr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />

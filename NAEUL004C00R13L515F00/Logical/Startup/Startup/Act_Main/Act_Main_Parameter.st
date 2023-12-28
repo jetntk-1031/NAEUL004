@@ -3,68 +3,68 @@ ACTION Act_Main_Parameter:
 
 	CASE usiStep OF
 		0:
-			eNtParamAct	:= NtParamActCreateDir;
+			tylocalStartup.Out.eNtParamAct	:= NtParamActCreateDir;
 	
-			IF (p_eNtParamStatus = Done) AND (p_eNtParamStat = NtParamActCreateDir) THEN
+			IF (g_tyNtParamOut.eStatus = Done) AND (g_tyNtParamOut.eStat = NtParamActCreateDir) THEN
 				
-				eNtParamAct			:= NtParamActIdle;
+				tylocalStartup.Out.eNtParamAct			:= NtParamActIdle;
 				usiStep				:= 1;
 				
-			ELSIF p_eNtParamStatus = Error THEN
+			ELSIF g_tyNtParamOut.eStatus = Error THEN
 				
 				bNtSettingsLoadDone	:= TRUE;
-				eNtParamAct			:= NtParamActIdle;
+				tylocalStartup.Out.eNtParamAct			:= NtParamActIdle;
 				usiStep				:= 2;
 				
 			END_IF
 			
 		1:
-			eNtParamAct	:= NtParamActRead;
+			tylocalStartup.Out.eNtParamAct	:= NtParamActRead;
 	
-			IF (p_eNtParamStatus = Done) AND (p_eNtParamStat = NtParamActRead) THEN
+			IF (g_tyNtParamOut.eStatus = Done) AND (g_tyNtParamOut.eStat = NtParamActRead) THEN
 				
 				bNtSettingsLoadDone	:= TRUE;
-				eNtParamAct			:= NtParamActIdle;
+				tylocalStartup.Out.eNtParamAct			:= NtParamActIdle;
 				usiStep				:= 2;
 				
-			ELSIF p_eNtParamStatus = Error THEN
+			ELSIF g_tyNtParamOut.eStatus = Error THEN
 				
 				bNtSettingsLoadDone	:= TRUE;
-				eNtParamAct			:= NtParamActIdle;
+				tylocalStartup.Out.eNtParamAct			:= NtParamActIdle;
 				usiStep				:= 2;
 				
 			END_IF
 		
 		2:
-			eMcParamAct	:= McParamActCreateDir;
+			tylocalStartup.Out.eMcParamAct	:= McParamActCreateDir;
 	
-			IF (p_eMcParamStatus = Done) AND (p_eMcParamStat = McParamActCreateDir) THEN
+			IF (g_tyMcParamOut.eStatus = Done) AND (g_tyMcParamOut.eStat = McParamActCreateDir) THEN
 				
-				eMcParamAct		:= McParamActIdle;
+				tylocalStartup.Out.eMcParamAct		:= McParamActIdle;
 				usiStep			:= 3;
 				
-			ELSIF p_eMcParamStatus = Error THEN
+			ELSIF g_tyMcParamOut.eStatus = Error THEN
 				
-				eMcParamAct		:= McParamActIdle;
+				tylocalStartup.Out.eMcParamAct		:= McParamActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepGetHWInfo;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepGetHWInfo;
 				
 			END_IF
 			
 		3:
-			eMcParamAct	:= McParamActRead;
+			tylocalStartup.Out.eMcParamAct	:= McParamActRead;
 			
-			IF (p_eMcParamStatus = Done) AND (p_eMcParamStat = McParamActRead) THEN
+			IF (g_tyMcParamOut.eStatus = Done) AND (g_tyMcParamOut.eStat = McParamActRead) THEN
 				
-				eMcParamAct		:= McParamActIdle;
+				tylocalStartup.Out.eMcParamAct		:= McParamActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepGetHWInfo;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepGetHWInfo;
 				
-			ELSIF p_eMcParamStatus = Error THEN
+			ELSIF g_tyMcParamOut.eStatus = Error THEN
 				
-				eMcParamAct		:= McParamActIdle;
+				tylocalStartup.Out.eMcParamAct		:= McParamActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepGetHWInfo;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepGetHWInfo;
 				
 			END_IF
 			

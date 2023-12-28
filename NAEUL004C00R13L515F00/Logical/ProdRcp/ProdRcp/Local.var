@@ -1,12 +1,13 @@
 (*2020-07-24*)
 (**)
-(*Local Action, State & Status*)
 VAR
-	eAct : eProdRcpAction := ProdRcpActIdle;
-	eStat : eProdRcpAction := ProdRcpActIdle;
-	eStatus : eFBStatus := Idle;
-	udiStatus : UDINT := 0;
-	sStatTxt : STRING[200] := '';
+	tylocalProdRcp : tyProdRcp;
+	p_eAct : REFERENCE TO eProdRcpAction;
+	p_udiMax : REFERENCE TO UDINT;
+	p_tyInfoIn : REFERENCE TO tyProdRcpParam;
+	p_tyCurrRcpWr : REFERENCE TO tyProdRcpParam;
+	p_eLinkLCSMngRcpProdRcpAct : REFERENCE TO eProdRcpAction;
+	p_eLinkUIProdRcpAct : REFERENCE TO eProdRcpAction;
 	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Creating Directory','Adding and Editing Files','Deleting Files','Get Info','Get List','Filtering Files','Loading Recipe','Adding Files','Editing Files','Reading Current Recipe','Writing Current Recipe Parameter','Saving Recipe List',38('')];
 END_VAR
 (**)

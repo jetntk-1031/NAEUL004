@@ -1,37 +1,42 @@
-(** 2019-04-28 **)
-ACTION Act_Alarm: 
+
+ACTION Act_Alarm:
+	
+	IF tylocalMpProdRcp.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalMpProdRcp.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	//Reset Error
+	IF (tylocalMpProdRcp.Out.eStatus = Error) AND bRstErr THEN
+		tylocalMpProdRcp.In.eAct	:= MpProdRcpActIdle;
+		tylocalMpProdRcp.Out.eStat	:= MpProdRcpActIdle;
+	END_IF
+	
+	//Reset Done
+	IF tylocalMpProdRcp.Out.eStatus = Done AND tylocalMpProdRcp.In.eAct = MpProdRcpActIdle THEN
+		tylocalMpProdRcp.Out.eStat	:= MpProdRcpActIdle;
+	END_IF
+	
 	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalMpProdRcp.Out.eStatus = Error) THEN		
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sMpProdRcpProgNm		:= p_sProgNm;
+		tylocalMpProdRcp.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalMpProdRcp.Out.tyAlmData.eSeverity	:= AlmSeverityError;
+		tylocalMpProdRcp.Out.tyAlmData.udiRunTime	:= tylocalMpProdRcp.Out.tyAlmData.udiRunTime + 1;
+		tylocalMpProdRcp.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalMpProdRcp.Out.tyAlmData.udiModuleNum	:= udiModuleNum;
+		g_tyAlmProgNm.sMpProdRcpProgNm				:= tylocalMpProdRcp.In.sProgNm;
 		
+	ELSIF bRstErr AND (tylocalMpProdRcp.Out.tyAlmData.udiCode <> 0) THEN
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
-				
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalMpProdRcp.Out.tyAlmData.udiCode		:= 0;
+		tylocalMpProdRcp.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalMpProdRcp.Out.tyAlmData.bAlm			:= FALSE;
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
-		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 		
 	END_IF
 	

@@ -1,4 +1,7 @@
 (*2019-04-30*)
+VAR
+	tylocalUSSMEMA : tyUSSMEMA;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR

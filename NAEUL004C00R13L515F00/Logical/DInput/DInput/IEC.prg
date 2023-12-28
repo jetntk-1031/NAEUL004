@@ -2,22 +2,14 @@
 <?AutomationStudio Version=4.8.4.50 SP?>
 <Program Version="1.00.0" SubType="IEC" xmlns="http://br-automation.co.at/AS/Program">
   <Files>
-    <File Description="Change By Project">Init.st</File>
-    <File Description="Change By Project">Act_InitGlobal.st</File>
-    <File Description="Change By Project">Act_Link.st</File>
-    <File Description="Change By Project" Private="true">InputRef_Link.var</File>
     <File Description="Do Not Change!!!">Cyclic.st</File>
-    <File Description="Do Not Change!!!">Act_RstErr.st</File>
-    <File Description="Do Not Change!!!">Act_InitLocal.st</File>
-    <File Description="Change By Project">Act_Initial.st</File>
+    <File Description="Change By Project" Private="true">InputRef_Link.var</File>
     <File Description="Change By Project">Act_Background.st</File>
-    <File Description="Change By Project">Act_Alarm1.st</File>
-    <File Description="Change By Project">Act_Alarm2.st</File>
-    <File Description="Change By Project">Act_Alarm3.st</File>
-    <File Description="Change By Project">Act_Alarm4.st</File>
-    <File Description="Change By Project">Act_Alarm5.st</File>
-    <File Description="Change By Project">Act_Alarm6.st</File>
-    <File Description="Change By Project" Private="true">InputRef.var</File>
+    <File Description="Change By Project">Act_InitGlobal.st</File>
+    <File Description="Change By Project">Act_Alarm.st</File>
     <File Description="Change By Project" Private="true">Local.var</File>
+    <File Description="Change By Project">Init.st</File>
+    <File Description="Do Not Change!!!">Act_InitLocal.st</File>
+    <File Description="Change By Project" Private="true">InputRef.var</File>
   </Files>
 </Program>

@@ -3,15 +3,11 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="File" Description="Do Not Change!!!">Buffer.typ</Object>
-    <Object Type="File" Description="Change By Project">Buffer1.var</Object>
+    <Object Type="File" Description="Change By Project">Buffer.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - NtBuffer v5.00.0 , NtFileIO v5.00.0">Buffer1</Object>
-    <Object Type="File" Description="Change By Project">Buffer2.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - NtBuffer v5.00.0 , NtFileIO v5.00.0">Buffer2</Object>
-    <Object Type="File" Description="Change By Project">Buffer3.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - NtBuffer v5.00.0 , NtFileIO v5.00.0">Buffer3</Object>
-    <Object Type="File" Description="Change By Project">BufferMagA.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - ">BufferMagA</Object>
-    <Object Type="File" Description="Change By Project">BufferMagB.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - ">BufferMagB</Object>
   </Objects>
 </Package>

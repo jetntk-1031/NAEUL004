@@ -1,11 +1,8 @@
 (*2019-03-25*)
-(**)
-(*Action & State & Status*)
 VAR
-	p_LibVerStat : UDINT;
-	p_LibVerStatus : UDINT;
-	p_LibVerStatTxt : UDINT;
+	g_tyLibVer : tyLibVerOut1;
 END_VAR
+(**)
 (**)
 (*Alarm*)
 VAR

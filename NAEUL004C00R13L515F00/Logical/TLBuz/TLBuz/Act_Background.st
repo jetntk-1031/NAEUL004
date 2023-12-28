@@ -1,35 +1,35 @@
-(** 2020-10-05 **)
+
 ACTION Act_Background: //For Standard Machines
 	
-	IF EDGEPOS(p_bManual) THEN
+	IF EDGEPOS(tylocalTLBuz.In.bUIManualMod) THEN
 	
 		fbBlink(bEn := FALSE);
 		fbWarning(bEn := FALSE);
 		
-		bTLRed		:= FALSE;
-		bTLAmber	:= TRUE;
-		bTLGreen	:= FALSE;
-		bBuzBeep	:= FALSE;
+		tylocalTLBuz.Out.bTLRed		:= FALSE;
+		tylocalTLBuz.Out.bTLAmber	:= TRUE;
+		tylocalTLBuz.Out.bTLGreen	:= FALSE;
+		tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 		
-	ELSIF p_bManual THEN
+	ELSIF tylocalTLBuz.In.bUIManualMod THEN
 		
-		IF p_bErr = TRUE THEN
+		IF tylocalTLBuz.In.bErr = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLErrBlinkTm; //Error T#500ms (from NtParam)
-			fbBlink.tOffTm	:= p_tTLErrBlinkTm; //Error T#500ms (from NtParam)
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLErrBlinkTm; //Error T#500ms (from NtParam)
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLErrBlinkTm; //Error T#500ms (from NtParam)
 			
-			fbWarning.tOnTm					:= p_tBuzErrOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzErrOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzErrRestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzErrOnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzErrStopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzErrStopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzErrOnTm; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzErrOnTm; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzErrRestTm; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzErrOnCntr; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzErrStopSeqEn; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzErrStopSeqCntr; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 		
-			bTLRed		:= fbBlink.bOut;
-			bBuzBeep	:= (fbWarning.bOut) AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= fbBlink.bOut;
+			tylocalTLBuz.Out.bBuzBeep	:= (fbWarning.bOut) AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
 			bManualErrOn := TRUE;
 			
@@ -38,393 +38,393 @@ ACTION Act_Background: //For Standard Machines
 			fbBlink(bEn := FALSE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= FALSE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 		
 			bManualErrOn := FALSE;
 			
 		END_IF
 			
-	ELSIF p_bManual = FALSE THEN
+	ELSIF tylocalTLBuz.In.bUIManualMod = FALSE THEN
 		
 		bManualErrOn := FALSE;
 		
-		IF p_bStartup = TRUE THEN
+		IF tylocalTLBuz.In.bStartup = TRUE THEN
 			
 			fbBlink(bEn := FALSE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= TRUE;
-			bTLAmber	:= TRUE;
-			bTLGreen	:= TRUE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= TRUE;
+			tylocalTLBuz.Out.bTLAmber	:= TRUE;
+			tylocalTLBuz.Out.bTLGreen	:= TRUE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bErr = TRUE THEN
+		ELSIF tylocalTLBuz.In.bErr = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLErrBlinkTm; //Error T#500ms (from NtParam)
-			fbBlink.tOffTm	:= p_tTLErrBlinkTm; //Error T#500ms (from NtParam)
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLErrBlinkTm; //Error T#500ms (from NtParam)
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLErrBlinkTm; //Error T#500ms (from NtParam)
 			
-			fbWarning.tOnTm					:= p_tBuzErrOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzErrOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzErrRestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzErrOnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzErrStopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzErrStopSeqCntr; //Sequence Counter  (from NtParam)
-			
-			fbBlink(bEn := TRUE);
-			fbWarning(bEn := TRUE);
-		
-			bTLRed		:= fbBlink.bOut;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= FALSE;
-			bBuzBeep	:= (fbWarning.bOut) AND (p_bMuteBuz = FALSE);
-			
-		ELSIF p_bErrNoBuz = TRUE THEN
-			
-			fbBlink.tOnTm	:= p_tTLErrBlinkTm;
-			fbBlink.tOffTm	:= p_tTLErrBlinkTm;
-			fbBlink(bEn := TRUE);
-			fbWarning(bEn := FALSE);
-		
-			bTLRed		:= fbBlink.bOut;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= FALSE;
-			bBuzBeep	:= FALSE;
-			
-		ELSIF p_bWarning = TRUE THEN
-			
-			fbBlink.tOnTm	:= p_tTLWarnBlinkTm; //Warn T#500ms (from NtParam)
-			fbBlink.tOffTm	:= p_tTLWarnBlinkTm; //Warn T#500ms (from NtParam)
-			
-			fbWarning.tOnTm					:= p_tBuzWarnOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarnOnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarnRestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarnOnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarnStopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarnStopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzErrOnTm; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzErrOnTm; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzErrRestTm; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzErrOnCntr; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzErrStopSeqEn; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzErrStopSeqCntr; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
+		
+			tylocalTLBuz.Out.bTLRed		:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= (fbWarning.bOut) AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+		ELSIF tylocalTLBuz.In.bErrNoBuz = TRUE THEN
 			
-		ELSIF p_bWarningNoBuz = TRUE THEN
-			
-			fbBlink.tOnTm	:= p_tTLWarnBlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarnBlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLErrBlinkTm;
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLErrBlinkTm;
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bWarning1 = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[0] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn1BlinkTm; 
-			fbBlink.tOffTm	:= p_tTLWarn1BlinkTm;  
-		
-			fbWarning.tOnTm					:= p_tBuzWarn1OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarn1OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarn1RestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarn1OnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarn1StopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarn1StopSeqCntr; //Sequence Counter  (from NtParam)
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[0]; //Warn T#500ms (from NtParam)
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[0]; //Warn T#500ms (from NtParam)
+			
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[0]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[0]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[0]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[0]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[0]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[0]; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-		ELSIF p_bWarning1NoBuz = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[0] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn1BlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarn1BlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[0];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[0];
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bWarning2 = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[1] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn2BlinkTm; 
-			fbBlink.tOffTm	:= p_tTLWarn2BlinkTm;  
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[1]; 
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[1];  
 		
-			fbWarning.tOnTm					:= p_tBuzWarn2OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarn2OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarn2RestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarn2OnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarn2StopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarn2StopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[1]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[1]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[1]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[1]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[1]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[1]; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-		ELSIF p_bWarning2NoBuz = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[1] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn2BlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarn2BlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[1];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[1];
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bWarning3 = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[2] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn3BlinkTm; 
-			fbBlink.tOffTm	:= p_tTLWarn3BlinkTm;  
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[2]; 
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[2];  
 		
-			fbWarning.tOnTm					:= p_tBuzWarn3OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarn3OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarn3RestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarn3OnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarn3StopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarn3StopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[2]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[2]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[2]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[2]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[2]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[2]; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-		ELSIF p_bWarning3NoBuz = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[2] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn3BlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarn3BlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[2];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[2];
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bWarning4 = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[3] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn4BlinkTm; 
-			fbBlink.tOffTm	:= p_tTLWarn4BlinkTm;  
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[3]; 
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[3];  
 		
-			fbWarning.tOnTm					:= p_tBuzWarn4OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarn4OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarn4RestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarn4OnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarn4StopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarn4StopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[3]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[3]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[3]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[3]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[3]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[3]; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-		ELSIF p_bWarning4NoBuz = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[3] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn4BlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarn4BlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[3];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[3];
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bWarning5 = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[4] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn5BlinkTm; 
-			fbBlink.tOffTm	:= p_tTLWarn5BlinkTm;  
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[4]; 
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[4];  
 		
-			fbWarning.tOnTm					:= p_tBuzWarn5OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tOffTm				:= p_tBuzWarn5OnTm; //Warn T#500ms (from NtParam)
-			fbWarning.tRstTm				:= p_tBuzWarn5RestTm; //Rest 5 seconds (from NtParam)
-			fbWarning.usiOnCnt				:= p_usiBuzWarn5OnCntr; //Count 3 times (from NtParam)
-			fbWarning.bStopAftRptSeqEn		:= p_bBuzWarn5StopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning.usiStopAftRptSeqCntr	:= p_usiBuzWarn5StopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[4]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[4]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[4]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[4]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[4]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[4]; //Sequence Counter  (from NtParam)
 			
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := TRUE);
 			
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= fbWarning.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
-		ELSIF p_bWarning5NoBuz = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[4] = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLWarn5BlinkTm;
-			fbBlink.tOffTm	:= p_tTLWarn5BlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[4];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[4];
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= p_bStandby;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= p_bOps;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bSeqStop = TRUE THEN
+		ELSIF tylocalTLBuz.In.bWarning[5] = TRUE THEN
+			
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[5]; 
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[5];  
+		
+			fbWarning.tOnTm					:= tylocalTLBuz.In.tBuzWarnOnTm[5]; //Warn T#500ms (from NtParam)
+			fbWarning.tOffTm				:= tylocalTLBuz.In.tBuzWarnOnTm[5]; //Warn T#500ms (from NtParam)
+			fbWarning.tRstTm				:= tylocalTLBuz.In.tBuzWarnRestTm[5]; //Rest 5 seconds (from NtParam)
+			fbWarning.usiOnCnt				:= tylocalTLBuz.In.usiBuzWarnOnCntr[5]; //Count 3 times (from NtParam)
+			fbWarning.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzWarnStopSeqEn[5]; //Enable Sequence Count (from NtParam)
+			fbWarning.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzWarnStopSeqCntr[5]; //Sequence Counter  (from NtParam)
+			
+			fbBlink(bEn := TRUE);
+			fbWarning(bEn := TRUE);
+			
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
+			
+		ELSIF tylocalTLBuz.In.bWarningNoBuz[5] = TRUE THEN
+			
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[5];
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLWarnBlinkTm[5];
+			fbBlink(bEn := TRUE);
+			fbWarning(bEn := FALSE);
+		
+			tylocalTLBuz.Out.bTLRed		:= tylocalTLBuz.In.bStandby;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= tylocalTLBuz.In.bOps;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
+			
+		ELSIF tylocalTLBuz.In.bSeqStop = TRUE THEN
 			
 			fbBlink.tOnTm	:= tBlinkTm;
 			fbBlink.tOffTm	:= tBlinkTm;
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 
-			bTLRed		:= fbBlink.bOut;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= TRUE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= TRUE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 		
-		ELSIF p_bChgRcp = TRUE THEN
+		ELSIF tylocalTLBuz.In.bChgRcp = TRUE THEN
 			
-			fbBlink.tOnTm	:= p_tTLChgRcpBlinkTm;
-			fbBlink.tOffTm	:= p_tTLChgRcpBlinkTm;
+			fbBlink.tOnTm	:= tylocalTLBuz.In.tTLChgRcpBlinkTm;
+			fbBlink.tOffTm	:= tylocalTLBuz.In.tTLChgRcpBlinkTm;
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 			
 			IF EDGE(fbBlink.bOut) THEN
-				IF bTLRed = TRUE THEN
-					bTLRed		:= FALSE;
-					bTLAmber	:= FALSE;
-					bTLGreen	:= TRUE;
-				ELSIF bTLAmber = TRUE THEN
-					bTLRed		:= TRUE;
-					bTLAmber	:= FALSE;
-					bTLGreen	:= FALSE;
+				IF tylocalTLBuz.Out.bTLRed = TRUE THEN
+					tylocalTLBuz.Out.bTLRed		:= FALSE;
+					tylocalTLBuz.Out.bTLAmber	:= FALSE;
+					tylocalTLBuz.Out.bTLGreen	:= TRUE;
+				ELSIF tylocalTLBuz.Out.bTLAmber = TRUE THEN
+					tylocalTLBuz.Out.bTLRed		:= TRUE;
+					tylocalTLBuz.Out.bTLAmber	:= FALSE;
+					tylocalTLBuz.Out.bTLGreen	:= FALSE;
 				ELSE
-					bTLRed		:= FALSE;
-					bTLAmber	:= TRUE;
-					bTLGreen	:= FALSE;
+					tylocalTLBuz.Out.bTLRed		:= FALSE;
+					tylocalTLBuz.Out.bTLAmber	:= TRUE;
+					tylocalTLBuz.Out.bTLGreen	:= FALSE;
 				END_IF
 			END_IF
 
-			bBuzBeep	:= fbBlink.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bBuzBeep	:= fbBlink.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 		
-		ELSIF p_bStep = TRUE THEN
+		ELSIF tylocalTLBuz.In.bStep = TRUE THEN
 			
 			fbBlink.tOnTm	:= tBlinkTm;
 			fbBlink.tOffTm	:= tBlinkTm;
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 			
-			bTLRed		:= FALSE;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= fbBlink.bOut;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= FALSE;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bOps = TRUE THEN
+		ELSIF tylocalTLBuz.In.bOps = TRUE THEN
 			
 			fbBlink(bEn := FALSE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= FALSE;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= TRUE;
-			bBuzBeep	:= FALSE;			
+			tylocalTLBuz.Out.bTLRed		:= FALSE;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= TRUE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;			
 			
-		ELSIF p_bSimulation = TRUE THEN
+		ELSIF tylocalTLBuz.In.bSimulation = TRUE THEN
 			
 			fbBlink.tOnTm	:= tBlinkTm;
 			fbBlink.tOffTm	:= tBlinkTm;
 			fbBlink(bEn := TRUE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= fbBlink.bOut;
-			bTLAmber	:= fbBlink.bOut;
-			bTLGreen	:= TRUE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= TRUE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
-		ELSIF p_bStandby = TRUE THEN
+		ELSIF tylocalTLBuz.In.bStandby = TRUE THEN
 			
 			fbBlink(bEn := FALSE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= TRUE;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= FALSE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= TRUE;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 		
 		ELSE
 			
 			fbBlink(bEn := FALSE);
 			fbWarning(bEn := FALSE);
 		
-			bTLRed		:= FALSE;
-			bTLAmber	:= FALSE;
-			bTLGreen	:= FALSE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= FALSE;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
 		END_IF
 		
 	END_IF
 	
-	IF p_bManual = FALSE AND p_bErr = FALSE THEN
-		IF p_bTLAmberFlashEn THEN //Amber Flash 1 sec [Put Conditions in Act_Link.st]
+	IF tylocalTLBuz.In.bUIManualMod = FALSE AND tylocalTLBuz.In.bErr = FALSE THEN
+		IF tylocalTLBuz.In.bTLAmberFlashEn THEN //Amber Flash 1 sec [Put Conditions in Act_Link.st]
 			 
-			fbBlink1.tOnTm	:= p_tTLAmberBlinkTm; //T#500ms (from NtParam)
-			fbBlink1.tOffTm	:= p_tTLAmberBlinkTm; //T#500ms (from NtParam)
+			fbBlink1.tOnTm	:= tylocalTLBuz.In.tTLAmberBlinkTm; //T#500ms (from NtParam)
+			fbBlink1.tOffTm	:= tylocalTLBuz.In.tTLAmberBlinkTm; //T#500ms (from NtParam)
 			fbBlink1(bEn := TRUE);
 		
-			bTLAmber	:= fbBlink1.bOut;
+			tylocalTLBuz.Out.bTLAmber	:= fbBlink1.bOut;
 		
 		ELSE
 			fbBlink1(bEn := FALSE);
 		END_IF
 		
-		IF p_bTLRedFlashEn THEN //Red Flash 1 sec [Put Conditions in Act_Link.st]
+		IF tylocalTLBuz.In.bTLRedFlashEn THEN //Red Flash 1 sec [Put Conditions in Act_Link.st]
 			
-			fbBlink2.tOnTm	:= p_tTLRedBlinkTm; //T#500ms (from NtParam)
-			fbBlink2.tOffTm	:= p_tTLRedBlinkTm; //T#500ms (from NtParam)
+			fbBlink2.tOnTm	:= tylocalTLBuz.In.tTLRedBlinkTm; //T#500ms (from NtParam)
+			fbBlink2.tOffTm	:= tylocalTLBuz.In.tTLRedBlinkTm; //T#500ms (from NtParam)
 			fbBlink2(bEn := TRUE);
 		
-			bTLRed		:= fbBlink2.bOut;
+			tylocalTLBuz.Out.bTLRed		:= fbBlink2.bOut;
 		ELSE
 			fbBlink2(bEn := FALSE);
 		END_IF
 		
-		IF p_bTLGreenFlashEn THEN //Green Flash 1 sec [Put Conditions in Act_Link.st]
+		IF tylocalTLBuz.In.bTLGreenFlashEn THEN //Green Flash 1 sec [Put Conditions in Act_Link.st]
 			
-			fbBlink3.tOnTm	:= p_tTLGreenBlinkTm; //T#500ms (from NtParam)
-			fbBlink3.tOffTm	:= p_tTLGreenBlinkTm; //T#500ms (from NtParam)
+			fbBlink3.tOnTm	:= tylocalTLBuz.In.tTLGreenBlinkTm; //T#500ms (from NtParam)
+			fbBlink3.tOffTm	:= tylocalTLBuz.In.tTLGreenBlinkTm; //T#500ms (from NtParam)
 			fbBlink3(bEn := TRUE);
 		
-			bTLGreen	:= fbBlink3.bOut;
+			tylocalTLBuz.Out.bTLGreen	:= fbBlink3.bOut;
 		ELSE
 			fbBlink3(bEn := FALSE);
 		END_IF
 		
-		IF p_bBuzAlertEn = TRUE AND fbWarning.bEn=FALSE THEN
+		IF tylocalTLBuz.In.bBuzAlertEn = TRUE AND fbWarning.bEn=FALSE THEN
 		
-			fbWarning1.tOnTm				:= p_tBuzAlertOnTm;
-			fbWarning1.tOffTm				:= p_tBuzAlertOnTm;
-			fbWarning1.tRstTm				:= p_tBuzAlertRestTm;
-			fbWarning1.usiOnCnt				:= p_usiBuzAlertOnCntr;
-			fbWarning1.bStopAftRptSeqEn		:= p_bBuzAlertStopSeqEn; //Enable Sequence Count (from NtParam)
-			fbWarning1.usiStopAftRptSeqCntr	:= p_usiBuzAlertStopSeqCntr; //Sequence Counter  (from NtParam)
+			fbWarning1.tOnTm				:= tylocalTLBuz.In.tBuzAlertOnTm;
+			fbWarning1.tOffTm				:= tylocalTLBuz.In.tBuzAlertOnTm;
+			fbWarning1.tRstTm				:= tylocalTLBuz.In.tBuzAlertRestTm;
+			fbWarning1.usiOnCnt				:= tylocalTLBuz.In.usiBuzAlertOnCntr;
+			fbWarning1.bStopAftRptSeqEn		:= tylocalTLBuz.In.bBuzAlertStopSeqEn; //Enable Sequence Count (from NtParam)
+			fbWarning1.usiStopAftRptSeqCntr	:= tylocalTLBuz.In.usiBuzAlertStopSeqCntr; //Sequence Counter  (from NtParam)
 			
 			fbWarning1(bEn := TRUE);
 			
-			bBuzBeep	:= fbWarning1.bOut AND (p_bMuteBuz = FALSE);
+			tylocalTLBuz.Out.bBuzBeep	:= fbWarning1.bOut AND (tylocalTLBuz.In.bMuteBuz = FALSE);
 			
 		ELSE
 			fbWarning1(bEn := FALSE);
@@ -436,22 +436,22 @@ ACTION Act_Background: //For Standard Machines
 		fbWarning1(bEn := FALSE);
 	END_IF
 	
-	//Arrange p_bWarning according to the severity of the warning or info (Err is prioritized)	
-	IF p_bErr THEN
+	//Arrange tylocalTLBuz.In.bWarning according to the severity of the warning or info (Err is prioritized)	
+	IF tylocalTLBuz.In.bErr THEN
 		usiWarnInfoStateNew	:= 1;
-	ELSIF p_bWarning THEN
+	ELSIF tylocalTLBuz.In.bWarning[0] THEN
 		usiWarnInfoStateNew	:= 2;
-	ELSIF p_bWarning1 THEN
+	ELSIF tylocalTLBuz.In.bWarning[1] THEN
 		usiWarnInfoStateNew	:= 3;
-	ELSIF p_bWarning2 THEN
+	ELSIF tylocalTLBuz.In.bWarning[2] THEN
 		usiWarnInfoStateNew	:= 4;
-	ELSIF p_bWarning3 THEN
+	ELSIF tylocalTLBuz.In.bWarning[3] THEN
 		usiWarnInfoStateNew	:= 5;
-	ELSIF p_bWarning4 THEN
+	ELSIF tylocalTLBuz.In.bWarning[4] THEN
 		usiWarnInfoStateNew	:= 6;
-	ELSIF p_bWarning5 THEN
+	ELSIF tylocalTLBuz.In.bWarning[5] THEN
 		usiWarnInfoStateNew	:= 7;
-	ELSIF p_bBuzAlertEn AND fbWarning.bEn=FALSE THEN
+	ELSIF tylocalTLBuz.In.bBuzAlertEn AND fbWarning.bEn=FALSE THEN
 		usiWarnInfoStateNew	:= 8;
 	ELSE
 		usiWarnInfoStateNew	:= 0;

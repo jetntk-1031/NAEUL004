@@ -47,4 +47,23 @@ TYPE
 		diMtrPshrExtTorq : DINT;
 		diPshrOffset : DINT;
 	END_STRUCT;
+	tyProdRcpIn1 : 	STRUCT 
+		udiRstErr : UDINT;
+		sSearch : STRING[254];
+		sScan : STRING[254];
+		tyInfoIn : tyProdRcpParam;
+		tyCurrRcpWr : tyProdRcpParam;
+		sProgNm : STRING[15];
+		bWidth2Prep : BOOL;
+	END_STRUCT;
+	tyProdRcpOut1 : 	STRUCT 
+		eStat : eProdRcpAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+	END_STRUCT;
+	tyProdRcp : 	STRUCT 
+		In : tyProdRcpIn1;
+		Out : tyProdRcpOut1;
+	END_STRUCT;
 END_TYPE

@@ -1,4 +1,7 @@
 (*2020-03-16*)
+VAR
+	tylocalTLBuz : tyTLBuz;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR

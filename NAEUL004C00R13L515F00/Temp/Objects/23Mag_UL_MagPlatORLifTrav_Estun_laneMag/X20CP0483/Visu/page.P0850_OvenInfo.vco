@@ -1,0 +1,2184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA0_Default" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A0_Default]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Bitmap_Unloader" ClsId="0x1005" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_Unloader]">
+            <UInt32 Name="Left">680</UInt32>
+            <UInt32 Name="Top">129</UInt32>
+            <UInt32 Name="Right">799</UInt32>
+            <UInt32 Name="Bottom">318</UInt32>
+            <Reference Name="IndexDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBitmapMc.uiValueIdx]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001005].StyleClass[Transparent]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">24</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">28</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">40</Int32>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">32</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[Machine]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Bitmap_Oven" ClsId="0x1005" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_Oven]">
+            <UInt32 Name="Left">89</UInt32>
+            <UInt32 Name="Top">130</UInt32>
+            <UInt32 Name="Right">588</UInt32>
+            <UInt32 Name="Bottom">324</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001005].StyleClass[Transparent]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">24</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">28</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">41</Int32>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">32</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[Machine]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Bitmap_ConvLft" ClsId="0x1005" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_ConvLft]">
+            <UInt32 Name="Left">0</UInt32>
+            <UInt32 Name="Top">224</UInt32>
+            <UInt32 Name="Right">99</UInt32>
+            <UInt32 Name="Bottom">321</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001005].StyleClass[Transparent]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">24</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">28</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">42</Int32>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">32</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[Machine]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="sh_OvenTitle" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[sh_OvenTitle]">
+            <UInt32 Name="Left">310</UInt32>
+            <UInt32 Name="Top">60</UInt32>
+            <UInt32 Name="Right">489</UInt32>
+            <UInt32 Name="Bottom">79</UInt32>
+            <Reference Name="IndexDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyTxtTittle.usiValueIdx]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">142</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T1160_SubHeaders]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Line_Title" ClsId="0x100D" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Line_Title]">
+            <UInt32 Name="StartX">310</UInt32>
+            <UInt32 Name="StartY">80</UInt32>
+            <UInt32 Name="EndX">490</UInt32>
+            <UInt32 Name="EndY">80</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x0000100D].StyleClass[Grey]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Bitmap_ConvRgt" ClsId="0x1005" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_ConvRgt]">
+            <UInt32 Name="Left">582</UInt32>
+            <UInt32 Name="Top">223</UInt32>
+            <UInt32 Name="Right">681</UInt32>
+            <UInt32 Name="Bottom">320</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001005].StyleClass[Transparent]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">24</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">28</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">42</Int32>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">32</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[Machine]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="LED_CntrA" ClsId="0x1002" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_CntrA]">
+            <UInt32 Name="Left">5</UInt32>
+            <UInt32 Name="Top">368</UInt32>
+            <UInt32 Name="Right">154</UInt32>
+            <UInt32 Name="Bottom">392</UInt32>
+            <UInt16 Name="KeyMatrixOffset">65535</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Reference Name="VirtualKey" Type="VKEY">Source[local].VirtualKey[%embVirtualKey_595]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <UInt32 Name="Script1">4294967295</UInt32>
+            <UInt32 Name="Script2">4294967295</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001002].StyleClass[LED_Lft_IconLft]</Reference>
+            <UInt16 Name="StyleTableSize">112</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LockingDatapoint">
+              <UInt16 Name="Offset">16</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrA.bRtLk]</Reference>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="PressedTextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="TextIndex">
+              <UInt16 Name="Offset">52</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">32</UInt16>
+            </Group>
+            <Group Name="PressedTextIndex">
+              <UInt16 Name="Offset">54</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">32</UInt16>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">60</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">64</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="PressedBitmapSource">
+              <UInt16 Name="Offset">66</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="PressedBitmapGroup">
+              <UInt16 Name="Offset">72</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="PressedBitmapIndex">
+              <UInt16 Name="Offset">76</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">31</UInt16>
+            </Group>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">80</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrA.uiRtStat]</Reference>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">97</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">98</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="PressedTextSource">
+              <UInt16 Name="Offset">99</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexDatapoint">
+              <UInt16 Name="Offset">100</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="BitmapIndexDatapoint">
+              <UInt16 Name="Offset">104</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="LED_OvenInfoA" ClsId="0x1002" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_OvenInfoA]">
+            <UInt32 Name="Left">5</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">154</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt16 Name="KeyMatrixOffset">65535</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Reference Name="VirtualKey" Type="VKEY">Source[local].VirtualKey[%embVirtualKey_593]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <UInt32 Name="Script1">4294967295</UInt32>
+            <UInt32 Name="Script2">4294967295</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001002].StyleClass[LED_Lft_IconLft]</Reference>
+            <UInt16 Name="StyleTableSize">112</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LockingDatapoint">
+              <UInt16 Name="Offset">16</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenA.bRtLk]</Reference>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="PressedTextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="TextIndex">
+              <UInt16 Name="Offset">52</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="PressedTextIndex">
+              <UInt16 Name="Offset">54</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">60</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">64</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="PressedBitmapSource">
+              <UInt16 Name="Offset">66</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="PressedBitmapGroup">
+              <UInt16 Name="Offset">72</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="PressedBitmapIndex">
+              <UInt16 Name="Offset">76</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">33</UInt16>
+            </Group>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">80</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenA.uiRtStat]</Reference>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">97</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">98</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="PressedTextSource">
+              <UInt16 Name="Offset">99</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexDatapoint">
+              <UInt16 Name="Offset">100</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="BitmapIndexDatapoint">
+              <UInt16 Name="Offset">104</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="LED_CntrB" ClsId="0x1002" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_CntrB]">
+            <UInt32 Name="Left">5</UInt32>
+            <UInt32 Name="Top">435</UInt32>
+            <UInt32 Name="Right">154</UInt32>
+            <UInt32 Name="Bottom">459</UInt32>
+            <UInt16 Name="KeyMatrixOffset">65535</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Reference Name="VirtualKey" Type="VKEY">Source[local].VirtualKey[%embVirtualKey_596]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <UInt32 Name="Script1">4294967295</UInt32>
+            <UInt32 Name="Script2">4294967295</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001002].StyleClass[LED_Lft_IconLft]</Reference>
+            <UInt16 Name="StyleTableSize">112</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LockingDatapoint">
+              <UInt16 Name="Offset">16</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrB.bRtLk]</Reference>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="PressedTextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="TextIndex">
+              <UInt16 Name="Offset">52</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">33</UInt16>
+            </Group>
+            <Group Name="PressedTextIndex">
+              <UInt16 Name="Offset">54</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">33</UInt16>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">60</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">64</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="PressedBitmapSource">
+              <UInt16 Name="Offset">66</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="PressedBitmapGroup">
+              <UInt16 Name="Offset">72</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="PressedBitmapIndex">
+              <UInt16 Name="Offset">76</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">31</UInt16>
+            </Group>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">80</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrB.uiRtStat]</Reference>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">97</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">98</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="PressedTextSource">
+              <UInt16 Name="Offset">99</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexDatapoint">
+              <UInt16 Name="Offset">100</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="BitmapIndexDatapoint">
+              <UInt16 Name="Offset">104</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="LED_OvenInfoB" ClsId="0x1002" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_OvenInfoB]">
+            <UInt32 Name="Left">5</UInt32>
+            <UInt32 Name="Top">403</UInt32>
+            <UInt32 Name="Right">154</UInt32>
+            <UInt32 Name="Bottom">427</UInt32>
+            <UInt16 Name="KeyMatrixOffset">65535</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Reference Name="VirtualKey" Type="VKEY">Source[local].VirtualKey[%embVirtualKey_594]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <UInt32 Name="Script1">4294967295</UInt32>
+            <UInt32 Name="Script2">4294967295</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001002].StyleClass[LED_Lft_IconLft]</Reference>
+            <UInt16 Name="StyleTableSize">112</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LockingDatapoint">
+              <UInt16 Name="Offset">16</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenB.bRtLk]</Reference>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="PressedTextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="TextIndex">
+              <UInt16 Name="Offset">52</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">31</UInt16>
+            </Group>
+            <Group Name="PressedTextIndex">
+              <UInt16 Name="Offset">54</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">31</UInt16>
+            </Group>
+            <Group Name="BitmapGroup">
+              <UInt16 Name="Offset">60</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="BitmapIndex">
+              <UInt16 Name="Offset">64</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">30</UInt16>
+            </Group>
+            <Group Name="PressedBitmapSource">
+              <UInt16 Name="Offset">66</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="PressedBitmapGroup">
+              <UInt16 Name="Offset">72</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="BMPG">Source[local].BitmapGroup[StatusDisplay]</Reference>
+            </Group>
+            <Group Name="PressedBitmapIndex">
+              <UInt16 Name="Offset">76</UInt16>
+              <UInt16 Name="Size">2</UInt16>
+              <UInt16 Name="Data">33</UInt16>
+            </Group>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">80</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenB.uiRtStat]</Reference>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">97</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="BitmapSource">
+              <UInt16 Name="Offset">98</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="PressedTextSource">
+              <UInt16 Name="Offset">99</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexDatapoint">
+              <UInt16 Name="Offset">100</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="BitmapIndexDatapoint">
+              <UInt16 Name="Offset">104</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">4294967295</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="VKeys">
+        <Folder Name="Common" TargetIndex="4294967294">
+          <Object Name="%embVirtualKey_595" ClsId="0x0" Version="1" Type="VKEY" RefString="Source[local].VirtualKey[%embVirtualKey_595]">
+            <Group Name="LedMapping">
+              <UInt32 Name="Datapoint">4294967295</UInt32>
+              <Byte Name="Mode">0</Byte>
+              <Byte Name="Active">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+            </Group>
+            <Group Name="KeyMapping">
+              <UInt32 Name="KeyActionCount">1</UInt32>
+              <Int32 Name="ActionID">353</Int32>
+              <UInt32 Name="ActionDataSize">36</UInt32>
+              <Byte Name="Locking">0</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt32 Name="LockingDatapoint">4294967295</UInt32>
+              <UInt32 Name="LockingLevel">0</UInt32>
+              <Double Name="SetValue">1</Double>
+              <Double Name="ResetValue">0</Double>
+              <Double Name="CompletionValue">0</Double>
+              <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrA.bValue]</Reference>
+              <UInt32 Name="CompletionDatapoint">4294967295</UInt32>
+              <Byte Name="Mode">1</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <Byte Name="Reserved1">0</Byte>
+              <Byte Name="Reserved2">0</Byte>
+            </Group>
+          </Object>
+          <Object Name="%embVirtualKey_593" ClsId="0x0" Version="1" Type="VKEY" RefString="Source[local].VirtualKey[%embVirtualKey_593]">
+            <Group Name="LedMapping">
+              <UInt32 Name="Datapoint">4294967295</UInt32>
+              <Byte Name="Mode">0</Byte>
+              <Byte Name="Active">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+            </Group>
+            <Group Name="KeyMapping">
+              <UInt32 Name="KeyActionCount">1</UInt32>
+              <Int32 Name="ActionID">353</Int32>
+              <UInt32 Name="ActionDataSize">36</UInt32>
+              <Byte Name="Locking">0</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt32 Name="LockingDatapoint">4294967295</UInt32>
+              <UInt32 Name="LockingLevel">0</UInt32>
+              <Double Name="SetValue">1</Double>
+              <Double Name="ResetValue">0</Double>
+              <Double Name="CompletionValue">0</Double>
+              <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenA.bValue]</Reference>
+              <UInt32 Name="CompletionDatapoint">4294967295</UInt32>
+              <Byte Name="Mode">1</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <Byte Name="Reserved1">0</Byte>
+              <Byte Name="Reserved2">0</Byte>
+            </Group>
+          </Object>
+          <Object Name="%embVirtualKey_596" ClsId="0x0" Version="1" Type="VKEY" RefString="Source[local].VirtualKey[%embVirtualKey_596]">
+            <Group Name="LedMapping">
+              <UInt32 Name="Datapoint">4294967295</UInt32>
+              <Byte Name="Mode">0</Byte>
+              <Byte Name="Active">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+            </Group>
+            <Group Name="KeyMapping">
+              <UInt32 Name="KeyActionCount">1</UInt32>
+              <Int32 Name="ActionID">353</Int32>
+              <UInt32 Name="ActionDataSize">36</UInt32>
+              <Byte Name="Locking">0</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt32 Name="LockingDatapoint">4294967295</UInt32>
+              <UInt32 Name="LockingLevel">0</UInt32>
+              <Double Name="SetValue">1</Double>
+              <Double Name="ResetValue">0</Double>
+              <Double Name="CompletionValue">0</Double>
+              <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnCntrB.bValue]</Reference>
+              <UInt32 Name="CompletionDatapoint">4294967295</UInt32>
+              <Byte Name="Mode">1</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <Byte Name="Reserved1">0</Byte>
+              <Byte Name="Reserved2">0</Byte>
+            </Group>
+          </Object>
+          <Object Name="%embVirtualKey_594" ClsId="0x0" Version="1" Type="VKEY" RefString="Source[local].VirtualKey[%embVirtualKey_594]">
+            <Group Name="LedMapping">
+              <UInt32 Name="Datapoint">4294967295</UInt32>
+              <Byte Name="Mode">0</Byte>
+              <Byte Name="Active">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+            </Group>
+            <Group Name="KeyMapping">
+              <UInt32 Name="KeyActionCount">1</UInt32>
+              <Int32 Name="ActionID">353</Int32>
+              <UInt32 Name="ActionDataSize">36</UInt32>
+              <Byte Name="Locking">0</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <UInt16 Name="Reserved">0</UInt16>
+              <UInt32 Name="LockingDatapoint">4294967295</UInt32>
+              <UInt32 Name="LockingLevel">0</UInt32>
+              <Double Name="SetValue">1</Double>
+              <Double Name="ResetValue">0</Double>
+              <Double Name="CompletionValue">0</Double>
+              <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyBtnOvenB.bValue]</Reference>
+              <UInt32 Name="CompletionDatapoint">4294967295</UInt32>
+              <Byte Name="Mode">1</Byte>
+              <Byte Name="Reserved">0</Byte>
+              <Byte Name="Reserved1">0</Byte>
+              <Byte Name="Reserved2">0</Byte>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A0_Default" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A0_Default]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenCom.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">10</UInt32>
+          <Reference Name="Bitmap_Unloader" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_Unloader]</Reference>
+          <Reference Name="Bitmap_Oven" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_Oven]</Reference>
+          <Reference Name="Bitmap_ConvLft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_ConvLft]</Reference>
+          <Reference Name="sh_OvenTitle" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[sh_OvenTitle]</Reference>
+          <Reference Name="Line_Title" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Line_Title]</Reference>
+          <Reference Name="Bitmap_ConvRgt" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[Bitmap_ConvRgt]</Reference>
+          <Reference Name="LED_CntrA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_CntrA]</Reference>
+          <Reference Name="LED_OvenInfoA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_OvenInfoA]</Reference>
+          <Reference Name="LED_CntrB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_CntrB]</Reference>
+          <Reference Name="LED_OvenInfoB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A0_Default].Control[LED_OvenInfoB]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA1_StdSingle" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Text_ReqEmptySlots" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_ReqEmptySlots]">
+            <UInt32 Name="Left">700</UInt32>
+            <UInt32 Name="Top">403</UInt32>
+            <UInt32 Name="Right">799</UInt32>
+            <UInt32 Name="Bottom">427</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">1</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Text_EmptySlot" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_EmptySlot]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="EmptySlots" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[EmptySlots]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">425</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">454</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdSingle.tyNumMinReqFreeBffr.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Empty" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Empty]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">355</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">384</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdSingle.tyNumBffrEmptySlt.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Text_OvenTitle" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_OvenTitle]">
+            <UInt32 Name="Left">713</UInt32>
+            <UInt32 Name="Top">315</UInt32>
+            <UInt32 Name="Right">792</UInt32>
+            <UInt32 Name="Bottom">339</UInt32>
+            <Reference Name="IndexDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdSingle.tyTxtTittle.usiValueIdx]</Reference>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">40</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A1_StdSingle" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdSingle.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">5</UInt32>
+          <Reference Name="Text_ReqEmptySlots" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_ReqEmptySlots]</Reference>
+          <Reference Name="Text_EmptySlot" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_EmptySlot]</Reference>
+          <Reference Name="EmptySlots" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[EmptySlots]</Reference>
+          <Reference Name="Empty" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Empty]</Reference>
+          <Reference Name="Text_OvenTitle" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle].Control[Text_OvenTitle]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA3_StdDual" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Label_ReqEmptySlotsB" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_ReqEmptySlotsB]">
+            <UInt32 Name="Left">700</UInt32>
+            <UInt32 Name="Top">403</UInt32>
+            <UInt32 Name="Right">799</UInt32>
+            <UInt32 Name="Bottom">427</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">1</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_EmptySlotB" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_EmptySlotB]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="ReqEmptySlotsB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[ReqEmptySlotsB]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">425</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">454</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdDual.tyNumMinReqFreeBffrB.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="EmptyB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[EmptyB]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">355</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">384</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdDual.tyNumBffrEmptySltB.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="ReqEmptySlotsA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[ReqEmptySlotsA]">
+            <UInt32 Name="Left">600</UInt32>
+            <UInt32 Name="Top">425</UInt32>
+            <UInt32 Name="Right">674</UInt32>
+            <UInt32 Name="Bottom">454</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdDual.tyNumMinReqFreeBffrA.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="EmptyA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[EmptyA]">
+            <UInt32 Name="Left">600</UInt32>
+            <UInt32 Name="Top">355</UInt32>
+            <UInt32 Name="Right">674</UInt32>
+            <UInt32 Name="Bottom">384</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdDual.tyNumBffrEmptySltA.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenA" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_OvenA]">
+            <UInt32 Name="Left">596</UInt32>
+            <UInt32 Name="Top">315</UInt32>
+            <UInt32 Name="Right">675</UInt32>
+            <UInt32 Name="Bottom">339</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">41</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenB" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_OvenB]">
+            <UInt32 Name="Left">713</UInt32>
+            <UInt32 Name="Top">315</UInt32>
+            <UInt32 Name="Right">792</UInt32>
+            <UInt32 Name="Bottom">339</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">42</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Line_Separate" ClsId="0x100D" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Line_Separate]">
+            <UInt32 Name="StartX">695</UInt32>
+            <UInt32 Name="StartY">310</UInt32>
+            <UInt32 Name="EndX">695</UInt32>
+            <UInt32 Name="EndY">463</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x0000100D].StyleClass[Grey]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_EmptySlotA" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_EmptySlotA]">
+            <UInt32 Name="Left">601</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">675</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_ReqEmptySlotsA" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_ReqEmptySlotsA]">
+            <UInt32 Name="Left">589</UInt32>
+            <UInt32 Name="Top">403</UInt32>
+            <UInt32 Name="Right">688</UInt32>
+            <UInt32 Name="Bottom">427</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">1</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A3_StdDual" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenStdDual.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">11</UInt32>
+          <Reference Name="Label_ReqEmptySlotsB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_ReqEmptySlotsB]</Reference>
+          <Reference Name="Label_EmptySlotB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_EmptySlotB]</Reference>
+          <Reference Name="ReqEmptySlotsB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[ReqEmptySlotsB]</Reference>
+          <Reference Name="EmptyB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[EmptyB]</Reference>
+          <Reference Name="ReqEmptySlotsA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[ReqEmptySlotsA]</Reference>
+          <Reference Name="EmptyA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[EmptyA]</Reference>
+          <Reference Name="Label_OvenA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_OvenA]</Reference>
+          <Reference Name="Label_OvenB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_OvenB]</Reference>
+          <Reference Name="Line_Separate" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Line_Separate]</Reference>
+          <Reference Name="Label_EmptySlotA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_EmptySlotA]</Reference>
+          <Reference Name="Label_ReqEmptySlotsA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual].Control[Label_ReqEmptySlotsA]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA5_ExtddSingle" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Label_AdditionalBuffer" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_AdditionalBuffer]">
+            <UInt32 Name="Left">620</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">714</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">2</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_EmptySlot" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_EmptySlot]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_BoardsInOven" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_BoardsInOven]">
+            <UInt32 Name="Left">290</UInt32>
+            <UInt32 Name="Top">120</UInt32>
+            <UInt32 Name="Right">439</UInt32>
+            <UInt32 Name="Bottom">149</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">4</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_AddBuffr" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_AddBuffr]">
+            <UInt32 Name="Left">635</UInt32>
+            <UInt32 Name="Top">355</UInt32>
+            <UInt32 Name="Right">699</UInt32>
+            <UInt32 Name="Bottom">384</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumAddBffr.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_BrdInOven" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]">
+            <UInt32 Name="Left">440</UInt32>
+            <UInt32 Name="Top">120</UInt32>
+            <UInt32 Name="Right">539</UInt32>
+            <UInt32 Name="Bottom">149</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBrdInOven.diValue]</Reference>
+            <Reference Name="MinDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBrdInOven.diValueMin]</Reference>
+            <Reference Name="MaxDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBrdInOven.diValueMax]</Reference>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Input]</Reference>
+            <UInt16 Name="StyleTableSize">20</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBrdInOven.uiRtStat]</Reference>
+            </Group>
+            <Group Name="CompletionDatapoint">
+              <UInt16 Name="Offset">36</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBrdInOven.bRtCompl]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_EmptySlt" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_EmptySlt]">
+            <UInt32 Name="Left">725</UInt32>
+            <UInt32 Name="Top">355</UInt32>
+            <UInt32 Name="Right">789</UInt32>
+            <UInt32 Name="Bottom">384</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyNumBffrEmptySlt.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Line_Horizontal" ClsId="0x100D" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_Horizontal]">
+            <UInt32 Name="StartX">100</UInt32>
+            <UInt32 Name="StartY">160</UInt32>
+            <UInt32 Name="EndX">675</UInt32>
+            <UInt32 Name="EndY">160</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x0000100D].StyleClass[Black]</Reference>
+            <UInt16 Name="StyleTableSize">17</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LineWidth">
+              <UInt16 Name="Offset">1</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="ForeColor">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">16</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Line_VerticalLft" ClsId="0x100D" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_VerticalLft]">
+            <UInt32 Name="StartX">100</UInt32>
+            <UInt32 Name="StartY">160</UInt32>
+            <UInt32 Name="EndX">100</UInt32>
+            <UInt32 Name="EndY">170</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x0000100D].StyleClass[Black]</Reference>
+            <UInt16 Name="StyleTableSize">17</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LineWidth">
+              <UInt16 Name="Offset">1</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="ForeColor">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">16</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Line_VerticalRgt" ClsId="0x100D" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_VerticalRgt]">
+            <UInt32 Name="StartX">675</UInt32>
+            <UInt32 Name="StartY">160</UInt32>
+            <UInt32 Name="EndX">675</UInt32>
+            <UInt32 Name="EndY">170</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x0000100D].StyleClass[Black]</Reference>
+            <UInt16 Name="StyleTableSize">17</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="LineWidth">
+              <UInt16 Name="Offset">1</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">2</Byte>
+            </Group>
+            <Group Name="ForeColor">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <UInt32 Name="Data">16</UInt32>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A5_ExtddSingle" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddSingle.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">9</UInt32>
+          <Reference Name="Label_AdditionalBuffer" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_AdditionalBuffer]</Reference>
+          <Reference Name="Label_EmptySlot" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_EmptySlot]</Reference>
+          <Reference Name="Label_BoardsInOven" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Label_BoardsInOven]</Reference>
+          <Reference Name="Num_AddBuffr" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_AddBuffr]</Reference>
+          <Reference Name="Num_BrdInOven" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+          <Reference Name="Num_EmptySlt" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_EmptySlt]</Reference>
+          <Reference Name="Line_Horizontal" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_Horizontal]</Reference>
+          <Reference Name="Line_VerticalLft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_VerticalLft]</Reference>
+          <Reference Name="Line_VerticalRgt" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Line_VerticalRgt]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA7_ExtddDualSeparate" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Label_AdditionalBuffer" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_AdditionalBuffer]">
+            <UInt32 Name="Left">620</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">714</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">2</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Lavel_EmptySlot" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Lavel_EmptySlot]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_BoardsInOven" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_BoardsInOven]">
+            <UInt32 Name="Left">513</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">607</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">4</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_AddBffrA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_AddBffrA]">
+            <UInt32 Name="Left">635</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">699</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumAddBffrA.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_BrdInOvenA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]">
+            <UInt32 Name="Left">530</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">594</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenA.diValue]</Reference>
+            <Reference Name="MinDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenA.diValueMin]</Reference>
+            <Reference Name="MaxDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenA.diValueMax]</Reference>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Input]</Reference>
+            <UInt16 Name="StyleTableSize">20</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenA.uiRtStat]</Reference>
+            </Group>
+            <Group Name="CompletionDatapoint">
+              <UInt16 Name="Offset">36</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenA.bRtCompl]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_EmptySltA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_EmptySltA]">
+            <UInt32 Name="Left">725</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">789</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBffrEmptySltA.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_EmptySltB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_EmptySltB]">
+            <UInt32 Name="Left">725</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">789</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBffrEmptySltB.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_BrdInOvenB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]">
+            <UInt32 Name="Left">530</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">594</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenB.diValue]</Reference>
+            <Reference Name="MinDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenB.diValueMin]</Reference>
+            <Reference Name="MaxDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenB.diValueMax]</Reference>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Input]</Reference>
+            <UInt16 Name="StyleTableSize">20</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenB.uiRtStat]</Reference>
+            </Group>
+            <Group Name="CompletionDatapoint">
+              <UInt16 Name="Offset">36</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumBrdInOvenB.bRtCompl]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_AddBffrB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_AddBffrB]">
+            <UInt32 Name="Left">635</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">699</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyNumAddBffrB.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenA" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_OvenA]">
+            <UInt32 Name="Left">430</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">509</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">41</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenB" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_OvenB]">
+            <UInt32 Name="Left">430</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">509</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">42</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A7_ExtddDualSeparate" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualSeparate.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">11</UInt32>
+          <Reference Name="Label_AdditionalBuffer" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_AdditionalBuffer]</Reference>
+          <Reference Name="Lavel_EmptySlot" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Lavel_EmptySlot]</Reference>
+          <Reference Name="Label_BoardsInOven" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_BoardsInOven]</Reference>
+          <Reference Name="Num_AddBffrA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_AddBffrA]</Reference>
+          <Reference Name="Num_BrdInOvenA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+          <Reference Name="Num_EmptySltA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_EmptySltA]</Reference>
+          <Reference Name="Num_EmptySltB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_EmptySltB]</Reference>
+          <Reference Name="Num_BrdInOvenB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+          <Reference Name="Num_AddBffrB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_AddBffrB]</Reference>
+          <Reference Name="Label_OvenA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_OvenA]</Reference>
+          <Reference Name="Label_OvenB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Label_OvenB]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Layers">
+    <Folder Name="P0850_OvenInfoA8_ExtddDualMix" TargetIndex="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix]">
+      <Folder Name="Controls">
+        <Folder Name="POBJ">
+          <Object Name="Label_AdditionalBuffer" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_AdditionalBuffer]">
+            <UInt32 Name="Left">620</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">714</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">2</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_EmptySlot" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_EmptySlot]">
+            <UInt32 Name="Left">720</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">794</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">3</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_BoardsInOven" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_BoardsInOven]">
+            <UInt32 Name="Left">513</UInt32>
+            <UInt32 Name="Top">333</UInt32>
+            <UInt32 Name="Right">607</UInt32>
+            <UInt32 Name="Bottom">357</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
+            <UInt16 Name="StyleTableSize">30</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="AlignmentHorizontal">
+              <UInt16 Name="Offset">21</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">1</Byte>
+            </Group>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">4</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_AddBffrA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_AddBffrA]">
+            <UInt32 Name="Left">635</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">699</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumAddBffrA.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_BrdInOvenA" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]">
+            <UInt32 Name="Left">530</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">594</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenA.diValue]</Reference>
+            <Reference Name="MinDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenA.diValueMin]</Reference>
+            <Reference Name="MaxDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenA.diValueMax]</Reference>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Input]</Reference>
+            <UInt16 Name="StyleTableSize">20</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenA.uiRtStat]</Reference>
+            </Group>
+            <Group Name="CompletionDatapoint">
+              <UInt16 Name="Offset">36</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenA.bRtCompl]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_EmptySlt" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_EmptySlt]">
+            <UInt32 Name="Left">725</UInt32>
+            <UInt32 Name="Top">385</UInt32>
+            <UInt32 Name="Right">789</UInt32>
+            <UInt32 Name="Bottom">414</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBffrEmptySlt.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_AddBffrB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_AddBffrB]">
+            <UInt32 Name="Left">635</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">699</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumAddBffrB.diValue]</Reference>
+            <UInt32 Name="MinDatapoint">4294967295</UInt32>
+            <UInt32 Name="MaxDatapoint">4294967295</UInt32>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Display]</Reference>
+            <UInt16 Name="StyleTableSize">4</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Num_BrdInOvenB" ClsId="0x1007" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]">
+            <UInt32 Name="Left">530</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">594</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="ValueMode">0</UInt32>
+            <Reference Name="ValueDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenB.diValue]</Reference>
+            <Reference Name="MinDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenB.diValueMin]</Reference>
+            <Reference Name="MaxDatapoint" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenB.diValueMax]</Reference>
+            <UInt32 Name="TeachDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Double Name="MinValue">-1.7976931348623157E+308</Double>
+            <Double Name="MaxValue">1.7976931348623157E+308</Double>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001007].StyleClass[Input]</Reference>
+            <UInt16 Name="StyleTableSize">20</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenB.uiRtStat]</Reference>
+            </Group>
+            <Group Name="CompletionDatapoint">
+              <UInt16 Name="Offset">36</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyNumBrdInOvenB.bRtCompl]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenA" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_OvenA]">
+            <UInt32 Name="Left">430</UInt32>
+            <UInt32 Name="Top">360</UInt32>
+            <UInt32 Name="Right">509</UInt32>
+            <UInt32 Name="Bottom">389</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">41</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+          <Object Name="Label_OvenB" ClsId="0x1004" Version="1" Type="CTRL" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_OvenB]">
+            <UInt32 Name="Left">430</UInt32>
+            <UInt32 Name="Top">410</UInt32>
+            <UInt32 Name="Right">509</UInt32>
+            <UInt32 Name="Bottom">439</UInt32>
+            <UInt32 Name="IndexDatapoint">4294967295</UInt32>
+            <UInt32 Name="ControlID">0</UInt32>
+            <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Header]</Reference>
+            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="TextSource">
+              <UInt16 Name="Offset">40</UInt16>
+              <UInt16 Name="Size">1</UInt16>
+              <Byte Name="Data">3</Byte>
+            </Group>
+            <Group Name="TextIndexOffset">
+              <UInt16 Name="Offset">44</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Int32 Name="Data">42</Int32>
+            </Group>
+            <Group Name="TextGroup">
+              <UInt16 Name="Offset">48</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="TG">Source[global].TextGroup[T2020_OvenInfoText]</Reference>
+            </Group>
+            <Group Name="End Marker">
+              <UInt16 Name="Offset">65535</UInt16>
+              <UInt16 Name="Size">0</UInt16>
+            </Group>
+          </Object>
+        </Folder>
+      </Folder>
+      <Folder Name="POBJ">
+        <Object Name="A8_ExtddDualMix" ClsId="0x401" Version="1" Type="LAY" RefString="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix]">
+          <Reference Name="StatusDP" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0850OvenExtddDualMix.tyLyr.uiRtStat]</Reference>
+          <UInt32 Name="CtrlCount">10</UInt32>
+          <Reference Name="Label_AdditionalBuffer" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_AdditionalBuffer]</Reference>
+          <Reference Name="Label_EmptySlot" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_EmptySlot]</Reference>
+          <Reference Name="Label_BoardsInOven" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_BoardsInOven]</Reference>
+          <Reference Name="Num_AddBffrA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_AddBffrA]</Reference>
+          <Reference Name="Num_BrdInOvenA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+          <Reference Name="Num_EmptySlt" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_EmptySlt]</Reference>
+          <Reference Name="Num_AddBffrB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_AddBffrB]</Reference>
+          <Reference Name="Num_BrdInOvenB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+          <Reference Name="Label_OvenA" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_OvenA]</Reference>
+          <Reference Name="Label_OvenB" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Label_OvenB]</Reference>
+        </Object>
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder Name="Forms">
+    <Folder Name="POBJ">
+      <Object Name="P0850_OvenInfo" ClsId="0x400" Version="1" TargetIndex="850" Type="PAGE" RefString="Source[local].Page[P0850_OvenInfo]">
+        <UInt32 Name="FormLanguage">0</UInt32>
+        <Reference Name="StartControl" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+        <UInt32 Name="LayerCount">10</UInt32>
+        <UInt32 Name="MoveFocus">1</UInt32>
+        <Group Name="Styleable Properties">
+          <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00000400].StyleClass[BackgroundColorBlack]</Reference>
+          <UInt16 Name="StyleTableSize">4</UInt16>
+          <UInt16 Name="Reserved">0</UInt16>
+          <Group Name="End Marker">
+            <UInt16 Name="Offset">65535</UInt16>
+            <UInt16 Name="Size">0</UInt16>
+          </Group>
+        </Group>
+        <Reference Name="FormLayer0" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A0_Default]</Reference>
+        <Reference Name="FormLayer1" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A1_StdSingle]</Reference>
+        <Reference Name="FormLayer2" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A3_StdDual]</Reference>
+        <Reference Name="FormLayer3" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle]</Reference>
+        <Reference Name="FormLayer4" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate]</Reference>
+        <Reference Name="FormLayer5" Type="LAY">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix]</Reference>
+        <Reference Name="FormLayer6" Type="LAY">Source[local].Layer[C0005_MainLayer]</Reference>
+        <Reference Name="FormLayer7" Type="LAY">Source[local].Layer[C0007_NotifLayer]</Reference>
+        <Reference Name="FormLayer8" Type="LAY">Source[local].Layer[C0008_MsgBoxLayer]</Reference>
+        <Reference Name="FormLayer9" Type="LAY">Source[local].Layer[C0009_InfoLayer]</Reference>
+        <Group Name="MovementOrder">
+          <UInt32 Name="Count">5</UInt32>
+          <Group Name="Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]">
+            <Reference Name="Control" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlNext" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlPrev" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlLeft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlRight" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlUp" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlDown" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+          </Group>
+          <Group Name="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]">
+            <Reference Name="Control" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlNext" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlPrev" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlLeft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlRight" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlUp" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlDown" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+          </Group>
+          <Group Name="Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]">
+            <Reference Name="Control" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlNext" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlPrev" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlLeft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlRight" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlUp" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlDown" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+          </Group>
+          <Group Name="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]">
+            <Reference Name="Control" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlNext" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlPrev" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlLeft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlRight" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlUp" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlDown" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+          </Group>
+          <Group Name="Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]">
+            <Reference Name="Control" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlNext" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlPrev" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A8_ExtddDualMix].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlLeft" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+            <Reference Name="CtrlRight" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenB]</Reference>
+            <Reference Name="CtrlUp" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A7_ExtddDualSeparate].Control[Num_BrdInOvenA]</Reference>
+            <Reference Name="CtrlDown" Type="CTRL">Source[local].Page[P0850_OvenInfo].Layer[A5_ExtddSingle].Control[Num_BrdInOven]</Reference>
+          </Group>
+        </Group>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

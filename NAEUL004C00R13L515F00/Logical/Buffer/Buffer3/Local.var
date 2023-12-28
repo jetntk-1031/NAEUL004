@@ -2,11 +2,9 @@
 (**)
 (*Local Action, State & Status*)
 VAR
+	tylocalBuffer : tyBuffer1;
 	eAct : eBufferAction := BufferActIdle;
-	eStat : eBufferAction := BufferActIdle;
-	eStatus : eFBStatus := Idle;
 	udiStatus : UDINT := 0;
-	sStatTxt : STRING[200] := '';
 	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Creating Directory','Getting Retained Buffer Data','Setting Buffer Full','Setting Buffer Empty','Loading Board','Loading Board With Slot Check','Unloading Board','Unloading Board With Slot Check','Unloading Board With Cooling Time Check','Unloading Board With Slot Check And Cooling Time Check','Getting Next Load Board Slot Number','Getting Next Load Good Board Slot Number','Getting Next Load Bad Board Slot Number','Getting Next Unload Board Slot Number','Getting Next Unload Good Board Slot Number','Getting Next Unload Bad Board Slot Number','Checking Cooling Time','Checking Cooling Board','Checking Cooling Good Board','Checking Cooling Bad Board','Resetting Buffer','Turning On Cooling Fan','Turning Off Cooling Fan','Background Starting Buffer Set Full','Background Starting Buffer Set Empty','Background Stopping Buffer Set','Background Starting Update Sensor','Background Stopping Update Sensor','Background Starting Update Display','Background Stopping Update Display','Background Starting Cooling Fan','Background Stopping Cooling Fan',18('')];
 END_VAR
 (**)

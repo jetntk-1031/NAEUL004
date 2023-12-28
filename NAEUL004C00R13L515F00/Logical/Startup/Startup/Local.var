@@ -1,11 +1,11 @@
 (*2020-09-22*)
+VAR
+	tylocalStartup : tyStartUp;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR
 	eAct : eStartupAction := StartupActIdle;
-	eStat : eStartupAction := StartupActIdle;
-	eStatus : eFBStatus := Idle;
-	sStatTxt : STRING[200] := '';
 	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Running Startup',49('')];
 END_VAR
 (**)
@@ -17,40 +17,6 @@ END_VAR
 (**)
 (*Local Output*)
 VAR
-	bRun : BOOL;
-	eUsrFolderAct : eUsrFolderAction;
-	eHWInfoAct : eHWInfoAction;
-	eLibVerAct : eLibVerAction;
-	eNtParamAct : eNtParamAction;
-	eMcParamAct : eMcParamAction;
-	eProdRcpAct : eProdRcpAction;
-	eMpProdRcpAct : eMpProdRcpAction;
-	eMagRcpAct : eMagRcpAction;
-	eUsrMgmtAct : eUsrMgmtAction;
-	eBuffer1Act : eBufferAction;
-	eBuffer2Act : eBufferAction;
-	eBuffer3Act : eBufferAction;
-	eAlarmAct : eAlarmAction;
-	eUIAct : eUIAction;
-	eAWPushPulAct : eAWAction;
-	eAWAct : eAWAction;
-	eTravAct : eTravAction;
-	eLifterAct : eLifterAction;
-	eLifter2Act : eLifterAction;
-	eMagAW1Act : eMagAWAction;
-	eMagAW2Act : eMagAWAction;
-	eMagAW3Act : eMagAWAction;
-	eHermesAct : eHermesAction;
-	eRmtHermesAct : eHermesAction;
-	eSvyHermesAct : eHermesAction;
-	eAutoRcpAct : eAutoRcpAction;
-	eUSHermesAAct : eHermesAction;
-	eUSHermesBAct : eHermesAction;
-	eServoPPAct : ePullerPusherAction;
-	eStartupStep1 : eStartupStep;
-	bNtSettingsLoadDone : BOOL := FALSE;
-	bUISettingsLoadDone : BOOL;
-	sStepTxt : STRING[80];
 	a_sStepText : ARRAY[0..12] OF STRING[80] := ['Creating User Folder','Reading Parameter','Getting Hardware Info','Checking Library Version','Reading Recipe List','Reading Retain Magazine Recipe List','Reading User Management List','Reading Buffer / Magazine Data','Setting Up Alarm','Setting Up Hermes','Writing Data To Servo Motor','Setting Up User Interface','Done'];
 END_VAR
 (**)
@@ -62,8 +28,6 @@ VAR
 	bOverwriteIP : BOOL;
 	bOverwriteSubnet : BOOL;
 	bOverwriteEthMode : BOOL;
-	bGetConfigDone : BOOL;
-	bMismatchSetConfigDone : BOOL;
 	tyNtParamCurr : tyNtParam;
 	tyMcParamCurr : tyMcParam;
 END_VAR

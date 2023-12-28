@@ -1,7 +1,28 @@
 (** 2019-10-30 **)
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+	
+	fbInit.bOnDirMod	:= tylocalMagConv2Clp.In.bOnDirMod;
+	fbInit.tMtrOffDlyTm	:= tylocalMagConv2Clp.In.tMtrOffDlyTm;
+	fbEnt.bOnDirMod		:= tylocalMagConv2Clp.In.bOnDirMod;
+	fbEnt.tMtrOffDlyTm	:= tylocalMagConv2Clp.In.tMtrOffDlyTm;
+	fbPreExit.bOnDirMod		:= tylocalMagConv2Clp.In.bOnDirMod;
+	fbPreExit.tMtrOffDlyTm	:= tylocalMagConv2Clp.In.tMtrOffDlyTm;
+	fbExit.bOnDirMod	:= tylocalMagConv2Clp.In.bOnDirMod;
+	fbExit.tMtrOffDlyTm	:= tylocalMagConv2Clp.In.tMtrOffDlyTm;
+	fbExit1.bOnDirMod		:= tylocalMagConv2Clp.In.bOnDirMod;
+	fbExit1.tMtrOffDlyTm	:= tylocalMagConv2Clp.In.tMtrOffDlyTm;
+	fbFixClprClampChk.tTimeOut	:= tylocalMagConv2Clp.In.tClprClampTO;
+	fbFixClprUnclampChk.tTimeOut	:= tylocalMagConv2Clp.In.tClprUnclampTO;
+	fbRmtClprClampChk.tTimeOut	:= tylocalMagConv2Clp.In.tClprClampTO;
+	fbRmtClprUnclampChk.tTimeOut	:= tylocalMagConv2Clp.In.tClprUnclampTO;
+	fbClprDlyTm.PT	:= tylocalMagConv2Clp.In.tMtrOffDlyTm / 2;
+	//Set tylocalMagConv2Clp.In.eAct
+	IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy OR tylocalMagConv2Clp.Out.eStatus = Done THEN
+		tylocalMagConv2Clp.Out.eStat	:= tylocalMagConv2Clp.In.eAct;
+	END_IF
+	
+	IF eStatOld <> tylocalMagConv2Clp.Out.eStat THEN
 		fbInit(bEn := FALSE);
 		fbEnt(bEn := FALSE);
 		fbPreExit(bEn := FALSE);
@@ -15,6 +36,7 @@ ACTION Act_Main:
 		fbClprDlyTm(IN := FALSE);
 		fbFixClprDly(IN := FALSE);
 		fbWidthChk(IN := FALSE);
+		fbClampTim(IN := FALSE);
 		
 		IF eStatOld <> MagConv2ClpActIdle
 			AND eStatOld <> MagConv2ClpActSetMtrSigOnOrLToR
@@ -24,109 +46,114 @@ ACTION Act_Main:
 			AND eStatOld <> MagConv2ClpActSetMtrAll
 			AND eStatOld <> MagConv2ClpActRstMtrAll THEN
 			
-			bMtrSigOnOrLToR	:= FALSE;
-			bMtrDirOrRToL	:= FALSE;
+			tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+			tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 			
 		END_IF
 		
 		usiStep		:= 0;
 		usiSubStep	:= 0;
+		usiPrevStep := 0;
 		bReachEnd	:= FALSE;
 		
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalMagConv2Clp.Out.sStatTxt	:= a_sStatText[tylocalMagConv2Clp.Out.eStat];
 		
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalMagConv2Clp.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalMagConv2Clp.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalMagConv2Clp.Out.eStat OF
 		
 		MagConv2ClpActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+			IF EDGENEG(tylocalMagConv2Clp.In.bManual) THEN
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalMagConv2Clp.Out.eStatus	:= Idle;
 			
 		MagConv2ClpActInit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Magazine Conveyor Init Run
 				//Detect Have Magazine
-				IF p_bLeftSen OR p_bRightSen THEN
-					bHvMag	:= TRUE;
+				IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+					tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 				ELSE
-					bHvMag	:= FALSE;
+					tylocalMagConv2Clp.Out.bHvMag	:= FALSE;
 				END_IF
 				
-				fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+				fbInit.bConvLToR	:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+				fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diInitTm);
 				
 				IF fbInit.bConvLToR = TRUE THEN
-					fbInit.bEndSen	:= p_bRightSen;
+					fbInit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 				ELSE
-					fbInit.bEndSen	:= p_bLeftSen;
+					fbInit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				END_IF
 				
 				fbInit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbInit.udiStatus = 0 THEN
 					IF fbInit.bConvLToR = TRUE THEN
-						IF bHvMag = TRUE AND p_bRightSen = FALSE THEN
+						IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bRightSen = FALSE THEN
 							udiStatus	:= 10000;	//Magazine Detected But Not Present At Outlet Sensor (L - R) While Magazine Conveyor Initial
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 						ELSE
-							eStatus	:= Done;
+							tylocalMagConv2Clp.Out.eStatus	:= Done;
 						END_IF	
 					ELSE
-						IF bHvMag = TRUE AND p_bLeftSen = FALSE THEN
+						IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bLeftSen = FALSE THEN
 							udiStatus	:= 10001;	//Magazine Detected But Not Present At Outlet Sensor (R - L) While Magazine Conveyor Initial
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 						ELSE
-							eStatus	:= Done;
+							tylocalMagConv2Clp.Out.eStatus	:= Done;
 						END_IF
 					END_IF
 				ELSIF fbInit.udiStatus < 65534 THEN
 					udiStatus	:= fbInit.udiStatus;
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 				END_IF
 			END_IF
 			
 		MagConv2ClpActInitStopClp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Unclamp
-						bFixClprClampCtrl	:= FALSE;
-						bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 						
-						fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 						fbFixClprUnclampChk(bEn := TRUE);
 						
-						fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 						fbRmtClprUnclampChk(bEn := TRUE);
 						
 						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= TRUE;
-							bRmtClprClampCtrl	:= TRUE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
@@ -145,81 +172,83 @@ ACTION Act_Main:
 						
 					1:	//Magazine Conveyor Init Run
 						//Detect Have Magazine
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvMag	:= TRUE;
+						IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+							tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 						ELSE
-							bHvMag	:= FALSE;
+							tylocalMagConv2Clp.Out.bHvMag	:= FALSE;
 						END_IF
 						
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diInitTm);
 						
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						END_IF
 						
 						fbInit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvMag = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bRightSen = FALSE THEN
 									udiStatus	:= 10005;	//Magazine Detected But Not Present At Outlet Sensor (L - R) While Conveyor Initial With Clamper
-									eStatus		:= Error;
+									tylocalMagConv2Clp.Out.eStatus		:= Error;
 								ELSE
 									usiStep	:= 2;
 								END_IF
 							ELSE
-								IF bHvMag = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10006;	//Magazine Detected But Not Present At Outlet Sensor (R - L) While Conveyor Initial With Clamper
-									eStatus		:= Error;
+									tylocalMagConv2Clp.Out.eStatus		:= Error;
 								ELSE
 									usiStep	:= 2;
 								END_IF
 							END_IF
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 						END_IF
 						
 					2:	//Check If Have Magazine
-						IF bHvMag = TRUE THEN
-							fbWidthChk(IN := NOT p_bWidthChkInterrupt);	
-							IF p_bWidthChkInterrupt = FALSE THEN
+						IF tylocalMagConv2Clp.Out.bHvMag = TRUE THEN
+							fbWidthChk(IN := NOT tylocalMagConv2Clp.In.bWidthChkInterrupt);	
+							IF tylocalMagConv2Clp.In.bWidthChkInterrupt = FALSE THEN
 								IF fbWidthChk.Q THEN
 									udiStatus := 10048; 
-									eStatus	  := Error; //Safety Sensor Is Deactivated Before Clamp
+									tylocalMagConv2Clp.Out.eStatus	  := Error; //Safety Sensor Is Deactivated Before Clamp
 								END_IF
-							ELSIF p_bWidthChkInterrupt THEN
+							ELSIF tylocalMagConv2Clp.In.bWidthChkInterrupt THEN
 								usiStep	  := 3;
 							END_IF
 						ELSE
-							eStatus	:= Done;
+							tylocalMagConv2Clp.Out.eStatus	:= Done;
 						END_IF
 						
 					3:	//Fix Clamp
-						bFixClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
 						
-						fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
+						fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
 						fbFixClprClampChk(bEn := TRUE);
 						
 						IF fbFixClprClampChk.udiStatus = 0 THEN
-								fbFixClprDly (IN := TRUE);
+							fbFixClprDly (IN := TRUE);
 							IF  fbFixClprDly.Q THEN
 								fbFixClprDly (IN := FALSE);
 								usiStep	:= 4;
 							END_IF
 							
 						ELSIF fbFixClprClampChk.udiStatus < 65534 THEN
-							bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprClampChk.udiStatus = 1503 THEN
 								udiStatus	:= 10007;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Initial With Clamper
@@ -233,20 +262,21 @@ ACTION Act_Main:
 						END_IF
 						
 					4:	//Remote Clamp
-						bRmtClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 						
-						fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
+						fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
 						fbRmtClprClampChk(bEn := TRUE);
 						
 						IF fbRmtClprClampChk.udiStatus = 0 THEN
-								eStatus	:= Done;
+							tylocalMagConv2Clp.Out.eStatus	:= Done;
 								
 						ELSIF fbRmtClprClampChk.udiStatus < 65534 THEN
-							bRmtClprClampCtrl	:= FALSE;
-							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbRmtClprClampChk.udiStatus = 1503 THEN
 								udiStatus	:= 10007;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Initial With Clamper
@@ -263,32 +293,36 @@ ACTION Act_Main:
 			END_IF	
 			
 		MagConv2ClpActInitClpStop:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Unclamp
-						bFixClprClampCtrl	:= FALSE;
-						bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 						
-						fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 						fbFixClprUnclampChk(bEn := TRUE);
 						
-						fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 						fbRmtClprUnclampChk(bEn := TRUE);
 						
 						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= TRUE;
-							bRmtClprClampCtrl	:= TRUE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
@@ -307,25 +341,25 @@ ACTION Act_Main:
 						
 					1:	//Magazine Conveyor Init Run & Clamp
 						//Detect Have Magazine
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvMag	:= TRUE;
+						IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+							tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 						ELSE
-							bHvMag	:= FALSE;
+							tylocalMagConv2Clp.Out.bHvMag	:= FALSE;
 						END_IF
 						
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diInitTm);
 						
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						END_IF
 						
 						fbInit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbInit.bEndSen = TRUE THEN
 							bReachEnd	:= TRUE;
@@ -335,24 +369,24 @@ ACTION Act_Main:
 							fbClprDlyTm(IN := TRUE);
 							IF fbClprDlyTm.Q = TRUE THEN
 								CASE usiSubStep OF
-								//	0:	//Fix Clamp
-//										bFixClprClampCtrl	:= TRUE;
+									//	0:	//Fix Clamp
+									//										tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
 										
-//										fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-//										fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-//										fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
-//										fbFixClprClampChk(bEn := TRUE);
-//										
-//										IF fbFixClprClampChk.udiStatus = 0 THEN
-//											usiSubStep	:= 1;
-//										END_IF
+									//										fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+									//										fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+									//										fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
+									//										fbFixClprClampChk(bEn := TRUE);
+									//										
+									//										IF fbFixClprClampChk.udiStatus = 0 THEN
+									//											usiSubStep	:= 1;
+									//										END_IF
 										
 									0:	//Remote Clamp
-										bRmtClprClampCtrl	:= TRUE;
-										
-										fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-										fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-										fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
+										tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+										tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+										fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+										fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+										fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
 										fbRmtClprClampChk(bEn := TRUE);
 										
 										IF fbRmtClprClampChk.udiStatus = 0 THEN
@@ -362,11 +396,12 @@ ACTION Act_Main:
 										
 									1:
 									
-										bFixClprClampCtrl	:= TRUE;
+										tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+										tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
 										
-										fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-										fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-										fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
+										fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+										fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+										fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
 										fbFixClprClampChk(bEn := TRUE);
 									
 								END_CASE
@@ -375,30 +410,32 @@ ACTION Act_Main:
 						
 						IF (fbInit.udiStatus = 0) AND ((fbFixClprClampChk.udiStatus = 0 AND fbRmtClprClampChk.udiStatus = 0) OR (bReachEnd = FALSE)) THEN
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvMag = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bRightSen = FALSE THEN
 									udiStatus	:= 10041;	//Magazine Detected But Not Present At Outlet Sensor (L - R) While Conveyor Initial With Clamper
-									eStatus		:= Error;
+									tylocalMagConv2Clp.Out.eStatus		:= Error;
 								ELSE
-									eStatus		:= Done;
+									tylocalMagConv2Clp.Out.eStatus		:= Done;
 								END_IF
 							ELSE
-								IF bHvMag = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalMagConv2Clp.Out.bHvMag = TRUE AND tylocalMagConv2Clp.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10042;	//Magazine Detected But Not Present At Outlet Sensor (R - L) While Conveyor Initial With Clamper
-									eStatus		:= Error;
+									tylocalMagConv2Clp.Out.eStatus		:= Error;
 								ELSE
-									eStatus		:= Done;
+									tylocalMagConv2Clp.Out.eStatus		:= Done;
 								END_IF
 							END_IF
 							
 						ELSIF fbInit.udiStatus > 0 AND fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 							
 						ELSIF (fbFixClprClampChk.udiStatus > 0 AND fbFixClprClampChk.udiStatus < 65534) OR (fbRmtClprClampChk.udiStatus > 0 AND fbRmtClprClampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= FALSE;
-							bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprClampChk.udiStatus = 1503 OR fbRmtClprClampChk.udiStatus = 1503 THEN
 								udiStatus	:= 10043;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Initial With Clamper
@@ -419,34 +456,34 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActEnt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Detect Have Magazine
-				IF p_bLeftSen OR p_bRightSen THEN
-					bHvMag	:= TRUE;
+				IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+					tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 				END_IF
 				
 				//Conveyor Run
-				fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+				fbEnt.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxInTimeOut);
 				
 				IF fbEnt.bConvLToR = TRUE THEN
-					fbEnt.bEndSen	:= p_bRightSen;
+					fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 				ELSE
-					fbEnt.bEndSen	:= p_bLeftSen;
+					fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				END_IF
 				
 				fbEnt(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
-					eStatus		:= Done;
+					tylocalMagConv2Clp.Out.eStatus		:= Done;
 				ELSIF fbEnt.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 					
 					IF fbEnt.udiStatus = 1101 THEN
 						udiStatus	:= 10028;	//Transfer In Time Out While Entering Magazine
@@ -458,45 +495,38 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActEntStopClp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Conveyor Enter
 						//Detect Have Magazine
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvMag	:= TRUE;
+						IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+							tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 						END_IF
 						
 						//Conveyor Run
-						fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+						fbEnt.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+						fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxInTimeOut);
 						
 						IF fbEnt.bConvLToR = TRUE THEN
-							fbEnt.bEndSen	:= p_bRightSen;
+							fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 						ELSE
-							fbEnt.bEndSen	:= p_bLeftSen;
+							fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						END_IF
 						
 						fbEnt(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbEnt.udiStatus = 0 THEN
-//							usiStep	:= 1;
-							fbWidthChk(IN := NOT p_bWidthChkInterrupt);	
-								IF p_bWidthChkInterrupt = FALSE THEN
-								    IF fbWidthChk.Q THEN
-										udiStatus := 10048; 
-										eStatus	  := Error; //Safety Sensor Is Deactivated Before Clamp
-									END_IF
-								ELSIF p_bWidthChkInterrupt THEN
-									usiStep	  := 1;
-								END_IF
+							usiStep	:= 2;
+							tRemainingTime := tylocalMagConv2Clp.In.tClprClampTO;
+						
 						ELSIF fbEnt.udiStatus < 65534 THEN
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbEnt.udiStatus = 1101 THEN
 								udiStatus	:= 10029;	//Transfer In Time Out While Entering Magazine
@@ -504,26 +534,55 @@ ACTION Act_Main:
 								udiStatus	:= fbEnt.udiStatus;
 							END_IF
 						END_IF
+					1: //clamp standby step
+						fbFixClprClampChk(bEn:= FALSE);
+						fbRmtClprClampChk(bEn:= FALSE);
+						fbFixClprUnclampChk(bEn:= FALSE);
+						fbRmtClprUnclampChk(bEn := FALSE);
+						fbInterrupSenDlyOff(IN:= tylocalMagConv2Clp.In.bWidthChkInterrupt);
+						IF fbInterrupSenDlyOff.Q THEN
+							IF NOT(tylocalMagConv2Clp.In.bLeftSen) AND NOT(tylocalMagConv2Clp.In.bRightSen) THEN
+								tylocalMagConv2Clp.Out.eStatus := Error;
+								udiStatus	:= 10049; //Magazine is taken away during the clamp
+							ELSIF (tylocalMagConv2Clp.In.bLeftSen AND NOT(tylocalMagConv2Clp.In.bRightSen)) THEN
+								fbEnt(bEn := FALSE);
+								usiStep := 4;
+								IF usiPrevStep <> usiStep THEN
+									tRemainingTime := tylocalMagConv2Clp.In.tClprClampTO;
+								END_IF
+							ELSE
+								usiStep := usiPrevStep;
+								usiPrevStep := 1;
+							END_IF
+						END_IF
 						
-					1:	//Fix Clamp
-						bFixClprClampCtrl	:= TRUE;
 						
-						fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
+					2:	//Fix Clamp
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+						
+						fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen ;// OR (usiPrevStep = 1 AND tylocalMagConv2Clp.In.bFixClprClampSen = FALSE);
+						fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
 						fbFixClprClampChk(bEn := TRUE);
-						
+						IF (tRemainingTime) > T#5s THEN
+							fbClampTim(IN:= TRUE,PT:= tRemainingTime );
+						ELSE
+							fbClampTim(IN:= TRUE,PT:= T#6s);
+						END_IF				
 						IF fbFixClprClampChk.udiStatus = 0 THEN
 							fbFixClprDly(IN := TRUE);
 							IF  fbFixClprDly.Q THEN
 								fbFixClprDly (IN := FALSE);
-								usiStep	:= 2;
+								usiStep	:= 3;
+								tRemainingTime := tylocalMagConv2Clp.In.tClprClampTO;
+								fbClampTim(IN:= FALSE);
 							END_IF
+						ELSIF fbFixClprClampChk.udiStatus < 65534 OR fbClampTim.Q THEN	
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
 							
-						ELSIF fbFixClprClampChk.udiStatus < 65534 THEN	
-							bFixClprClampCtrl	:= FALSE;
-							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprClampChk.udiStatus = 1503 THEN
 								udiStatus	:= 10010;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Enter With Clamper
@@ -531,26 +590,38 @@ ACTION Act_Main:
 								udiStatus	:= 10011;	//Clamper Unclamp Sensor Off Time Out In Clamp Check While Conveyor Enter With Clamper
 							ELSIF fbFixClprClampChk.udiStatus = 1507 THEN
 								udiStatus	:= 10012;	//Clamper Clamp Safety Sensor Error In Clamp Check While Conveyor Enter With Clamper
+							ELSIF fbFixClprClampChk.udiStatus = 65535 AND fbClampTim.Q THEN
+								udiStatus	:= 10050;	//Clamper Clamp Sensor On Time Out While Continue to Clamp
 							ELSE
 								udiStatus	:= fbFixClprClampChk.udiStatus;
 							END_IF
+						ELSIF NOT(tylocalMagConv2Clp.In.bWidthChkInterrupt) THEN
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+							usiPrevStep := 2;
+							usiStep	:= 1;
+							tRemainingTime := tRemainingTime - fbClampTim.ET;
+							fbClampTim(IN:= FALSE);
 						END_IF
 						
-					2:	//Remote Clamp
-						bRmtClprClampCtrl	:= TRUE;
-						
-						fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
+					3:	//Remote Clamp
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+						fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen ;
+						fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
 						fbRmtClprClampChk(bEn := TRUE);
-						
+						IF (tRemainingTime ) > T#6s THEN
+							fbClampTim(IN:= TRUE,PT:= tRemainingTime );
+						ELSE
+							fbClampTim(IN:= TRUE,PT:= T#5s);
+						END_IF	
 						IF fbRmtClprClampChk.udiStatus = 0 THEN
-								eStatus	:= Done;
-							
-						ELSIF fbRmtClprClampChk.udiStatus < 65534 THEN	
-							bRmtClprClampCtrl	:= FALSE;
-							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Done;
+						ELSIF fbRmtClprClampChk.udiStatus < 65534 OR fbClampTim.Q THEN	
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbRmtClprClampChk.udiStatus = 1503 THEN
 								udiStatus	:= 10010;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Enter With Clamper
@@ -558,39 +629,100 @@ ACTION Act_Main:
 								udiStatus	:= 10011;	//Clamper Unclamp Sensor Off Time Out In Clamp Check While Conveyor Enter With Clamper
 							ELSIF fbRmtClprClampChk.udiStatus = 1507 THEN
 								udiStatus	:= 10012;	//Clamper Clamp Safety Sensor Error In Clamp Check While Conveyor Enter With Clamper
+							ELSIF fbRmtClprClampChk.udiStatus = 65535 AND fbClampTim.Q THEN
+								udiStatus	:= 10051;	//Clamper Clamp Sensor On Time Out While Continue to Clamp
 							ELSE
 								udiStatus	:= fbRmtClprClampChk.udiStatus;
 							END_IF
+						ELSIF NOT(tylocalMagConv2Clp.In.bWidthChkInterrupt) THEN
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl := FALSE;
+							usiPrevStep := 3;
+							usiStep	:= 1;
+							tRemainingTime := tRemainingTime - fbClampTim.ET;
+							fbClampTim(IN:= FALSE);
 						END_IF
-					
+					4:
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
+						
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk(bEn := TRUE);
+						
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk(bEn := TRUE);
+						IF (tRemainingTime) > T#5s THEN
+							fbClampTim(IN:= TRUE,PT:= tRemainingTime );
+						ELSE
+							fbClampTim(IN:= TRUE,PT:= T#6s);
+						END_IF	
+						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
+							usiStep := 0;
+							tRemainingTime := tylocalMagConv2Clp.In.tClprClampTO;
+							fbClampTim(IN:= FALSE);
+						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) OR fbClampTim.Q THEN
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+							
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
+							
+							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
+								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
+							ELSIF fbFixClprUnclampChk.udiStatus = 1505 OR fbRmtClprUnclampChk.udiStatus = 1505 THEN
+								udiStatus	:= 10003;	//Clamper Unclamp Sensor On Time Out In Unclamp Check While Conveyor Initial With Clamper
+							ELSIF fbFixClprUnclampChk.udiStatus = 1508 OR fbRmtClprUnclampChk.udiStatus = 1508 THEN
+								udiStatus	:= 10004;	//Clamper Unclamp Safety Sensor Error In Unclamp Check While Conveyor Initial With Clamper
+							ELSIF fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534 THEN
+								udiStatus	:= fbFixClprUnclampChk.udiStatus;
+							ELSIF fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534 THEN
+								udiStatus	:= fbRmtClprUnclampChk.udiStatus;
+							ELSIF (fbFixClprUnclampChk.udiStatus = 65535 AND fbRmtClprUnclampChk.udiStatus = 65535) OR fbClampTim.Q THEN
+								udiStatus	:= 10052;	//Clamper Unclamp Sensor On Time Out While Continue to UnClamp
+							END_IF
+						ELSIF NOT(tylocalMagConv2Clp.In.bWidthChkInterrupt) THEN
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl := FALSE;
+							usiPrevStep := 4;
+							usiStep	:= 1;
+							tRemainingTime := tRemainingTime - fbClampTim.ET;
+							fbClampTim(IN:= FALSE);
+						END_IF
 				END_CASE
 				
 			END_IF
 			
 		MagConv2ClpActEntClpStop:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Detect Have Magazine
-				IF p_bLeftSen OR p_bRightSen THEN
-					bHvMag	:= TRUE;
+				IF tylocalMagConv2Clp.In.bLeftSen OR tylocalMagConv2Clp.In.bRightSen THEN
+					tylocalMagConv2Clp.Out.bHvMag	:= TRUE;
 				END_IF
 				
 				//Conveyor Run
-				fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+				fbEnt.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirLToL);
+				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxInTimeOut);
 				
 				IF fbEnt.bConvLToR = TRUE THEN
-					fbEnt.bEndSen	:= p_bRightSen;
+					fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 				ELSE
-					fbEnt.bEndSen	:= p_bLeftSen;
+					fbEnt.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				END_IF
 				
 				fbEnt(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbEnt.bEndSen = TRUE THEN
 					bReachEnd	:= TRUE;
@@ -601,22 +733,22 @@ ACTION Act_Main:
 					IF fbClprDlyTm.Q = TRUE THEN
 						CASE usiSubStep OF
 							0:	//Fix Clamp
-//								bFixClprClampCtrl	:= TRUE;
-//								
-//								fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-//								fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-//								fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
-//								fbFixClprClampChk(bEn := TRUE);
-//								
-//								IF fbFixClprClampChk.udiStatus = 0 THEN
-//									usiSubStep	:= 1;
-//								END_IF
+								//								tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+								//								
+								//								fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+								//								fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+								//								fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
+								//								fbFixClprClampChk(bEn := TRUE);
+								//								
+								//								IF fbFixClprClampChk.udiStatus = 0 THEN
+								//									usiSubStep	:= 1;
+								//								END_IF
 								
-								bRmtClprClampCtrl	:= TRUE;
-								
-								fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-								fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-								fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
+								tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+								tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+								fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+								fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+								fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
 								fbRmtClprClampChk(bEn := TRUE);
 								
 								IF fbRmtClprClampChk.udiStatus = 0 THEN
@@ -624,18 +756,19 @@ ACTION Act_Main:
 								END_IF
 								
 							1:	//Remote Clamp
-//								bRmtClprClampCtrl	:= TRUE;
-//								
-//								fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-//								fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-//								fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
-//								fbRmtClprClampChk(bEn := TRUE);
+								//								tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+								//								
+								//								fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+								//								fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+								//								fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
+								//								fbRmtClprClampChk(bEn := TRUE);
 								
-								bFixClprClampCtrl	:= TRUE;
+								tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+								tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
 								
-								fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-								fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-								fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
+								fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+								fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+								fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
 								fbFixClprClampChk(bEn := TRUE);
 								
 		
@@ -645,13 +778,15 @@ ACTION Act_Main:
 				END_IF
 				
 				IF fbEnt.udiStatus = 0 AND (fbFixClprClampChk.udiStatus = 0 AND fbRmtClprClampChk.udiStatus = 0) THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 					
 				ELSIF (fbFixClprClampChk.udiStatus > 0 AND fbFixClprClampChk.udiStatus < 65534) OR (fbRmtClprClampChk.udiStatus > 0 AND fbRmtClprClampChk.udiStatus < 65534) THEN
-					bFixClprClampCtrl	:= FALSE;
-					bRmtClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbFixClprClampChk.udiStatus = 1503 OR fbRmtClprClampChk.udiStatus = 1503 THEN
 						udiStatus	:= 10034;	//Clamper Clamp Sensor On Time Out In Clamp Check While Conveyor Enter With Clamper
@@ -668,7 +803,7 @@ ACTION Act_Main:
 					END_IF
 					
 				ELSIF fbEnt.udiStatus > 0 AND fbEnt.udiStatus < 65534 THEN
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbEnt.udiStatus = 1101 THEN
 						udiStatus	:= 10037;	//Transfer In Time Out While Entering Magazine
@@ -681,68 +816,72 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActPreExit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Conveyor Run
-				fbPreExit.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbPreExit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+				fbPreExit.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+				fbPreExit.tTxDlyTm		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diInitTm);
 				
 				IF fbPreExit.bConvLToR = TRUE THEN
-					fbPreExit.bEndSen	:= p_bRightSen;
-					fbPreExit.bStartSen	:= p_bLeftSen;
+					fbPreExit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
+					fbPreExit.bStartSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				ELSE
-					fbPreExit.bEndSen	:= p_bLeftSen;
-					fbPreExit.bStartSen	:= p_bRightSen;
+					fbPreExit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
+					fbPreExit.bStartSen	:= tylocalMagConv2Clp.In.bRightSen;
 				END_IF
 				
 				fbPreExit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbPreExit.udiStatus = 0 THEN
 					IF fbPreExit.bEndSen = TRUE THEN
-						eStatus	:= Done;
+						tylocalMagConv2Clp.Out.eStatus	:= Done;
 					ELSE
 						udiStatus	:= 10046;	//Magazine Not Detected While Pre-Exiting Magazine
-						eStatus		:= Error;
+						tylocalMagConv2Clp.Out.eStatus		:= Error;
 					END_IF
 				ELSIF fbPreExit.udiStatus < 65534 THEN
 					udiStatus	:= fbPreExit.udiStatus;
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 				END_IF
 				
 			END_IF
 			
 		MagConv2ClpActPreExitClpr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Unclamp
-						bFixClprClampCtrl	:= FALSE;
-						bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 						
-						fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 						fbFixClprUnclampChk(bEn := TRUE);
 						
-						fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 						fbRmtClprUnclampChk(bEn := TRUE);
 						
 						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= TRUE;
-							bRmtClprClampCtrl	:= TRUE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
@@ -761,32 +900,32 @@ ACTION Act_Main:
 						
 					1:	//Conveyor Pre-Exit
 						//Conveyor Run
-						fbPreExit.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-						fbPreExit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbPreExit.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+						fbPreExit.tTxDlyTm		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diInitTm);
 						
 						IF fbPreExit.bConvLToR = TRUE THEN
-							fbPreExit.bEndSen	:= p_bRightSen;
-							fbPreExit.bStartSen	:= p_bLeftSen;
+							fbPreExit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
+							fbPreExit.bStartSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						ELSE
-							fbPreExit.bEndSen	:= p_bLeftSen;
-							fbPreExit.bStartSen	:= p_bRightSen;
+							fbPreExit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
+							fbPreExit.bStartSen	:= tylocalMagConv2Clp.In.bRightSen;
 						END_IF
 						
 						fbPreExit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbPreExit.udiStatus = 0 THEN
 							IF fbPreExit.bEndSen = TRUE THEN
-								eStatus	:= Done;
+								tylocalMagConv2Clp.Out.eStatus	:= Done;
 							ELSE
 								udiStatus	:= 10046;	//Magazine Not Detected While Pre-Exiting Magazine
-								eStatus		:= Error;
+								tylocalMagConv2Clp.Out.eStatus		:= Error;
 							END_IF
 						ELSIF fbPreExit.udiStatus < 65534 THEN
 							udiStatus	:= fbPreExit.udiStatus;
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 						END_IF
 					
 				END_CASE
@@ -794,30 +933,30 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActExit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Conveyor Run
-				fbExit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit.bConvLToR	:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+				fbExit.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxOutTimeOut);
 				
 				IF fbExit.bConvLToR = TRUE THEN
-					fbExit.bEndSen	:= p_bRightSen;
+					fbExit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 				ELSE
-					fbExit.bEndSen	:= p_bLeftSen;
+					fbExit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				END_IF
 				
 				fbExit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus = 0 THEN
-					bHvMag		:= FALSE;	
-					eStatus		:= Done;
+					tylocalMagConv2Clp.Out.bHvMag		:= FALSE;	
+					tylocalMagConv2Clp.Out.eStatus		:= Done;
 				ELSIF fbExit.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 					
 					IF fbExit.udiStatus = 1101 THEN
 						udiStatus	:= 10030;	//Transfer Out Time Out While Exiting Magazine
@@ -829,30 +968,30 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActExit1:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Conveyor Run
-				fbExit1.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit1.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit1.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+				fbExit1.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxOutTimeOut);
 				
 				IF fbExit1.bConvLToR = TRUE THEN
-					fbExit1.bEndSen	:= p_bRightSen;
+					fbExit1.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 				ELSE
-					fbExit1.bEndSen	:= p_bLeftSen;
+					fbExit1.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 				END_IF
 				
 				fbExit1(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus = 0 THEN
-					bHvMag		:= FALSE;
-					eStatus		:= Done;
+					tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
+					tylocalMagConv2Clp.Out.eStatus		:= Done;
 				ELSIF fbExit1.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 					
 					IF fbExit1.udiStatus = 1101 THEN
 						udiStatus	:= 10032;	//Transfer Out Time Out While Exiting Magazinie
@@ -864,32 +1003,36 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActExitClpr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Unclamp
-						bFixClprClampCtrl	:= FALSE;
-						bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 						
-						fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 						fbFixClprUnclampChk(bEn := TRUE);
 						
-						fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 						fbRmtClprUnclampChk(bEn := TRUE);
 						
 						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= TRUE;
-							bRmtClprClampCtrl	:= TRUE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
@@ -908,25 +1051,25 @@ ACTION Act_Main:
 						
 					1:	//Conveyor Exit
 						//Conveyor Run
-						fbExit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-						fbExit.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+						fbExit.bConvLToR	:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+						fbExit.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxOutTimeOut);
 						
 						IF fbExit.bConvLToR = TRUE THEN
-							fbExit.bEndSen	:= p_bRightSen;
+							fbExit.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 						ELSE
-							fbExit.bEndSen	:= p_bLeftSen;
+							fbExit.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						END_IF
 						
 						fbExit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbExit.udiStatus = 0 THEN
-							bHvMag		:= FALSE;
-							eStatus		:= Done;
+							tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
+							tylocalMagConv2Clp.Out.eStatus		:= Done;
 						ELSIF fbExit.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 							
 							IF fbExit.udiStatus = 1101 THEN
 								udiStatus	:= 10031;	//Transfer Out Time Out While Conveyor Exit With Clamper
@@ -940,32 +1083,36 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActExit1Clpr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				CASE usiStep OF
 					0:	//Unclamp
-						bFixClprClampCtrl	:= FALSE;
-						bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+						tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := TRUE;
+						tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 						
-						fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-						fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-						fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+						fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+						fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+						fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 						fbFixClprUnclampChk(bEn := TRUE);
 						
-						fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-						fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-						fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+						fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+						fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+						fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 						fbRmtClprUnclampChk(bEn := TRUE);
 						
 						IF fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-							bFixClprClampCtrl	:= TRUE;
-							bRmtClprClampCtrl	:= TRUE;
+							tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+							tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+							tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 							
-							eStatus	:= Error;
+							tylocalMagConv2Clp.Out.eStatus	:= Error;
 							
 							IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 								udiStatus	:= 10002;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Conveyor Initial With Clamper
@@ -984,25 +1131,25 @@ ACTION Act_Main:
 						
 					1:	//Conveyor Exit
 						//Conveyor Run
-						fbExit1.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-						fbExit1.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+						fbExit1.bConvLToR		:= (tylocalMagConv2Clp.In.eDirection = ConvDirLToR) OR (tylocalMagConv2Clp.In.eDirection = ConvDirRToR);
+						fbExit1.tTimeOut		:= DINT_TO_TIME(tylocalMagConv2Clp.In.diTxOutTimeOut);
 						
 						IF fbExit1.bConvLToR = TRUE THEN
-							fbExit1.bEndSen	:= p_bRightSen;
+							fbExit1.bEndSen	:= tylocalMagConv2Clp.In.bRightSen;
 						ELSE
-							fbExit1.bEndSen	:= p_bLeftSen;
+							fbExit1.bEndSen	:= tylocalMagConv2Clp.In.bLeftSen;
 						END_IF
 						
 						fbExit1(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 						
 						IF fbExit1.udiStatus = 0 THEN
-							bHvMag		:= FALSE;
-							eStatus		:= Done;
+							tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
+							tylocalMagConv2Clp.Out.eStatus		:= Done;
 						ELSIF fbExit1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalMagConv2Clp.Out.eStatus		:= Error;
 							
 							IF fbExit1.udiStatus = 1101 THEN
 								udiStatus	:= 10033;	//Transfer Out Time Out While Conveyor Exit With Clamper
@@ -1016,82 +1163,88 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActFixClprSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= TRUE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := TRUE;
+
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActFixClprRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= FALSE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+	
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActFixClprSetClamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= TRUE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActFixClprSetUnclamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= FALSE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := TRUE;
+
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActFixClprClamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= TRUE;
-				
-				fbFixClprClampChk.bExtSen		:= p_bFixClprClampSen;
-				fbFixClprClampChk.bRetSen		:= p_bFixClprUnclampSen;
-				fbFixClprClampChk.bExtSafety	:= p_bFixClprClampSafetySen;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+
+				fbFixClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+				fbFixClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+				fbFixClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bFixClprClampSafetySen;
 				fbFixClprClampChk(bEn := TRUE);
 				
 				IF fbFixClprClampChk.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 				ELSIF fbFixClprClampChk.udiStatus < 65534 THEN
-					bFixClprClampCtrl	:= FALSE;
-					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbFixClprClampChk.udiStatus = 1503 THEN
 						udiStatus	:= 10016;	//Clamper Clamp Sensor On Time Out In Clamp Check While Clamper Clamp
@@ -1106,26 +1259,28 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActFixClprUnclamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bFixClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := TRUE;
 				
-				fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-				fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-				fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+				fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+				fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+				fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 				fbFixClprUnclampChk(bEn := TRUE);
 				
 				IF fbFixClprUnclampChk.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 				ELSIF fbFixClprUnclampChk.udiStatus < 65534 THEN
-					bFixClprClampCtrl	:= TRUE;
-					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbFixClprUnclampChk.udiStatus = 1504 THEN
 						udiStatus	:= 10019;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Clamper Unclamp
@@ -1141,82 +1296,84 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActRmtClprSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= TRUE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRmtClprRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= FALSE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRmtClprSetClamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= TRUE;
-				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRmtClprSetUnclamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRmtClprClamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= TRUE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 				
-				fbRmtClprClampChk.bExtSen		:= p_bRmtClprClampSen;
-				fbRmtClprClampChk.bRetSen		:= p_bRmtClprUnclampSen;
-				fbRmtClprClampChk.bExtSafety	:= p_bRmtClprClampSafetySen;
+				fbRmtClprClampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+				fbRmtClprClampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+				fbRmtClprClampChk.bExtSafety	:= tylocalMagConv2Clp.In.bRmtClprClampSafetySen;
 				fbRmtClprClampChk(bEn := TRUE);
 				
 				IF fbRmtClprClampChk.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 				ELSIF fbRmtClprClampChk.udiStatus < 65534 THEN
-					bRmtClprClampCtrl	:= FALSE;
-					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbRmtClprClampChk.udiStatus = 1503 THEN
 						udiStatus	:= 10016;	//Clamper Clamp Sensor On Time Out In Clamp Check While Clamper Clamp
@@ -1231,26 +1388,27 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActRmtClprUnclamp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 				
-				fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-				fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-				fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+				fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+				fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+				fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 				fbRmtClprUnclampChk(bEn := TRUE);
 				
 				IF fbRmtClprUnclampChk.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 				ELSIF fbRmtClprUnclampChk.udiStatus < 65534 THEN
-					bRmtClprClampCtrl	:= TRUE;
-					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbRmtClprUnclampChk.udiStatus = 1504 THEN
 						udiStatus	:= 10019;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Clamper Unclamp
@@ -1266,59 +1424,63 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActStop:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalMagConv2Clp.Out.eStatus	:= Done;
 				ELSIF fbStop.udiStatus < 65534 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 				END_IF
 				
 			END_IF
 			
 		MagConv2ClpActStopClpr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalMagConv2Clp.Out.eStatus	:= Busy;
 				
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
 				
-				bFixClprClampCtrl	:= FALSE;
-				bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+				tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := TRUE;
+				tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= TRUE;
 				
-				fbFixClprUnclampChk.bExtSen		:= p_bFixClprClampSen;
-				fbFixClprUnclampChk.bRetSen		:= p_bFixClprUnclampSen;
-				fbFixClprUnclampChk.bRetSafety	:= p_bFixClprUnclampSafetySen;
+				fbFixClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bFixClprClampSen;
+				fbFixClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bFixClprUnclampSen;
+				fbFixClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bFixClprUnclampSafetySen;
 				fbFixClprUnclampChk(bEn := TRUE);
 				
-				fbRmtClprUnclampChk.bExtSen		:= p_bRmtClprClampSen;
-				fbRmtClprUnclampChk.bRetSen		:= p_bRmtClprUnclampSen;
-				fbRmtClprUnclampChk.bRetSafety	:= p_bRmtClprUnclampSafetySen;
+				fbRmtClprUnclampChk.bExtSen		:= tylocalMagConv2Clp.In.bRmtClprClampSen;
+				fbRmtClprUnclampChk.bRetSen		:= tylocalMagConv2Clp.In.bRmtClprUnclampSen;
+				fbRmtClprUnclampChk.bRetSafety	:= tylocalMagConv2Clp.In.bRmtClprUnclampSafetySen;
 				fbRmtClprUnclampChk(bEn := TRUE);
 				
 				IF fbStop.udiStatus = 0 AND fbFixClprUnclampChk.udiStatus = 0 AND fbRmtClprUnclampChk.udiStatus = 0 THEN
-					eStatus		:= Done;
+					tylocalMagConv2Clp.Out.eStatus		:= Done;
 				ELSIF fbStop.udiStatus > 0 AND fbStop.udiStatus < 65534 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalMagConv2Clp.Out.eStatus		:= Error;
 				ELSIF (fbFixClprUnclampChk.udiStatus > 0 AND fbFixClprUnclampChk.udiStatus < 65534) OR (fbRmtClprUnclampChk.udiStatus > 0 AND fbRmtClprUnclampChk.udiStatus < 65534) THEN
-					bFixClprClampCtrl	:= TRUE;
-					bRmtClprClampCtrl	:= TRUE;
+					tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+					tylocalMagConv2Clp.Out.bFixClprUnClampCtrl := FALSE;
+					tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 					
-					eStatus	:= Error;
+					tylocalMagConv2Clp.Out.eStatus	:= Error;
 					
 					IF fbFixClprUnclampChk.udiStatus = 1504 OR fbRmtClprUnclampChk.udiStatus = 1504 THEN
 						udiStatus	:= 10022;	//Clamper Clamp Sensor Off Time Out In Unclamp Check While Stop With Clamper
@@ -1338,58 +1500,58 @@ ACTION Act_Main:
 			END_IF
 			
 		MagConv2ClpActSetMtrSigOnOrLToR:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrSigOnOrLToR	:= TRUE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= TRUE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActSetMtrDirOrRToL:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrDirOrRToL	:= TRUE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= TRUE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRstMtrSigOnOrLToR:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRstMtrDirOrRToL:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActSetMtrAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrSigOnOrLToR	:= TRUE;
-				bMtrDirOrRToL	:= TRUE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= TRUE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= TRUE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		MagConv2ClpActRstMtrAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMagConv2Clp.Out.eStatus = Idle OR tylocalMagConv2Clp.Out.eStatus = Busy THEN
 				
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= FALSE;
 				
-				eStatus	:= Done;
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 				
 			END_IF
 		

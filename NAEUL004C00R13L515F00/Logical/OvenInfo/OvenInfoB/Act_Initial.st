@@ -2,7 +2,7 @@
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	tylocalOvenInfoA.Out.sStatTxt	:= a_sStatText[tylocalOvenInfoA.Out.eStat];
 	
 	fbStd(bEn := FALSE);
 	fbExtdd(bEn := FALSE);

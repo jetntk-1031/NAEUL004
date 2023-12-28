@@ -1,44 +1,4 @@
 (*2019-03-25*)
-(**)
-(*Action & State & Status*)
 VAR
-	p_PshrConvStat : UDINT;
-	p_PshrConvStatus : UDINT;
-	p_PshrConvStatTxt : UDINT;
-END_VAR
-(**)
-(*Alarm*)
-VAR
-	p_PshrConvAlmData : UDINT;
-END_VAR
-(**)
-(*Output*)
-VAR
-	p_PshrConvHvBrd : UDINT;
-	p_PshrConvRejHvBrd : UDINT;
-	p_PshrConvInspHvBrd : UDINT;
-	p_PshrConvGdBrd : UDINT;
-	p_PshrConvLmtSenActivated : UDINT;
-	p_PshrConvMtrSigOnOrLToR : UDINT;
-	p_PshrConvMtrDirOrRToL : UDINT;
-	p_PshrConvPshrExtCtrl : UDINT;
-	p_PshrConvPshrRetCtrl : UDINT;
-	p_PshrConvPshrTwoOutputControl : UDINT;
-	p_PshrConvPshrExtended : UDINT;
-	p_PshrConvPshrRetracted : UDINT;
-	p_PshrConvPullerExtCtrl : UDINT;
-	p_PshrConvPullerRetCtrl : UDINT;
-	p_PshrConvPullerTwoOutputControl : UDINT;
-	p_PshrConvPullerExtended : UDINT;
-	p_PshrConvPullerRetracted : UDINT;
-	p_PshrConvRotRemoteCtrl : UDINT;
-	p_PshrConvRotTwoOutputControl : UDINT;
-	p_PshrConvRotAtRemote : UDINT;
-	p_PshrConvRotAtHome : UDINT;
-	p_PshrConvRejectUpCtrl : UDINT;
-	p_PshrConvRejectDownCtrl : UDINT;
-	p_PshrConvRejectTwoOutputControl : UDINT;
-	p_PshrConvRejectAtUp : UDINT;
-	p_PshrConvRejectAtDown : UDINT;
-	p_PshrConvPshrRetAllwTrav : UDINT;
+	g_tyPshrConv : tyPshrConvOut1;
 END_VAR

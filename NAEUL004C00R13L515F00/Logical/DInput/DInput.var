@@ -1,4 +1,9 @@
 (*2018-12-10*)
+(*Output*)
+VAR
+	g_tyDInputOut : tyDigitalInputOut;
+	g_tyDInput : tyDigitalInput;
+END_VAR
 (**)
 (*Constant*)
 VAR CONSTANT

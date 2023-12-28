@@ -1,23 +1,14 @@
 (** 2020-03-16 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-		
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
+	IF bInitialDone = FALSE THEN
 		bInitialDone	:= TRUE;
 		
 		Act_Initial;
 		
 	ELSE
-		
-		Act_LinkAction;
-		Act_Action;
-		Act_Link;
-		
+
+		Act_InputConfig;
 		Act_Main;
 		
 		CASE p_eTLBuzMode OF
@@ -33,7 +24,7 @@ PROGRAM _CYCLIC
 				Act_Background4;
 			
 		END_CASE
-		
+		Act_OutputConfig;
 	END_IF
 	
 END_PROGRAM

@@ -1,36 +1,26 @@
 (** 2019-03-29 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-		
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+	IF bInitialDone = FALSE THEN
+		IF g_tyStartUp.bNtSettingsLoadDone = TRUE  THEN
 			bInitialDone	:= TRUE;
-			
 			Act_Initial;
 		END_IF
 		
 	ELSE
 		
-		Act_LinkAction;
-		Act_Action;
-		Act_LinkEn;
-		
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
+		IF (tylocalOvenInfoB.In.bPrep = TRUE) AND (tylocalOvenInfoB.In.bEn = TRUE) AND (tylocalOvenInfoB.In.bDis = FALSE) THEN
+			Act_InputConfig;
 			Act_Link;
 			Act_Main;
-			Act_Background;
+			Act_OutputConfig;
 		ELSE
 			Act_Main_Disable;
 			
-			IF eStat <> OvenInfoActIdle THEN
-				eStatus	:= Done;
+			IF tylocalOvenInfoB.Out.eStat <> OvenInfoActIdle THEN
+				tylocalOvenInfoB.Out.eStatus	:= Done;
 			ELSE
-				eStatus	:= Idle;
+				tylocalOvenInfoB.Out.eStatus	:= Idle;
 			END_IF
 		END_IF
 		

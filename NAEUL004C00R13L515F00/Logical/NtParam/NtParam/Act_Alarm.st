@@ -1,36 +1,42 @@
-(** 2019-03-25 **)
+
 ACTION Act_Alarm: 
 	
+	IF tylocalNtParam.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalNtParam.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	//Reset Error
+	IF (tylocalNtParam.Out.eStatus = Error) AND bRstErr THEN
+		tylocalNtParam.In.eAct	  := NtParamActIdle;
+		tylocalNtParam.Out.eStat  := NtParamActIdle;
+	END_IF
+	
+	//Reset Done
+	IF tylocalNtParam.Out.eStatus = Done AND tylocalNtParam.In.eAct = NtParamActIdle THEN
+		tylocalNtParam.Out.eStat 	:= NtParamActIdle;
+	END_IF
+	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalNtParam.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sNtParamProgNm		:= p_sProgNm;
+		tylocalNtParam.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalNtParam.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalNtParam.Out.tyAlmData.udiRunTime	    := tylocalNtParam.Out.tyAlmData.udiRunTime + 1;
+		tylocalNtParam.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalNtParam.Out.tyAlmData.udiModuleNum	:= udiModuleNum;
+		g_tyAlmProgNm.sNtParamProgNm				:= sProgNm;
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
-				
-		sStatTxt	:= tyAlmData.sAlmMsg;
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+	ELSIF bRstErr AND (tylocalNtParam.Out.tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalNtParam.Out.tyAlmData.udiCode	:= 0;
+		tylocalNtParam.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalNtParam.Out.tyAlmData.bAlm		:= FALSE;
+		
+		sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 	END_IF
 	

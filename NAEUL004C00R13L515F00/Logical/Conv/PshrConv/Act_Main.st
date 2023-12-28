@@ -1,7 +1,36 @@
 (** 2019-06-17 **)
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+	
+	fbInit.bOnDirMod	:= tylocalPshrConv.In.bOnDirMod;
+	fbInit.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbEnt.bOnDirMod		:= tylocalPshrConv.In.bOnDirMod;
+	fbEnt.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbRev.bOnDirMod		:= tylocalPshrConv.In.bOnDirMod;
+	fbRev.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diRevDlyTm);
+	fbRev.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbPreExit.bOnDirMod		:= tylocalPshrConv.In.bOnDirMod;
+	fbPreExit.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbExit.bOnDirMod	:= tylocalPshrConv.In.bOnDirMod;
+	fbExit.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbExit1.bOnDirMod		:= tylocalPshrConv.In.bOnDirMod;
+	fbExit1.tMtrOffDlyTm	:= tylocalPshrConv.In.tMtrOffDlyTm;
+	fbPshrExtChk.tTimeOut	:= tylocalPshrConv.In.tPshrExtTO;
+	fbPshrRetChk.tTimeOut	:= tylocalPshrConv.In.tPshrRetTO;
+	fbPullerExtChk.tTimeOut	:= tylocalPshrConv.In.tPullerExtTO;
+	fbPullerRetChk.tTimeOut	:= tylocalPshrConv.In.tPullerRetTO;
+	fbRotHomeChk.tTimeOut	:= tylocalPshrConv.In.tRotHomeTO;
+	fbRotRemoteChk.tTimeOut	:= tylocalPshrConv.In.tRotRemoteTO;
+	fbRejectUpChk.tTimeOut	:= tylocalPshrConv.In.tRejectUpTO;
+	fbRejectDownChk.tTimeOut	:= tylocalPshrConv.In.tRejectDownTO;
+	
+	
+	//Set tylocalPshrConv.In.eAct
+	IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy OR tylocalPshrConv.Out.eStatus = Done THEN
+		tylocalPshrConv.Out.eStat	:= tylocalPshrConv.In.eAct;
+	END_IF
+	
+	IF eStatOld <> tylocalPshrConv.Out.eStat THEN
 		fbInit(bEn := FALSE);
 		fbEnt(bEn := FALSE);
 		fbRev(bEn := FALSE);
@@ -27,53 +56,53 @@ ACTION Act_Main:
 			AND eStatOld <> ConvActSetMtrAll
 			AND eStatOld <> ConvActRstMtrAll THEN
 			
-			bMtrSigOnOrLToR	:= FALSE;
-			bMtrDirOrRToL	:= FALSE;
+			tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+			tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 			
 		END_IF
 		
-		bLmtSenActivated	:= FALSE;
+		tylocalPshrConv.Out.bLmtSenActivated	:= FALSE;
 		bInletOff			:= FALSE;
 		usiStep				:= 0;
 		
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalPshrConv.Out.sStatTxt	:= a_sStatText[tylocalPshrConv.Out.eStat];
 		
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalPshrConv.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalPshrConv.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalPshrConv.Out.eStat OF
 		
 		ConvActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+			IF EDGENEG(tylocalPshrConv.In.bManual) THEN
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalPshrConv.Out.eStatus	:= Idle;
 		
 		ConvActInit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					
 					0:	//Reset
-						bHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd	:= FALSE;
 						usiStep	:= 1;
 						
 					1:	//Conveyor Initial Run
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 							
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus	:= Error;
+								tylocalPshrConv.Out.eStatus	:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10000;	//Multi Board Detected While Conveyor Initial
 								ELSE
@@ -83,47 +112,47 @@ ACTION Act_Main:
 						END_IF
 						
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 						
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 						
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 						
 						fbInit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10001;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10002;	//Board Not Present At Outlet Sensor (R - L) While Conveyor Initial
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							END_IF
 							
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 						
 				END_CASE
@@ -131,24 +160,24 @@ ACTION Act_Main:
 			END_IF	
 		
 		ConvActInitRev:	
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Reset
-						bHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd	:= FALSE;
 						usiStep	:= 1;
 						
 					1:	//Conveyor Initial Run
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10003;	//Multi Board Detected While Conveyor Initial With Reverse
 								ELSE
@@ -158,39 +187,39 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10004;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial With Reverse
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
 									usiStep		:= 2;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10005;	//Board Not Present At Outlet Sensor (R - L) While Conveyor Initial With Reverse
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
 									usiStep		:= 2;
 								END_IF
@@ -198,14 +227,14 @@ ACTION Act_Main:
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 						
 					2:	//Check Have Board
-						IF bHvBrd = TRUE THEN
+						IF tylocalPshrConv.Out.bHvBrd = TRUE THEN
 							usiStep		:= 3;
 						ELSE	
-							eStatus		:= Done;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						END_IF	
 							
 					3:	//Delay
@@ -219,58 +248,58 @@ ACTION Act_Main:
 						
 					4:	//Reverse
 						//Conveyor Run
-						fbRev.bConvLToR		:= (p_eDirection = ConvDirRToL) OR (p_eDirection = ConvDirRToR);
+						fbRev.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirRToL) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
 					
 						IF fbRev.bConvLToR = TRUE THEN
-							fbRev.bStartSen	:= p_bLeftSen;
-							fbRev.bEndSen	:= p_bRightSen;
+							fbRev.bStartSen	:= tylocalPshrConv.In.bLeftSen;
+							fbRev.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE	
-							fbRev.bStartSen	:= p_bRightSen;
-							fbRev.bEndSen	:= p_bLeftSen;
+							fbRev.bStartSen	:= tylocalPshrConv.In.bRightSen;
+							fbRev.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF	
 				
 						fbRev(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbRev.udiStatus = 0 THEN
-							eStatus		:= Done;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						ELSIF fbRev.udiStatus < 65534 THEN	
 							udiStatus	:= fbRev.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF		
 					
 				END_CASE	
 			END_IF	
 			
 		ConvActInitPshr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Reset
-						bHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd	:= FALSE;
 						usiStep	:= 1;
 						
 					1:	//Pusher Retract
-						bPshrExtCtrl	:= FALSE;
-						bPshrRetCtrl	:= TRUE;
+						tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+						tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 				
-						fbPshrRetChk.bExtSen	:= p_bPshrExtSen;
-						fbPshrRetChk.bRetSen	:= p_bPshrRetSen;
-						fbPshrRetChk.bRetSafety	:= p_bPshrRetSafetySen;
+						fbPshrRetChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+						fbPshrRetChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+						fbPshrRetChk.bRetSafety	:= tylocalPshrConv.In.bPshrRetSafetySen;
 						fbPshrRetChk(bEn := TRUE);
 					
 						IF fbPshrRetChk.udiStatus = 0 THEN
-							bPshrRetracted	:= TRUE;
+							tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
 							usiStep			:= 2;
 						ELSIF fbPshrRetChk.udiStatus < 65534 THEN
-							bPshrExtCtrl	:= FALSE;
-							bPshrRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbPshrRetChk.udiStatus = 1504 THEN
 								udiStatus	:= 10006;	//Pusher Extend Sensor Off Time Out In Retract Check While Conveyor Initial With Pusher
@@ -285,13 +314,13 @@ ACTION Act_Main:
 						
 					2:	//Conveyor Init Run
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10009;	//Multi Board Detected While Conveyor Initial With Pusher
 								ELSE
@@ -301,75 +330,75 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10010;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial With Pusher
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10011;	//Board Not Present At Outlet Sensor (R - L) While Conveyor Initial With Pusher
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							END_IF
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 				END_CASE	
 			END_IF	
 		
 		ConvActInitPuller:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Reset
-						bHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd	:= FALSE;
 						usiStep	:= 1;
 						
 					1:	//Rotate Home
-						bRotRemoteCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 				
-						fbRotHomeChk.bExtSen	:= p_bRotHomeSen;
-						fbRotHomeChk.bRetSen	:= p_bRotRemoteSen;
-						fbRotHomeChk.bExtSafety	:= p_bRotHomeSafetySen;
+						fbRotHomeChk.bExtSen	:= tylocalPshrConv.In.bRotHomeSen;
+						fbRotHomeChk.bRetSen	:= tylocalPshrConv.In.bRotRemoteSen;
+						fbRotHomeChk.bExtSafety	:= tylocalPshrConv.In.bRotHomeSafetySen;
 						fbRotHomeChk(bEn := TRUE);
 					
 						IF fbRotHomeChk.udiStatus = 0 THEN
-							bRotAtHome	:= TRUE;
+							tylocalPshrConv.Out.bRotAtHome	:= TRUE;
 							usiStep		:= 2;
 						ELSIF fbRotHomeChk.udiStatus < 65534 THEN
-							bRotRemoteCtrl	:= TRUE;
+							tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbRotHomeChk.udiStatus = 1503 THEN
 								udiStatus	:= 10012;	//Rotator Home Sensor On Time Out In Home Check While Conveyor Initial With Puller
@@ -383,22 +412,22 @@ ACTION Act_Main:
 						END_IF
 					
 					2: //Puller Retract
-						bPullerExtCtrl	:= FALSE;
-						bPullerRetCtrl	:= TRUE;
+						tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+						tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 					
-						fbPullerRetChk.bExtSen		:= p_bPullerExtSen;
-						fbPullerRetChk.bRetSen		:= p_bPullerRetSen;
-						fbPullerRetChk.bRetSafety	:= p_bPullerRetSafetySen;
+						fbPullerRetChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+						fbPullerRetChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+						fbPullerRetChk.bRetSafety	:= tylocalPshrConv.In.bPullerRetSafetySen;
 						fbPullerRetChk(bEn := TRUE);
 						
 						IF fbPullerRetChk.udiStatus = 0 THEN
-							bPullerRetracted	:= TRUE;
+							tylocalPshrConv.Out.bPullerRetracted	:= TRUE;
 							usiStep				:= 3;	
 						ELSIF fbPullerRetChk.udiStatus < 65534 THEN	
-							bPullerExtCtrl	:= TRUE;
-							bPullerRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 							
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbPullerRetChk.udiStatus = 1504 THEN
 								udiStatus	:= 10015;	//Puller Extend Sensor Off Time Out In Retract Check While Conveyor Initial With Puller
@@ -413,13 +442,13 @@ ACTION Act_Main:
 					
 					3: //Conveyor Init Run	
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10018;	//Multi Board Detected While Conveyor Initial With Puller
 								ELSE
@@ -429,63 +458,63 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10019;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial With Puller
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10020;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial With Puller
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							END_IF
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 				END_CASE	
 			END_IF
 			
 		ConvActInitRej:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Reset
-						bHvBrd		:= FALSE;
-						bRejHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd		:= FALSE;
+						tylocalPshrConv.Out.bRejHvBrd	:= FALSE;
 						usiStep		:= 1;
 						
 					1:	//Check Reject Sensor
-						IF p_bRejectDownSen = TRUE THEN
+						IF tylocalPshrConv.In.bRejectDownSen = TRUE THEN
 							usiStep	:= 2;
 						ELSE
 							usiStep	:= 4;
@@ -493,13 +522,13 @@ ACTION Act_Main:
 						
 					2:	//Initial Run Conveyor
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10079;	//Multi Board Detected While Conveyor Initial With Reject
 								ELSE
@@ -509,57 +538,57 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen OR p_bMiddleSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen OR p_bMiddleSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bMiddleSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE AND p_bMiddleSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE AND tylocalPshrConv.In.bMiddleSen = FALSE THEN
 									udiStatus	:= 10080;	//Board Not Present At Outlet Or Middle Sensor (L - R) While Conveyor Initial With Reject
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 									
 								ELSE
-									IF p_bRightSen = TRUE THEN
-										bLmtSenActivated	:= TRUE;
-										eStatus				:= Done;
-									ELSIF p_bMiddleSen = TRUE THEN
+									IF tylocalPshrConv.In.bRightSen = TRUE THEN
+										tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+										tylocalPshrConv.Out.eStatus				:= Done;
+									ELSIF tylocalPshrConv.In.bMiddleSen = TRUE THEN
 										usiStep	:= 3;
 									ELSE
-										eStatus	:= Done;
+										tylocalPshrConv.Out.eStatus	:= Done;
 									END_IF
 									
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE AND p_bMiddleSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE AND tylocalPshrConv.In.bMiddleSen = FALSE THEN
 									udiStatus	:= 10081;	//Board Not Present At Outlet Or Middle Sensor (R - L) While Conveyor Initial With Reject
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 									
 								ELSE
-									IF p_bLeftSen = TRUE THEN
-										bLmtSenActivated	:= TRUE;
-										eStatus				:= Done;
-									ELSIF p_bMiddleSen = TRUE THEN
+									IF tylocalPshrConv.In.bLeftSen = TRUE THEN
+										tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+										tylocalPshrConv.Out.eStatus				:= Done;
+									ELSIF tylocalPshrConv.In.bMiddleSen = TRUE THEN
 										usiStep	:= 3;
 									ELSE
-										eStatus	:= Done;
+										tylocalPshrConv.Out.eStatus	:= Done;
 									END_IF
 									
 								END_IF
@@ -567,28 +596,28 @@ ACTION Act_Main:
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 						
 					3: 	//Reject Up
-						bRejectUpCtrl	:= TRUE;
-						bRejectDownCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+						tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
-						fbRejectUpChk.bExtSen		:= p_bRejectUpSen;
-						fbRejectUpChk.bRetSen		:= p_bRejectDownSen;
-						fbRejectUpChk.bExtSafety	:= p_bRejectUpSafetySen;
+						fbRejectUpChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+						fbRejectUpChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+						fbRejectUpChk.bExtSafety	:= tylocalPshrConv.In.bRejectUpSafetySen;
 						fbRejectUpChk(bEn := TRUE);
 						
 						IF fbRejectUpChk.udiStatus = 0 THEN
-							bRejectAtUp	:= TRUE;
-							bRejHvBrd	:= TRUE;
-							bHvBrd		:= FALSE;
-							eStatus		:= Done;
+							tylocalPshrConv.Out.bRejectAtUp	:= TRUE;
+							tylocalPshrConv.Out.bRejHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bHvBrd		:= FALSE;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						ELSIF fbRejectUpChk.udiStatus < 65534 THEN	
-							bRejectUpCtrl	:= FALSE;
-							bRejectDownCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 						
 							IF fbRejectUpChk.udiStatus = 1503 THEN
 								udiStatus	:= 10082;	//Reject Up Sensor On Time Out In Up Check While Conveyor Initial With Reject
@@ -602,23 +631,23 @@ ACTION Act_Main:
 						END_IF
 					
 					4: 	//Reject Up
-						bRejectUpCtrl	:= TRUE;
-						bRejectDownCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+						tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
-						fbRejectUpChk.bExtSen		:= p_bRejectUpSen;
-						fbRejectUpChk.bRetSen		:= p_bRejectDownSen;
-						fbRejectUpChk.bExtSafety	:= p_bRejectUpSafetySen;
+						fbRejectUpChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+						fbRejectUpChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+						fbRejectUpChk.bExtSafety	:= tylocalPshrConv.In.bRejectUpSafetySen;
 						fbRejectUpChk(bEn := TRUE);
 						
 						IF fbRejectUpChk.udiStatus = 0 THEN
-							bRejectAtUp	:= TRUE;
-							bRejHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bRejectAtUp	:= TRUE;
+							tylocalPshrConv.Out.bRejHvBrd	:= TRUE;
 							usiStep		:= 5;
 						ELSIF fbRejectUpChk.udiStatus < 65534 THEN	
-							bRejectUpCtrl	:= FALSE;
-							bRejectDownCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 						
 							IF fbRejectUpChk.udiStatus = 1503 THEN
 								udiStatus	:= 10088;	//Reject Up Sensor On Time Out In Up Check While Conveyor Initial With Reject
@@ -633,13 +662,13 @@ ACTION Act_Main:
 					
 					5:	//Initial Run Conveyor
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10091;	//Multi Board Detected While Conveyor Initial With Reject
 								ELSE
@@ -649,47 +678,47 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10092;	//Board Not Present At Outlet Sensor (L - R) While Conveyor Initial With Reject
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus		:= Done;
+									tylocalPshrConv.Out.eStatus		:= Done;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10093;	//Board Not Present At Outlet Sensor (R - L) While Conveyor Initial With Reject
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus		:= Done;
+									tylocalPshrConv.Out.eStatus		:= Done;
 								END_IF
 							END_IF
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 						
 				END_CASE
@@ -697,25 +726,25 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActInitInsp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Reset
-						bHvBrd		:= FALSE;
-						bInspHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd		:= FALSE;
+						tylocalPshrConv.Out.bInspHvBrd	:= FALSE;
 						usiStep		:= 1;
 						
 					1:	//Initial Run Conveyor
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10085;	//Multi Board Detected While Conveyor Initial With Inspection
 								ELSE
@@ -725,59 +754,59 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-							bHvBrd	:= TRUE;
-							bGdBrd	:= p_bGdBrdInit;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 				
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen OR p_bMiddleSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen OR p_bMiddleSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bMiddleSen;
 						END_IF
 				
 						fbInit(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE AND p_bMiddleSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE AND tylocalPshrConv.In.bMiddleSen = FALSE THEN
 									udiStatus	:= 10086;	//Board Not Present At Outlet Or Middle Sensor (L - R) While Conveyor Initial With Inspection
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 									
 								ELSE
-									IF p_bRightSen = TRUE THEN
-										bLmtSenActivated	:= TRUE;
-										eStatus				:= Done;
-									ELSIF p_bMiddleSen = TRUE THEN
-										bInspHvBrd	:= TRUE;
-										eStatus		:= Done;
+									IF tylocalPshrConv.In.bRightSen = TRUE THEN
+										tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+										tylocalPshrConv.Out.eStatus				:= Done;
+									ELSIF tylocalPshrConv.In.bMiddleSen = TRUE THEN
+										tylocalPshrConv.Out.bInspHvBrd	:= TRUE;
+										tylocalPshrConv.Out.eStatus		:= Done;
 									ELSE
-										eStatus	:= Done;
+										tylocalPshrConv.Out.eStatus	:= Done;
 									END_IF
 									
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE AND p_bMiddleSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE AND tylocalPshrConv.In.bMiddleSen = FALSE THEN
 									udiStatus	:= 10087;	//Board Not Present At Outlet Or Middle Sensor (R - L) While Conveyor Initial With Inspection
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 									
 								ELSE
-									IF p_bLeftSen = TRUE THEN
-										bLmtSenActivated	:= TRUE;
-										eStatus				:= Done;
-									ELSIF p_bMiddleSen = TRUE THEN
-										bInspHvBrd	:= TRUE;
-										eStatus		:= Done;
+									IF tylocalPshrConv.In.bLeftSen = TRUE THEN
+										tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+										tylocalPshrConv.Out.eStatus				:= Done;
+									ELSIF tylocalPshrConv.In.bMiddleSen = TRUE THEN
+										tylocalPshrConv.Out.bInspHvBrd	:= TRUE;
+										tylocalPshrConv.Out.eStatus		:= Done;
 									ELSE
-										eStatus	:= Done;
+										tylocalPshrConv.Out.eStatus	:= Done;
 									END_IF
 									
 								END_IF
@@ -785,7 +814,7 @@ ACTION Act_Main:
 					
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 				
 				END_CASE
@@ -793,18 +822,18 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActEnt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10021;	//Multi Board Detected While Conveyor Enter Board
 						ELSE
@@ -814,32 +843,32 @@ ACTION Act_Main:
 				END_IF
 				
 				//Detect Have Board
-				IF p_bLeftSen OR p_bRightSen THEN
-					bHvBrd	:= TRUE;
+				IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+					tylocalPshrConv.Out.bHvBrd	:= TRUE;
 				END_IF
 				
 				//Good Board Status
-				bGdBrd	:= p_bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 				
 				//Conveyor Run
-				fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 				
 				IF fbEnt.bConvLToR = TRUE THEN
-					fbEnt.bEndSen	:= p_bRightSen;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbEnt.bEndSen	:= p_bLeftSen;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbEnt(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbEnt.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbEnt.udiStatus = 1101 THEN
 						udiStatus	:= 10114;	//Transfer In Time Out While Conveyor Enter Board
@@ -851,18 +880,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActEntToInOff:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10123;	//Multi Board Detected While Conveyor Enter Board To Inlet Off
 						ELSE
@@ -872,40 +901,40 @@ ACTION Act_Main:
 				END_IF
 				
 				//Detect Have Board
-				IF p_bLeftSen OR p_bRightSen THEN
-					bHvBrd	:= TRUE;
+				IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+					tylocalPshrConv.Out.bHvBrd	:= TRUE;
 				END_IF
 				
 				//Good Board Status
-				bGdBrd	:= p_bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 				
 				//Conveyor Run
-				fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 				
 				IF fbEnt.bConvLToR = TRUE THEN
-					IF EDGENEG(p_bLeftSen) THEN
+					IF EDGENEG(tylocalPshrConv.In.bLeftSen) THEN
 						bInletOff	:= TRUE;
 					END_IF
 					
-					fbEnt.bEndSen	:= p_bRightSen OR bInletOff;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen OR bInletOff;
 				ELSE
-					IF EDGENEG(p_bRightSen) THEN
+					IF EDGENEG(tylocalPshrConv.In.bRightSen) THEN
 						bInletOff	:= TRUE;
 					END_IF
 					
-					fbEnt.bEndSen	:= p_bLeftSen OR bInletOff;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen OR bInletOff;
 				END_IF
 				
 				fbEnt(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbEnt.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbEnt.udiStatus = 1101 THEN
 						udiStatus	:= 10124;	//Transfer In Time Out While Conveyor Enter Board To Inlet Off
@@ -917,20 +946,20 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActEntRev:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF 
 					0:	//Enter
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10022;	//Multi Board Detected While Conveyor Enter Board With Reverse
 								ELSE
@@ -940,32 +969,32 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen THEN
-							bHvBrd	:= TRUE;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
 						END_IF
 				
 						//Good Board Status
-						bGdBrd	:= p_bGdBrdEnt;
+						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 				
 						//Conveyor Run
-						fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+						fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 				
 						IF fbEnt.bConvLToR = TRUE THEN
-							fbEnt.bEndSen	:= p_bRightSen;
+							fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbEnt.bEndSen	:= p_bLeftSen;
+							fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 				
 						fbEnt(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbEnt.udiStatus = 0 THEN
 							usiStep		:= 1;
 						ELSIF fbEnt.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 					
 							IF fbEnt.udiStatus = 1101 THEN
 								udiStatus	:= 10115;	//Transfer In Time Out While Conveyor Enter Board With Reverse
@@ -975,10 +1004,10 @@ ACTION Act_Main:
 						END_IF
 						
 					1:	
-						IF bHvBrd = TRUE THEN
+						IF tylocalPshrConv.Out.bHvBrd = TRUE THEN
 							usiStep		:= 2;
 						ELSE	
-							eStatus		:= Done;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						END_IF	
 							
 					2:	//Delay
@@ -992,113 +1021,113 @@ ACTION Act_Main:
 							
 					3:	//Reverse
 						//Conveyor Run
-						fbRev.bConvLToR		:= (p_eDirection = ConvDirRToL) OR (p_eDirection = ConvDirRToR);
+						fbRev.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirRToL) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
 					
 						IF fbRev.bConvLToR = TRUE THEN
-							fbRev.bStartSen	:= p_bLeftSen;
-							fbRev.bEndSen	:= p_bRightSen;
+							fbRev.bStartSen	:= tylocalPshrConv.In.bLeftSen;
+							fbRev.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE	
-							fbRev.bStartSen	:= p_bRightSen;
-							fbRev.bEndSen	:= p_bLeftSen;
+							fbRev.bStartSen	:= tylocalPshrConv.In.bRightSen;
+							fbRev.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF	
 				
 						fbRev(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbRev.udiStatus = 0 THEN
-							eStatus		:= Done;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						ELSIF fbRev.udiStatus < 65534 THEN	
 							udiStatus	:= fbRev.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF	
 					
 				END_CASE	
 			END_IF	
 			
 		ConvActRev:	
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
-				fbRev.bConvLToR		:= (p_eDirection = ConvDirRToL) OR (p_eDirection = ConvDirRToR);
+				fbRev.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirRToL) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
 					
 				IF fbRev.bConvLToR = TRUE THEN
-					fbRev.bStartSen	:= p_bLeftSen;
-					fbRev.bEndSen	:= p_bRightSen;
+					fbRev.bStartSen	:= tylocalPshrConv.In.bLeftSen;
+					fbRev.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE	
-					fbRev.bStartSen	:= p_bRightSen;
-					fbRev.bEndSen	:= p_bLeftSen;
+					fbRev.bStartSen	:= tylocalPshrConv.In.bRightSen;
+					fbRev.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF	
 				
 				fbRev(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbRev.udiStatus = 0 THEN
-					eStatus		:= Done;
+					tylocalPshrConv.Out.eStatus		:= Done;
 				ELSIF fbRev.udiStatus < 65534 THEN	
 					udiStatus	:= fbRev.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF	
 				
 			END_IF	
 			
 		ConvActRevImmedStart:	
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
 				fbRev.bStartSen		:= TRUE;
-				fbRev.bConvLToR		:= (p_eDirection = ConvDirRToL) OR (p_eDirection = ConvDirRToR);
+				fbRev.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirRToL) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
 					
 				IF fbRev.bConvLToR = TRUE THEN
-					fbRev.bEndSen	:= p_bRightSen;
+					fbRev.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE	
-					fbRev.bEndSen	:= p_bLeftSen;
+					fbRev.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF	
 				
 				fbRev(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbRev.udiStatus = 0 THEN
-					eStatus		:= Done;
+					tylocalPshrConv.Out.eStatus		:= Done;
 				ELSIF fbRev.udiStatus < 65534 THEN	
 					udiStatus	:= fbRev.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF	
 				
 			END_IF	
 			
 		ConvActEntPuller:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0: //Puller Extend
-						bPullerExtCtrl	:= TRUE;
-						bPullerRetCtrl	:= FALSE;
+						tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+						tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 					
-						fbPullerExtChk.bExtSen		:= p_bPullerExtSen;
-						fbPullerExtChk.bRetSen		:= p_bPullerRetSen;
-						fbPullerExtChk.bExtSafety	:= p_bPullerExtSafetySen;
+						fbPullerExtChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+						fbPullerExtChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+						fbPullerExtChk.bExtSafety	:= tylocalPshrConv.In.bPullerExtSafetySen;
 						fbPullerExtChk(bEn := TRUE);
 						
 						IF fbPullerExtChk.udiStatus = 0 THEN
-							bPullerExtended	:= TRUE;
+							tylocalPshrConv.Out.bPullerExtended	:= TRUE;
 							usiStep			:= 1;
 						ELSIF fbPullerExtChk.udiStatus < 65534 THEN	
-							bPullerExtCtrl	:= FALSE;
-							bPullerRetCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 									
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 						
 							IF fbPullerExtChk.udiStatus = 1503 THEN
 								udiStatus	:= 10023;	//Puller Extend Sensor On Time Out In Extend Check While Conveyor Enter With Puller
@@ -1112,20 +1141,20 @@ ACTION Act_Main:
 						END_IF	
 					
 					1: //Rotate Remote
-						bRotRemoteCtrl	:= TRUE;
+						tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 					
-						fbRotRemoteChk.bExtSen		:= p_bRotHomeSen;
-						fbRotRemoteChk.bRetSen		:= p_bRotRemoteSen;
-						fbRotRemoteChk.bRetSafety	:= p_bRotRemoteSafetySen;
+						fbRotRemoteChk.bExtSen		:= tylocalPshrConv.In.bRotHomeSen;
+						fbRotRemoteChk.bRetSen		:= tylocalPshrConv.In.bRotRemoteSen;
+						fbRotRemoteChk.bRetSafety	:= tylocalPshrConv.In.bRotRemoteSafetySen;
 						fbRotRemoteChk(bEn := TRUE);
 						
 						IF fbRotRemoteChk.udiStatus = 0 THEN
-							bRotAtRemote	:= TRUE;
+							tylocalPshrConv.Out.bRotAtRemote	:= TRUE;
 							usiStep			:= 2;
 						ELSIF fbRotRemoteChk.udiStatus < 65534 THEN	
-							bRotRemoteCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 							
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbRotRemoteChk.udiStatus = 1504 THEN
 								udiStatus	:= 10026;	//Rotator Home Sensor Off Time Out In Remote Check While Conveyor Enter With Puller
@@ -1139,22 +1168,22 @@ ACTION Act_Main:
 						END_IF	
 					
 					2: //Puller Retract
-						bPullerExtCtrl	:= FALSE;
-						bPullerRetCtrl	:= TRUE;
+						tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+						tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 					
-						fbPullerRetChk.bExtSen		:= p_bPullerExtSen;
-						fbPullerRetChk.bRetSen		:= p_bPullerRetSen;
-						fbPullerRetChk.bRetSafety	:= p_bPullerRetSafetySen;
+						fbPullerRetChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+						fbPullerRetChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+						fbPullerRetChk.bRetSafety	:= tylocalPshrConv.In.bPullerRetSafetySen;
 						fbPullerRetChk(bEn := TRUE);
 					
 						IF fbPullerRetChk.udiStatus = 0 THEN
-							bPullerRetracted	:= TRUE;
+							tylocalPshrConv.Out.bPullerRetracted	:= TRUE;
 							usiStep				:= 3;
 						ELSIF fbPullerRetChk.udiStatus < 65534 THEN
-							bPullerExtCtrl	:= TRUE;
-							bPullerRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 							
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbPullerRetChk.udiStatus = 1504 THEN
 								udiStatus	:= 10029;	//Puller Extend Sensor Off Time Out In Retract Check While Conveyor Enter With Puller
@@ -1168,20 +1197,20 @@ ACTION Act_Main:
 						END_IF	
 							
 					3: //Rotate Home
-						bRotRemoteCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 					
-						fbRotHomeChk.bExtSen	:= p_bRotHomeSen;
-						fbRotHomeChk.bRetSen	:= p_bRotRemoteSen;
-						fbRotHomeChk.bExtSafety	:= p_bRotHomeSafetySen;
+						fbRotHomeChk.bExtSen	:= tylocalPshrConv.In.bRotHomeSen;
+						fbRotHomeChk.bRetSen	:= tylocalPshrConv.In.bRotRemoteSen;
+						fbRotHomeChk.bExtSafety	:= tylocalPshrConv.In.bRotHomeSafetySen;
 						fbRotHomeChk(bEn := TRUE);
 						
 						IF fbRotHomeChk.udiStatus = 0 AND fbEnt.udiStatus = 0 THEN
-							bRotAtHome	:= TRUE;
-							eStatus		:= Done;
+							tylocalPshrConv.Out.bRotAtHome	:= TRUE;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						ELSIF fbRotHomeChk.udiStatus < 65534 AND fbRotHomeChk.udiStatus > 0 THEN	
-							bRotRemoteCtrl	:= TRUE;
+							tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 							
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbRotHomeChk.udiStatus = 1503 THEN
 								udiStatus	:= 10032;	//Rotator Home Sensor On Time Out In Home Check While Conveyor Enter With Puller
@@ -1198,13 +1227,13 @@ ACTION Act_Main:
 				IF usiStep >= 2 THEN
 					//Conveyor Run
 					//Long Board Detection
-					IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-						fbLongBrd.bSen1	:= p_bLeftSen;
-						fbLongBrd.bSen2	:= p_bRightSen;
+					IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+						fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+						fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 						fbLongBrd;
 						
 						IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 							IF fbLongBrd.udiStatus = 1100 THEN
 								udiStatus	:= 10035;	//Multi Board Detected While Conveyor Enter With Puller
 							ELSE
@@ -1214,30 +1243,30 @@ ACTION Act_Main:
 					END_IF
 					
 					//Detect Have Board
-					IF p_bLeftSen OR p_bRightSen THEN
-						bHvBrd	:= TRUE;
+					IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
+						tylocalPshrConv.Out.bHvBrd	:= TRUE;
 					END_IF
 					
 					//Good Board Status
-					bGdBrd	:= p_bGdBrdEnt;
+					tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 					
 					//Conveyor Run
-					fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-					fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+					fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+					fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 					
 					IF fbEnt.bConvLToR = TRUE THEN
-						fbEnt.bEndSen	:= p_bRightSen;
+						fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen;
 					ELSE
-						fbEnt.bEndSen	:= p_bLeftSen;
+						fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 					END_IF
 					
 					fbEnt(bEn := TRUE);
 					
-					bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-					bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+					tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+					tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 					
 					IF fbEnt.udiStatus < 65534 AND fbEnt.udiStatus > 0 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 					
 						IF fbEnt.udiStatus = 1101 THEN
 							udiStatus	:= 10116;	//Transfer In Time Out While Conveyor Enter With Puller
@@ -1249,20 +1278,20 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActEntRej:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Initial Run Conveyor
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 					
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus		:= Error;
+								tylocalPshrConv.Out.eStatus		:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10094;	//Multi Board Detected While Conveyor Entering With Reject
 								ELSE
@@ -1272,41 +1301,41 @@ ACTION Act_Main:
 						END_IF
 				
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-							bHvBrd	:= TRUE;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
 						END_IF
 				
 						//Conveyor Run
-						fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+						fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 				
-						bGdBrd	:= p_bGdBrdEnt;
+						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 						
 						IF fbEnt.bConvLToR = TRUE THEN
-							fbEnt.bEndSen	:= p_bRightSen OR p_bMiddleSen;
+							fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
 						ELSE
-							fbEnt.bEndSen	:= p_bLeftSen OR p_bMiddleSen;
+							fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bMiddleSen;
 						END_IF
 				
 						fbEnt(bEn := TRUE);
 				
-						bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 						IF fbEnt.udiStatus = 0 THEN
 					
 							IF fbEnt.bConvLToR = TRUE THEN
-								IF p_bRightSen = TRUE THEN
-									bLmtSenActivated	:= TRUE;
-									eStatus				:= Done;
+								IF tylocalPshrConv.In.bRightSen = TRUE THEN
+									tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+									tylocalPshrConv.Out.eStatus				:= Done;
 								ELSE
 									usiStep	:= 1;
 								END_IF
 								
 							ELSE
-								IF p_bLeftSen = TRUE THEN
-									bLmtSenActivated	:= TRUE;
-									eStatus				:= Done;
+								IF tylocalPshrConv.In.bLeftSen = TRUE THEN
+									tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
+									tylocalPshrConv.Out.eStatus				:= Done;
 								ELSE
 									usiStep	:= 1;
 
@@ -1314,7 +1343,7 @@ ACTION Act_Main:
 							END_IF
 					
 						ELSIF fbEnt.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 					
 							IF fbEnt.udiStatus = 1101 THEN
 								udiStatus	:= 10117;	//Transfer In Time Out While Conveyor Entering With Reject
@@ -1324,24 +1353,24 @@ ACTION Act_Main:
 						END_IF
 						
 					1: 	//Reject Up
-						bRejectUpCtrl	:= TRUE;
-						bRejectDownCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+						tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
-						fbRejectUpChk.bExtSen		:= p_bRejectUpSen;
-						fbRejectUpChk.bRetSen		:= p_bRejectDownSen;
-						fbRejectUpChk.bExtSafety	:= p_bRejectUpSafetySen;
+						fbRejectUpChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+						fbRejectUpChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+						fbRejectUpChk.bExtSafety	:= tylocalPshrConv.In.bRejectUpSafetySen;
 						fbRejectUpChk(bEn := TRUE);
 						
 						IF fbRejectUpChk.udiStatus = 0 THEN
-							bRejectAtUp	:= TRUE;
-							bRejHvBrd	:= TRUE;
-							bHvBrd		:= FALSE;
-							eStatus		:= Done;
+							tylocalPshrConv.Out.bRejectAtUp	:= TRUE;
+							tylocalPshrConv.Out.bRejHvBrd	:= TRUE;
+							tylocalPshrConv.Out.bHvBrd		:= FALSE;
+							tylocalPshrConv.Out.eStatus		:= Done;
 						ELSIF fbRejectUpChk.udiStatus < 65534 THEN	
-							bRejectUpCtrl	:= FALSE;
-							bRejectDownCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 						
 							IF fbRejectUpChk.udiStatus = 1503 THEN
 								udiStatus	:= 10095;	//Reject Up Sensor On Time Out In Up Check While Conveyor Entering With Reject
@@ -1358,18 +1387,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActEntInsp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 			
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10098;	//Multi Board Detected While Conveyor Entering With Inspection
 						ELSE
@@ -1379,47 +1408,47 @@ ACTION Act_Main:
 				END_IF
 		
 				//Detect Have Board
-				IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-					bHvBrd	:= TRUE;
+				IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+					tylocalPshrConv.Out.bHvBrd	:= TRUE;
 				END_IF
 		
 				//Conveyor Run
-				fbEnt.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-				fbEnt.tTimeOut		:= DINT_TO_TIME(p_diTxInTimeOut);
+				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 		
-				bGdBrd	:= p_bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
 				
 				IF fbEnt.bConvLToR = TRUE THEN
-					fbEnt.bEndSen	:= p_bRightSen OR p_bMiddleSen;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
 				ELSE
-					fbEnt.bEndSen	:= p_bLeftSen OR p_bMiddleSen;
+					fbEnt.bEndSen	:= tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bMiddleSen;
 				END_IF
 		
 				fbEnt(bEn := TRUE);
 		
-				bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
 		
 				IF fbEnt.udiStatus = 0 THEN
 			
 					IF fbEnt.bConvLToR = TRUE THEN
-						IF p_bRightSen = TRUE THEN
-							bLmtSenActivated	:= TRUE;
+						IF tylocalPshrConv.In.bRightSen = TRUE THEN
+							tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
 						END_IF
 						
-						eStatus	:= Done;
+						tylocalPshrConv.Out.eStatus	:= Done;
 						
 					ELSE
-						IF p_bLeftSen = TRUE THEN
-							bLmtSenActivated	:= TRUE;
+						IF tylocalPshrConv.In.bLeftSen = TRUE THEN
+							tylocalPshrConv.Out.bLmtSenActivated	:= TRUE;
 						END_IF
 						
-						eStatus	:= Done;
+						tylocalPshrConv.Out.eStatus	:= Done;
 						
 					END_IF
 			
 				ELSIF fbEnt.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbEnt.udiStatus = 1101 THEN
 						udiStatus	:= 10118;	//Transfer In Time Out While Conveyor Entering With Inspection
@@ -1431,18 +1460,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActPreExit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10036;	//Multi Board Detected While Conveyor Pre-Exit Board
 						ELSE
@@ -1452,64 +1481,64 @@ ACTION Act_Main:
 				END_IF
 				
 				//Conveyor Run
-				fbPreExit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
-				fbPreExit.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
+				fbPreExit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
+				fbPreExit.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
 				
 				IF fbPreExit.bConvLToR = TRUE THEN
-					fbPreExit.bEndSen	:= p_bRightSen;
+					fbPreExit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbPreExit.bEndSen	:= p_bLeftSen;
+					fbPreExit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbPreExit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbPreExit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbPreExit.udiStatus = 0 THEN
 					IF fbPreExit.bEndSen = TRUE THEN
-						eStatus	:= Done;
+						tylocalPshrConv.Out.eStatus	:= Done;
 					ELSE
 						udiStatus	:= 10037;	//Board Missing While Conveyor Pre-Exit Board
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 					END_IF
 				ELSIF fbPreExit.udiStatus < 65534 THEN
 					udiStatus	:= fbPreExit.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF
 				
 			END_IF
 			
 		ConvActRejResume:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 			
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				CASE usiStep OF
 					0:	//Check Condition
-						IF p_bRejectDownSen = FALSE AND p_bMiddleSen = TRUE THEN
-							eStatus		:= Error;
+						IF tylocalPshrConv.In.bRejectDownSen = FALSE AND tylocalPshrConv.In.bMiddleSen = TRUE THEN
+							tylocalPshrConv.Out.eStatus		:= Error;
 							udiStatus	:= 10099;	//Board Detect In Middle Sensor While Resuming Rejected Board
 						ELSE
 							usiStep	:= 1;
 						END_IF
 					
 					1:	//Reject Down
-						bRejectUpCtrl	:= FALSE;
-						bRejectDownCtrl	:= TRUE;
+						tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRejectDownCtrl	:= TRUE;
 				
-						fbRejectDownChk.bExtSen		:= p_bRejectUpSen;
-						fbRejectDownChk.bRetSen		:= p_bRejectDownSen;
-						fbRejectDownChk.bRetSafety	:= p_bRejectDownSafetySen;
+						fbRejectDownChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+						fbRejectDownChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+						fbRejectDownChk.bRetSafety	:= tylocalPshrConv.In.bRejectDownSafetySen;
 						fbRejectDownChk(bEn := TRUE);
 				
 						IF fbRejectDownChk.udiStatus = 0 THEN
 							usiStep	:= 2;
 						ELSIF fbRejectDownChk.udiStatus < 65534 THEN
-							bRejectUpCtrl	:= FALSE;
-							bRejectDownCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+							tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbRejectDownChk.udiStatus = 1504 THEN
 								udiStatus	:= 10100;	//Reject Up Sensor Off Time Out In Down Check While Resuming Rejected Board
@@ -1523,19 +1552,19 @@ ACTION Act_Main:
 						END_IF
 					
 					2:	//Reset
-						bRejHvBrd	:= FALSE;
-						bHvBrd		:= FALSE;
+						tylocalPshrConv.Out.bRejHvBrd	:= FALSE;
+						tylocalPshrConv.Out.bHvBrd		:= FALSE;
 						usiStep		:= 3;
 						
 					3:	//Conveyor Run
 						//Long Board Detection
-						IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-							fbLongBrd.bSen1	:= p_bLeftSen;
-							fbLongBrd.bSen2	:= p_bRightSen;
+						IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+							fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+							fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 							fbLongBrd;
 							
 							IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-								eStatus	:= Error;
+								tylocalPshrConv.Out.eStatus	:= Error;
 								IF fbLongBrd.udiStatus = 1100 THEN
 									udiStatus	:= 10103;	//Multi Board Detected While Resuming Rejected Board
 								ELSE
@@ -1545,46 +1574,46 @@ ACTION Act_Main:
 						END_IF
 						
 						//Detect Have Board
-						IF p_bLeftSen OR p_bRightSen OR p_bMiddleSen THEN
-							bHvBrd	:= TRUE;
+						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
+							tylocalPshrConv.Out.bHvBrd	:= TRUE;
 						END_IF
 						
 						//Conveyor Run
-						fbInit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirLToL);
-						fbInit.tTxDlyTm		:= DINT_TO_TIME(p_diInitTm);
+						fbInit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
+						fbInit.tTxDlyTm		:= DINT_TO_TIME(tylocalPshrConv.In.diInitTm);
 						
 						IF fbInit.bConvLToR = TRUE THEN
-							fbInit.bEndSen	:= p_bRightSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 						ELSE
-							fbInit.bEndSen	:= p_bLeftSen;
+							fbInit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 						END_IF
 						
 						fbInit(bEn := TRUE);
 						
-						bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
-						bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							
 							IF fbInit.bConvLToR = TRUE THEN
-								IF bHvBrd = TRUE AND p_bRightSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bRightSen = FALSE THEN
 									udiStatus	:= 10104;	//Board Not Present At Outlet Sensor (L - R) While Resuming Rejected Board
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							ELSE
-								IF bHvBrd = TRUE AND p_bLeftSen = FALSE THEN
+								IF tylocalPshrConv.Out.bHvBrd = TRUE AND tylocalPshrConv.In.bLeftSen = FALSE THEN
 									udiStatus	:= 10105;	//Board Not Present At Outlet Sensor (R - L) While Resuming Rejected Board
-									eStatus		:= Error;
+									tylocalPshrConv.Out.eStatus		:= Error;
 								ELSE
-									eStatus	:= Done;
+									tylocalPshrConv.Out.eStatus	:= Done;
 								END_IF
 							END_IF
 							
 						ELSIF fbInit.udiStatus < 65534 THEN
 							udiStatus	:= fbInit.udiStatus;
-							eStatus		:= Error;
+							tylocalPshrConv.Out.eStatus		:= Error;
 						END_IF
 						
 				END_CASE
@@ -1592,18 +1621,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActExit:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10038;	//Multi Board Detected While Conveyor Exit Board
 						ELSE
@@ -1613,25 +1642,25 @@ ACTION Act_Main:
 				END_IF
 				
 				//Conveyor Run
-				fbExit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
+				fbExit.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxOutTimeOut);
 				
 				IF fbExit.bConvLToR = TRUE THEN
-					fbExit.bEndSen	:= p_bRightSen;
+					fbExit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbExit.bEndSen	:= p_bLeftSen;
+					fbExit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbExit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus = 0 THEN
-					bHvBrd	:= FALSE;	//Reset Have Board
-					eStatus	:= Done;
+					tylocalPshrConv.Out.bHvBrd	:= FALSE;	//Reset Have Board
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbExit.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbExit.udiStatus = 1101 THEN
 						udiStatus	:= 10119;	//Transfer Out Time Out While Conveyor Exit Board
@@ -1643,18 +1672,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActExit1:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10106;	//Multi Board Detected While Conveyor Exit Board
 						ELSE
@@ -1664,25 +1693,25 @@ ACTION Act_Main:
 				END_IF
 				
 				//Conveyor Run
-				fbExit1.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit1.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit1.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
+				fbExit1.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxOutTimeOut);
 				
 				IF fbExit1.bConvLToR = TRUE THEN
-					fbExit1.bEndSen	:= p_bRightSen;
+					fbExit1.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbExit1.bEndSen	:= p_bLeftSen;
+					fbExit1.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbExit1(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus = 0 THEN
-					bHvBrd	:= FALSE;	//Reset Have Board
-					eStatus	:= Done;
+					tylocalPshrConv.Out.bHvBrd	:= FALSE;	//Reset Have Board
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbExit1.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbExit1.udiStatus = 1101 THEN
 						udiStatus	:= 10121;	//Transfer Out Time Out While Conveyor Exit Board
@@ -1694,18 +1723,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActExitPshr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10039;	//Multi Board Detected While Conveyor Exit Board With Pusher
 						ELSE
@@ -1715,22 +1744,22 @@ ACTION Act_Main:
 				END_IF
 				
 				//Conveyor Run
-				fbExit.bConvLToR	:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit.bConvLToR	:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
+				fbExit.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxOutTimeOut);
 				
 				IF fbExit.bConvLToR = TRUE THEN
-					fbExit.bEndSen	:= p_bRightSen;
+					fbExit.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbExit.bEndSen	:= p_bLeftSen;
+					fbExit.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbExit(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus < 65534 AND fbExit.udiStatus > 0 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbExit.udiStatus = 1101 THEN
 						udiStatus	:= 10120;	//Transfer Out Time Out While Conveyor Exit Board With Pusher
@@ -1740,29 +1769,29 @@ ACTION Act_Main:
 				END_IF
 				
 				//Wait for 1s After Conveyor Running, then to Extend Pusher
-				IF p_bMiddleSen = FALSE THEN
+				IF tylocalPshrConv.In.bMiddleSen = FALSE THEN
 					fbWaitTm(IN := TRUE , PT := T#80ms);
 				END_IF
 					
 				IF fbWaitTm.Q = TRUE THEN
 					CASE usiStep OF
 						0: 
-							bPshrExtCtrl	:= TRUE;
-							bPshrRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
 				
-							fbPshrExtChk.bExtSen	:= p_bPshrExtSen;
-							fbPshrExtChk.bRetSen	:= p_bPshrRetSen;
-							fbPshrExtChk.bExtSafety	:= p_bPshrExtSafetySen;
+							fbPshrExtChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+							fbPshrExtChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+							fbPshrExtChk.bExtSafety	:= tylocalPshrConv.In.bPshrExtSafetySen;
 							fbPshrExtChk(bEn := TRUE);
 						
 							IF fbPshrExtChk.udiStatus = 0 THEN
-								bPshrExtended	:= TRUE;
-								bHvBrd			:= FALSE;	//Reset Have Board
+								tylocalPshrConv.Out.bPshrExtended	:= TRUE;
+								tylocalPshrConv.Out.bHvBrd			:= FALSE;	//Reset Have Board
 								usiStep			:= 1;
 							ELSIF fbPshrExtChk.udiStatus < 65534 THEN	
-								bPshrExtCtrl	:= FALSE;
-								bPshrRetCtrl	:= TRUE;
-								eStatus			:= Error;
+								tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+								tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
+								tylocalPshrConv.Out.eStatus			:= Error;
 						
 								IF fbPshrExtChk.udiStatus = 1503 THEN
 									udiStatus	:= 10040;	//Pusher Extend Sensor On Time Out In Extend Check While Conveyor Exit Board With Pusher
@@ -1776,22 +1805,22 @@ ACTION Act_Main:
 							END_IF
 						
 						1:
-							bPshrExtCtrl	:= FALSE;
-							bPshrRetCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 				
-							fbPshrRetChk.bExtSen	:= p_bPshrExtSen;
-							fbPshrRetChk.bRetSen	:= p_bPshrRetSen;
-							fbPshrRetChk.bRetSafety	:= p_bPshrRetSafetySen;
+							fbPshrRetChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+							fbPshrRetChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+							fbPshrRetChk.bRetSafety	:= tylocalPshrConv.In.bPshrRetSafetySen;
 							fbPshrRetChk(bEn := TRUE);
 				
 							IF fbPshrRetChk.udiStatus = 0 AND fbExit.udiStatus = 0 THEN
-								bPshrRetracted	:= TRUE;
-								eStatus			:= Done;
+								tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
+								tylocalPshrConv.Out.eStatus			:= Done;
 							ELSIF fbPshrRetChk.udiStatus < 65534 AND fbPshrRetChk.udiStatus > 0 THEN
-								bPshrExtCtrl	:= FALSE;
-								bPshrRetCtrl	:= FALSE;
+								tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+								tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
 								
-								eStatus			:= Error;
+								tylocalPshrConv.Out.eStatus			:= Error;
 							
 								IF fbPshrRetChk.udiStatus = 1504 THEN
 									udiStatus	:= 10043;	//Pusher Extend Sensor Off Time Out In Retract Check While Conveyor Exit Board With Pusher
@@ -1810,18 +1839,18 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActExit1Pshr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Long Board Detection
-				IF p_bLongBrdPrep = FALSE OR p_bLongBrdEn = FALSE THEN
-					fbLongBrd.bSen1	:= p_bLeftSen;
-					fbLongBrd.bSen2	:= p_bRightSen;
+				IF tylocalPshrConv.In.bLongBrdPrep = FALSE OR tylocalPshrConv.In.bLongBrdEn = FALSE THEN
+					fbLongBrd.bSen1	:= tylocalPshrConv.In.bLeftSen;
+					fbLongBrd.bSen2	:= tylocalPshrConv.In.bRightSen;
 					fbLongBrd;
 					
 					IF fbLongBrd.udiStatus > 0 AND fbLongBrd.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalPshrConv.Out.eStatus		:= Error;
 						IF fbLongBrd.udiStatus = 1100 THEN
 							udiStatus	:= 10107;	//Multi Board Detected While Conveyor Exit Board With Pusher
 						ELSE
@@ -1831,22 +1860,22 @@ ACTION Act_Main:
 				END_IF
 				
 				//Conveyor Run
-				fbExit1.bConvLToR		:= (p_eDirection = ConvDirLToR) OR (p_eDirection = ConvDirRToR);
-				fbExit1.tTimeOut		:= DINT_TO_TIME(p_diTxOutTimeOut);
+				fbExit1.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirRToR);
+				fbExit1.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxOutTimeOut);
 				
 				IF fbExit1.bConvLToR = TRUE THEN
-					fbExit1.bEndSen	:= p_bRightSen;
+					fbExit1.bEndSen	:= tylocalPshrConv.In.bRightSen;
 				ELSE
-					fbExit1.bEndSen	:= p_bLeftSen;
+					fbExit1.bEndSen	:= tylocalPshrConv.In.bLeftSen;
 				END_IF
 				
 				fbExit1(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus < 65534 AND fbExit1.udiStatus > 0 THEN
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 					
 					IF fbExit1.udiStatus = 1101 THEN
 						udiStatus	:= 10122;	//Transfer Out Time Out While Conveyor Exit Board With Pusher
@@ -1856,30 +1885,30 @@ ACTION Act_Main:
 				END_IF
 				
 				//Wait for 1s After Conveyor Running, then to Extend Pusher
-				IF p_bMiddleSen = FALSE THEN
+				IF tylocalPshrConv.In.bMiddleSen = FALSE THEN
 					fbWaitTm(IN := TRUE , PT := T#1s);
 				END_IF
 					
 				IF fbWaitTm.Q = TRUE THEN
 					CASE usiStep OF
 						0: 
-							bPshrExtCtrl	:= TRUE;
-							bPshrRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
 				
-							fbPshrExtChk.bExtSen	:= p_bPshrExtSen;
-							fbPshrExtChk.bRetSen	:= p_bPshrRetSen;
-							fbPshrExtChk.bExtSafety	:= p_bPshrExtSafetySen;
+							fbPshrExtChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+							fbPshrExtChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+							fbPshrExtChk.bExtSafety	:= tylocalPshrConv.In.bPshrExtSafetySen;
 							fbPshrExtChk(bEn := TRUE);
 						
 							IF fbPshrExtChk.udiStatus = 0 THEN
-								bPshrExtended	:= TRUE;
-								bHvBrd			:= FALSE;	//Reset Have Board
+								tylocalPshrConv.Out.bPshrExtended	:= TRUE;
+								tylocalPshrConv.Out.bHvBrd			:= FALSE;	//Reset Have Board
 								usiStep			:= 1;
 							ELSIF fbPshrExtChk.udiStatus < 65534 THEN	
-								bPshrExtCtrl	:= FALSE;
-								bPshrRetCtrl	:= TRUE;
+								tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+								tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 					
-								eStatus			:= Error;
+								tylocalPshrConv.Out.eStatus			:= Error;
 						
 								IF fbPshrExtChk.udiStatus = 1503 THEN
 									udiStatus	:= 10108;	//Pusher Extend Sensor On Time Out In Extend Check While Conveyor Exit Board With Pusher
@@ -1893,21 +1922,21 @@ ACTION Act_Main:
 							END_IF
 						
 						1:
-							bPshrExtCtrl	:= FALSE;
-							bPshrRetCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 				
-							fbPshrRetChk.bExtSen	:= p_bPshrExtSen;
-							fbPshrRetChk.bRetSen	:= p_bPshrRetSen;
-							fbPshrRetChk.bRetSafety	:= p_bPshrRetSafetySen;
+							fbPshrRetChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+							fbPshrRetChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+							fbPshrRetChk.bRetSafety	:= tylocalPshrConv.In.bPshrRetSafetySen;
 							fbPshrRetChk(bEn := TRUE);
 				
 							IF fbPshrRetChk.udiStatus = 0 AND fbExit1.udiStatus = 0 THEN
-								bPshrRetracted	:= TRUE;
-								eStatus			:= Done;
+								tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
+								tylocalPshrConv.Out.eStatus			:= Done;
 							ELSIF fbPshrRetChk.udiStatus < 65534 AND fbPshrRetChk.udiStatus > 0 THEN
-								bPshrExtCtrl	:= TRUE;
-								bPshrRetCtrl	:= FALSE;
-								eStatus			:= Error;
+								tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+								tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
+								tylocalPshrConv.Out.eStatus			:= Error;
 							
 								IF fbPshrRetChk.udiStatus = 1504 THEN
 									udiStatus	:= 10111;	//Pusher Extend Sensor Off Time Out In Retract Check While Conveyor Exit Board With Pusher
@@ -1926,91 +1955,91 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActPshrSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPshrRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPshrSetExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= TRUE;
-				bPshrExtended	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtended	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPshrSetRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= FALSE;
-				bPshrRetracted	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPshrExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= TRUE;
-				bPshrRetCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
 				
-				fbPshrExtChk.bExtSen	:= p_bPshrExtSen;
-				fbPshrExtChk.bRetSen	:= p_bPshrRetSen;
-				fbPshrExtChk.bExtSafety	:= p_bPshrExtSafetySen;
+				fbPshrExtChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+				fbPshrExtChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+				fbPshrExtChk.bExtSafety	:= tylocalPshrConv.In.bPshrExtSafetySen;
 				fbPshrExtChk(bEn := TRUE);
 						
 				IF fbPshrExtChk.udiStatus = 0 THEN
-					bPshrExtended	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bPshrExtended	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbPshrExtChk.udiStatus < 65534 THEN	
-					bPshrExtCtrl	:= FALSE;
-					bPshrRetCtrl	:= FALSE;
-					eStatus			:= Error;
+					tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
+					tylocalPshrConv.Out.eStatus			:= Error;
 						
 					IF fbPshrExtChk.udiStatus = 1503 THEN
 						udiStatus	:= 10046;	//Pusher Extend Sensor On Time Out In Extend Check While Pusher Extend
@@ -2025,29 +2054,29 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActPshrRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPshrExtCtrl	:= FALSE;
-				bPshrRetCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 				
-				fbPshrRetChk.bExtSen	:= p_bPshrExtSen;
-				fbPshrRetChk.bRetSen	:= p_bPshrRetSen;
-				fbPshrRetChk.bRetSafety	:= p_bPshrRetSafetySen;
+				fbPshrRetChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+				fbPshrRetChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+				fbPshrRetChk.bRetSafety	:= tylocalPshrConv.In.bPshrRetSafetySen;
 				fbPshrRetChk(bEn := TRUE);
 				
 				IF fbPshrRetChk.udiStatus = 0 THEN
-					bPshrRetracted	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbPshrRetChk.udiStatus < 65534 THEN
-					bPshrExtCtrl	:= FALSE;
-					bPshrRetCtrl	:= FALSE;
-					eStatus			:= Error;
+					tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbPshrRetChk.udiStatus = 1504 THEN
 						udiStatus	:= 10049;	//Pusher Extend Sensor Off Time Out In Retract Check While Pusher Retract
@@ -2062,96 +2091,96 @@ ACTION Act_Main:
 			END_IF		
 			
 		ConvActPullerSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl	:= TRUE;
-				bPullerRetCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPullerRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl	:= FALSE;
-				bPullerRetCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPullerSetExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl	:= TRUE;
-				bPullerRetCtrl	:= FALSE;
-				bPullerExtended	:= TRUE;
+				tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPullerExtended	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPullerSetRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl		:= FALSE;
-				bPullerRetCtrl		:= TRUE;
-				bPullerRetracted	:= TRUE;
+				tylocalPshrConv.Out.bPullerExtCtrl		:= FALSE;
+				tylocalPshrConv.Out.bPullerRetCtrl		:= TRUE;
+				tylocalPshrConv.Out.bPullerRetracted	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActPullerExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl	:= TRUE;
-				bPullerRetCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 				
-				fbPullerExtChk.bExtSen		:= p_bPullerExtSen;
-				fbPullerExtChk.bRetSen		:= p_bPullerRetSen;
-				fbPullerExtChk.bExtSafety	:= p_bPullerExtSafetySen;
+				fbPullerExtChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+				fbPullerExtChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+				fbPullerExtChk.bExtSafety	:= tylocalPshrConv.In.bPullerExtSafetySen;
 				fbPullerExtChk(bEn := TRUE);
 						
 				IF fbPullerExtChk.udiStatus = 0 THEN
-					bPullerExtended	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bPullerExtended	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbPullerExtChk.udiStatus < 65534 THEN	
-					bPullerExtCtrl	:= FALSE;
-					bPullerRetCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 						
 					IF fbPullerExtChk.udiStatus = 1503 THEN
 						udiStatus	:= 10052;	//Puller Extend Sensor On Time Out In Extend Check While Puller Extend
@@ -2166,30 +2195,30 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActPullerRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bPullerExtCtrl	:= FALSE;
-				bPullerRetCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 				
-				fbPullerRetChk.bExtSen		:= p_bPullerExtSen;
-				fbPullerRetChk.bRetSen		:= p_bPullerRetSen;
-				fbPullerRetChk.bRetSafety	:= p_bPullerRetSafetySen;
+				fbPullerRetChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+				fbPullerRetChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+				fbPullerRetChk.bRetSafety	:= tylocalPshrConv.In.bPullerRetSafetySen;
 				fbPullerRetChk(bEn := TRUE);
 				
 				IF fbPullerRetChk.udiStatus = 0 THEN
-					bPullerRetracted	:= TRUE;
-					eStatus				:= Done;
+					tylocalPshrConv.Out.bPullerRetracted	:= TRUE;
+					tylocalPshrConv.Out.eStatus				:= Done;
 				ELSIF fbPullerRetChk.udiStatus < 65534 THEN
-					bPullerExtCtrl	:= FALSE;
-					bPullerRetCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+					tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbPullerRetChk.udiStatus = 1504 THEN
 						udiStatus	:= 10055;	//Puller Extend Sensor Off Time Out In Retract Check While Puller Retract
@@ -2204,90 +2233,90 @@ ACTION Act_Main:
 			END_IF		
 			
 		ConvActRotSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRotRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRotSetHome:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= FALSE;
-				bRotAtHome		:= TRUE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRotAtHome		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRotSetRmt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= TRUE;
-				bRotAtRemote	:= TRUE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRotAtRemote	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRotHome:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 				
-				fbRotHomeChk.bExtSen	:= p_bRotHomeSen;
-				fbRotHomeChk.bRetSen	:= p_bRotRemoteSen;
-				fbRotHomeChk.bExtSafety	:= p_bRotHomeSafetySen;
+				fbRotHomeChk.bExtSen	:= tylocalPshrConv.In.bRotHomeSen;
+				fbRotHomeChk.bRetSen	:= tylocalPshrConv.In.bRotRemoteSen;
+				fbRotHomeChk.bExtSafety	:= tylocalPshrConv.In.bRotHomeSafetySen;
 				fbRotHomeChk(bEn := TRUE);
 						
 				IF fbRotHomeChk.udiStatus = 0 THEN
-					bRotAtHome	:= TRUE;
-					eStatus		:= Done;
+					tylocalPshrConv.Out.bRotAtHome	:= TRUE;
+					tylocalPshrConv.Out.eStatus		:= Done;
 				ELSIF fbRotHomeChk.udiStatus < 65534 THEN	
-					bRotRemoteCtrl	:= TRUE;
+					tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbRotHomeChk.udiStatus = 1503 THEN
 						udiStatus	:= 10058;	//Rotator Home Sensor On Time Out In Home Check While Rotator Home
@@ -2302,28 +2331,28 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActRotRemote:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRotRemoteCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 				
-				fbRotRemoteChk.bExtSen		:= p_bRotHomeSen;
-				fbRotRemoteChk.bRetSen		:= p_bRotRemoteSen;
-				fbRotRemoteChk.bRetSafety	:= p_bRotRemoteSafetySen;
+				fbRotRemoteChk.bExtSen		:= tylocalPshrConv.In.bRotHomeSen;
+				fbRotRemoteChk.bRetSen		:= tylocalPshrConv.In.bRotRemoteSen;
+				fbRotRemoteChk.bRetSafety	:= tylocalPshrConv.In.bRotRemoteSafetySen;
 				fbRotRemoteChk(bEn := TRUE);
 				
 				IF fbRotRemoteChk.udiStatus = 0 THEN
-					bRotAtRemote	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bRotAtRemote	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbRotRemoteChk.udiStatus < 65534 THEN
-					bRotRemoteCtrl	:= FALSE;
+					tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbRotRemoteChk.udiStatus = 1504 THEN
 						udiStatus	:= 10061;	//Rotator Home Sensor Off Time Out In Remote Check While Rotator Remote
@@ -2338,96 +2367,96 @@ ACTION Act_Main:
 			END_IF		
 			
 		ConvActRejSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= TRUE;
-				bRejectDownCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRejRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= FALSE;
-				bRejectDownCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRejSetUp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= TRUE;
-				bRejectDownCtrl	:= FALSE;
-				bRejectAtUp		:= TRUE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectAtUp		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRejSetDown:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= FALSE;
-				bRejectDownCtrl	:= TRUE;
-				bRejectAtDown	:= TRUE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectAtDown	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalPshrConv.Out.eStatus		:= Done;
 
 			END_IF
 			
 		ConvActRejUp:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= TRUE;
-				bRejectDownCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
-				fbRejectUpChk.bExtSen		:= p_bRejectUpSen;
-				fbRejectUpChk.bRetSen		:= p_bRejectDownSen;
-				fbRejectUpChk.bExtSafety	:= p_bRejectUpSafetySen;
+				fbRejectUpChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+				fbRejectUpChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+				fbRejectUpChk.bExtSafety	:= tylocalPshrConv.In.bRejectUpSafetySen;
 				fbRejectUpChk(bEn := TRUE);
 						
 				IF fbRejectUpChk.udiStatus = 0 THEN
-					bRejectAtUp	:= TRUE;
-					eStatus		:= Done;
+					tylocalPshrConv.Out.bRejectAtUp	:= TRUE;
+					tylocalPshrConv.Out.eStatus		:= Done;
 				ELSIF fbRejectUpChk.udiStatus < 65534 THEN	
-					bRejectUpCtrl	:= FALSE;
-					bRejectDownCtrl	:= FALSE;
+					tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+					tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 						
 					IF fbRejectUpChk.udiStatus = 1503 THEN
 						udiStatus	:= 10073;	//Reject Up Sensor On Time Out In Up Check While Reject Up
@@ -2442,30 +2471,30 @@ ACTION Act_Main:
 			END_IF
 			
 		ConvActRejDown:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
 				
 				
-				bRejectUpCtrl	:= FALSE;
-				bRejectDownCtrl	:= TRUE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= TRUE;
 				
-				fbRejectDownChk.bExtSen		:= p_bRejectUpSen;
-				fbRejectDownChk.bRetSen		:= p_bRejectDownSen;
-				fbRejectDownChk.bRetSafety	:= p_bRejectDownSafetySen;
+				fbRejectDownChk.bExtSen		:= tylocalPshrConv.In.bRejectUpSen;
+				fbRejectDownChk.bRetSen		:= tylocalPshrConv.In.bRejectDownSen;
+				fbRejectDownChk.bRetSafety	:= tylocalPshrConv.In.bRejectDownSafetySen;
 				fbRejectDownChk(bEn := TRUE);
 				
 				IF fbRejectDownChk.udiStatus = 0 THEN
-					bRejectAtDown	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bRejectAtDown	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbRejectDownChk.udiStatus < 65534 THEN
-					bRejectUpCtrl	:= FALSE;
-					bRejectDownCtrl	:= FALSE;
+					tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+					tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 					
-					eStatus			:= Error;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbRejectDownChk.udiStatus = 1504 THEN
 						udiStatus	:= 10076;	//Reject Up Sensor Off Time Out In Down Check While Reject Down
@@ -2480,55 +2509,55 @@ ACTION Act_Main:
 			END_IF		
 			
 		ConvActStop:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbStop.udiStatus < 65534 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF
 				
 			END_IF
 		
 		ConvActStopPshr:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				//Pneumatic Run
-				bPshrExtCtrl	:= FALSE;
-				bPshrRetCtrl	:= TRUE;
+				tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
+				tylocalPshrConv.Out.bPshrRetCtrl	:= TRUE;
 				
-				fbPshrRetChk.bExtSen	:= p_bPshrExtSen;
-				fbPshrRetChk.bRetSen	:= p_bPshrRetSen;
-				fbPshrRetChk.bRetSafety	:= p_bPshrRetSafetySen;
+				fbPshrRetChk.bExtSen	:= tylocalPshrConv.In.bPshrExtSen;
+				fbPshrRetChk.bRetSen	:= tylocalPshrConv.In.bPshrRetSen;
+				fbPshrRetChk.bRetSafety	:= tylocalPshrConv.In.bPshrRetSafetySen;
 				fbPshrRetChk(bEn := TRUE);
 				
 				IF fbStop.udiStatus = 0 AND fbPshrRetChk.udiStatus = 0 THEN
-					bPshrRetracted	:= TRUE;
-					eStatus			:= Done;
+					tylocalPshrConv.Out.bPshrRetracted	:= TRUE;
+					tylocalPshrConv.Out.eStatus			:= Done;
 				ELSIF fbStop.udiStatus < 65534 AND fbStop.udiStatus > 0 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				ELSIF fbPshrRetChk.udiStatus < 65534 AND fbPshrRetChk.udiStatus > 0 THEN 
-					bPshrExtCtrl	:= TRUE;
-					bPshrRetCtrl	:= FALSE;
-					eStatus			:= Error;
+					tylocalPshrConv.Out.bPshrExtCtrl	:= TRUE;
+					tylocalPshrConv.Out.bPshrRetCtrl	:= FALSE;
+					tylocalPshrConv.Out.eStatus			:= Error;
 							
 					IF fbPshrRetChk.udiStatus = 1504 THEN
 						udiStatus	:= 10064;	//Pusher Extend Sensor Off Time Out In Retract Check While Stop With Pusher
@@ -2544,37 +2573,37 @@ ACTION Act_Main:
 			END_IF
 		
 		ConvActStopPuller:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus < 65534 AND fbStop.udiStatus > 0 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF
 					
 				CASE usiStep OF
 					0: //Rotate Home
-						bRotRemoteCtrl	:= FALSE;
+						tylocalPshrConv.Out.bRotRemoteCtrl	:= FALSE;
 				
-						fbRotHomeChk.bExtSen	:= p_bRotHomeSen;
-						fbRotHomeChk.bRetSen	:= p_bRotRemoteSen;
-						fbRotHomeChk.bExtSafety	:= p_bRotHomeSafetySen;
+						fbRotHomeChk.bExtSen	:= tylocalPshrConv.In.bRotHomeSen;
+						fbRotHomeChk.bRetSen	:= tylocalPshrConv.In.bRotRemoteSen;
+						fbRotHomeChk.bExtSafety	:= tylocalPshrConv.In.bRotHomeSafetySen;
 						fbRotHomeChk(bEn := TRUE);
 					
 						IF fbRotHomeChk.udiStatus = 0 THEN
-							bRotAtHome	:= TRUE;
+							tylocalPshrConv.Out.bRotAtHome	:= TRUE;
 							usiStep		:= 1;
 						ELSIF fbRotHomeChk.udiStatus < 65534 THEN
-							bRotRemoteCtrl	:= TRUE;
+							tylocalPshrConv.Out.bRotRemoteCtrl	:= TRUE;
 					
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbRotHomeChk.udiStatus = 1503 THEN
 								udiStatus	:= 10067;	//Rotator Home Sensor On Time Out In Home Check While Stop With Puller
@@ -2588,22 +2617,22 @@ ACTION Act_Main:
 						END_IF
 					
 					1: //Puller Retract
-						bPullerExtCtrl	:= FALSE;
-						bPullerRetCtrl	:= TRUE;
+						tylocalPshrConv.Out.bPullerExtCtrl	:= FALSE;
+						tylocalPshrConv.Out.bPullerRetCtrl	:= TRUE;
 					
-						fbPullerRetChk.bExtSen		:= p_bPullerExtSen;
-						fbPullerRetChk.bRetSen		:= p_bPullerRetSen;
-						fbPullerRetChk.bRetSafety	:= p_bPullerRetSafetySen;
+						fbPullerRetChk.bExtSen		:= tylocalPshrConv.In.bPullerExtSen;
+						fbPullerRetChk.bRetSen		:= tylocalPshrConv.In.bPullerRetSen;
+						fbPullerRetChk.bRetSafety	:= tylocalPshrConv.In.bPullerRetSafetySen;
 						fbPullerRetChk(bEn := TRUE);
 						
 						IF fbPullerRetChk.udiStatus = 0 AND fbStop.udiStatus = 0 THEN
-							bPullerRetracted	:= TRUE;
-							eStatus				:= Done;
+							tylocalPshrConv.Out.bPullerRetracted	:= TRUE;
+							tylocalPshrConv.Out.eStatus				:= Done;
 						ELSIF fbPullerRetChk.udiStatus < 65534 AND fbPullerRetChk.udiStatus > 0 THEN	
-							bPullerExtCtrl	:= TRUE;
-							bPullerRetCtrl	:= FALSE;
+							tylocalPshrConv.Out.bPullerExtCtrl	:= TRUE;
+							tylocalPshrConv.Out.bPullerRetCtrl	:= FALSE;
 							
-							eStatus			:= Error;
+							tylocalPshrConv.Out.eStatus			:= Error;
 							
 							IF fbPullerRetChk.udiStatus = 1504 THEN
 								udiStatus	:= 10070;	//Puller Extend Sensor Off Time Out In Retract Check While Stop With Puller
@@ -2621,79 +2650,121 @@ ACTION Act_Main:
 			END_IF
 	
 		ConvActStopRej:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalPshrConv.Out.eStatus	:= Busy;
 		
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
-				bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
 				
 				//Pneumatic Run
-				bRejectUpCtrl	:= FALSE;
-				bRejectDownCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;
+				tylocalPshrConv.Out.bRejectDownCtrl	:= FALSE;
 				
 				IF fbStop.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalPshrConv.Out.eStatus	:= Done;
 				ELSIF fbStop.udiStatus < 65534 THEN
 					udiStatus	:= fbStop.udiStatus;
-					eStatus		:= Error;
+					tylocalPshrConv.Out.eStatus		:= Error;
 				END_IF
 				
 			END_IF
 		
 		ConvActSetMtrSigOnOrLToR:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrSigOnOrLToR	:= TRUE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= TRUE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 
 			END_IF
 		
 		ConvActSetMtrDirOrRToL:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrDirOrRToL	:= TRUE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= TRUE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 
 			END_IF
 		
 		ConvActRstMtrSigOnOrLToR:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 
 			END_IF
 		
 		ConvActRstMtrDirOrRToL:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrDirOrRToL	:= FALSE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 
 			END_IF
 		
 		ConvActSetMtrAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrSigOnOrLToR	:= TRUE;
-				bMtrDirOrRToL	:= TRUE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= TRUE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= TRUE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 
 			END_IF
 		
 		ConvActRstMtrAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalPshrConv.Out.eStatus = Idle OR tylocalPshrConv.Out.eStatus = Busy THEN
 		
-				bMtrSigOnOrLToR	:= FALSE;
-				bMtrDirOrRToL	:= FALSE;
-				eStatus			:= Done;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= FALSE;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= FALSE;
+				tylocalPshrConv.Out.eStatus			:= Done;
 				
 			END_IF
 		
 	END_CASE
+	
+	
+	IF tylocalPshrConv.In.bPshrExtSen = FALSE THEN
+		tylocalPshrConv.Out.bPshrExtended	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bPshrRetSen = FALSE THEN
+		tylocalPshrConv.Out.bPshrRetracted	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bPullerExtSen = FALSE THEN
+		tylocalPshrConv.Out.bPullerExtended	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bPullerRetSen = FALSE THEN
+		tylocalPshrConv.Out.bPullerRetracted	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bRotHomeSen = FALSE THEN
+		tylocalPshrConv.Out.bRotAtHome	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bRotRemoteSen = FALSE THEN
+		tylocalPshrConv.Out.bRotAtRemote	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bRejectUpSen = FALSE THEN
+		tylocalPshrConv.Out.bRejectAtUp	:= FALSE;
+	END_IF
+	
+	IF tylocalPshrConv.In.bRejectDownSen = FALSE THEN
+		tylocalPshrConv.Out.bRejectAtDown	:= FALSE;
+	END_IF
+	
+	
+	//ADDED 
+	IF tylocalPshrConv.In.eAct <> ConvActExitPshr  THEN
+		tylocalPshrConv.Out.bPshrRetAllwTraverse :=   FALSE;
+	ELSIF tylocalPshrConv.Out.bPshrRetCtrl AND tylocalPshrConv.In.bLinkPshrRetSlwSen THEN
+		tylocalPshrConv.Out.bPshrRetAllwTraverse :=   TRUE;
+	END_IF
+	
 	
 END_ACTION

@@ -12,7 +12,7 @@
     <Object Type="Package">Startup</Object>
     <Object Type="Package">General</Object>
     <Object Type="Package">UsrFolder</Object>
-    <Object Type="Package">LibVer</Object>
+    <Object Type="Package" Description="checked">LibVer</Object>
     <Object Type="Package">Time</Object>
     <Object Type="Package">HWInfo</Object>
     <Object Type="Package">TLBuz</Object>
@@ -20,16 +20,15 @@
     <Object Type="Package">RstErr</Object>
     <Object Type="Package">ProdRcp</Object>
     <Object Type="Package">MpProdRcp</Object>
-    <Object Type="Package">MagRcp</Object>
+    <Object Type="Package" Description="pending">MagRcp</Object>
     <Object Type="Package">McParam</Object>
     <Object Type="Package">NtParam</Object>
     <Object Type="Package">UsrMgmt</Object>
-    <Object Type="Package">OvenInfo</Object>
+    <Object Type="Package" Description="cmp">OvenInfo</Object>
     <Object Type="Package">Buffer</Object>
     <Object Type="Package">SMEMA</Object>
     <Object Type="Package">Pneu</Object>
     <Object Type="Package">MagConv_LiftnTrav</Object>
-    <Object Type="Package">MagConv_TopBtm</Object>
     <Object Type="Package">Conv</Object>
     <Object Type="Package">CANOpenServo</Object>
     <Object Type="Package">DInput</Object>

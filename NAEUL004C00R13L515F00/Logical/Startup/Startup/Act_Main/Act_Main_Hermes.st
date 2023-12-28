@@ -3,156 +3,156 @@ ACTION Act_Main_Hermes:
 
 	CASE usiStep OF
 		0:
-			eHermesAct	:= HermesActCreateDir;
+			tylocalStartup.Out.eHermesAct	:= HermesActCreateDir;
 	
-			IF (p_eHermesStatus = Done) AND (p_eHermesStat = HermesActCreateDir) THEN
+			IF (g_tyHermes.eStatus = Done) AND (g_tyHermes.eStat = HermesActCreateDir) THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 1;
 				
-			ELSIF p_eHermesStatus = Error THEN
+			ELSIF g_tyHermes.eStatus = Error THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 			
 		1:
-			eHermesAct	:= HermesActReadRetainLane1;
+			tylocalStartup.Out.eHermesAct	:= HermesActReadRetainLane1;
 	
-			IF (p_eHermesStatus = Done) AND (p_eHermesStat = HermesActReadRetainLane1) THEN
+			IF (g_tyHermes.eStatus = Done) AND (g_tyHermes.eStat = HermesActReadRetainLane1) THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 2;
 				
-			ELSIF p_eHermesStatus = Error THEN
+			ELSIF g_tyHermes.eStatus = Error THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 			
 		2:
-			eHermesAct	:= HermesActReadConfig;
+			tylocalStartup.Out.eHermesAct	:= HermesActReadConfig;
 	
-			IF (p_eHermesStatus = Done) AND (p_eHermesStat = HermesActReadConfig) THEN
+			IF (g_tyHermes.eStatus = Done) AND (g_tyHermes.eStat = HermesActReadConfig) THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 10;
 				
-			ELSIF p_eHermesStatus = Error THEN
+			ELSIF g_tyHermes.eStatus = Error THEN
 				
-				eHermesAct		:= HermesActIdle;
+				tylocalStartup.Out.eHermesAct		:= HermesActIdle;
 				usiStep			:= 10;
 				
 			END_IF
 			
 		10:
-			eUSHermesAAct	:= HermesActDeleteOldLog;
+			tylocalStartup.Out.eUSHermesAAct	:= HermesActDeleteOldLog;
 	
-			IF (p_eUSHermesAStatus = Done) AND (p_eUSHermesAStat = HermesActDeleteOldLog) THEN
+			IF (g_tyUSHermesA.eStatus = Done) AND (g_tyUSHermesA.eStat = HermesActDeleteOldLog) THEN
 				
-				eUSHermesAAct	:= HermesActIdle;
+				tylocalStartup.Out.eUSHermesAAct	:= HermesActIdle;
 				usiStep			:= 11;
 				
-			ELSIF p_eUSHermesAStatus = Error THEN
+			ELSIF g_tyUSHermesA.eStatus = Error THEN
 				
-				eUSHermesAAct	:= HermesActIdle;
+				tylocalStartup.Out.eUSHermesAAct	:= HermesActIdle;
 				usiStep			:= 11;
 				
 			END_IF
 		11:
-			eUSHermesBAct	:= HermesActDeleteOldLog;
+			tylocalStartup.Out.eUSHermesBAct	:= HermesActDeleteOldLog;
 	
-			IF (p_eUSHermesBStatus = Done) AND (p_eUSHermesBStat = HermesActDeleteOldLog) THEN
+			IF (g_tyUSHermesB.eStatus = Done) AND (g_tyUSHermesB.eStat = HermesActDeleteOldLog) THEN
 				
-				eUSHermesBAct	:= HermesActIdle;
+				tylocalStartup.Out.eUSHermesBAct	:= HermesActIdle;
 				usiStep			:= 30;
 				
-			ELSIF p_eUSHermesBStatus = Error THEN
+			ELSIF g_tyUSHermesB.eStatus = Error THEN
 				
-				eUSHermesBAct	:= HermesActIdle;
+				tylocalStartup.Out.eUSHermesBAct	:= HermesActIdle;
 				usiStep			:= 30;
 				
 			END_IF
 
 		
 		30:
-			eRmtHermesAct	:= HermesActDeleteOldLog;
+			tylocalStartup.Out.eRmtHermesAct	:= HermesActDeleteOldLog;
 	
-			IF (p_eRmtHermesStatus = Done) AND (p_eRmtHermesStat = HermesActDeleteOldLog) THEN
+			IF (g_tyRmtHermes.esStatus = Done) AND (g_tyRmtHermes.esStat = HermesActDeleteOldLog) THEN
 				
-				eRmtHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eRmtHermesAct	:= HermesActIdle;
 				usiStep			:= 40;
 				
 //				usiStep			:= 0;  //Changed
-//				eStartupStep1	:= StartupStepSetupUI; //Changed
-			ELSIF p_eRmtHermesStatus = Error THEN
+//				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI; //Changed
+			ELSIF g_tyRmtHermes.esStatus = Error THEN
 				
-				eRmtHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eRmtHermesAct	:= HermesActIdle;
 				usiStep			:= 40;
 				
 //				usiStep			:= 0;  //Changed
-//				eStartupStep1	:= StartupStepSetupUI; //Changed
+//				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI; //Changed
 			END_IF
 			
 				
 		40:
-			eSvyHermesAct	:= HermesActDeleteOldLog;
+			tylocalStartup.Out.eSvyHermesAct	:= HermesActDeleteOldLog;
 	
-			IF (p_eSvyHermesStatus = Done) AND (p_eSvyHermesStat = HermesActDeleteOldLog) THEN
+			IF (g_tySvyHermes.eStatus = Done) AND (g_tySvyHermes.eStat = HermesActDeleteOldLog) THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 42;
 				
-			ELSIF p_eSvyHermesStatus = Error THEN
+			ELSIF g_tySvyHermes.eStatus = Error THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 42;
 				
 			END_IF
 			
 		42:
-			eSvyHermesAct	:= HermesActReadRetainSendWO1;
+			tylocalStartup.Out.eSvyHermesAct	:= HermesActReadRetainSendWO1;
 	
-			IF (p_eSvyHermesStatus = Done) AND (p_eSvyHermesStat = HermesActReadRetainSendWO1) THEN
+			IF (g_tySvyHermes.eStatus = Done) AND (g_tySvyHermes.eStat = HermesActReadRetainSendWO1) THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 43;
 				
-			ELSIF p_eSvyHermesStatus = Error THEN
+			ELSIF g_tySvyHermes.eStatus = Error THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 43;
 			END_IF
 		43:
-			eSvyHermesAct	:= HermesActReadRetainSendWO2;
+			tylocalStartup.Out.eSvyHermesAct	:= HermesActReadRetainSendWO2;
 	
-			IF (p_eSvyHermesStatus = Done) AND (p_eSvyHermesStat = HermesActReadRetainSendWO2) THEN
+			IF (g_tySvyHermes.eStatus = Done) AND (g_tySvyHermes.eStat = HermesActReadRetainSendWO2) THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 44;
 		
-			ELSIF p_eSvyHermesStatus = Error THEN
+			ELSIF g_tySvyHermes.eStatus = Error THEN
 		
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 44;
 			END_IF
 		
 		44:
-			eSvyHermesAct	:= HermesActReadRetainSendWO3;
+			tylocalStartup.Out.eSvyHermesAct	:= HermesActReadRetainSendWO3;
 	
-			IF (p_eSvyHermesStatus = Done) AND (p_eSvyHermesStat = HermesActReadRetainSendWO3) THEN
+			IF (g_tySvyHermes.eStatus = Done) AND (g_tySvyHermes.eStat = HermesActReadRetainSendWO3) THEN
 				
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepSetupUI;	
-			ELSIF p_eSvyHermesStatus = Error THEN
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;	
+			ELSIF g_tySvyHermes.eStatus = Error THEN
 		
-				eSvyHermesAct	:= HermesActIdle;
+				tylocalStartup.Out.eSvyHermesAct	:= HermesActIdle;
 
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepSetupUI;	
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;	
 			END_IF	
 	END_CASE
 	

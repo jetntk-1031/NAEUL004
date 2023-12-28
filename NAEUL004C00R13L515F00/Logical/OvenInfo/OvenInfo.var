@@ -1,0 +1,4 @@
+VAR
+	g_tyOvenInfoA : tyOvenInfoOut1;
+	g_tyOvenInfoB : tyOvenInfoOut1;
+END_VAR

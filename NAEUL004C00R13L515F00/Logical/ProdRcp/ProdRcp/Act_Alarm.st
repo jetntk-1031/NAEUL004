@@ -1,36 +1,43 @@
-(** 2019-03-25 **)
+
 ACTION Act_Alarm: 
 	
+	IF tylocalProdRcp.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalProdRcp.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	//Reset Error
+	IF (tylocalProdRcp.Out.eStatus = Error) AND bRstErr THEN
+		p_eAct						:= ProdRcpActIdle;
+		tylocalProdRcp.Out.eStat	:= ProdRcpActIdle;
+	END_IF
+	
+	//Reset Done
+	IF tylocalProdRcp.Out.eStatus = Done AND p_eAct = ProdRcpActIdle THEN
+		tylocalProdRcp.Out.eStat	:= ProdRcpActIdle;
+	END_IF
+	
+	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalProdRcp.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sProdRcpProgNm		:= p_sProgNm;
+		tylocalProdRcp.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalProdRcp.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalProdRcp.Out.tyAlmData.udiRunTime		:= tylocalProdRcp.Out.tyAlmData.udiRunTime + 1;
+		tylocalProdRcp.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalProdRcp.Out.tyAlmData.udiModuleNum	:= udiModuleNum;
+		g_tyAlmProgNm.sProdRcpProgNm				:= tylocalProdRcp.In.sProgNm;
+	
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
-				
-		sStatTxt	:= tyAlmData.sAlmMsg;
+	ELSIF bRstErr AND (tylocalProdRcp.Out.tyAlmData.udiCode <> 0) THEN
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+		tylocalProdRcp.Out.tyAlmData.udiCode	:= 0;
+		tylocalProdRcp.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+	    tylocalProdRcp.Out.tyAlmData.bAlm		:= FALSE;
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm		:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalProdRcp.Out.sStatTxt	:= a_sStatText[tylocalProdRcp.Out.eStat];
 		
 	END_IF
 	

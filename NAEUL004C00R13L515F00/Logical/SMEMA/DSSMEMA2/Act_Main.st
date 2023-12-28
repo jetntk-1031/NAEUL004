@@ -1,15 +1,77 @@
-(** 2019-04-27 **)
+
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+	fbSMEMA_OppFirst.tRstDlyTm	:= tylocalDSSMEMA.In.tRstDlyTm;
+	fbSMEMA.tRstDlyTm			:= tylocalDSSMEMA.In.tRstDlyTm;
+	fbSigInChk.tSigInChkTm		:= tylocalDSSMEMA.In.tSigInChkTm;
+	
+	//Timer Running
+	fbTimeTrig(CLK := tylocalDSSMEMA.In.bTimerEnSenEdge);
+	
+	IF tylocalDSSMEMA.Out.eStat = SMEMAActRun AND (tylocalDSSMEMA.In.bTimerEnSenEdge OR tylocalDSSMEMA.In.bTimerEnSen) THEN
+		IF fbTimeTrig.Q = TRUE OR tylocalDSSMEMA.In.bTimerEnSen THEN
+			fbTimerDlyTm.IN	:= TRUE;
+		END_IF
+	ELSE
+		fbTimerDlyTm.IN	:= FALSE;
+	END_IF
+	
+	IF tylocalDSSMEMA.Out.bConvStart = FALSE AND tylocalDSSMEMA.Out.bConvStop = FALSE THEN
+		fbTimerDlyTm;
+
+		IF fbTimerDlyTm.Q = TRUE AND tylocalDSSMEMA.Out.eStat = SMEMAActRun THEN
+			tylocalDSSMEMA.Out.bTimer		:= TRUE;
+			tylocalDSSMEMA.Out.bVirtual	:= FALSE;
+		ELSIF tylocalDSSMEMA.In.bVirtualEn = TRUE THEN
+			tylocalDSSMEMA.Out.bTimer		:= FALSE;
+			tylocalDSSMEMA.Out.bVirtual	:= TRUE;
+		ELSE
+			tylocalDSSMEMA.Out.bTimer		:= FALSE;
+			tylocalDSSMEMA.Out.bVirtual	:= FALSE;
+		END_IF
+	ELSE
+		fbTimerDlyTm(IN := FALSE);
+	END_IF
+	
+	IF tylocalDSSMEMA.Out.bTimer = TRUE THEN
+		
+		fbSigInChk.bNomSig			:= tylocalDSSMEMA.Out.bConvStart = FALSE AND tylocalDSSMEMA.Out.bConvStop = FALSE;
+		fbSigInChk.bStatSig			:= FALSE;
+		fbSigInChk.bStatSigSetGd	:= FALSE;
+	
+	ELSIF tylocalDSSMEMA.Out.bVirtual = TRUE THEN
+		
+		fbSigInChk.bNomSig			:= tylocalDSSMEMA.In.bDSBVirtual;
+		fbSigInChk.bStatSig			:= FALSE;
+		fbSigInChk.bStatSigSetGd	:= FALSE;
+	
+	ELSE
+		
+		fbSigInChk.bNomSig			:= tylocalDSSMEMA.In.bDSB;
+		fbSigInChk.bStatSig			:= FALSE;
+		fbSigInChk.bStatSigSetGd	:= FALSE;
+	
+	END_IF
+	
+	fbSigInChk;
+	
+	tylocalDSSMEMA.Out.bDSRdy	:= fbSigInChk.bSigInValid;
+	
+	
+	//Set tylocalDSSMEMA.In.eAct
+	IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy OR tylocalDSSMEMA.Out.eStatus = Done THEN
+		tylocalDSSMEMA.Out.eStat	:= tylocalDSSMEMA.In.eAct;
+	END_IF
+	//Transition State
+	IF eStatOld <> tylocalDSSMEMA.Out.eStat THEN
 		fbSMEMA_OppFirst(bEn := FALSE);
 		fbSMEMA(bEn := FALSE);
 		
-		bTransporting	:= FALSE;
-		bConvStart		:= FALSE;
-		bConvStop		:= FALSE;
-		bUSRdy			:= FALSE;
-		bUSGdBrdRdy		:= FALSE;
+		tylocalDSSMEMA.Out.bTransporting	:= FALSE;
+		tylocalDSSMEMA.Out.bConvStart		:= FALSE;
+		tylocalDSSMEMA.Out.bConvStop		:= FALSE;
+		tylocalDSSMEMA.Out.bUSRdy			:= FALSE;
+		tylocalDSSMEMA.Out.bUSGdBrdRdy		:= FALSE;
 		
 		IF eStatOld <> SMEMAActIdle
 			AND eStatOld <> SMEMAActSetSig
@@ -19,56 +81,56 @@ ACTION Act_Main:
 			AND eStatOld <> SMEMAActSetAllSig
 			AND eStatOld <> SMEMAActRstAllSig THEN
 			
-			bDBA		:= FALSE;
-			bDBAStat	:= FALSE;
+			tylocalDSSMEMA.Out.bDBA		:= FALSE;
+			tylocalDSSMEMA.Out.bDBAStat	:= FALSE;
 			
 		END_IF
 				
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalDSSMEMA.Out.sStatTxt	:= a_sStatText[tylocalDSSMEMA.Out.eStat];
 				
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalDSSMEMA.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalDSSMEMA.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalDSSMEMA.Out.eStat OF
 		
 		SMEMAActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bDBA		:= FALSE;
-				bDBAStat	:= FALSE;
+			IF EDGENEG(tylocalDSSMEMA.In.bManual) THEN
+				tylocalDSSMEMA.Out.bDBA		:= FALSE;
+				tylocalDSSMEMA.Out.bDBAStat	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalDSSMEMA.Out.eStatus	:= Idle;
 		
 		SMEMAActRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalDSSMEMA.Out.eStatus	:= Busy;
 		
-				IF p_tyParam.eSelection <> SMEMASelStandard THEN
+				IF tylocalDSSMEMA.In.tyParam.eSelection <> SMEMASelStandard THEN
 					
 					fbSMEMA.bDSRdy		:= fbSigInChk.bSigInValid;
-					fbSMEMA.bRdySend	:= p_bRdySend;
-					fbSMEMA.bComplSigOn	:= p_bComplSigOn;
+					fbSMEMA.bRdySend	:= tylocalDSSMEMA.In.bRdySend;
+					fbSMEMA.bComplSigOn	:= tylocalDSSMEMA.In.bComplSigOn;
 					
-					fbSMEMA.tTimeOut	:= DINT_TO_TIME(p_diTransferOutTO);
+					fbSMEMA.tTimeOut	:= DINT_TO_TIME(tylocalDSSMEMA.In.diTransferOutTO);
 					fbSMEMA(bEn := TRUE);
 					
-					bTransporting	:= fbSMEMA.bTransporting;
-					bConvStart		:= fbSMEMA.bConvStart;
-					bConvStop		:= fbSMEMA.bConvStop;
-					bDBA			:= fbSMEMA.bSigToDS AND (bTimer = FALSE) AND (bVirtual = FALSE);
-					bDBAStat		:= (fbSMEMA.bSigToDS) AND (fSMEMASigStatOut(p_tyParam.bStatSigSetGd, p_bGdBrd)) AND (p_tyParam.eSelection = SMEMASelIPC9851Ext);
+					tylocalDSSMEMA.Out.bTransporting	:= fbSMEMA.tylocalDSSMEMA.Out.bTransporting;
+					tylocalDSSMEMA.Out.bConvStart		:= fbSMEMA.tylocalDSSMEMA.Out.bConvStart;
+					tylocalDSSMEMA.Out.bConvStop		:= fbSMEMA.tylocalDSSMEMA.Out.bConvStop;
+					tylocalDSSMEMA.Out.bDBA			:= fbSMEMA.bSigToDS AND (tylocalDSSMEMA.Out.bTimer = FALSE) AND (tylocalDSSMEMA.Out.bVirtual = FALSE);
+					tylocalDSSMEMA.Out.bDBAStat		:= (fbSMEMA.bSigToDS) AND (fSMEMASigStatOut(tylocalDSSMEMA.In.tyParam.bStatSigSetGd, tylocalDSSMEMA.In.bGdBrd)) AND (tylocalDSSMEMA.In.tyParam.eSelection = SMEMASelIPC9851Ext);
 					
-					bUSRdy			:= fbSMEMA.bSigToDS;
-					bUSGdBrdRdy		:= p_bGdBrd;
+					tylocalDSSMEMA.Out.bUSRdy			:= fbSMEMA.bSigToDS;
+					tylocalDSSMEMA.Out.bUSGdBrdRdy		:= tylocalDSSMEMA.In.bGdBrd;
 					
 					IF fbSMEMA.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalDSSMEMA.Out.eStatus	:= Done;
 					ELSIF fbSMEMA.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalDSSMEMA.Out.eStatus		:= Error;
 						
 						IF fbSMEMA.udiStatus = 1200 THEN
 							udiStatus	:= 10000;	//SMEMA 9851 Transport Time Out While Transporting
@@ -86,25 +148,25 @@ ACTION Act_Main:
 				ELSE
 					
 					fbSMEMA_OppFirst.bDSRdy			:= fbSigInChk.bSigInValid;
-					fbSMEMA_OppFirst.bRdySend		:= p_bRdySend;
-					fbSMEMA_OppFirst.bComplSigOn	:= p_bComplSigOn;
+					fbSMEMA_OppFirst.bRdySend		:= tylocalDSSMEMA.In.bRdySend;
+					fbSMEMA_OppFirst.bComplSigOn	:= tylocalDSSMEMA.In.bComplSigOn;
 					
-					fbSMEMA_OppFirst.tTimeOut	:= DINT_TO_TIME(p_diTransferOutTO);
+					fbSMEMA_OppFirst.tTimeOut	:= DINT_TO_TIME(tylocalDSSMEMA.In.diTransferOutTO);
 					fbSMEMA_OppFirst(bEn := TRUE);
 					
-					bTransporting	:= fbSMEMA_OppFirst.bTransporting;
-					bConvStart		:= fbSMEMA_OppFirst.bConvStart;
-					bConvStop		:= fbSMEMA_OppFirst.bConvStop;
-					bDBA			:= fbSMEMA_OppFirst.bSigToDS AND (bTimer = FALSE) AND (bVirtual = FALSE);
-					bDBAStat		:= (fbSMEMA_OppFirst.bSigToDS) AND (fSMEMASigStatOut(p_tyParam.bStatSigSetGd, p_bGdBrd)) AND (p_tyParam.eSelection = SMEMASelIPC9851Ext);
+					tylocalDSSMEMA.Out.bTransporting	:= fbSMEMA_OppFirst.tylocalDSSMEMA.Out.bTransporting;
+					tylocalDSSMEMA.Out.bConvStart		:= fbSMEMA_OppFirst.tylocalDSSMEMA.Out.bConvStart;
+					tylocalDSSMEMA.Out.bConvStop		:= fbSMEMA_OppFirst.tylocalDSSMEMA.Out.bConvStop;
+					tylocalDSSMEMA.Out.bDBA			:= fbSMEMA_OppFirst.bSigToDS AND (tylocalDSSMEMA.Out.bTimer = FALSE) AND (tylocalDSSMEMA.Out.bVirtual = FALSE);
+					tylocalDSSMEMA.Out.bDBAStat		:= (fbSMEMA_OppFirst.bSigToDS) AND (fSMEMASigStatOut(tylocalDSSMEMA.In.tyParam.bStatSigSetGd, tylocalDSSMEMA.In.bGdBrd)) AND (tylocalDSSMEMA.In.tyParam.eSelection = SMEMASelIPC9851Ext);
 					
-					bUSRdy			:= fbSMEMA_OppFirst.bSigToDS;
-					bUSGdBrdRdy		:= p_bGdBrd;
+					tylocalDSSMEMA.Out.bUSRdy			:= fbSMEMA_OppFirst.bSigToDS;
+					tylocalDSSMEMA.Out.bUSGdBrdRdy		:= tylocalDSSMEMA.In.bGdBrd;
 					
 					IF fbSMEMA_OppFirst.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalDSSMEMA.Out.eStatus	:= Done;
 					ELSIF fbSMEMA_OppFirst.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalDSSMEMA.Out.eStatus		:= Error;
 						
 						IF fbSMEMA_OppFirst.udiStatus = 1200 THEN
 							udiStatus	:= 10004;	//Standard SMEMA Transport Time Out While Transporting
@@ -124,94 +186,94 @@ ACTION Act_Main:
 			END_IF
 		
 		SMEMAActSetSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBA	:= TRUE;
-				eStatus	:= Done;
+				tylocalDSSMEMA.Out.bDBA	:= TRUE;
+				tylocalDSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		
 		SMEMAActSetStatSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBAStat	:= TRUE;
-				eStatus		:= Done;
+				tylocalDSSMEMA.Out.bDBAStat	:= TRUE;
+				tylocalDSSMEMA.Out.eStatus		:= Done;
 		
 			END_IF
 			
 		SMEMAActRstSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBA	:= FALSE;
-				eStatus	:= Done;
+				tylocalDSSMEMA.Out.bDBA	:= FALSE;
+				tylocalDSSMEMA.Out.eStatus	:= Done;
 		
 			END_IF
 		
 		SMEMAActRstStatSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBAStat	:= FALSE;
-				eStatus		:= Done;
+				tylocalDSSMEMA.Out.bDBAStat	:= FALSE;
+				tylocalDSSMEMA.Out.eStatus		:= Done;
 		
 			END_IF
 			
 		SMEMAActSetAllSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBA		:= TRUE;
-				bDBAStat	:= TRUE;
-				eStatus		:= Done;
+				tylocalDSSMEMA.Out.bDBA		:= TRUE;
+				tylocalDSSMEMA.Out.bDBAStat	:= TRUE;
+				tylocalDSSMEMA.Out.eStatus		:= Done;
 		
 			END_IF
 		
 		SMEMAActRstAllSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSMEMA.Out.eStatus = Idle OR tylocalDSSMEMA.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSMEMA_OppFirst(bEn := FALSE);
 				fbSMEMA(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStart	:= FALSE;
+				tylocalDSSMEMA.Out.bConvStop	:= FALSE;
 				
-				bDBA		:= FALSE;
-				bDBAStat	:= FALSE;
-				eStatus		:= Done;
+				tylocalDSSMEMA.Out.bDBA		:= FALSE;
+				tylocalDSSMEMA.Out.bDBAStat	:= FALSE;
+				tylocalDSSMEMA.Out.eStatus		:= Done;
 		
 			END_IF
 		

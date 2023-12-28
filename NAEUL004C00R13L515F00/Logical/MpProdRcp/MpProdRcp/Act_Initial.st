@@ -2,7 +2,7 @@
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	sStatTxt	:= a_sStatText[tylocalMpProdRcp.Out.eStat];
 	
 	fbDirCreate1.sDevice	:= 'F';
 	fbDirCreate1.sDirName	:= 'User';
@@ -12,15 +12,15 @@ ACTION Act_Initial:
 	fbDirCreate2.sDirName	:= 'ProductRecipeXml';
 	fbDirCreate2(bEn := FALSE);
 	
-	tyMpProdRcpMpLink	:= gRecipeXml;
+	tylocalMpProdRcp.In.tyMpProdRcpMpLink	:= gRecipeXml;
 	
-	fbMpRecipeRegPar.MpLink	:= ADR(p_tyMpProdRcpMpLink);
-	fbMpRecipeRegPar.PVName	:= ADR(p_sPVName);
+	fbMpRecipeRegPar.MpLink	:= ADR(tylocalMpProdRcp.In.tyMpProdRcpMpLink);
+	fbMpRecipeRegPar.PVName	:= ADR(tylocalMpProdRcp.In.sPVName);
 	fbMpRecipeRegPar(Enable := FALSE);
 	
-	fbMpRecipeXml.MpLink		:= ADR(p_tyMpProdRcpMpLink);
+	fbMpRecipeXml.MpLink		:= ADR(tylocalMpProdRcp.In.tyMpProdRcpMpLink);
 	fbMpRecipeXml.DeviceName	:= ADR('MpProdRcp');
-	fbMpRecipeXml.FileName		:= ADR(p_sFileName);
+	fbMpRecipeXml.FileName		:= ADR(tylocalMpProdRcp.In.sFileName);
 	fbMpRecipeXml(Enable := FALSE);
 	
 END_ACTION

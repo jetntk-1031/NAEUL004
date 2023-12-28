@@ -1,11 +1,15 @@
-(** 2020-07-27 **)
+
 ACTION Act_Main:
 	
+	IF tylocalNtParam.Out.eStatus = Idle THEN
+		tylocalNtParam.Out.eStat	:= tylocalNtParam.In.eAct;
+	END_IF
+	
 	//Main
-	CASE eStat OF
+	CASE tylocalNtParam.Out.eStat OF
 		
 		NtParamActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalNtParam.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 				fbDirCreate1(bEn := FALSE);
 				fbDirCreate2(bEn := FALSE);
@@ -16,20 +20,20 @@ ACTION Act_Main:
 				fbMpNtParamXml(Enable := FALSE);
 				usiStep	:= 0;
 				
-				bFileNotFound	:= FALSE;
+				tylocalNtParam.Out.bFileNotFound	:= FALSE;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalNtParam.Out.eStatus	:= Idle;
 		
 		NtParamActCreateDir:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalNtParam.Out.eStatus = Idle OR tylocalNtParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalNtParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -37,7 +41,7 @@ ACTION Act_Main:
 						IF fbDirCreate1.udiStatus = 0 THEN
 							usiStep	:= 1;
 						ELSIF fbDirCreate1.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalNtParam.Out.eStatus		:= Error;
 							
 							IF fbDirCreate1.udiStatus = 1908 THEN
 								udiStatus	:= 10000;	//Create User Directory Error
@@ -51,7 +55,7 @@ ACTION Act_Main:
 						IF fbDirCreate2.udiStatus = 0 THEN
 							usiStep	:= 2;
 						ELSIF fbDirCreate2.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalNtParam.Out.eStatus		:= Error;
 							
 							IF fbDirCreate2.udiStatus = 1908 THEN
 								udiStatus	:= 10001;	//Create Nutek Parameter Directory Error
@@ -63,9 +67,9 @@ ACTION Act_Main:
 					2:
 						fbDirCreate3(bEn := TRUE);
 						IF fbDirCreate3.udiStatus = 0 THEN
-							eStatus	:= Done;
+							tylocalNtParam.Out.eStatus	:= Done;
 						ELSIF fbDirCreate3.udiStatus < 65534 THEN
-							eStatus		:= Error;
+							tylocalNtParam.Out.eStatus		:= Error;
 							
 							IF fbDirCreate3.udiStatus = 1908 THEN
 								udiStatus	:= 10014;	//Create Nutek Parameter xml Directory Error
@@ -79,17 +83,17 @@ ACTION Act_Main:
 			END_IF
 		
 		NtParamActWrite:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalNtParam.Out.eStatus = Idle OR tylocalNtParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalNtParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 				fbFileWrite1(bEn := TRUE);
 				IF fbFileWrite1.udiStatus = 0 THEN
-					eStatus			:= Done;
+					tylocalNtParam.Out.eStatus	:= Done;
 				ELSIF fbFileWrite1.udiStatus < 65534 THEN
-					eStatus			:= Error;
+					tylocalNtParam.Out.eStatus	:= Error;
 					
 					IF fbFileWrite1.udiStatus = 1900 THEN
 						udiStatus	:= 10002;	//File Open Error While Writing
@@ -109,17 +113,17 @@ ACTION Act_Main:
 			END_IF
 		
 		NtParamActRead:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalNtParam.Out.eStatus = Idle OR tylocalNtParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalNtParam.Out.eStatus	:= Busy;
 				
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 				fbFileRead1(bEn := TRUE);
 				IF fbFileRead1.udiStatus = 0 THEN
-					eStatus			:= Done;
+					tylocalNtParam.Out.eStatus	:= Done;
 				ELSIF fbFileRead1.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalNtParam.Out.eStatus := Error;
 				
 					IF fbFileRead1.udiStatus = 1900 THEN
 						udiStatus	:= 10006;	//File Open Error While Reading
@@ -128,8 +132,8 @@ ACTION Act_Main:
 					ELSIF fbFileRead1.udiStatus = 1904 THEN
 						udiStatus	:= 10008;	//File Close Error While Reading
 					ELSIF fbFileRead1.udiStatus = 1915 THEN
-						eStatus			:= Done;
-						bFileNotFound	:= TRUE;
+						tylocalNtParam.Out.eStatus			:= Done;
+						tylocalNtParam.Out.bFileNotFound	:= TRUE;
 					ELSE
 						udiStatus	:= fbFileRead1.udiStatus;
 					END_IF
@@ -138,11 +142,11 @@ ACTION Act_Main:
 			END_IF
 			
 		NtParamActLoad:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalNtParam.Out.eStatus = Idle OR tylocalNtParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalNtParam.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -151,8 +155,8 @@ ACTION Act_Main:
 						IF (fbMpNtParamRegPar.Active = TRUE) AND (fbMpNtParamRegPar.StatusID = 0) THEN
 							usiStep	:= 1;
 						ELSIF fbMpNtParamRegPar.StatusID <> 0 THEN
-							eStatus		:= Error;
-							udiStatus	:= 10010;	//MpRecipeRegPar Error While Loading
+							tylocalNtParam.Out.eStatus		:= Error;
+							udiStatus						:= 10010;	//MpRecipeRegPar Error While Loading
 						END_IF
 					
 					1:
@@ -161,20 +165,20 @@ ACTION Act_Main:
 						fbMpNtParamXml(Enable := TRUE);
 					
 						IF (fbMpNtParamXml.Active = TRUE) AND (fbMpNtParamXml.CommandDone = TRUE) AND (fbMpNtParamXml.StatusID = 0) THEN
-							//	eStatus	:= Done;
+							//	tylocalNtParam.Out.eStatus	:= Done;
 							usiStep	:= 2;
 							tyNtParamCurr	:= tyMpNtParamCurr1;
 						ELSIF fbMpNtParamXml.StatusID <> 0 THEN
-							eStatus		:= Error;
-							udiStatus	:= 10011;	//MpRecipeXml Error While Loading
+							tylocalNtParam.Out.eStatus		:= Error;
+							udiStatus						:= 10011;	//MpRecipeXml Error While Loading
 						END_IF
 					
 					2: 
 						fbFileWrite1(bEn := TRUE);
 						IF fbFileWrite1.udiStatus = 0 THEN
-							eStatus			:= Done;
+							tylocalNtParam.Out.eStatus	 := Done;
 						ELSIF fbFileWrite1.udiStatus < 65534 THEN
-							eStatus			:= Error;
+							tylocalNtParam.Out.eStatus	 := Error;
 					
 							IF fbFileWrite1.udiStatus = 1900 THEN
 								udiStatus	:= 10002;	//File Open Error While Writing
@@ -196,11 +200,11 @@ ACTION Act_Main:
 			END_IF
 		
 		NtParamActSave:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalNtParam.Out.eStatus = Idle OR tylocalNtParam.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalNtParam.Out.eStatus	:= Busy;
 					
-				sStatTxt	:= a_sStatText[eStat];
+				sStatTxt	:= a_sStatText[tylocalNtParam.Out.eStat];
 		
 				CASE usiStep OF
 					0:
@@ -210,7 +214,7 @@ ACTION Act_Main:
 						IF (fbMpNtParamRegPar.Active = TRUE) AND (fbMpNtParamRegPar.StatusID = 0) THEN
 							usiStep	:= 1;
 						ELSIF fbMpNtParamRegPar.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalNtParam.Out.eStatus		:= Error;
 							udiStatus	:= 10012;	//MpRecipeRegPar Error While Saving
 						END_IF
 					
@@ -220,9 +224,9 @@ ACTION Act_Main:
 						fbMpNtParamXml(Enable := TRUE);
 					
 						IF (fbMpNtParamXml.Active = TRUE) AND (fbMpNtParamXml.CommandDone = TRUE) AND (fbMpNtParamXml.StatusID = 0) THEN
-							eStatus	:= Done;
+							tylocalNtParam.Out.eStatus	:= Done;
 						ELSIF fbMpNtParamXml.StatusID <> 0 THEN
-							eStatus		:= Error;
+							tylocalNtParam.Out.eStatus		:= Error;
 							udiStatus	:= 10013;	//MpRecipeXml Error While Saving
 						END_IF
 						

@@ -1,72 +1,59 @@
 (** 2019-10-30 **)
 ACTION Act_Link:
 	
-	IF p_bLinkDISafetyRlySig = FALSE THEN
-		bFixClprClampCtrl	:= FALSE;
-		bRmtClprClampCtrl	:= FALSE;
+	IF tylocalMagConv2Clp.In.bLinkDISafetyRlySig = FALSE THEN
+		tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
+		tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;
+		tylocalMagConv2Clp.Out.bFixClprUnClampCtrl	:= FALSE;
+		tylocalMagConv2Clp.Out.bRmtClprUnClampCtrl	:= FALSE;
 	END_IF
 	
-	p_bFixClprUnclampSen :=  p_bLinkFixClprUnClampSen;
-	
-	IF p_bLinkNtParamMagModelAutoVerify THEN
-		fbSmallLargeSenDlyTm(IN:= p_bLinkMagSmallSen OR p_bLinkMagLargeSen);
+	tylocalMagConv2Clp.In.bFixClprUnclampSen :=  tylocalMagConv2Clp.In.bLinkFixClprUnClampSen;
+	tylocalMagConv2Clp.In.bRmtClprUnclampSen := tylocalMagConv2Clp.In.bLinkRmtClprUnclampSen;
+
+	IF tylocalMagConv2Clp.In.bLinkNtParamMagModelAutoVerify THEN
+		fbSmallLargeSenDlyTm(IN:= tylocalMagConv2Clp.In.bLinkMagSmallSen OR tylocalMagConv2Clp.In.bLinkMagLargeSen);
 		IF fbSmallLargeSenDlyTm.Q THEN
-			p_bFixClprClampSen := TRUE;
+			tylocalMagConv2Clp.In.bFixClprClampSen := TRUE;
 		ELSE
-			p_bFixClprClampSen := FALSE;
+			tylocalMagConv2Clp.In.bFixClprClampSen := FALSE;
 		END_IF
+	ELSIF tylocalMagConv2Clp.In.tyDISettings.diMag1FixedClampSen = 0 THEN
+		tylocalMagConv2Clp.In.bFixClprClampSen := tylocalMagConv2Clp.In.bLinkFixClprClampSen; //Normal Pneumatic Clamping RS.
 	ELSE
-		IF p_bLinkFixClprMagDetectSenPrep THEN
-			IF p_eAct = MagConv2ClpActFixClprUnclamp OR (p_eAct = MagConv2ClpActInitClpStop AND usiStep = 0) OR (p_eAct = MagConv2ClpActInitStopClp AND usiStep = 0)
-				OR (p_eAct  = MagConv2ClpActPreExitClpr AND usiStep = 0) OR (p_eAct  = MagConv2ClpActExitClpr AND usiStep = 0) 
-				OR (p_eAct = MagConv2ClpActStopClpr) THEN
-				
-				p_bFixClprClampSen			:= NOT p_bLinkFixClprUnClampSen;
-			ELSE
-				p_bFixClprClampSen			:= p_bLinkFixClprMagDetectSen; //Treat as Clamping Sen Clamp RS for Special Case
+		IF tylocalMagConv2Clp.Out.eStat = MagConv2ClpActInitStopClp AND usiStep = 3 OR 
+			tylocalMagConv2Clp.Out.eStat = MagConv2ClpActEntStopClp AND usiStep = 2 OR
+			tylocalMagConv2Clp.Out.eStat = MagConv2ClpActFixClprClamp OR tylocalMagConv2Clp.Out.eStat = MagConv2ClpActFixClprUnclamp THEN //during fix clamp
+			fbFixClpExtChkTm(IN:=TRUE);
+			IF fbFixClpExtChkTm.Q THEN
+				fbFixClpExtChkTm(IN:=FALSE);
+				tylocalMagConv2Clp.In.bFixClprClampSen := tylocalMagConv2Clp.In.bLinkFixClprMagDetectSen;
 			END_IF
-			//p_bFixClprClampSafetySen	:= NOT p_bLinkFixClprClampSen; // If Clamping RS detects first, it will go to Error for safety check
+		ELSIF	tylocalMagConv2Clp.Out.eStat = MagConv2ClpActInitStopClp AND usiStep = 4 OR 
+			tylocalMagConv2Clp.Out.eStat = MagConv2ClpActEntStopClp AND usiStep = 3 OR
+			tylocalMagConv2Clp.Out.eStat = MagConv2ClpActRmtClprClamp OR tylocalMagConv2Clp.Out.eStat = MagConv2ClpActRmtClprUnclamp THEN //during remote clamp
+			fbRmtClpExtChkTm(IN:=TRUE);
+			IF fbRmtClpExtChkTm.Q THEN
+				fbRmtClpExtChkTm(IN:=FALSE);
+				tylocalMagConv2Clp.In.bRmtClprClampSen := tylocalMagConv2Clp.Out.bRmtClprClampCtrl;
+			END_IF	
 		ELSE
-			p_bFixClprClampSen := p_bLinkFixClprClampSen; //Normal Pneumatic Clamping RS.
+			fbFixClpExtChkTm(IN:=FALSE);
+			fbRmtClpExtChkTm(IN:=FALSE);
+			tylocalMagConv2Clp.In.bFixClprClampSen := FALSE;
+			tylocalMagConv2Clp.In.bRmtClprClampSen := FALSE;
 		END_IF
 	END_IF
 	
-	p_bRmtClprClampSen := p_bLinkDO.bMag1RemoteClampCtrl;
-	p_bRmtClprUnclampSen := NOT p_bLinkDO.bMag1RemoteClampCtrl;
-//	p_tMtrOffDlyTm	:= T#200ms;
-	
 
-	IF p_bLinkMagOpsStepMagFullExit THEN
+	IF tylocalMagConv2Clp.In.bLinkMagOpsStepMagFullExit THEN
 		fbLeftSenDelayTm(IN:= TRUE, PT:=  T#3000ms);
-	 	IF fbLeftSenDelayTm.Q THEN
-				p_bLeftSen := p_bLinkDIMagEntSen;
+		IF fbLeftSenDelayTm.Q THEN
+			tylocalMagConv2Clp.In.bLeftSen := tylocalMagConv2Clp.In.bLinkDIMagEntSen;
 		END_IF
 	ELSE
-		p_bLeftSen := p_bLinkDIMagEntSen;
+		tylocalMagConv2Clp.In.bLeftSen := tylocalMagConv2Clp.In.bLinkDIMagEntSen;
 		fbLeftSenDelayTm(IN:= FALSE);
-	END_IF
-
-	
-	//Clamp Sensor chk time
-	IF p_tyDISettings.diMag1FixedClampSen >0 THEN //fix side sensor used
-			
-		IF eStat = MagConv2ClpActInitStopClp AND usiStep = 3 OR 
-			eStat = MagConv2ClpActEntStopClp AND usiStep = 1 OR
-			eStat = MagConv2ClpActFixClprClamp OR eStat = MagConv2ClpActFixClprUnclamp THEN //during clamp
-			fbClpExtChkTm(IN:=TRUE);
-			
-			IF fbClpExtChkTm.Q THEN
-				fbClpExtChkTm(IN:=FALSE);
-				p_bLinkFixClprClampSen ACCESS p_DIMag1FixedClampSen;
-			ELSE
-				p_bLinkFixClprClampSen ACCESS ADR(bFixClprClampSen);
-			END_IF
-		ELSE
-			fbClpExtChkTm(IN:=FALSE);
-			p_bFixClprClampSen := FALSE;
-		END_IF
-	ELSE //standard 2 RS 
-		p_bLinkFixClprClampSen ACCESS p_DIMag1FixedClampRS; 
 	END_IF
 	
 END_ACTION

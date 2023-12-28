@@ -4,125 +4,125 @@ ACTION Act_Main_SDOWrite:
 	CASE usiStep OF
 
 		0:
-			eAWPushPulAct	:= AWActBGStartModOKChk;
+			tylocalStartup.Out.eAWPushPulAct	:= AWActBGStartModOKChk;
 			
-			IF (p_eAWPushOrPullerStatus = Done) AND (p_eAWPushOrPullerStat = AWActBGStartModOKChk) THEN
+			IF (g_tyAWPushOrPuller.eStatus = Done) AND (g_tyAWPushOrPuller.eStat = AWActBGStartModOKChk) THEN
 				
-				eAWPushPulAct	:= AWActIdle;
+				tylocalStartup.Out.eAWPushPulAct	:= AWActIdle;
 				usiStep		:= 1;
 				
-			ELSIF p_eAWPushOrPullerStatus = Error THEN
+			ELSIF g_tyAWPushOrPuller.eStatus = Error THEN
 				
-				eAWPushPulAct		:= AWActIdle;
+				tylocalStartup.Out.eAWPushPulAct		:= AWActIdle;
 				usiStep		:= 1;
 				
 			END_IF
 		
 		1:
-			eAWAct	:= AWActBGStartModOKChk;
+			tylocalStartup.Out.eAWAct	:= AWActBGStartModOKChk;
 			
-			IF (p_eAWStatus = Done) AND (p_eAWStat = AWActBGStartModOKChk) THEN
+			IF (g_tyAW.eStatus = Done) AND (g_tyAW.eStat = AWActBGStartModOKChk) THEN
 				
-				eAWAct		:= AWActIdle;
+				tylocalStartup.Out.eAWAct		:= AWActIdle;
 		   		usiStep		:= 2;
 				
-			ELSIF p_eAWStatus = Error THEN
+			ELSIF g_tyAW.eStatus = Error THEN
 				
-				eAWAct		:= AWActIdle;
+				tylocalStartup.Out.eAWAct		:= AWActIdle;
 				usiStep		:= 2;
 				
 			END_IF
 			
 		2:
-			eMagAW1Act	:= MagAWActBGStartModOKChk;
+			tylocalStartup.Out.eMagAW1Act	:= MagAWActBGStartModOKChk;
 	
-			IF (p_eMagAW1Status = Done) AND (p_eMagAW1Stat = MagAWActBGStartModOKChk) THEN
+			IF (g_tyMagAW1.eStatus = Done) AND (g_tyMagAW1.eStat = MagAWActBGStartModOKChk) THEN
 				
-				eMagAW1Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW1Act	:= MagAWActIdle;
 				usiStep		:= 4;
 				
-			ELSIF p_eMagAW1Status = Error THEN
+			ELSIF g_tyMagAW1.eStatus = Error THEN
 				
-				eMagAW1Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW1Act	:= MagAWActIdle;
 				usiStep		:= 4;
 				
 			END_IF	
 			
 		4:
-			eMagAW2Act	:= MagAWActBGStartModOKChk;
+			tylocalStartup.Out.eMagAW2Act	:= MagAWActBGStartModOKChk;
 	
-			IF (p_eMagAW2Status = Done) AND (p_eMagAW2Stat = MagAWActBGStartModOKChk) THEN
+			IF (g_tyMagAW2.eStatus = Done) AND (g_tyMagAW2.eStat = MagAWActBGStartModOKChk) THEN
 				
-				eMagAW2Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW2Act	:= MagAWActIdle;
 				usiStep		:= 6;
 				
-			ELSIF p_eMagAW2Status = Error THEN
+			ELSIF g_tyMagAW2.eStatus = Error THEN
 				
-				eMagAW2Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW2Act	:= MagAWActIdle;
 				usiStep		:= 6;
 				
 			END_IF	
 			
 		6:
-			eMagAW3Act	:= MagAWActBGStartModOKChk;
+			tylocalStartup.Out.eMagAW3Act	:= MagAWActBGStartModOKChk;
 	
-			IF (p_eMagAW3Status = Done) AND (p_eMagAW3Stat = MagAWActBGStartModOKChk) THEN
+			IF (g_tyMagAW3.eStatus = Done) AND (g_tyMagAW3.eStat = MagAWActBGStartModOKChk) THEN
 				
-				eMagAW3Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW3Act	:= MagAWActIdle;
 				usiStep		:= 10;
 				
-			ELSIF p_eMagAW3Status = Error THEN
+			ELSIF g_tyMagAW3.eStatus = Error THEN
 				
-				eMagAW3Act	:= MagAWActIdle;
+				tylocalStartup.Out.eMagAW3Act	:= MagAWActIdle;
 				usiStep		:= 10;
 				
 			END_IF	
 			
 		10:
-			eTravAct	:= TravActBGStartModOKChk;
+			tylocalStartup.Out.eTravAct	:= TravActBGStartModOKChk;
 			
-			IF (p_eTravStatus = Done) AND (p_eTravStat = TravActBGStartModOKChk) THEN
+			IF (g_tyTrav.eStatus = Done) AND (g_tyTrav.eStat = TravActBGStartModOKChk) THEN
 				
-				eTravAct	:= TravActIdle;
+				tylocalStartup.Out.eTravAct	:= TravActIdle;
 				usiStep		:= 20;
 				
-			ELSIF p_eTravStatus = Error THEN
+			ELSIF g_tyTrav.eStatus = Error THEN
 				
-				eTravAct	:= TravActIdle;
+				tylocalStartup.Out.eTravAct	:= TravActIdle;
 				usiStep		:= 20;
 				
 			END_IF
 			
 		20:
-			eLifterAct	:= LifterActBGStartModOKChk;
+			tylocalStartup.Out.eLifterAct	:= LifterActBGStartModOKChk;
 			
-			IF (p_eLifterStatus = Done) AND (p_eLifterStat = LifterActBGStartModOKChk) THEN
+			IF (g_tyLifter.eStatus = Done) AND (g_tyLifter.eStat = LifterActBGStartModOKChk) THEN
 				
-				eLifterAct		:= LifterActIdle;
+				tylocalStartup.Out.eLifterAct		:= LifterActIdle;
 				usiStep			:= 21;
-				eStartupStep1	:= StartupStepSetupUI;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;
 				
-			ELSIF p_eLifterStatus = Error THEN
+			ELSIF g_tyLifter.eStatus = Error THEN
 				
-				eLifterAct		:= LifterActIdle;
+				tylocalStartup.Out.eLifterAct		:= LifterActIdle;
 				usiStep			:= 21;
-				eStartupStep1	:= StartupStepSetupUI;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;
 				
 			END_IF
 		21:
-			eLifter2Act	:= LifterActBGStartModOKChk;
+			tylocalStartup.Out.eLifter2Act	:= LifterActBGStartModOKChk;
 			
-			IF (p_eLifter2Status = Done) AND (p_eLifter2Stat = LifterActBGStartModOKChk) THEN
+			IF (g_tyLifter2.eStatus = Done) AND (g_tyLifter2.eStat = LifterActBGStartModOKChk) THEN
 				
-				eLifter2Act		:= LifterActIdle;
+				tylocalStartup.Out.eLifter2Act		:= LifterActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepSetupUI;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;
 				
-			ELSIF p_eLifter2Status = Error THEN
+			ELSIF g_tyLifter2.eStatus = Error THEN
 				
-				eLifter2Act		:= LifterActIdle;
+				tylocalStartup.Out.eLifter2Act		:= LifterActIdle;
 				usiStep			:= 0;
-				eStartupStep1	:= StartupStepSetupUI;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepSetupUI;
 				
 			END_IF
 

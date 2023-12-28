@@ -1,4 +1,7 @@
 (*2019-05-04*)
+VAR
+	g_tyStartUp : tyStartUpOut1;
+END_VAR
 (**)
 (*Action & State & Status*)
 VAR

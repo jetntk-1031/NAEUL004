@@ -1,9 +1,10 @@
 (*2020-09-22*)
+VAR
+	tylocalHWInfo : tyHWInfo;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR
-	eAct : eHWInfoAction := HWInfoActIdle;
-	eStat : eHWInfoAction := HWInfoActIdle;
 	eStatus : eFBStatus := Idle;
 	udiStatus : UDINT := 0;
 	sStatTxt : STRING[200] := '';

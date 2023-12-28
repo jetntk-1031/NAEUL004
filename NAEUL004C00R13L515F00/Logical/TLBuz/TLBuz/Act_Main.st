@@ -1,7 +1,10 @@
 (** 2020-02-18 **)
 ACTION Act_Main:
-	
-	IF eStatOld <> eStat THEN
+		//Set p_eAct
+	IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy OR tylocalTLBuz.Out.eStatus = Done THEN
+		tylocalTLBuz.Out.eStat	:= tylocalTLBuz.In.eAct;
+	END_IF
+	IF eStatOld <> tylocalTLBuz.Out.tylocalTLBuz.Out.eStat THEN
 		IF eStatOld <> TLBuzActIdle
 			AND eStatOld <> TLBuzActSetGreen
 			AND eStatOld <> TLBuzActSetAmber
@@ -18,182 +21,182 @@ ACTION Act_Main:
 			AND eStatOld <> TLBuzActSetAll
 			AND eStatOld <> TLBuzActRstAll THEN
 			
-			bTLGreen	:= FALSE;
-			bTLAmber	:= FALSE;
-			bTLWhite	:= FALSE;
-			bTLBlue		:= FALSE;
-			bTLRed		:= FALSE;
-			bBuzBeep	:= FALSE;
+			tylocalTLBuz.Out.tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bTLAmber	:= FALSE;
+			tylocalTLBuz.Out.bTLWhite	:= FALSE;
+			tylocalTLBuz.Out.bTLBlue		:= FALSE;
+			tylocalTLBuz.Out.bTLRed		:= FALSE;
+			tylocalTLBuz.Out.bBuzBeep	:= FALSE;
 			
 		END_IF
 		
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalTLBuz.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalTLBuz.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalTLBuz.Out.eStat OF
 		
 		TLBuzActIdle:
-			IF eStatus <> Idle THEN	//Reset Data
+			IF tylocalTLBuz.Out.eStatus <> Idle THEN	//Reset Data
 				//Private
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalTLBuz.Out.eStatus	:= Idle;
 		
 		TLBuzActSetGreen:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 						
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLGreen	:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLGreen	:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActSetAmber:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLAmber	:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLAmber	:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActSetRed:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLRed	:= TRUE;
-				eStatus	:= Done;
+				tylocalTLBuz.Out.bTLRed	:= TRUE;
+				tylocalTLBuz.Out.eStatus	:= Done;
 				
 			END_IF
 			
 		TLBuzActSetBlue:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLBlue		:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLBlue		:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		TLBuzActSetWhite:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLWhite	:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLWhite	:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		TLBuzActSetBuz:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bBuzBeep	:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bBuzBeep	:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActRstGreen:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLGreen	:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLGreen	:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActRstAmber:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLAmber	:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLAmber	:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActRstRed:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLRed		:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLRed		:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		TLBuzActRstBlue:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLBlue		:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLBlue		:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		TLBuzActRstWhite:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLWhite	:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLWhite	:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActRstBuz:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bBuzBeep	:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bBuzBeep	:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLGreen	:= TRUE;
-				bTLRed		:= TRUE;
-				bTLAmber	:= TRUE;
-				bTLWhite	:= TRUE;
-				bTLBlue		:= TRUE;
-				bBuzBeep	:= TRUE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLGreen	:= TRUE;
+				tylocalTLBuz.Out.bTLRed		:= TRUE;
+				tylocalTLBuz.Out.bTLAmber	:= TRUE;
+				tylocalTLBuz.Out.bTLWhite	:= TRUE;
+				tylocalTLBuz.Out.bTLBlue		:= TRUE;
+				tylocalTLBuz.Out.bBuzBeep	:= TRUE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		TLBuzActRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy THEN
 		
-				sStatTxt	:= a_sStatText[eStat];
+				tylocalTLBuz.Out.sStatTxt	:= a_sStatText[tylocalTLBuz.Out.eStat];
 		
-				bTLGreen	:= FALSE;
-				bTLAmber	:= FALSE;
-				bTLRed		:= FALSE;
-				bTLWhite	:= FALSE;
-				bTLBlue		:= FALSE;
-				bBuzBeep	:= FALSE;
-				eStatus		:= Done;
+				tylocalTLBuz.Out.bTLGreen	:= FALSE;
+				tylocalTLBuz.Out.bTLAmber	:= FALSE;
+				tylocalTLBuz.Out.bTLRed		:= FALSE;
+				tylocalTLBuz.Out.bTLWhite	:= FALSE;
+				tylocalTLBuz.Out.bTLBlue		:= FALSE;
+				tylocalTLBuz.Out.bBuzBeep	:= FALSE;
+				tylocalTLBuz.Out.eStatus		:= Done;
 				
 			END_IF
 		

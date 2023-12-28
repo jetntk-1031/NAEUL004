@@ -1,4 +1,7 @@
 (*2020-09-22*)
+VAR
+	g_tyHWInfo : tyHWInfoOut1;
+END_VAR
 (**)
 (*Action & State & Status*)
 VAR

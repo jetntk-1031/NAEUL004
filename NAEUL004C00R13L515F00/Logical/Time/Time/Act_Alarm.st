@@ -1,37 +1,59 @@
-(** 2019-03-25 **)
+
 ACTION Act_Alarm: 
+	
+	IF tylocalTime.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalTime.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	IF (eStatus = Error) AND bRstErr THEN
+		tylocalTime.In.eAct	:= TimeActIdle;
+		tylocalTime.Out.eStat	:= TimeActIdle;
+	END_IF
+	
 	
 	//Error
 	IF EDGEPOS(eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sTimeProgNm			:= p_sProgNm;
+		tylocalTime.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalTime.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalTime.Out.tyAlmData.udiRunTime	:= tylocalTime.Out.tyAlmData.udiRunTime + 1;
+		tylocalTime.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalTime.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_tyAlmProgNm.sTimeProgNm				:= tylocalTime.In.sProgNm;
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
+	ELSIF bRstErr AND (tylocalTime.Out.tyAlmData.udiCode <> 0) THEN
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalTime.Out.tyAlmData.udiCode	:= 0;
+		tylocalTime.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalTime.Out.tyAlmData.bAlm		:= FALSE;
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+		tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
+	END_IF
 		
-		sStatTxt	:= a_sStatText[eStat];
+	//Error
+	IF EDGEPOS(eStatus1 = Error) THEN
+		
+		tylocalTime.Out.tyAlmData1.udiCode		:= udiStatus1;
+		tylocalTime.Out.tyAlmData1.eSeverity	:= AlmSeverityError;
+		tylocalTime.Out.tyAlmData1.udiRunTime	:= tylocalTime.Out.tyAlmData1.udiRunTime + 1;
+		
+		tylocalTime.Out.tyAlmData1.bAlm			:= TRUE;
+		tylocalTime.Out.tyAlmData1.udiModuleNum := udiModuleNum;
+		g_tyAlmProgNm.sTimeProgNm				:= tylocalTime.In.sProgNm;
+		
+
+		
+	ELSIF bRstErr AND (tylocalTime.Out.tyAlmData1.udiCode <> 0) THEN
+		
+		tylocalTime.Out.tyAlmData1.udiCode		:= 0;
+		tylocalTime.Out.tyAlmData1.eSeverity	:= AlmSeverityNA;
+		tylocalTime.Out.tyAlmData1.bAlm			:= FALSE;
+		
+		tylocalTime.Out.sStatTxt	:= a_sStatText[tylocalTime.Out.eStat];
 		
 	END_IF
 	

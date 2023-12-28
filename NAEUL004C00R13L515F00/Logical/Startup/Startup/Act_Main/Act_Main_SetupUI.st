@@ -3,18 +3,18 @@ ACTION Act_Main_SetupUI:
 
 	CASE usiStep OF
 		0:
-			eUIAct	:= UIActInitial;
+			tylocalStartup.Out.eUIAct	:= UIActInitial;
 		
-			IF (p_eUIStatus = Done) AND (p_eUIStat = UIActInitial) THEN
+			IF (g_tyUIOut.eStatus = Done) AND (g_tyUIOut.eStat = UIActInitial) THEN
 				
-				eUIAct			:= UIActIdle;
-				eStartupStep1	:= StartupStepDone;
-				bUISettingsLoadDone := TRUE;
-			ELSIF p_eUIStatus = Error THEN
+				tylocalStartup.Out.eUIAct			:= UIActIdle;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepDone;
+				tylocalStartup.Out.bUISettingsLoadDone := TRUE;
+			ELSIF g_tyUIOut.eStatus = Error THEN
 				
-				eUIAct			:= UIActIdle;
-				eStartupStep1	:= StartupStepDone;
-				bUISettingsLoadDone := TRUE;
+				tylocalStartup.Out.eUIAct			:= UIActIdle;
+				tylocalStartup.Out.eStartupStep1	:= StartupStepDone;
+				tylocalStartup.Out.bUISettingsLoadDone := TRUE;
 			END_IF
 		
 	END_CASE
