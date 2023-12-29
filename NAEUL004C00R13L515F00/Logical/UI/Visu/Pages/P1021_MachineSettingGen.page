@@ -63,7 +63,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumWidthAtHm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumWidthAtHm.diValueMin]"/>
@@ -122,7 +122,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="InputTouchpad" Value="Source[local].TouchPad[AlphaPad]"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxChars" Value="30"/>
           <Property Name="SimulationValue" Value="Triple Magazine Line Unloader"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringMcNm.uiRtStat]"/>
@@ -151,7 +151,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumTranInErrDlyTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumTranInErrDlyTm.diValueMin]"/>
@@ -185,7 +185,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumConvInitTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumConvInitTm.diValueMin]"/>
@@ -219,7 +219,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="256"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumSSaverTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumSSaverTm.diValueMin]"/>
@@ -253,7 +253,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="SimulationValue" Value="192.168.000.101"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringIPAddr.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[InputNumeric]"/>
@@ -269,7 +269,7 @@
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_534]"/>
           <Property Name="Height" Value="30"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="365"/>
+          <Property Name="Left" Value="344"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[CheckBox]"/>
@@ -300,7 +300,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="SimulationValue" Value="255.255.255.0"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringSubnetMask.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[InputNumeric]"/>
@@ -334,7 +334,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnDefaultMcMod.usiValueIdx]"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnDefaultMcMod.usiValueMaxIdx]"/>
@@ -406,7 +406,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="587"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag3ConvRunTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag3ConvRunTm.diValueMin]"/>
@@ -425,7 +425,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="587"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag2ConvRunTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag2ConvRunTm.diValueMin]"/>
@@ -444,7 +444,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="587"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag1ConvRunTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMag1ConvRunTm.diValueMin]"/>
@@ -463,7 +463,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMaxBffr.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMaxBffr.diValueMin]"/>
@@ -514,7 +514,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="586"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumWidthOffset.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumWidthOffset.diValueMin]"/>
@@ -533,7 +533,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="475"/>
+          <Property Name="Left" Value="446"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMagAutoDetSenTm.uiRtStat]"/>
@@ -542,14 +542,14 @@
           <Property Name="TextIndexOffset" Value="325"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
           <Property Name="Top" Value="115"/>
-          <Property Name="Width" Value="174"/>
+          <Property Name="Width" Value="144"/>
         </Control>
         <Control ClassId="0x00001007" Name="Input_MagazineInletSenTim">
           <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMagAutoDetSenTm.bRtCompl]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="646"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMagAutoDetSenTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMagAutoDetSenTm.diValueMin]"/>
@@ -561,14 +561,14 @@
           <Property Name="Top" Value="115"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumMagAutoDetSenTm.diValue]"/>
           <Property Name="ValueMode" Value="Standard"/>
-          <Property Name="Width" Value="81"/>
+          <Property Name="Width" Value="140"/>
         </Control>
         <Control ClassId="0x00001004" Name="Label_AutoLogoutTime">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="402"/>
+          <Property Name="Left" Value="47"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyTxtLblAutoLogoutTm.uiRtStat]"/>
@@ -576,8 +576,8 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="321"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="220"/>
-          <Property Name="Width" Value="200"/>
+          <Property Name="Top" Value="184"/>
+          <Property Name="Width" Value="168"/>
         </Control>
         <Control ClassId="0x00001002" Name="Button_AutoLogoutEn">
           <Property Name="BitmapIndexDatapoint" Value="None"/>
@@ -587,7 +587,7 @@
           <Property Name="EmbVirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_754]"/>
           <Property Name="Height" Value="30"/>
           <Property Name="KeyMatrixOffset" Value="None"/>
-          <Property Name="Left" Value="699"/>
+          <Property Name="Left" Value="344"/>
           <Property Name="PressedBitmapSource" Value="Source[embedded].Property[BitmapSource]"/>
           <Property Name="PressedTextSource" Value="Source[embedded].Property[TextSource]"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyBtnAutoLogoutEn.uiRtStat]"/>
@@ -595,7 +595,7 @@
           <Property Name="TextIndexDatapoint" Value="None"/>
           <Property Name="TextSimulationValue" Value="0"/>
           <Property Name="TextSource" Value="None"/>
-          <Property Name="Top" Value="220"/>
+          <Property Name="Top" Value="185"/>
           <Property Name="VirtualKey" Value="Source[local].VirtualKey[%embVirtualKey_754]"/>
           <Property Name="Width" Value="30"/>
         </Control>
@@ -604,7 +604,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="560"/>
+          <Property Name="Left" Value="233"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumAutoLogoutTm.diValueMax]"/>
           <Property Name="MaxValue" Value="None"/>
           <Property Name="MinDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumAutoLogoutTm.diValueMin]"/>
@@ -613,10 +613,10 @@
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumAutoLogoutTm.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Input]"/>
           <Property Name="TeachDatapoint" Value="None"/>
-          <Property Name="Top" Value="220"/>
+          <Property Name="Top" Value="185"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumAutoLogoutTm.diValue]"/>
           <Property Name="ValueMode" Value="Standard"/>
-          <Property Name="Width" Value="140"/>
+          <Property Name="Width" Value="111"/>
         </Control>
         <Control ClassId="0x00001004" Name="lbl_NetworkMode">
           <Property Name="ControlID" Value="0"/>
@@ -630,7 +630,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="345"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="258"/>
+          <Property Name="Top" Value="291"/>
           <Property Name="Width" Value="85"/>
         </Control>
         <Control ClassId="0x00001005" Name="Mask_IP">
@@ -640,7 +640,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringIPAddr.uiMaskRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
@@ -654,7 +654,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringSubnetMask.uiMaskRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
@@ -681,13 +681,13 @@
           <Property Name="OptionDatapoint" Value="None"/>
           <Property Name="RightBitmap" Value="None"/>
           <Property Name="RightTextGroup" Value="None"/>
-          <Property Name="SimulationValue" Value="1"/>
+          <Property Name="SimulationValue" Value="0"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnNetworkMod.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[DropDown]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="343"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="255"/>
+          <Property Name="Top" Value="291"/>
           <Property Name="Width" Value="231"/>
         </Control>
         <Control ClassId="0x00001004" Name="lbl_DefaultFlippedBoard1">
@@ -715,7 +715,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnAGVComProtocol.usiValueIdx]"/>
-          <Property Name="Left" Value="255"/>
+          <Property Name="Left" Value="235"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnAGVComProtocol.usiValueMaxIdx]"/>
@@ -732,13 +732,13 @@
           <Property Name="TextIndexOffset" Value="20"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
           <Property Name="Top" Value="150"/>
-          <Property Name="Width" Value="209"/>
+          <Property Name="Width" Value="201"/>
         </Control>
         <Control ClassId="0x00001004" Name="lbl_DefaultFlippedBoard2">
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="52"/>
+          <Property Name="Left" Value="398"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnMagExchangeMode.uiRtStat]"/>
@@ -746,8 +746,8 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="295"/>
           <Property Name="TextSource" Value="SingleText"/>
-          <Property Name="Top" Value="185"/>
-          <Property Name="Width" Value="169"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="Width" Value="97"/>
         </Control>
         <Control ClassId="0x00001018" Name="DrpDw_DefaultFlippedBrd2">
           <Property Name="ButtonsBitmapGroup" Value="Source[local].BitmapGroup[DropDown]"/>
@@ -759,7 +759,7 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnMagExchangeMode.usiValueIdx]"/>
-          <Property Name="Left" Value="256"/>
+          <Property Name="Left" Value="497"/>
           <Property Name="LeftBitmap" Value="None"/>
           <Property Name="LeftTextGroup" Value="None"/>
           <Property Name="MaxDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyDrpDnMagExchangeMode.usiValueMaxIdx]"/>
@@ -775,8 +775,8 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1070_MachineModeSelections]"/>
           <Property Name="TextIndexOffset" Value="30"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="185"/>
-          <Property Name="Width" Value="207"/>
+          <Property Name="Top" Value="255"/>
+          <Property Name="Width" Value="231"/>
         </Control>
         <Control ClassId="0x00001007" Name="Input_TCPSvrPort">
           <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumTCPSvrPort.bRtCompl]"/>
@@ -801,7 +801,7 @@
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="475"/>
+          <Property Name="Left" Value="447"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyNumTCPSvrPort.uiRtStat]"/>
@@ -810,21 +810,21 @@
           <Property Name="TextIndexOffset" Value="23"/>
           <Property Name="TextSource" Value="SingleText"/>
           <Property Name="Top" Value="150"/>
-          <Property Name="Width" Value="113"/>
+          <Property Name="Width" Value="141"/>
         </Control>
         <Control ClassId="0x0000100B" Name="Input_HMIIPAdd">
           <Property Name="CompletionDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringHMIIPAddr.bRtCompl]"/>
           <Property Name="ControlID" Value="0"/>
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
-          <Property Name="Left" Value="586"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="Locking" Value="Datapoint &gt;= Level"/>
           <Property Name="LockingDatapoint" Value="None"/>
           <Property Name="LockingLevel" Value="1"/>
           <Property Name="SimulationValue" Value="192.168.000.101"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringHMIIPAddr.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[InputNumeric]"/>
-          <Property Name="Top" Value="291"/>
+          <Property Name="Top" Value="220"/>
           <Property Name="ValueDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringHMIIPAddr.sValue]"/>
           <Property Name="Width" Value="140"/>
         </Control>
@@ -840,7 +840,7 @@
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="289"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="291"/>
+          <Property Name="Top" Value="220"/>
           <Property Name="Width" Value="140"/>
         </Control>
         <Control ClassId="0x00001005" Name="Mask_HMIIP">
@@ -850,11 +850,11 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="586"/>
+          <Property Name="Left" Value="588"/>
           <Property Name="SimulationValue" Value="0"/>
           <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP1021McSetGen.tyStringHMIIPAddr.uiMaskRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Mask]"/>
-          <Property Name="Top" Value="291"/>
+          <Property Name="Top" Value="220"/>
           <Property Name="Width" Value="140"/>
         </Control>
         <Control ClassId="0x00001004" Name="lbl_DefGWIPAdd">
@@ -862,14 +862,14 @@
           <Property Name="Description" Value=""/>
           <Property Name="Height" Value="30"/>
           <Property Name="IndexDatapoint" Value="None"/>
-          <Property Name="Left" Value="473"/>
+          <Property Name="Left" Value="398"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1080_MachineSetting]"/>
           <Property Name="TextIndexOffset" Value="390"/>
           <Property Name="TextSource" Value="MultipleTexts"/>
-          <Property Name="Top" Value="185"/>
+          <Property Name="Top" Value="186"/>
           <Property Name="Width" Value="111"/>
         </Control>
         <Control ClassId="0x0000100B" Name="Input_SubNetMask1">
@@ -3777,8 +3777,8 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_McNm]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag1WidthChkDist]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_TravPosInletFixToFix]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_TranOutErrDlyTm]">
@@ -3795,7 +3795,7 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[NumInput_ScreenSaverTm]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
     </MovementEntry>
@@ -3807,14 +3807,14 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos3]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag3WidthAtHmPos]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos3]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_Mag3ConvRunTmOut]">
@@ -3845,7 +3845,7 @@
       <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[Input_InStprDelayTm]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm2]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_InStprDelayTm]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_MagazineInletSenTim]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB]"/>
@@ -3854,28 +3854,28 @@
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag1WidthChkDist]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]">
-      <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_SubNetMask]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]">
-      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Numeric_WidthOffset]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]">
-      <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_IPAdd]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]"/>
@@ -3884,21 +3884,21 @@
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag2WidthChkDist]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]">
-      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Numeric_WidthOffset]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm2]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_SubNetMask]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask1]">
-      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
       <Property Name="Left" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_SubNetMask]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag3WidthChkDist]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag3WidthChkDist]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]">
       <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_MagazineInletSenTim]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB]">
@@ -3909,32 +3909,32 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]">
       <Property Name="Down" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_IPAdd]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]"/>
       <Property Name="Right" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_IPAdd]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]">
       <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag3WidthChkDist]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[Input_Mag3WidthChkDist]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_TravPosInletFixToFix]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag2WidthAtHmPos]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_TranOutErrDlyTm1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_Mag2WidthAtHmPos]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_AWPusherAtHomePos]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_Mag3ConvRunTmOut]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_Mag3WidthAtHmPos]">
       <Property Name="Down" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos3]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_MagazineInletSenTim]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General2].Control[Input_AWPusherAtHomePos]">
@@ -3946,31 +3946,31 @@
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_TravPosInletFixToFix]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag1WidthAtHmPos]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag3WidthAtHmPos]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos3]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_McNm]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_InMagConvInitTm2]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_IPAdd]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_IPAdd]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_LifterMagConvInitTm2]">
@@ -3982,14 +3982,14 @@
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm2]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_WidthAtHomePos]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]">
       <Property Name="Down" Value="Source[embedded].Layer[E0_NetworkParam].Control[Input_SubNetMask]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB1]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_IPAdd]"/>
@@ -4017,7 +4017,7 @@
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A3_General4].Control[Input_Mag2WidthChkDist]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[Input_MagazineInletSenTim]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB]"/>
     </MovementEntry>
@@ -4040,10 +4040,10 @@
       <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_Mag2ConvRunTmOut]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A3_General4].Control[Input_MESWriteTO1]">
-      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_NetworkMod]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_IPAdd]"/>
-      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
+      <Property Name="Up" Value="Source[embedded].Layer[A1_General1].Control[Input_HMIIPAdd]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos1]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_TravPosInletFixToFix]"/>
@@ -4054,7 +4054,7 @@
     <MovementEntry Control="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos2]">
       <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd1]"/>
       <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneB]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A2_General3].Control[Input_OutMagConvInitTm]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_McMod]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[A3_General4].Control[DrpDw_Pos3]">
@@ -4064,15 +4064,15 @@
       <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_Mag3WidthAtHmPos]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[E0_NetworkParam].Control[Input_IPAdd]">
-      <Property Name="Down" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
+      <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
       <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_TCPSvrPort]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General2].Control[Input_TravPosLaneA1]"/>
     </MovementEntry>
     <MovementEntry Control="Source[embedded].Layer[E0_NetworkParam].Control[Input_SubNetMask]">
       <Property Name="Down" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterBtmPos]"/>
-      <Property Name="Left" Value="Source[embedded].Layer[A1_General1].Control[DrpDw_DefaultFlippedBrd2]"/>
-      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Numeric_AutoLogoutTm]"/>
+      <Property Name="Left" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
+      <Property Name="Right" Value="Source[embedded].Layer[A1_General1].Control[Input_SubNetMask1]"/>
       <Property Name="Up" Value="Source[embedded].Layer[A2_General3].Control[Input_LifterTopPos]"/>
     </MovementEntry>
   </MovementOrder>

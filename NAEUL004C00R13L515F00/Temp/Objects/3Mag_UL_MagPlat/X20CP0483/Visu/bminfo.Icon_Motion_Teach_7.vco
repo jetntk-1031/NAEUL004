@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Motion_Teach_7" ClsId="0x306" Version="1" TargetIndex="392" Type="GFX" RefString="Source[local].Bitmap[Icon_Motion_Teach_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMBSURBVEhLtde/TlRREMdxSh/CN/AlLHwDSgtqYohoY0Fp4p/OCKUdtQsWWpCYSJSSYII0Jhs7YkVoKHXlc7m/dTi7wGLwJL/ce2fOme/MnHM22blZx8LCwq319fW7VWy9+/8NoMPDw9HR0dFYGxsbT3v3zQyVtNUAg52cnIzVgqetm3ksLS3d3tvb+0zeBQLd3t4eVCiZk5aTRPb393+w9eFmG4Gmld4BtbiFpvo6L+sODr79nhku47r4MgU4TZIklSukD3/xMGlzc3OYhQnSBtzd3R3t7HwZDYfDsa36ie9aLTdxGlzrIkGptVXo1tbWr+Xl5QczH7S0uwZSYWCxRbGnAyQR4JnanKHiNkgqIr4Pn96MFZ8nn6dE6co7rkpAWltbextIAkaBff25OpbvFki+c9Voass5HIQKiRIE4OXHO+eg9O77/c6utaurr0crKyujR48fdk/f7NarfgIObELNtgU/eXWvAwBVsVXQYDDoYJ41EZ28EKxlFa7VLbiKTWBrHbT64xK5FeJKYnFx8X2PPBttxRV+Edj38xfPunOQE97e5fZ7Au7YawW5w7XySOsqXPvSlRzC+fn5CZCCanI65H736L+DEbjC861CcNDTLnUwAgCltB0sNrDM5T8t9Hjijudns8I9LSAQYB0QiC8AqtVJNHbrMn9q1U6eloMEnvvrXQALA67QaXssyfitF1dC5/Ya1H0LMFI1iGpALQSOL22v0CrJJlaumXb32OltDrSCLRQgXYkvba6Vs/Gb125Xjz0bes8ZaCZXcCpmT5LxB9hCW/C5ig3tDpy8U/bdInDt9e3d/nkGVmU+vwrNT6snfkwMcD8qlJ+57L+FuU5JJIeHXYVR9UnMfOu8T5zqy4ZEBAQQVBJJJAB2W6S1sRFgqjV/4h5fNkxWtba38NxZVWVPzanbkmq1OZ2ceVhAFgsSePbPM6p2UMk5VNeGtqPC08pW7Pzm3Qg0wyERUGAVgVSxa/k/tfeqIaAEBJdEf3iOffeJdf9G+un9mJv7A0PBT767gN2IAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

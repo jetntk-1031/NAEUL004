@@ -1,0 +1,21 @@
+Fri Dec 29 15:46:34 2023
+COPYRIGHT (C) B&R Industrial Automation GmbH
+
+Fri Dec 29 15:46:34 2023
+No ARsim registration found!
+
+Fri Dec 29 15:46:34 2023
+InstanceName: 01da3a2b251e04e0
+
+Fri Dec 29 15:46:34 2023
+WorkingDirectory: C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Simulation\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\
+
+Fri Dec 29 15:46:34 2023
+COMMAND_COLDSTART
+
+Fri Dec 29 15:46:37 2023
+Version: B4.82
+
+Fri Dec 29 15:46:50 2023
+COMMAND_TERMINATE
+

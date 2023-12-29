@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Motion_Get_7" ClsId="0x306" Version="1" TargetIndex="377" Type="GFX" RefString="Source[local].Bitmap[Icon_Motion_Get_7]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">30</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMjSURBVEhLtZUxiBNBFIbTXCFCuoDFNqnPxsLCThEL09ik00YE0eKwSxMQ7ioNV6Sw1sYDmyCe6VJocQcRD0E8UwhH4IoUqVLYGEnifZP543N21l3u9MHPTt7OvO+9N7OTUlGr1+vnBoPBFSt8/vX/s3a7ff3o+Mv3yWSyQOPxeNF53dn0r/+NUUlYDWCA0+l0pRj41F2o1WoX+v3+HmJMIKDdbvdVCGYO75Qoc0aj0Wd8PlwxE1TtVALD4dCB5Jfw0XLmAGWMny0pDCdjArBYAfQsIrsGUTmF+PDZpmq1MCYqPzj46MQYxeagXq/3o3DVTFRrbbDDr4crKXDoC6HNZnOj8EHTAVEAZGFZsh1gPuC182vrPmy+UXEYxILf998sdnvPnBjrHU/W6Ylyv3Gq1E0Uq1YC9uH4qTuxiLFNwIq1bNlfbziqpDXhYisArXfrDmy1++2287P+4caDxeVrl35K/H6x83xKktHqBVaLLFC/H+3cdwBAVvhCELF4bj15PLt556p732g03qaqFnh/b3+1P8BoVwi2urV90QUFwom2N5qVupEkSccjlxZWbOFZYCpB2m/A4YVixRyqrlarnzx2eXHgRGQfghGJUaGtlEOFBLZw/VZi3GKIqiuVypZH/zY+elqutgPXb/ZMUFonMFtiwRoDms1m21Z8NcBTVykOqrb7rYoRcMA88VsoYg7rEZ9TFrhcLt/wyKXp5iKAKlVljKkU8R6QBZOMoKj1suUukfl8flfim6bVqYPGRAEltRwIBwowfkFpL5CYSMaCYSTV5F7qkNEe22JBBVabAcunajn5oUhSt5fHlGjzH2CMw0UbBWWMYhXbhPDFwMz3oZ2xlamKZYIjxmSofQeAGCsxd2BOgtENTr0EFD8wia5G9xhjApcKYiwf+8+hAcCTqvn2+fsjIE/eSUDxWzEHKO8crIiRCJcBQVW1wBLBVZ31S2oz83zYfGMyVQMDzpNAMUBMzKXa6M2VZ6rGtcu3jDOQJ+YBJGHW+3CnM1qmCrISEJB5QP3Ss5uCKoFQ+EmQ8ZkrDY29d9V5iOQSOqk4fpBKpV/+h0kHk10BWAAAAABJRU5ErkJggg==</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>

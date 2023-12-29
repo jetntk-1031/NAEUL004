@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=3.0?>
+<Intermediate xmlns="http://br.automation.co.at/AS/VC/Intermediate">
+  <Folder Name="Bitmaps">
+    <Folder Name="POBJ">
+      <Object Name="Icon_Hermes_Logo_30x17" ClsId="0x306" Version="1" TargetIndex="453" Type="GFX" RefString="Source[local].Bitmap[Icon_Hermes_Logo_30x17]">
+        <UInt16 Name="Width">30</UInt16>
+        <UInt16 Name="Height">17</UInt16>
+        <UInt32 Name="BitsPerPixel">32</UInt32>
+        <Byte Name="Transparency">0</Byte>
+        <Byte Name="TargetFormat">2</Byte>
+        <UInt16 Name="Reserved">0</UInt16>
+        <Int32 Name="TransparentColor">0</Int32>
+        <Int32 Name="FillAreas">0</Int32>
+        <Binary Name="BitmapData" Encoding="Base64">iVBORw0KGgoAAAANSUhEUgAAAB4AAAARCAYAAADKZhx3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACFSURBVEhLY1BZbvlfrtuAZAzSB8IeW6JIxiB9DDKNuv8ZGBhIxjCLyQEgy4eGxezSXHA2XS0GWQRSD3IA3S1Gx+QAqlgcvy///8PPT6BGEgeoYjEMk+IAqloMwyvvbIQajxtQ1WKQYcSCoR3H5ACyLAaV03TPxwNWciHjoWsxzAD6Ysv/AKtNwpC4SLKoAAAAAElFTkSuQmCC</Binary>
+      </Object>
+    </Folder>
+  </Folder>
+</Intermediate>
