@@ -1,4 +1,4 @@
-(** 2019-07-04 **)
+
 ACTION Act_Background_UpdtData:
 	
 	//Update To Leader Recipe

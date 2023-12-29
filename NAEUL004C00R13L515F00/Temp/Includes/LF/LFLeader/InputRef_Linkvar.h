@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_241_
-#define _BUR_1703660021_241_
+#ifndef _BUR_1703818768_6_
+#define _BUR_1703818768_6_
 
 #include <bur/plctypes.h>
 
@@ -36,5 +36,5 @@ __asm__(".ascii \"iecfile \\\"Logical/LF/LFLeader/InputRef_Link.var\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_241_ */
+#endif /* _BUR_1703818768_6_ */
 

@@ -12,6 +12,5 @@
     <Object Type="File" Description="Do Not Change!!!">OpsLifMagUL.typ</Object>
     <Object Type="File" Description="Change By Project">OpsLifMagUL.var</Object>
     <Object Type="Program" Language="IEC" Description="1.00.0 - ">OpsLifMagUL</Object>
-    <Object Type="Package">MultiMag_InOutMagazineConv</Object>
   </Objects>
 </Package>

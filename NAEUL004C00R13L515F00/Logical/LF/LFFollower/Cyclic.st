@@ -1,31 +1,25 @@
-(** 2019-04-21 **)
+
 PROGRAM _CYCLIC
 	
 	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-		
+		bInitDone	:= TRUE;	
 		Act_InitLocal;
-		Act_InitGlobal;
-		
+	
 	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+		IF g_tyStartUp.bNtSettingsLoadDone THEN
 			bInitialDone	:= TRUE;
-			
 			Act_Initial;
 		END_IF
 		
 	ELSE
 		
-		Act_RstErr;
-		Act_LinkEn;
+		Act_InputConfig;
 		
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
-			Act_Link;
+		IF (tylocalLFFollower.In.bPrep = TRUE) AND (tylocalLFFollower.In.bEn = TRUE) AND (tylocalLFFollower.In.bDis = FALSE) THEN
 			Act_Background;
 			
 		ELSE
-			Act_Main_Disable;
-			
+			Act_Main_Disable;	
 		END_IF
 		
 		Act_Alarm;

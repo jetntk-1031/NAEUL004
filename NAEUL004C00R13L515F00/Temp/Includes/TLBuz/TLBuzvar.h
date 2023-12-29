@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_18_
-#define _BUR_1703660020_18_
+#ifndef _BUR_1703817512_18_
+#define _BUR_1703817512_18_
 
 #include <bur/plctypes.h>
 
@@ -13,15 +13,7 @@
 
 
 /* Variables */
-_GLOBAL unsigned long p_TLBuzBeep;
-_GLOBAL unsigned long p_TLBuzGreen;
-_GLOBAL unsigned long p_TLBuzWhite;
-_GLOBAL unsigned long p_TLBuzAmber;
-_GLOBAL unsigned long p_TLBuzRed;
-_GLOBAL unsigned long p_TLBuzBlue;
-_GLOBAL unsigned long p_TLBuzStatTxt;
-_GLOBAL unsigned long p_TLBuzStatus;
-_GLOBAL unsigned long p_TLBuzStat;
+_GLOBAL struct tyTLBuzOut1 g_tyTLBuz;
 
 
 
@@ -37,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/TLBuz/TLBuz.var\\\" scope \\\"global\\\"\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_18_ */
+#endif /* _BUR_1703817512_18_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_21_
-#define _BUR_1703660020_21_
+#ifndef _BUR_1703817512_21_
+#define _BUR_1703817512_21_
 
 #include <bur/plctypes.h>
 
@@ -48,5 +48,5 @@ __asm__(".ascii \"iecfile \\\"Logical/RstErr/RstErr.typ\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_21_ */
+#endif /* _BUR_1703817512_21_ */
 

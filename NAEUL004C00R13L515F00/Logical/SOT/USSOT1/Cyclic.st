@@ -1,38 +1,27 @@
 (** 2021-04-20 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-			
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+	IF bInitialDone = FALSE THEN
+		IF g_tyStartUp.bNtSettingsLoadDone = TRUE  THEN
 			bInitialDone	:= TRUE;
-			
 			Act_Initial;
 		END_IF
 		
 	ELSE
 		
-		Act_RstErr;
-		Act_LinkAction;
-		Act_Action;
-		Act_LinkEn;
-		
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
+		Act_InputConfig;
+		IF (tylocalUSSOT.In.bPrep = TRUE) AND (tylocalUSSOT.In.bEn = TRUE) AND (tylocalUSSOT.In.bDis = FALSE) THEN
 			Act_Link;
 			Act_Background;
 			Act_Main;
 		ELSE
-			IF eStat <> SOTActIdle THEN
-				eStatus	:= Done;
+			IF tylocalUSSOT.Out.eStat <> SOTActIdle THEN
+				tylocalUSSOT.Out.eStatus	:= Done;
 			ELSE
-				eStatus	:= Idle;
+				tylocalUSSOT.Out.eStatus	:= Idle;
 			END_IF
 		END_IF
-		
+		Act_OutputConfig;
 		Act_Alarm;
 		
 	END_IF

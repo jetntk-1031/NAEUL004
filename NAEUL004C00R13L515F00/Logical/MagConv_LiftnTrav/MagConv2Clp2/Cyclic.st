@@ -8,14 +8,14 @@ PROGRAM _CYCLIC
 		END_IF
 	ELSE
 		Act_InputConfig;
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
+		IF (tylocalMagConv2Clp.In.bPrep = TRUE) AND (tylocalMagConv2Clp.In.bEn = TRUE) AND (tylocalMagConv2Clp.In.bDis = FALSE) THEN
 			Act_Link;
 			Act_Main;
 		ELSE
-			IF eStat <> MagConv2ClpActIdle THEN
-				eStatus	:= Done;
+			IF tylocalMagConv2Clp.Out.eStat <> MagConv2ClpActIdle THEN
+				tylocalMagConv2Clp.Out.eStatus	:= Done;
 			ELSE	
-				eStatus	:= Idle;
+				tylocalMagConv2Clp.Out.eStatus	:= Idle;
 			END_IF	
 		END_IF	
 		Act_OutputConfig;

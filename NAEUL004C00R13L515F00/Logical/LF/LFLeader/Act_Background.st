@@ -1,10 +1,10 @@
-(** 2019-04-25 **)
+
 ACTION Act_Background:
 	
 	IF EDGEPOS(bRun1 AND bRun2) THEN
 		
 		FOR di := 1 TO c_diLFClntNum DO
-			IF pa_sLFIPAddr[di] = '' THEN
+			IF g_tyMcParamCurr.a_sLFIPAddr[di] = '' THEN
 				diMcNum	:= di - 1;
 				EXIT;
 			END_IF

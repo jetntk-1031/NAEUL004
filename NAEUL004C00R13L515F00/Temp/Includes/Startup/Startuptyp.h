@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_5_
-#define _BUR_1703660020_5_
+#ifndef _BUR_1703817512_5_
+#define _BUR_1703817512_5_
 
 #include <bur/plctypes.h>
 
@@ -27,6 +27,10 @@ typedef enum eStartupStep
 	StartupStepSetupUI,
 	StartupStepDone
 } eStartupStep;
+
+typedef struct tyStartUpIn1
+{	enum eStartupAction eAct;
+} tyStartUpIn1;
 
 typedef struct tyStartUpOut1
 {	plcbit bRun;
@@ -70,9 +74,10 @@ typedef struct tyStartUpOut1
 	plcstring sStatTxt[201];
 } tyStartUpOut1;
 
-typedef struct tyStartUpIn1
-{	enum eStartupAction eAct;
-} tyStartUpIn1;
+typedef struct tyStartUp
+{	struct tyStartUpIn1 In;
+	struct tyStartUpOut1 Out;
+} tyStartUp;
 
 
 
@@ -89,5 +94,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Startup/Startup.typ\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_5_ */
+#endif /* _BUR_1703817512_5_ */
 

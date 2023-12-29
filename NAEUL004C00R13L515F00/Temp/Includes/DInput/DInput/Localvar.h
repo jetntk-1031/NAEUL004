@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_222_
-#define _BUR_1703660021_222_
+#ifndef _BUR_1703817513_199_
+#define _BUR_1703817513_199_
 
 #include <bur/plctypes.h>
 
@@ -16,30 +16,6 @@
 _BUR_LOCAL unsigned long udiModuleNum;
 _BUR_LOCAL enum eMidSenParam eMidSenNcNoType;
 _BUR_LOCAL struct TON fbCurtainSafetyRstTm;
-_BUR_LOCAL signed long diOutMagConv2MidSenOffTm;
-_BUR_LOCAL signed long diOutMagConv2MidSenOnTm;
-_BUR_LOCAL signed long diOutMagConv2ExtSenOffTm;
-_BUR_LOCAL signed long diOutMagConv2ExtSenOnTm;
-_BUR_LOCAL signed long diOutMagConv2EntSenOffTm;
-_BUR_LOCAL signed long diOutMagConv2EntSenOnTm;
-_BUR_LOCAL signed long diInMagConv2MidSenOffTm;
-_BUR_LOCAL signed long diInMagConv2MidSenOnTm;
-_BUR_LOCAL signed long diInMagConv2ExtSenOffTm;
-_BUR_LOCAL signed long diInMagConv2ExtSenOnTm;
-_BUR_LOCAL signed long diInMagConv2EntSenOffTm;
-_BUR_LOCAL signed long diInMagConv2EntSenOnTm;
-_BUR_LOCAL signed long diOutMagConvMidSenOffTm;
-_BUR_LOCAL signed long diOutMagConvMidSenOnTm;
-_BUR_LOCAL signed long diOutMagConvExtSenOffTm;
-_BUR_LOCAL signed long diOutMagConvExtSenOnTm;
-_BUR_LOCAL signed long diOutMagConvEntSenOffTm;
-_BUR_LOCAL signed long diOutMagConvEntSenOnTm;
-_BUR_LOCAL signed long diInMagConvMidSenOffTm;
-_BUR_LOCAL signed long diInMagConvMidSenOnTm;
-_BUR_LOCAL signed long diInMagConvExtSenOffTm;
-_BUR_LOCAL signed long diInMagConvExtSenOnTm;
-_BUR_LOCAL signed long diInMagConvEntSenOffTm;
-_BUR_LOCAL signed long diInMagConvEntSenOnTm;
 _BUR_LOCAL struct fbSenFltr fbOutMagConv2MidSigFltr;
 _BUR_LOCAL struct fbSenFltr fbOutMagConv2ExtSigFltr;
 _BUR_LOCAL struct fbSenFltr fbOutMagConv2EntSigFltr;
@@ -101,31 +77,12 @@ _BUR_LOCAL signed long diConvLftSenOnTm;
 _BUR_LOCAL plcstring sProgNm[16];
 _BUR_LOCAL struct tyDigitalInputSettings tyDISettings;
 _BUR_LOCAL unsigned long udiRstErr;
-_BUR_LOCAL struct tyDigitalInput tyDInput;
-
-#ifdef _BUR_USE_DECLARATION_IN_IEC
-_BUR_LOCAL struct tyAlmTxt a_tyAlmText[100];
-#else
-/* Variable a_tyAlmText not declared. Array variables with starting indexes not equal to zero cannot be used in ANSI C programs / libraries.*/
-#endif
-_BUR_LOCAL struct tyAlmDat tyAlmData6;
-_BUR_LOCAL struct tyAlmDat tyAlmData5;
-_BUR_LOCAL struct tyAlmDat tyAlmData4;
-_BUR_LOCAL struct tyAlmDat tyAlmData3;
-_BUR_LOCAL struct tyAlmDat tyAlmData2;
-_BUR_LOCAL struct tyAlmDat tyAlmData1;
 _BUR_LOCAL unsigned long udiStatus6;
 _BUR_LOCAL unsigned long udiStatus5;
 _BUR_LOCAL unsigned long udiStatus4;
 _BUR_LOCAL unsigned long udiStatus3;
 _BUR_LOCAL unsigned long udiStatus2;
 _BUR_LOCAL unsigned long udiStatus1;
-_BUR_LOCAL enum eFBStatus eStatus6;
-_BUR_LOCAL enum eFBStatus eStatus5;
-_BUR_LOCAL enum eFBStatus eStatus4;
-_BUR_LOCAL enum eFBStatus eStatus3;
-_BUR_LOCAL enum eFBStatus eStatus2;
-_BUR_LOCAL enum eFBStatus eStatus1;
 
 
 
@@ -146,5 +103,5 @@ __asm__(".ascii \"iecdep \\\"Logical/DInput/DInput.var\\\" scope \\\"global\\\"\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_222_ */
+#endif /* _BUR_1703817513_199_ */
 

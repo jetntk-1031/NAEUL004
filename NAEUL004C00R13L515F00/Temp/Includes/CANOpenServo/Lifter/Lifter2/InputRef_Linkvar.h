@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_205_
-#define _BUR_1703660021_205_
+#ifndef _BUR_1703817513_230_
+#define _BUR_1703817513_230_
 
 #include <bur/plctypes.h>
 
@@ -35,5 +35,5 @@ __asm__(".ascii \"iecfile \\\"Logical/CANOpenServo/Lifter/Lifter2/InputRef_Link.
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_205_ */
+#endif /* _BUR_1703817513_230_ */
 

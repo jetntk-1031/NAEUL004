@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_279_
-#define _BUR_1703660021_279_
+#ifndef _BUR_1703817866_5_
+#define _BUR_1703817866_5_
 
 #include <bur/plctypes.h>
 
@@ -121,14 +121,6 @@ _BUR_LOCAL enum eFBStatus eLifter2Status;
 _BUR_LOCAL enum eLifterAction eLifter2Stat;
 _BUR_LOCAL enum eFBStatus eLifterStatus;
 _BUR_LOCAL enum eLifterAction eLifterStat;
-_BUR_LOCAL enum eFBStatus eOutMagConv2Status;
-_BUR_LOCAL struct eMagConvAction eOutMagConv2Stat;
-_BUR_LOCAL enum eFBStatus eOutMagConvStatus;
-_BUR_LOCAL struct eMagConvAction eOutMagConvStat;
-_BUR_LOCAL enum eFBStatus eInMagConv2Status;
-_BUR_LOCAL struct eMagConvAction eInMagConv2Stat;
-_BUR_LOCAL enum eFBStatus eInMagConvStatus;
-_BUR_LOCAL struct eMagConvAction eInMagConvStat;
 _BUR_LOCAL plcdt dtBufferMagPresentTm3;
 _BUR_LOCAL plcdt dtBufferMagPresentTm2;
 _BUR_LOCAL plcdt dtBufferMagPresentTm1;
@@ -175,8 +167,6 @@ _BUR_LOCAL enum eSMEMAAction eUSSMEMAAct1;
 _BUR_LOCAL enum eBufferAction eBufferAct3;
 _BUR_LOCAL enum eBufferAction eBufferAct2;
 _BUR_LOCAL enum eBufferAction eBufferAct1;
-_BUR_LOCAL struct eMagConvAction eLifterConv2Act;
-_BUR_LOCAL struct eMagConvAction eLifterConvAct;
 _BUR_LOCAL enum eLifterAction eLifter2Act;
 _BUR_LOCAL enum eLifterAction eLifterAct;
 _BUR_LOCAL plcbit bPaused;
@@ -210,5 +200,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/OpsLifMagUL/Local.var\\\" scope
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_279_ */
+#endif /* _BUR_1703817866_5_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_94_
-#define _BUR_1703660020_94_
+#ifndef _BUR_1703817512_103_
+#define _BUR_1703817512_103_
 
 #include <bur/plctypes.h>
 
@@ -67,5 +67,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/MagConv_StationaryPlat/OpsMagCo
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_94_ */
+#endif /* _BUR_1703817512_103_ */
 

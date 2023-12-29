@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_68_
-#define _BUR_1703660020_68_
+#ifndef _BUR_1703817512_87_
+#define _BUR_1703817512_87_
 
 #include <bur/plctypes.h>
 
@@ -43,5 +43,5 @@ __asm__(".ascii \"iecfile \\\"Logical/CANOpenServo/PullerPusher/PullerPusher.typ
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_68_ */
+#endif /* _BUR_1703817512_87_ */
 

@@ -108,10 +108,6 @@
     <Task Name="Machine" Source="Machine.Machine.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT2" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT2" Source="SOT.DSSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT3" Source="SOT.USSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT3" Source="SOT.DSSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Simu1" Source="Simulation.Simu1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Simu2" Source="Simulation.Simu2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>

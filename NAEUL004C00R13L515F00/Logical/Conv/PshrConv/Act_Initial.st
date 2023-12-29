@@ -2,7 +2,7 @@
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	tylocalPshrConv.Out.sStatTxt	:= a_sStatText[eStat];
 	
 	fbWaitTm(IN := FALSE);
 	

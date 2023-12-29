@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_3_
-#define _BUR_1703660020_3_
+#ifndef _BUR_1703817512_3_
+#define _BUR_1703817512_3_
 
 #include <bur/plctypes.h>
 
@@ -230,6 +230,12 @@ typedef struct tyUIOut1
 	plcbit bRlsMag1;
 	plcbit bRlsMag2;
 	plcbit bRlsMag3;
+	struct tyTagAGVToDTMag tyAGVSimulateSig;
+	plcbit bAGVSimulateOnline;
+	plcbit bAGVSimulationOn;
+	struct tySOTstatus tySOTSimulateSig1;
+	struct tySOTstatus tySOTSimulateSig2;
+	struct tySOTstatus tySOTSimulateSig3;
 	signed long diMnlPPGoWidth;
 	signed long diMnlPPTargetPos;
 	signed long diMnlPPStepSize;
@@ -314,5 +320,5 @@ __asm__(".ascii \"iecfile \\\"Logical/UI/UI.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_3_ */
+#endif /* _BUR_1703817512_3_ */
 

@@ -1,12 +1,13 @@
 (** 2019-01-18 **)
 ACTION Act_Background:
 	
-	IF p_bExtSen = FALSE THEN
-		bExtended	:= FALSE;
+	//background 
+	IF tylocalMtrPshr.In.bExtSen = FALSE THEN
+		tylocalMtrPshr.Out.bExtended	:= FALSE;
 	END_IF
 	
-	IF p_bRetSen = FALSE THEN
-		bRetracted	:= FALSE;
+	IF tylocalMtrPshr.In.bRetSen = FALSE THEN
+		tylocalMtrPshr.Out.bRetracted	:= FALSE;
 	END_IF
 	
 	//Torque Minimum Value
@@ -15,33 +16,33 @@ ACTION Act_Background:
 	END_IF
 	
 	//Abnormal Movement
-	IF eStatus <> Error THEN
+	IF tylocalMtrPshr.Out.eStatus <> Error THEN
 		
-		fbAlmTrigTm(IN := NOT p_bAlarmSig);
+		fbAlmTrigTm(IN := NOT tylocalMtrPshr.In.bAlarmSig);
 		
 		IF fbAlmTrigTm.Q = TRUE THEN
-			eStatus		:= Error;
+			tylocalMtrPshr.Out.eStatus		:= Error;
 			udiStatus	:= 10006;	//Motorized Pusher Alarm Occur
 			
-			bCW			:= FALSE;
-			bCCW		:= FALSE;
-			bSpdBinBit0	:= FALSE;
-			bSpdBinBit1	:= FALSE;
-			bSpdBinBit2	:= FALSE;
-			bSigOn		:= FALSE;
-			bBrake		:= FALSE;
-			bAlmRst		:= FALSE;
+			tylocalMtrPshr.Out.bCW			:= FALSE;
+			tylocalMtrPshr.Out.bCCW		:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+			tylocalMtrPshr.Out.bSigOn		:= FALSE;
+			tylocalMtrPshr.Out.bBrake		:= FALSE;
+			tylocalMtrPshr.Out.bAlmRst		:= FALSE;
 			
-			p_eAct	:= MtrPshrActIdle;
-			eStat	:= MtrPshrActIdle;
+			tylocalMtrPshr.In.eAct	:= MtrPshrActIdle;
+			tylocalMtrPshr.Out.eStat	:= MtrPshrActIdle;
 		END_IF
 		
 	END_IF
 	
 	//Reset Error
-	IF (eStatus = Error) AND bRstErr THEN
-		IF p_bAlarmSig = FALSE THEN
-			bAlmRst			:= TRUE;
+	IF (tylocalMtrPshr.Out.eStatus = Error) AND bRstErr THEN
+		IF tylocalMtrPshr.In.bAlarmSig = FALSE THEN
+			tylocalMtrPshr.Out.bAlmRst			:= TRUE;
 			fbAlmRstTm.IN	:= TRUE;
 			fbAlmTrigTm(IN := FALSE);
 		END_IF
@@ -50,11 +51,10 @@ ACTION Act_Background:
 	fbAlmRstTm;
 	
 	IF fbAlmRstTm.Q = TRUE THEN
-		bAlmRst		:= FALSE;
-		eStatus		:= Idle;
+		tylocalMtrPshr.Out.bAlmRst		:= FALSE;
+		tylocalMtrPshr.Out.eStatus		:= Idle;
 		udiStatus	:= 0;
 		
 		fbAlmRstTm.IN	:= FALSE;
 	END_IF
-	
 END_ACTION

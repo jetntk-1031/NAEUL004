@@ -7,14 +7,15 @@ PROGRAM _CYCLIC
 			Act_Initial;
 		END_IF
 	ELSE
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
+		Act_InputConfig;
+		IF (tylocalPshrConv.In.bPrep = TRUE) AND (tylocalPshrConv.In.bEn = TRUE) AND (tylocalPshrConv.In.bDis = FALSE) THEN
 			Act_Link;
 			Act_Main;
 		ELSE
-			IF eStat <> ConvActIdle THEN
-				eStatus	:= Done;
+			IF tylocalPshrConv.Out.eStat <> ConvActIdle THEN
+				tylocalPshrConv.Out.eStatus	:= Done;
 			ELSE
-				eStatus	:= Idle;
+				tylocalPshrConv.Out.eStatus	:= Idle;
 			END_IF	
 		END_IF
 		Act_OutputConfig;

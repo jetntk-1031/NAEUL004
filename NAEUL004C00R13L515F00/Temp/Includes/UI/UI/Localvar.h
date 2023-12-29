@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_136_
-#define _BUR_1703660020_136_
+#ifndef _BUR_1703817513_129_
+#define _BUR_1703817513_129_
 
 #include <bur/plctypes.h>
 
@@ -215,9 +215,9 @@ _BUR_LOCAL unsigned short i;
 _BUR_LOCAL enum eUIInitial eUIInit;
 _BUR_LOCAL plcbit bInitialDone;
 _BUR_LOCAL plcbit bInitDone;
-_BUR_LOCAL struct tyLyrP0950SOTstatus tySOTSimulateSig3;
-_BUR_LOCAL struct tyLyrP0950SOTstatus tySOTSimulateSig2;
-_BUR_LOCAL struct tyLyrP0950SOTstatus tySOTSimulateSig1;
+_BUR_LOCAL struct tySOTstatus tySOTSimulateSig3;
+_BUR_LOCAL struct tySOTstatus tySOTSimulateSig2;
+_BUR_LOCAL struct tySOTstatus tySOTSimulateSig1;
 _BUR_LOCAL plcbit bAGVSimulationOn;
 _BUR_LOCAL plcbit bAGVSimulateOnline;
 _BUR_LOCAL struct tyTagAGVToDTMag tyAGVSimulateSig;
@@ -256,5 +256,5 @@ __asm__(".ascii \"iecdep \\\"Logical/NtLibraries/NtHermes/Constants.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_136_ */
+#endif /* _BUR_1703817513_129_ */
 

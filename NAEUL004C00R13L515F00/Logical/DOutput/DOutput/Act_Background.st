@@ -5,113 +5,113 @@ ACTION Act_Background:
 	memset(ADR(a_bPhysicalDO), 0, SIZEOF(a_bPhysicalDO));
 	
 	//Digital Output Mapping Physical Output With Config
-	IF g_tyNtParamCurr.tyDOSettings.diSafetyRlyRst > 0 AND g_tyNtParamCurr.tyDOSettings.diSafetyRlyRst <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diSafetyRlyRst > 0 AND g_tyNtParamCurr.tyDOSettings.diSafetyRlyRst <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSafetyRlyRst]	:= g_tyRstErrOut.bSafetyRlyRst;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diTLRed > 0 AND g_tyNtParamCurr.tyDOSettings.diTLRed <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diTLRed > 0 AND g_tyNtParamCurr.tyDOSettings.diTLRed <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diTLRed]	:= g_tyTLBuz.bTLRed;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diTLAmber > 0 AND g_tyNtParamCurr.tyDOSettings.diTLAmber <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diTLAmber > 0 AND g_tyNtParamCurr.tyDOSettings.diTLAmber <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diTLAmber]	:= g_tyTLBuz.bTLAmber;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diTLGreen > 0 AND g_tyNtParamCurr.tyDOSettings.diTLGreen <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diTLGreen > 0 AND g_tyNtParamCurr.tyDOSettings.diTLGreen <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diTLGreen]	:= g_tyTLBuz.bTLGreen;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diBuzzer > 0 AND g_tyNtParamCurr.tyDOSettings.diBuzzer <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diBuzzer > 0 AND g_tyNtParamCurr.tyDOSettings.diBuzzer <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diBuzzer]	:= g_tyTLBuz.bBuzBeep;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diUSBA > 0 AND g_tyNtParamCurr.tyDOSettings.diUSBA <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diUSBA > 0 AND g_tyNtParamCurr.tyDOSettings.diUSBA <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diUSBA]	:= g_tyUSSMEMAA.bUSB;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diUSBB > 0 AND g_tyNtParamCurr.tyDOSettings.diUSBB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diUSBB > 0 AND g_tyNtParamCurr.tyDOSettings.diUSBB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diUSBB]	:= g_tyUSSMEMAB.bUSB;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diOvenInfoSigA > 0 AND g_tyNtParamCurr.tyDOSettings.diOvenInfoSigA <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diOvenInfoSigA > 0 AND g_tyNtParamCurr.tyDOSettings.diOvenInfoSigA <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOvenInfoSigA]	:= g_tyOvenInfoA.bOvenAllow;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diOvenInfoSigB > 0 AND g_tyNtParamCurr.tyDOSettings.diOvenInfoSigB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diOvenInfoSigB > 0 AND g_tyNtParamCurr.tyDOSettings.diOvenInfoSigB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOvenInfoSigB]	:= g_tyOvenInfoB.bOvenAllow;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diPusherExtCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diPusherExtCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diPusherExtCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diPusherExtCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diPusherExtCtrl]	:= g_tyPshrConv.bPshrExtCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlA > 0 AND g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlA <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlA > 0 AND g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlA <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlA]	:= g_tyPneuStopperA.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlB > 0 AND g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlB > 0 AND g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diStopperUnblkCtrlB]	:= g_tyPneuStopperB.bRetCtrl;
 	END_IF
 	
 
 	
 
-	IF g_tyNtParamCurr.tyDOSettings.diMag1FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1FixedClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1FixedClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1FixedClampCtrl]	:= g_tyMagConv2Clp1.bFixClprClampCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampCtrl]	:= g_tyMagConv2Clp1.bRemoteClampCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2FixedClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2FixedClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2FixedClampCtrl]	:= g_tyMagConv2Clp2.bFixClprClampCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampCtrl]	:= g_tyMagConv2Clp2.bRemoteClampCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3FixedClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3FixedClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3FixedClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3FixedClampCtrl]	:= g_tyMagConv2Clp3.bFixClprClampCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampCtrl]	:= g_tyMagConv2Clp3.bRemoteClampCtrl;
 	END_IF
 	
 	
 	IF bShutterTuning = FALSE THEN
 		
-			IF g_tyNtParamCurr.tyDOSettings.diInShutterOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diInShutterOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diInShutterOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diInShutterOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diInShutterOpenCtrl]	:= p_bInShutterOpenCtrl;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diInShutterCloseCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diInShutterCloseCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diInShutterCloseCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diInShutterCloseCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diInShutterCloseCtrl]	:= p_bInShutterCloseCtrl;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl]	:= p_bOutShutterOpenCtrl;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl]	:= p_bOutShutterCloseCtrl;
 			END_IF
 		
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl2]	:= p_bOutShutterOpenCtrl2;
 			END_IF
 				
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl2]	:= p_bOutShutterCloseCtrl2;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl3 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl3 <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl3 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl3 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterOpenCtrl3]	:= p_bOutShutterOpenCtrl3;
 			END_IF
 					
-			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl3 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl3 <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl3 > 0 AND g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl3 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutShutterCloseCtrl3]	:= p_bOutShutterCloseCtrl3;
 			END_IF
 		
@@ -154,148 +154,148 @@ ACTION Act_Background:
 		END_CASE		
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrIn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrIn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrIn]	:= g_tyMagConv2Clp1.bMtrSigOnOrLToR;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrOut <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrOut <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ConvMtrOut]	:= g_tyMagConv2Clp1.bMtrDirOrRToL;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrIn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrIn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrIn]	:= g_tyMagConv2Clp2.bMtrSigOnOrLToR;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrOut <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrOut <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ConvMtrOut]	:= g_tyMagConv2Clp2.bMtrDirOrRToL;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrIn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrIn > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrIn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrIn]	:= g_tyMagConv2Clp3.bMtrSigOnOrLToR;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrOut <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrOut > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrOut <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ConvMtrOut]	:= g_tyMagConv2Clp3.bMtrDirOrRToL;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SelClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SelClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1SelClampCtrl]	:= g_tyPneuSelClamp1.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SelClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SelClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2SelClampCtrl]	:= g_tyPneuSelClamp2.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SelClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3SelClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SelClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3SelClampCtrl]	:= g_tyPneuSelClamp3.bRetCtrl;
 	END_IF
 	
 	
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl]	:= p_bMag1SelUnclampCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1SelUnClampCtrl]	:= g_tyPneuSelClamp1.bExtCtrl;
 	END_IF
 	
-//	IF g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-//		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl]	:= p_bMag2SelUnclampCtrl;
+//	IF g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+//		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2SelUnClampCtrl]	:= g_tyPneuSelClamp2.bExtCtrl;
 //	END_IF
 //	
-//	IF g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-//		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl]	:= p_bMag3SelUnclampCtrl;
+//	IF g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+//		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3SelUnClampCtrl]	:= g_tyPneuSelClamp3.bExtCtrl;
 //	END_IF
 	
 	
-	IF g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn]	:= p_bPushConvMtrOn;
+	IF g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diPushConvMtrOn]	:= g_tyPshrConv.bMtrSigOnOrLToR;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl]	:= p_bMag1SafetyBarRetCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1SafetyBarRetCtrl]	:= g_tyPneuMag1SafetyBar.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl]	:= p_bMag2SafetyBarRetCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2SafetyBarRetCtrl]	:= g_tyPneuMag2SafetyBar.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl]	:= p_bMag3SafetyBarRetCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3SafetyBarRetCtrl]	:= g_tyPneuMag3SafetyBar.bRetCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl]	:= p_bMag1WallEngageCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1WallEngageCtrl]	:= g_tyPneuMag1AWEngage.bExtCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl]	:= p_bMag2WallEngageCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2WallEngageCtrl]	:= g_tyPneuMag2AWEngage.bExtCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl]	:= p_bMag3WallEngageCtrl;
+	IF g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3WallEngageCtrl]	:= g_tyPneuMag3AWEngage.bExtCtrl;
 	END_IF
 	
 	IF bAgvComIODisabled = FALSE THEN
 			//SOT Configuration
-			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagError <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagError <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT1MagError]				:= p_bSOTMagError1;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagSizeLarge <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagSizeLarge <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT1MagSizeLarge]				:= p_bSOTMagSizeLarge1;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagReady <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagReady <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT1MagReady]				:= p_bSOTMagReady1;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagAvailable <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT1MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT1MagAvailable <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT1MagAvailable]				:= p_bSOTMagAvailable1;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagError <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagError <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT2MagError]				:= p_bSOTMagError2;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagSizeLarge <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagSizeLarge <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT2MagSizeLarge]				:= p_bSOTMagSizeLarge2;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagReady <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagReady <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT2MagReady]				:= p_bSOTMagReady2;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagAvailable <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT2MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT2MagAvailable <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT2MagAvailable]				:= p_bSOTMagAvailable2;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagError <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagError <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT3MagError]				:= p_bSOTMagError3;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagSizeLarge <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagSizeLarge <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT3MagSizeLarge]				:= p_bSOTMagSizeLarge3;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagReady <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagReady <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT3MagReady]				:= p_bSOTMagReady3;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagAvailable <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT3MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT3MagAvailable <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT3MagAvailable]				:= p_bSOTMagAvailable3;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagError <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagError > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagError <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT4MagError]				:= p_bSOTMagError4;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagSizeLarge <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagSizeLarge > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagSizeLarge <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT4MagSizeLarge]				:= p_bSOTMagSizeLarge4;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagReady <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagReady > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagReady <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT4MagReady]				:= p_bSOTMagReady4;
 			END_IF
 			
-			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable <= UDINT_TO_DINT(p_udiMax) THEN
+			IF g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable > 0 AND g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 				a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable]				:= p_bSOTMagAvailable4;
 			END_IF
 	ELSE
@@ -317,72 +317,72 @@ ACTION Act_Background:
 			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diSOT4MagAvailable] := FALSE;
 	END_IF	
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1]				:= p_bMagAWOpenLimByp1;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp1]				:= bMagAWOpenLimByp1;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2]				:= p_bMagAWOpenLimByp2;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp2]				:= bMagAWOpenLimByp2;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3]				:= p_bMagAWOpenLimByp3;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp3]				:= bMagAWOpenLimByp3;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4]				:= p_bMagAWOpenLimByp4;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWOpenLimByp4]				:= bMagAWOpenLimByp4;
 	END_IF
 	
 		
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1]				:= p_bMagAWSmallLimSen1;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen1]				:= bMagAWSmallLimSen1;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2]				:= p_bMagAWSmallLimSen2;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen2]				:= bMagAWSmallLimSen2;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3]				:= p_bMagAWSmallLimSen3;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen3]				:= bMagAWSmallLimSen3;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4 <= UDINT_TO_DINT(p_udiMax) THEN
-		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4]				:= p_bMagAWSmallLimSen4;
+	IF g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4 > 0 AND g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMagAWSmallLimSen4]				:= bMagAWSmallLimSen4;
 	END_IF
 	
 	
 	IF p_eLinkAGVComProtocol = McSetAGVCommHardIO THEN
 		//AIV signals Get/Bring Magazine
-		IF g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring]				:= p_bRequestToBring1;
+		IF g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring]				:= bRequestToBring1;
 		END_IF
 		
-		IF g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet]				:= p_bRequestToGet1;
+		IF g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ReqToGet]				:= bRequestToGet1;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring]				:= p_bRequestToBring2;
+		IF g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ReqToBring]				:= bRequestToBring2;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet]				:= p_bRequestToGet2;
+		IF g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ReqToGet]				:= bRequestToGet2;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring]				:= p_bRequestToBring3;
+		IF g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ReqToBring]				:= bRequestToBring3;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet]				:= p_bRequestToGet3;
+		IF g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ReqToGet]				:= bRequestToGet3;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring]				:= p_bRequestToBring4;
+		IF g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring > 0 AND g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag4ReqToBring]				:= bRequestToBring4;
 		END_IF
 			
-		IF g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet <= UDINT_TO_DINT(p_udiMax) THEN
-			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet]				:= p_bRequestToGet4;
+		IF g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet > 0 AND g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet <= UDINT_TO_DINT(c_udiDOutputMax) THEN
+			a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet]				:= bRequestToGet4;
 		END_IF
 	ELSE
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ReqToBring] := FALSE;
@@ -395,143 +395,143 @@ ACTION Act_Background:
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag4ReqToGet] := FALSE;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrExt > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrExt <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrExt > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrExt <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrExt]	:= p_bMtrPshrExt;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrRet > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrRet <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrRet > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrRet <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrRet]	:= p_bMtrPshrRet;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrOn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrOn]	:= p_bMtrPshrOn;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrBrakeRls > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrBrakeRls <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrBrakeRls > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrBrakeRls <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrBrakeRls]	:= p_bMtrPshrBrakeRls;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit0 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit0 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit0 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit0 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit0]	:= p_bMtrPshrSpdBinBit0;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit1 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit1 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit1 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit1]	:= p_bMtrPshrSpdBinBit1;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrSpdBinBit2]	:= p_bMtrPshrSpdBinBit2;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrAlmRst > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrAlmRst <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPshrAlmRst > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPshrAlmRst <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPshrAlmRst]	:= p_bMtrPshrAlmRst;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diInMagConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diInMagConvMtrOn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diInMagConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diInMagConvMtrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diInMagConvMtrOn]	:= p_bInMagConvMtrOn;
 	END_IF
 		
-	IF g_tyNtParamCurr.tyDOSettings.diOutMagConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diOutMagConvMtrOn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diOutMagConvMtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diOutMagConvMtrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutMagConvMtrOn]	:= p_bOutMagConvMtrOn;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diInMagConv2MtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diInMagConv2MtrOn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diInMagConv2MtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diInMagConv2MtrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diInMagConv2MtrOn]	:= p_bInMagConv2MtrOn;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diOutMagConv2MtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diOutMagConv2MtrOn <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diOutMagConv2MtrOn > 0 AND g_tyNtParamCurr.tyDOSettings.diOutMagConv2MtrOn <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diOutMagConv2MtrOn]	:= p_bOutMagConv2MtrOn;
 	END_IF
 
-	IF g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl]	:= p_bEntTopStprUnblkCtrl;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl]	:= p_bMidTopStprUnblkCtrl;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl]	:= p_bExtTopStprUnblkCtrl;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl]	:= p_bMidBtmStprUnblkCtrl;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl]	:= p_bExtBtmStprUnblkCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diEntTopStprUnblkCtrl2]	:= p_bEntTopStprUnblkCtrl2;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMidTopStprUnblkCtrl2]	:= p_bMidTopStprUnblkCtrl2;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diExtTopStprUnblkCtrl2]	:= p_bExtTopStprUnblkCtrl2;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMidBtmStprUnblkCtrl2]	:= p_bMidBtmStprUnblkCtrl2;
 	END_IF
-	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2]	:= p_bExtBtmStprUnblkCtrl2;
 	END_IF
 
-	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 > 0 AND g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2 <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diExtBtmStprUnblkCtrl2]	:= p_bExtBtmStprUnblkCtrl2;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMtrPwrRly > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPwrRly <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMtrPwrRly > 0 AND g_tyNtParamCurr.tyDOSettings.diMtrPwrRly <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMtrPwrRly]						:= p_bMtrPwrRly;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1FixedClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1FixedClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1FixedClampOpenCtrl]	:= NOT p_bMag1FixedClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1RemoteClampOpenCtrl]	:= NOT p_bMag1RemoteClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2FixedClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2FixedClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2FixedClampOpenCtrl]	:= NOT p_bMag2FixedClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2RemoteClampOpenCtrl]	:= NOT p_bMag2RemoteClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3FixedClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3FixedClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3FixedClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3FixedClampOpenCtrl]	:= NOT p_bMag3FixedClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampOpenCtrl <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampOpenCtrl > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampOpenCtrl <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3RemoteClampOpenCtrl]	:= NOT  p_bMag3RemoteClampOpenCtrl;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diBypCurtainSen > 0 AND g_tyNtParamCurr.tyDOSettings.diBypCurtainSen <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diBypCurtainSen > 0 AND g_tyNtParamCurr.tyDOSettings.diBypCurtainSen <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diBypCurtainSen]	:= p_bBypCurtainSen;	
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diRstCurtainSen > 0 AND g_tyNtParamCurr.tyDOSettings.diRstCurtainSen <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diRstCurtainSen > 0 AND g_tyNtParamCurr.tyDOSettings.diRstCurtainSen <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diRstCurtainSen]	:= p_bRstCurtainSen;
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diBypCurtainPBLED > 0 AND g_tyNtParamCurr.tyDOSettings.diBypCurtainPBLED <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diBypCurtainPBLED > 0 AND g_tyNtParamCurr.tyDOSettings.diBypCurtainPBLED <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diBypCurtainPBLED]	:= p_bBypCurtainPBLED;	
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diScanTrigSig > 0 AND g_tyNtParamCurr.tyDOSettings.diScanTrigSig <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diScanTrigSig > 0 AND g_tyNtParamCurr.tyDOSettings.diScanTrigSig <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diScanTrigSig]	:= p_bScanTrigSig;	
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag1ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ExitPCB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag1ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag1ExitPCB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag1ExitPCB]	:= p_bMag1ExitPCB;	
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag2ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ExitPCB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag2ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag2ExitPCB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag2ExitPCB]	:= p_bMag2ExitPCB;	
 	END_IF
 	
-	IF g_tyNtParamCurr.tyDOSettings.diMag3ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ExitPCB <= UDINT_TO_DINT(p_udiMax) THEN
+	IF g_tyNtParamCurr.tyDOSettings.diMag3ExitPCB > 0 AND g_tyNtParamCurr.tyDOSettings.diMag3ExitPCB <= UDINT_TO_DINT(c_udiDOutputMax) THEN
 		a_bPhysicalDO[g_tyNtParamCurr.tyDOSettings.diMag3ExitPCB]	:= p_bMag3ExitPCB;	
 	END_IF
 	

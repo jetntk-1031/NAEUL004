@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_49_
-#define _BUR_1703660020_49_
+#ifndef _BUR_1703817512_49_
+#define _BUR_1703817512_49_
 
 #include <bur/plctypes.h>
 
@@ -44,5 +44,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/Pneu.var\\\" scope \\\"global\\\"\\n\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_49_ */
+#endif /* _BUR_1703817512_49_ */
 

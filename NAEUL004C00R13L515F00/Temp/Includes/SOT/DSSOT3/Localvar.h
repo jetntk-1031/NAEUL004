@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_326_
-#define _BUR_1703660021_326_
+#ifndef _BUR_1703817513_198_
+#define _BUR_1703817513_198_
 
 #include <bur/plctypes.h>
 
@@ -77,5 +77,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtSOT/NtSOT.fun\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_326_ */
+#endif /* _BUR_1703817513_198_ */
 

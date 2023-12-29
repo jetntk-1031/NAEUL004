@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_192_
-#define _BUR_1703660021_192_
+#ifndef _BUR_1703817513_183_
+#define _BUR_1703817513_183_
 
 #include <bur/plctypes.h>
 
@@ -49,7 +49,6 @@ _BUR_LOCAL plctime tPullerRetTO;
 _BUR_LOCAL plctime tPullerExtTO;
 _BUR_LOCAL plctime tPshrRetTO;
 _BUR_LOCAL plctime tPshrExtTO;
-_BUR_LOCAL plcstring sProgNm[16];
 _BUR_LOCAL plcbit bRejectDownSafetySen;
 _BUR_LOCAL plcbit bRejectUpSafetySen;
 _BUR_LOCAL plcbit bRejectDownSen;
@@ -113,19 +112,10 @@ _BUR_LOCAL plcbit bGdBrd;
 _BUR_LOCAL plcbit bInspHvBrd;
 _BUR_LOCAL plcbit bRejHvBrd;
 _BUR_LOCAL plcbit bHvBrd;
-
-#ifdef _BUR_USE_DECLARATION_IN_IEC
-_BUR_LOCAL struct tyAlmTxt a_tyAlmText[200];
-#else
-/* Variable a_tyAlmText not declared. Array variables with starting indexes not equal to zero cannot be used in ANSI C programs / libraries.*/
-#endif
 _BUR_LOCAL struct tyAlmDat tyAlmData;
 _BUR_LOCAL plcstring a_sStatText[61][201];
-_BUR_LOCAL plcstring sStatTxt[201];
 _BUR_LOCAL unsigned long udiStatus;
-_BUR_LOCAL enum eFBStatus eStatus;
-_BUR_LOCAL enum eConvAction eStat;
-_BUR_LOCAL enum eConvAction eAct;
+_BUR_LOCAL struct tyPshrConv tylocalPshrConv;
 
 
 
@@ -144,5 +134,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtConv/NtConv.fun\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_192_ */
+#endif /* _BUR_1703817513_183_ */
 

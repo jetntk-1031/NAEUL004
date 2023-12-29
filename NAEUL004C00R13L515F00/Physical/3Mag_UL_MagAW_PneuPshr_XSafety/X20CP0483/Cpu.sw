@@ -91,10 +91,6 @@
     <Task Name="Machine" Source="Machine.Machine.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT2" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT2" Source="SOT.DSSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT3" Source="SOT.USSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT3" Source="SOT.DSSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4">
     <Task Name="RstErr" Source="RstErr.RstErr.prg" Memory="UserROM" Language="IEC" Debugging="true" />

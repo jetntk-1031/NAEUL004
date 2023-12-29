@@ -23,44 +23,22 @@ END_VAR
 (**)
 VAR
 	bManual : BOOL := FALSE;
-	bSafetyRlyRst : BOOL;
-	bTLRed : BOOL;
-	bTLAmber : BOOL;
-	bTLGreen : BOOL;
-	bBuzzer : BOOL;
-	bUSBA : BOOL;
-	bUSBB : BOOL;
-	bOvenInfoSigA : BOOL;
-	bOvenInfoSigB : BOOL;
-	bPusherExtCtrl : BOOL;
-	bStopperUnblkCtrlA : BOOL;
-	bStopperUnblkCtrlB : BOOL;
-	bMag1FixedClampCtrl : BOOL;
-	bMag1RemoteClampCtrl : BOOL;
-	bMag2FixedClampCtrl : BOOL;
-	bMag2RemoteClampCtrl : BOOL;
-	bMag3FixedClampCtrl : BOOL;
-	bMag3RemoteClampCtrl : BOOL;
-	bInShutterOpenCtrl : BOOL;
-	bInShutterCloseCtrl : BOOL;
-	bOutShutterOpenCtrl : BOOL;
-	bOutShutterCloseCtrl : BOOL;
-	bMag1ConvMtrIn : BOOL;
-	bMag1ConvMtrOut : BOOL;
-	bMag2ConvMtrIn : BOOL;
-	bMag2ConvMtrOut : BOOL;
-	bMag3ConvMtrIn : BOOL;
-	bMag3ConvMtrOut : BOOL;
-	bPushConvMtrOn : BOOL;
-	bMag1SelClampCtrl : BOOL;
-	bMag2SelClampCtrl : BOOL;
-	bMag3SelClampCtrl : BOOL;
-	bMag1SafetyBarRetCtrl : BOOL;
-	bMag2SafetyBarRetCtrl : BOOL;
-	bMag3SafetyBarRetCtrl : BOOL;
-	bMag1WallEngageCtrl : BOOL;
-	bMag2WallEngageCtrl : BOOL;
-	bMag3WallEngageCtrl : BOOL;
+END_VAR
+(**)
+(*Local*)
+VAR
+	bInitDone : BOOL;
+	bInitialDone : BOOL;
+	a_bPhysicalDO : ARRAY[1..c_udiDOutputMax] OF BOOL;
+	eStatOld : eDOAction := DOActIdle;
+	usiShutterTuningStep : USINT := 0;
+	bShutterTuning : BOOL;
+	fbShutterTuneOpnTim : TON := (PT:=T#2s);
+	fbShutterTuneClsTim : TON := (PT:=T#2s);
+	bAgvComIODisabled : BOOL;
+END_VAR
+(*Link*)
+VAR
 	bSOTMagError1 : BOOL;
 	bSOTMagSLarge1 : BOOL;
 	bSOTMagReady1 : BOOL;
@@ -77,14 +55,6 @@ VAR
 	bSOTMagSLarge4 : BOOL;
 	bSOTMagReady4 : BOOL;
 	bSOTMagAvailable4 : BOOL;
-	bMagAWOpenLimByp1 : BOOL;
-	bMagAWOpenLimByp2 : BOOL;
-	bMagAWOpenLimByp3 : BOOL;
-	bMagAWOpenLimByp4 : BOOL;
-	bMagAWSmallLimSen1 : BOOL;
-	bMagAWSmallLimSen2 : BOOL;
-	bMagAWSmallLimSen3 : BOOL;
-	bMagAWSmallLimSen4 : BOOL;
 	bRequestToBring1 : BOOL;
 	bRequestToGet1 : BOOL;
 	bRequestToBring2 : BOOL;
@@ -93,39 +63,19 @@ VAR
 	bRequestToGet3 : BOOL;
 	bRequestToBring4 : BOOL;
 	bRequestToGet4 : BOOL;
-	bEntTopStprUnblkCtrl : BOOL;
-	bMidTopStprUnblkCtrl : BOOL;
-	bExtTopStprUnblkCtrl : BOOL;
-	bMidBtmStprUnblkCtrl : BOOL;
-	bExtBtmStprUnblkCtrl : BOOL;
-	bEntTopStprUnblkCtrl2 : BOOL;
-	bMidTopStprUnblkCtrl2 : BOOL;
-	bExtTopStprUnblkCtrl2 : BOOL;
-	bMidBtmStprUnblkCtrl2 : BOOL;
-	bExtBtmStprUnblkCtrl2 : BOOL;
-	bInMagConvMtrOn : BOOL;
-	bOutMagConvMtrOn : BOOL;
-	bInMagConv2MtrOn : BOOL;
-	bOutMagConv2MtrOn : BOOL;
-	bMtrPwrRly : BOOL := TRUE;
 	bBypCurtainSen : BOOL;
 	bRstCurtainSen : BOOL;
 	bBypCurtainPBLED : BOOL;
-	bStartScanSig : BOOL;
-	bPCBExitMag1 : BOOL;
-	bPCBExitMag2 : BOOL;
-	bPCBExitMag3 : BOOL;
-END_VAR
-(**)
-(*Local*)
-VAR
-	bInitDone : BOOL;
-	bInitialDone : BOOL;
-	a_bPhysicalDO : ARRAY[1..c_udiDOutputMax] OF BOOL;
-	eStatOld : eDOAction := DOActIdle;
-	usiShutterTuningStep : USINT := 0;
-	bShutterTuning : BOOL;
-	fbShutterTuneOpnTim : TON := (PT:=T#2s);
-	fbShutterTuneClsTim : TON := (PT:=T#2s);
-	bAgvComIODisabled : BOOL;
+	bMagAWOpenLimByp1 : BOOL;
+	bMagAWOpenLimByp2 : BOOL;
+	bMagAWOpenLimByp3 : BOOL;
+	bMagAWOpenLimByp4 : BOOL;
+	bMagAWSmallLimSen1 : BOOL;
+	bMagAWSmallLimSen2 : BOOL;
+	bMagAWSmallLimSen3 : BOOL;
+	bMagAWSmallLimSen4 : BOOL;
+	bScanTrigSig : BOOL;
+	bMag1ExitPCB : BOOL;
+	bMag2ExitPCB : BOOL;
+	bMag3ExitPCB : BOOL;
 END_VAR

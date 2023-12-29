@@ -26,8 +26,6 @@ END_VAR
 VAR
 	eLifterAct : eLifterAction;
 	eLifter2Act : eLifterAction;
-	eLifterConvAct : eMagConvAction;
-	eLifterConv2Act : eMagConvAction;
 	eBufferAct1 : eBufferAction;
 	eBufferAct2 : eBufferAction;
 	eBufferAct3 : eBufferAction;
@@ -71,22 +69,10 @@ VAR
 	dtBufferMagPresentTm1 : DATE_AND_TIME;
 	dtBufferMagPresentTm2 : DATE_AND_TIME;
 	dtBufferMagPresentTm3 : DATE_AND_TIME;
-	eInMagConvStat : eMagConvAction;
-	eInMagConvStatus : eFBStatus;
-	eInMagConv2Stat : eMagConvAction;
-	eInMagConv2Status : eFBStatus;
-	eOutMagConvStat : eMagConvAction;
-	eOutMagConvStatus : eFBStatus;
-	eOutMagConv2Stat : eMagConvAction;
-	eOutMagConv2Status : eFBStatus;
 	eLifterStat : eLifterAction;
 	eLifterStatus : eFBStatus;
 	eLifter2Stat : eLifterAction;
 	eLifter2Status : eFBStatus;
-	eLifterMagConvStat : eMagConvAction;
-	eLifterMagConvStatus : eFBStatus;
-	eLifterMagConv2Stat : eMagConvAction;
-	eLifterMagConv2Status : eFBStatus;
 	eBufferStat1 : eBufferAction;
 	eBufferStatus1 : eFBStatus;
 	eBufferStat2 : eBufferAction;

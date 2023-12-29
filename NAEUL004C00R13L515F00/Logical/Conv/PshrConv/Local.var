@@ -83,7 +83,6 @@ VAR
 	bRejectDownSen : BOOL := FALSE;
 	bRejectUpSafetySen : BOOL := TRUE;
 	bRejectDownSafetySen : BOOL := TRUE;
-	sProgNm : STRING[15] := 'Conv';
 	tPshrExtTO : TIME := T#20s;
 	tPshrRetTO : TIME := T#20s;
 	tPullerExtTO : TIME := T#20s;

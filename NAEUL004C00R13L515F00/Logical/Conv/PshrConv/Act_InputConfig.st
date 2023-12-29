@@ -1,5 +1,5 @@
 (** 2019-04-09 **)
-ACTION Act_InitGlobal:
+ACTION Act_InputConfig:
 	
 	(* Always Change If Project Change *)
 	

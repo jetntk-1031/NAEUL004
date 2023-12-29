@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_79_
-#define _BUR_1703660020_79_
+#ifndef _BUR_1703818768_1_
+#define _BUR_1703818768_1_
 
 #include <bur/plctypes.h>
 
@@ -51,5 +51,5 @@ __asm__(".ascii \"iecdep \\\"Logical/Libraries/AsOpcUac/AsOpcUac.var\\\" scope \
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_79_ */
+#endif /* _BUR_1703818768_1_ */
 

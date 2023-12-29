@@ -1,65 +1,74 @@
 (** 2021-04-20 **)
 ACTION Act_Main:
+
 	
-	IF eStatOld <> eStat THEN
+	
+	//Main
+	fbSOT.tRstDlyTm	:= tylocalDSSOT.In.tRstDlyTm;
+	fbSigInChk.tSigInChkTm	:= tylocalDSSOT.In.tSigInChkTm;
+	//Set tylocalDSSOT.In.eAct
+	IF tylocalDSSOT.Out.eStatus = Idle OR tylocalDSSOT.Out.eStatus = Busy OR tylocalDSSOT.Out.eStatus = Done THEN
+		tylocalDSSOT.Out.eStat	:= tylocalDSSOT.In.eAct;
+	END_IF
+	IF eStatOld <> tylocalDSSOT.Out.eStat THEN
 		fbSOT(bEn := FALSE);
 		
-		bTransporting	:= FALSE;
-		bConvStart		:= FALSE;
-		bConvStop		:= FALSE;
-		bUSRdy			:= FALSE;
+		tylocalDSSOT.Out.bTransporting	:= FALSE;
+		tylocalDSSOT.Out.bConvStart		:= FALSE;
+		tylocalDSSOT.Out.bConvStop		:= FALSE;
+		tylocalDSSOT.Out.bUSRdy			:= FALSE;
 		
 		IF eStatOld <> SOTActIdle
 			AND eStatOld <> SOTActSetSig
 			AND eStatOld <> SOTActRstSig THEN
 			
-			bDBA			:= FALSE;
-			bDSMagSizeLarge	:= FALSE;
+			tylocalDSSOT.Out.bDBA			:= FALSE;
+			tylocalDSSOT.Out.bDSMagSizeLarge	:= FALSE;
 			
 		END_IF
 				
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalDSSOT.Out.sStatTxt	:= a_sStatText[tylocalDSSOT.Out.eStat];
 				
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalDSSOT.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalDSSOT.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalDSSOT.Out.eStat OF
 		
 		SOTActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bDBA		:= FALSE;
-				bDSMagSizeLarge	:= FALSE;
+			IF EDGENEG(tylocalDSSOT.In.bManual) THEN
+				tylocalDSSOT.Out.bDBA		:= FALSE;
+				tylocalDSSOT.Out.bDSMagSizeLarge	:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalDSSOT.Out.eStatus	:= Idle;
 		
 		SOTActRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSOT.Out.eStatus = Idle OR tylocalDSSOT.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalDSSOT.Out.eStatus	:= Busy;
 					
-				fbSOT.bDSRdy		:= fbSigInChk.bSigInValid;
-				fbSOT.bRdySend		:= p_bRdySend;
-				fbSOT.bComplSigOn	:= p_bComplSigOn;
+				fbSOT.tylocalDSSOT.Out.bDSRdy		:= fbSigInChk.bSigInValid;
+				fbSOT.bRdySend		:= tylocalDSSOT.In.bRdySend;
+				fbSOT.bComplSigOn	:= tylocalDSSOT.In.bComplSigOn;
 					
-				fbSOT.tTimeOut	:= DINT_TO_TIME(p_diTransferOutTO);
+				fbSOT.tTimeOut	:= DINT_TO_TIME(tylocalDSSOT.In.diTransferOutTO);
 				fbSOT(bEn := TRUE);
 					
-				bTransporting	:= fbSOT.bTransporting;
-				bConvStart		:= fbSOT.bConvStart;
-				bConvStop		:= fbSOT.bConvStop;
-				bDBA			:= fbSOT.bSigToDS AND (bVirtual = FALSE);
-				bDSMagSizeLarge	:= p_bMagSizeLarge;
+				tylocalDSSOT.Out.bTransporting	:= fbSOT.tylocalDSSOT.Out.bTransporting;
+				tylocalDSSOT.Out.bConvStart		:= fbSOT.tylocalDSSOT.Out.bConvStart;
+				tylocalDSSOT.Out.bConvStop		:= fbSOT.tylocalDSSOT.Out.bConvStop;
+				tylocalDSSOT.Out.bDBA			:= fbSOT.bSigToDS AND (tylocalDSSOT.Out.bVirtual = FALSE);
+				tylocalDSSOT.Out.bDSMagSizeLarge	:= tylocalDSSOT.In.bMagSizeLarge;
 					
-				bUSRdy			:= fbSOT.bSigToDS;
+				tylocalDSSOT.Out.bUSRdy			:= fbSOT.bSigToDS;
 					
 				IF fbSOT.udiStatus = 0 THEN
-					eStatus	:= Done;
+					tylocalDSSOT.Out.eStatus	:= Done;
 				ELSIF fbSOT.udiStatus < 65534 THEN
-					eStatus		:= Error;
+					tylocalDSSOT.Out.eStatus		:= Error;
 						
 					IF fbSOT.udiStatus = 1200 THEN
 						udiStatus	:= 10000;	//SOT  Transport Time Out While Transporting
@@ -77,33 +86,34 @@ ACTION Act_Main:
 			END_IF
 		
 		SOTActSetSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSOT.Out.eStatus = Idle OR tylocalDSSOT.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSOT(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSOT.Out.bConvStart	:= FALSE;
+				tylocalDSSOT.Out.bConvStop	:= FALSE;
 				
-				bDBA	:= TRUE;
-				eStatus	:= Done;
+				tylocalDSSOT.Out.bDBA	:= TRUE;
+				tylocalDSSOT.Out.eStatus	:= Done;
 		
 			END_IF
 			
 		SOTActRstSig:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalDSSOT.Out.eStatus = Idle OR tylocalDSSOT.Out.eStatus = Busy THEN
 		
 				//Reset
 				fbSOT(bEn := FALSE);
 				
-				bConvStart	:= FALSE;
-				bConvStop	:= FALSE;
+				tylocalDSSOT.Out.bConvStart	:= FALSE;
+				tylocalDSSOT.Out.bConvStop	:= FALSE;
 				
-				bDBA	:= FALSE;
-				eStatus	:= Done;
+				tylocalDSSOT.Out.bDBA	:= FALSE;
+				tylocalDSSOT.Out.eStatus	:= Done;
 		
 			END_IF
 		
 	END_CASE
 	
+
 END_ACTION

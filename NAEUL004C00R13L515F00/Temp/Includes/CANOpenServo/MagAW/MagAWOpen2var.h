@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_65_
-#define _BUR_1703660020_65_
+#ifndef _BUR_1703817512_84_
+#define _BUR_1703817512_84_
 
 #include <bur/plctypes.h>
 
@@ -50,5 +50,5 @@ __asm__(".ascii \"iecfile \\\"Logical/CANOpenServo/MagAW/MagAWOpen2.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_65_ */
+#endif /* _BUR_1703817512_84_ */
 

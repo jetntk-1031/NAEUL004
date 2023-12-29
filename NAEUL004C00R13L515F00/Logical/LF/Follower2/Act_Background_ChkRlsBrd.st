@@ -1,4 +1,4 @@
-(** 2019-07-04 **)
+
 ACTION Act_Background_ChkRlsBrd:
 	
 	IF tyRlsBrdProdRcpNm.sRcpNm = '' THEN
@@ -15,17 +15,17 @@ ACTION Act_Background_ChkRlsBrd:
 		END_IF
 		
 		IF bNewBrdEntered AND bOldBrdExited THEN
-			bWaitRlsBrd	:= TRUE;
+			tylocalFollower.Out.bWaitRlsBrd	:= TRUE;
 		END_IF
 		
-		IF bWaitRlsBrd AND p_bRlsBrd THEN
+		IF tylocalFollower.Out.bWaitRlsBrd AND p_bRlsBrd THEN
 			tyRlsBrdProdRcpNm	:= p_tyCurrProdRcp;
 		END_IF
 		
 	ELSE
 		bNewBrdEntered	:= FALSE;
 		bOldBrdExited	:= FALSE;
-		bWaitRlsBrd		:= FALSE;
+		tylocalFollower.Out.bWaitRlsBrd		:= FALSE;
 		
 	END_IF
 	

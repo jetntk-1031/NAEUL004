@@ -23,6 +23,10 @@ TYPE
 		StartupStepSetupUI,
 		StartupStepDone
 		);
+	tyStartUp : 	STRUCT 
+		In : tyStartUpIn1;
+		Out : tyStartUpOut1;
+	END_STRUCT;
 	tyStartUpOut1 : 	STRUCT 
 		bRun : BOOL;
 		eUsrFolderAct : eUsrFolderAction;

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_32_
-#define _BUR_1703660020_32_
+#ifndef _BUR_1703817512_32_
+#define _BUR_1703817512_32_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtParam/NtParam.var\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_32_ */
+#endif /* _BUR_1703817512_32_ */
 

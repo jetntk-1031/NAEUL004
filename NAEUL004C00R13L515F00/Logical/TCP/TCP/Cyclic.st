@@ -37,11 +37,9 @@ PROGRAM _CYCLIC
 			
 		END_IF
 		
-		Act_CombineErr;
+
 		Act_Alarm;
-		Act_Alarm1;
-		Act_Alarm2;
-		Act_Alarm3;
+
 
 		
 	END_IF

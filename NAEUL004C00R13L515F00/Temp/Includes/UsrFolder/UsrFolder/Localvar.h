@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_147_
-#define _BUR_1703660021_147_
+#ifndef _BUR_1703817513_140_
+#define _BUR_1703817513_140_
 
 #include <bur/plctypes.h>
 
@@ -48,5 +48,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtFileIO/NtFileIO.fun\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_147_ */
+#endif /* _BUR_1703817513_140_ */
 

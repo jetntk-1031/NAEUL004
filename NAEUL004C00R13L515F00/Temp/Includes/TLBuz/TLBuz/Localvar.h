@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_150_
-#define _BUR_1703660021_150_
+#ifndef _BUR_1703817513_143_
+#define _BUR_1703817513_143_
 
 #include <bur/plctypes.h>
 
@@ -142,5 +142,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtTLBuz/NtTLBuz.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_150_ */
+#endif /* _BUR_1703817513_143_ */
 

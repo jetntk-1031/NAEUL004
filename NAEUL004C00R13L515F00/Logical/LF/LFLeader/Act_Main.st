@@ -1,40 +1,45 @@
-(** 2019-05-22 **)
+
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+		//Set p_eAct
+	IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy OR tylocalLFLeader.Out.eStatus = Done THEN
+		tylocalLFLeader.Out.eStat	:= p_eAct;
+	END_IF
+	
+	IF eStatOld <> tylocalLFLeader.Out.eStat THEN
 		fbSyncTm(bEn := FALSE);
 		fbChgAll(bEn := FALSE);
 		fbChgSeq(bEn := FALSE);
 		
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalLFLeader.Out.sStatTxt	:= a_sStatText[tylocalLFLeader.Out.eStat];
 				
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalLFLeader.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalLFLeader.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalLFLeader.Out.eStat OF
 		
 		LFActIdle:
-			eStatus	:= Idle;
+			tylocalLFLeader.Out.eStatus	:= Idle;
 		
 		LFActBGStartRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				bRun1		:= TRUE;
 				bRun2		:= TRUE;
 				bStop		:= FALSE;
 				bStop1Done	:= FALSE;
 				bStop2Done	:= FALSE;
-				eStatus		:= Done;
+				tylocalLFLeader.Out.eStatus		:= Done;
 				
 			END_IF
 		
 		LFActBGStopRun:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
-				eStatus	:= Busy;
+				tylocalLFLeader.Out.eStatus	:= Busy;
 				
 				bStop	:= TRUE;
 				
@@ -45,44 +50,44 @@ ACTION Act_Main:
 					bStop		:= FALSE;
 					bStop1Done	:= FALSE;
 					bStop2Done	:= FALSE;
-					eStatus		:= Done;
+					tylocalLFLeader.Out.eStatus		:= Done;
 					
 				END_IF
 				
 			END_IF
 		
 		LFActSyncPLCTm:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				IF bRun1 AND bRun2 THEN
-					eStatus	:= Busy;
+					tylocalLFLeader.Out.eStatus	:= Busy;
 				
-					fbSyncTm.dtCurrDT		:= p_dtCurrDT;
+					fbSyncTm.dtCurrDT		:= g_tyTime.dtCurrDT;
 					fbSyncTm.diMcNum		:= diMcNum;
 					fbSyncTm(bEn := TRUE);
 					
 					IF fbSyncTm.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalLFLeader.Out.eStatus	:= Done;
 					ELSIF fbSyncTm.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalLFLeader.Out.eStatus		:= Error;
 						udiStatus	:= fbSyncTm.udiStatus;
 					END_IF
 					
 				ELSE
-					eStatus		:= Error;
+					tylocalLFLeader.Out.eStatus		:= Error;
 					udiStatus	:= 10000;	//Background Not Running While Calling Sync PLC Tm
 				END_IF
 				
 			END_IF
 		
 		LFActChgAllAuto:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				IF bRun1 AND bRun2 THEN
-					eStatus	:= Busy;
+					tylocalLFLeader.Out.eStatus	:= Busy;
 					
 					fbChgAll.bChgAuto					:= TRUE;
-					fbChgAll.a_bOnline					:= pa_bLFOnline;;
+					fbChgAll.a_bOnline					:= g_tyMcParamCurr.a_bLFOnline;;
 					fbChgAll.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
 					fbChgAll.sReqProdRcpNm				:= p_sReqProdRcpNm;
 					fbChgAll.diReqProdRcpWidth			:= p_diReqProdWidth;
@@ -91,27 +96,27 @@ ACTION Act_Main:
 					fbChgAll(bEn := TRUE);
 					
 					IF fbChgAll.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalLFLeader.Out.eStatus	:= Done;
 					ELSIF fbChgAll.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalLFLeader.Out.eStatus		:= Error;
 						udiStatus	:= fbChgAll.udiStatus;
 					END_IF
 					
 				ELSE
-					eStatus		:= Error;
+					tylocalLFLeader.Out.eStatus		:= Error;
 					udiStatus	:= 10001;	//Background Not Running While Changing All Recipe Automatically
 				END_IF
 				
 			END_IF
 		
 		LFActChgAllMnl:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				IF bRun1 AND bRun2 THEN
-					eStatus	:= Busy;
+					tylocalLFLeader.Out.eStatus	:= Busy;
 					
 					fbChgAll.bChgAuto					:= FALSE;
-					fbChgAll.a_bOnline					:= pa_bLFOnline;
+					fbChgAll.a_bOnline					:= g_tyMcParamCurr.a_bLFOnline;
 					fbChgAll.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
 					fbChgAll.sReqProdRcpNm				:= p_sReqProdRcpNm;
 					fbChgAll.diReqProdRcpWidth			:= p_diReqProdWidth;
@@ -120,74 +125,72 @@ ACTION Act_Main:
 					fbChgAll(bEn := TRUE);
 					
 					IF fbChgAll.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalLFLeader.Out.eStatus	:= Done;
 					ELSIF fbChgAll.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalLFLeader.Out.eStatus		:= Error;
 						udiStatus	:= fbChgAll.udiStatus;
 					END_IF
 					
 				ELSE
-					eStatus		:= Error;
+					tylocalLFLeader.Out.eStatus		:= Error;
 					udiStatus	:= 10002;	//Background Not Running While Changing All Recipe Manually
 				END_IF
 				
 			END_IF
 		
 		LFActChgSeqAuto:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				IF bRun1 AND bRun2 THEN
-					eStatus	:= Busy;
+					tylocalLFLeader.Out.eStatus	:= Busy;
 					
 					fbChgSeq.bChgAuto					:= TRUE;
-					fbChgSeq.a_bOnline					:= pa_bLFOnline;;
+					fbChgSeq.a_bOnline					:= g_tyMcParamCurr.a_bLFOnline;;
 					fbChgSeq.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
 					fbChgSeq.sReqProdRcpNm				:= p_sReqProdRcpNm;
 					fbChgSeq.diReqProdRcpWidth			:= p_diReqProdWidth;
 					fbChgSeq.sReqMagRcpNm				:= p_sReqMagRcpNm;
 					fbChgSeq.diMcNum					:= diMcNum;
-			//		fbChgSeq.bSeqStayActive				:= p_bLFSeqStayActive;
 					fbChgSeq(bEn := TRUE);
 					
 					IF fbChgSeq.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalLFLeader.Out.eStatus	:= Done;
 					ELSIF fbChgSeq.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalLFLeader.Out.eStatus		:= Error;
 						udiStatus	:= fbChgSeq.udiStatus;
 					END_IF
 					
 				ELSE
-					eStatus		:= Error;
+					tylocalLFLeader.Out.eStatus		:= Error;
 					udiStatus	:= 10003;	//Background Not Running While Changing Recipe In Sequence Automatically
 				END_IF
 				
 			END_IF
 		
 		LFActChgSeqMnl:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalLFLeader.Out.eStatus = Idle OR tylocalLFLeader.Out.eStatus = Busy THEN
 				
 				IF bRun1 AND bRun2 THEN
-					eStatus	:= Busy;
+					tylocalLFLeader.Out.eStatus	:= Busy;
 					
 					fbChgSeq.bChgAuto					:= FALSE;
-					fbChgSeq.a_bOnline					:= pa_bLFOnline;;
+					fbChgSeq.a_bOnline					:= g_tyMcParamCurr.a_bLFOnline;;
 					fbChgSeq.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
 					fbChgSeq.sReqProdRcpNm				:= p_sReqProdRcpNm;
 					fbChgSeq.diReqProdRcpWidth			:= p_diReqProdWidth;
 					fbChgSeq.sReqMagRcpNm				:= p_sReqMagRcpNm;
 					fbChgSeq.diMcNum					:= diMcNum;
-	//				fbChgSeq.bSeqStayActive				:= p_bLFSeqStayActive;
 					fbChgSeq(bEn := TRUE);
 					
 					IF fbChgSeq.udiStatus = 0 THEN
-						eStatus	:= Done;
+						tylocalLFLeader.Out.eStatus	:= Done;
 					ELSIF fbChgSeq.udiStatus < 65534 THEN
-						eStatus		:= Error;
+						tylocalLFLeader.Out.eStatus		:= Error;
 						udiStatus	:= fbChgSeq.udiStatus;
 					END_IF
 					
 				ELSE
-					eStatus		:= Error;
+					tylocalLFLeader.Out.eStatus		:= Error;
 					udiStatus	:= 10004;	//Background Not Running While Changing Recipe In Sequence Manually
 				END_IF
 				

@@ -1,35 +1,36 @@
 (** 2021-04-20 **)
 ACTION Act_Alarm: 
+		//Reset Error
+	IF (tylocalDSSOT.Out.eStatus = Error) AND bRstErr THEN
+		tylocalDSSOT.In.eAct	:= MagConv2ClpActIdle;
+		tylocalDSSOT.Out.eStat	:= MagConv2ClpActIdle;
+	END_IF
 	
+	IF tylocalDSSOT.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalDSSOT.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalDSSOT.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sDSSOTProgNm		:= p_sProgNm;		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalDSSOT.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalDSSOT.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalDSSOT.Out.tyAlmData.udiRunTime	:= tylocalDSSOT.Out.tyAlmData.udiRunTime + 1;
+		tylocalDSSOT.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalDSSOT.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_sDSSOTProgNm		    := tylocalDSSOT.In.sProgNm;
+		
+		tylocalDSSOT.Out.sStatTxt	:= tylocalDSSOT.Out.tyAlmData.sAlmMsg;
 		
 	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalDSSOT.Out.tyAlmData.udiCode	:= 0;
+		tylocalDSSOT.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalDSSOT.Out.tyAlmData.bAlm			:= FALSE;
+		tylocalDSSOT.Out.sStatTxt	:= a_sStatText[tylocalDSSOT.Out.eStat];
 		
 	END_IF
 	

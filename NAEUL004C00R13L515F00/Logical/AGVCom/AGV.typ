@@ -93,3 +93,23 @@ TYPE
 		bFinishedLoading : BOOL;
 	END_STRUCT;
 END_TYPE
+
+(*AGV in/out*)
+
+TYPE
+	tyAGV : 	STRUCT 
+		In : tyAGVIn1;
+		Out : tyAGVOut1;
+	END_STRUCT;
+	tyAGVIn1 : 	STRUCT 
+	END_STRUCT;
+	tyAGVOut1 : 	STRUCT 
+		tyAGVToDTMag : tyTagAGVToDTMag;
+		bInternalAGVOnline : BOOL;
+		bMachineOnline : BOOL;
+		tyDTMagToAGV : USINT;
+		New_Member4 : USINT;
+		New_Member5 : USINT;
+		New_Member : USINT;
+	END_STRUCT;
+END_TYPE

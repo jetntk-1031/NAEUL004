@@ -1,0 +1,9 @@
+(*2021-04-19*)
+VAR
+	g_tyUSSOT1 : tyUSSOTOut1;
+	g_tyDSSOT1 : tyDSSOTOut1;
+	g_tyUSSOT2 : tyUSSOTOut1;
+	g_tyDSSOT2 : tyDSSOTOut1;
+	g_tyUSSOT3 : tyUSSOTOut1;
+	g_tyDSSOT3 : tyDSSOTOut1;
+END_VAR

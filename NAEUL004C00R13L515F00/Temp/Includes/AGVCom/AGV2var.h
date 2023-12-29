@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_108_
-#define _BUR_1703660020_108_
+#ifndef _BUR_1703817512_110_
+#define _BUR_1703817512_110_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AGVCom/AGV2.var\\\" scope \\\"global\\\"\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_108_ */
+#endif /* _BUR_1703817512_110_ */
 

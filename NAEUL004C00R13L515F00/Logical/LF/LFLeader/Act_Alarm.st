@@ -1,35 +1,37 @@
-(** 2019-04-23 **)
+
 ACTION Act_Alarm: 
 	
+	IF g_tyRstErrOut.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= g_tyRstErrOut.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	//Reset Error
+	IF (tylocalLFLeader.Out.eStatus = Error) AND bRstErr THEN
+		p_eAct	:= LFActIdle;
+		tylocalLFLeader.Out.eStat	:= LFActIdle;
+	END_IF
+	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalLFLeader.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sLFLeaderProgNm		:= p_sProgNm;
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalLFLeader.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalLFLeader.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalLFLeader.Out.tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
+		tylocalLFLeader.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalLFLeader.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_sLFLeaderProgNm		:= g_tyNtParamCurr.sLFLeaderProgNm;			
+
 		
 	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;		
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalLFLeader.Out.tyAlmData.udiCode	:= 0;
+		tylocalLFLeader.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalLFLeader.Out.tyAlmData.bAlm		:= FALSE;
+		tylocalLFLeader.Out.sStatTxt	:= a_sStatText[tylocalLFLeader.Out.eStat];
 		
 	END_IF
 	

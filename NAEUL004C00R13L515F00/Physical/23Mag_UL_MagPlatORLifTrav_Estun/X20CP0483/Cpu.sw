@@ -63,8 +63,6 @@
     <Task Name="OpsMagCon1" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon2" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsLifMagU" Source="Operations.OpsLifMagUL.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsInMagCo" Source="Operations.MultiMag_InOutMagazineConv.OpsInMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsOutMagC" Source="Operations.MultiMag_InOutMagazineConv.OpsOutMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Pneu2SenSe" Source="Pneu.PneuSelClamp1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV" Source="AGVCom.AGV.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV1" Source="AGVCom.AGV1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -79,10 +77,6 @@
     <Task Name="Pneu2SenM3" Source="Pneu.PneuMag1AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT2" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT2" Source="SOT.DSSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT3" Source="SOT.USSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT3" Source="SOT.DSSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MtrPshr" Source="MtrPshr.MtrPshr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Alarm" Source="Alarm.Alarm.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>

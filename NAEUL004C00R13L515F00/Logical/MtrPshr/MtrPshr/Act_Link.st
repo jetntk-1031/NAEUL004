@@ -1,28 +1,28 @@
 (** 2019-03-29 **)
 ACTION Act_Link:
 	
-	IF p_bLinkDISafetyRlySig = FALSE THEN
-		bExtended	:= FALSE;
-		bRetracted	:= FALSE;
+	IF tylocalMtrPshr.In.bLinkDISafetyRlySig = FALSE THEN
+		tylocalMtrPshr.Out.bExtended	:= FALSE;
+		tylocalMtrPshr.Out.bRetracted	:= FALSE;
 	END_IF
 	
-	IF p_bManual = TRUE THEN
-		p_diExtNomSpd ACCESS p_UIMnlMtrPshrExtSpd;
-		p_diExtTorque ACCESS p_UIMnlMtrPshrExtTorq;
+	IF tylocalMtrPshr.In.bManual = TRUE THEN
+		tylocalMtrPshr.In.diExtNomSpd ACCESS ADR(g_tyUIMnlMtrPshrExtSpd);
+		tylocalMtrPshr.In.diExtTorque ACCESS ADR(g_tyUIMnlMtrPshrExtTorq);
 	ELSE
-		IF p_bNtParamAutoRcpPrep AND NOT(p_bMcParamAutoRcpDis) THEN
-			p_diExtNomSpd ACCESS p_ProdRcpCurrRcp0MtrPshrExtSpd;
-			p_diExtTorque ACCESS p_ProdRcpCurrRcp0MtrPshrExtTorq;
+		IF tylocalMtrPshr.In.bNtParamAutoRcpPrep AND NOT(tylocalMtrPshr.In.bMcParamAutoRcpDis) THEN
+			tylocalMtrPshr.In.diExtNomSpd ACCESS g_tyProdRcpCurrRcp0MtrPshrExtSpd;
+			tylocalMtrPshr.In.diExtTorque ACCESS g_tyProdRcpCurrRcp0MtrPshrExtTorq;
 		ELSE
-			p_diExtNomSpd ACCESS p_ProdRcpCurrRcp1MtrPshrExtSpd;
-			p_diExtTorque ACCESS p_ProdRcpCurrRcp1MtrPshrExtTorq;
+			tylocalMtrPshr.In.diExtNomSpd ACCESS  g_tyProdRcpCurrRcp1MtrPshrExtSpd;
+			tylocalMtrPshr.In.diExtTorque ACCESS g_tyProdRcpCurrRcp1MtrPshrExtTorq;
 		END_IF
 	END_IF
 	
-	IF p_bLinkDISafetyRlySig = TRUE THEN
-		p_bAlarmSig := p_bLinkAlarmSig;
+	IF tylocalMtrPshr.In.bLinkDISafetyRlySig = TRUE THEN
+		tylocalMtrPshr.In.bAlarmSig := tylocalMtrPshr.In.bLinkAlarmSig;
 	ELSE
-		p_bAlarmSig := TRUE;
+		tylocalMtrPshr.In.bAlarmSig := TRUE;
 	END_IF
 	
 END_ACTION

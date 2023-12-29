@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_69_
-#define _BUR_1703660020_69_
+#ifndef _BUR_1703817512_63_
+#define _BUR_1703817512_63_
 
 #include <bur/plctypes.h>
 
@@ -308,6 +308,21 @@ typedef struct tySOTSigmulateSig
 	plcbit tyBtnAvail;
 } tySOTSigmulateSig;
 
+typedef struct tyDigitalInputOut
+{	struct tyAlmDat tyAlmData1;
+	struct tyAlmDat tyAlmData2;
+	struct tyAlmDat tyAlmData3;
+	struct tyAlmDat tyAlmData4;
+	struct tyAlmDat tyAlmData5;
+	struct tyAlmDat tyAlmData6;
+	eFBStatus eStatus1;
+	eFBStatus eStatus2;
+	eFBStatus eStatus3;
+	eFBStatus eStatus4;
+	eFBStatus eStatus5;
+	eFBStatus eStatus6;
+} tyDigitalInputOut;
+
 
 
 
@@ -323,5 +338,5 @@ __asm__(".ascii \"iecfile \\\"Logical/DInput/DInput.typ\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_69_ */
+#endif /* _BUR_1703817512_63_ */
 

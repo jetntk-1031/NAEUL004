@@ -102,3 +102,70 @@ TYPE
 		TCPActDebug
 		);
 END_TYPE
+
+(**)
+
+TYPE
+	tyTCP : 	STRUCT 
+		In : tyTCPIn1;
+		Out : tyTCPOut1;
+	END_STRUCT;
+	tyTCPIn1 : 	STRUCT 
+		bManual : BOOL;
+		eAct : eTCPAction;
+		udiRstErr : UDINT;
+		bPrep : BOOL;
+		bEn : BOOL;
+		bDis : BOOL;
+		sSvrIP : STRING[15];
+		uiSvrPort : UINT;
+		uiClientPort : UINT;
+		sMsgSnd : STRING[65535];
+		sIPAddr : STRING[15];
+		tyDTStructure : DTStructure;
+		dtCurrDT : DATE_AND_TIME;
+		eTCPModel : eTCPClientServer;
+		bFltrIP : BOOL;
+		bFltrPort : BOOL;
+		sAllwClntIP : STRING[15];
+		uiAllwClntPort : UINT;
+		bReconnect : BOOL;
+		udiSndBffrSize : UDINT;
+		udiRcvBffrSize : UDINT;
+		udiAliveIdleTimeInSec : UDINT;
+		tConnTimeOut : TIME;
+		bOpsRun : BOOL;
+		usiProjMag : USINT;
+		sProgNm : STRING[15];
+		bNtSettingsLoadDone : BOOL;
+		udiFileKeepDay : UDINT;
+		tyDTMagToAGV : tyTagDTMagToAGV;
+		bUSB : BOOL;
+		bUSB2 : BOOL;
+		bDBA : BOOL;
+		bDBA2 : BOOL;
+		bLinkStartupRun : BOOL;
+		bLinkUIClearMsg : BOOL;
+		bLinkConnectEn : BOOL;
+		eLinkAGVComProtocol : eMcAGVCommProtocol;
+	END_STRUCT;
+	tyTCPOut1 : 	STRUCT 
+		eStat : eMagConv2ClpAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+		tyAlmData1 : tyAlmDat;
+		tyAlmData2 : tyAlmDat;
+		tyAlmData3 : tyAlmDat;
+		bConnected : BOOL;
+		sExtractBatteryLvl : USINT;
+		rCurrentBatteryLvl : USINT;
+		bUBA : BOOL;
+		bUBA2 : BOOL;
+		bDSB : BOOL;
+		bDSB2 : BOOL;
+		tyAIVMsgRcvData : tyAIVMsgRcvDat;
+		sSvrMsgRcv : STRING[65535];
+		eMagAGVStatus : ARRAY[0..7]OF eTCPAGVStatus;
+	END_STRUCT;
+END_TYPE

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_50_
-#define _BUR_1703660020_50_
+#ifndef _BUR_1703817512_50_
+#define _BUR_1703817512_50_
 
 #include <bur/plctypes.h>
 
@@ -119,5 +119,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MagConv_LiftnTrav/MagConv2Clp.typ\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_50_ */
+#endif /* _BUR_1703817512_50_ */
 

@@ -1,16 +1,14 @@
 (** 2019-01-23 **)
 ACTION Act_Background:
 	
-	IF (p_diProdRcpCurrRcpWidth > p_diMagRcpCurrRcpMaxWidth) AND (eStatus <> Error) THEN
-		
-		eStatus		:= Error;
+	IF (tylocalMachine.In.diProdRcpCurrRcpWidth > tylocalMachine.In.diMagRcpCurrRcpMaxWidth) AND (tylocalMachine.Out.eStatus <> Error) THEN
+		tylocalMachine.Out.eStatus		:= Error;
 		udiStatus   := 10000;
-		
 	END_IF
 	
 	//Reset Error
-	IF (eStatus = Error) AND bRstErr THEN
-		eStatus		:= Idle;
+	IF (tylocalMachine.Out.eStatus = Error) AND bRstErr THEN
+		tylocalMachine.Out.eStatus		:= Idle;
 		udiStatus	:= 0;
 	END_IF
 	

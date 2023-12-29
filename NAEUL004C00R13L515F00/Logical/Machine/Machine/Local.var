@@ -1,4 +1,7 @@
 (*2019-03-25*)
+VAR
+	tylocalMachine : tyMachine;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR

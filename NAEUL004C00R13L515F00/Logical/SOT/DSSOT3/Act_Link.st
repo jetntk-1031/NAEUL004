@@ -1,23 +1,36 @@
-(** 2021-04-20 **)
+(** 3033-04-30 **)
 ACTION Act_Link:
 	
-	//Ready Send
-	p_bRdySend	:= TRUE;
+		//Ready Send
+	tylocalDSSOT.In.bRdySend	:= TRUE;
 	
-
-	p_bLeftSen ACCESS p_DIMagConvEntSen3;
-	p_bRightSen ACCESS p_DIMagPresentSen3;
-	p_bDSB ACCESS p_DISOT3Ready;	
+	IF tylocalDSSOT.In.bLinkProjTCPAGVSigPrep THEN //TCP AGV
+		tylocalDSSOT.In.bLeftSen := g_tyDInput.bOutMagConvExtSen;
+		tylocalDSSOT.In.bRightSen := g_tyDInput.bOutMagConvMidSen;
+		tylocalDSSOT.In.bDSB := g_tyTCP.bSvrDSB;	
+	
+		//Send Complete Signal
+		IF EDGENEG(tylocalDSSOT.In.bLeftSen) THEN
+			tylocalDSSOT.In.bComplSigOn	:= TRUE;
+		END_IF
 		
-
-	//Send Complete Signal
-	IF EDGENEG(p_bLeftSen) THEN
-		p_bComplSigOn	:= TRUE;
-	END_IF
+		IF tylocalDSSOT.Out.eStat <> SOTActRun THEN
+			tylocalDSSOT.In.bComplSigOn	:= FALSE;
+		END_IF
+	ELSE	
+		tylocalDSSOT.In.bLeftSen := g_tyDInput.bMagConvEntSen3;
+		tylocalDSSOT.In.bRightSen := g_tyDInput.bMagPresentSen3;
+		tylocalDSSOT.In.bDSB := g_tyDInput.bSOT3AIVReady;	
 	
-	IF eStat <> SOTActRun THEN
-		p_bComplSigOn	:= FALSE;
-	END_IF
+		//Send Complete Signal
+		IF EDGENEG(tylocalDSSOT.In.bLeftSen) THEN
+			tylocalDSSOT.In.bComplSigOn	:= TRUE;
+		END_IF
+		
+		IF tylocalDSSOT.Out.eStat <> SOTActRun THEN
+			tylocalDSSOT.In.bComplSigOn	:= FALSE;
+		END_IF
 	
+	END_IF
 	
 END_ACTION

@@ -1,6 +1,6 @@
 (** 2019-01-20 **)
 ACTION Act_Main:
-	
+
 	tyTagToMes.sMachineName := p_sJobNo;
 	tyTagToMes.bError := p_bLinkError;
 	tyTagToMes.bWarning := p_bLinkAlarmWarning OR p_bLinkAlarmInfo;
@@ -40,13 +40,11 @@ ACTION Act_Main:
 	fbConnectionAGVTm(IN:= tyTagToMes.bActive = FALSE);
 	IF fbConnectionAGVTm.Q THEN
 		tyTagToMes.bActive := TRUE;
-	//	bInternalAGVOnline := TRUE;
 	END_IF
 	
 	fbConnectionAGVTm1(IN:= tyTagToMes.bActive);
 	IF fbConnectionAGVTm1.Q THEN
 		tyTagToMes.bActive := FALSE;
-	//	bInternalAGVOnline := FALSE;
 	END_IF
 
 	

@@ -1,33 +1,30 @@
-(** 2020-09-21 **)
+
 ACTION Act_Main_Disable:
 	
-	bUSAllow			:= TRUE;
-	bDSAllow			:= TRUE;
-	bProdAccDataMnl		:= FALSE;
-	bProdUpdtDataMnl	:= FALSE;
-	bMagAccDataMnl		:= FALSE;
-	bWaitRlsBrd			:= FALSE;
+	tylocalFollower.Out.bUSAllow			:= TRUE;
+	tylocalFollower.Out.bDSAllow			:= TRUE;
+	tylocalFollower.Out.bProdAccDataMnl		:= FALSE;
+	tylocalFollower.Out.bProdUpdtDataMnl	:= FALSE;
+	tylocalFollower.Out.bMagAccDataMnl		:= FALSE;
+	tylocalFollower.Out.bWaitRlsBrd			:= FALSE;
 	
 	usiProdAccDatStep		:= 0;
 	usiProdUpdtDatStep		:= 0;
-	tyInfoData.sProgNm		:= '';
 	tyInfoData.udiCode		:= 0;
 	tyInfoData.eSeverity	:= AlmSeverityNA;
-	tyInfoData.sAlmMsg		:= '';
+
 	
 	usiMagAccDatStep		:= 0;
-	tyInfoData1.sProgNm		:= '';
-	tyInfoData1.udiCode		:= 0;
-	tyInfoData1.eSeverity	:= AlmSeverityNA;
-	tyInfoData1.sAlmMsg		:= '';
-	
+	tylocalFollower.Out.tyInfoData1.udiCode		:= 0;
+	tylocalFollower.Out.tyInfoData1.eSeverity	:= AlmSeverityNA;
+
 	bSetTm		:= FALSE;
 	
-	eStatus		:= Idle;
+	tylocalFollower.Out.eStatus		:= Idle;
 	udiStatus	:= 0;
 	bProdRcpErr	:= FALSE;
 	bMagRcpErr	:= FALSE;
-	bLeaderSeqCtrlInActive	:= FALSE;
+	tylocalFollower.Out.bLdrSeqCtrlInActive	:= FALSE;
 	
 	bProdRcpErrNotExist		:= FALSE;
 	bProdRcpErrWidthMismatch:= FALSE;

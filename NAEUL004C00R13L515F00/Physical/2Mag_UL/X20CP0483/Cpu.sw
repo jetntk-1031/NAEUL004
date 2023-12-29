@@ -61,10 +61,6 @@
     <Task Name="OpsMagCon1" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon2" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsLifMagU" Source="Operations.OpsLifMagUL.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsInMagCo" Source="Operations.MultiMag_InOutMagazineConv.OpsInMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsOutMagC" Source="Operations.MultiMag_InOutMagazineConv.OpsOutMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsMagCon6" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsMagCon7" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Pneu2SenO2" Source="Pneu.PneuOutShutter2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="Pneu2SenO3" Source="Pneu.PneuOutShutter3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AWOpen" Source="CANOpenServo.AW.AWOpen.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -86,10 +82,6 @@
     <Task Name="Pneu2SenM3" Source="Pneu.PneuMag1AWEngage.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT3" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT3" Source="SOT.DSSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT4" Source="SOT.USSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT4" Source="SOT.DSSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TCP" Source="TCP.TCP.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="TCPTop" Source="TCP.TCPTop.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MtrPshr" Source="MtrPshr.MtrPshr.prg" Memory="UserROM" Language="IEC" Debugging="true" />

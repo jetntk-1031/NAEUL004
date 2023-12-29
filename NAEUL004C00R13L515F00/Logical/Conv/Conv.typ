@@ -145,7 +145,7 @@ TYPE
 		bLinkPshrRetSlwSen : BOOL;
 	END_STRUCT;
 	tyPshrConvOut1 : 	STRUCT 
-		eStat : eMagConv2ClpAction;
+		eStat : eConvAction;
 		eStatus : eFBStatus;
 		sStatTxt : STRING[200];
 		tyAlmData : tyAlmDat;

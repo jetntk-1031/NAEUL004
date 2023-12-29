@@ -13,16 +13,15 @@ ACTION Act_Alarm:
 		bRstErr			:= FALSE;
 	END_IF
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalPshrConv.Out.eStatus = Error) THEN
 		
 		
-		tylocalPshrConv.Out.tyAlmData.sProgNm		:= tylocalPshrConv.In.sProgNm;
 		tylocalPshrConv.Out.tyAlmData.udiCode		:= udiStatus;
 		tylocalPshrConv.Out.tyAlmData.eSeverity		:= AlmSeverityError;
 		tylocalPshrConv.Out.tyAlmData.udiRunTime	:= tylocalPshrConv.Out.tyAlmData.udiRunTime + 1;
 		tylocalPshrConv.Out.tyAlmData.bAlm			:= TRUE;
 		tylocalPshrConv.Out.tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sConvProgNm		    := p_sProgNm;
+		g_sConvProgNm		    := tylocalUSSOT.In.sProgNm;
 		
 		tylocalPshrConv.Out.sStatTxt	:= tylocalPshrConv.Out.tyAlmData.sAlmMsg;
 		

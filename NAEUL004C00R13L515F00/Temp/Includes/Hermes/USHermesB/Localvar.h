@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_234_
-#define _BUR_1703660021_234_
+#ifndef _BUR_1703817513_211_
+#define _BUR_1703817513_211_
 
 #include <bur/plctypes.h>
 
@@ -249,5 +249,5 @@ __asm__(".ascii \"iecdep \\\"Logical/ProdRcp/ProdRcp.var\\\" scope \\\"global\\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_234_ */
+#endif /* _BUR_1703817513_211_ */
 

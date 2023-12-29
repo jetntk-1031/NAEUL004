@@ -1,23 +1,23 @@
-(** 2020-10-05 **)
+
 ACTION Act_Background_Process:
 	
 	IF bRun2 = TRUE AND bStop = FALSE THEN
-		fbOnlineChk.a_bOnline				:= pa_bLFOnline;
+		fbOnlineChk.a_bOnline				:= g_tyMcParamCurr.a_bLFOnline;
 		fbOnlineChk.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
 		fbOnlineChk.diMcNum					:= diMcNum;
 		fbOnlineChk(bEn := TRUE);
 		
 		fbBlkUSDS.a_tyFollowerToLeaderTag	:= a_tyFollowerToLeaderTag;
-		fbBlkUSDS.diBeforeOven1			:= p_diBeforeOven;
-		fbBlkUSDS.diAfterOven1			:= p_diAfterOven;
-		fbBlkUSDS.diBeforeOven2			:= p_diBeforeOven2;
-		fbBlkUSDS.diAfterOven2			:= p_diAfterOven2;
+		fbBlkUSDS.diBeforeOven1			:= g_tyMcParamCurr.diLFMcIdxBeforeOven;
+		fbBlkUSDS.diAfterOven1			:= g_tyMcParamCurr.diLFMcIdxAfterOven;
+		fbBlkUSDS.diBeforeOven2			:= g_tyMcParamCurr.diLFMcIdxBeforeOven2;
+		fbBlkUSDS.diAfterOven2			:= g_tyMcParamCurr.diLFMcIdxAfterOven2;
 		fbBlkUSDS.diMcNum				:= diMcNum;
-		fbBlkUSDS.pa_bLFOnline			:= pa_bLFOnline;
-		fbBlkUSDS.bSeqMode				:= (eStat= LFActChgSeqAuto) OR (eStat= LFActChgSeqMnl);
+		fbBlkUSDS.pa_bLFOnline			:= g_tyMcParamCurr.a_bLFOnline;
+		fbBlkUSDS.bSeqMode				:= (tylocalLFLeader.Out.eStat= LFActChgSeqAuto) OR (tylocalLFLeader.Out.eStat= LFActChgSeqMnl);
 		fbBlkUSDS(bEn := TRUE);
 		
-		fbDataUpdt.a_bOnline			:= pa_bLFOnline;
+		fbDataUpdt.a_bOnline			:= g_tyMcParamCurr.a_bLFOnline;
 		fbDataUpdt.diMcNum				:= diMcNum;
 		fbDataUpdt(bEn := TRUE);
 		

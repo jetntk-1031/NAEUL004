@@ -1,4 +1,4 @@
-(** 2020-08-06 **)
+
 ACTION Act_Background_OPCUA:
 	
 	IF bRun1 = TRUE THEN
@@ -15,8 +15,8 @@ ACTION Act_Background_OPCUA:
 				eOPCUAStep	:= LFOPCUAStepChkHdls;
 				
 			LFOPCUAStepChkHdls:
-				IF pa_sLFIPAddr[udiNodeCntr] <> '' THEN
-					IF pa_bLFOnline[udiNodeCntr] = TRUE THEN
+				IF g_tyMcParamCurr.a_sLFIPAddr[udiNodeCntr] <> '' THEN
+					IF g_tyMcParamCurr.a_bLFOnline[udiNodeCntr] = TRUE THEN
 						IF a_dwConnectionHdl[udiNodeCntr] <> 0 THEN
 							IF a_bNodeWr[udiNodeCntr] = TRUE THEN
 								IF a_bNodeRd[udiNodeCntr] = TRUE THEN
@@ -39,7 +39,7 @@ ACTION Act_Background_OPCUA:
 				END_IF
 			
 			LFOPCUAStepConnect:
-				fbConnect.tyOPCUAParam.sIPAddr	:= pa_sLFIPAddr[udiNodeCntr];
+				fbConnect.tyOPCUAParam.sIPAddr	:= g_tyMcParamCurr.a_sLFIPAddr[udiNodeCntr];
 				fbConnect(bEn := TRUE);
 				
 				IF fbConnect.udiStatus = 0 THEN

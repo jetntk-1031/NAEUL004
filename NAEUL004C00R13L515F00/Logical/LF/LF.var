@@ -1,0 +1,7 @@
+VAR
+	p_LFLeader : UDINT;
+	p_LFFollower : UDINT;
+	p_Follower1 : UDINT;
+	p_Follower2 : UDINT;
+	g_sLFLeaderProgNm : STRING[15];
+END_VAR

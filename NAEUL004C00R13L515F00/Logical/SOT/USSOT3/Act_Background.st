@@ -1,28 +1,29 @@
 (** 2021-04-20 **)
 ACTION Act_Background:
 	
-	IF bConvStart = FALSE AND bConvStop = FALSE THEN
+		
+	IF tylocalUSSOT.Out.bConvStart = FALSE AND tylocalUSSOT.Out.bConvStop = FALSE THEN
 
-		IF p_bVirtualEn = TRUE THEN
-			bVirtual	:= TRUE;
+		IF tylocalUSSOT.In.tylocalUSSOT.Out.bVirtualEn = TRUE THEN
+			tylocalUSSOT.Out.bVirtual	:= TRUE;
 		ELSE
-			bVirtual	:= FALSE;
+			tylocalUSSOT.Out.bVirtual	:= FALSE;
 		END_IF
 	END_IF
 	
-	IF bVirtual = TRUE THEN
+	IF tylocalUSSOT.Out.bVirtual = TRUE THEN
 		
-		fbSigInChk.bNomSig	:= p_bUBAVirtual;	
+		fbSigInChk.bNomSig	:= tylocalUSSOT.In.bUBAVirtual;	
 	ELSE
 		
-		fbSigInChk.bNomSig	:= p_bUMA;
-		fbSigInChk.bMagSizeSig := p_bUMASize;
+		fbSigInChk.bNomSig	:= tylocalUSSOT.In.bUMA;
+		fbSigInChk.bMagSizeSig := tylocalUSSOT.In.bUMASize;
 	
 	END_IF
 	
 	fbSigInChk;
 	
-	bUSRdy			:= fbSigInChk.bSigInValid;	
-	bUSLargeMagRdy	:= fbSigInChk.bMagSizeLarge;
+	tylocalUSSOT.Out.bUSRdy			:= fbSigInChk.bSigInValid;	
+	tylocalUSSOT.Out.bUSLargeMagRdy	:= fbSigInChk.bMagSizeLarge;
 	
 END_ACTION

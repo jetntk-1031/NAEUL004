@@ -1,7 +1,18 @@
 (** 2019-06-17 **)
 ACTION Act_Main:
 	
-	IF eStatOld <> eStat THEN
+	
+	fbAlmRstTm.PT				:= tylocalMtrPshr.In.tAlmRstTm;
+	fbAlmTrigTm.PT				:= tylocalMtrPshr.In.tAlmTrigTm;
+	fbMtrBrkOffDlyTm.PT			:= tylocalMtrPshr.In.tMtrBrkOffDlyTm;
+	fbMtrPshrExtChk.tTimeOut	:= tylocalMtrPshr.In.tExtTO;
+	fbMtrPshrRetChk.tTimeOut	:= tylocalMtrPshr.In.tRetTO;
+	//Set tylocalMtrPshr.In.eAct
+	IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy OR tylocalMtrPshr.Out.eStatus = Done THEN
+		tylocalMtrPshr.Out.eStat	:= tylocalMtrPshr.In.eAct;
+	END_IF
+	
+	IF eStatOld <> tylocalMtrPshr.Out.eStat THEN
 		bMtrSpdSlw	:= FALSE;
 		
 		fbMtrBrkOffDlyTm(IN := FALSE);
@@ -28,50 +39,50 @@ ACTION Act_Main:
 			AND eStatOld <> MtrPshrActSetAll
 			AND eStatOld <> MtrPshrActRstAll THEN
 			
-			bCW			:= FALSE;
-			bCCW		:= FALSE;
-			bSpdBinBit0	:= FALSE;
-			bSpdBinBit1	:= FALSE;
-			bSpdBinBit2	:= FALSE;
-			bSigOn		:= FALSE;
-			bBrake		:= FALSE;
-			bAlmRst		:= FALSE;
+			tylocalMtrPshr.Out.bCW			:= FALSE;
+			tylocalMtrPshr.Out.bCCW		:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+			tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+			tylocalMtrPshr.Out.bSigOn		:= FALSE;
+			tylocalMtrPshr.Out.bBrake		:= FALSE;
+			tylocalMtrPshr.Out.bAlmRst		:= FALSE;
 			
 		END_IF
 		
-		sStatTxt	:= a_sStatText[eStat];
+		sStatTxt	:= a_sStatText[tylocalMtrPshr.Out.eStat];
 		
-		eStatOld	:= eStat;
+		eStatOld	:= tylocalMtrPshr.Out.eStat;
 		
-		eStatus		:= Busy;
+		tylocalMtrPshr.Out.eStatus		:= Busy;
 	END_IF
 	
 	//Main
-	CASE eStat OF
+	CASE tylocalMtrPshr.Out.eStat OF
 		
 		MtrPshrActIdle:
-			IF EDGENEG(p_bManual) THEN
-				bCW			:= FALSE;
-				bCCW		:= FALSE;
-				bSpdBinBit0	:= FALSE;
-				bSpdBinBit1	:= FALSE;
-				bSpdBinBit2	:= FALSE;
-				bSigOn		:= FALSE;
-				bBrake		:= FALSE;
-				bAlmRst		:= FALSE;
+			IF EDGENEG(tylocalMtrPshr.In.bManual) THEN
+				tylocalMtrPshr.Out.bCW			:= FALSE;
+				tylocalMtrPshr.Out.bCCW		:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+				tylocalMtrPshr.Out.bSigOn		:= FALSE;
+				tylocalMtrPshr.Out.bBrake		:= FALSE;
+				tylocalMtrPshr.Out.bAlmRst		:= FALSE;
 			END_IF
 			
-			eStatus	:= Idle;
+			tylocalMtrPshr.Out.eStatus	:= Idle;
 			
 		MtrPshrActExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
-				eStatus	:= Busy;
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
+				tylocalMtrPshr.Out.eStatus	:= Busy;
 				
 				//Motor Torque
-				IF (p_bRetSen OR p_bRetSlowSen) THEN// OR  NOT(bMtrSpdSlw) THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16383) / 100); //5V at 16383 for maximum Torque
+				IF (tylocalMtrPshr.In.bRetSen OR tylocalMtrPshr.In.bRetSlowSen) THEN// OR  NOT(bMtrSpdSlw) THEN
+					iAnalogTorque	:= ((DINT_TO_INT(tylocalMtrPshr.In.diStartTorque) * 16383) / 100); //5V at 16383 for maximum Torque
 				ELSE //IF bMtrSpdSlw THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diExtTorque) * 16383) / 100);
+					iAnalogTorque	:= ((DINT_TO_INT(tylocalMtrPshr.In.diExtTorque) * 16383) / 100);
 				END_IF
 				
 				IF iAnalogTorque < 1500 THEN
@@ -79,104 +90,104 @@ ACTION Act_Main:
 				END_IF
 				
 				//Motor Speed
-				IF p_bExtSlowSen = TRUE OR p_bTorqueSig = TRUE THEN
+				IF tylocalMtrPshr.In.bExtSlowSen = TRUE OR tylocalMtrPshr.In.bTorqueSig = TRUE THEN
 					bMtrSpdSlw	:= TRUE;
 				END_IF
 				
 				IF bMtrSpdSlw = TRUE THEN
-					diMtrSpd	:= p_diExtSlowSpd;
+					diMtrSpd	:= tylocalMtrPshr.In.diExtSlowSpd;
 				ELSE
-					diMtrSpd	:= p_diExtNomSpd;
+					diMtrSpd	:= tylocalMtrPshr.In.diExtNomSpd;
 				END_IF
 				
 				CASE diMtrSpd OF
 					1:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					2:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					3:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					4:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					5:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					6:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					7:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					8:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 				END_CASE
 				
 				//Motor On
-				bSigOn	:= FALSE;
-				bBrake	:= TRUE;
+				tylocalMtrPshr.Out.bSigOn	:= FALSE;
+				tylocalMtrPshr.Out.bBrake	:= TRUE;
 				
-				IF p_bDir = TRUE THEN
-					bCW		:= TRUE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCW		:= TRUE;
 				ELSE
-					bCCW	:= TRUE;
+					tylocalMtrPshr.Out.bCCW	:= TRUE;
 				END_IF
 				
 				//Checking Extend
-				fbMtrPshrExtChk.bExtSen		:= p_bExtSen;
-				fbMtrPshrExtChk.bRetSen		:= p_bRetSen;
-				fbMtrPshrExtChk.bExtSafety	:= p_bExtSafetySen;
+				fbMtrPshrExtChk.bExtSen		:= tylocalMtrPshr.In.bExtSen;
+				fbMtrPshrExtChk.bRetSen		:= tylocalMtrPshr.In.bRetSen;
+				fbMtrPshrExtChk.bExtSafety	:= tylocalMtrPshr.In.bExtSafetySen;
 				
 				fbMtrPshrExtChk(bEn := TRUE);
 				
 				IF fbMtrPshrExtChk.udiStatus = 0 THEN
 					
-					bSigOn	:= TRUE;
-					bBrake	:= FALSE;
-					bCW		:= FALSE;
-					bCCW	:= FALSE;
+					tylocalMtrPshr.Out.bSigOn	:= TRUE;
+					tylocalMtrPshr.Out.bBrake	:= FALSE;
+					tylocalMtrPshr.Out.bCW		:= FALSE;
+					tylocalMtrPshr.Out.bCCW	:= FALSE;
 					
 					fbMtrBrkOffDlyTm(IN := TRUE);
 					
 					IF fbMtrBrkOffDlyTm.Q = TRUE THEN
 						fbMtrBrkOffDlyTm(IN := FALSE);
 						
-						bCW			:= FALSE;
-						bCCW		:= FALSE;
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
-						bSigOn		:= FALSE;
-						bBrake		:= FALSE;
+						tylocalMtrPshr.Out.bCW			:= FALSE;
+						tylocalMtrPshr.Out.bCCW		:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSigOn		:= FALSE;
+						tylocalMtrPshr.Out.bBrake		:= FALSE;
 						
-						bExtended	:= TRUE;
-						eStatus		:= Done;
+						tylocalMtrPshr.Out.bExtended	:= TRUE;
+						tylocalMtrPshr.Out.eStatus		:= Done;
 					END_IF
 					
 				ELSIF fbMtrPshrExtChk.udiStatus < 65534 THEN
 					
-					bCW			:= FALSE;
-					bCCW		:= FALSE;
-					bSpdBinBit0	:= FALSE;
-					bSpdBinBit1	:= FALSE;
-					bSpdBinBit2	:= FALSE;
-					bSigOn		:= TRUE;
-					bBrake		:= FALSE;
+					tylocalMtrPshr.Out.bCW			:= FALSE;
+					tylocalMtrPshr.Out.bCCW		:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+					tylocalMtrPshr.Out.bSigOn		:= TRUE;
+					tylocalMtrPshr.Out.bBrake		:= FALSE;
 					
-					bExtended	:= FALSE;
-					eStatus		:= Error;
+					tylocalMtrPshr.Out.bExtended	:= FALSE;
+					tylocalMtrPshr.Out.eStatus		:= Error;
 					
 					IF fbMtrPshrExtChk.udiStatus = 1506 THEN
 						udiStatus	:= 10000;	//Pusher Retract Sensor Off Time Out In Extend Check While Pusher Extend
@@ -193,14 +204,14 @@ ACTION Act_Main:
 			END_IF
 			
 		MtrPshrActRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
-				eStatus	:= Busy;
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
+				tylocalMtrPshr.Out.eStatus	:= Busy;
 				
 				//Motor Torque
-				IF (p_bExtSen OR p_bExtSlowSen) THEN //OR NOT(bMtrSpdSlw) THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diStartTorque) * 16383) / 100); //32767 ==10V ,10000 == 3v
+				IF (tylocalMtrPshr.In.bExtSen OR tylocalMtrPshr.In.bExtSlowSen) THEN //OR NOT(bMtrSpdSlw) THEN
+					iAnalogTorque	:= ((DINT_TO_INT(tylocalMtrPshr.In.diStartTorque) * 16383) / 100); //32767 ==10V ,10000 == 3v
 				ELSE // bMtrSpdSlw THEN
-					iAnalogTorque	:= ((DINT_TO_INT(p_diRetTorque) * 16383) / 100);
+					iAnalogTorque	:= ((DINT_TO_INT(tylocalMtrPshr.In.diRetTorque) * 16383) / 100);
 				END_IF
 				
 				IF iAnalogTorque < 1500 THEN
@@ -208,104 +219,104 @@ ACTION Act_Main:
 				END_IF
 				
 				//Motor Speed
-				IF p_bRetSlowSen = TRUE THEN
+				IF tylocalMtrPshr.In.bRetSlowSen = TRUE THEN
 					bMtrSpdSlw	:= TRUE;
 				END_IF
 				
 				IF bMtrSpdSlw = TRUE THEN
-					diMtrSpd	:= p_diRetSlowSpd;
+					diMtrSpd	:= tylocalMtrPshr.In.diRetSlowSpd;
 				ELSE
-					diMtrSpd	:= p_diRetNomSpd;
+					diMtrSpd	:= tylocalMtrPshr.In.diRetNomSpd;
 				END_IF
 				
 				CASE diMtrSpd OF
 					1:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					2:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					3:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					4:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 					5:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					6:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					7:
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 					8:
-						bSpdBinBit0	:= TRUE;
-						bSpdBinBit1	:= TRUE;
-						bSpdBinBit2	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 				END_CASE
 				
 				//Motor On
-				bSigOn	:= FALSE;
-				bBrake	:= TRUE;
+				tylocalMtrPshr.Out.bSigOn	:= FALSE;
+				tylocalMtrPshr.Out.bBrake	:= TRUE;
 				
-				IF p_bDir = TRUE THEN
-					bCCW	:= TRUE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCCW	:= TRUE;
 				ELSE
-					bCW		:= TRUE;
+					tylocalMtrPshr.Out.bCW		:= TRUE;
 				END_IF
 				
 				//Checking Retract
-				fbMtrPshrRetChk.bExtSen		:= p_bExtSen;
-				fbMtrPshrRetChk.bRetSen		:= p_bRetSen;
-				fbMtrPshrRetChk.bRetSafety	:= p_bRetSafetySen;
+				fbMtrPshrRetChk.bExtSen		:= tylocalMtrPshr.In.bExtSen;
+				fbMtrPshrRetChk.bRetSen		:= tylocalMtrPshr.In.bRetSen;
+				fbMtrPshrRetChk.bRetSafety	:= tylocalMtrPshr.In.bRetSafetySen;
 				
 				fbMtrPshrRetChk(bEn := TRUE);
 				
 				IF fbMtrPshrRetChk.udiStatus = 0 THEN
 					
-					bSigOn	:= TRUE;
-					bBrake	:= FALSE;
-					bCW		:= FALSE;
-					bCCW	:= FALSE;
+					tylocalMtrPshr.Out.bSigOn	:= TRUE;
+					tylocalMtrPshr.Out.bBrake	:= FALSE;
+					tylocalMtrPshr.Out.bCW		:= FALSE;
+					tylocalMtrPshr.Out.bCCW	:= FALSE;
 					
 					fbMtrBrkOffDlyTm(IN := TRUE);
 					
 					IF fbMtrBrkOffDlyTm.Q = TRUE THEN
 						fbMtrBrkOffDlyTm(IN := FALSE);
 						
-						bCW			:= FALSE;
-						bCCW		:= FALSE;
-						bSpdBinBit0	:= FALSE;
-						bSpdBinBit1	:= FALSE;
-						bSpdBinBit2	:= FALSE;
-						bSigOn		:= FALSE;
-						bBrake		:= FALSE;
+						tylocalMtrPshr.Out.bCW			:= FALSE;
+						tylocalMtrPshr.Out.bCCW		:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+						tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+						tylocalMtrPshr.Out.bSigOn		:= FALSE;
+						tylocalMtrPshr.Out.bBrake		:= FALSE;
 						
-						bRetracted	:= TRUE;
-						eStatus		:= Done;
+						tylocalMtrPshr.Out.bRetracted	:= TRUE;
+						tylocalMtrPshr.Out.eStatus		:= Done;
 					END_IF
 					
 				ELSIF fbMtrPshrRetChk.udiStatus < 65534 THEN
 					
-					bCW			:= FALSE;
-					bCCW		:= FALSE;
-					bSpdBinBit0	:= FALSE;
-					bSpdBinBit1	:= FALSE;
-					bSpdBinBit2	:= FALSE;
-					bSigOn		:= TRUE;
-					bBrake		:= FALSE;
+					tylocalMtrPshr.Out.bCW			:= FALSE;
+					tylocalMtrPshr.Out.bCCW		:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+					tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+					tylocalMtrPshr.Out.bSigOn		:= TRUE;
+					tylocalMtrPshr.Out.bBrake		:= FALSE;
 					
-					bRetracted	:= FALSE;
-					eStatus		:= Error;
+					tylocalMtrPshr.Out.bRetracted	:= FALSE;
+					tylocalMtrPshr.Out.eStatus		:= Error;
 					
 					IF fbMtrPshrRetChk.udiStatus = 1504 THEN
 						udiStatus	:= 10003;	//Pusher Extend Sensor Off Time Out In Retract Check While Pusher Retract
@@ -322,212 +333,214 @@ ACTION Act_Main:
 			END_IF
 			
 		MtrPshrActStop:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bCW			:= FALSE;
-				bCCW		:= FALSE;
-				bSpdBinBit0	:= FALSE;
-				bSpdBinBit1	:= FALSE;
-				bSpdBinBit2	:= FALSE;
-				bSigOn		:= TRUE;
-				bBrake		:= FALSE;
+				tylocalMtrPshr.Out.bCW			:= FALSE;
+				tylocalMtrPshr.Out.bCCW		:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+				tylocalMtrPshr.Out.bSigOn		:= TRUE;
+				tylocalMtrPshr.Out.bBrake		:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				IF p_bDir = TRUE THEN
-					bCW		:= TRUE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCW		:= TRUE;
 				ELSE
-					bCCW	:= TRUE;
+					tylocalMtrPshr.Out.bCCW	:= TRUE;
 				END_IF
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstExt:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				IF p_bDir = TRUE THEN
-					bCW		:= FALSE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCW		:= FALSE;
 				ELSE
-					bCCW	:= FALSE;
+					tylocalMtrPshr.Out.bCCW	:= FALSE;
 				END_IF
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				IF p_bDir = TRUE THEN
-					bCCW	:= TRUE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCCW	:= TRUE;
 				ELSE
-					bCW		:= TRUE;
+					tylocalMtrPshr.Out.bCW		:= TRUE;
 				END_IF
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstRet:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				IF p_bDir = TRUE THEN
-					bCCW	:= FALSE;
+				IF tylocalMtrPshr.In.bDir = TRUE THEN
+					tylocalMtrPshr.Out.bCCW	:= FALSE;
 				ELSE
-					bCW		:= FALSE;
+					tylocalMtrPshr.Out.bCW		:= FALSE;
 				END_IF
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetSpdBit0:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit0	:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstSpdBit0:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit0	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetSpdBit1:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit1	:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstSpdBit1:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit1	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetSpdBit2:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit2	:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstSpdBit2:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSpdBinBit2	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetSigOn:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSigOn		:= TRUE;
+				tylocalMtrPshr.Out.bSigOn		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstSigOn:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bSigOn		:= FALSE;
+				tylocalMtrPshr.Out.bSigOn		:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetBrake:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bBrake		:= TRUE;
+				tylocalMtrPshr.Out.bBrake		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstBrake:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bBrake		:= FALSE;
+				tylocalMtrPshr.Out.bBrake		:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetAlmRst:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bAlmRst		:= TRUE;
+				tylocalMtrPshr.Out.bAlmRst		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstAlmRst:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bAlmRst		:= FALSE;
+				tylocalMtrPshr.Out.bAlmRst		:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActSetAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bCW			:= TRUE;
-				bCCW		:= TRUE;
-				bSpdBinBit0	:= TRUE;
-				bSpdBinBit1	:= TRUE;
-				bSpdBinBit2	:= TRUE;
-				bSigOn		:= TRUE;
-				bBrake		:= TRUE;
-				bAlmRst		:= TRUE;
+				tylocalMtrPshr.Out.bCW			:= TRUE;
+				tylocalMtrPshr.Out.bCCW		:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= TRUE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= TRUE;
+				tylocalMtrPshr.Out.bSigOn		:= TRUE;
+				tylocalMtrPshr.Out.bBrake		:= TRUE;
+				tylocalMtrPshr.Out.bAlmRst		:= TRUE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 			
 		MtrPshrActRstAll:
-			IF eStatus = Idle OR eStatus = Busy THEN
+			IF tylocalMtrPshr.Out.eStatus = Idle OR tylocalMtrPshr.Out.eStatus = Busy THEN
 				
-				bCW			:= FALSE;
-				bCCW		:= FALSE;
-				bSpdBinBit0	:= FALSE;
-				bSpdBinBit1	:= FALSE;
-				bSpdBinBit2	:= FALSE;
-				bSigOn		:= FALSE;
-				bBrake		:= FALSE;
-				bAlmRst		:= FALSE;
+				tylocalMtrPshr.Out.bCW			:= FALSE;
+				tylocalMtrPshr.Out.bCCW		:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit0	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit1	:= FALSE;
+				tylocalMtrPshr.Out.bSpdBinBit2	:= FALSE;
+				tylocalMtrPshr.Out.bSigOn		:= FALSE;
+				tylocalMtrPshr.Out.bBrake		:= FALSE;
+				tylocalMtrPshr.Out.bAlmRst		:= FALSE;
 				
-				eStatus		:= Done;
+				tylocalMtrPshr.Out.eStatus		:= Done;
 				
 			END_IF
 		
 	END_CASE
 	
+	
+
 END_ACTION

@@ -1,19 +1,21 @@
-(*2020-10-05*)
-(**)
-(*Local Action, State & Status*)
+(*Reference Data Points*)
 VAR
-	eAct : eLFAction := LFActIdle;
-	eStat : eLFAction := LFActIdle;
-	eStatus : eFBStatus := Idle;
-	udiStatus : UDINT := 0;
-	sStatTxt : STRING[200] := '';
+	p_eAct : REFERENCE TO eLFAction;
+	p_sReqProdRcpNm : REFERENCE TO STRING[254];
+	p_diReqProdWidth : REFERENCE TO DINT;
+	p_sReqMagRcpNm : REFERENCE TO STRING[15];
+	p_sLeaderProgTagNm : REFERENCE TO STRING[15];
+	p_sFollowerProgTagNm : REFERENCE TO STRING[15];
+END_VAR
+(**)
+VAR
+	tylocalLFLeader : tyLFLeader1;
 	a_sStatText : ARRAY[0..50] OF STRING[200] := ['Idling','Background Starting Operations','Background Stopping Operations','Synchronizing PLC Time','Changing All Recipe Automatically','Changing All Recipe Manually','Changing Recipe In Sequence Automatically','Changing Recipe In Sequence Manually',43('')];
 END_VAR
 (**)
 (*Local Alarm*)
 VAR
 	tyAlmData : tyAlmDat;
-	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='Background Not Running While Calling Sync PLC Tm',sRcyText:='Start Background Operations First'),(sAlmText:='Background Not Running While Changing All Recipe Automatically',sRcyText:='Start Background Operations First'),(sAlmText:='Background Not Running While Changing All Recipe Manually',sRcyText:='Start Background Operations First'),(sAlmText:='Background Not Running While Changing Recipe In Sequence Automatically',sRcyText:='Start Background Operations First'),(sAlmText:='Background Not Running While Changing Recipe In Sequence Manually',sRcyText:='Start Background Operations First'),0,94((0))];
 END_VAR
 (**)
 (*Local Output*)
@@ -24,31 +26,17 @@ END_VAR
 (**)
 (*Local Input*)
 VAR
-	udiRstErr : UDINT := 0;
-	bPrep : BOOL := TRUE;
-	bEn : BOOL := TRUE;
-	bDis : BOOL := FALSE;
+	eAct : eLFAction;
+	udiStatus : UDINT;
 	sReqProdRcpNm : STRING[254];
 	diReqProdWidth : DINT;
 	sReqMagRcpNm : STRING[15];
-	diBeforeOven : DINT;
-	diAfterOven : DINT;
-	diBeforeOven2 : DINT;
-	diAfterOven2 : DINT;
-	bWidth2Prep : BOOL;
-	tOnlineChkDlyTm : TIME;
-	tSetTmOffDlyTm : TIME;
-	dtCurrDT : DATE_AND_TIME;
-	a_sLFIPAddr : ARRAY[1..c_diLFClntNum] OF STRING[15];
-	a_bLFOnline : ARRAY[1..c_diLFClntNum] OF BOOL;
-	bLFSeqStayActive : BOOL;
 	sLeaderProgTagNm : STRING[15] := 'LFLeader';
 	sFollowerProgTagNm : STRING[15] := 'LFFollower';
-	sProgNm : STRING[15] := 'Leader';
-	bNtSettingsLoadDone : BOOL := TRUE;
+	bUILeaderStart : BOOL;
+	bUILeaderStop : BOOL;
 END_VAR
 (**)
-(*Local*)
 VAR
 	bRstErr : BOOL;
 	udiRstErrOld : UDINT;
@@ -85,7 +73,7 @@ VAR
 	fbGetNodeHdlListWr : fbOPCUAGetNodeHdlList;
 	fbGetNodeHdlListRd : fbOPCUAGetNodeHdlList;
 	fbWriteList : fbOPCUAWriteList;
-	fbReadList : fbOPCUAReadList;
 	fbDisconnect : fbOPCUADisconnect;
+	fbReadList : fbOPCUAReadList;
 	udiModuleNum : UDINT := 3801;
 END_VAR

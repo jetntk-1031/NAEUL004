@@ -1,34 +1,34 @@
-(** 2021-04-20 **)
+(** 2022-04-20 **)
 ACTION Act_Link:
 	
-	//Ready Receive
-	IF p_bLinkProjTCPAGVSigPrep THEN
+		//Ready Receive
+	IF tylocalUSSOT.In.bLinkProjTCPAGVSigPrep THEN
 		//TCP package
-		IF p_bLinkSOTReadyOnFirst THEN
-			p_bRdyRcv	:= TRUE;
+		IF tylocalUSSOT.In.bLinkSOTReadyOnFirst THEN
+			tylocalUSSOT.In.bRdyRcv	:= TRUE;
 		ELSE
-			p_bRdyRcv ACCESS p_TCPSvrUBA2;
+			tylocalUSSOT.In.bRdyRcv := g_tyTCP.bSvrUBA;
 		END_IF
-		p_bLeftSen ACCESS p_DIInMagConv2MidSen;
-		p_bRightSen ACCESS p_DIInMagConv2EntSen;
-		p_bUMA ACCESS p_TCPSvrUBA2;	
-		p_bDirLToR := FALSE;
-		p_bComplSigOn	:= p_bLeftSen;
+		tylocalUSSOT.In.bLeftSen := g_tyDInput.bInMagConvMidSen;
+		tylocalUSSOT.In.bRightSen := g_tyDInput.bInMagConvEntSen;
+		tylocalUSSOT.In.bUMA := g_tyTCP.bSvrUBA;	
+		tylocalUSSOT.In.bDirLToR := FALSE;
+		tylocalUSSOT.In.bComplSigOn	:= tylocalUSSOT.In.bLeftSen;
 
 	ELSE
-		IF p_bLinkSOTReadyOnFirst THEN
-			p_bRdyRcv	:= TRUE;
+		IF tylocalUSSOT.In.bLinkSOTReadyOnFirst THEN
+			tylocalUSSOT.In.bRdyRcv	:= TRUE;
 		ELSE
-			p_bRdyRcv ACCESS p_DISOT2Available;
+			tylocalUSSOT.In.bRdyRcv := g_tyDInput.bSOT2AIVAvailable;
 		END_IF
 		
-		p_bLeftSen ACCESS p_DIMagConvEntSen2;
-		p_bRightSen ACCESS p_DIMagPresentSen2;
-		p_bUMA ACCESS p_DISOT2Available;	
-		p_bUMASize ACCESS p_DISOT2SizeLarge;	
-		p_bDirLToR := TRUE;
+		tylocalUSSOT.In.bLeftSen := g_tyDInput.bMagConvEntSen2;
+		tylocalUSSOT.In.bRightSen := g_tyDInput.bMagPresentSen2;
+		tylocalUSSOT.In.bUMA := g_tyDInput.bSOT2AIVAvailable;	
+		tylocalUSSOT.In.bUMASize := g_tyDInput.bSOT2AIVSizeLarge;	
+		tylocalUSSOT.In.bDirLToR := TRUE;
 	
-		p_bComplSigOn	:= p_bRightSen;
+		tylocalUSSOT.In.bComplSigOn	:= tylocalUSSOT.In.bRightSen;
 	END_IF
 	
 END_ACTION

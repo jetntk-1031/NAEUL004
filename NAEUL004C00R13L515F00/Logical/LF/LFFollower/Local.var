@@ -1,6 +1,7 @@
-(*2021-05-18*)
+VAR
+	tylocalLFFollower : tyLFFollower1;
+END_VAR
 (**)
-(*Local Action, State & Status*)
 VAR
 	eStatus : eFBStatus := Idle;
 	udiStatus : UDINT := 0;
@@ -11,7 +12,6 @@ VAR
 	tyAlmData : tyAlmDat;
 	tyInfoData : tyAlmDat;
 	tyInfoData1 : tyAlmDat;
-	a_tyAlmText : ARRAY[10000..10099] OF tyAlmTxt := [(sAlmText:='New Recipe Not Found In Product Recipe List',sRcyText:='Create New Recipe In Product Setting.'),(sAlmText:='Product Recipe Width Not Match',sRcyText:='Check Product Width And Leader Request Width'),(sAlmText:='New Recipe Not Found In Magazine Recipe List',sRcyText:='Create New Recipe In Magazine Setting.'),(sAlmText:='New Recipe Name Empty',sRcyText:='Request Recipe Name From Leader Is Empty, Check Leader Machine'),96(0)];
 END_VAR
 (**)
 (*Local Output*)
@@ -28,28 +28,7 @@ VAR
 	tyUpdtProdRcp : tyProdRcpParam;
 END_VAR
 (**)
-(*Local Input*)
 VAR
-	udiRstErr : UDINT := 0;
-	bPrep : BOOL := TRUE;
-	bEn : BOOL := TRUE;
-	bDis : BOOL := FALSE;
-	sIPAddr : STRING[15] := '192.168.0.100';
-	sMcNm : STRING[30];
-	bAWPrep : BOOL := TRUE;
-	bAWDis : BOOL;
-	bMnlAccData : BOOL;
-	bSectionLeader : BOOL;
-	sMagRcpNm : STRING[30];
-	diWidthLimit : DINT;
-	bWidth2Prep : BOOL;
-	bUSWidthChkPrep : BOOL;
-	bUSWidthChkEn : BOOL;
-	bUSWidthChkSen : BOOL;
-	bDSWidthChkPrep : BOOL;
-	bDSWidthChkEn : BOOL;
-	bDSWidthChkSen : BOOL;
-	bProdWidthChk : BOOL;
 	bUIProdAccData : BOOL;
 	bUIProdUpdtData : BOOL;
 	bUIMagAccData : BOOL;
@@ -57,8 +36,6 @@ VAR
 	tyDispProdRcp : tyProdRcpParam;
 	tyCurrProdRcp : tyProdRcpParam;
 	sCurrMagRcpNm : STRING[30];
-	eTimeStat : eTimeAction;
-	eTimeStatus : eFBStatus;
 	bAccNewRcpCond : BOOL;
 	bUpdtNewRcpCond : BOOL;
 	bAutoUpdtData : BOOL;
@@ -72,15 +49,7 @@ VAR
 	bInternalReqProdRcpDiff : BOOL;
 	bUpdtProdRcpDiff : BOOL;
 	bRlsBrdProdRcpDiff : BOOL;
-	sProgNm : STRING[15] := 'Follower';
-	bNtSettingsLoadDone : BOOL := TRUE;
-	tOnlineChkDlyTm : TIME;
-	bManual : BOOL := FALSE;
-	bErr : BOOL := FALSE;
-	bWarning : BOOL := FALSE;
-	bOps : BOOL := FALSE;
-	bStandby : BOOL := FALSE;
-	eAWStat : eAWAction;
+	sWidthInUMTemp : STRING[80];
 END_VAR
 (**)
 (*Local*)
@@ -116,6 +85,25 @@ VAR
 	bFollowerInfo : BOOL;
 	bProdRcpErrNotExist : BOOL;
 	bProdRcpErrWidthMismatch : BOOL;
-	bDBAOnWOAlign : BOOL;
+	p_bUIProdAccData : REFERENCE TO BOOL;
+	p_bUIProdUpdtData : REFERENCE TO BOOL;
+	p_bUIMagAccData : REFERENCE TO BOOL;
+	pa_tyProdRcpList : REFERENCE TO ARRAY[1..c_udiProdRcpMax] OF tyProdRcpParam;
+	p_tyCurrProdRcp : REFERENCE TO tyProdRcpParam;
+	p_tyDispProdRcp : REFERENCE TO tyProdRcpParam;
+	p_sCurrMagRcpNm : REFERENCE TO STRING[30];
+	p_bAccNewRcpCond : REFERENCE TO BOOL;
+	p_bUpdtNewRcpCond : REFERENCE TO BOOL;
+	p_bAutoUpdtData : REFERENCE TO BOOL;
+	p_sInfoMsg : REFERENCE TO STRING[200];
+	p_bInternalUse : REFERENCE TO BOOL;
+	p_tyInternalReqProdRcp : REFERENCE TO tyProdRcpParam;
+	p_bNewBrdEnteredCond : REFERENCE TO BOOL;
+	p_bOldBrdExitedCond : REFERENCE TO BOOL;
+	p_bRlsBrd : REFERENCE TO BOOL;
+	p_bInternalReqProdRcpDiff : REFERENCE TO BOOL;
+	p_bUpdtProdRcpDiff : REFERENCE TO BOOL;
+	p_bRlsBrdProdRcpDiff : REFERENCE TO BOOL;
+	p_tyFollower : REFERENCE TO tyLFFollowerOut1;
 	udiModuleNum : UDINT := 3901;
 END_VAR

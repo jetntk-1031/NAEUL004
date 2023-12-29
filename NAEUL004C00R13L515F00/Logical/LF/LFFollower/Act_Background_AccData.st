@@ -1,4 +1,4 @@
-(** 2021-05-18 **)
+
 ACTION Act_Background_AccData:		
 	//Product Accept Data Request
 	CASE usiProdAccDatStep OF
@@ -12,10 +12,9 @@ ACTION Act_Background_AccData:
 			END_IF
 			
 			IF bLeaderOnline=FALSE THEN
-				tyInfoData.sProgNm		:= '';
 				tyInfoData.udiCode		:= 0;
 				tyInfoData.eSeverity	:= AlmSeverityNA;
-				tyInfoData.sAlmMsg		:= '';
+
 				
 				bProdRcpErr 			:= FALSE;
 				bProdRcpErrNotExist		:= FALSE;
@@ -56,44 +55,42 @@ ACTION Act_Background_AccData:
 				
 				//Info Message
 				IF bLeaderOnline=FALSE THEN
-					tyInfoData.sProgNm		:= '';
+					
 					tyInfoData.udiCode		:= 0;
 					tyInfoData.eSeverity	:= AlmSeverityNA;
-					tyInfoData.sAlmMsg		:= '';
 					
 					bProdRcpErr 			:= FALSE;
 					bProdRcpErrNotExist		:= FALSE;
 					bProdRcpErrWidthMismatch:= FALSE;
 				ELSE
-					
 					IF p_bInternalUse = FALSE THEN
 						IF bLeaderInfo OR bFollowerInfo THEN
-							tyInfoData.sProgNm		:= p_sProgNm;
+//							tyInfoData.sProgNm		:= g_tyNtParamCurr.sLFFollowerProgNm;
 							tyInfoData.udiCode		:= 10000;
 							tyInfoData.eSeverity	:= AlmSeverityInfo;
 							tyInfoData.sAlmMsg		:= p_sInfoMsg;
 						ELSE
-							tyInfoData.sProgNm		:= '';
+//							tyInfoData.sProgNm		:= '';
 							tyInfoData.udiCode		:= 0;
 							tyInfoData.eSeverity	:= AlmSeverityNA;
-							tyInfoData.sAlmMsg		:= '';
+
 						END_IF
 					ELSE
 						IF p_sInfoMsg <> '' THEN
-							tyInfoData.sProgNm		:= p_sProgNm;
+//							tyInfoData.sProgNm		:= g_tyNtParamCurr.sLFFollowerProgNm;
 							tyInfoData.udiCode		:= 10000;
 							tyInfoData.eSeverity	:= AlmSeverityInfo;
-							tyInfoData.sAlmMsg		:= p_sInfoMsg;
+//							tyInfoData.sAlmMsg		:= p_sInfoMsg;
 						ELSE
-							tyInfoData.sProgNm		:= '';
+//							tyInfoData.sProgNm		:= '';
 							tyInfoData.udiCode		:= 0;
 							tyInfoData.eSeverity	:= AlmSeverityNA;
-							tyInfoData.sAlmMsg		:= '';
+//							tyInfoData.sAlmMsg		:= '';
 						END_IF
-						
 					END_IF
 				END_IF	
 			END_IF
+			
 		2:
 			//Manual Accept Data Check
 			IF bProdAccDataReq = TRUE THEN
@@ -102,21 +99,21 @@ ACTION Act_Background_AccData:
 					
 					//Info Message
 					IF bLeaderOnline=FALSE THEN
-						tyInfoData.sProgNm		:= '';
+//						tyInfoData.sProgNm		:= '';
 						tyInfoData.udiCode		:= 0;
 						tyInfoData.eSeverity	:= AlmSeverityNA;
-						tyInfoData.sAlmMsg		:= '';
+//						tyInfoData.sAlmMsg		:= '';
 					ELSE
 						IF p_sInfoMsg <> '' THEN
-							tyInfoData.sProgNm		:= p_sProgNm;
+//							tyInfoData.sProgNm		:= g_tyNtParamCurr.sLFFollowerProgNm;
 							tyInfoData.udiCode		:= 10000;
 							tyInfoData.eSeverity	:= AlmSeverityInfo;
-							tyInfoData.sAlmMsg		:= p_sInfoMsg;
+//							tyInfoData.sAlmMsg		:= p_sInfoMsg;
 						ELSE
-							tyInfoData.sProgNm		:= '';
+//							tyInfoData.sProgNm		:= '';
 							tyInfoData.udiCode		:= 0;
 							tyInfoData.eSeverity	:= AlmSeverityNA;
-							tyInfoData.sAlmMsg		:= '';
+//							tyInfoData.sAlmMsg		:= '';
 						END_IF
 					END_IF	
 			
@@ -144,21 +141,21 @@ ACTION Act_Background_AccData:
 				ELSE
 					//Info Message
 					IF bLeaderOnline=FALSE THEN
-						tyInfoData.sProgNm		:= '';
+//						tyInfoData.sProgNm		:= '';
 						tyInfoData.udiCode		:= 0;
 						tyInfoData.eSeverity	:= AlmSeverityNA;
-						tyInfoData.sAlmMsg		:= '';
+//						tyInfoData.sAlmMsg		:= '';
 					ELSE
 						IF p_sInfoMsg <> '' THEN
-							tyInfoData.sProgNm		:= p_sProgNm;
+//							tyInfoData.sProgNm		:= g_tyNtParamCurr.sLFFollowerProgNm;
 							tyInfoData.udiCode		:= 10000;
 							tyInfoData.eSeverity	:= AlmSeverityInfo;
-							tyInfoData.sAlmMsg		:= p_sInfoMsg;
+//							tyInfoData.sAlmMsg		:= p_sInfoMsg;
 						ELSE
-							tyInfoData.sProgNm		:= '';
+//							tyInfoData.sProgNm		:= '';
 							tyInfoData.udiCode		:= 0;
 							tyInfoData.eSeverity	:= AlmSeverityNA;
-							tyInfoData.sAlmMsg		:= '';
+//							tyInfoData.sAlmMsg		:= '';
 						END_IF
 					END_IF
 				END_IF
@@ -179,7 +176,6 @@ ACTION Act_Background_AccData:
 						EXIT;
 					ELSIF sReqProdRcpNm = pa_tyProdRcpList[i].sRcpNm THEN
 						p_tyCurrProdRcp	:= pa_tyProdRcpList[i];
-						
 						EXIT;
 					END_IF
 				END_FOR
@@ -204,10 +200,10 @@ ACTION Act_Background_AccData:
 			
 		6:
 			//Clear Info Message
-			tyInfoData.sProgNm		:= '';
+//			tyInfoData.sProgNm		:= '';
 			tyInfoData.udiCode		:= 0;
 			tyInfoData.eSeverity	:= AlmSeverityNA;
-			tyInfoData.sAlmMsg		:= '';
+//			tyInfoData.sAlmMsg		:= '';
 			
 			usiProdAccDatStep	:= 0;
 			

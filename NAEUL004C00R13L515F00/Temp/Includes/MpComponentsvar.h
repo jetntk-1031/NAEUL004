@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_2_
-#define _BUR_1703660020_2_
+#ifndef _BUR_1703817512_2_
+#define _BUR_1703817512_2_
 
 #include <bur/plctypes.h>
 
@@ -29,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Temp/Includes/AS_TempDecl/23Mag_UL_MagPlatORLifTra
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_2_ */
+#endif /* _BUR_1703817512_2_ */
 

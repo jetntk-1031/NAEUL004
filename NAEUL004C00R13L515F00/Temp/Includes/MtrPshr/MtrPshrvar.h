@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_125_
-#define _BUR_1703660020_125_
+#ifndef _BUR_1703817512_55_
+#define _BUR_1703817512_55_
 
 #include <bur/plctypes.h>
 
@@ -13,20 +13,7 @@
 
 
 /* Variables */
-_GLOBAL unsigned long p_MtrPshrAlmRst;
-_GLOBAL unsigned long p_MtrPshrBrake;
-_GLOBAL unsigned long p_MtrPshrSigOn;
-_GLOBAL unsigned long p_MtrPshrSpdBinBit2;
-_GLOBAL unsigned long p_MtrPshrSpdBinBit1;
-_GLOBAL unsigned long p_MtrPshrSpdBinBit0;
-_GLOBAL unsigned long p_MtrPshrCCW;
-_GLOBAL unsigned long p_MtrPshrCW;
-_GLOBAL unsigned long p_MtrPshrRetracted;
-_GLOBAL unsigned long p_MtrPshrExtended;
-_GLOBAL unsigned long p_MtrPshrAlmData;
-_GLOBAL unsigned long p_MtrPshrStatTxt;
-_GLOBAL unsigned long p_MtrPshrStatus;
-_GLOBAL unsigned long p_MtrPshrStat;
+_GLOBAL struct tyMtrPshrOut1 g_tyMtrPshr;
 
 
 
@@ -42,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MtrPshr/MtrPshr.var\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_125_ */
+#endif /* _BUR_1703817512_55_ */
 

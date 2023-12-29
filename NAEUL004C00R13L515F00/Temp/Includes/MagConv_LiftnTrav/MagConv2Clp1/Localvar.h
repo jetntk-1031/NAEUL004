@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_187_
-#define _BUR_1703660021_187_
+#ifndef _BUR_1703817513_180_
+#define _BUR_1703817513_180_
 
 #include <bur/plctypes.h>
 
@@ -13,6 +13,12 @@
 
 
 /* Variables */
+_BUR_LOCAL plcbit bMag2ConvMtrOut;
+_BUR_LOCAL plcbit bMag2ConvMtrIn;
+_BUR_LOCAL plcbit bMag1ConvMtrOut;
+_BUR_LOCAL plcbit bMag1ConvMtrIn;
+_BUR_LOCAL plcbit bMag2FixedClampCtrl;
+_BUR_LOCAL plcbit bMag1FixedClampCtrl;
 _BUR_LOCAL unsigned long udiModuleNum;
 _BUR_LOCAL struct TON fbRmtClpExtChkTm;
 _BUR_LOCAL struct TON fbFixClpExtChkTm;
@@ -94,5 +100,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtConv/NtConv.fun\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_187_ */
+#endif /* _BUR_1703817513_180_ */
 

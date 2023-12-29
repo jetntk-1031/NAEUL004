@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660020_138_
-#define _BUR_1703660020_138_
+#ifndef _BUR_1703817513_131_
+#define _BUR_1703817513_131_
 
 #include <bur/plctypes.h>
 
@@ -109,5 +109,5 @@ __asm__(".ascii \"iecfile \\\"Logical/UI/UI/Visu_Page.var\\\" scope \\\"local\\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660020_138_ */
+#endif /* _BUR_1703817513_131_ */
 

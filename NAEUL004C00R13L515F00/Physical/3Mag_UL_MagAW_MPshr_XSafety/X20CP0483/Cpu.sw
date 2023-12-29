@@ -82,10 +82,6 @@
     <Task Name="OpsMagCon1" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsMagCon2" Source="Operations.MagConv_StationaryPlat.OpsMagConvUL3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="OpsLifMagU" Source="Operations.OpsLifMagUL.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsInMagCo" Source="Operations.MultiMag_InOutMagazineConv.OpsInMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsOutMagC" Source="Operations.MultiMag_InOutMagazineConv.OpsOutMagConv.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsMagCon3" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="OpsMagCon4" Source="Operations.MultiMag_InOutMagazineConv.OpsMagConvStpr2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV" Source="AGVCom.AGV.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV1" Source="AGVCom.AGV1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="AGV2" Source="AGVCom.AGV2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
@@ -96,10 +92,6 @@
     <Task Name="Machine" Source="Machine.Machine.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="USSOT1" Source="SOT.USSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="DSSOT1" Source="SOT.DSSOT1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT2" Source="SOT.USSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT2" Source="SOT.DSSOT2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="USSOT3" Source="SOT.USSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="DSSOT3" Source="SOT.DSSOT3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4">
     <Task Name="RstErr" Source="RstErr.RstErr.prg" Memory="UserROM" Language="IEC" Debugging="true" />

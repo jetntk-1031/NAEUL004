@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_240_
-#define _BUR_1703660021_240_
+#ifndef _BUR_1703817513_217_
+#define _BUR_1703817513_217_
 
 #include <bur/plctypes.h>
 
@@ -301,5 +301,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtTCP/NtTCP.fun\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_240_ */
+#endif /* _BUR_1703817513_217_ */
 

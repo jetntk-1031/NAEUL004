@@ -2,129 +2,129 @@
 ACTION Act_Link:
 	//
 	IF p_eCustomerReq = Siemens THEN
-		p_bTLAmber ACCESS p_TLBuzWhite;
+		bTLAmber := g_tyTLBuzWhite;
 	ELSE 
-		p_bTLAmber ACCESS p_TLBuzAmber;
+		bTLAmber := g_tyTLBuzAmber;
 	END_IF
 	
 	
 	//Motor power relay
-	IF p_bLinkStartupRun = FALSE THEN
-		p_bMtrPwrRly		:= TRUE;
+	IF bLinkStartupRun = FALSE THEN
+		bMtrPwrRly		:= TRUE;
 	END_IF
 	
-	IF p_bManual THEN
+	IF g_tyUIOut.bManualMod THEN
 		
-		p_bSOTMagError1	ACCESS p_UISOTMagErr1;		
-		p_bSOTMagError2	ACCESS p_UISOTMagErr2;		
-		p_bSOTMagError3	ACCESS p_UISOTMagErr3;	
-		//		p_bSOTMagError4	ACCESS p_UISOTMagErr4;		
-		p_bSOTMagReady1	ACCESS p_UISOTMagRdy1;	
-		p_bSOTMagReady2	ACCESS p_UISOTMagRdy2;	
-		p_bSOTMagReady3	ACCESS p_UISOTMagRdy3;		
-		//		p_bSOTMagReady4	ACCESS p_UISOTMagRdy4;		
-		p_bSOTMagAvailable1	ACCESS p_UISOTMagAvail1;	
-		p_bSOTMagAvailable2	ACCESS p_UISOTMagAvail2;	
-		p_bSOTMagAvailable3	ACCESS p_UISOTMagAvail3;	
-		//		p_bSOTMagAvailable4	ACCESS p_UISOTMagAvail4;	
-		p_bSOTMagSizeLarge1	ACCESS p_UISOTMagSLarge1;	
-		p_bSOTMagSizeLarge2	ACCESS p_UISOTMagSLarge2;	
-		p_bSOTMagSizeLarge3 ACCESS p_UISOTMagSLarge3;	
-		//		p_bSOTMagSizeLarge4	ACCESS p_UISOTMagSLarge4;
+		bSOTMagError1	:= g_tyUISOTMagErr1;		
+		bSOTMagError2	:= g_tyUISOTMagErr2;		
+		bSOTMagError3	:= g_tyUISOTMagErr3;	
+		//		bSOTMagError4	:= g_tyUISOTMagErr4;		
+		bSOTMagReady1	:= g_tyUISOTMagRdy1;	
+		bSOTMagReady2	:= g_tyUISOTMagRdy2;	
+		bSOTMagReady3	:= g_tyUISOTMagRdy3;		
+		//		bSOTMagReady4	:= g_tyUISOTMagRdy4;		
+		bSOTMagAvailable1	:= g_tyUISOTMagAvail1;	
+		bSOTMagAvailable2	:= g_tyUISOTMagAvail2;	
+		bSOTMagAvailable3	:= g_tyUISOTMagAvail3;	
+		//		bSOTMagAvailable4	:= g_tyUISOTMagAvail4;	
+		bSOTMagSizeLarge1	:= g_tyUISOTMagSLarge1;	
+		bSOTMagSizeLarge2	:= g_tyUISOTMagSLarge2;	
+		bSOTMagSizeLarge3 := g_tyUISOTMagSLarge3;	
+		//		bSOTMagSizeLarge4	:= g_tyUISOTMagSLarge4;
 		
 		
-		p_bMagAWOpenLimByp1 ACCESS p_UIMagAWOpenLimByp1;
-		p_bMagAWOpenLimByp2 ACCESS p_UIMagAWOpenLimByp2;
-		p_bMagAWOpenLimByp3 ACCESS p_UIMagAWOpenLimByp3;
-		//		p_bMagAWOpenLimByp4 ACCESS p_UIMagAWOpenLimByp4;
+		bMagAWOpenLimByp1 := g_tyUIMagAWOpenLimByp1;
+		bMagAWOpenLimByp2 := g_tyUIMagAWOpenLimByp2;
+		bMagAWOpenLimByp3 := g_tyUIMagAWOpenLimByp3;
+		//		bMagAWOpenLimByp4 := g_tyUIMagAWOpenLimByp4;
 		
-		p_bMagAWSmallLimSen1 ACCESS p_UIMagAWSmallLimSen1;
-		p_bMagAWSmallLimSen2 ACCESS p_UIMagAWSmallLimSen2;
-		p_bMagAWSmallLimSen3 ACCESS p_UIMagAWSmallLimSen3;
-		//		p_bMagAWSmallLimSen4 ACCESS p_UIMagAWSmallLimSen4;
+		bMagAWSmallLimSen1 := g_tyUIMagAWSmallLimSen1;
+		bMagAWSmallLimSen2 := g_tyUIMagAWSmallLimSen2;
+		bMagAWSmallLimSen3 := g_tyUIMagAWSmallLimSen3;
+		//		bMagAWSmallLimSen4 := g_tyUIMagAWSmallLimSen4;
 		
-		p_bRequestToBring1 ACCESS p_UIAIVReqBring1;
-		p_bRequestToBring2 ACCESS p_UIAIVReqBring2;
-		p_bRequestToBring3 ACCESS p_UIAIVReqBring3;
+		bRequestToBring1 := g_tyUIAIVReqBring1;
+		bRequestToBring2 := g_tyUIAIVReqBring2;
+		bRequestToBring3 := g_tyUIAIVReqBring3;
 		
-		p_bRequestToGet1 ACCESS p_UIAIVReqGet1;
-		p_bRequestToGet2 ACCESS p_UIAIVReqGet2;
-		p_bRequestToGet3 ACCESS p_UIAIVReqGet3;
+		bRequestToGet1 := g_tyUIAIVReqGet1;
+		bRequestToGet2 := g_tyUIAIVReqGet2;
+		bRequestToGet3 := g_tyUIAIVReqGet3;
 		
 		//DMCRFID 
-		p_bScanTrigSig ACCESS p_UIStartScanSig;
-		p_bMag1ExitPCB ACCESS p_UIMag1TransOut;
-		p_bMag2ExitPCB ACCESS p_UIMag2TransOut;
-		p_bMag3ExitPCB ACCESS p_UIMag3TransOut;
+		bScanTrigSig := g_tyUIStartScanSig;
+		bMag1ExitPCB := g_tyUIMag1TransOut;
+		bMag2ExitPCB := g_tyUIMag2TransOut;
+		bMag3ExitPCB := g_tyUIMag3TransOut;
 
-	ELSIF p_bLinkOpsRun THEN
-		p_bSOTMagReady1 ACCESS p_USSOT1USB;
-		p_bSOTMagReady2 ACCESS p_USSOT2USB;
-		p_bSOTMagReady3 ACCESS p_USSOT3USB;
+	ELSIF g_tyOps.bRun THEN
+		bSOTMagReady1 := g_tyUSSOT1USB;
+		bSOTMagReady2 := g_tyUSSOT2USB;
+		bSOTMagReady3 := g_tyUSSOT3USB;
 		
-		p_bSOTMagError1 ACCESS p_AlarmErr;
-		p_bSOTMagError2 ACCESS p_AlarmErr;
-		p_bSOTMagError3 ACCESS p_AlarmErr;
+		bSOTMagError1 := g_tyAlarmErr;
+		bSOTMagError2 := g_tyAlarmErr;
+		bSOTMagError3 := g_tyAlarmErr;
 		
-		p_bSOTMagAvailable1 ACCESS p_DSSOT1DBA;
-		p_bSOTMagAvailable2 ACCESS p_DSSOT2DBA;
-		p_bSOTMagAvailable3 ACCESS p_DSSOT3DBA;
+		bSOTMagAvailable1 := g_tyDSSOT1DBA;
+		bSOTMagAvailable2 := g_tyDSSOT2DBA;
+		bSOTMagAvailable3 := g_tyDSSOT3DBA;
 		
-		p_bSOTMagSizeLarge1 ACCESS p_DSSOT1MagSizeLarge;
-		p_bSOTMagSizeLarge2 ACCESS p_DSSOT2MagSizeLarge;
-		p_bSOTMagSizeLarge3 ACCESS p_DSSOT3MagSizeLarge;
+		bSOTMagSizeLarge1 := g_tyDSSOT1MagSizeLarge;
+		bSOTMagSizeLarge2 := g_tyDSSOT2MagSizeLarge;
+		bSOTMagSizeLarge3 := g_tyDSSOT3MagSizeLarge;
 			
-		p_bRequestToBring1 ACCESS p_Buffer1MagRemoved;
-		p_bRequestToBring2 ACCESS p_Buffer2MagRemoved;
-		p_bRequestToBring3 ACCESS p_Buffer3MagRemoved;
-		//	p_bRequestToBring4 ACCESS p_Buffer4MagRemoved;
+		bRequestToBring1 := g_tyBuffer1MagRemoved;
+		bRequestToBring2 := g_tyBuffer2MagRemoved;
+		bRequestToBring3 := g_tyBuffer3MagRemoved;
+		//	bRequestToBring4 := g_tyBuffer4MagRemoved;
 		
-		p_bRequestToGet1 ACCESS p_DSSOT1DBA;
-		p_bRequestToGet2 ACCESS p_DSSOT2DBA;
-		p_bRequestToGet3 ACCESS p_DSSOT3DBA;
-		//	p_bRequestToGet4 ACCESS p_DSSOT4DBA;
+		bRequestToGet1 := g_tyDSSOT1DBA;
+		bRequestToGet2 := g_tyDSSOT2DBA;
+		bRequestToGet3 := g_tyDSSOT3DBA;
+		//	bRequestToGet4 := g_tyDSSOT4DBA;
 		
 		//DMCRFID 
-		p_bScanTrigSig ACCESS p_OpsTravLifStartScanSig;
-		p_bMag1ExitPCB ACCESS p_OpsTravLifMag1TransOut;
-		p_bMag2ExitPCB ACCESS p_OpsTravLifMag2TransOut;
-		p_bMag3ExitPCB ACCESS p_OpsTravLifMag3TransOut;
+		bScanTrigSig := g_tyOpsTravLifStartScanSig;
+		bMag1ExitPCB := g_tyOpsTravLifMag1TransOut;
+		bMag2ExitPCB := g_tyOpsTravLifMag2TransOut;
+		bMag3ExitPCB := g_tyOpsTravLifMag3TransOut;
 	ELSE
-		p_bSOTMagReady1 := FALSE;
-		p_bSOTMagReady2 := FALSE;
-		p_bSOTMagReady3 := FALSE;
+		bSOTMagReady1 := FALSE;
+		bSOTMagReady2 := FALSE;
+		bSOTMagReady3 := FALSE;
 		
-		p_bSOTMagError1 ACCESS p_AlarmErr;
-		p_bSOTMagError2 ACCESS p_AlarmErr;
-		p_bSOTMagError3 ACCESS p_AlarmErr;
+		bSOTMagError1 := g_tyAlarmErr;
+		bSOTMagError2 := g_tyAlarmErr;
+		bSOTMagError3 := g_tyAlarmErr;
 		
-		p_bSOTMagAvailable1 := FALSE;
-		p_bSOTMagAvailable2 := FALSE;
-		p_bSOTMagAvailable3 := FALSE;
+		bSOTMagAvailable1 := FALSE;
+		bSOTMagAvailable2 := FALSE;
+		bSOTMagAvailable3 := FALSE;
 		
-		p_bSOTMagSizeLarge1 := FALSE;
-		p_bSOTMagSizeLarge2 := FALSE;
-		p_bSOTMagSizeLarge3 := FALSE;
+		bSOTMagSizeLarge1 := FALSE;
+		bSOTMagSizeLarge2 := FALSE;
+		bSOTMagSizeLarge3 := FALSE;
 	
-//		p_bRequestToBring1 := FALSE;
-//		p_bRequestToBring2 := FALSE;
-//		p_bRequestToBring3 := FALSE;
+//		bRequestToBring1 := FALSE;
+//		bRequestToBring2 := FALSE;
+//		bRequestToBring3 := FALSE;
 		
-		p_bRequestToGet1 := FALSE;
-		p_bRequestToGet2 := FALSE;
-		p_bRequestToGet3 := FALSE;
+		bRequestToGet1 := FALSE;
+		bRequestToGet2 := FALSE;
+		bRequestToGet3 := FALSE;
 		
 		//DMCRFID 
-		p_bScanTrigSig ACCESS ADR(bStartScanSig);
-		p_bMag1ExitPCB ACCESS ADR(bPCBExitMag1);
-		p_bMag2ExitPCB ACCESS ADR(bPCBExitMag2);
-		p_bMag3ExitPCB ACCESS ADR(bPCBExitMag3);
+		bScanTrigSig ACCESS ADR(bStartScanSig);
+		bMag1ExitPCB ACCESS ADR(bPCBExitMag1);
+		bMag2ExitPCB ACCESS ADR(bPCBExitMag2);
+		bMag3ExitPCB ACCESS ADR(bPCBExitMag3);
 		
 	END_IF
 	
 	CASE p_eLinkAGVComProtocol OF
 		McSetAGVCommOPCUA, McSetAGVCommDisabled:
-			IF p_bLinkNtParamProjSOTSenPrep THEN
+			IF bLinkNtParamProjSOTSenPrep THEN
 				bAgvComIODisabled := FALSE;
 			ELSE
 				bAgvComIODisabled := TRUE;
@@ -140,25 +140,25 @@ ACTION Act_Link:
 	
 
 	
-	IF p_bManual THEN
-		p_bBypCurtainSen ACCESS p_UIMnlBypCurtainSen;
-		p_bRstCurtainSen ACCESS p_UISafetyCurtainReset;
-		p_bBypCurtainPBLED ACCESS p_UIMnlBypCurtainPBLED;
+	IF g_tyUIOut.bManualMod THEN
+		bBypCurtainSen := g_tyUIOut.bMnlBypCurtainSen;
+		bRstCurtainSen := g_tyUIOut.bSafetyCurtainReset;
+		bBypCurtainPBLED := g_tyUIOut.bMnlBypCurtainPBLED;
 		
-	ELSIF p_bLinkOpsRun THEN
+	ELSIF g_tyOps.bRun THEN
 		
-		p_bBypCurtainPBLED	 := p_bLinkOpsBypCurtainLED;
+		bBypCurtainPBLED	 := g_tyOpsTravLifUL.bBypCurtainSensorPBLED;
 		
-		IF p_bLinkOpsBypCurtainSen OR p_bLinkAGVCommRdy1 OR p_bLinkAGVCommRdy2 OR p_bLinkAGVCommRdy3 THEN
-			p_bBypCurtainSen     := TRUE;
+		IF g_tyOpsTravLifUL.bBypCurtainSenCtrl OR bLinkAGVCommRdy1 OR bLinkAGVCommRdy2 OR bLinkAGVCommRdy3 THEN
+			bBypCurtainSen     := TRUE;
 		ELSE
-			p_bBypCurtainSen	 := FALSE;
+			bBypCurtainSen	 := FALSE;
 		END_IF
 
 	ELSE
-		p_bRstCurtainSen ACCESS p_UISafetyCurtainReset;
-		p_bBypCurtainSen ACCESS p_UIMnlBypCurtainSen;//:= FALSE;
-		p_bBypCurtainPBLED ACCESS p_UIMnlBypCurtainPBLED;//:= FALSE;
+		bRstCurtainSen := g_tyUISafetyCurtainReset;
+		bBypCurtainSen := g_tyUIMnlBypCurtainSen;//:= FALSE;
+		bBypCurtainPBLED := g_tyUIMnlBypCurtainPBLED;//:= FALSE;
 	END_IF
 	
 END_ACTION

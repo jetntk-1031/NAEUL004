@@ -1,32 +1,29 @@
-(** 2019-04-21 **)
+
 ACTION Act_Alarm: 
 	
+	IF g_tyRstErrOut.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= g_tyRstErrOut.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalFollower.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sLFFollowerProgNm		:= p_sProgNm;		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
+		tylocalFollower.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalFollower.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalFollower.Out.tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
+		tylocalFollower.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalFollower.Out.tyAlmData.udiModuleNum	:= udiModuleNum;
+		g_tyAlmProgNm.sLFFollowerProgNm				 := g_tyNtParamCurr.sFollower2ProgNm;
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+	ELSIF bRstErr AND (tylocalFollower.Out.tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
+		tylocalFollower.Out.tyAlmData.udiCode	:= 0;
+		tylocalFollower.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalFollower.Out.tyAlmData.bAlm		:= FALSE;
+		
 	END_IF
 	
 END_ACTION

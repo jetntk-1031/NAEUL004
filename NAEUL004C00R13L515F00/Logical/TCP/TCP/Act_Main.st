@@ -1,5 +1,9 @@
 (** 2019-05-04 **)
 ACTION Act_Main:
+	//Set p_eAct
+	IF eStatus = Idle OR eStatus = Busy OR eStatus = Done THEN
+		eStat	:= p_eAct;
+	END_IF
 	
 	IF eStatOld <> eStat THEN
 		fbDirCreate1(bEn := FALSE);

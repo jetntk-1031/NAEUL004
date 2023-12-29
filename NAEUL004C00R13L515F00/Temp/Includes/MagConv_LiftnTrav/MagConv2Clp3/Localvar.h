@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703660021_189_
-#define _BUR_1703660021_189_
+#ifndef _BUR_1703817513_182_
+#define _BUR_1703817513_182_
 
 #include <bur/plctypes.h>
 
@@ -94,5 +94,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtConv/NtConv.fun\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703660021_189_ */
+#endif /* _BUR_1703817513_182_ */
 

@@ -1,41 +1,24 @@
 (** 2019-01-11 **)
 PROGRAM _CYCLIC
 	
-	IF bInitDone = FALSE THEN
-		bInitDone	:= TRUE;
-		
-		Act_InitLocal;
-		Act_InitGlobal;
-		
-	ELSIF bInitialDone = FALSE THEN
-		IF p_bNtSettingsLoadDone = TRUE THEN
+	IF bInitialDone = FALSE THEN
+		IF g_tyStartUp.bNtSettingsLoadDone = TRUE THEN
 			bInitialDone	:= TRUE;
-			
 			Act_Initial;
 		END_IF
-		
 	ELSE
-		
-		Act_RstErr;
-		Act_LinkAction;
-		Act_Action;
-		Act_LinkEn;
-		
-		IF (p_bPrep = TRUE) AND (p_bEn = TRUE) AND (p_bDis = FALSE) THEN
+		IF (tylocalAGV.In.bEn = TRUE) AND (tylocalAGV.In.bEn = TRUE) AND (tylocalAGV.In.bDis = FALSE) THEN
 			Act_Link;
 			Act_Background;
 			Act_Main;
 		ELSE
-			IF eStat <> AGVMagActIdle THEN
-				eStatus	:= Done;
+			IF tylocalAGV.Out.eStat <> AGVMagActIdle THEN
+				tylocalAGV.Out.eStatus	:= Done;
 			ELSE
-				eStatus	:= Idle;
+				tylocalAGV.Out.eStatus	:= Idle;
 			END_IF
 		END_IF
-		
 		Act_Alarm;
-		Act_Alarm1;
-		
 	END_IF
 	
 END_PROGRAM

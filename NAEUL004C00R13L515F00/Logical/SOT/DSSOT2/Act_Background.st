@@ -1,26 +1,27 @@
 (** 2021-04-20 **)
 ACTION Act_Background:
 	
-	IF bConvStart = FALSE AND bConvStop = FALSE THEN	
-		IF p_bVirtualEn = TRUE THEN
-			bVirtual	:= TRUE;
+	//background
+	IF tylocalDSSOT.Out.bConvStart = FALSE AND tylocalDSSOT.Out.bConvStop = FALSE THEN	
+		IF tylocalDSSOT.In.bVirtualEn = TRUE THEN
+			tylocalDSSOT.Out.bVirtual	:= TRUE;
 		ELSE
-			bVirtual	:= FALSE;
+			tylocalDSSOT.Out.bVirtual	:= FALSE;
 		END_IF
 	END_IF
 	
-	IF bVirtual = TRUE THEN
+	IF tylocalDSSOT.Out.bVirtual = TRUE THEN
 		
-		fbSigInChk.bNomSig			:= p_bDSBVirtual;
+		fbSigInChk.bNomSig			:= tylocalDSSOT.In.bDSBVirtual;
 	
 	ELSE
 		
-		fbSigInChk.bNomSig			:= p_bDSB;
+		fbSigInChk.bNomSig			:= tylocalDSSOT.In.bDSB;
 	
 	END_IF
 	
 	fbSigInChk;
 	
-	bDSRdy	:= fbSigInChk.bSigInValid;
+	tylocalDSSOT.Out.bDSRdy	:= fbSigInChk.bSigInValid;
 	
 END_ACTION
