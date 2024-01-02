@@ -21,7 +21,7 @@ ACTION Act_Alarm:
 		tylocalMtrPshr.Out.tyAlmData.udiRunTime	:= tylocalMtrPshr.Out.tyAlmData.udiRunTime + 1;
 		tylocalMtrPshr.Out.tyAlmData.bAlm			:= TRUE;
 		tylocalMtrPshr.Out.tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sConvProgNm		    := p_sProgNm;
+		g_tyAlmProgNm.sMtrPshrProgNm		    := tylocalMtrPshr.In.sProgNm;
 		
 		tylocalMtrPshr.Out.sStatTxt	:= tylocalMtrPshr.Out.tyAlmData.sAlmMsg;
 		

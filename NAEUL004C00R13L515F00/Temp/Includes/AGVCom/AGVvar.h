@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_108_
-#define _BUR_1703817512_108_
+#ifndef _BUR_1704158824_9_
+#define _BUR_1704158824_9_
 
 #include <bur/plctypes.h>
 
@@ -13,25 +13,10 @@
 
 
 /* Variables */
-_GLOBAL unsigned long p_TagFromMesMagConv3;
-_GLOBAL unsigned long p_TagFromMesMagConv2;
-_GLOBAL unsigned long p_TagFromMesMagConv1;
-_GLOBAL unsigned long p_TagToMesMagConv3;
-_GLOBAL unsigned long p_TagToMesMagConv2;
-_GLOBAL unsigned long p_TagToMesMagConv1;
-_GLOBAL unsigned long p_FleetManagerActive;
-_GLOBAL unsigned long p_TagFromMes;
-_GLOBAL unsigned long p_TagToMes;
-_GLOBAL unsigned long p_AGVSimulationOn;
-_GLOBAL unsigned long p_DTMagToAGV;
-_GLOBAL unsigned long p_AGVTagAGVToDTMag;
-_GLOBAL unsigned long p_MachineOnline;
-_GLOBAL unsigned long p_AGVOnline;
-_GLOBAL unsigned long p_AGVAlmData1;
-_GLOBAL unsigned long p_AGVAlmData;
-_GLOBAL unsigned long p_AGVStatTxt;
-_GLOBAL unsigned long p_AGVStatus;
-_GLOBAL unsigned long p_AGVStat;
+_GLOBAL struct tyAGVOut1 g_tyAGV3;
+_GLOBAL struct tyAGVOut1 g_tyAGV2;
+_GLOBAL struct tyAGVOut1 g_tyAGV1;
+_GLOBAL struct tyAGVComOut1 g_tyAGV;
 
 
 
@@ -47,5 +32,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AGVCom/AGV.var\\\" scope \\\"global\\\"\\n
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_108_ */
+#endif /* _BUR_1704158824_9_ */
 

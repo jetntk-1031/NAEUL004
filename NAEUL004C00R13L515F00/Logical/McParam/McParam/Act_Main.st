@@ -1,7 +1,7 @@
 (** 2019-01-10 **)
 ACTION Act_Main:
-	IF tylocalMcParam.Out.tylocalMcParam.Out.eStatus = Idle THEN
-		tylocalMcParam.Out.tylocalMcParam.Out.eStat	:= tylocalMcParam.In.eAct;
+	IF tylocalMcParam.Out.eStatus = Idle THEN
+		tylocalMcParam.Out.eStat	:= tylocalMcParam.In.eAct;
 	END_IF
 
 	//Main

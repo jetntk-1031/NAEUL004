@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_39_
-#define _BUR_1703817512_39_
+#ifndef _BUR_1704160578_1_
+#define _BUR_1704160578_1_
 
 #include <bur/plctypes.h>
 
@@ -86,6 +86,7 @@ typedef struct tyDSSMEMAIn1
 	plcbit bRdySend;
 	plcbit bLeftSen;
 	plcbit bRightSen;
+	plcbit bClrSen;
 	plcbit bComplSigOn;
 	plcbit bDSB;
 	plcbit bTimerEnSen;
@@ -138,5 +139,5 @@ __asm__(".ascii \"iecfile \\\"Logical/SMEMA/SMEMA.typ\\\" scope \\\"global\\\"\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_39_ */
+#endif /* _BUR_1704160578_1_ */
 

@@ -87,6 +87,7 @@ TYPE
 		bRdySend : BOOL := TRUE; (*Ready Send Signal*)
 		bLeftSen : BOOL := FALSE; (*Left Sensor*)
 		bRightSen : BOOL := FALSE; (*Right Sensor*)
+		bClrSen : BOOL;
 		bComplSigOn : BOOL := FALSE; (*Complete Signal is On*)
 		bDSB : BOOL := FALSE; (*Downstream Busy Signal*)
 		bTimerEnSen : BOOL; (*Timer Enable Sensor*)

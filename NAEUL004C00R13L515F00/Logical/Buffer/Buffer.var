@@ -1,7 +1,7 @@
 VAR
-	g_tyBuffer1 : tyBufferInfoOut1;
-	g_tyBuffer2 : tyBufferInfoOut1;
-	g_tyBuffer3 : tyBufferInfoOut1;
+	g_tyBuffer1 : tyBufferOut1;
+	g_tyBuffer2 : tyBufferOut1;
+	g_tyBuffer3 : tyBufferOut1;
 	g_tyBufferMagA : tyBufferMagOut1;
 	g_tyBufferMagB : tyBufferMagOut1;
 END_VAR

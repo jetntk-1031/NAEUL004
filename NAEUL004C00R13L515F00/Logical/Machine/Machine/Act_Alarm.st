@@ -17,7 +17,7 @@ ACTION Act_Alarm:
 		tylocalMachine.Out.tyAlmData.udiRunTime	:= tylocalMachine.Out.tyAlmData.udiRunTime + 1;
 		tylocalMachine.Out.tyAlmData.bAlm			:= TRUE;
 		tylocalMachine.Out.tyAlmData.udiModuleNum  := udiModuleNum;
-		g_tyAlmProgNm.sMachineProgNm		    := tylocalMachine.In.sProgNm;
+		g_tyAlmProgNm.sMachineProgNm		    := tylocalAGV.In.sProgNm;
 		
 		tylocalMachine.Out.sStatTxt	:= tylocalMachine.Out.tyAlmData.sAlmMsg;
 		

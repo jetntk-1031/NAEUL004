@@ -16,9 +16,9 @@ ACTION Act_InputConfig:
 	tylocalBufferMag.In.bDIMagPresentSen2 := g_tyDInput.bMagPresentSen2;
 	tylocalBufferMag.In.bDIMagPresentSen3 := g_tyDInput.bMagPresentSen3;
 	
-	tylocalBufferMag.In.tyBufferStat1 := g_tyBuffer1.BffrStat;
-	tylocalBufferMag.In.tyBufferStat2 := g_tyBuffer2.BffrStat;
-	tylocalBufferMag.In.tyBufferStat3 := g_tyBuffer3.BffrStat;
+	tylocalBufferMag.In.tyBufferStat1 := g_tyBuffer1.tyBufferStat;
+	tylocalBufferMag.In.tyBufferStat2 := g_tyBuffer2.tyBufferStat;
+	tylocalBufferMag.In.tyBufferStat3 := g_tyBuffer3.tyBufferStat;
 	
 	tylocalBufferMag.In.bNtParamAutoRcpPrep := g_tyNtParamCurr.bAutoRcpPrep;
 	tylocalBufferMag.In.bMcParamAutoRcpDis  := g_tyMcParamCurr.bAutoRcpDisable;

@@ -8,9 +8,9 @@ ACTION Act_Initial:
 	fbTxOutTimer(IN := FALSE);
 	fbMagOutTrig(CLK := FALSE);
 	
-	bMcRunRdy			:= FALSE;
-	bRdyEnt			 	:= FALSE;
-	bRdyExit			:= FALSE;
-	bMagConvRun	    	:= FALSE;
+	tylocalAGV.Out.bMcRunRdy			:= FALSE;
+	tylocalAGV.Out.bRdyEnt			 	:= FALSE;
+	tylocalAGV.Out.bRdyExit				:= FALSE;
+	tylocalAGV.Out.bMagConvRun	    	:= FALSE;
 	
 END_ACTION

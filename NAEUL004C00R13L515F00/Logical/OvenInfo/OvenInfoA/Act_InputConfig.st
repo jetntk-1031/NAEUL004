@@ -24,8 +24,7 @@ ACTION Act_InputConfig:
 	tylocalOvenInfoA.In.bCntUp := g_tyDInput.bOvenInfeedSigA;
 
 
-	tylocalOvenInfoA.In.bNtParamAutoRcpPrep := g_tyNtParam.bAutoRcpPrep;
-	tylocalOvenInfoA.In.bMcParamAutoRcpDis  := g_tyMcParamCurr.bAutoRcpDisable;
+
 	(* Always Change If Project Change *)
 		
 

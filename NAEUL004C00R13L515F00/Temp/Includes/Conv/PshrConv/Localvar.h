@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817513_183_
-#define _BUR_1703817513_183_
+#ifndef _BUR_1704159600_1_
+#define _BUR_1704159600_1_
 
 #include <bur/plctypes.h>
 
@@ -40,78 +40,6 @@ _BUR_LOCAL plcbit bInitialDone;
 _BUR_LOCAL plcbit bInitDone;
 _BUR_LOCAL unsigned long udiRstErrOld;
 _BUR_LOCAL plcbit bRstErr;
-_BUR_LOCAL plcbit bNtSettingsLoadDone;
-_BUR_LOCAL plctime tRejectDownTO;
-_BUR_LOCAL plctime tRejectUpTO;
-_BUR_LOCAL plctime tRotRemoteTO;
-_BUR_LOCAL plctime tRotHomeTO;
-_BUR_LOCAL plctime tPullerRetTO;
-_BUR_LOCAL plctime tPullerExtTO;
-_BUR_LOCAL plctime tPshrRetTO;
-_BUR_LOCAL plctime tPshrExtTO;
-_BUR_LOCAL plcbit bRejectDownSafetySen;
-_BUR_LOCAL plcbit bRejectUpSafetySen;
-_BUR_LOCAL plcbit bRejectDownSen;
-_BUR_LOCAL plcbit bRejectUpSen;
-_BUR_LOCAL plcbit bRotRemoteSafetySen;
-_BUR_LOCAL plcbit bRotHomeSafetySen;
-_BUR_LOCAL plcbit bRotRemoteSen;
-_BUR_LOCAL plcbit bRotHomeSen;
-_BUR_LOCAL plcbit bPullerRetSafetySen;
-_BUR_LOCAL plcbit bPullerExtSafetySen;
-_BUR_LOCAL plcbit bPullerRetSen;
-_BUR_LOCAL plcbit bPullerExtSen;
-_BUR_LOCAL plcbit bPshrRetSafetySen;
-_BUR_LOCAL plcbit bPshrExtSafetySen;
-_BUR_LOCAL plcbit bPshrRetSen;
-_BUR_LOCAL plcbit bPshrExtSen;
-_BUR_LOCAL plcbit bPullerChkSen;
-_BUR_LOCAL plcbit bMiddleSen;
-_BUR_LOCAL plcbit bRightSen;
-_BUR_LOCAL plcbit bLeftSen;
-_BUR_LOCAL plcbit bGdBrdEnt;
-_BUR_LOCAL plcbit bGdBrdInit;
-_BUR_LOCAL enum eConvDir eDirection;
-_BUR_LOCAL signed long diTxOutTimeOut;
-_BUR_LOCAL signed long diTxInTimeOut;
-_BUR_LOCAL plctime tMtrOffDlyTm;
-_BUR_LOCAL signed long diRevDlyTm;
-_BUR_LOCAL signed long diInitTm;
-_BUR_LOCAL plcbit bOnDirMod;
-_BUR_LOCAL plcbit bLongBrdEn;
-_BUR_LOCAL plcbit bLongBrdPrep;
-_BUR_LOCAL plcbit bManual;
-_BUR_LOCAL plcbit bDis;
-_BUR_LOCAL plcbit bEn;
-_BUR_LOCAL plcbit bPrep;
-_BUR_LOCAL unsigned long udiRstErr;
-_BUR_LOCAL plcbit bPshrRetAllwTraverse;
-_BUR_LOCAL plcbit bRejectAtDown;
-_BUR_LOCAL plcbit bRejectAtUp;
-_BUR_LOCAL plcbit bRejectTwoOutputControl;
-_BUR_LOCAL plcbit bRejectDownCtrl;
-_BUR_LOCAL plcbit bRejectUpCtrl;
-_BUR_LOCAL plcbit bRotAtHome;
-_BUR_LOCAL plcbit bRotAtRemote;
-_BUR_LOCAL plcbit bRotTwoOutputControl;
-_BUR_LOCAL plcbit bRotRemoteCtrl;
-_BUR_LOCAL plcbit bPullerRetracted;
-_BUR_LOCAL plcbit bPullerExtended;
-_BUR_LOCAL plcbit bPullerTwoOutputControl;
-_BUR_LOCAL plcbit bPullerRetCtrl;
-_BUR_LOCAL plcbit bPullerExtCtrl;
-_BUR_LOCAL plcbit bPshrRetracted;
-_BUR_LOCAL plcbit bPshrExtended;
-_BUR_LOCAL plcbit bPshrTwoOutputControl;
-_BUR_LOCAL plcbit bPshrRetCtrl;
-_BUR_LOCAL plcbit bPshrExtCtrl;
-_BUR_LOCAL plcbit bMtrDirOrRToL;
-_BUR_LOCAL plcbit bMtrSigOnOrLToR;
-_BUR_LOCAL plcbit bLmtSenActivated;
-_BUR_LOCAL plcbit bGdBrd;
-_BUR_LOCAL plcbit bInspHvBrd;
-_BUR_LOCAL plcbit bRejHvBrd;
-_BUR_LOCAL plcbit bHvBrd;
 _BUR_LOCAL struct tyAlmDat tyAlmData;
 _BUR_LOCAL plcstring a_sStatText[61][201];
 _BUR_LOCAL unsigned long udiStatus;
@@ -134,5 +62,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtConv/NtConv.fun\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817513_183_ */
+#endif /* _BUR_1704159600_1_ */
 

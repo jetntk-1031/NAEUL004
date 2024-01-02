@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817513_286_
-#define _BUR_1703817513_286_
+#ifndef _BUR_1704158824_28_
+#define _BUR_1704158824_28_
 
 #include <bur/plctypes.h>
 
@@ -15,8 +15,6 @@
 /* Variables */
 _BUR_LOCAL struct tyStatFromLoader tyTagFromLoader;
 _BUR_LOCAL unsigned long udiModuleNum;
-_BUR_LOCAL struct tyStatFromMES tyTagFromMes;
-_BUR_LOCAL struct tyStatToMES tyTagToMes;
 _BUR_LOCAL struct TON fbConnectionAGVTm1;
 _BUR_LOCAL struct TON fbConnectionAGVTm;
 _BUR_LOCAL struct TON fbConnectionTmCCS;
@@ -47,7 +45,6 @@ _BUR_LOCAL plcbit bAGVOnline;
 _BUR_LOCAL struct tyTagDTMagToAGV tyDTMagToAGV;
 _BUR_LOCAL struct tyTagAGVToDTMag tyAGVToDTMag;
 _BUR_LOCAL plcbit bNtSettingsLoadDone;
-_BUR_LOCAL plcstring sProgNm[16];
 _BUR_LOCAL plcbit bDis;
 _BUR_LOCAL plcbit bEn;
 _BUR_LOCAL plcbit bPrep;
@@ -73,6 +70,7 @@ _BUR_LOCAL enum eFBStatus eStatus1;
 _BUR_LOCAL enum eFBStatus eStatus;
 _BUR_LOCAL enum eAGVMagAction eStat;
 _BUR_LOCAL enum eAGVMagAction eAct;
+_BUR_LOCAL struct tyAGVCom tylocalAGV;
 
 
 
@@ -89,5 +87,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817513_286_ */
+#endif /* _BUR_1704158824_28_ */
 

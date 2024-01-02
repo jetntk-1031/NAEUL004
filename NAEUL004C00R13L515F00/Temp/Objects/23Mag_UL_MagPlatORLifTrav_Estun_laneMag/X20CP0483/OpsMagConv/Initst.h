@@ -186,6 +186,15 @@ typedef enum eSOTAction
 } eSOTAction;
 #endif
 
+#ifndef __AS__TYPE_eAGVMagAction
+#define __AS__TYPE_eAGVMagAction
+typedef enum eAGVMagAction
+{	AGVMagActIdle = 0,
+	AGVMagActEnter = 1,
+	AGVMagActExit = 2,
+} eAGVMagAction;
+#endif
+
 #ifndef __AS__TYPE_eMagAWAction
 #define __AS__TYPE_eMagAWAction
 typedef enum eMagAWAction
@@ -210,15 +219,6 @@ typedef enum eMagAWAction
 	MagAWActEngageStop = 18,
 	MagAWActRstNode = 19,
 } eMagAWAction;
-#endif
-
-#ifndef __AS__TYPE_eAGVMagAction
-#define __AS__TYPE_eAGVMagAction
-typedef enum eAGVMagAction
-{	AGVMagActIdle = 0,
-	AGVMagActEnter = 1,
-	AGVMagActExit = 2,
-} eAGVMagAction;
 #endif
 
 #ifndef __AS__TYPE_eAlmSeverity

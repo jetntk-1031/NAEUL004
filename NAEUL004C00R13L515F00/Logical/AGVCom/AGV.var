@@ -1,35 +1,10 @@
-(*2019-01-20*)
-(**)
-(*Action & State & Status*)
+(*AGV Comm*)
 VAR
-	p_AGVStat : UDINT;
-	p_AGVStatus : UDINT;
-	p_AGVStatTxt : UDINT;
+	g_tyAGV : tyAGVComOut1;
 END_VAR
-(**)
-(*Alarm*)
+(*AGV pos*)
 VAR
-	p_AGVAlmData : UDINT;
-	p_AGVAlmData1 : UDINT;
-END_VAR
-(**)
-(*Output*)
-VAR
-	p_AGVOnline : UDINT;
-	p_MachineOnline : UDINT;
-	p_AGVTagAGVToDTMag : UDINT;
-	p_DTMagToAGV : UDINT;
-	p_AGVSimulationOn : UDINT;
-	p_TagToMes : UDINT;
-	p_TagFromMes : UDINT;
-	p_FleetManagerActive : UDINT;
-END_VAR
-(*For Siemen*)
-VAR
-	p_TagToMesMagConv1 : UDINT;
-	p_TagToMesMagConv2 : UDINT;
-	p_TagToMesMagConv3 : UDINT;
-	p_TagFromMesMagConv1 : UDINT;
-	p_TagFromMesMagConv2 : UDINT;
-	p_TagFromMesMagConv3 : UDINT;
+	g_tyAGV1 : tyAGVOut1;
+	g_tyAGV2 : tyAGVOut1;
+	g_tyAGV3 : tyAGVOut1;
 END_VAR

@@ -35,11 +35,11 @@
     <Object Type="Package">LF</Object>
     <Object Type="Package">Machine</Object>
     <Object Type="Package">AGVCom</Object>
+    <Object Type="Package">CANOpenServo</Object>
     <Object Type="Package">TCP</Object>
     <Object Type="Package">DInput</Object>
     <Object Type="Package">DOutput</Object>
     <Object Type="Package">Hermes</Object>
-    <Object Type="Package">CANOpenServo</Object>
     <Object Type="Package">LCS</Object>
     <Object Type="Package">Operations</Object>
     <Object Type="Package">Simulation</Object>

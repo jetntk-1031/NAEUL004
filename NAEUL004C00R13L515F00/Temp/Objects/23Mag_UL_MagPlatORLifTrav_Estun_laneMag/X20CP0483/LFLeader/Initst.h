@@ -80,6 +80,33 @@ typedef enum eLFAction
 } eLFAction;
 #endif
 
+#ifndef __AS__TYPE_tyLFLeaderIn1
+#define __AS__TYPE_tyLFLeaderIn1
+typedef struct tyLFLeaderIn1
+{	plcbit bPrep;
+	plcbit bEn;
+	plcbit bDis;
+} tyLFLeaderIn1;
+#endif
+
+#ifndef __AS__TYPE_eFBStatus
+#define __AS__TYPE_eFBStatus
+typedef enum eFBStatus
+{	Idle = 0,
+	Done = 1,
+	Busy = 2,
+	Error = 3,
+} eFBStatus;
+#endif
+
+#ifndef __AS__TYPE_tyLFFollowerInfo
+#define __AS__TYPE_tyLFFollowerInfo
+typedef struct tyLFFollowerInfo
+{	plcbit bOnline;
+	unsigned char usiRunTmOld;
+} tyLFFollowerInfo;
+#endif
+
 #ifndef __AS__TYPE_eMachineStat
 #define __AS__TYPE_eMachineStat
 typedef enum eMachineStat
@@ -111,24 +138,6 @@ typedef struct tyLFFollowerToLeaderTag
 } tyLFFollowerToLeaderTag;
 #endif
 
-#ifndef __AS__TYPE_tyLFFollowerInfo
-#define __AS__TYPE_tyLFFollowerInfo
-typedef struct tyLFFollowerInfo
-{	plcbit bOnline;
-	unsigned char usiRunTmOld;
-} tyLFFollowerInfo;
-#endif
-
-#ifndef __AS__TYPE_eFBStatus
-#define __AS__TYPE_eFBStatus
-typedef enum eFBStatus
-{	Idle = 0,
-	Done = 1,
-	Busy = 2,
-	Error = 3,
-} eFBStatus;
-#endif
-
 #ifndef __AS__TYPE_eAlmSeverity
 #define __AS__TYPE_eAlmSeverity
 typedef enum eAlmSeverity
@@ -151,16 +160,26 @@ typedef struct tyAlmDat
 } tyAlmDat;
 #endif
 
-_BUR_LOCAL eLFAction eStat;
-_BUR_LOCAL eFBStatus eStatus;
-_BUR_LOCAL plcstring sStatTxt[201];
-_BUR_LOCAL tyAlmDat tyAlmData;
-_BUR_LOCAL struct tyLFFollowerInfo a_tyFollowerInfo[50];
-_BUR_LOCAL struct tyLFFollowerToLeaderTag a_tyFollowerToLeaderTag[50];
-_GLOBAL unsigned long p_LFLeaderStat;
-_GLOBAL unsigned long p_LFLeaderStatus;
-_GLOBAL unsigned long p_LFLeaderStatTxt;
-_GLOBAL unsigned long p_LFLeaderAlmData;
-_GLOBAL unsigned long p_LFLeaderFollowerInfo;
-_GLOBAL unsigned long p_LFLeaderFollowerToLeaderTag;
+#ifndef __AS__TYPE_tyLFLeaderOut1
+#define __AS__TYPE_tyLFLeaderOut1
+typedef struct tyLFLeaderOut1
+{	eLFAction eStat;
+	eFBStatus eStatus;
+	plcstring sStatTxt[101];
+	struct tyLFFollowerInfo a_tyFollowerInfo[50];
+	struct tyLFFollowerToLeaderTag a_tyFollowerToLeaderTag[50];
+	tyAlmDat tyAlmData;
+} tyLFLeaderOut1;
+#endif
+
+#ifndef __AS__TYPE_tyLFLeader1
+#define __AS__TYPE_tyLFLeader1
+typedef struct tyLFLeader1
+{	tyLFLeaderIn1 In;
+	tyLFLeaderOut1 Out;
+} tyLFLeader1;
+#endif
+
+_BUR_LOCAL tyLFLeader1 tylocalLFLeader;
+_GLOBAL unsigned long p_LFLeader;
 _GLOBAL signed long c_diLFClntNum;

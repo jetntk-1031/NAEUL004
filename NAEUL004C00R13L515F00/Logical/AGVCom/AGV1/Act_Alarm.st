@@ -1,36 +1,48 @@
 (** 2019-03-25 **)
 ACTION Act_Alarm: 
+	//Reset Error
+	IF (tylocalAGV.Out.eStatus = Error) AND bRstErr THEN
+		tylocalAGV.In.eAct	:= AGVMagActIdle;
+		tylocalAGV.Out.eStat	:= AGVMagActIdle;
+	END_IF
 	
-	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	//Error	
+	IF tylocalAGV.In.udiRstErr <> udiRstErrOld THEN
+		bRstErr			:= TRUE;
+		udiRstErrOld	:= tylocalAGV.In.udiRstErr;
+	ELSE
+		bRstErr			:= FALSE;
+	END_IF
+	
+	IF EDGEPOS(tylocalAGV.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sAGVProgNm		:= p_sProgNm;
+		tylocalAGV.Out.tyAlmData.sProgNm		:= tylocalAGV.In.sProgNm;
+		tylocalAGV.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalAGV.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalAGV.Out.tyAlmData.udiRunTime	:= tylocalAGV.Out.tyAlmData.udiRunTime + 1;
+		tylocalAGV.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalAGV.Out.tyAlmData.udiModuleNum  := udiModuleNum;
+		g_sAGVProgNm		:= tylocalAGV.In.sProgNm;
 		
 		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
+		IF tylocalAGV.Out.tyAlmData.udiCode < 10000 OR tylocalAGV.Out.tyAlmData.udiCode > 10099 THEN
+			tylocalAGV.Out.tyAlmData.sAlmMsg	:= 'Unknown';
+			tylocalAGV.Out.tyAlmData.sRcyMsg	:= 'Unknown';
 		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
+			tylocalAGV.Out.tyAlmData.sAlmMsg	:= a_tyAlmText[tylocalAGV.Out.tyAlmData.udiCode].sAlmText;
+			tylocalAGV.Out.tyAlmData.sRcyMsg	:= a_tyAlmText[tylocalAGV.Out.tyAlmData.udiCode].sRcyText;
 		END_IF
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+		tylocalAGV.Out.sStatTxt	:= tylocalAGV.Out.tyAlmData.sAlmMsg;
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
+	ELSIF bRstErr AND (tylocalAGV.Out.tyAlmData.udiCode <> 0) THEN
 		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalAGV.Out.tyAlmData.udiCode	:= 0;
+		tylocalAGV.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalAGV.Out.tyAlmData.sAlmMsg	:= '';
+		tylocalAGV.Out.tyAlmData.sRcyMsg	:= '';
+		tylocalAGV.Out.tyAlmData.bAlm			:= FALSE;
+		tylocalAGV.Out.sStatTxt	:= a_sStatText[tylocalAGV.Out.eStat];
 		
 	END_IF
 	

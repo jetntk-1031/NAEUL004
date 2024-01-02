@@ -22,8 +22,7 @@ ACTION Act_InputConfig:
 	tylocalOvenInfoB.In.diSetBrdInOven := g_tyUIOut.diOvenInfoSetBrdInOvenB;
 	tylocalOvenInfoB.In.bCntUp := g_tyDInput.bOvenInfeedSigB;
 	
-	tylocalOvenInfoB.In.bNtParamAutoRcpPrep := g_tyNtParam.bAutoRcpPrep;
-	tylocalOvenInfoB.In.bMcParamAutoRcpDis  := g_tyMcParamCurr.bAutoRcpDisable;
+
 
 		
 

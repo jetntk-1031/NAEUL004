@@ -34,6 +34,7 @@ TYPE
 		diMinBffr : REFERENCE TO DINT;
 		bBGRun : BOOL;
 		BrdPerSlt : DINT;
+		bLinkConvHvBrd : BOOL;
 	END_STRUCT;
 	tyOvenInfoOut1 : 	STRUCT 
 		eStat : eOvenInfoAction := OvenInfoActIdle; (*Hardware Info's State*)

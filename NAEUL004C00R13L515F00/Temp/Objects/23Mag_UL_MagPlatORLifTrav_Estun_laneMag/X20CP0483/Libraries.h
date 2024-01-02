@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _LIBRARIES_20231229105928_
-#define _LIBRARIES_20231229105928_
+#ifndef _LIBRARIES_20240102103841_
+#define _LIBRARIES_20240102103841_
 
 __asm__(".section \".plc\"");
 
@@ -1466,5 +1466,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtOPCUA/Types.typ\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _LIBRARIES_20231229105928_ */
+#endif /* _LIBRARIES_20240102103841_ */
 

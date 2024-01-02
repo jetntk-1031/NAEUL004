@@ -41,7 +41,7 @@ TYPE
 		);
 	tyBuffer1 : 	STRUCT 
 		In : tyBufferIn1;
-		Out : tyBufferInfoOut1;
+		Out : tyBufferOut1;
 	END_STRUCT;
 	tyBufferIn1 : 	STRUCT 
 		eAct : eBufferAction; (*Hardware Info's Action*)
@@ -68,8 +68,6 @@ TYPE
 		bMagPresentSensor : BOOL;
 		bPrepCoolFan : BOOL;
 		bCoolFanTm : BOOL;
-		tyBuffer : tyBffr;
-		tyDispBuffer : tyDispBffr;
 		tyBufferStat : tyBffrStat;
 		sBffrNm : STRING[15];
 		sProdNm : STRING[15];
@@ -89,7 +87,7 @@ TYPE
 		bLinkPresentSen2 : BOOL;
 		bLinkOpsTravLifULExitBrd : REFERENCE TO BOOL;
 	END_STRUCT;
-	tyBufferInfoOut1 : 	STRUCT 
+	tyBufferOut1 : 	STRUCT 
 		eStat : eBufferAction := BufferActIdle; (*Hardware Info's State*)
 		eStatus : eFBStatus := Idle; (*Hardware Info's Status*)
 		sStatTxt : STRING[200] := ''; (*Hardware Info's State in Text*)

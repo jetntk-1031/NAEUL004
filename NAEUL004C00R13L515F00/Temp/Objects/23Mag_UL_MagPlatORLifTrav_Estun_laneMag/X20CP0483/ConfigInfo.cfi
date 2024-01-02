@@ -191,29 +191,17 @@
       Source="Startup.Startup"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Startup\Startup\InputRef_Link.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_InitLocal.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_Initial.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_Main.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_Main.var" />
       <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Startup\Startup\InputRef.var" />
-      <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Startup\Startup\Local.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_InputConfig.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Startup\Act_OutputConfig.st.var" />
     </Task>
     <Task
       Name="General"
@@ -251,6 +239,10 @@
       Source="UsrFolder.UsrFolder"
       Language="IEC">
       <InternalFile
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_InputConfig.st.var" />
+      <InternalFile
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_OutputConfig.st.var" />
+      <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Cyclic.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_Initial.st.var" />
@@ -260,10 +252,6 @@
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_Alarm.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\UsrFolder\UsrFolder\Local.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_InputConfig.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\UsrFolder\Act_OutputConfig.st.var" />
     </Task>
     <Task
       Name="LibVer"
@@ -1155,25 +1143,15 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Init.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_InitGlobal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_InputConfig.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFLeader\InputRef_Link.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_LinkAction.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Link.st.var" />
-      <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_RstErr.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_InitLocal.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Initial.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Action.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Main.st.var" />
       <InternalFile
@@ -1185,11 +1163,7 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Background_Disconnect.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Main_Disable.st.var" />
-      <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFLeader\Act_Alarm.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFLeader\InputRef.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFLeader\Local.var" />
     </Task>
@@ -1201,17 +1175,9 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Init.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFFollower\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_Link.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_InputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_RstErr.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_InitLocal.st.var" />
       <InternalFile
@@ -1229,8 +1195,6 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\LFFollower\Act_Alarm.st.var" />
       <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFFollower\InputRef.var" />
-      <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\LFFollower\Local.var" />
     </Task>
     <Task
@@ -1241,17 +1205,9 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Init.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower1\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_Link.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_InputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_RstErr.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_InitLocal.st.var" />
       <InternalFile
@@ -1269,8 +1225,6 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower1\Act_Alarm.st.var" />
       <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower1\InputRef.var" />
-      <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower1\Local.var" />
     </Task>
     <Task
@@ -1281,17 +1235,9 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Init.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower2\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_Link.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_InputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_RstErr.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_InitLocal.st.var" />
       <InternalFile
@@ -1308,8 +1254,6 @@
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_Main_Disable.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Follower2\Act_Alarm.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower2\InputRef.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\LF\Follower2\Local.var" />
     </Task>
@@ -1661,37 +1605,19 @@
       Source="AGVCom.AGV"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_LinkAction.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Link.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_LinkEn.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Cyclic.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_RstErr.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_InitLocal.st.var" />
-      <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Initial.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Action.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Main.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Background.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Alarm.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV\Act_Alarm1.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV\InputRef.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV\Local.var" />
     </Task>
@@ -1701,35 +1627,21 @@
       Source="AGVCom.AGV1"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV1\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_LinkAction.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Link.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_RstErr.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_InitLocal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Initial.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Action.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Link.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Main.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Background.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Act_Alarm.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV1\InputRef.var" />
+      <InternalFile
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV1\Cyclic.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV1\Local.var" />
     </Task>
@@ -1739,35 +1651,21 @@
       Source="AGVCom.AGV2"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV2\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_LinkAction.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Link.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_RstErr.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_InitLocal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Initial.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Action.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Link.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Main.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Background.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Act_Alarm.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV2\InputRef.var" />
+      <InternalFile
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV2\Cyclic.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV2\Local.var" />
     </Task>
@@ -1777,35 +1675,21 @@
       Source="AGVCom.AGV3"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_InitGlobal.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV3\InputRef_Link.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_LinkAction.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_LinkEn.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Link.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_RstErr.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_InitLocal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Initial.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Action.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Link.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Main.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Background.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Act_Alarm.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV3\InputRef.var" />
+      <InternalFile
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\AGV3\Cyclic.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\AGVCom\AGV3\Local.var" />
     </Task>
@@ -1847,15 +1731,11 @@
       Source="Machine.Machine"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_InitGlobal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_OutputConfig.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Cyclic.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_RstErr.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_InitLocal.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_Initial.st.var" />
       <InternalFile
@@ -1864,8 +1744,6 @@
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_Alarm.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\Machine\Act_AlarmInfo1.st.var" />
-      <File
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Machine\Machine\InputRef.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Machine\Machine\Local.var" />
     </Task>
@@ -2151,9 +2029,9 @@
       Source="TCP.TCP"
       Language="IEC">
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Init.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_InputConfig.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_InitGlobal.st.var" />
+        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_OutputConfig.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\TCP\TCP\InputRef_Link.var" />
       <InternalFile
@@ -2165,13 +2043,9 @@
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Cyclic.st.var" />
       <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_RstErr.st.var" />
-      <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_InitLocal.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Initial.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Action.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Main.st.var" />
       <InternalFile
@@ -2184,18 +2058,10 @@
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Background_Log.st.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Main_Disable.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_CombineErr.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\TCP\TCP\InputRef.var" />
       <InternalFile
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Alarm.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Alarm1.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Alarm2.st.var" />
-      <InternalFile
-        Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Temp\Objects\23Mag_UL_MagPlatORLifTrav_Estun_laneMag\X20CP0483\TCP\Act_Alarm3.st.var" />
       <File
         Path="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\TCP\TCP\Local.var" />
     </Task>

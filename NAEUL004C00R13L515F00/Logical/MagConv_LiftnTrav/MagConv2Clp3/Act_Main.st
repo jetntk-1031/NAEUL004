@@ -98,8 +98,8 @@ ACTION Act_Main:
 				
 				fbInit(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 				IF fbInit.udiStatus = 0 THEN
 					IF fbInit.bConvLToR = TRUE THEN
@@ -189,8 +189,8 @@ ACTION Act_Main:
 						
 						fbInit(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
@@ -358,8 +358,8 @@ ACTION Act_Main:
 						
 						fbInit(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 						
 						IF fbInit.bEndSen = TRUE THEN
 							bReachEnd	:= TRUE;
@@ -477,8 +477,8 @@ ACTION Act_Main:
 				
 				fbEnt(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
 					tylocalMagConv2Clp.Out.eStatus		:= Done;
@@ -518,8 +518,8 @@ ACTION Act_Main:
 						
 						fbEnt(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 						
 						IF fbEnt.udiStatus = 0 THEN
 							usiStep	:= 2;
@@ -721,8 +721,8 @@ ACTION Act_Main:
 				
 				fbEnt(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 				IF fbEnt.bEndSen = TRUE THEN
 					bReachEnd	:= TRUE;
@@ -834,8 +834,8 @@ ACTION Act_Main:
 				
 				fbPreExit(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
 				
 				IF fbPreExit.udiStatus = 0 THEN
 					IF fbPreExit.bEndSen = TRUE THEN
@@ -913,8 +913,8 @@ ACTION Act_Main:
 						
 						fbPreExit(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
 						
 						IF fbPreExit.udiStatus = 0 THEN
 							IF fbPreExit.bEndSen = TRUE THEN
@@ -949,8 +949,8 @@ ACTION Act_Main:
 				
 				fbExit(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus = 0 THEN
 					tylocalMagConv2Clp.Out.bHvMag		:= FALSE;	
@@ -984,8 +984,8 @@ ACTION Act_Main:
 				
 				fbExit1(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus = 0 THEN
 					tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
@@ -1062,8 +1062,8 @@ ACTION Act_Main:
 						
 						fbExit(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
 						
 						IF fbExit.udiStatus = 0 THEN
 							tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
@@ -1142,8 +1142,8 @@ ACTION Act_Main:
 						
 						fbExit1(bEn := TRUE);
 						
-						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+						tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
+						tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
 						
 						IF fbExit1.udiStatus = 0 THEN
 							tylocalMagConv2Clp.Out.bHvMag		:= FALSE;
@@ -1431,8 +1431,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus = 0 THEN
 					tylocalMagConv2Clp.Out.eStatus	:= Done;
@@ -1451,8 +1451,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.tylocalMagConv2Clp.Out.bMtrSigOnOrLToR;
-				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.tylocalMagConv2Clp.Out.bMtrDirOrRToL;
+				tylocalMagConv2Clp.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalMagConv2Clp.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				tylocalMagConv2Clp.Out.bFixClprClampCtrl	:= FALSE;
 				tylocalMagConv2Clp.Out.bRmtClprClampCtrl	:= FALSE;

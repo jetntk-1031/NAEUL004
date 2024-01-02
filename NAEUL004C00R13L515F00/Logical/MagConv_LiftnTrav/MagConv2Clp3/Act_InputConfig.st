@@ -4,7 +4,7 @@ ACTION Act_InputConfig:
 	(* Always Change If Project Change *)
 	
 	//Pass Data To Link
-	tylocalMagConv2Clp.In.bLinkOpsRun := g_tyOpsRun;
+
 	
 	tylocalMagConv2Clp.In.bLinkDISafetyRlySig := g_tyDInput.bSafetyRlySig;
 	

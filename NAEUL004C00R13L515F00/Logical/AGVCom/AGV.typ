@@ -94,22 +94,144 @@ TYPE
 	END_STRUCT;
 END_TYPE
 
-(*AGV in/out*)
+(*AGV Comm in/out*)
 
 TYPE
-	tyAGV : 	STRUCT 
+	tyAGVCom : 	STRUCT 
+		In : tyAGVComIn1;
+		Out : tyAGVComOut1;
+	END_STRUCT;
+	tyAGVComIn1 : 	STRUCT 
+		bManual : BOOL;
+		tyDTMagToAGV1 : tyTagDTMagToAGV;
+		tyDTMagToAGV2 : tyTagDTMagToAGV;
+		tyDTMagToAGV3 : tyTagDTMagToAGV;
+		bOpsRun : BOOL;
+		bLinkOpsSimu : BOOL;
+		bIncorrectMagazine1 : BOOL;
+		bIncorrectMagazine2 : BOOL;
+		bIncorrectMagazine3 : BOOL;
+		bRequestToBring1 : BOOL;
+		bRequestToBring2 : BOOL;
+		bRequestToBring3 : BOOL;
+		bRequestToBring4 : BOOL;
+		bRequestToGet1 : BOOL;
+		bRequestToGet2 : BOOL;
+		bRequestToGet3 : BOOL;
+		bRequestToGet4 : BOOL;
+		bUISOTMagError1 : BOOL;
+		bUISOTMagError2 : BOOL;
+		bUISOTMagError3 : BOOL;
+		bUISOTMagReady1 : BOOL;
+		bUISOTMagReady2 : BOOL;
+		bUISOTMagReady3 : BOOL;
+		bUISOTMagAvailable1 : BOOL;
+		bUISOTMagAvailable2 : BOOL;
+		bUISOTMagAvailable3 : BOOL;
+		bUISOTMagSizeLarge1 : BOOL;
+		bUISOTMagSizeLarge2 : BOOL;
+		bUISOTMagSizeLarge3 : BOOL;
+		bUIRequestToBring1 : BOOL;
+		bUIRequestToBring2 : BOOL;
+		bUIRequestToBring3 : BOOL;
+		bUIRequestToGet1 : BOOL;
+		bUIRequestToGet2 : BOOL;
+		bUIRequestToGet3 : BOOL;
+		bDIFleetManagerActive : BOOL;
+		eAGVComProtocol : eMcAGVCommProtocol;
+		bSOTMagError1 : BOOL;
+		bSOTMagSizeLarge1 : BOOL;
+		bSOTMagReady1 : BOOL;
+		bSOTMagAvailable1 : BOOL;
+		bSOTMagError2 : BOOL;
+		bSOTMagSizeLarge2 : BOOL;
+		bSOTMagReady2 : BOOL;
+		bSOTMagAvailable2 : BOOL;
+		bSOTMagError3 : BOOL;
+		bSOTMagSizeLarge3 : BOOL;
+		bSOTMagReady3 : BOOL;
+		bSOTMagAvailable3 : BOOL;
+		bAGVSimulationOn : BOOL;
+		bDisableFMWarning : BOOL;
+		bAGVRdyEnter2 : BOOL;
+		bAGVRdyExit2 : BOOL;
+		bAGVRdyEnter3 : BOOL;
+		bAGVRdyExit3 : BOOL;
+		bAGVRdyEnter1 : BOOL;
+		bAGVRdyExit1 : BOOL;
+		sJobNo : STRING[30];
+		sProgNm : STRING[15];
+		udiRstErr : UDINT;
+		bPrep : BOOL;
+		bEn : BOOL;
+		bDis : BOOL;
+		eCustomerReq : eCustomer;
+		bOpsMagConvUL1ReadRFID : BOOL;
+		bOpsMagConvUL1WriteRFID : BOOL;
+		bOpsMagConvUL2ReadRFID : BOOL;
+		bOpsMagConvUL2WriteRFID : BOOL;
+		bOpsMagConvUL3ReadRFID : BOOL;
+		bOpsMagConvUL3WriteRFID : BOOL;
+		tyUIAGVToDTMagSimulateData : tyTagAGVToDTMag;
+	END_STRUCT;
+	tyAGVComOut1 : 	STRUCT 
+		eStat : eAGVMagAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+		tyAlmData1 : tyAlmDat;
+		tyAGVToDTMag : tyTagAGVToDTMag;
+		bInternalAGVOnline : BOOL;
+		bMachineOnline : BOOL;
+		tyDTMagToAGV : tyTagDTMagToAGV;
+		bInternalAGVSimulateOn : BOOL;
+		tyTagToMes : tyStatToMES;
+		tyTagFromMes : tyStatFromMES;
+		bFleetManagerActive : BOOL;
+	END_STRUCT;
+END_TYPE
+
+(*AGV Plat Comm in/out*)
+
+TYPE
+	tyAGV1 : 	STRUCT 
 		In : tyAGVIn1;
 		Out : tyAGVOut1;
 	END_STRUCT;
 	tyAGVIn1 : 	STRUCT 
+		udiRstErr : UDINT := 0;
+		bPrep : BOOL := TRUE;
+		bEn : BOOL := TRUE;
+		bDis : BOOL := FALSE;
+		sProgNm : STRING[15] := 'AIVMag';
+		bNtSettingsLoadDone : BOOL := TRUE;
+		diTxInTimeOut : DINT;
+		diTxOutTimeOut : DINT;
+		eDirection : eConvDir;
+		bBufferMagPresent : BOOL;
+		bMagConvLftSen : BOOL;
+		bMagConvRgtSen : BOOL;
+		bMagConvMtrIn : BOOL;
+		bMagConvMtrOut : BOOL;
+		bAGVInPosSen1 : BOOL;
+		bAGVInPosSen2 : BOOL;
+		bNtParamAGVInPosSenPrep : BOOL;
+		bSOTRcvOk : BOOL;
+		bSOTErr : BOOL;
+		bSOTRdy : BOOL;
+		bSOTAvailable : BOOL;
+		tyAGVToDTMag : tyTagAGVToDTMag;
+		tyDTMagToAGV : tyTagDTMagToAGV;
+		bLinkAGVOnline : BOOL;
 	END_STRUCT;
 	tyAGVOut1 : 	STRUCT 
-		tyAGVToDTMag : tyTagAGVToDTMag;
-		bInternalAGVOnline : BOOL;
-		bMachineOnline : BOOL;
-		tyDTMagToAGV : USINT;
-		New_Member4 : USINT;
-		New_Member5 : USINT;
-		New_Member : USINT;
+		eStat : eAGVMagAction;
+		eStatus : eFBStatus;
+		sStatTxt : STRING[200];
+		tyAlmData : tyAlmDat;
+		bRdyEnt : BOOL;
+		bRdyExit : BOOL;
+		bMcRunRdy : BOOL;
+		tyDTMagToAGV : tyTagDTMagToAGV;
 	END_STRUCT;
 END_TYPE

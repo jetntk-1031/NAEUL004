@@ -4,7 +4,7 @@ ACTION Act_Background:
 		
 	IF tylocalUSSOT.Out.bConvStart = FALSE AND tylocalUSSOT.Out.bConvStop = FALSE THEN
 
-		IF tylocalUSSOT.In.tylocalUSSOT.Out.bVirtualEn = TRUE THEN
+		IF tylocalUSSOT.In.bVirtualEn = TRUE THEN
 			tylocalUSSOT.Out.bVirtual	:= TRUE;
 		ELSE
 			tylocalUSSOT.Out.bVirtual	:= FALSE;

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_107_
-#define _BUR_1703817512_107_
+#ifndef _BUR_1704162565_1_
+#define _BUR_1704162565_1_
 
 #include <bur/plctypes.h>
 
@@ -111,6 +111,144 @@ typedef struct tyStatFromLoader
 /* Data type tyStatFromLoader not declared. Data types with array elements whose starting indexes are not equal to zero cannot be used in ANSI C programs / libraries.*/
 #endif
 
+typedef struct tyAGVComIn1
+{	plcbit bManual;
+	struct tyTagDTMagToAGV tyDTMagToAGV1;
+	struct tyTagDTMagToAGV tyDTMagToAGV2;
+	struct tyTagDTMagToAGV tyDTMagToAGV3;
+	plcbit bOpsRun;
+	plcbit bLinkOpsSimu;
+	plcbit bIncorrectMagazine1;
+	plcbit bIncorrectMagazine2;
+	plcbit bIncorrectMagazine3;
+	plcbit bRequestToBring1;
+	plcbit bRequestToBring2;
+	plcbit bRequestToBring3;
+	plcbit bRequestToBring4;
+	plcbit bRequestToGet1;
+	plcbit bRequestToGet2;
+	plcbit bRequestToGet3;
+	plcbit bRequestToGet4;
+	plcbit bUISOTMagError1;
+	plcbit bUISOTMagError2;
+	plcbit bUISOTMagError3;
+	plcbit bUISOTMagReady1;
+	plcbit bUISOTMagReady2;
+	plcbit bUISOTMagReady3;
+	plcbit bUISOTMagAvailable1;
+	plcbit bUISOTMagAvailable2;
+	plcbit bUISOTMagAvailable3;
+	plcbit bUISOTMagSizeLarge1;
+	plcbit bUISOTMagSizeLarge2;
+	plcbit bUISOTMagSizeLarge3;
+	plcbit bUIRequestToBring1;
+	plcbit bUIRequestToBring2;
+	plcbit bUIRequestToBring3;
+	plcbit bUIRequestToGet1;
+	plcbit bUIRequestToGet2;
+	plcbit bUIRequestToGet3;
+	plcbit bDIFleetManagerActive;
+	eMcAGVCommProtocol eAGVComProtocol;
+	plcbit bSOTMagError1;
+	plcbit bSOTMagSizeLarge1;
+	plcbit bSOTMagReady1;
+	plcbit bSOTMagAvailable1;
+	plcbit bSOTMagError2;
+	plcbit bSOTMagSizeLarge2;
+	plcbit bSOTMagReady2;
+	plcbit bSOTMagAvailable2;
+	plcbit bSOTMagError3;
+	plcbit bSOTMagSizeLarge3;
+	plcbit bSOTMagReady3;
+	plcbit bSOTMagAvailable3;
+	plcbit bAGVSimulationOn;
+	plcbit bDisableFMWarning;
+	plcbit bAGVRdyEnter2;
+	plcbit bAGVRdyExit2;
+	plcbit bAGVRdyEnter3;
+	plcbit bAGVRdyExit3;
+	plcbit bAGVRdyEnter1;
+	plcbit bAGVRdyExit1;
+	plcstring sJobNo[31];
+	plcstring sProgNm[16];
+	unsigned long udiRstErr;
+	plcbit bPrep;
+	plcbit bEn;
+	plcbit bDis;
+	eCustomer eCustomerReq;
+	plcbit bOpsMagConvUL1ReadRFID;
+	plcbit bOpsMagConvUL1WriteRFID;
+	plcbit bOpsMagConvUL2ReadRFID;
+	plcbit bOpsMagConvUL2WriteRFID;
+	plcbit bOpsMagConvUL3ReadRFID;
+	plcbit bOpsMagConvUL3WriteRFID;
+	struct tyTagAGVToDTMag tyUIAGVToDTMagSimulateData;
+} tyAGVComIn1;
+
+typedef struct tyAGVComOut1
+{	enum eAGVMagAction eStat;
+	eFBStatus eStatus;
+	plcstring sStatTxt[201];
+	struct tyAlmDat tyAlmData;
+	struct tyAlmDat tyAlmData1;
+	struct tyTagAGVToDTMag tyAGVToDTMag;
+	plcbit bInternalAGVOnline;
+	plcbit bMachineOnline;
+	struct tyTagDTMagToAGV tyDTMagToAGV;
+	plcbit bInternalAGVSimulateOn;
+	struct tyStatToMES tyTagToMes;
+	struct tyStatFromMES tyTagFromMes;
+	plcbit bFleetManagerActive;
+} tyAGVComOut1;
+
+typedef struct tyAGVCom
+{	struct tyAGVComIn1 In;
+	struct tyAGVComOut1 Out;
+} tyAGVCom;
+
+typedef struct tyAGVIn1
+{	unsigned long udiRstErr;
+	plcbit bPrep;
+	plcbit bEn;
+	plcbit bDis;
+	plcstring sProgNm[16];
+	plcbit bNtSettingsLoadDone;
+	signed long diTxInTimeOut;
+	signed long diTxOutTimeOut;
+	eConvDir eDirection;
+	plcbit bBufferMagPresent;
+	plcbit bMagConvLftSen;
+	plcbit bMagConvRgtSen;
+	plcbit bMagConvMtrIn;
+	plcbit bMagConvMtrOut;
+	plcbit bAGVInPosSen1;
+	plcbit bAGVInPosSen2;
+	plcbit bNtParamAGVInPosSenPrep;
+	plcbit bSOTRcvOk;
+	plcbit bSOTErr;
+	plcbit bSOTRdy;
+	plcbit bSOTAvailable;
+	struct tyTagAGVToDTMag tyAGVToDTMag;
+	struct tyTagDTMagToAGV tyDTMagToAGV;
+	plcbit bLinkAGVOnline;
+} tyAGVIn1;
+
+typedef struct tyAGVOut1
+{	enum eAGVMagAction eStat;
+	eFBStatus eStatus;
+	plcstring sStatTxt[201];
+	struct tyAlmDat tyAlmData;
+	plcbit bRdyEnt;
+	plcbit bRdyExit;
+	plcbit bMcRunRdy;
+	struct tyTagDTMagToAGV tyDTMagToAGV;
+} tyAGVOut1;
+
+typedef struct tyAGV1
+{	struct tyAGVIn1 In;
+	struct tyAGVOut1 Out;
+} tyAGV1;
+
 
 
 
@@ -126,5 +264,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AGVCom/AGV.typ\\\" scope \\\"global\\\"\\n
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_107_ */
+#endif /* _BUR_1704162565_1_ */
 

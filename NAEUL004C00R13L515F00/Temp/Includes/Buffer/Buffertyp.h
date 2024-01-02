@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_37_
-#define _BUR_1703817512_37_
+#ifndef _BUR_1704163086_1_
+#define _BUR_1704163086_1_
 
 #include <bur/plctypes.h>
 
@@ -69,8 +69,6 @@ typedef struct tyBufferIn1
 	plcbit bMagPresentSensor;
 	plcbit bPrepCoolFan;
 	plcbit bCoolFanTm;
-	struct tyBffr tyBuffer;
-	struct tyDispBffr tyDispBuffer;
 	struct tyBffrStat tyBufferStat;
 	plcstring sBffrNm[16];
 	plcstring sProdNm[16];
@@ -94,7 +92,7 @@ typedef struct tyBufferIn1
 /* Data type tyBufferIn1 not declared. Data types with array elements whose starting indexes are not equal to zero cannot be used in ANSI C programs / libraries.*/
 #endif
 
-typedef struct tyBufferInfoOut1
+typedef struct tyBufferOut1
 {	enum eBufferAction eStat;
 	eFBStatus eStatus;
 	plcstring sStatTxt[201];
@@ -116,11 +114,11 @@ typedef struct tyBufferInfoOut1
 	plcbit bMagPresent;
 	plcdt dtMagPresentTm;
 	signed long diCurrSlt;
-} tyBufferInfoOut1;
+} tyBufferOut1;
 
 typedef struct tyBuffer1
 {	struct tyBufferIn1 In;
-	struct tyBufferInfoOut1 Out;
+	struct tyBufferOut1 Out;
 } tyBuffer1;
 
 typedef struct tyBufferMagIn1
@@ -176,5 +174,5 @@ __asm__(".ascii \"iecdep \\\"Logical/NtLibraries/NtBuffer/Constants.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_37_ */
+#endif /* _BUR_1704163086_1_ */
 

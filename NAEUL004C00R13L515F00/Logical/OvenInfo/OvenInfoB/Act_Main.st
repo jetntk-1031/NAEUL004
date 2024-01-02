@@ -78,10 +78,10 @@ ACTION Act_Main:
 				
 		fbExtdd.diAddBffr		:= tylocalOvenInfoB.In.diAddBffr;
 		fbExtdd.diBffrMtySlt	:= tylocalOvenInfoB.In.diBffrMtySlt;
-		fbExtdd.tylocalOvenInfoB.Out.diBrdInOven		:= tylocalOvenInfoB.Out.diBrdInOven;
+		fbExtdd.Out.diBrdInOven		:= tylocalOvenInfoB.Out.diBrdInOven;
 		fbExtdd.diBrdPerSlt		:= tylocalOvenInfoB.In.diBrdPerSlt;
 		fbExtdd(bEn := TRUE);
-		tylocalOvenInfoB.Out.bOvenAllow	:= fbExtdd.tylocalOvenInfoB.Out.bOvenAllow;
+		tylocalOvenInfoB.Out.bOvenAllow	:= fbExtdd.Out.bOvenAllow;
 		
 	ELSE
 		
@@ -90,7 +90,7 @@ ACTION Act_Main:
 		fbStd.diBffrMtySlt		:= tylocalOvenInfoB.In.diBffrMtySlt;
 		fbStd.diMinBffrMtySlt	:= tylocalOvenInfoB.In.diMinBffr;
 		fbStd(bEn := TRUE);
-		tylocalOvenInfoB.Out.bOvenAllow	:= fbStd.tylocalOvenInfoB.Out.bOvenAllow;
+		tylocalOvenInfoB.Out.bOvenAllow	:= fbStd.Out.bOvenAllow;
 			
 	END_IF
 	

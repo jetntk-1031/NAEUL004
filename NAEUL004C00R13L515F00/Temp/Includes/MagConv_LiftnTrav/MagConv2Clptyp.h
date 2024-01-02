@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_50_
-#define _BUR_1703817512_50_
+#ifndef _BUR_1704160893_1_
+#define _BUR_1704160893_1_
 
 #include <bur/plctypes.h>
 
@@ -50,6 +50,7 @@ typedef struct tyMagConv2ClpIn1
 	plcbit bLinkMagLargeSen;
 	plcbit bLinkFixClprUnClampSen;
 	plcbit bLinkFixClprClampSen;
+	plcbit bLinkRmtClprUnclampSen;
 	plcbit bLinkFixClprMagDetectSen;
 	plcbit bLinkFixClprMagDetectSenPrep;
 	plcbit bLinkMagOpsStepMagFullExit;
@@ -57,17 +58,17 @@ typedef struct tyMagConv2ClpIn1
 	plcbit bWidthChkSen;
 	plcbit bWidthChkInterrupt;
 	plcbit bLinkNtParamMagModelAutoVerify;
-	plcbit udiRstErr;
+	unsigned long udiRstErr;
 	plcbit bPrep;
 	plcbit bEn;
 	plcbit bDis;
 	plcbit bManual;
 	plcbit bOnDirMod;
-	plcbit diInitTm;
-	plcbit tMtrOffDlyTm;
-	plcbit diTxInTimeOut;
-	plcbit diTxOutTimeOut;
-	plcbit eDirection;
+	signed long diInitTm;
+	plctime tMtrOffDlyTm;
+	signed long diTxInTimeOut;
+	signed long diTxOutTimeOut;
+	eConvDir eDirection;
 	plcstring sProgNm[16];
 	plctime tClprClampTO;
 	plctime tClprUnclampTO;
@@ -119,5 +120,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MagConv_LiftnTrav/MagConv2Clp.typ\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_50_ */
+#endif /* _BUR_1704160893_1_ */
 

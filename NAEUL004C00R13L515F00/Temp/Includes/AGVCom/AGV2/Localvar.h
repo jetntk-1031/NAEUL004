@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817513_292_
-#define _BUR_1703817513_292_
+#ifndef _BUR_1704158824_30_
+#define _BUR_1704158824_30_
 
 #include <bur/plctypes.h>
 
@@ -35,25 +35,6 @@ _BUR_LOCAL plcbit bInitialDone;
 _BUR_LOCAL plcbit bInitDone;
 _BUR_LOCAL unsigned long udiRstErrOld;
 _BUR_LOCAL plcbit bRstErr;
-_BUR_LOCAL struct tyTagDTMagToAGV tyDTMagToAGV;
-_BUR_LOCAL struct tyTagAGVToDTMag tyAGVToDTMag;
-_BUR_LOCAL plcbit bNtParamAGVInPosSenPrep;
-_BUR_LOCAL plcbit bAGVInPosSen2;
-_BUR_LOCAL plcbit bAGVInPosSen1;
-_BUR_LOCAL plcbit bMagConvMtrOut;
-_BUR_LOCAL plcbit bMagConvMtrIn;
-_BUR_LOCAL plcbit bMagConvRgtSen;
-_BUR_LOCAL plcbit bMagConvLftSen;
-_BUR_LOCAL plcbit bBufferMagPresent;
-_BUR_LOCAL enum eConvDir eDirection;
-_BUR_LOCAL signed long diTxOutTimeOut;
-_BUR_LOCAL signed long diTxInTimeOut;
-_BUR_LOCAL plcbit bNtSettingsLoadDone;
-_BUR_LOCAL plcstring sProgNm[16];
-_BUR_LOCAL plcbit bDis;
-_BUR_LOCAL plcbit bEn;
-_BUR_LOCAL plcbit bPrep;
-_BUR_LOCAL unsigned long udiRstErr;
 _BUR_LOCAL plcbit bMagExit;
 _BUR_LOCAL plcbit bMagEnt;
 _BUR_LOCAL plcbit bRdyExit;
@@ -72,6 +53,7 @@ _BUR_LOCAL unsigned long udiStatus;
 _BUR_LOCAL enum eFBStatus eStatus;
 _BUR_LOCAL enum eAGVMagAction eStat;
 _BUR_LOCAL enum eAGVMagAction eAct;
+_BUR_LOCAL struct tyAGV1 tylocalAGV;
 
 
 
@@ -88,5 +70,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/standard/standard.fun\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817513_292_ */
+#endif /* _BUR_1704158824_30_ */
 

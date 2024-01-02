@@ -22,7 +22,8 @@ ACTION Act_InputConfig:
 	tylocalMtrPshr.In.diRetNomSpd := g_tyNtParamMtrPshrRetNomSpd;
 	tylocalMtrPshr.In.diRetTorque := g_tyNtParamMtrPshrRetTorq;
 	tylocalMtrPshr.In.diStartTorque := g_tyNtParamMtrPshrStartTorq;
-
+	tylocalMtrPshr.In.sProgNm := g_tyNtParamCurr.sMtrPshrProgNm;
+	
 	tylocalMtrPshr.In.bExtSen := g_tyDIPusherExtRS;
 	tylocalMtrPshr.In.bRetSen := g_tyDIPusherRetRS;
 	tylocalMtrPshr.In.bExtSlowSen := g_tyDIPusherExtSlwSen;

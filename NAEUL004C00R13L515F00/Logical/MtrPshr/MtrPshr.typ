@@ -66,6 +66,7 @@ TYPE
 		bLinkPshrExtCtrl : BOOL;
 		bLinkPshrRetCtrl : BOOL;
 		bLinkAlarmSig : BOOL;
+		sProgNm : STRING[15];
 	END_STRUCT;
 	tyMtrPshrOut1 : 	STRUCT 
 		eStat : eMagConv2ClpAction;

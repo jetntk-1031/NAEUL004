@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817513_161_
-#define _BUR_1703817513_161_
+#ifndef _BUR_1704163086_3_
+#define _BUR_1704163086_3_
 
 #include <bur/plctypes.h>
 
@@ -74,26 +74,6 @@ _BUR_LOCAL plcdt dtCurrDT;
 _BUR_LOCAL plcbit bManual;
 _BUR_LOCAL plcstring sFileName[81];
 _BUR_LOCAL unsigned long udiRstErr;
-_BUR_LOCAL plcbit bFIFOOld;
-_BUR_LOCAL plcbit bMagRemoved;
-_BUR_LOCAL plcbit bParamDiff;
-_BUR_LOCAL plcbit bLastProductLeftInBffr;
-_BUR_LOCAL plcbit bLastProductUnload;
-_BUR_LOCAL plcbit bNewProduct;
-_BUR_LOCAL plcdt dtMagPresentTm;
-_BUR_LOCAL_RETAIN plcbit bMagPresent;
-_BUR_LOCAL plcbit bCoolFanCtrl;
-_BUR_LOCAL plcbit bFileNotFound;
-_BUR_LOCAL struct tyBrdUnloadStat tyBoardUnloadStat;
-_BUR_LOCAL struct tyBffrStat tyBufferStat;
-_BUR_LOCAL struct tyDispBffr tyDispBuffer;
-_BUR_LOCAL struct tyBffr tyBuffer;
-_BUR_LOCAL plcbit bCoolNotRdy;
-_BUR_LOCAL signed long diCoolBrdBad;
-_BUR_LOCAL signed long diCoolBrdGd;
-_BUR_LOCAL signed long diCoolBrdAny;
-_BUR_LOCAL signed long diNxtUnloadSlt;
-_BUR_LOCAL signed long diNxtLoadSlt;
 
 #ifdef _BUR_USE_DECLARATION_IN_IEC
 _BUR_LOCAL struct tyAlmTxt a_tyAlmText[100];
@@ -125,5 +105,5 @@ __asm__(".ascii \"iecdep \\\"Logical/NtLibraries/NtBuffer/Constants.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817513_161_ */
+#endif /* _BUR_1704163086_3_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_54_
-#define _BUR_1703817512_54_
+#ifndef _BUR_1704158824_4_
+#define _BUR_1704158824_4_
 
 #include <bur/plctypes.h>
 
@@ -66,6 +66,7 @@ typedef struct tyMtrPshrIn1
 	plcbit bLinkPshrExtCtrl;
 	plcbit bLinkPshrRetCtrl;
 	plcbit bLinkAlarmSig;
+	plcstring sProgNm[16];
 } tyMtrPshrIn1;
 
 typedef struct tyMtrPshrOut1
@@ -105,5 +106,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MtrPshr/MtrPshr.typ\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_54_ */
+#endif /* _BUR_1704158824_4_ */
 

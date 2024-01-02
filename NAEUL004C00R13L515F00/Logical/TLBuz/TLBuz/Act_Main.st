@@ -4,7 +4,7 @@ ACTION Act_Main:
 	IF tylocalTLBuz.Out.eStatus = Idle OR tylocalTLBuz.Out.eStatus = Busy OR tylocalTLBuz.Out.eStatus = Done THEN
 		tylocalTLBuz.Out.eStat	:= tylocalTLBuz.In.eAct;
 	END_IF
-	IF eStatOld <> tylocalTLBuz.Out.tylocalTLBuz.Out.eStat THEN
+	IF eStatOld <> tylocalTLBuz.Out.eStat THEN
 		IF eStatOld <> TLBuzActIdle
 			AND eStatOld <> TLBuzActSetGreen
 			AND eStatOld <> TLBuzActSetAmber
@@ -21,7 +21,7 @@ ACTION Act_Main:
 			AND eStatOld <> TLBuzActSetAll
 			AND eStatOld <> TLBuzActRstAll THEN
 			
-			tylocalTLBuz.Out.tylocalTLBuz.Out.bTLGreen	:= FALSE;
+			tylocalTLBuz.Out.bTLGreen	:= FALSE;
 			tylocalTLBuz.Out.bTLAmber	:= FALSE;
 			tylocalTLBuz.Out.bTLWhite	:= FALSE;
 			tylocalTLBuz.Out.bTLBlue		:= FALSE;

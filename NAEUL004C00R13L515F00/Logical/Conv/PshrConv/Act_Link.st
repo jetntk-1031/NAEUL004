@@ -57,26 +57,26 @@ ACTION Act_Link:
 	//Good Board Init
 	CASE tylocalPshrConv.In.usiLinkMcParamProdSelMcMod OF
 		ULModUnloadFrontLnA, ULModUnloadRearLnB, ULModUnloadDualLnAB:
-			tylocalPshrConv.Out.bGdBrdInit	:= TRUE;
+			tylocalPshrConv.In.bGdBrdEnt	:= TRUE;
 		ULModRejFrontLnA, ULModRejFrontLnARev, ULModRejRearLnB, ULModRejRearLnBRev, ULModRejDualLnA, ULModRejDualLnB:
-			tylocalPshrConv.Out.bGdBrdInit	:= FALSE;
+			tylocalPshrConv.In.bGdBrdEnt	:= FALSE;
 	END_CASE
 	
 	//Good Board Enter
 	IF tylocalPshrConv.In.eLinkOpsTravLifPosGo = TravLifULPosUS1 THEN
 		
 		IF tylocalPshrConv.In.eLinkMcParamUSCommAMod = McSetCommModSMEMA THEN
-			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USSMEMAAUSGdBrdRdy;
+			tylocalPshrConv.In.bGdBrdEnt := g_tyUSSMEMAA.bUSGdBrdRdy;
 		ELSIF tylocalPshrConv.In.eLinkMcParamUSCommAMod = McSetCommModHermes THEN
-			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USHermesAUSGdRdy;
+			tylocalPshrConv.In.bGdBrdEnt := g_tyUSHermesA.bUSGdRdy;
 		END_IF
 		
 	ELSIF tylocalPshrConv.In.eLinkOpsTravLifPosGo = TravLifULPosUS2 THEN
 		
 		IF tylocalPshrConv.In.eLinkMcParamUSCommBMod = McSetCommModSMEMA THEN
-			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USSMEMABUSGdBrdRdy;
+			tylocalPshrConv.In.bGdBrdEnt := g_tyUSSMEMAB.bUSGdBrdRdy;
 		ELSIF tylocalPshrConv.In.eLinkMcParamUSCommBMod = McSetCommModHermes THEN
-			tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt ACCESS tylocalPshrConv.In.USHermesBUSGdRdy;
+			tylocalPshrConv.In.bGdBrdEnt := g_tyUSHermesB.bUSGdRdy;
 		END_IF
 		
 	END_IF

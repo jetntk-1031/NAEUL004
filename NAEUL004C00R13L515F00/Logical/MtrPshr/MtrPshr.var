@@ -1,4 +1,3 @@
-(*2019-03-25*)
 VAR
 	g_tyMtrPshr : tyMtrPshrOut1;
 END_VAR

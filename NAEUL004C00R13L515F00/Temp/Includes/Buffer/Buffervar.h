@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_38_
-#define _BUR_1703817512_38_
+#ifndef _BUR_1704163086_2_
+#define _BUR_1704163086_2_
 
 #include <bur/plctypes.h>
 
@@ -15,9 +15,9 @@
 /* Variables */
 _GLOBAL struct tyBufferMagOut1 g_tyBufferMagB;
 _GLOBAL struct tyBufferMagOut1 g_tyBufferMagA;
-_GLOBAL struct tyBufferInfoOut1 g_tyBuffer3;
-_GLOBAL struct tyBufferInfoOut1 g_tyBuffer2;
-_GLOBAL struct tyBufferInfoOut1 g_tyBuffer1;
+_GLOBAL struct tyBufferOut1 g_tyBuffer3;
+_GLOBAL struct tyBufferOut1 g_tyBuffer2;
+_GLOBAL struct tyBufferOut1 g_tyBuffer1;
 
 
 
@@ -33,5 +33,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Buffer/Buffer.var\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_38_ */
+#endif /* _BUR_1704163086_2_ */
 

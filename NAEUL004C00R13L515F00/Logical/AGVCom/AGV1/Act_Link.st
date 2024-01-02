@@ -1,72 +1,73 @@
 (** 2018-12-08 **)
 ACTION Act_Link:
-	
-	//Machine --> AGV ---> Communication On & Machine itself RUN Mode
-	IF p_bLinkOpsRun = TRUE THEN
+
 		
-		tyDTMagToAGV.bCI1Auto := TRUE;
+		
+	//Machine --> AGV ---> Communication On & Machine itself RUN Mode
+	IF g_tyOps.bRun = TRUE THEN
+		
+		tylocalAGV.Out.tyDTMagToAGV.bCI1Auto := TRUE;
 	ELSE
-		tyDTMagToAGV.bCI1Auto	:= FALSE;
+		tylocalAGV.Out.tyDTMagToAGV.bCI1Auto	:= FALSE;
 	END_IF
 	
-	tyDTMagToAGV.bCI1Occupied 			:= p_bBufferMagPresent OR p_bMagConvLftSen OR p_bMagConvRgtSen; // Magazine is present
+	tylocalAGV.Out.tyDTMagToAGV.bCI1Occupied 			:= tylocalAGV.In.bBufferMagPresent OR tylocalAGV.In.bMagConvLftSen OR tylocalAGV.In.bMagConvRgtSen; // Magazine is present
 	
-	fbMagFullTm(IN:= p_bMagConvRgtSen = FALSE AND p_bBufferMagPresent = FALSE);
-	IF p_bBufferMagPresent AND p_tyLinkBufferStat.bBffrFull THEN
-		tyDTMagToAGV.bCI1MagazineFull		:=  TRUE;
+	fbMagFullTm(IN:= tylocalAGV.In.bMagConvRgtSen = FALSE AND tylocalAGV.In.bBufferMagPresent = FALSE);
+	IF tylocalAGV.In.bBufferMagPresent AND tylocalAGV.In.tyLinkBufferStat.bBffrFull THEN
+		tylocalAGV.Out.tyDTMagToAGV.bCI1MagazineFull		:=  TRUE;
 	ELSIF fbMagFullTm.Q THEN
-		tyDTMagToAGV.bCI1MagazineFull		:=  FALSE;
+		tylocalAGV.Out.tyDTMagToAGV.bCI1MagazineFull		:=  FALSE;
 	END_IF 
 	
-	IF p_bLinkAGVOnline THEN
+	IF tylocalAGV.In.bLinkAGVOnline THEN
 		
-		p_tyAGVToDTMag.bVEHAuto		:= p_tyLinkAGVtoDTMag.bVEHAuto;
-		p_tyAGVToDTMag.bVEHInPos1	:= p_tyLinkAGVtoDTMag.bVEHInPos1 AND bAGVInPosSen;
-		p_tyAGVToDTMag.bVEHInPos2 	:= p_tyLinkAGVtoDTMag.bVEHInPos2;
-		p_tyAGVToDTMag.bVEHInPos3 	:= p_tyLinkAGVtoDTMag.bVEHInPos3;
-		p_tyAGVToDTMag.bVEH1Occupied	:= p_tyLinkAGVtoDTMag.bVEH1Occupied;
-		p_tyAGVToDTMag.bVEH2Occupied	:= p_tyLinkAGVtoDTMag.bVEH2Occupied;
-		p_tyAGVToDTMag.bVEH3Occupied	:= p_tyLinkAGVtoDTMag.bVEH3Occupied;
-		p_tyAGVToDTMag.bVEHRunning	:= p_tyLinkAGVtoDTMag.bVEHRunning;
+		tylocalAGV.In.tyAGVToDTMag.bVEHAuto		:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHAuto;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos1	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHInPos1 AND bAGVInPosSen;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos2 	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHInPos2;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos3 	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHInPos3;
+		tylocalAGV.In.tyAGVToDTMag.bVEH1Occupied	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEH1Occupied;
+		tylocalAGV.In.tyAGVToDTMag.bVEH2Occupied	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEH2Occupied;
+		tylocalAGV.In.tyAGVToDTMag.bVEH3Occupied	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEH3Occupied;
+		tylocalAGV.In.tyAGVToDTMag.bVEHRunning	:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHRunning;
 		
 	ELSE
 		
-		p_tyAGVToDTMag.bVEHAuto		:= FALSE;
-		p_tyAGVToDTMag.bVEHInPos1	:= FALSE;
-		p_tyAGVToDTMag.bVEHInPos2 	:= FALSE;
-		p_tyAGVToDTMag.bVEHInPos3 	:= FALSE;
-		p_tyAGVToDTMag.bVEH1Occupied:= FALSE;
-		p_tyAGVToDTMag.bVEH2Occupied:= FALSE;
-		p_tyAGVToDTMag.bVEH3Occupied:= FALSE;
-		p_tyAGVToDTMag.bVEHRunning	:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEHAuto		:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos1	:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos2 	:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEHInPos3 	:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEH1Occupied:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEH2Occupied:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEH3Occupied:= FALSE;
+		tylocalAGV.In.tyAGVToDTMag.bVEHRunning	:= FALSE;
 		
 	END_IF
  
-	bAIVInPos := p_tyAGVToDTMag.bVEHInPos1;
-	bAIVAuto := p_tyAGVToDTMag.bVEHAuto;
-	bAIVOccupied := p_tyAGVToDTMag.bVEH1Occupied;
-	bMagConvAuto := tyDTMagToAGV.bCI1Auto;
-	bMagConvOccupied :=  tyDTMagToAGV.bCI1Occupied;
+	bAIVInPos := tylocalAGV.In.tyAGVToDTMag.bVEHInPos1;
+	bAIVAuto := tylocalAGV.In.tyAGVToDTMag.bVEHAuto;
+	bAIVOccupied := tylocalAGV.In.tyAGVToDTMag.bVEH1Occupied;
+	bMagConvAuto := tylocalAGV.Out.tyDTMagToAGV.bCI1Auto;
+	bMagConvOccupied :=  tylocalAGV.Out.tyDTMagToAGV.bCI1Occupied;
 	
-	tyDTMagToAGV.bCI1Running := bMagConvRun; 
-	tyDTMagToAGV.bCI1Rdy	:= bMagConvRdy;
+	tylocalAGV.Out.tyDTMagToAGV.bCI1Running := bMagConvRun; 
+	tylocalAGV.Out.tyDTMagToAGV.bCI1Rdy	:= bMagConvRdy;
 	
 	
-	IF p_bNtParamAGVInPosSenPrep THEN
-		fbInPosErrTimer(IN:= p_tyLinkAGVtoDTMag.bVEHInPos1 AND bAGVInPosSen = FALSE, PT:= T#10s);
+	IF tylocalAGV.In.bNtParamAGVInPosSenPrep THEN
+		fbInPosErrTimer(IN:= tylocalAGV.In.tyLinkAGVtoDTMag.bVEHInPos1 AND bAGVInPosSen = FALSE, PT:= T#10s);
 		IF fbInPosErrTimer.Q THEN
-			eStatus		:= Error;
+			tylocalAGV.Out.eStatus		:= Error;
 			udiStatus	:= 10009;	//AIV Not In Position
 		END_IF
 	END_IF
 	
 	
-	IF p_bNtParamAGVInPosSenPrep THEN
-		bAGVInPosSen := p_bAGVInPosSen1 AND p_bAGVInPosSen2;
+	IF tylocalAGV.In.bNtParamAGVInPosSenPrep THEN
+		bAGVInPosSen := tylocalAGV.In.bAGVInPosSen1 AND tylocalAGV.In.bAGVInPosSen2;
 	ELSE
 		bAGVInPosSen := TRUE;
 	END_IF
-	
 	
 	
 	

@@ -1,4 +1,7 @@
 (*2019-01-20*)
+VAR
+	tylocalAGV : tyAGV1;
+END_VAR
 (**)
 (*Local Action, State & Status*)
 VAR
@@ -24,30 +27,6 @@ VAR
 	bMagEnt : BOOL;
 	bMagExit : BOOL;
 END_VAR
-(**)
-(*Local Input*)
-VAR
-	udiRstErr : UDINT := 0;
-	bPrep : BOOL := TRUE;
-	bEn : BOOL := TRUE;
-	bDis : BOOL := FALSE;
-	sProgNm : STRING[15] := 'AIVMag';
-	bNtSettingsLoadDone : BOOL := TRUE;
-	diTxInTimeOut : DINT;
-	diTxOutTimeOut : DINT;
-	eDirection : eConvDir;
-	bBufferMagPresent : BOOL;
-	bMagConvLftSen : BOOL;
-	bMagConvRgtSen : BOOL;
-	bMagConvMtrIn : BOOL;
-	bMagConvMtrOut : BOOL;
-	bAGVInPosSen1 : BOOL;
-	bAGVInPosSen2 : BOOL;
-	bNtParamAGVInPosSenPrep : BOOL;
-	tyAGVToDTMag : tyTagAGVToDTMag;
-	tyDTMagToAGV : tyTagDTMagToAGV;
-END_VAR
-(**)
 (*Local*)
 VAR
 	bRstErr : BOOL;

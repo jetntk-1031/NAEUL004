@@ -114,7 +114,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 						
 						//Conveyor Run
@@ -129,8 +129,8 @@ ACTION Act_Main:
 						
 						fbInit(bEn := TRUE);
 						
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							
@@ -189,7 +189,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -204,8 +204,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
@@ -260,8 +260,8 @@ ACTION Act_Main:
 				
 						fbRev(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
 				
 						IF fbRev.udiStatus = 0 THEN
 							tylocalPshrConv.Out.eStatus		:= Done;
@@ -332,7 +332,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -347,8 +347,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
@@ -460,7 +460,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -475,8 +475,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 							IF fbInit.bConvLToR = TRUE THEN
@@ -540,7 +540,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -555,8 +555,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
@@ -680,7 +680,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -695,8 +695,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
@@ -756,7 +756,7 @@ ACTION Act_Main:
 						//Detect Have Board
 						IF tylocalPshrConv.In.bLeftSen OR tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen THEN
 							tylocalPshrConv.Out.bHvBrd	:= TRUE;
-							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdInit;
+							tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdInit;
 						END_IF
 				
 						//Conveyor Run
@@ -771,8 +771,8 @@ ACTION Act_Main:
 				
 						fbInit(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 				
 						IF fbInit.udiStatus = 0 THEN
 					
@@ -848,7 +848,7 @@ ACTION Act_Main:
 				END_IF
 				
 				//Good Board Status
-				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 				
 				//Conveyor Run
 				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
@@ -862,8 +862,8 @@ ACTION Act_Main:
 				
 				fbEnt(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
 					tylocalPshrConv.Out.eStatus	:= Done;
@@ -906,7 +906,7 @@ ACTION Act_Main:
 				END_IF
 				
 				//Good Board Status
-				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 				
 				//Conveyor Run
 				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
@@ -928,8 +928,8 @@ ACTION Act_Main:
 				
 				fbEnt(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 				IF fbEnt.udiStatus = 0 THEN
 					tylocalPshrConv.Out.eStatus	:= Done;
@@ -974,7 +974,7 @@ ACTION Act_Main:
 						END_IF
 				
 						//Good Board Status
-						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 				
 						//Conveyor Run
 						fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
@@ -988,8 +988,8 @@ ACTION Act_Main:
 				
 						fbEnt(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 						IF fbEnt.udiStatus = 0 THEN
 							usiStep		:= 1;
@@ -1033,8 +1033,8 @@ ACTION Act_Main:
 				
 						fbRev(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
 				
 						IF fbRev.udiStatus = 0 THEN
 							tylocalPshrConv.Out.eStatus		:= Done;
@@ -1064,8 +1064,8 @@ ACTION Act_Main:
 				
 				fbRev(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
 				
 				IF fbRev.udiStatus = 0 THEN
 					tylocalPshrConv.Out.eStatus		:= Done;
@@ -1093,8 +1093,8 @@ ACTION Act_Main:
 				
 				fbRev(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbRev.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbRev.bMtrDirOrRToL;
 				
 				IF fbRev.udiStatus = 0 THEN
 					tylocalPshrConv.Out.eStatus		:= Done;
@@ -1248,7 +1248,7 @@ ACTION Act_Main:
 					END_IF
 					
 					//Good Board Status
-					tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+					tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 					
 					//Conveyor Run
 					fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
@@ -1262,8 +1262,8 @@ ACTION Act_Main:
 					
 					fbEnt(bEn := TRUE);
 					
-					tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-					tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+					tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+					tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 					
 					IF fbEnt.udiStatus < 65534 AND fbEnt.udiStatus > 0 THEN
 						tylocalPshrConv.Out.eStatus		:= Error;
@@ -1309,7 +1309,7 @@ ACTION Act_Main:
 						fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
 						fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 				
-						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+						tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 						
 						IF fbEnt.bConvLToR = TRUE THEN
 							fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
@@ -1319,8 +1319,8 @@ ACTION Act_Main:
 				
 						fbEnt(bEn := TRUE);
 				
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 				
 						IF fbEnt.udiStatus = 0 THEN
 					
@@ -1416,7 +1416,7 @@ ACTION Act_Main:
 				fbEnt.bConvLToR		:= (tylocalPshrConv.In.eDirection = ConvDirLToR) OR (tylocalPshrConv.In.eDirection = ConvDirLToL);
 				fbEnt.tTimeOut		:= DINT_TO_TIME(tylocalPshrConv.In.diTxInTimeOut);
 		
-				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.tylocalPshrConv.Out.bGdBrdEnt;
+				tylocalPshrConv.Out.bGdBrd	:= tylocalPshrConv.In.bGdBrdEnt;
 				
 				IF fbEnt.bConvLToR = TRUE THEN
 					fbEnt.bEndSen	:= tylocalPshrConv.In.bRightSen OR tylocalPshrConv.In.bMiddleSen;
@@ -1426,8 +1426,8 @@ ACTION Act_Main:
 		
 				fbEnt(bEn := TRUE);
 		
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbEnt.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbEnt.bMtrDirOrRToL;
 		
 				IF fbEnt.udiStatus = 0 THEN
 			
@@ -1492,8 +1492,8 @@ ACTION Act_Main:
 				
 				fbPreExit(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbPreExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbPreExit.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbPreExit.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbPreExit.bMtrDirOrRToL;
 				
 				IF fbPreExit.udiStatus = 0 THEN
 					IF fbPreExit.bEndSen = TRUE THEN
@@ -1590,8 +1590,8 @@ ACTION Act_Main:
 						
 						fbInit(bEn := TRUE);
 						
-						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.tylocalPshrConv.Out.bMtrDirOrRToL;
+						tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbInit.bMtrSigOnOrLToR;
+						tylocalPshrConv.Out.bMtrDirOrRToL	:= fbInit.bMtrDirOrRToL;
 						
 						IF fbInit.udiStatus = 0 THEN
 							
@@ -1653,8 +1653,8 @@ ACTION Act_Main:
 				
 				fbExit(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus = 0 THEN
 					tylocalPshrConv.Out.bHvBrd	:= FALSE;	//Reset Have Board
@@ -1704,8 +1704,8 @@ ACTION Act_Main:
 				
 				fbExit1(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus = 0 THEN
 					tylocalPshrConv.Out.bHvBrd	:= FALSE;	//Reset Have Board
@@ -1755,8 +1755,8 @@ ACTION Act_Main:
 				
 				fbExit(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit.bMtrDirOrRToL;
 				
 				IF fbExit.udiStatus < 65534 AND fbExit.udiStatus > 0 THEN
 					tylocalPshrConv.Out.eStatus		:= Error;
@@ -1871,8 +1871,8 @@ ACTION Act_Main:
 				
 				fbExit1(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbExit1.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbExit1.bMtrDirOrRToL;
 				
 				IF fbExit1.udiStatus < 65534 AND fbExit1.udiStatus > 0 THEN
 					tylocalPshrConv.Out.eStatus		:= Error;
@@ -2516,8 +2516,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus = 0 THEN
 					tylocalPshrConv.Out.eStatus	:= Done;
@@ -2536,8 +2536,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				//Pneumatic Run
 				tylocalPshrConv.Out.bPshrExtCtrl	:= FALSE;
@@ -2580,8 +2580,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				IF fbStop.udiStatus < 65534 AND fbStop.udiStatus > 0 THEN
 					udiStatus	:= fbStop.udiStatus;
@@ -2657,8 +2657,8 @@ ACTION Act_Main:
 				//Conveyor Run
 				fbStop(bEn := TRUE);
 				
-				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.tylocalPshrConv.Out.bMtrSigOnOrLToR;
-				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.tylocalPshrConv.Out.bMtrDirOrRToL;
+				tylocalPshrConv.Out.bMtrSigOnOrLToR	:= fbStop.bMtrSigOnOrLToR;
+				tylocalPshrConv.Out.bMtrDirOrRToL	:= fbStop.bMtrDirOrRToL;
 				
 				//Pneumatic Run
 				tylocalPshrConv.Out.bRejectUpCtrl	:= FALSE;

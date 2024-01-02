@@ -7,8 +7,9 @@ PROGRAM _CYCLIC
 			Act_Initial;
 		END_IF
 	ELSE
-		IF (tylocalAGV.In.bEn = TRUE) AND (tylocalAGV.In.bEn = TRUE) AND (tylocalAGV.In.bDis = FALSE) THEN
-			Act_Link;
+		Act_InputConfig;
+		IF (tylocalAGV.In.bPrep = TRUE) AND (tylocalAGV.In.bEn = TRUE) AND (tylocalAGV.In.bDis = FALSE) THEN
+
 			Act_Background;
 			Act_Main;
 		ELSE
@@ -18,6 +19,7 @@ PROGRAM _CYCLIC
 				tylocalAGV.Out.eStatus	:= Idle;
 			END_IF
 		END_IF
+		Act_OutputConfig;
 		Act_Alarm;
 	END_IF
 	

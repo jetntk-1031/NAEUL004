@@ -1,66 +1,47 @@
 (** 2019-03-25 **)
 ACTION Act_Alarm: 
 		//Reset Error
-	IF (eStatus = Error) AND bRstErr THEN
-		//		p_eAct	:= AIVMagActIdle;
-		//		eStat	:= AIVMagActIdle;
+	IF (tylocalAGV.Out.eStatus = Error) AND bRstErr THEN
+		//		tylocalAGV.In.eAct	:= AIVMagActIdle;
+		//		tylocalAGV.Out.eStat	:= AIVMagActIdle;
 	END_IF
 	
-	IF p_udiRstErr <> udiRstErrOld THEN
+	IF tylocalAGV.In.udiRstErr <> udiRstErrOld THEN
 		bRstErr			:= TRUE;
-		udiRstErrOld	:= p_udiRstErr;
+		udiRstErrOld	:= tylocalAGV.In.udiRstErr;
 	ELSE
 		bRstErr			:= FALSE;
 	END_IF
 	//Error
-	IF EDGEPOS(eStatus = Error) THEN
+	IF EDGEPOS(tylocalAGV.Out.eStatus = Error) THEN
 		
-		tyAlmData.sProgNm		:= p_sProgNm;
-		tyAlmData.udiCode		:= udiStatus;
-		tyAlmData.eSeverity		:= AlmSeverityError;
-		tyAlmData.udiRunTime	:= tyAlmData.udiRunTime + 1;
-		tyAlmData.bAlm			:= TRUE;
-		tyAlmData.udiModuleNum  := udiModuleNum;
-		g_sAGVComProgNm		:= p_sProgNm;
+		tylocalAGV.Out.tyAlmData.udiCode		:= udiStatus;
+		tylocalAGV.Out.tyAlmData.eSeverity		:= AlmSeverityError;
+		tylocalAGV.Out.tyAlmData.udiRunTime		:= tylocalAGV.Out.tyAlmData.udiRunTime + 1;
+		tylocalAGV.Out.tyAlmData.bAlm			:= TRUE;
+		tylocalAGV.Out.tyAlmData.udiModuleNum  	:= udiModuleNum;
+		g_tyAlmProgNm.sAGVProgNm				:= tylocalAGV.In.sProgNm;
+
 		
-		//Get Error Message
-		IF tyAlmData.udiCode < 10000 OR tyAlmData.udiCode > 10099 THEN
-			tyAlmData.sAlmMsg	:= 'Unknown';
-			tyAlmData.sRcyMsg	:= 'Unknown';
-		ELSE
-			tyAlmData.sAlmMsg	:= a_tyAlmText[tyAlmData.udiCode].sAlmText;
-			tyAlmData.sRcyMsg	:= a_tyAlmText[tyAlmData.udiCode].sRcyText;
-		END_IF
+		tylocalAGV.Out.sStatTxt	:= tylocalAGV.Out.tyAlmData.sAlmMsg;
 		
-		sStatTxt	:= tyAlmData.sAlmMsg;
+	ELSIF bRstErr AND (tylocalAGV.Out.tyAlmData.udiCode <> 0) THEN
 		
-	ELSIF bRstErr AND (tyAlmData.udiCode <> 0) THEN
-		
-		tyAlmData.udiCode	:= 0;
-		tyAlmData.eSeverity	:= AlmSeverityNA;
-		tyAlmData.sAlmMsg	:= '';
-		tyAlmData.sRcyMsg	:= '';
-		tyAlmData.bAlm			:= FALSE;
-		sStatTxt	:= a_sStatText[eStat];
+		tylocalAGV.Out.tyAlmData.udiCode	:= 0;
+		tylocalAGV.Out.tyAlmData.eSeverity	:= AlmSeverityNA;
+		tylocalAGV.Out.tyAlmData.bAlm			:= FALSE;
+		tylocalAGV.Out.sStatTxt	:= a_sStatText[tylocalAGV.Out.eStat];
 		
 	END_IF
 	
 	
 	//Warning	
-	tyAlmData1.sProgNm		:= p_sProgNm;
-	tyAlmData1.udiCode		:= udiStatus1;
-	tyAlmData1.eSeverity	:= AlmSeverityWarning;
-	tyAlmData1.udiRunTime	:= tyAlmData1.udiRunTime + 1;
-	tyAlmData1.bWarning			:= TRUE;
-	tyAlmData1.udiModuleNum  := udiModuleNum;
-	g_sAGVComProgNm		:= p_sProgNm;	
-	//Get Error Message
-	IF tyAlmData1.udiCode < 10000 OR tyAlmData1.udiCode > 10099 THEN
-		tyAlmData1.sAlmMsg	:= 'Unknown';
-		tyAlmData1.sRcyMsg	:= 'Unknown';
-	ELSE
-		tyAlmData1.sAlmMsg	:= a_tyAlmText[tyAlmData1.udiCode].sAlmText;
-		tyAlmData1.sRcyMsg	:= a_tyAlmText[tyAlmData1.udiCode].sRcyText;
-	END_IF
+	tylocalAGV.Out.tyAlmData1.udiCode			:= udiStatus1;
+	tylocalAGV.Out.tyAlmData1.eSeverity			:= AlmSeverityWarning;
+	tylocalAGV.Out.tyAlmData1.udiRunTime		:= tylocalAGV.Out.tyAlmData1.udiRunTime + 1;
+	tylocalAGV.Out.tyAlmData1.bWarning			:= TRUE;
+	tylocalAGV.Out.tyAlmData1.udiModuleNum  	:= udiModuleNum;
+	g_tyAlmProgNm.sAGVProgNm					:= tylocalAGV.In.sProgNm;	
+
 		
 END_ACTION

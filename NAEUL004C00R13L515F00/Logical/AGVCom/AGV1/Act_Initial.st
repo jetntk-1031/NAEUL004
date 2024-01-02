@@ -2,15 +2,15 @@
 ACTION Act_Initial:
 	
 	//Initial
-	sStatTxt	:= a_sStatText[eStat];
+	tylocalAGV.Out.sStatTxt	:= a_sStatText[eStat];
 	
 	fbTxInTimer(IN := FALSE);
 	fbTxOutTimer(IN := FALSE);
 	fbMagOutTrig(CLK := FALSE);
 	
-	bMcRunRdy			:= FALSE;
-	bRdyEnt			 	:= FALSE;
-	bRdyExit			:= FALSE;
-	bMagConvRun	    	:= FALSE;
+	tylocalAGV.Out.bMcRunRdy			:= FALSE;
+	tylocalAGV.Out.bRdyEnt			 	:= FALSE;
+	tylocalAGV.Out.bRdyExit				:= FALSE;
+	tylocalAGV.Out.bMagConvRun	    	:= FALSE;
 	
 END_ACTION

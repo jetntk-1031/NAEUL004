@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703817512_81_
-#define _BUR_1703817512_81_
+#ifndef _BUR_1704158824_18_
+#define _BUR_1704158824_18_
 
 #include <bur/plctypes.h>
 
@@ -64,5 +64,5 @@ __asm__(".ascii \"iecfile \\\"Logical/CANOpenServo/Lifter/Lifter2.var\\\" scope 
 __asm__(".previous");
 
 
-#endif /* _BUR_1703817512_81_ */
+#endif /* _BUR_1704158824_18_ */
 

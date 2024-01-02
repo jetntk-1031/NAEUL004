@@ -101,27 +101,17 @@ typedef struct tyProdRcpParam
 } tyProdRcpParam;
 #endif
 
-#ifndef __AS__TYPE_tyLFLeaderToFollowerTag
-#define __AS__TYPE_tyLFLeaderToFollowerTag
-typedef struct tyLFLeaderToFollowerTag
-{	plcstring sReqProdRcpNm[255];
-	signed long diReqProdRcpWidth;
-	plcstring sReqMagRcpNm[31];
-	plcbit bMnlAccData;
-	plcbit bBypassMnlAccData;
-	plcbit bBlkDS;
-	plcbit bBlkUS;
-	plcbit bBypassWidthChk;
-	plcbit bSetTm;
-	plcdt dtTm;
-	unsigned short uiTmZone;
-	unsigned char usiRunTm;
-	plcbit bProdNameUSWarn;
-	plcbit bProdNameDSWarn;
-	plcbit bProdWidthUSWarn;
-	plcbit bProdWidthDSWarn;
-	plcbit bLeaderSeqCtrlInActive;
-} tyLFLeaderToFollowerTag;
+#ifndef __AS__TYPE_tyLFFollowerIn1
+#define __AS__TYPE_tyLFFollowerIn1
+typedef struct tyLFFollowerIn1
+{	plcbit bEn;
+	plcbit bDis;
+	plcbit bPrep;
+	plcbit bUSWidthChkSen;
+	plcbit bDSWidthChkSen;
+	plcstring sProgNm[16];
+	plcstring sMagRcpNm[16];
+} tyLFFollowerIn1;
 #endif
 
 #ifndef __AS__TYPE_eFBStatus
@@ -156,31 +146,44 @@ typedef struct tyAlmDat
 } tyAlmDat;
 #endif
 
-_BUR_LOCAL eFBStatus eStatus;
-_BUR_LOCAL tyAlmDat tyAlmData;
-_BUR_LOCAL tyAlmDat tyInfoData;
-_BUR_LOCAL tyAlmDat tyInfoData1;
-_BUR_LOCAL plcbit bUSAllow;
-_BUR_LOCAL plcbit bDSAllow;
-_BUR_LOCAL plcbit bProdAccDataMnl;
-_BUR_LOCAL plcbit bProdUpdtDataMnl;
-_BUR_LOCAL plcbit bMagAccDataMnl;
-_BUR_LOCAL eTimeAction eTimeAct;
-_BUR_LOCAL plcbit bWaitRlsBrd;
-_BUR_LOCAL tyProdRcpParam tyUpdtProdRcp;
+#ifndef __AS__TYPE_tyLFLeaderInfo
+#define __AS__TYPE_tyLFLeaderInfo
+typedef struct tyLFLeaderInfo
+{	plcbit bOnline;
+	unsigned char usiRunTmOld;
+} tyLFLeaderInfo;
+#endif
+
+#ifndef __AS__TYPE_tyLFFollowerOut1
+#define __AS__TYPE_tyLFFollowerOut1
+typedef struct tyLFFollowerOut1
+{	eFBStatus eStatus;
+	tyAlmDat tyAlmData;
+	tyAlmDat tyInfoData;
+	tyAlmDat tyInfoData1;
+	plcbit bUSAllow;
+	plcbit bDSAllow;
+	plcbit bProdAccDataMnl;
+	plcbit bProdUpdtDataMnl;
+	plcbit bMagAccDataMnl;
+	eTimeAction eTimeAct;
+	plcdt dtTm;
+	plcbit bWaitRlsBrd;
+	tyProdRcpParam tyUpdtProdRcp;
+	plcbit bLdrSeqCtrlInActive;
+	tyLFLeaderInfo tyLeaderInfo;
+} tyLFFollowerOut1;
+#endif
+
+#ifndef __AS__TYPE_tyLFFollower1
+#define __AS__TYPE_tyLFFollower1
+typedef struct tyLFFollower1
+{	tyLFFollowerIn1 In;
+	tyLFFollowerOut1 Out;
+} tyLFFollower1;
+#endif
+
+_BUR_LOCAL tyLFFollower1 tylocalFollower;
 _BUR_LOCAL plcbit bAutoUpdtData;
 _BUR_LOCAL plcbit bInternalUse;
-_BUR_LOCAL tyLFLeaderToFollowerTag tyLeaderToFollowerTag;
-_GLOBAL unsigned long p_Follower2Status;
-_GLOBAL unsigned long p_Follower2AlmData;
-_GLOBAL unsigned long p_Follower2InfoData;
-_GLOBAL unsigned long p_Follower2InfoData1;
-_GLOBAL unsigned long p_Follower2USAllow;
-_GLOBAL unsigned long p_Follower2DSAllow;
-_GLOBAL unsigned long p_Follower2ProdAccDataMnl;
-_GLOBAL unsigned long p_Follower2ProdUpdtDataMnl;
-_GLOBAL unsigned long p_Follower2MagAccDataMnl;
-_GLOBAL unsigned long p_Follower2TimeAct;
-_GLOBAL unsigned long p_Follower2SetDT;
-_GLOBAL unsigned long p_Follower2WaitRlsBrd;
-_GLOBAL unsigned long p_Follower2UpdtProdRcp;
+_GLOBAL unsigned long p_Follower2;
