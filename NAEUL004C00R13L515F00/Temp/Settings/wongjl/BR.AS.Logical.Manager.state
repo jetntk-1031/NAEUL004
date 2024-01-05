@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.8.4.50 SP?>
 <State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State">
-  <TreeView ID="LogicalTree" EditColumn="0" TopRow="203" HorizontalScrollOffset="0" SortedColumn="0">
+  <TreeView ID="LogicalTree" EditColumn="0" TopRow="0" HorizontalScrollOffset="0" SortedColumn="0">
     <Columns>
       <Column Index="0" Width="186" Position="0" />
       <Column Index="1" Width="100" Position="1" />
@@ -11,22 +11,8 @@
       <ExpandedNode Row="0" />
       <ExpandedNode Row="7" />
       <ExpandedNode Row="11" />
-      <ExpandedNode Row="74" />
-      <ExpandedNode Row="77" />
-      <ExpandedNode Row="120" />
-      <ExpandedNode Row="130" />
-      <ExpandedNode Row="140" />
-      <ExpandedNode Row="150" />
-      <ExpandedNode Row="161" />
-      <ExpandedNode Row="171" />
-      <ExpandedNode Row="181" />
-      <ExpandedNode Row="191" />
-      <ExpandedNode Row="201" />
-      <ExpandedNode Row="213" />
     </ExpandedNodes>
-    <SelectedNodes>
-      <SelectedNode Row="164" />
-    </SelectedNodes>
+    <SelectedNodes />
     <ZoomIndices />
   </TreeView>
 </State>

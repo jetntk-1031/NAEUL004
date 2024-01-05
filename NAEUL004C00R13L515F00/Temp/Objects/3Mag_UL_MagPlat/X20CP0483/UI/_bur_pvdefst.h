@@ -8125,6 +8125,7 @@ _BUR_LOCAL signed short(* p_iOpsMagConvUL2MESAcptCond);
 _BUR_LOCAL signed short(* p_iOpsMagConvUL3MESAcptCond);
 _BUR_LOCAL struct tyMagProperties(* pa_tyMagProps)[4];
 _BUR_LOCAL plcbit(* p_bDIPCBScanComplSig);
+_BUR_LOCAL eFBStatus(* p_eDILifterSafetyStatus);
 _BUR_LOCAL struct tyDispBffrCycTm(* p_tyBufferDispCycleTmBffr);
 _BUR_LOCAL plcbit(* p_bLocalMagPresent);
 _BUR_LOCAL eOptBtn(* p_eCurrBtnPos);

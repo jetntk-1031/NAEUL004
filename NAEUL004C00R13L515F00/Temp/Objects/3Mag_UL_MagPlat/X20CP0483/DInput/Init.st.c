@@ -163,9 +163,11 @@ void __BUR__ENTRY_INIT_FUNCT__(void){{
 (p_DIInletStopperASen=((unsigned long)(&tyDInput.bInletStopperASen)));
 (p_DIPCBScanComplSig=((unsigned long)(&tyDInput.diScanComplSig)));
 
+(p_DILifterSafetyStatus=((unsigned long)(&eStatus4)));
+
 
 }}
-#line 163 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/DInput/DInput/Init.nodebug"
+#line 165 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/DInput/DInput/Init.nodebug"
 
 void __AS__ImplInitInit_st(void){__BUR__ENTRY_INIT_FUNCT__();}
 

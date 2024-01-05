@@ -859,6 +859,7 @@ END_VAR
 (*DMCRFID*)
 VAR
 	p_bDIPCBScanComplSig : REFERENCE TO BOOL;
+	p_eDILifterSafetyStatus : REFERENCE TO eFBStatus;
 END_VAR
 (*Simulation*)
 VAR

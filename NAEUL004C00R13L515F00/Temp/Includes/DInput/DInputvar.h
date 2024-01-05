@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_110_
-#define _BUR_1703837633_110_
+#ifndef _BUR_1704424500_1_
+#define _BUR_1704424500_1_
 
 #include <bur/plctypes.h>
 
@@ -15,6 +15,7 @@
 
 
 /* Variables */
+_GLOBAL unsigned long p_DILifterSafetyStatus;
 _GLOBAL unsigned long p_DIPCBScanComplSig;
 _GLOBAL unsigned long p_DIInletStopperASen;
 _GLOBAL unsigned long p_DIHighMagDetSen3;
@@ -170,5 +171,5 @@ __asm__(".ascii \"iecfile \\\"Logical/DInput/DInput.var\\\" scope \\\"global\\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_110_ */
+#endif /* _BUR_1704424500_1_ */
 

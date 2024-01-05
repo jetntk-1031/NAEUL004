@@ -741,6 +741,9 @@ ACTION Act_InitGlobal:
 	//DMCRFID
 	p_bDIPCBScanComplSig	ACCESS p_DIPCBScanComplSig;
 	
+	//kyumin 5/1/2024
+	p_eDILifterSafetyStatus	ACCESS  p_DILifterSafetyStatus;
+	
 //	p_tySimu2DispCyclTmBffr1 ACCESS p_Simu2DispCyclTmBffr1;				
 //	p_tySimu2DispCyclTmBffr2 ACCESS p_Simu2DispCyclTmBffr2;				
 //	p_tySimu2DispCyclTmBffr3 ACCESS p_Simu2DispCyclTmBffr3;

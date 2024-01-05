@@ -10,11 +10,18 @@ ACTION Act_OptP0935Mask:
 	END_IF
 	
 	// Interlock Others Move
-	IF p_bLifterBtmAxisErr = TRUE OR p_bLifterBtmPwrOn = FALSE THEN
+	IF p_bLifterBtmAxisErr = TRUE OR p_bLifterBtmPwrOn = FALSE OR
+		((p_tyDI.bLifterSafetyLmtSW1 = FALSE OR p_tyDI.bLifterSafetyLmtSW2 = FALSE OR p_eDILifterSafetyStatus = Error) AND p_tyNtParamCurr.bProjLifterMagPlatform) THEN
 		fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnOrigin.uiMaskRtStat));
 		fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnMovRel.uiMaskRtStat));
-		fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat));
+		//fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat));
 		fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnJogDown.uiMaskRtStat));
+		
+		IF (p_tyDI.bLifterSafetyLmtSW1 = FALSE OR p_tyDI.bLifterSafetyLmtSW2 = FALSE) AND p_tyNtParamCurr.bProjLifterMagPlatform THEN
+			fUIInRtStatHide(ADR(tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat));
+		ELSE
+			fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat));
+		END_IF
 	ELSE
 		fUIInRtStatHide(ADR(tyP0935Lifter.tyMotionStd.tyBtnOrigin.uiMaskRtStat));
 		fUIInRtStatHide(ADR(tyP0935Lifter.tyMotionStd.tyBtnMovRel.uiMaskRtStat));
@@ -23,7 +30,8 @@ ACTION Act_OptP0935Mask:
 	END_IF
 	
 	// Interlock Move Absolute
-	IF p_bLifterBtmAxisErr = TRUE OR p_bLifterBtmPwrOn = FALSE OR p_bLifterBtmIsHomed = FALSE THEN
+	IF p_bLifterBtmAxisErr = TRUE OR p_bLifterBtmPwrOn = FALSE OR p_bLifterBtmIsHomed = FALSE OR 
+		((p_tyDI.bLifterSafetyLmtSW1 = FALSE OR p_tyDI.bLifterSafetyLmtSW2 = FALSE OR p_eDILifterSafetyStatus = Error) AND p_tyNtParamCurr.bProjLifterMagPlatform) THEN
 		
 		fUIInRtStatOff(ADR(tyP0935Lifter.tyMotionStd.tyBtnMovAbs.uiMaskRtStat));
 		

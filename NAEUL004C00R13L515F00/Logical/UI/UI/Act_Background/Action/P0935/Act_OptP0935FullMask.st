@@ -36,9 +36,9 @@ ACTION Act_OptP0935FullMask:
 		ELSIF p_tyDI.bConvClrSen THEN
 			p_tyC0002FullMask ACCESS ADR(tyP0935Lifter.tyFullMaskClrSenInterrupt);
 			
-		ELSIF p_tyDI.bLifterSafetyLmtSW1 = FALSE OR p_tyDI.bLifterSafetyLmtSW2 = FALSE THEN
-			p_tyC0002FullMask ACCESS ADR(tyP0935Lifter.tyFullMaskSafetyLmtSW);
-			
+//		ELSIF p_tyDI.bLifterSafetyLmtSW1 = FALSE OR p_tyDI.bLifterSafetyLmtSW2 = FALSE THEN
+//			p_tyC0002FullMask ACCESS ADR(tyP0935Lifter.tyFullMaskSafetyLmtSW);
+//			kyumin request to hide 
 		ELSIF p_tyDI.bLifterTimingBeltSen = FALSE THEN
 			p_tyC0002FullMask ACCESS ADR(tyP0935Lifter.tyFullMaskTimingBelt);
 			

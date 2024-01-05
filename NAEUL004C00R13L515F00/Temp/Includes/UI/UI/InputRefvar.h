@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_176_
-#define _BUR_1703837633_176_
+#ifndef _BUR_1704424500_2_
+#define _BUR_1704424500_2_
 
 #include <bur/plctypes.h>
 
@@ -16,6 +16,7 @@
 _BUR_LOCAL enum eOptBtn *p_eCurrBtnPos;
 _BUR_LOCAL plcbit *p_bLocalMagPresent;
 _BUR_LOCAL struct tyDispBffrCycTm *p_tyBufferDispCycleTmBffr;
+_BUR_LOCAL enum eFBStatus *p_eDILifterSafetyStatus;
 _BUR_LOCAL plcbit *p_bDIPCBScanComplSig;
 
 #ifdef _BUR_USE_DECLARATION_IN_IEC
@@ -770,5 +771,5 @@ __asm__(".ascii \"iecdep \\\"Logical/Alarm/Alarm.var\\\" scope \\\"global\\\"\\n
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_176_ */
+#endif /* _BUR_1704424500_2_ */
 

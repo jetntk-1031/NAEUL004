@@ -1,6 +1,9 @@
+5/1/2024 (R14)
+-change configuration global memory to 50000
+-lifter magazine platform can jog up while sensing safetylimitsensor
+
 4/12/2023
  - mtr pusher use p_bTorqueSig to slow 
-
 
 23/11/2023
 - Traverses need to react as soon as Lifter moving in Magazine Platform model

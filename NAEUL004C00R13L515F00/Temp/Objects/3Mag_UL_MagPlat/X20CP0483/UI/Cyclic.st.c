@@ -771,6 +771,9 @@ static void __AS__Action__Act_InitGlobal(void){
 (p_bDIPCBScanComplSig=p_DIPCBScanComplSig);
 
 
+(p_eDILifterSafetyStatus=p_DILifterSafetyStatus);
+
+
 
 
 }}
@@ -27151,8 +27154,8 @@ if((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned l
 }else if(((*(p_tyDI)).bConvClrSen)){
 (p_tyC0002FullMask=((unsigned long)(&tyP0935Lifter.tyFullMaskClrSenInterrupt)));
 
-}else if(((((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW1)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW2)==(unsigned long)(unsigned char)0)))){
-(p_tyC0002FullMask=((unsigned long)(&tyP0935Lifter.tyFullMaskSafetyLmtSW)));
+
+
 
 }else if((((unsigned long)(unsigned char)((*(p_tyDI)).bLifterTimingBeltSen)==(unsigned long)(unsigned char)0))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0935Lifter.tyFullMaskTimingBelt)));
@@ -27772,11 +27775,18 @@ fUIInRtStatHide(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnPwr.uiMaskRtSta
 }
 
 
-if(((((unsigned long)(unsigned char)((*(p_bLifterBtmAxisErr)))==(unsigned long)(unsigned char)1))|(((unsigned long)(unsigned char)((*(p_bLifterBtmPwrOn)))==(unsigned long)(unsigned char)0)))){
+
+if(((((unsigned long)(unsigned char)((*(p_bLifterBtmAxisErr)))==(unsigned long)(unsigned char)1))|(((unsigned long)(unsigned char)((*(p_bLifterBtmPwrOn)))==(unsigned long)(unsigned char)0))|(((((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW1)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW2)==(unsigned long)(unsigned char)0))|(((signed long)((*(p_eDILifterSafetyStatus)))==(signed long)3)))&((*(p_tyNtParamCurr)).bProjLifterMagPlatform)))){
 fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnOrigin.uiMaskRtStat)));
 fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnMovRel.uiMaskRtStat)));
-fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat)));
+
 fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnJogDown.uiMaskRtStat)));
+
+if((((((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW1)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW2)==(unsigned long)(unsigned char)0)))&((*(p_tyNtParamCurr)).bProjLifterMagPlatform))){
+fUIInRtStatHide(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat)));
+}else{
+fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnJogUp.uiMaskRtStat)));
+}
 }else{
 fUIInRtStatHide(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnOrigin.uiMaskRtStat)));
 fUIInRtStatHide(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnMovRel.uiMaskRtStat)));
@@ -27785,7 +27795,8 @@ fUIInRtStatHide(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnJogDown.uiMaskR
 }
 
 
-if(((((unsigned long)(unsigned char)((*(p_bLifterBtmAxisErr)))==(unsigned long)(unsigned char)1))|(((unsigned long)(unsigned char)((*(p_bLifterBtmPwrOn)))==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_bLifterBtmIsHomed)))==(unsigned long)(unsigned char)0)))){
+
+if(((((unsigned long)(unsigned char)((*(p_bLifterBtmAxisErr)))==(unsigned long)(unsigned char)1))|(((unsigned long)(unsigned char)((*(p_bLifterBtmPwrOn)))==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_bLifterBtmIsHomed)))==(unsigned long)(unsigned char)0))|(((((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW1)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bLifterSafetyLmtSW2)==(unsigned long)(unsigned char)0))|(((signed long)((*(p_eDILifterSafetyStatus)))==(signed long)3)))&((*(p_tyNtParamCurr)).bProjLifterMagPlatform)))){
 
 fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyMotionStd.tyBtnMovAbs.uiMaskRtStat)));
 
@@ -27980,7 +27991,7 @@ if((((signed long)((*(p_diLifterBtmCurrSltA)))<=(signed long)((*(p_tyProdRcpCurr
 fUIInRtStatOff(((unsigned long)(&tyP0935Lifter.tyLifter.tyBtnPrevSlt.uiMaskRtStat)));
 }
 
-}imp380_else8_0:imp380_end8_0:;}
+}imp380_else9_0:imp380_end9_0:;}
 #line 25 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/UI/UI/Cyclic.nodebug"
 #line 2 "C:/Users/wongjl/Desktop/job/Github/NAEUL004/NAEUL004C00R13L515F00/Logical/UI/UI/Act_Background/Action/P0935/Act_OptP0935UpdtDat.st"
 static void __AS__Action__Act_OptP0935UpdtDat(void){

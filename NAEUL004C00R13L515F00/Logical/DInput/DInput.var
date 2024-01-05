@@ -153,5 +153,6 @@ VAR
 	p_DIHighMagDetSen3 : UDINT;
 	p_DIInletStopperASen : UDINT;
 	p_DIPCBScanComplSig : UDINT;
+	p_DILifterSafetyStatus : UDINT;
 END_VAR
 (*Insert your comment here.*)

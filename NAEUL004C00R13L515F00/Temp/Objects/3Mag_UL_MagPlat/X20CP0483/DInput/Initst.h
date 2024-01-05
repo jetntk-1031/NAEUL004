@@ -216,6 +216,16 @@ typedef struct tyDigitalInput
 } tyDigitalInput;
 #endif
 
+#ifndef __AS__TYPE_eFBStatus
+#define __AS__TYPE_eFBStatus
+typedef enum eFBStatus
+{	Idle = 0,
+	Done = 1,
+	Busy = 2,
+	Error = 3,
+} eFBStatus;
+#endif
+
 #ifndef __AS__TYPE_eAlmSeverity
 #define __AS__TYPE_eAlmSeverity
 typedef enum eAlmSeverity
@@ -241,6 +251,7 @@ typedef struct tyAlmDat
 } tyAlmDat;
 #endif
 
+_BUR_LOCAL eFBStatus eStatus4;
 _BUR_LOCAL tyAlmDat tyAlmData1;
 _BUR_LOCAL tyAlmDat tyAlmData2;
 _BUR_LOCAL tyAlmDat tyAlmData3;
@@ -388,3 +399,4 @@ _GLOBAL unsigned long p_DIHighMagDetSen2;
 _GLOBAL unsigned long p_DIHighMagDetSen3;
 _GLOBAL unsigned long p_DIInletStopperASen;
 _GLOBAL unsigned long p_DIPCBScanComplSig;
+_GLOBAL unsigned long p_DILifterSafetyStatus;

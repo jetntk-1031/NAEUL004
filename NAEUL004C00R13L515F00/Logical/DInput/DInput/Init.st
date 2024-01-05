@@ -158,6 +158,8 @@ PROGRAM _INIT
 	//For magazine without metal plate detecting
 	p_DIInletStopperASen	:= ADR(tyDInput.bInletStopperASen);
 	p_DIPCBScanComplSig		:= ADR(tyDInput.diScanComplSig);
+	
+	p_DILifterSafetyStatus		:= ADR(eStatus4);
 	(* Always Change If Project Change *)
 	
 END_PROGRAM

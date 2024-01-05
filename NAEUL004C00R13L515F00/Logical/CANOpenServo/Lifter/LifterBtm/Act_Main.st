@@ -1770,7 +1770,7 @@ ACTION Act_Main:
 					
 					sStatTxt	:= a_sStatText[eStat];
 							
-					bNotInterruptible	:= TRUE;
+				//	bNotInterruptible	:= TRUE;
 					
 					fbJog.tyParamInDriver	:= tyParamInDriver;
 					fbJog.tyParamInMove.diAcc		:= p_diMoveAcc;

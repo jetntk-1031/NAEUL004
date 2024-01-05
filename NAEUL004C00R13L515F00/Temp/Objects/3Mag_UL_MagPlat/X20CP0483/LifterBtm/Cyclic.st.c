@@ -2213,7 +2213,7 @@ if(((((signed long)eStatus==(signed long)0))|(((signed long)eStatus==(signed lon
 
 {int zzIndex; plcstring* zzLValue=(plcstring*)sStatTxt; plcstring* zzRValue=(plcstring*)a_sStatText[eStat]; for(zzIndex=0; zzIndex<200l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 
-(bNotInterruptible=1);
+
 
 (fbJog.tyParamInDriver=*(struct tyMotionCANDriverIn*)&tyParamInDriver);
 (fbJog.tyParamInMove.diAcc=((*(p_diMoveAcc))));

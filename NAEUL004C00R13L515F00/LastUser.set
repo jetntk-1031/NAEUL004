@@ -3,5 +3,6 @@
 <ProjectSettings xmlns="http://br-automation.co.at/AS/ProjectSettings">
   <ConfigurationManager ActiveConfigurationName="3Mag_UL_MagPlat" />
   <Deployment Value="ActiveCpu" />
+  <ExportProject ExportFilePath="J:\Electrical\2023\0501-0600\2023-0529 Z Elektronika Kft, Euorpe\2023-0529E NTA Triple Mag. Unloader\Ladder\NAEUL004C00R14L518F00.zip" />
   <Print Footer="%cPage: %p" Header="%lProject: %n%c%x" />
 </ProjectSettings>
