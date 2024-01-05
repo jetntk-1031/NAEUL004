@@ -1,25 +1,3 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.8.4.50 SP?>
-<State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State">
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\OvenInfo\OvenInfoA\Cyclic.st" CaretLine="26" CaretColumn="18" FirstVisibleLine="10">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\OvenInfo\OvenInfoA\Act_Background.st" CaretLine="41" CaretColumn="40" FirstVisibleLine="28">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\OvenInfo\OvenInfoA\Act_Link.st" CaretLine="7" CaretColumn="25" FirstVisibleLine="1">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\OvenInfo\OvenInfoA\Init.st" CaretLine="12" CaretColumn="9" FirstVisibleLine="1">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\OvenInfo\OvenInfoA\Act_InitGlobal.st" CaretLine="20" CaretColumn="46" FirstVisibleLine="1">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Buffer\BufferMagA\Init.st" CaretLine="12" CaretColumn="44" FirstVisibleLine="1">
-    <Bookmarks />
-  </TextEdit>
-  <TextEdit ID="C:\Users\wongjl\Desktop\job\Github\NAEUL004\NAEUL004C00R13L515F00\Logical\Buffer\BufferMagA\Act_Background.st" CaretLine="35" CaretColumn="22" FirstVisibleLine="24">
-    <Bookmarks />
-  </TextEdit>
-</State>
+<State Top="0" Left="0" Width="0" Height="0" WindowState="Normal" xmlns="http://br-automation.co.at/AS/State" />

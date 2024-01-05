@@ -26470,7 +26470,7 @@ if((((unsigned long)(unsigned char)((*(p_tyDI)).bEStopSig)==(unsigned long)(unsi
 }else if(((((*(p_tyNtParamCurr)).bProjInletShutPrep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bInShutterCloseRS)==(unsigned long)(unsigned char)0)))&(bBypassShutForCalib^1))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0934AW.tyFullMaskInShutOpnInterrupt)));
 
-}else if((((((*(p_tyNtParamCurr)).bProjOutletShutPrep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0)))|(((*(p_tyNtParamCurr)).bProjOutletShut2Prep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0)))|(((*(p_tyNtParamCurr)).bProjOutletShut3Prep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))))&(bBypassShutForCalib^1))){
+}else if(((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))&(bBypassShutForCalib^1))){
 
 
 
@@ -27134,7 +27134,7 @@ if((((unsigned long)(unsigned char)((*(p_tyDI)).bEStopSig)==(unsigned long)(unsi
 }else if(((((*(p_tyNtParamCurr)).bProjInletShutPrep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bInShutterCloseRS)==(unsigned long)(unsigned char)0)))&(bBypassShutForCalib^1))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0935Lifter.tyFullMaskInShutOpnInterrupt)));
 
-}else if(((((*(p_tyNtParamCurr)).bProjOutletShutPrep)&((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))))&(bBypassShutForCalib^1))){
+}else if(((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))&(bBypassShutForCalib^1))){
 if(((*(p_tyNtParamCurr)).bCurtainSenPrep)){
 if((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0935Lifter.tyFullMaskOutShutOpnInterrupt)));
@@ -28245,7 +28245,7 @@ if((((unsigned long)(unsigned char)((*(p_tyDI)).bEStopSig)==(unsigned long)(unsi
 }else if(((((*(p_tyNtParamCurr)).bProjInletShutPrep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bInShutterCloseRS)==(unsigned long)(unsigned char)0)))&(bBypassShutForCalib^1))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0936Trav.tyFullMaskInShutOpnInterrupt)));
 
-}else if(((((*(p_tyNtParamCurr)).bProjOutletShutPrep)&((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))))&(bBypassShutForCalib^1))){
+}else if(((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))&(bBypassShutForCalib^1))){
 if(((*(p_tyNtParamCurr)).bCurtainSenPrep)){
 if((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0936Trav.tyFullMaskOutShutOpnInterrupt)));
@@ -29138,7 +29138,7 @@ if((((unsigned long)(unsigned char)((*(p_tyDI)).bEStopSig)==(unsigned long)(unsi
 }else if(((((*(p_tyNtParamCurr)).bProjInletShutPrep)&(((unsigned long)(unsigned char)((*(p_tyDI)).bInShutterCloseRS)==(unsigned long)(unsigned char)0)))&(bBypassShutForCalib^1))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0934AW.tyFullMaskInShutOpnInterrupt)));
 
-}else if(((((*(p_tyNtParamCurr)).bProjOutletShutPrep)&((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))|(((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))))&(bBypassShutForCalib^1))){
+}else if(((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))&(bBypassShutForCalib^1))){
 if(((*(p_tyNtParamCurr)).bCurtainSenPrep)){
 if((((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShutPrep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS2)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut2Prep))|((((unsigned long)(unsigned char)((*(p_tyDI)).bOutShutterCloseRS3)==(unsigned long)(unsigned char)0))&((*(p_tyNtParamCurr)).bProjOutletShut3Prep)))){
 (p_tyC0002FullMask=((unsigned long)(&tyP0934AW.tyFullMaskOutShutOpnInterrupt)));
@@ -43891,6 +43891,7 @@ if(((((signed long)((*(p_eMpProdRcpStat)))==(signed long)3))&(((signed long)((*(
 (eMpProdRcpAct=0);
 
 (tyP1040ProdSet.tyProdSet.tyBtnSort.bValue=0);
+{int zzIndex; plcstring* zzLValue=(plcstring*)tyP1040ProdSet.tyProdSet.tyStringSearch.sValue; plcstring* zzRValue=(plcstring*)""; for(zzIndex=0; zzIndex<0l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 (bRefreshProdRcpTable=1);
 (bRefreshProdRcpDetail=1);
 
@@ -43967,6 +43968,7 @@ if(((((signed long)((*(p_eMpProdRcpStat)))==(signed long)2))&(((signed long)((*(
 (eMpProdRcpAct=0);
 
 (tyP1040ProdSet.tyProdSet.tyBtnSort.bValue=0);
+{int zzIndex; plcstring* zzLValue=(plcstring*)tyP1040ProdSet.tyProdSet.tyStringSearch.sValue; plcstring* zzRValue=(plcstring*)""; for(zzIndex=0; zzIndex<0l && zzRValue[zzIndex]!=0; zzIndex++) zzLValue[zzIndex] = zzRValue[zzIndex]; zzLValue[zzIndex] = 0;};
 (bRefreshProdRcpTable=1);
 (bRefreshProdRcpDetail=1);
 

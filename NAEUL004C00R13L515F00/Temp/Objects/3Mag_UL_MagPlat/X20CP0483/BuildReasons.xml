@@ -3,14 +3,50 @@
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\visu\visu.mak">
     <BuildReason>Rule is forced.</BuildReason>
   </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\init.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\ui\ui\act_background\action\p0934\act_optp0934fullmask.st" differs.
+</BuildReason>
+  </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\visu.br">
     <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\init.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\init.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\cyclic.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\ui\ui\act_background\action\p0934\act_optp0934fullmask.st" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\cyclic.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\cyclic.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\_bur_pvdef.st.c">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\init.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\_bur_pvdef.st.o">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\_bur_pvdef.st.c" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\a.out">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\init.st.o" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\ui.ox">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\a.out" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui\ui.ox" differs.
+</BuildReason>
   </Rule>
   <Rule ID="#cpu_tp.mak">
     <BuildReason>Rule is forced.</BuildReason>
   </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\binaries\3mag_ul_magplat\x20cp0483\transfer.lst">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\visu.br" differs.
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\ui.br" differs.
 </BuildReason>
   </Rule>
 </BuildReasons>

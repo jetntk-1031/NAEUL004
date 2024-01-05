@@ -35,7 +35,8 @@ ACTION Act_OptP1040FromXML:
 			IF p_eMpProdRcpStat = MpProdRcpActLoad AND p_eMpProdRcpStatus = Done THEN
 				eMpProdRcpAct	:= MpProdRcpActIdle;
 				
-				tyP1040ProdSet.tyProdSet.tyBtnSort.bValue := FALSE;
+				tyP1040ProdSet.tyProdSet.tyBtnSort.bValue      := FALSE;
+				tyP1040ProdSet.tyProdSet.tyStringSearch.sValue := '';
 				bRefreshProdRcpTable	:= TRUE;
 				bRefreshProdRcpDetail	:= TRUE;
 				

@@ -27,7 +27,7 @@ ACTION Act_OptP0934FullMask:
 		ELSIF (p_tyNtParamCurr.bProjInletShutPrep AND p_tyDI.bInShutterCloseRS = FALSE) AND NOT(bBypassShutForCalib) THEN
 			p_tyC0002FullMask ACCESS ADR(tyP0934AW.tyFullMaskInShutOpnInterrupt);
 			
-		ELSIF ((p_tyNtParamCurr.bProjOutletShutPrep AND p_tyDI.bOutShutterCloseRS = FALSE) OR (p_tyNtParamCurr.bProjOutletShut2Prep AND  p_tyDI.bOutShutterCloseRS2 = FALSE) OR (p_tyNtParamCurr.bProjOutletShut3Prep AND  p_tyDI.bOutShutterCloseRS3 = FALSE)) AND NOT(bBypassShutForCalib) THEN
+		ELSIF ((p_tyDI.bOutShutterCloseRS = FALSE AND p_tyNtParamCurr.bProjOutletShutPrep) OR (p_tyDI.bOutShutterCloseRS2 = FALSE AND p_tyNtParamCurr.bProjOutletShut2Prep )OR (p_tyDI.bOutShutterCloseRS3 = FALSE AND p_tyNtParamCurr.bProjOutletShut3Prep)) AND NOT(bBypassShutForCalib) THEN
 //			IF p_tyNtParamCurr.bCurtainSenPrep THEN
 //				IF (p_tyDI.bOutShutterCloseRS = FALSE AND p_tyNtParamCurr.bProjOutletShutPrep ) OR (p_tyDI.bOutShutterCloseRS2 = FALSE AND p_tyNtParamCurr.bProjOutletShut2Prep)OR (p_tyDI.bOutShutterCloseRS3 = FALSE AND p_tyNtParamCurr.bProjOutletShut3Prep )THEN
 //					p_tyC0002FullMask ACCESS ADR(tyP0934AW.tyFullMaskOutShutOpnInterrupt);

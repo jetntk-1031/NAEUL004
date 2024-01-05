@@ -36,6 +36,7 @@ ACTION Act_OptP1040ToXML:
 				eMpProdRcpAct	:= MpProdRcpActIdle;
 				
 				tyP1040ProdSet.tyProdSet.tyBtnSort.bValue := FALSE;
+				tyP1040ProdSet.tyProdSet.tyStringSearch.sValue := '';
 				bRefreshProdRcpTable	:= TRUE;
 				bRefreshProdRcpDetail	:= TRUE;
 				

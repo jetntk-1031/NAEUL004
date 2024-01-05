@@ -94,7 +94,7 @@
     </Connector>
     <Parameter ID="ConfigurationID" Value="NAEUL004" />
     <Parameter ID="UserPartitionSize" Value="150" />
-    <Parameter ID="VolatileGlobalPvSize" Value="80000" />
+    <Parameter ID="VolatileGlobalPvSize" Value="50000" />
     <Parameter ID="EnableUsbRemoteInstall" Value="1" />
     <Parameter ID="TimerDeviceType" Value="SWIOTIMER" />
     <Parameter ID="Cyclic1Duration" Value="10000" />
