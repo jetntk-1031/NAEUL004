@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_177_
-#define _BUR_1703837633_177_
+#ifndef _BUR_1704680535_177_
+#define _BUR_1704680535_177_
 
 #include <bur/plctypes.h>
 
@@ -91,5 +91,5 @@ __asm__(".ascii \"iecfile \\\"Logical/UI/UI/Local.typ\\\" scope \\\"local\\\"\\n
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_177_ */
+#endif /* _BUR_1704680535_177_ */
 

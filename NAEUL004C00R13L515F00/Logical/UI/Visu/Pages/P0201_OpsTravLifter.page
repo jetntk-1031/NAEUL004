@@ -3729,6 +3729,7 @@
           <Property Name="Left" Value="205"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0201Param.tyNumPshrExtSpeed.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1140_RecipeLabels]"/>
           <Property Name="TextIndexOffset" Value="85"/>
@@ -3744,6 +3745,7 @@
           <Property Name="Left" Value="205"/>
           <Property Name="SimulationIndex" Value="0"/>
           <Property Name="SimulationValue" Value=""/>
+          <Property Name="StatusDatapoint" Value="Source[global].Variable[DataSource.UI.UI.p_tyP0201Param.tyNumPshrExtTorque.uiRtStat]"/>
           <Property Name="StyleClass" Value="Source[relative:StyleGroup].StyleClass[Text_Label]"/>
           <Property Name="TextGroup" Value="Source[global].TextGroup[T1140_RecipeLabels]"/>
           <Property Name="TextIndexOffset" Value="86"/>

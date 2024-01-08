@@ -1,14 +1,14 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837632_1_
-#define _BUR_1703837632_1_
+#ifndef _BUR_1704680534_1_
+#define _BUR_1704680534_1_
 
 #include <bur/plctypes.h>
 
 /* Constants */
 #ifdef _REPLACE_CONST
- #define sSWVersion "NAEUL004C00R13L518F00"
+ #define sSWVersion "NAEUL004C00R14L518F00"
 #else
  _GLOBAL_CONST plcstring sSWVersion[31];
 #endif
@@ -29,5 +29,5 @@ __asm__(".ascii \"iecfile \\\"Logical/SoftwareVersion.var\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837632_1_ */
+#endif /* _BUR_1704680534_1_ */
 

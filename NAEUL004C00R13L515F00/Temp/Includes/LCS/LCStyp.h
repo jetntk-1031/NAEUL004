@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_124_
-#define _BUR_1703837633_124_
+#ifndef _BUR_1704680534_124_
+#define _BUR_1704680534_124_
 
 #include <bur/plctypes.h>
 
@@ -83,5 +83,5 @@ __asm__(".ascii \"iecdep \\\"Logical/Alarm/Alarm.var\\\" scope \\\"global\\\"\\n
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_124_ */
+#endif /* _BUR_1704680534_124_ */
 

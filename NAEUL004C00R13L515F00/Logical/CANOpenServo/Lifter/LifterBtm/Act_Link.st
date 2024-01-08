@@ -15,8 +15,8 @@ ACTION Act_Link:
 	END_IF
 		
 	p_bInterruptSensor1	:= NOT p_bLinkDILifterTimingBeltSen;
-	p_bInterruptSensor2	:= NOT p_bLinkDILifterSafetyLmtSW1;// OR p_bLinkSafetyRelay = FALSE;
-	p_bInterruptSensor3	:= NOT p_bLinkDILifterSafetyLmtSW2;
+	p_bInterruptSensor2	:= NOT p_bLinkDILifterSafetyLmtSW1 AND ( bJogging  = FALSE OR ((fbJog.tyParamInJog.diVelInUMPS < 0 ) XOR p_bDir)) ;// OR p_bLinkSafetyRelay = FALSE;
+	p_bInterruptSensor3	:= NOT p_bLinkDILifterSafetyLmtSW2 AND ( bJogging  = FALSE OR ((fbJog.tyParamInJog.diVelInUMPS < 0 ) XOR p_bDir));
 	
 	IF p_bProjInletShutPrep = TRUE 
 		AND p_bLinkOpsTravLifULInDSPos = FALSE 

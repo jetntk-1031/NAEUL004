@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837635_404_
-#define _BUR_1703837635_404_
+#ifndef _BUR_1704680537_404_
+#define _BUR_1704680537_404_
 
 #include <bur/plctypes.h>
 
@@ -50,5 +50,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/Ops/Local.var\\\" scope \\\"loc
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837635_404_ */
+#endif /* _BUR_1704680537_404_ */
 

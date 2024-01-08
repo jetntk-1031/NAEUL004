@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837635_372_
-#define _BUR_1703837635_372_
+#ifndef _BUR_1704680537_372_
+#define _BUR_1704680537_372_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Hermes/USHermesB/InputRef_Link.var\\\" sco
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837635_372_ */
+#endif /* _BUR_1704680537_372_ */
 

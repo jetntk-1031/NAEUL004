@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_144_
-#define _BUR_1703837633_144_
+#ifndef _BUR_1704680534_144_
+#define _BUR_1704680534_144_
 
 #include <bur/plctypes.h>
 
@@ -38,5 +38,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/MultiMag_InOutMagazineConv/OpsM
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_144_ */
+#endif /* _BUR_1704680534_144_ */
 

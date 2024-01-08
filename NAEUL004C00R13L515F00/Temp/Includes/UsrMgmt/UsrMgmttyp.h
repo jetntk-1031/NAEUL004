@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837632_33_
-#define _BUR_1703837632_33_
+#ifndef _BUR_1704680534_33_
+#define _BUR_1704680534_33_
 
 #include <bur/plctypes.h>
 
@@ -87,5 +87,5 @@ __asm__(".ascii \"iecdep \\\"Logical/UsrMgmt/UsrMgmt.var\\\" scope \\\"global\\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837632_33_ */
+#endif /* _BUR_1704680534_33_ */
 

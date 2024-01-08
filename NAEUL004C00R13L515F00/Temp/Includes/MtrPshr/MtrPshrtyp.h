@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_166_
-#define _BUR_1703837633_166_
+#ifndef _BUR_1704680534_166_
+#define _BUR_1704680534_166_
 
 #include <bur/plctypes.h>
 
@@ -47,5 +47,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MtrPshr/MtrPshr.typ\\\" scope \\\"global\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_166_ */
+#endif /* _BUR_1704680534_166_ */
 

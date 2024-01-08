@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837634_275_
-#define _BUR_1703837634_275_
+#ifndef _BUR_1704680536_275_
+#define _BUR_1704680536_275_
 
 #include <bur/plctypes.h>
 
@@ -69,5 +69,5 @@ __asm__(".ascii \"iecfile \\\"Logical/NtLibraries/NtPneu/NtPneu.fun\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837634_275_ */
+#endif /* _BUR_1704680536_275_ */
 

@@ -3,50 +3,10 @@
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\visu\visu.mak">
     <BuildReason>Rule is forced.</BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\init.st.c">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\canopenservo\lifter\lifterbtm\act_main.st" differs.
-</BuildReason>
-  </Rule>
   <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\visu.br">
     <BuildReason>Rule is forced.</BuildReason>
   </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\init.st.o">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\init.st.c" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\cyclic.st.c">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\logical\canopenservo\lifter\lifterbtm\act_main.st" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\cyclic.st.o">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\cyclic.st.c" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\_bur_pvdef.st.c">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\init.st.o" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\_bur_pvdef.st.o">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\_bur_pvdef.st.c" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\a.out">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\init.st.o" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\lifterbtm.ox">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\a.out" differs.
-</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm.br">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm\lifterbtm.ox" differs.
-</BuildReason>
-  </Rule>
   <Rule ID="#cpu_tp.mak">
     <BuildReason>Rule is forced.</BuildReason>
-  </Rule>
-  <Rule ID="$(AS_PROJECT_PATH)\binaries\3mag_ul_magplat\x20cp0483\transfer.lst">
-    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\3mag_ul_magplat\x20cp0483\lifterbtm.br" differs.
-</BuildReason>
   </Rule>
 </BuildReasons>

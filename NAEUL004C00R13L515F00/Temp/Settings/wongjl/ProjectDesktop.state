@@ -1,3 +1,3 @@
 <?xml version="1.0"?>
 <?AutomationStudio Version=3.0?>
-<Project xmlns="http://br-automation.co.at/AS/Project"><Configuration Name="3Mag_UL_MagPlat"/><Active xmlns="" ID="3601"/></Project>
+<Project xmlns="http://br-automation.co.at/AS/Project"><Active ID="0"/><Configuration Name="3Mag_UL_MagPlat"/><ConfigurationFiles xmlns="" ConfigurationName="3Mag_UL_MagPlat" ActiveConfigurationFile="\Logical\CANOpenServo\Lifter\LifterBtm\Act_Link.st"><ConfigurationFile Placement="\Logical\CANOpenServo\Lifter\LifterBtm\Act_Main.st,CANOpenServo.Lifter.LifterBtm,2,44,0,1,-1,-1,-1,-1,2,24,1577,571"/><ConfigurationFile Placement="\Virtual\NAEUL004C00R13L518F00.ose,,0,44,0,1,-1,-1,-1,-1,2,24,1577,571"/><ConfigurationFile Placement="\Logical\CANOpenServo\Lifter\LifterBtm\Act_Link.st,CANOpenServo.Lifter.LifterBtm,2,44,0,1,-1,-1,-1,-1,2,24,1577,571"/></ConfigurationFiles></Project>

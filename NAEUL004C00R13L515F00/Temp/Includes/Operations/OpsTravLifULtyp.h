@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837633_130_
-#define _BUR_1703837633_130_
+#ifndef _BUR_1704680534_130_
+#define _BUR_1704680534_130_
 
 #include <bur/plctypes.h>
 
@@ -108,5 +108,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Operations/OpsTravLifUL.typ\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837633_130_ */
+#endif /* _BUR_1704680534_130_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837634_194_
-#define _BUR_1703837634_194_
+#ifndef _BUR_1704680536_194_
+#define _BUR_1704680536_194_
 
 #include <bur/plctypes.h>
 
@@ -65,5 +65,5 @@ __asm__(".ascii \"iecdep \\\"Logical/NtLibraries/NtVersion/Constant.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837634_194_ */
+#endif /* _BUR_1704680536_194_ */
 

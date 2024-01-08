@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837636_462_
-#define _BUR_1703837636_462_
+#ifndef _BUR_1704680538_462_
+#define _BUR_1704680538_462_
 
 #include <bur/plctypes.h>
 
@@ -109,5 +109,5 @@ __asm__(".ascii \"iecfile \\\"Logical/AutoRcp/AutoRcp/InputRef.var\\\" scope \\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837636_462_ */
+#endif /* _BUR_1704680538_462_ */
 

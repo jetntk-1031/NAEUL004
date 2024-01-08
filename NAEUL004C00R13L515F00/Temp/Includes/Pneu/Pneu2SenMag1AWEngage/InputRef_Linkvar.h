@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837634_306_
-#define _BUR_1703837634_306_
+#ifndef _BUR_1704680537_306_
+#define _BUR_1704680537_306_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/Pneu2SenMag1AWEngage/InputRef_Link.va
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837634_306_ */
+#endif /* _BUR_1704680537_306_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837634_255_
-#define _BUR_1703837634_255_
+#ifndef _BUR_1704680536_255_
+#define _BUR_1704680536_255_
 
 #include <bur/plctypes.h>
 
@@ -35,5 +35,5 @@ __asm__(".ascii \"iecfile \\\"Logical/SMEMA/USSMEMA1/InputRef_Link.var\\\" scope
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837634_255_ */
+#endif /* _BUR_1704680536_255_ */
 

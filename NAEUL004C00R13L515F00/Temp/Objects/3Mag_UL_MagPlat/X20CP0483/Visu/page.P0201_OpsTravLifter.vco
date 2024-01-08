@@ -9768,8 +9768,13 @@ Pusher Extend Torque"</String>
             <UInt32 Name="IndexDatapoint">4294967295</UInt32>
             <UInt32 Name="ControlID">0</UInt32>
             <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
-            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="StyleTableSize">33</UInt16>
             <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0201Param.tyNumPshrExtSpeed.uiRtStat]</Reference>
+            </Group>
             <Group Name="TextSource">
               <UInt16 Name="Offset">40</UInt16>
               <UInt16 Name="Size">1</UInt16>
@@ -9798,8 +9803,13 @@ Pusher Extend Torque"</String>
             <UInt32 Name="IndexDatapoint">4294967295</UInt32>
             <UInt32 Name="ControlID">0</UInt32>
             <Reference Name="StyleClass" Type="SC">Source[local].StyleGroup[0x00001004].StyleClass[Text_Label]</Reference>
-            <UInt16 Name="StyleTableSize">25</UInt16>
+            <UInt16 Name="StyleTableSize">33</UInt16>
             <UInt16 Name="Reserved">0</UInt16>
+            <Group Name="StatusDatapoint">
+              <UInt16 Name="Offset">4</UInt16>
+              <UInt16 Name="Size">4</UInt16>
+              <Reference Name="Data" Type="DP">Source[global].Variable[DataSource.UI.UI.p_tyP0201Param.tyNumPshrExtTorque.uiRtStat]</Reference>
+            </Group>
             <Group Name="TextSource">
               <UInt16 Name="Offset">40</UInt16>
               <UInt16 Name="Size">1</UInt16>

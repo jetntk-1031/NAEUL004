@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837632_87_
-#define _BUR_1703837632_87_
+#ifndef _BUR_1704680534_87_
+#define _BUR_1704680534_87_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MagConv_TopBtm/OutMagConv.var\\\" scope \\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837632_87_ */
+#endif /* _BUR_1704680534_87_ */
 

@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837632_14_
-#define _BUR_1703837632_14_
+#ifndef _BUR_1704680534_14_
+#define _BUR_1704680534_14_
 
 #include <bur/plctypes.h>
 
@@ -37,5 +37,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Time/Time.var\\\" scope \\\"global\\\"\\n\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837632_14_ */
+#endif /* _BUR_1704680534_14_ */
 

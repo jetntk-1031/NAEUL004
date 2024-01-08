@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1703837634_301_
-#define _BUR_1703837634_301_
+#ifndef _BUR_1704680537_301_
+#define _BUR_1704680537_301_
 
 #include <bur/plctypes.h>
 
@@ -43,5 +43,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Pneu/Pneu2SenMag2SafetyBar/InputRef.var\\\
 __asm__(".previous");
 
 
-#endif /* _BUR_1703837634_301_ */
+#endif /* _BUR_1704680537_301_ */
 
